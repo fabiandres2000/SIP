@@ -23,6 +23,7 @@ class De10a59 extends Model
             // BUSCAR ID JEFE
             $integrante = \App\Caracterizacion::buscar($data['identificacion'], $alias);
             // BUSCAR ID JEFE
+            
         } else {
             // BUSCAR ID INTEGRANTE
             $integrante = \App\Integrante::buscar($data['identificacion'], $alias);
