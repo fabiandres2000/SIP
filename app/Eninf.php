@@ -15,7 +15,6 @@ class Eninf extends Model
 
     public static function guardar($data, $alias)
     {
-        // dd($data);die;
         // BUSCAR ID INTEGRANTE
         if ($data['opci'] == "JEFE") {
             // BUSCAR ID JEFE
@@ -26,10 +25,27 @@ class Eninf extends Model
             $integrante = \App\Integrante::buscar($data['identificacion'], $alias);
             // BUSCAR ID INTEGRANTE
         }
-        $data['id_integrante'] = $integrante->id;
-        $data['estado'] = 'Activo';
-        $data['id_compania'] = 1;
         // BUSCAR ID INTEGRANTE
-        return DB::connection('mysql')->table($alias . '.eninf')->create($data);
+
+        return DB::connection('mysql')->table($alias . '.eninf')->updateOrInsert([
+            'id' => $data['id'],
+        ], [
+            'id_integrante' => $integrante->id,
+            'id_hogar' => $data['id_hogar'],
+            'tipo_id' => $data['tipo_id'],
+            'identificacion' => $data['identificacion'],
+            'pnom' => $data['pnom'],
+            'snom' => $data['snom'],
+            'pape' => $data['pape'],
+            'sape' => $data['sape'],
+            'sexo' => $data['sexo'],
+            'enfermedad' => $data['enfermedad'],
+            'tiempo' => $data['tiempo'],
+            'tratamiento' => $data['tratamiento'],
+            'complicaciones' => $data['complicaciones'],
+            'estado' => 'Activo',
+            'id_compania' => 1,
+            'opci' => $data['opci'],
+        ]);        
     }
 }

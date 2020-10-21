@@ -28,10 +28,43 @@ class De60 extends Model
             $integrante = \App\Integrante::buscar($data['identificacion'], $alias);
             // BUSCAR ID INTEGRANTE
         }
-        $data['id_integrante'] = $integrante->id;
-        $data['estado'] = 'Activo';
-        $data['id_compania'] = 1;
         // BUSCAR ID INTEGRANTE
-        return DB::connection('mysql')->table($alias . '.de60')->create($data);
+
+        return DB::connection('mysql')->table($alias . '.de60')->updateOrInsert([
+            'id' => $data['id'],
+        ], [
+            'id_integrante' => $integrante->id,
+            'id_hogar' => $data['id_hogar'],
+            'tipo_id' => $data['tipo_id'],
+            'identificacion' => $data['identificacion'],
+            'pnom' => $data['pnom'],
+            'snom' => $data['snom'],
+            'pape' => $data['pape'],
+            'sape' => $data['sape'],
+            'sexo' => $data['sexo'],
+            'edad' => $data['edad'],
+            'grupo_ayudas' => $data['grupo_ayudas'],
+            'peso' => $data['peso'],
+            'talla' => $data['talla'],
+            'imc' => $data['imc'],
+            'pa' => $data['pa'],
+            'glicemia' => $data['glicemia'],
+            'cigarrillo' => $data['cigarrillo'],
+            'alcohol' => $data['alcohol'],
+            'actividad_fisica' => $data['actividad_fisica'],
+            'sintomatico' => $data['sintomatico'],
+            'examen_seno' => $data['examen_seno'],
+            'citologia' => $data['citologia'],
+            'colposcopia' => $data['colposcopia'],
+            'examen_prostata' => $data['examen_prostata'],
+            'biposia_prostata' => $data['biposia_prostata'],
+            'agudeza_visual' => $data['agudeza_visual'],
+            'subsidio' => $data['subsidio'],
+            'enfermedades_cronicas' => $data['enfermedades_cronicas'],
+            'enfermedades_infecciosas' => $data['enfermedades_infecciosas'],
+            'estado' => 'Activo',
+            'id_compania' => 1,
+            'opci' => $data['opci'],
+        ]);        
     }
 }

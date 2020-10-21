@@ -26,10 +26,32 @@ class Migra extends Model
             $integrante = \App\Integrante::buscar($data['identificacion'], $alias);
             // BUSCAR ID INTEGRANTE
         }
-        $data['id_integrante'] = $integrante->id;
-        $data['estado'] = 'Activo';
-        $data['id_compania'] = 1;
         // BUSCAR ID INTEGRANTE
-        return DB::connection('mysql')->table($alias . '.migra')->create($data);
+
+        return DB::connection('mysql')->table($alias . '.migra')->updateOrInsert([
+            'id' => $data['id'],
+        ], [
+            'id_integrante' => $integrante->id,
+            'id_hogar' => $data['id_hogar'],
+            'tipo_id' => $data['tipo_id'],
+            'identificacion' => $data['identificacion'],
+            'pnom' => $data['pnom'],
+            'snom' => $data['snom'],
+            'pape' => $data['pape'],
+            'sape' => $data['sape'],
+            'sexo' => $data['sexo'],
+            'edad' => $data['edad'],
+            'pais' => $data['pais'],
+            'registrado' => $data['registrado'],
+            'cuantollego' => $data['cuantollego'],
+            'futuro' => $data['futuro'],
+            'recibido' => $data['recibido'],
+            'necesidad' => $data['necesidad'],
+            'dependen' => $data['dependen'],
+            'ingreso' => $data['ingreso'],
+            'estado' => 'Activo',
+            'id_compania' => 1,
+            'opci' => $data['opci'],
+        ]);        
     }
 }

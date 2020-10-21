@@ -1000,7 +1000,7 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <!-- <b-form-select
                               v-model.trim="item.afiliacion_entidad"
                               :class="item.afiliacion_entidad==''?'':'is-valid'"
                               @input="afiliacion_entidad=>updateJefe(item,afiliacion_entidad,'afiliacion_entidad',index)"
@@ -1014,7 +1014,17 @@
                                 :value="item.value"
                                 :key="item.value"
                               >{{item.texto}}</option>
-                            </b-form-select>
+                            </b-form-select> -->
+
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Ocupación"
+                              v-model="item.textoEps"
+                              :class="item.textoEps==''?'':'is-valid'"
+                              style="width:400px;"
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1171,7 +1181,8 @@
                               v-model="item.textoOcupacion"
                               :class="item.textoOcupacion==''?'':'is-valid'"
                               style="width:400px;"
-                            />                            
+                              readonly
+                            />                           
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1939,7 +1950,7 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <!-- <b-form-select
                               v-model.trim="item.afi_entidad"
                               :class="item.afi_entidad=='0'?'':'is-valid'"
                               @input="afi_entidad=>updateIntegrante(item,afi_entidad,'afi_entidad',index)"
@@ -1953,7 +1964,16 @@
                                 :value="item.value"
                                 :key="item.value"
                               >{{item.texto}}</option>
-                            </b-form-select>
+                            </b-form-select> -->
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Ocupación"
+                              v-model="item.textoEps"
+                              :class="item.textoEps==''?'':'is-valid'"
+                              style="width:400px;"
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2110,6 +2130,7 @@
                               v-model="item.textoOcupacion"
                               :class="item.textoOcupacion==''?'':'is-valid'"
                               style="width:400px;"
+                              readonly
                             />                            
                           </td>
                           <td
@@ -15462,6 +15483,10 @@
                     fecha_nac: this.CA1.fecha_nac,
                     edad: edad,
                     afi_entidad: this.CA1.afi_entidad,
+                    textoEps: this.showText(
+                      this.CA1.afi_entidad,
+                      this.admini_options
+                    ),                    
                     otra_eps: this.CA1.otra_eps,
                     tipo_afiliacion: this.CA1.tipo_afiliacion,
                     embarazo: this.CA1.embarazo,
@@ -15647,6 +15672,10 @@
                       telefono: this.caracData.telefono,
                       puntaje_sisben: this.caracData.puntaje_sisben,
                       afiliacion_entidad: this.caracData.afiliacion_entidad,
+                      textoEps: this.showText(
+                        this.caracData.afiliacion_entidad,
+                        this.admini_options
+                      ),                      
                       otra_eps: this.caracData.otra_eps,
                       tipo_id: this.caracData.tipo_id,
                       identificacion: this.caracData.identificacion,

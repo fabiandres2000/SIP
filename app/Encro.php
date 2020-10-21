@@ -26,10 +26,27 @@ class Encro extends Model
             $integrante = \App\Integrante::buscar($data['identificacion'], $alias);
             // BUSCAR ID INTEGRANTE
         }
-        $data['id_integrante'] = $integrante->id;
-        $data['estado'] = 'Activo';
-        $data['id_compania'] = 1;
         // BUSCAR ID INTEGRANTE
-        return DB::connection('mysql')->table($alias . '.encro')->create($data);
+
+        return DB::connection('mysql')->table($alias . '.encro')->updateOrInsert([
+            'id' => $data['id'],
+        ], [
+            'id_integrante' => $integrante->id,
+            'id_hogar' => $data['id_hogar'],
+            'tipo_id' => $data['tipo_id'],
+            'identificacion' => $data['identificacion'],
+            'pnom' => $data['pnom'],
+            'snom' => $data['snom'],
+            'pape' => $data['pape'],
+            'sape' => $data['sape'],
+            'sexo' => $data['sexo'],
+            'enfermedad' => $data['enfermedad'],
+            'tiempo' => $data['tiempo'],
+            'tratamiento' => $data['tratamiento'],
+            'complicaciones' => $data['complicaciones'],
+            'estado' => 'Activo',
+            'id_compania' => 1,
+            'opci' => $data['opci'],
+        ]);        
     }
 }
