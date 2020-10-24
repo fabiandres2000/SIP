@@ -5936,7 +5936,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="21"
+                            colspan="22"
                           >Crecimiento y Desarrollo</th>
                           <th
                             class="kt-bg-fill-danger"
@@ -5963,7 +5963,7 @@
                           >Valoración Integral</th>
                           <th
                             class="kt-bg-fill-danger"
-                            colspan="6"
+                            colspan="7"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           >Valoración Nutricional</th>
                           <th
@@ -6009,6 +6009,7 @@
                           <td class="kt-bg-fill-danger">P.B</td>
                           <td class="kt-bg-fill-danger">P/T</td>
                           <td class="kt-bg-fill-danger">T/E</td>
+                          <td class="kt-bg-fill-danger">Perimetro Cefálico</td>
                           <td class="kt-bg-fill-info">Lenguaje</td>
                           <td class="kt-bg-fill-info">Motora</td>
                           <td class="kt-bg-fill-info">Conducta</td>
@@ -6237,6 +6238,18 @@
                               :class="item.te==''?'is-invalid':'is-valid'"
                             />
                           </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pcefalico"
+                              @input="changeupdateDe1A5(item,$event,'pcefalico')"
+                              :class="item.pcefalico==''?'is-invalid':'is-valid'"
+                            />
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -6567,7 +6580,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="15"
+                            colspan="14"
                           >Crecimiento y Desarrollo</th>
                           <th
                             class="kt-bg-fill-danger"
@@ -6590,7 +6603,7 @@
                           <th class="kt-bg-fill-success" colspan="1"></th>
                           <th
                             class="kt-bg-fill-danger"
-                            colspan="5"
+                            colspan="4"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           >Valoración Nutricional</th>
                           <th
@@ -6626,7 +6639,7 @@
                           <td class="kt-bg-fill-danger">Talla(cm)</td>
                           <td class="kt-bg-fill-danger">IMC/E</td>
                           <!-- <td class="kt-bg-fill-danger">P.B</td> -->
-                          <td class="kt-bg-fill-danger">P/T</td>
+                          <!-- <td class="kt-bg-fill-danger">P/T</td> -->
                           <td class="kt-bg-fill-danger">T/E</td>
                           <td class="kt-bg-fill-warning">Conducta</td>
                           <td class="kt-bg-fill-warning">Visuales</td>
@@ -6778,7 +6791,7 @@
                               :class="item.pb==''?'is-invalid':'is-valid'"
                             />
                           </td> -->
-                          <td
+                          <!-- <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <input
@@ -6789,7 +6802,7 @@
                               @input="changeupdateDe6A11(item,$event,'pt')"
                               :class="item.pt==''?'is-invalid':'is-valid'"
                             />
-                          </td>
+                          </td> -->
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -9778,7 +9791,7 @@
                           <th
                             class="kt-bg-fill-warning"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="14"
+                            colspan="15"
                           ></th>
                         </tr>
                         <tr class="kt-bg-fill-warning">
@@ -9806,6 +9819,7 @@
                           <td class="kt-bg-fill-warning">Subsidio de Entidad del Estado</td>
                           <td class="kt-bg-fill-warning">Enfermedades Cronicas</td>
                           <td class="kt-bg-fill-warning">Enfermedades Infecciosas</td>
+                          <td class="kt-bg-fill-warning">Empleo</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -10139,6 +10153,21 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.empleo"
+                              @input="empleo=>updateDe60(item,empleo,'empleo')"
+                              :class="item.empleo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>                          
                         </tr>
                       </tbody>
                     </table>
@@ -10496,7 +10525,7 @@
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
-                              class="form-control text-capitalize"
+                              class="form-control text-capitalize is-valid"
                               style="width:100px;background-color:white;"
                               :value="(index+1)"
                               readonly
@@ -10507,7 +10536,7 @@
                           >
                             <input
                               type="text"
-                              class="form-control text-capitalize"
+                              class="form-control text-capitalize is-valid"
                               style="width:200px;background-color:white;"
                               :value="item.tipo_id+' : '+item.identificacion"
                               readonly
@@ -10519,7 +10548,7 @@
                             <input
                               type="text"
                               class="form-control text-capitalize"
-                              style="width:300px;background-color:white;"
+                              style="width:300px;background-color:white; is-valid"
                               :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
                               readonly
                             />
@@ -10529,7 +10558,7 @@
                           >
                             <input
                               type="text"
-                              class="form-control text-capitalize"
+                              class="form-control text-capitalize is-valid"
                               style="width:150px;background-color:white;"
                               :value="item.sexo"
                               readonly
@@ -10540,7 +10569,7 @@
                           >
                             <input
                               type="text"
-                              class="form-control text-capitalize"
+                              class="form-control text-capitalize is-valid"
                               style="width:100px;background-color:white;"
                               :value="item.edad"
                               readonly
@@ -10553,6 +10582,7 @@
                               type="text"
                               style="width:150px;"
                               class="form-control text-capitalize"
+                              :class="item.pais==''?'is-invalid':'is-valid'"
                               v-model="item.pais"
                               @input="changeupdateMigra(item,$event,'pais')"
                             />
@@ -10564,6 +10594,8 @@
                               style="width:150px;"
                               v-model="item.registrado"
                               @input="registrado=>updateMigra(item,registrado,'registrado')"
+                              class="form-control text-capitalize"
+                              :class="item.registrado==''?'is-invalid':'is-valid'"
                             >
                               <option value="SI">SI</option>
                               <option value="NO">NO</option>
@@ -10576,6 +10608,8 @@
                               style="width:150px;"
                               v-model="item.cuantollego"
                               @input="cuantollego=>updateMigra(item,cuantollego,'cuantollego')"
+                              class="form-control text-capitalize"
+                              :class="item.cuantollego==''?'is-invalid':'is-valid'"
                             >
                               <option value="1">Menos de 3 meses</option>
                               <option value="2">6 meses a 12 meses</option>
@@ -10590,6 +10624,8 @@
                               style="width:150px;"
                               v-model="item.futuro"
                               @input="futuro=>updateMigra(item,futuro,'futuro')"
+                              class="form-control text-capitalize"
+                              :class="item.futuro==''?'is-invalid':'is-valid'"                              
                             >
                               <option value="1">Volver al Pais de Origen</option>
                               <option value="2">Radicarse en este pais</option>
@@ -10603,6 +10639,8 @@
                               style="width:150px;"
                               v-model="item.recibido"
                               @input="recibido=>updateMigra(item,recibido,'recibido')"
+                              class="form-control text-capitalize"
+                              :class="item.recibido==''?'is-invalid':'is-valid'"                                                            
                             >
                               <option value="SI">SI</option>
                               <option value="NO">NO</option>
@@ -10615,6 +10653,8 @@
                               style="width:150px;"
                               v-model="item.necesidad"
                               @input="necesidad=>updateMigra(item,necesidad,'necesidad')"
+                              class="form-control text-capitalize"
+                              :class="item.necesidad==''?'is-invalid':'is-valid'"                              
                             >
                               <option value="1">Hospedaje</option>
                               <option value="2">Alimentación</option>
@@ -10631,6 +10671,7 @@
                               type="text"
                               style="width:150px;"
                               class="form-control text-capitalize"
+                              :class="item.dependen==''?'is-invalid':'is-valid'"                              
                               v-model="item.dependen"
                               @input="changeupdateMigra(item,$event,'dependen',index)"
                             />
@@ -10642,6 +10683,8 @@
                               style="width:150px;"
                               v-model="item.ingreso"
                               @input="ingreso=>updateMigra(item,ingreso,'ingreso')"
+                              class="form-control text-capitalize"
+                              :class="item.ingreso==''?'is-invalid':'is-valid'"                              
                             >
                               <option value="1">menos de 500.000</option>
                               <option value="2">500.000 a 800.0000</option>
@@ -13383,6 +13426,16 @@
             );
             return false;
           }
+          if (this.De1A5[i].pcefalico === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional el <b>Perimetro Cefálico</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }                    
           if (this.De1A5[i].lenguaje === "") {
             this.$swal(
               "Error...!",
@@ -13639,16 +13692,16 @@
             );
             return false;
           }
-          if (this.De6A11[i].pt === "") {
-            this.$swal(
-              "Error...!",
-              "Por favor digite el <b>P/T</b> en la fila " +
-                (i + 1) +
-                " de la tabla infancia, niños(as) de 6 a 11 años",
-              "error"
-            );
-            return false;
-          }
+          // if (this.De6A11[i].pt === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor digite el <b>P/T</b> en la fila " +
+          //       (i + 1) +
+          //       " de la tabla infancia, niños(as) de 6 a 11 años",
+          //     "error"
+          //   );
+          //   return false;
+          // }
           if (this.De6A11[i].te === "") {
             this.$swal(
               "Error...!",
@@ -15278,7 +15331,17 @@
               "error"
             );
             return false;
-          }                                                                                                                                                                            
+          }
+          if (this.De60[i].empleo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Empleo</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                      
         }
         return true;
       },
@@ -17608,7 +17671,8 @@
           maltrato: "",
           enfermedad: "",
           medicamento: "",
-          opci: opcion
+          opci: opcion,
+          pcefalico: ""
         });
       },
       changeupdateDe1A5(item, event, opcion) {
@@ -17734,7 +17798,7 @@
           talla: "",
           imc: "",
           pb: "NA",
-          pt: "",
+          pt: "NA",
           te: "",
           conducta: "",
           visuales: "",
@@ -18555,7 +18619,8 @@
           subsidio: "",
           enfermedades_cronicas: "",
           enfermedades_infecciosas: "",
-          opci: opcion
+          opci: opcion,
+          empleo: ""
         });
       },
       changeupdateDe60(item, event, opcion) {

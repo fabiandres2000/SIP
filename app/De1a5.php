@@ -14,7 +14,7 @@ class De1a5 extends Model
         'te', 'lenguaje', 'motora', 'conducta', 'visuales', 'auditivos',
         'caries', 'nocepillado', 'consultaodon', 'carnet', 'bcg', 'polio',
         'dpt', 'fiebrea', 'tripleviral', 'otras', 'desparacitado', 'maltrato',
-        'enfermedad', 'medicamento', 'estado', 'id_compania', 'opci', 'pentavalente',
+        'enfermedad', 'medicamento', 'estado', 'id_compania', 'opci', 'pentavalente','pcefalico'
     ];
 
     public static function guardar($data, $alias)
@@ -70,6 +70,7 @@ class De1a5 extends Model
             'estado' => 'Activo',
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'pcefalico' => $data['pcefalico'],            
         ]);
     }
 }

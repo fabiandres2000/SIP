@@ -10866,6 +10866,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -13777,6 +13820,11 @@ var entero = function entero(value) {
           return false;
         }
 
+        if (this.De1A5[i].pcefalico === "") {
+          this.$swal("Error...!", "Por favor digite en la Valoración Nutricional el <b>Perimetro Cefálico</b> en la fila " + (i + 1) + " de la tabla primera infancia, niños(as) de 1 a 5 años", "error");
+          return false;
+        }
+
         if (this.De1A5[i].lenguaje === "") {
           this.$swal("Error...!", "Por favor seleccione de la Valoración Del Desarrollo el <b>Lenguaje</b> en la fila " + (i + 1) + " de la tabla primera infancia, niños(as) de 1 a 5 años", "error");
           return false;
@@ -13905,12 +13953,17 @@ var entero = function entero(value) {
         if (this.De6A11[i].pb === "") {
           this.$swal("Error...!", "Por favor digite el <b>P.B</b> en la fila " + (i + 1) + " de la tabla infancia, niños(as) de 6 a 11 años", "error");
           return false;
-        }
+        } // if (this.De6A11[i].pt === "") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor digite el <b>P/T</b> en la fila " +
+        //       (i + 1) +
+        //       " de la tabla infancia, niños(as) de 6 a 11 años",
+        //     "error"
+        //   );
+        //   return false;
+        // }
 
-        if (this.De6A11[i].pt === "") {
-          this.$swal("Error...!", "Por favor digite el <b>P/T</b> en la fila " + (i + 1) + " de la tabla infancia, niños(as) de 6 a 11 años", "error");
-          return false;
-        }
 
         if (this.De6A11[i].te === "") {
           this.$swal("Error...!", "Por favor digite el <b>T/E</b> en la fila " + (i + 1) + " de la tabla infancia, niños(as) de 6 a 11 años", "error");
@@ -14749,6 +14802,11 @@ var entero = function entero(value) {
 
         if (this.De60[i].enfermedades_infecciosas === "") {
           this.$swal("Error...!", "Por favor seleccione la opcion <b>Enfermedades Infecciosas</b> en la fila " + (i + 1) + " de la tabla adulto mayor hombres y mujeres de 60 años y mas", "error");
+          return false;
+        }
+
+        if (this.De60[i].empleo === "") {
+          this.$swal("Error...!", "Por favor seleccione la opcion <b>Empleo</b> en la fila " + (i + 1) + " de la tabla adulto mayor hombres y mujeres de 60 años y mas", "error");
           return false;
         }
       }
@@ -17149,7 +17207,8 @@ var entero = function entero(value) {
         maltrato: "",
         enfermedad: "",
         medicamento: "",
-        opci: opcion
+        opci: opcion,
+        pcefalico: ""
       });
     },
     changeupdateDe1A5: function changeupdateDe1A5(item, event, opcion) {
@@ -17304,7 +17363,7 @@ var entero = function entero(value) {
         talla: "",
         imc: "",
         pb: "NA",
-        pt: "",
+        pt: "NA",
         te: "",
         conducta: "",
         visuales: "",
@@ -18272,7 +18331,8 @@ var entero = function entero(value) {
         subsidio: "",
         enfermedades_cronicas: "",
         enfermedades_infecciosas: "",
-        opci: opcion
+        opci: opcion,
+        empleo: ""
       });
     },
     changeupdateDe60: function changeupdateDe60(item, event, opcion) {
@@ -42106,6 +42166,60 @@ var render = function() {
                                       }
                                     },
                                     [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: item.pcefalico,
+                                            expression: "item.pcefalico"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.pcefalico == ""
+                                            ? "is-invalid"
+                                            : "is-valid",
+                                        staticStyle: { width: "150px" },
+                                        attrs: { type: "text" },
+                                        domProps: { value: item.pcefalico },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "pcefalico",
+                                                $event.target.value
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateDe1A5(
+                                                item,
+                                                $event,
+                                                "pcefalico"
+                                              )
+                                            }
+                                          ]
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
                                       _c(
                                         "b-form-select",
                                         {
@@ -43961,60 +44075,6 @@ var render = function() {
                                                 item,
                                                 $event,
                                                 "imc"
-                                              )
-                                            }
-                                          ]
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "td",
-                                    {
-                                      staticStyle: {
-                                        "font-weight": "normal",
-                                        "vertical-align": "middle",
-                                        "text-align": "left",
-                                        "text-transform": "capitalize"
-                                      }
-                                    },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: item.pt,
-                                            expression: "item.pt"
-                                          }
-                                        ],
-                                        staticClass:
-                                          "form-control text-capitalize",
-                                        class:
-                                          item.pt == ""
-                                            ? "is-invalid"
-                                            : "is-valid",
-                                        staticStyle: { width: "150px" },
-                                        attrs: { type: "text" },
-                                        domProps: { value: item.pt },
-                                        on: {
-                                          input: [
-                                            function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                item,
-                                                "pt",
-                                                $event.target.value
-                                              )
-                                            },
-                                            function($event) {
-                                              return _vm.changeupdateDe6A11(
-                                                item,
-                                                $event,
-                                                "pt"
                                               )
                                             }
                                           ]
@@ -55229,6 +55289,68 @@ var render = function() {
                                       )
                                     ],
                                     1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.empleo == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          on: {
+                                            input: function(empleo) {
+                                              return _vm.updateDe60(
+                                                item,
+                                                empleo,
+                                                "empleo"
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.empleo,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "empleo", $$v)
+                                            },
+                                            expression: "item.empleo"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
                                   )
                                 ])
                               }),
@@ -55977,7 +56099,7 @@ var render = function() {
                                     [
                                       _c("input", {
                                         staticClass:
-                                          "form-control text-capitalize",
+                                          "form-control text-capitalize is-valid",
                                         staticStyle: {
                                           width: "100px",
                                           "background-color": "white"
@@ -56001,7 +56123,7 @@ var render = function() {
                                     [
                                       _c("input", {
                                         staticClass:
-                                          "form-control text-capitalize",
+                                          "form-control text-capitalize is-valid",
                                         staticStyle: {
                                           width: "200px",
                                           "background-color": "white"
@@ -56063,7 +56185,7 @@ var render = function() {
                                     [
                                       _c("input", {
                                         staticClass:
-                                          "form-control text-capitalize",
+                                          "form-control text-capitalize is-valid",
                                         staticStyle: {
                                           width: "150px",
                                           "background-color": "white"
@@ -56087,7 +56209,7 @@ var render = function() {
                                     [
                                       _c("input", {
                                         staticClass:
-                                          "form-control text-capitalize",
+                                          "form-control text-capitalize is-valid",
                                         staticStyle: {
                                           width: "100px",
                                           "background-color": "white"
@@ -56120,6 +56242,10 @@ var render = function() {
                                         ],
                                         staticClass:
                                           "form-control text-capitalize",
+                                        class:
+                                          item.pais == ""
+                                            ? "is-invalid"
+                                            : "is-valid",
                                         staticStyle: { width: "150px" },
                                         attrs: { type: "text" },
                                         domProps: { value: item.pais },
@@ -56162,6 +56288,12 @@ var render = function() {
                                       _c(
                                         "b-form-select",
                                         {
+                                          staticClass:
+                                            "form-control text-capitalize",
+                                          class:
+                                            item.registrado == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
                                           staticStyle: { width: "150px" },
                                           on: {
                                             input: function(registrado) {
@@ -56212,6 +56344,12 @@ var render = function() {
                                       _c(
                                         "b-form-select",
                                         {
+                                          staticClass:
+                                            "form-control text-capitalize",
+                                          class:
+                                            item.cuantollego == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
                                           staticStyle: { width: "150px" },
                                           on: {
                                             input: function(cuantollego) {
@@ -56274,6 +56412,12 @@ var render = function() {
                                       _c(
                                         "b-form-select",
                                         {
+                                          staticClass:
+                                            "form-control text-capitalize",
+                                          class:
+                                            item.futuro == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
                                           staticStyle: { width: "150px" },
                                           on: {
                                             input: function(futuro) {
@@ -56330,6 +56474,12 @@ var render = function() {
                                       _c(
                                         "b-form-select",
                                         {
+                                          staticClass:
+                                            "form-control text-capitalize",
+                                          class:
+                                            item.recibido == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
                                           staticStyle: { width: "150px" },
                                           on: {
                                             input: function(recibido) {
@@ -56380,6 +56530,12 @@ var render = function() {
                                       _c(
                                         "b-form-select",
                                         {
+                                          staticClass:
+                                            "form-control text-capitalize",
+                                          class:
+                                            item.necesidad == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
                                           staticStyle: { width: "150px" },
                                           on: {
                                             input: function(necesidad) {
@@ -56462,6 +56618,10 @@ var render = function() {
                                         ],
                                         staticClass:
                                           "form-control text-capitalize",
+                                        class:
+                                          item.dependen == ""
+                                            ? "is-invalid"
+                                            : "is-valid",
                                         staticStyle: { width: "150px" },
                                         attrs: { type: "text" },
                                         domProps: { value: item.dependen },
@@ -56505,6 +56665,12 @@ var render = function() {
                                       _c(
                                         "b-form-select",
                                         {
+                                          staticClass:
+                                            "form-control text-capitalize",
+                                          class:
+                                            item.ingreso == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
                                           staticStyle: { width: "150px" },
                                           on: {
                                             input: function(ingreso) {
@@ -57904,7 +58070,7 @@ var staticRenderFns = [
               "text-align": "center",
               "text-transform": "capitalize"
             },
-            attrs: { colspan: "21" }
+            attrs: { colspan: "22" }
           },
           [_vm._v("Crecimiento y Desarrollo")]
         ),
@@ -57984,7 +58150,7 @@ var staticRenderFns = [
               "text-align": "center",
               "text-transform": "capitalize"
             },
-            attrs: { colspan: "6" }
+            attrs: { colspan: "7" }
           },
           [_vm._v("Valoración Nutricional")]
         ),
@@ -58091,6 +58257,10 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("T/E")]),
         _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Perimetro Cefálico")
+        ]),
+        _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Lenguaje")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Motora")]),
@@ -58172,7 +58342,7 @@ var staticRenderFns = [
               "text-align": "center",
               "text-transform": "capitalize"
             },
-            attrs: { colspan: "15" }
+            attrs: { colspan: "14" }
           },
           [_vm._v("Crecimiento y Desarrollo")]
         ),
@@ -58241,7 +58411,7 @@ var staticRenderFns = [
               "text-align": "center",
               "text-transform": "capitalize"
             },
-            attrs: { colspan: "5" }
+            attrs: { colspan: "4" }
           },
           [_vm._v("Valoración Nutricional")]
         ),
@@ -58321,8 +58491,6 @@ var staticRenderFns = [
         _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("Talla(cm)")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("IMC/E")]),
-        _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("P/T")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("T/E")]),
         _vm._v(" "),
@@ -59672,7 +59840,7 @@ var staticRenderFns = [
             "text-align": "center",
             "text-transform": "capitalize"
           },
-          attrs: { colspan: "14" }
+          attrs: { colspan: "15" }
         })
       ]),
       _vm._v(" "),
@@ -59749,7 +59917,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [
           _vm._v("Enfermedades Infecciosas")
-        ])
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("Empleo")])
       ])
     ])
   },

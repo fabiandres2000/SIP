@@ -13,7 +13,7 @@ class De60 extends Model
         'sape', 'sexo', 'edad', 'grupo_ayudas', 'peso', 'talla', 'imc', 'pa', 'glicemia',
         'cigarrillo', 'alcohol', 'actividad_fisica', 'sintomatico', 'examen_seno', 'citologia',
         'colposcopia', 'examen_prostata', 'biposia_prostata', 'agudeza_visual', 'subsidio', 'enfermedades_cronicas',
-        'enfermedades_infecciosas', 'estado', 'id_compania', 'opci',
+        'enfermedades_infecciosas', 'estado', 'id_compania', 'opci','empleo'
     ];
 
     public static function guardar($data, $alias)
@@ -65,6 +65,7 @@ class De60 extends Model
             'estado' => 'Activo',
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'empleo' => $data['empleo'],
         ]);        
     }
 }
