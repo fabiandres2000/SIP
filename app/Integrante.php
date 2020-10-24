@@ -38,7 +38,7 @@ class Integrante extends Model
         'clasificacion',
         'puntaje_sisben',
         'otra_eps',
-        'jefe',
+        'jefe', 'orientacion', 'identidad_genero','telefono'
     ];
     public static function guardar($data, $alias)
     {
@@ -76,6 +76,9 @@ class Integrante extends Model
             'clasificacion' => $data['clasificacion'],
             'puntaje_sisben' => $data['puntaje_sisben'],
             'jefe' => $jefe->id,
+            'orientacion' => $data['orientacion'],
+            'identidad_genero' => $data['identidad_genero'],
+            'telefono' => $data['telefono'],            
         ]);
     }
 

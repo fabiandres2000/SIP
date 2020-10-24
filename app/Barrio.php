@@ -97,7 +97,7 @@ class Barrio extends Model
 
     public static function buscarBarrios($alias)
     {
-        return DB::connection('mysql')->table($alias . '.muni')->join('dptos', 'dptos.codigo', 'muni.coddep')
+        return DB::connection('mysql')->table($alias . '.muni')->join($alias . '.dptos', 'dptos.codigo', 'muni.coddep')
             ->join($alias . '.corregimientos', function ($join) {
                 $join->on('corregimientos.id_muni', '=', 'muni.codmun');
                 $join->on('corregimientos.id_dpto', '=', 'dptos.codigo');
@@ -132,7 +132,7 @@ class Barrio extends Model
 
     public static function barriosCorre($id, $alias)
     {
-        return DB::connection('mysql')->table($alias . '.muni')->join('dptos', 'dptos.codigo', 'muni.coddep')
+        return DB::connection('mysql')->table($alias . '.muni')->join($alias . '.dptos', 'dptos.codigo', 'muni.coddep')
             ->join($alias . '.corregimientos', function ($join) {
                 $join->on('corregimientos.id_muni', '=', 'muni.codmun');
                 $join->on('corregimientos.id_dpto', '=', 'dptos.codigo');

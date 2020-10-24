@@ -14,6 +14,7 @@ class Caracterizacion extends Model
         'id_compania', 'estado', 'estado_civil', 'fecha_nacimiento', 'afiliacion_entidad',
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
+        'orientacion','identidad_genero'
     ];
 
     public static function listar($busqueda, $alias)
@@ -113,6 +114,8 @@ class Caracterizacion extends Model
             'entiende' => $data['entiende'],
             'pyp' => $data['pyp'],
             'migrante' => $data['migrante'],
+            'orientacion' => $data['orientacion'],
+            'identidad_genero' => $data['identidad_genero'],
         ]);
     }
 

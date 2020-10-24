@@ -340,7 +340,7 @@
                 <span class="kt-font-boldest" style="font-size: 15px;">Jefe del Hogar</span>
               </p>
               <div class="form-group row">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                   <label>Tipo de Documento (*):</label>
                   <b-form-select
                     v-model.trim="caracData.tipo_id"
@@ -358,7 +358,7 @@
                     <option value="CE">CEDULA DE EXTRANJERIA</option>
                   </b-form-select>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                   <label>Documento (*):</label>
                   <input
                     type="text"
@@ -370,19 +370,7 @@
                     :class="caracData.identificacion==''?'':'is-valid'"
                   />
                 </div>
-                <div class="col-lg-3">
-                  <label>Sexo (*):</label>
-                  <b-form-select
-                    v-model.trim="caracData.sexo"
-                    :class="caracData.sexo==''?'':'is-valid'"
-                    ref="sexo"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option value="MASCULINO">MASCULINO</option>
-                    <option value="FEMENINO">FEMENINO</option>
-                  </b-form-select>
-                </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                   <label>Parentesco (*):</label>
                   <b-form-select
                     v-model.trim="caracData.parentesco"
@@ -397,6 +385,49 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Sexo (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.sexo"
+                    :class="caracData.sexo==''?'':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMENINO">FEMENINO</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Orientación Sexual (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.orientacion"
+                    :class="caracData.orientacion==''?'':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                    <option value="BISEXUAL">BISEXUAL</option>
+                    <option value="NODECLARA">NO DECLARA</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Identidad de Genero (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.identidad_genero"
+                    :class="caracData.identidad_genero==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">CISGENERO</option>
+                    <option value="HOMOSEXUAL">TRANSGENERO</option>
+                    <option value="BISEXUAL">TRANSEXUAL</option>
+                    <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                                
               </div>
               <div class="form-group row">
                 <div class="col-lg-3">
@@ -782,6 +813,8 @@
                           <th>Primer Apellido</th>
                           <th>Segundo Apellido</th>
                           <th>Sexo</th>
+                          <th>Orientación Sexual</th>
+                          <th>Identidad de Genero</th>
                           <th>Parentesco</th>
                           <th>Telefono</th>
                           <th>Estado Civil</th>
@@ -908,6 +941,41 @@
                               <option value="FEMENINO">FEMENINO</option>
                             </b-form-select>
                           </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.orientacion"
+                              :class="item.orientacion==''?'':'is-valid'"
+                              @input="orientacion=>updateJefe(item,orientacion,'orientacion',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                              <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                              <option value="BISEXUAL">BISEXUAL</option>
+                              <option value="NODECLARA">NO DECLARA</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.identidad_genero"
+                              :class="item.identidad_genero==''?'':'is-valid'"
+                              @input="identidad_genero=>updateJefe(item,identidad_genero,'identidad_genero',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">CISGENERO</option>
+                              <option value="HOMOSEXUAL">TRANSGENERO</option>
+                              <option value="BISEXUAL">TRANSEXUAL</option>
+                              <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>                          
+
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -1337,7 +1405,7 @@
                 <span class="kt-font-boldest" style="font-size: 18px;">B.Integrantes de la familia</span>
               </p>
               <div class="form-group row">
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                   <label>Tipo de Documento:</label>
                   <b-form-select
                     v-model="CA1.tipo_id"
@@ -1354,7 +1422,7 @@
                     <option value="CE">CEDULA DE EXTRANJERIA</option>
                   </b-form-select>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                   <label>Documento:</label>
                   <input
                     type="text"
@@ -1365,15 +1433,7 @@
                     :class="CA1.identificacion==''?'':'is-valid'"
                   />
                 </div>
-                <div class="col-lg-3">
-                  <label>Sexo:</label>
-                  <b-form-select v-model="CA1.sexo" :class="CA1.sexo=='0'?'':'is-valid'">
-                    <option value="0" selected>Seleccione</option>
-                    <option value="MASCULINO">MASCULINO</option>
-                    <option value="FEMENINO">FEMENINO</option>
-                  </b-form-select>
-                </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
                   <label>Parentesco:</label>
                   <b-form-select
                     v-model="CA1.parentesco"
@@ -1387,6 +1447,45 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Sexo:</label>
+                  <b-form-select v-model="CA1.sexo" :class="CA1.sexo=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMENINO">FEMENINO</option>
+                  </b-form-select>
+                </div>                
+                <div class="col-lg-4">
+                  <label>Orientación Sexual (*):</label>
+                  <b-form-select
+                    v-model.trim="CA1.orientacion"
+                    :class="CA1.orientacion==''?'':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                    <option value="BISEXUAL">BISEXUAL</option>
+                    <option value="NODECLARA">NO DECLARA</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Identidad de Genero (*):</label>
+                  <b-form-select
+                    v-model.trim="CA1.identidad_genero"
+                    :class="CA1.identidad_genero==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">CISGENERO</option>
+                    <option value="HOMOSEXUAL">TRANSGENERO</option>
+                    <option value="BISEXUAL">TRANSEXUAL</option>
+                    <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
               </div>
               <div class="form-group row">
                 <div class="col-lg-3">
@@ -1432,6 +1531,17 @@
               </div>
               <div class="form-group row">
                 <div class="col-lg-3">
+                  <label>Telefono:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Telefono"
+                    v-model.trim="CA1.telefono"
+                    :class="CA1.telefono==''?'':'is-valid'"
+                    @change="formato('telefono2')"
+                  />
+                </div>                
+                <div class="col-lg-3">
                   <label>Estado Civil:</label>
                   <b-form-select
                     v-model="CA1.estado_civil"
@@ -1445,7 +1555,7 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                   <label>Fecha de Nacimiento:</label>
                   <input
                     id="date"
@@ -1746,7 +1856,10 @@
                           <th>Primer Apellido</th>
                           <th>Segundo Apellido</th>
                           <th>Sexo</th>
+                          <th>Orientación Sexual</th>
+                          <th>Identidad de Genero</th>                          
                           <th>Parentesco</th>
+                          <th>Telefono</th>
                           <th>Estado Civil</th>
                           <th>Nacimiento</th>
                           <th>Edad</th>
@@ -1871,6 +1984,41 @@
                               <option value="FEMENINO">FEMENINO</option>
                             </b-form-select>
                           </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.orientacion"
+                              :class="item.orientacion=='0'?'':'is-valid'"
+                              @input="orientacion=>updateIntegrante(item,orientacion,'orientacion',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                              <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                              <option value="BISEXUAL">BISEXUAL</option>
+                              <option value="NODECLARA">NO DECLARA</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.identidad_genero"
+                              :class="item.identidad_genero=='0'?'':'is-valid'"
+                              @input="identidad_genero=>updateIntegrante(item,identidad_genero,'identidad_genero',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">CISGENERO</option>
+                              <option value="HOMOSEXUAL">TRANSGENERO</option>
+                              <option value="BISEXUAL">TRANSEXUAL</option>
+                              <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -1888,6 +2036,19 @@
                               >{{item.texto}}</option>
                             </b-form-select>
                           </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Telefono"
+                              v-model.trim="item.telefono"
+                              :class="item.telefono==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'telefono',index)"
+                              style="width:200px;"
+                            />
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -3614,6 +3775,7 @@
                     <option value="NA">No Aplica</option>
                     <option value="1">De Uso Exclusivo de las Personas de la Familia</option>
                     <option value="2">Compartida con Personas de Otras Familias</option>
+                    <option value="3">Sin servicio sanitario</option>
                   </b-form-select>
                   <div class="valid-feedback">Servicio Sanitario Valido</div>
                   <div class="invalid-feedback">
@@ -10015,7 +10177,7 @@
                           <td class="kt-bg-fill-danger">Nombre de la Enfermedad</td>
                           <td class="kt-bg-fill-danger">Diagnosticado Hace cuanto tiempo</td>
                           <td class="kt-bg-fill-danger">Está en Tratamiento</td>
-                          <td class="kt-bg-fill-danger">Complicaciones</td>
+                          <!-- <td class="kt-bg-fill-danger">Complicaciones</td> -->
                         </tr>
                       </thead>
                       <tbody>
@@ -10109,7 +10271,7 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
-                          <td
+                          <!-- <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <input
@@ -10120,7 +10282,7 @@
                               @input="changeupdateEnCro(item,$event,'complicaciones')"
                               :class="item.complicaciones==''?'is-invalid':'is-valid'"
                             />
-                          </td>
+                          </td> -->
                         </tr>
                       </tbody>
                     </table>
@@ -10156,7 +10318,7 @@
                           <td class="kt-bg-fill-brand">Nombre de la Enfermedad</td>
                           <td class="kt-bg-fill-brand">Diagnosticado Hace cuanto tiempo</td>
                           <td class="kt-bg-fill-brand">Está en Tratamiento</td>
-                          <td class="kt-bg-fill-brand">Complicaciones</td>
+                          <!-- <td class="kt-bg-fill-brand">Complicaciones</td> -->
                         </tr>
                       </thead>
                       <tbody>
@@ -10250,7 +10412,7 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
-                          <td
+                          <!-- <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <input
@@ -10261,7 +10423,7 @@
                               @input="changeupdateEnInf(item,$event,'complicaciones')"
                               :class="item.complicaciones==''?'is-invalid':'is-valid'"
                             />
-                          </td>
+                          </td> -->
                         </tr>
                       </tbody>
                     </table>
@@ -10850,7 +11012,9 @@
           entiende: "",
           pyp: "",
           migrante: "",
-          edad: ""
+          edad: "",
+          orientacion: "",
+          identidad_genero: ""
         },
         CA1: {
           id: 0,
@@ -10882,7 +11046,10 @@
           etnia: "0",
           clasificacion: "0",
           id_hogar: 0,
-          jefe: "0"
+          jefe: "0",
+          orientacion: "",
+          identidad_genero: "",
+          telefono: ""          
         },
         viviendaData: {
           id: 0,
@@ -11066,10 +11233,10 @@
         ocupacionAuxiliar: "",
         ocupacionAuxiliar2: "",
         opcionOcupaciones: "",
-
         txtbusquedaAct: "",
         actividadesVector:[],
-        actividadesAuxiliar: ""
+        actividadesAuxiliar: "",
+        SAPU: false
       };
     },
     validations: {
@@ -12169,6 +12336,7 @@
               "Datos Guardados Exitosamente!",
               "success"
             );
+            this.SAPU=false;
             this.$router.push("/gestion");          
           }
         }
@@ -12230,6 +12398,26 @@
             );
             return false;
           }
+          if (this.datosJefe[i].orientacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Orientación Sexual</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].identidad_genero === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Identidad de Genero</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }          
           if (this.datosJefe[i].parentesco === "") {
             this.$swal(
               "Error...!",
@@ -12329,7 +12517,7 @@
               "error"
             );
             return false;
-          }
+          }              
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datosJefe,
@@ -12436,6 +12624,26 @@
             );
             return false;
           }
+          if (this.datos[i].orientacion === "0") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Orientación Sexual</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].identidad_genero === "0") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Identidad de Genero</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }          
           if (this.datos[i].parentesco === "0") {
             this.$swal(
               "Error...!",
@@ -12535,7 +12743,7 @@
               "error"
             );
             return false;
-          }
+          }                    
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datos,
@@ -14001,16 +14209,16 @@
             );
             return false;
           }
-          if (this.ParPost[i].fecha_ultimo_parto === "") {
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione la opción <b>Fecha Ultimo Parto</b> en la fila " +
-                (i + 1) +
-                " de la gestión de parto y postparto",
-              "error"
-            );
-            return false;
-          }
+          // if (this.ParPost[i].fecha_ultimo_parto === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor seleccione la opción <b>Fecha Ultimo Parto</b> en la fila " +
+          //       (i + 1) +
+          //       " de la gestión de parto y postparto",
+          //     "error"
+          //   );
+          //   return false;
+          // }
           if (this.ParPost[i].suplementacion === "") {
             this.$swal(
               "Error...!",
@@ -15331,6 +15539,16 @@
           this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
           return;
         }
+        if (this.CA1.orientacion === "0") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.CA1.identidad_genero === "0") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }        
         if (this.CA1.parentesco == "0") {
           this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
           return;
@@ -15511,8 +15729,16 @@
                     textoEtnia: this.showText(this.CA1.etnia, this.etnia_options),
                     clasificacion: this.CA1.clasificacion,
                     puntaje_sisben: this.CA1.puntaje_sisben,
-                    jefe: this.CA1.jefe
+                    jefe: this.CA1.jefe,
+                    orientacion: this.CA1.orientacion,
+                    identidad_genero: this.CA1.identidad_genero,
+                    telefono: this.CA1.telefono
                   });
+
+                  if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
+                    this.SAPU=true;
+                    this.estratificacionData.afiliacion_salud_privada="SI";        
+                  }
                   this.ocupacionAuxiliar2="";
                   this.mOCOL2 = false;
                   let indice = this.datos.findIndex(
@@ -15717,8 +15943,14 @@
                         this.etnia_options
                       ),
                       clasificacion: this.caracData.clasificacion,
-                      edad: this.caracData.edad
+                      edad: this.caracData.edad,
+                      orientacion: this.caracData.orientacion,
+                      identidad_genero: this.caracData.identidad_genero                      
                     });
+                    if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
+                      this.SAPU=true;
+                      this.estratificacionData.afiliacion_salud_privada="SI";        
+                    }                    
                     this.ocupacionAuxiliar="";
                     this.mOCOL1 = false;
                     let indice = this.datosJefe.findIndex(
@@ -15819,6 +16051,16 @@
           this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
           return;
         }
+        if (this.caracData.orientacion === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.caracData.identidad_genero === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }                
         if (this.caracData.parentesco === "") {
           this.$refs.parentesco.focus();
           bande = false;
@@ -16719,27 +16961,38 @@
             this.caracData.telefono = "";
           }
         }
-        if (caja == "puntaje") {
-          this.CA1.puntaje_sisben = this.CA1.puntaje_sisben
+        if (caja == "telefono2") {
+          this.CA1.telefono = this.CA1.telefono
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.CA1.puntaje_sisben == "NaN") {
-            this.CA1.puntaje_sisben = "";
+          if (this.CA1.telefono == "NaN") {
+            this.CA1.telefono = "";
           }
-          if (this.CA1.puntaje_sisben == "0") {
-            this.CA1.puntaje_sisben = "";
+          if (this.CA1.telefono == "0") {
+            this.CA1.telefono = "";
           }
+        }        
+        if (caja == "puntaje") {
+          // this.CA1.puntaje_sisben = this.CA1.puntaje_sisben
+          //   .replace(/[^.\d]/g, "")
+          //   .trim();
+          // if (this.CA1.puntaje_sisben == "NaN") {
+          //   this.CA1.puntaje_sisben = "";
+          // }
+          // if (this.CA1.puntaje_sisben == "0") {
+          //   this.CA1.puntaje_sisben = "";
+          // }
         }
         if (caja == "puntaje1") {
-          this.caracData.puntaje_sisben = this.caracData.puntaje_sisben
-            .replace(/[^.\d]/g, "")
-            .trim();
-          if (this.caracData.puntaje_sisben == "NaN") {
-            this.caracData.puntaje_sisben = "";
-          }
-          if (this.caracData.puntaje_sisben == "0") {
-            this.caracData.puntaje_sisben = "";
-          }
+          // this.caracData.puntaje_sisben = this.caracData.puntaje_sisben
+          //   .replace(/[^.\d]/g, "")
+          //   .trim();
+          // if (this.caracData.puntaje_sisben == "NaN") {
+          //   this.caracData.puntaje_sisben = "";
+          // }
+          // if (this.caracData.puntaje_sisben == "0") {
+          //   this.caracData.puntaje_sisben = "";
+          // }
         }
       },
       volver() {
@@ -16774,6 +17027,9 @@
         this.CA1.clasificacion = "0";
         this.CA1.puntaje_sisben = "";
         this.CA1.jefe = "0";
+        this.CA1.telefono = "";
+        this.CA1.orientacion = "0";
+        this.CA1.identidad_genero = "0";        
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -16805,6 +17061,8 @@
         this.caracData.etnia = "";
         this.caracData.clasificacion = "";
         this.caracData.puntaje_sisben = "";
+        this.caracData.orientacion = "";
+        this.caracData.identidad_genero = "";
       },
       mostrarOtro(tipo) {
         if (tipo === "TE") {
@@ -17154,7 +17412,11 @@
         this.estratificacionData.cuantos_tv_color = "";
         this.estratificacionData.cuantos_vehiculos = "";
         this.estratificacionData.nivel_instruccion = "";
-        this.estratificacionData.afiliacion_salud_privada = "";
+        if(this.SAPU===true){
+          this.estratificacionData.afiliacion_salud_privada="SI";
+        }else{
+          this.estratificacionData.afiliacion_salud_privada="";
+        }        
         // this.estratificacionData.ingresos_zona_rural = "";
         // this.estratificacionData.ingresos_ciudad = "";
         this.estratificacionData.id_jefe = "0";
@@ -18396,7 +18658,7 @@
           enfermedad: "",
           tiempo: "",
           tratamiento: "",
-          complicaciones: "",
+          complicaciones: "0",
           opci: opcion
         });
       },
@@ -18441,7 +18703,7 @@
           enfermedad: "",
           tiempo: "",
           tratamiento: "",
-          complicaciones: "",
+          complicaciones: "0",
           opci: opcion
         });
       },

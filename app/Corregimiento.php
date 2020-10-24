@@ -32,7 +32,7 @@ class Corregimiento extends Model
     public static function listar($busqueda, $alias)
     {
         if (!empty($busqueda)) {
-            $respuesta = DB::connection('mysql')->table($alias . '.corregimientos')->join('dptos', 'dptos.codigo', 'corregimientos.id_dpto')
+            $respuesta = DB::connection('mysql')->table($alias . '.corregimientos')->join($alias . '.dptos', 'dptos.codigo', 'corregimientos.id_dpto')
                 ->join($alias . '.muni', function ($join) {
                     $join->on('muni.coddep', '=', 'dptos.codigo');
                     $join->on('muni.codmun', '=', 'corregimientos.id_muni');

@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/chunks/" + chunkId + ".chunk." + {"0":"c81cf0505d4d7e6db540","1":"ae1c50c281b01abce294","2":"3e479a9ecbc0c383be33","3":"912c45e8eca630d1a066","4":"19e3a55314fc38051242","5":"c08b0226b401d204aff4","6":"bcda5f433bd32f128833","7":"d221307b3ff0211eb829","8":"c41ba4e5c9a9271c70af","9":"bc242e0e688f3329c3d4","10":"a455fbc69bc3eb5ea287","11":"33762d27da47bccb22bb","12":"c1b2cab49a82c604375b","13":"323e1b9f3f0210187966","14":"25578265a0f54f132127","15":"54246f5629ebb2fd3d5a","16":"ea2b92d94d940e08337d","17":"e8b1248e79c3e962cf61","18":"7ae1c2f99c739e287464","19":"38c70ce0e5bb17ea169d","20":"63b944b1f47be35ac3c5","21":"12931dd4e77c8ee99b71","22":"1d727fff54d8fc86ec10","23":"5a24c2de93777771bf0b"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "js/chunks/" + ({}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -76845,8 +76845,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     apiURL: 'http://127.0.0.1:8000/',
     serverPath: 'http://127.0.0.1:8000/' // apiURL: 'http://35.196.193.180/SIP/public/',
     // serverPath: 'http://35.196.193.180/SIP/public/',
-    // apiURL: 'http://192.168.1.40/SIP/public/',
-    // serverPath: 'http://192.168.1.40/SIP/public/',                
+    // apiURL: 'http://192.168.1.15/SIP/public/',
+    // serverPath: 'http://192.168.1.15/SIP/public/',                
 
   },
   mutations: {},
@@ -76862,8 +76862,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/usuario10/Proyectos/php/SIP/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/usuario10/Proyectos/php/SIP/resources/js/main.js */"./resources/js/main.js");
+__webpack_require__(/*! /home/usuario10/SIP/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/usuario10/SIP/resources/js/main.js */"./resources/js/main.js");
 
 
 /***/ })

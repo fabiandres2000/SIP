@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,112 +11,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/barrios_servicios */ "./resources/js/Servicios/barrios_servicios.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/actividad_servicios */ "./resources/js/Servicios/actividad_servicios.js");
 //
 //
 //
@@ -404,19 +299,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       bandera: false,
       entrarPorError: false,
       txtbusqueda: "",
-      barrios: [],
-      barriosData: {
-        dpto: "",
-        muni: "",
-        corregimiento: "0",
-        barrio: "",
+      actividades: [],
+      actividadesData: {
+        descripcion: "",
+        observacion: "",
         id: 0
       },
-      dpto_options: [],
-      muni_options: {},
-      corregi_options: {},
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-      datos: [],
       paginacion: {
         total: 0,
         pagina_actual: 0,
@@ -426,10 +315,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         hasta: 0
       },
       offset: 4,
-      banderaBoton: true
+      variableGlobal: "GUARDAR"
     };
   },
   computed: {
+    // CLASES Y ERRORES DE CAMPO IDENTIFICACION
+    ocupacionesError: function ocupacionesError() {
+      var valor = this.actividadesData.descripcion.trim();
+
+      if (valor == "") {
+        return "El campo es obligatorio";
+      }
+    },
+    ocupacionesClases: function ocupacionesClases() {
+      return [{
+        "is-invalid": this.ocupacionesError,
+        "is-valid": !this.ocupacionesError
+      }];
+    },
     esActivo: function esActivo() {
       return this.paginacion.pagina_actual;
     },
@@ -480,14 +383,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context.prev = 1;
                 _context.next = 4;
-                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__["listarBarrios"](parametros).then(function (respuesta) {
-                  _this.barrios = respuesta.data.barrios.data;
-                  _this.dpto_options = respuesta.data.arrayDpto;
-                  _this.muni_options = respuesta.data.arrayMuni;
-                  _this.corregi_options = respuesta.data.arrayCorregi;
-                  _this.paginacion = respuesta.data.paginacion; // console.log(Object.keys(this.muni_options).length);
-                  // console.log(Object.keys(respuesta.data.arrayCorregi).length);
-                  // console.log(this.corregi_options.length);
+                return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
+                  _this.actividades = respuesta.data.actividades.data;
+                  _this.paginacion = respuesta.data.paginacion;
                 });
 
               case 4:
@@ -524,62 +422,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return consultar;
     }(),
     abrirModal: function abrirModal() {
+      this.variableGlobal = "GUARDAR";
+      this.actividadesData.descripcion = "";
+      this.actividadesData.observacion = "";
+      this.actividadesData.id = 0;
       this.errores = [];
       this.entrarPorError = false;
-      this.datos = [];
-      this.barriosData.barrio = "";
-      this.barriosData.dpto = "";
-      this.barriosData.muni = "";
-      this.barriosData.corregimiento = "0";
-      this.barriosData.id = 0;
-      this.bandera = false;
-      this.banderaBoton = true;
-      this.$refs.modalBarrio.show();
+      this.$refs.modalOcupaciones.show();
     },
     cerrarModal: function cerrarModal() {
-      this.$refs.modalBarrio.hide();
+      this.$refs.modalOcupaciones.hide();
     },
-    cambio: function cambio() {
-      this.bandera = false;
-      this.corregimiento = "0";
-
-      for (var key in this.corregi_options[this.barriosData.muni]) {
-        this.bandera = true;
-      }
-    },
-    agregar: function agregar() {
-      if (this.barriosData.dpto == "") {
-        this.$swal("Error...!", "Por favor seleccione un departamento!", "error");
-        return;
-      }
-
-      if (this.barriosData.muni == "") {
-        this.$swal("Error...!", "Por favor seleccione un municipio!", "error");
-        return;
-      }
-
-      if (this.barriosData.barrio == "") {
-        this.$swal("Error...!", "Por favor digite un barrio!", "error");
-        return;
-      }
-
-      this.datos.push({
-        dpto: this.barriosData.dpto,
-        dptoTexto: this.showText(this.barriosData.dpto, this.dpto_options),
-        muni: this.barriosData.muni,
-        muniTexto: this.showText(this.barriosData.muni, this.muni_options[this.barriosData.dpto]),
-        corregimiento: this.barriosData.corregimiento,
-        corregimientoTexto: this.showText(this.barriosData.corregimiento, this.corregi_options[this.barriosData.muni]),
-        barrio: this.barriosData.barrio,
-        id: 0
-      });
-      this.barriosData.barrio = "";
-    },
-    eliminarItem: function eliminarItem(index) {
-      this.datos.splice(index, 1);
-    },
-    guardarBarrio: function () {
-      var _guardarBarrio = _asyncToGenerator(
+    guardarOcupacion: function () {
+      var _guardarOcupacion = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this2 = this;
@@ -602,25 +457,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 this.errores = [];
                 parametros = {
                   _token: this.csrf,
-                  barrios: this.datos,
-                  opcion: "GUARDAR"
+                  descripcion: this.actividadesData.descripcion,
+                  observacion: this.actividadesData.observacion,
+                  id: this.actividadesData.id,
+                  opcion: this.variableGlobal
                 };
                 _context2.prev = 6;
                 _context2.next = 9;
-                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarBarrios"](parametros).then(function (respuesta) {
+                return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
                   _this2.consultar(1);
 
-                  _this2.datos = [];
-                  _this2.barriosData.barrio = "";
-                  _this2.barriosData.dpto = "";
-                  _this2.barriosData.muni = "";
-                  _this2.barriosData.corregimiento = "0";
-                  _this2.barriosData.id = 0;
-                  _this2.bandera = false;
+                  _this2.actividadesData.descripcion = "";
+                  _this2.actividadesData.observacion = "";
 
                   _this2.cerrarModal();
 
                   _this2.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this2.entrarPorError = false;
                 })["catch"](function (error) {
                   _this2.errorDevuelto = error.response.data.errors;
                   _this2.entrarPorError = true;
@@ -657,102 +511,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, this, [[6, 11]]);
       }));
 
-      function guardarBarrio() {
-        return _guardarBarrio.apply(this, arguments);
+      function guardarOcupacion() {
+        return _guardarOcupacion.apply(this, arguments);
       }
 
-      return guardarBarrio;
-    }(),
-    editarBarrio: function () {
-      var _editarBarrio = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var _this3 = this;
-
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                if (this.checkForm2()) {
-                  _context3.next = 4;
-                  break;
-                }
-
-                this.entrarPorError = false;
-                _context3.next = 22;
-                break;
-
-              case 4:
-                this.errores = [];
-                parametros = {
-                  _token: this.csrf,
-                  barrios: this.barriosData,
-                  opcion: "EDITAR"
-                };
-                _context3.prev = 6;
-                _context3.next = 9;
-                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarBarrios"](parametros).then(function (respuesta) {
-                  _this3.consultar(1);
-
-                  _this3.datos = [];
-                  _this3.barriosData.barrio = "";
-                  _this3.barriosData.dpto = "";
-                  _this3.barriosData.muni = "";
-                  _this3.barriosData.corregimiento = "0";
-                  _this3.barriosData.id = 0;
-                  _this3.bandera = false;
-
-                  _this3.cerrarModal();
-
-                  _this3.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
-                })["catch"](function (error) {
-                  _this3.errorDevuelto = error.response.data.errors;
-                  _this3.entrarPorError = true;
-                });
-
-              case 9:
-                _context3.next = 22;
-                break;
-
-              case 11:
-                _context3.prev = 11;
-                _context3.t0 = _context3["catch"](6);
-                _context3.t1 = _context3.t0.response.status;
-                _context3.next = _context3.t1 === 419 ? 16 : _context3.t1 === 422 ? 18 : 20;
-                break;
-
-              case 16:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context3.abrupt("break", 22);
-
-              case 18:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context3.abrupt("break", 22);
-
-              case 20:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context3.abrupt("break", 22);
-
-              case 22:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this, [[6, 11]]);
-      }));
-
-      function editarBarrio() {
-        return _editarBarrio.apply(this, arguments);
-      }
-
-      return editarBarrio;
+      return guardarOcupacion;
     }(),
     checkForm: function checkForm(e) {
       this.errores = [];
 
-      if (this.datos.length <= 0) {
-        this.errores.push("Agregue por lo menos un barrio");
+      if (!this.actividadesData.descripcion) {
+        this.errores.push("La descripción es obligatoria.");
       }
 
       if (!this.errores.length) {
@@ -766,16 +535,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     checkForm2: function checkForm2(e) {
       this.errores = [];
 
-      if (this.barriosData.dpto == "") {
-        this.errores.push("Por favor seleccione el departamento.");
-      }
-
-      if (this.barriosData.muni == "") {
-        this.errores.push("Por favor seleccione el municipio");
-      }
-
-      if (this.barriosData.barrio == "") {
-        this.errores.push("Por favor digite el barrio.");
+      if (this.actividadesData.descripcion == "") {
+        this.errores.push("La descripción es obligatoria.");
       }
 
       if (!this.errores.length) {
@@ -793,23 +554,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     eliminar: function () {
       var _eliminar = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(usu) {
-        var _this4 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(usu) {
+        var _this3 = this;
 
         var title, titulo;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 title = "";
                 titulo = "";
 
-                if (usu.ESTADO == "Activo") {
-                  title = "¿Desea anular el barrio " + usu.BARRIO + "?";
-                  titulo = "Barrio " + usu.BARRIO + " anulado de manera exitosa";
+                if (usu.estado == "Activo") {
+                  title = "¿Desea anular la actividad economica " + usu.descripcion + "?";
+                  titulo = "Actividad Economica " + usu.descripcion + " anulada de manera exitosa";
                 } else {
-                  title = "¿Desea activar el barrio " + usu.BARRIO + "?";
-                  titulo = "Barrio " + usu.BARRIO + " activado de manera exitosa";
+                  title = "¿Desea activar la actividad economica " + usu.descripcion + "?";
+                  titulo = "Actividad Economica " + usu.descripcion + " activada de manera exitosa";
                 }
 
                 this.$swal({
@@ -824,16 +585,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (result) {
                   if (result.value) {
                     var parametros = {
-                      _token: _this4.csrf,
+                      _token: _this3.csrf,
                       id: usu.id,
-                      estado: usu.ESTADO
+                      estado: usu.estado
                     };
 
                     try {
-                      _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminarBarrios"](parametros).then(function (respuesta) {
-                        _this4.consultar(1);
+                      _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function (respuesta) {
+                        _this3.consultar(1);
 
-                        _this4.$swal({
+                        _this3.$swal({
                           position: "top-end",
                           icon: "success",
                           title: titulo,
@@ -841,17 +602,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           timer: 2000
                         });
                       })["catch"](function (error) {
-                        _this4.$swal("Error...!", "Ocurrio un error!", "error");
+                        _this3.$swal("Error...!", "Ocurrio un error!", "error");
                       });
                     } catch (error) {
                       switch (error.response.status) {
                         case 422:
-                          _this4.$swal("Error...!", "Ocurrio un error!", "error");
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
 
                           break;
 
                         default:
-                          _this4.$swal("Error...!", "Ocurrio un error!", "error");
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
 
                           break;
                       }
@@ -861,10 +622,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
               case "end":
-                return _context4.stop();
+                return _context3.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee3, this);
       }));
 
       function eliminar(_x2) {
@@ -873,44 +634,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return eliminar;
     }(),
-    editar: function editar(item) {
-      // this.barriosData = { ...item };
-      this.entrarPorError = false;
-      this.errores = [];
-      this.barriosData.dpto = item.dpto;
-      this.barriosData.muni = item.muni;
-      this.barriosData.corregimiento = item.corregimiento;
-      this.bandera = false;
+    editar: function () {
+      var _editar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(item) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                this.actividadesData.descripcion = item.descripcion;
+                this.actividadesData.observacion = item.observacion;
+                this.actividadesData.id = item.id;
+                this.variableGlobal = "EDITAR";
+                this.$refs.modalOcupaciones.show();
 
-      if (this.barriosData.corregimiento != null) {
-        this.bandera = true;
-      } else {
-        this.bandera = false;
+              case 5:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function editar(_x3) {
+        return _editar.apply(this, arguments);
       }
 
-      this.barriosData.barrio = item.BARRI;
-      this.barriosData.id = item.id;
-      this.banderaBoton = false;
-      this.$refs.modalBarrio.show();
-    },
-    showText: function showText(val, vectorAux) {
-      for (var i = 0; i < vectorAux.length; i++) {
-        if (vectorAux[i].value === val) {
-          return vectorAux[i].texto;
-        }
-      }
-
-      return "";
-    }
+      return editar;
+    }()
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -926,15 +686,15 @@ exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Barrios.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -956,10 +716,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=template&id=3fc533bc&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=template&id=3fc533bc& ***!
-  \**************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0& ***!
+  \******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -994,7 +754,7 @@ var render = function() {
                             "data-skin": "dark",
                             "data-toggle": "kt-tooltip",
                             "data-placement": "top",
-                            title: "Nuevo Barrio"
+                            title: "Nueva Actividad Economica"
                           },
                           on: { click: _vm.abrirModal }
                         },
@@ -1060,7 +820,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.barrios, function(item, index) {
+                        _vm._l(_vm.actividades, function(item, index) {
                           return _c("tr", { key: index }, [
                             _c(
                               "td",
@@ -1083,7 +843,7 @@ var render = function() {
                                   "text-transform": "capitalize"
                                 }
                               },
-                              [_vm._v(_vm._s(item.DEPARTAMENTO))]
+                              [_vm._v(_vm._s(item.descripcion))]
                             ),
                             _vm._v(" "),
                             _c(
@@ -1096,33 +856,7 @@ var render = function() {
                                   "text-transform": "capitalize"
                                 }
                               },
-                              [_vm._v(_vm._s(item.MUNICIPIO))]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                staticStyle: {
-                                  "font-weight": "normal",
-                                  "vertical-align": "middle",
-                                  "text-align": "left",
-                                  "text-transform": "capitalize"
-                                }
-                              },
-                              [_vm._v(_vm._s(item.CORREGI))]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              {
-                                staticStyle: {
-                                  "font-weight": "normal",
-                                  "vertical-align": "middle",
-                                  "text-align": "left",
-                                  "text-transform": "capitalize"
-                                }
-                              },
-                              [_vm._v(_vm._s(item.BARRI))]
+                              [_vm._v(_vm._s(item.observacion))]
                             ),
                             _vm._v(" "),
                             _c(
@@ -1140,11 +874,11 @@ var render = function() {
                                   {
                                     staticClass: "kt-badge kt-badge--inline",
                                     class:
-                                      item.ESTADO == "Activo"
+                                      item.estado == "Activo"
                                         ? "kt-badge--success"
                                         : "kt-badge--danger"
                                   },
-                                  [_vm._v(_vm._s(item.ESTADO))]
+                                  [_vm._v(_vm._s(item.estado))]
                                 )
                               ]
                             ),
@@ -1178,13 +912,13 @@ var render = function() {
                                   {
                                     staticClass: "btn btn-icon btn-sm",
                                     class:
-                                      item.ESTADO == "Activo"
+                                      item.estado == "Activo"
                                         ? "btn-outline-danger"
                                         : "btn-outline-success",
                                     attrs: {
                                       type: "button",
                                       title:
-                                        item.ESTADO == "Activo"
+                                        item.estado == "Activo"
                                           ? "Anular"
                                           : "Activar"
                                     },
@@ -1198,7 +932,7 @@ var render = function() {
                                     _c("i", {
                                       staticClass: "fa",
                                       class:
-                                        item.ESTADO == "Activo"
+                                        item.estado == "Activo"
                                           ? "fa-trash"
                                           : "fa-check"
                                     })
@@ -1396,10 +1130,10 @@ var render = function() {
         _c(
           "b-modal",
           {
-            ref: "modalBarrio",
+            ref: "modalOcupaciones",
             attrs: {
               "hide-footer": "",
-              title: "Gestion de Barrios",
+              title: "Gestion de Actividades Economicas",
               size: "xl",
               centered: "",
               "header-bg-variant": "danger",
@@ -1558,383 +1292,89 @@ var render = function() {
               _vm._v(" "),
               _c("form", [
                 _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-4" },
-                    [
-                      _c("label", [_vm._v("Departamento:")]),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-select",
-                        {
-                          model: {
-                            value: _vm.barriosData.dpto,
-                            callback: function($$v) {
-                              _vm.$set(_vm.barriosData, "dpto", $$v)
-                            },
-                            expression: "barriosData.dpto"
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "", selected: "" } }, [
-                            _vm._v("Seleccione")
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.dpto_options, function(item) {
-                            return _c(
-                              "option",
-                              {
-                                key: item.value,
-                                domProps: { value: item.value }
-                              },
-                              [_vm._v(_vm._s(item.texto))]
-                            )
-                          })
-                        ],
-                        2
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-lg-4" },
-                    [
-                      _c("label", [_vm._v("Municipio:")]),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-select",
-                        {
-                          on: { change: _vm.cambio },
-                          model: {
-                            value: _vm.barriosData.muni,
-                            callback: function($$v) {
-                              _vm.$set(_vm.barriosData, "muni", $$v)
-                            },
-                            expression: "barriosData.muni"
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "", selected: "" } }, [
-                            _vm._v("Seleccione")
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(
-                            _vm.muni_options[_vm.barriosData.dpto],
-                            function(item) {
-                              return _c(
-                                "option",
-                                {
-                                  key: item.value,
-                                  domProps: { value: item.value }
-                                },
-                                [_vm._v(_vm._s(item.texto))]
-                              )
-                            }
-                          )
-                        ],
-                        2
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm.bandera
-                    ? _c(
-                        "div",
-                        { staticClass: "col-lg-4" },
-                        [
-                          _c("label", [_vm._v("Corregimiento:")]),
-                          _vm._v(" "),
-                          _c(
-                            "b-form-select",
-                            {
-                              model: {
-                                value: _vm.barriosData.corregimiento,
-                                callback: function($$v) {
-                                  _vm.$set(
-                                    _vm.barriosData,
-                                    "corregimiento",
-                                    $$v
-                                  )
-                                },
-                                expression: "barriosData.corregimiento"
-                              }
-                            },
-                            [
-                              _c(
-                                "option",
-                                { attrs: { value: "0", selected: "" } },
-                                [_vm._v("Seleccione")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(
-                                _vm.corregi_options[_vm.barriosData.muni],
-                                function(item) {
-                                  return _c(
-                                    "option",
-                                    {
-                                      key: item.value,
-                                      domProps: { value: item.value }
-                                    },
-                                    [_vm._v(_vm._s(item.texto))]
-                                  )
-                                }
-                              )
-                            ],
-                            2
-                          )
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c("div", { staticClass: "col-lg-11" }, [
-                    _c("label", [_vm._v("Barrio:")]),
+                  _c("div", { staticClass: "col-lg-4" }, [
+                    _c("label", [_vm._v("Actividad Economica:")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.barriosData.barrio,
-                          expression: "barriosData.barrio"
+                          value: _vm.actividadesData.descripcion,
+                          expression: "actividadesData.descripcion"
                         }
                       ],
                       staticClass: "form-control text-capitalize",
-                      attrs: { type: "text", placeholder: "Barrio" },
-                      domProps: { value: _vm.barriosData.barrio },
+                      class: _vm.actividadesData,
+                      attrs: { type: "text", placeholder: "Descripción" },
+                      domProps: { value: _vm.actividadesData.descripcion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.barriosData,
-                            "barrio",
+                            _vm.actividadesData,
+                            "descripcion",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.ocupacionesError
+                      ? _c("div", { staticClass: "invalid-feedback" }, [
+                          _vm._v(_vm._s(_vm.ocupacionesError))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-8" }, [
+                    _c("label", [_vm._v("Observación:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.actividadesData.observacion,
+                          expression: "actividadesData.observacion"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      attrs: { type: "text", placeholder: "Observación" },
+                      domProps: { value: _vm.actividadesData.observacion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.actividadesData,
+                            "observacion",
                             $event.target.value
                           )
                         }
                       }
                     })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-1" }, [
-                    _c("label", [_vm._v("   ")]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-outline-info btn-icon",
-                        attrs: {
-                          href: "javascript:;",
-                          "data-skin": "dark",
-                          "data-toggle": "kt-tooltip",
-                          "data-placement": "top",
-                          title: "Agregar Barrio"
-                        },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.agregar($event)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fa fa-plus" })]
-                    ),
-                    _vm._v(" \n            ")
                   ])
                 ]),
-                _vm._v(" "),
-                _vm.banderaBoton
-                  ? _c("div", { staticClass: "form-group row" }, [
-                      _c("div", { staticClass: "col-md-12" }, [
-                        _c("div", { staticClass: "table-responsive" }, [
-                          _c(
-                            "table",
-                            { staticClass: "table table-sm table-hover" },
-                            [
-                              _c("thead", {}, [
-                                _c("tr", { staticClass: "kt-bg-fill-brand" }, [
-                                  _c("th", [_vm._v("No.")]),
-                                  _vm._v(" "),
-                                  _c("th", [_vm._v("Departamento")]),
-                                  _vm._v(" "),
-                                  _c("th", [_vm._v("Municipio")]),
-                                  _vm._v(" "),
-                                  _c("th", [_vm._v("Corregimiento")]),
-                                  _vm._v(" "),
-                                  _c("th", [_vm._v("Barrio")]),
-                                  _vm._v(" "),
-                                  _c("td", { staticClass: "text-center" }, [
-                                    _vm._v("Opciones")
-                                  ])
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "tbody",
-                                _vm._l(_vm.datos, function(item, index) {
-                                  return _c("tr", { key: index }, [
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle"
-                                        }
-                                      },
-                                      [_vm._v(_vm._s(index + 1))]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          { staticClass: "text-capitalize" },
-                                          [_vm._v(_vm._s(item.dptoTexto))]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          { staticClass: "text-capitalize" },
-                                          [_vm._v(_vm._s(item.muniTexto))]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "span",
-                                          { staticClass: "text-capitalize" },
-                                          [
-                                            _vm._v(
-                                              _vm._s(item.corregimientoTexto)
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [_vm._v(_vm._s(item.barrio))]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "text-align": "center",
-                                          "vertical-align": "middle"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "button",
-                                          {
-                                            staticClass:
-                                              "btn btn-icon btn-sm btn-outline-danger",
-                                            attrs: {
-                                              type: "button",
-                                              title: "Eliminar"
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.eliminarItem(index)
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _c("i", {
-                                              staticClass: "fa fa-trash"
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                }),
-                                0
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ])
-                  : _vm._e(),
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
                 _c("div", { staticClass: "text-right" }, [
-                  _vm.banderaBoton
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-success",
-                          attrs: { type: "button" },
-                          on: { click: _vm.guardarBarrio }
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-edit" }),
-                          _vm._v(" Guardar\n            ")
-                        ]
-                      )
-                    : _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-success",
-                          attrs: { type: "button" },
-                          on: { click: _vm.editarBarrio }
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-edit" }),
-                          _vm._v(" Guardar\n            ")
-                        ]
-                      ),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "button" },
+                      on: { click: _vm.guardarOcupacion }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-edit" }),
+                      _vm._v(" Guardar\n            ")
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -1967,7 +1407,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "kt-portlet__head-label" }, [
         _c("h3", { staticClass: "kt-portlet__head-title" }, [
           _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-            _vm._v("GESTIÓN DE BARRIOS")
+            _vm._v("GESTIÓN DE ACTIVIDADES ECONOMICAS")
           ])
         ])
       ])
@@ -1981,13 +1421,9 @@ var staticRenderFns = [
       _c("tr", { staticClass: "kt-bg-fill-brand" }, [
         _c("th", [_vm._v("No.")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Departamento")]),
+        _c("th", [_vm._v("Actividad Economica")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Municipio")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Corregimiento")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Barrio")]),
+        _c("th", [_vm._v("Observación")]),
         _vm._v(" "),
         _c("td", { staticClass: "text-center" }, [_vm._v("Estado")]),
         _vm._v(" "),
@@ -2002,48 +1438,44 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Servicios/barrios_servicios.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/Servicios/barrios_servicios.js ***!
-  \*****************************************************/
-/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios */
+/***/ "./resources/js/Servicios/actividad_servicios.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/Servicios/actividad_servicios.js ***!
+  \*******************************************************/
+/*! exports provided: listar, guardar, eliminar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarBarrios", function() { return listarBarrios; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarBarrios", function() { return guardarBarrios; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarBarrios", function() { return eliminarBarrios; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboBarrios", function() { return comboBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar", function() { return listar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardar", function() { return guardar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
-function listarBarrios($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios', $data);
+function listar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/actividad', $data);
 }
-function guardarBarrios($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/guardar', $data);
+function guardar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/actividad/guardar', $data);
 }
-function eliminarBarrios($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/eliminar', $data);
-}
-function comboBarrios($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
+function eliminar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/actividad/eliminar', $data);
 }
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Barrios/Barrios.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/Vistas/Barrios/Barrios.vue ***!
-  \*************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Barrios_vue_vue_type_template_id_3fc533bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Barrios.vue?vue&type=template&id=3fc533bc& */ "./resources/js/Vistas/Barrios/Barrios.vue?vue&type=template&id=3fc533bc&");
-/* harmony import */ var _Barrios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Barrios.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Barrios/Barrios.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Barrios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Barrios.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Actividad.vue?vue&type=template&id=41d4bcc0& */ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&");
+/* harmony import */ var _Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Actividad.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Actividad.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -2054,9 +1486,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Barrios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Barrios_vue_vue_type_template_id_3fc533bc___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Barrios_vue_vue_type_template_id_3fc533bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -2066,54 +1498,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Barrios/Barrios.vue"
+component.options.__file = "resources/js/Vistas/Actividad/Actividad.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Barrios/Barrios.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/Vistas/Barrios/Barrios.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Barrios.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css& ***!
-  \**********************************************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Barrios.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Barrios/Barrios.vue?vue&type=template&id=3fc533bc&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/Vistas/Barrios/Barrios.vue?vue&type=template&id=3fc533bc& ***!
-  \********************************************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0& ***!
+  \************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_template_id_3fc533bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Barrios.vue?vue&type=template&id=3fc533bc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Barrios/Barrios.vue?vue&type=template&id=3fc533bc&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_template_id_3fc533bc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=template&id=41d4bcc0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Barrios_vue_vue_type_template_id_3fc533bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

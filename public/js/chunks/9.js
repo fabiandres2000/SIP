@@ -1,8 +1,8 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -11,7 +11,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/ocupaciones_servicios */ "./resources/js/Servicios/ocupaciones_servicios.js");
+/* harmony import */ var _Servicios_escolaridad_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/escolaridad_servicios */ "./resources/js/Servicios/escolaridad_servicios.js");
+//
 //
 //
 //
@@ -298,10 +299,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       bandera: false,
       entrarPorError: false,
       txtbusqueda: "",
-      ocupaciones: [],
-      ocupacionesData: {
+      escolaridad: [],
+      escolaridadData: {
         descripcion: "",
-        observacion: ""
+        observacion: "",
+        id: 0
       },
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
       paginacion: {
@@ -317,17 +319,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     // CLASES Y ERRORES DE CAMPO IDENTIFICACION
-    ocupacionesError: function ocupacionesError() {
-      var valor = this.ocupacionesData.descripcion.trim();
+    escolaridadError: function escolaridadError() {
+      var valor = this.escolaridadData.descripcion.trim();
 
       if (valor == "") {
         return "El campo es obligatorio";
       }
     },
-    ocupacionesClases: function ocupacionesClases() {
+    escolaridadClases: function escolaridadClases() {
       return [{
-        "is-invalid": this.ocupacionesError,
-        "is-valid": !this.ocupacionesError
+        "is-invalid": this.escolaridadError,
+        "is-valid": !this.escolaridadError
       }];
     },
     esActivo: function esActivo() {
@@ -380,8 +382,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context.prev = 1;
                 _context.next = 4;
-                return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__["listarOcupaciones"](parametros).then(function (respuesta) {
-                  _this.ocupaciones = respuesta.data.ocupaciones.data;
+                return _Servicios_escolaridad_servicios__WEBPACK_IMPORTED_MODULE_1__["listarEscolaridad"](parametros).then(function (respuesta) {
+                  _this.escolaridad = respuesta.data.escolaridad.data;
                   _this.paginacion = respuesta.data.paginacion;
                 });
 
@@ -419,15 +421,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return consultar;
     }(),
     abrirModal: function abrirModal() {
-      this.ocupacionesData.descripcion = "";
-      this.ocupacionesData.observacion = "";
-      this.$refs.modalOcupaciones.show();
+      this.escolaridadData.descripcion = "";
+      this.escolaridadData.observacion = "";
+      this.escolaridadData.id = 0;
+      this.errores = [];
+      this.entrarPorError = false;
+      this.$refs.modalEscolaridad.show();
     },
     cerrarModal: function cerrarModal() {
-      this.$refs.modalOcupaciones.hide();
+      this.$refs.modalEscolaridad.hide();
     },
-    guardarOcupacion: function () {
-      var _guardarOcupacion = _asyncToGenerator(
+    guardarEscolaridad: function () {
+      var _guardarEscolaridad = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this2 = this;
@@ -450,16 +455,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 this.errores = [];
                 parametros = {
                   _token: this.csrf,
-                  descripcion: this.ocupacionesData.descripcion,
-                  observacion: this.ocupacionesData.observacion
+                  descripcion: this.escolaridadData.descripcion,
+                  observacion: this.escolaridadData.observacion,
+                  id: this.escolaridadData.id
                 };
                 _context2.prev = 6;
                 _context2.next = 9;
-                return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarOcupaciones"](parametros).then(function (respuesta) {
+                return _Servicios_escolaridad_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarEscolaridad"](parametros).then(function (respuesta) {
                   _this2.consultar(1);
 
-                  _this2.ocupacionesData.descripcion = "";
-                  _this2.ocupacionesData.observacion = "";
+                  _this2.escolaridadData.descripcion = "";
+                  _this2.escolaridadData.observacion = "";
+                  _this2.escolaridadData.id = 0;
 
                   _this2.cerrarModal();
 
@@ -500,16 +507,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, this, [[6, 11]]);
       }));
 
-      function guardarOcupacion() {
-        return _guardarOcupacion.apply(this, arguments);
+      function guardarEscolaridad() {
+        return _guardarEscolaridad.apply(this, arguments);
       }
 
-      return guardarOcupacion;
+      return guardarEscolaridad;
     }(),
     checkForm: function checkForm(e) {
       this.errores = [];
 
-      if (!this.ocupacionesData.descripcion) {
+      if (!this.escolaridadData.descripcion) {
         this.errores.push("La descripción es obligatoria.");
       }
 
@@ -540,11 +547,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 titulo = "";
 
                 if (usu.estado == "Activo") {
-                  title = "¿Desea anular la ocupación " + usu.descripcion + "?";
-                  titulo = "Ocupación " + usu.descripcion + " anulada de manera exitosa";
+                  title = "¿Desea anular la escolaridad " + usu.descripcion + "?";
+                  titulo = "Escolaridad " + usu.descripcion + " anulada de manera exitosa";
                 } else {
-                  title = "¿Desea activar la ocupación " + usu.descripcion + "?";
-                  titulo = "Ocupación " + usu.descripcion + " activada de manera exitosa";
+                  title = "¿Desea activar la escolaridad " + usu.descripcion + "?";
+                  titulo = "Escolaridad " + usu.descripcion + " activada de manera exitosa";
                 }
 
                 this.$swal({
@@ -565,7 +572,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     };
 
                     try {
-                      _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminarOcupaciones"](parametros).then(function (respuesta) {
+                      _Servicios_escolaridad_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminarEscolaridad"](parametros).then(function (respuesta) {
                         _this3.consultar(1);
 
                         _this3.$swal({
@@ -607,15 +614,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return eliminar;
+    }(),
+    editar: function () {
+      var _editar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(item) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                this.escolaridadData.descripcion = item.descripcion;
+                this.escolaridadData.observacion = item.observacion;
+                this.escolaridadData.id = item.id;
+                this.$refs.modalEscolaridad.show();
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function editar(_x3) {
+        return _editar.apply(this, arguments);
+      }
+
+      return editar;
     }()
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css&":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css& ***!
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css& ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -632,15 +666,15 @@ exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css&":
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css& ***!
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css& ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ocupaciones.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Escolaridad.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -662,9 +696,9 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=template&id=21bb8d60&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=template&id=57e5d470&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=template&id=21bb8d60& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=template&id=57e5d470& ***!
   \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -700,7 +734,7 @@ var render = function() {
                             "data-skin": "dark",
                             "data-toggle": "kt-tooltip",
                             "data-placement": "top",
-                            title: "Nueva Ocupación"
+                            title: "Nueva Escolaridad"
                           },
                           on: { click: _vm.abrirModal }
                         },
@@ -766,7 +800,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.ocupaciones, function(item, index) {
+                        _vm._l(_vm.escolaridad, function(item, index) {
                           return _c("tr", { key: index }, [
                             _c(
                               "td",
@@ -838,7 +872,20 @@ var render = function() {
                                 }
                               },
                               [
-                                _vm._m(2, true),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
                                 _vm._v(" "),
                                 _c(
                                   "button",
@@ -1063,10 +1110,10 @@ var render = function() {
         _c(
           "b-modal",
           {
-            ref: "modalOcupaciones",
+            ref: "modalEscolaridad",
             attrs: {
               "hide-footer": "",
-              title: "Gestion de Ocupaciones",
+              title: "Gestion de Escolaridad",
               size: "xl",
               centered: "",
               "header-bg-variant": "danger",
@@ -1226,28 +1273,28 @@ var render = function() {
               _c("form", [
                 _c("div", { staticClass: "form-group row" }, [
                   _c("div", { staticClass: "col-lg-4" }, [
-                    _c("label", [_vm._v("Ocupación:")]),
+                    _c("label", [_vm._v("Escolaridad:")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.ocupacionesData.descripcion,
-                          expression: "ocupacionesData.descripcion"
+                          value: _vm.escolaridadData.descripcion,
+                          expression: "escolaridadData.descripcion"
                         }
                       ],
                       staticClass: "form-control text-capitalize",
-                      class: _vm.ocupacionesClases,
+                      class: _vm.escolaridadClases,
                       attrs: { type: "text", placeholder: "Descripción" },
-                      domProps: { value: _vm.ocupacionesData.descripcion },
+                      domProps: { value: _vm.escolaridadData.descripcion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.ocupacionesData,
+                            _vm.escolaridadData,
                             "descripcion",
                             $event.target.value
                           )
@@ -1255,9 +1302,9 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm.ocupacionesError
+                    _vm.escolaridadError
                       ? _c("div", { staticClass: "invalid-feedback" }, [
-                          _vm._v(_vm._s(_vm.ocupacionesError))
+                          _vm._v(_vm._s(_vm.escolaridadError))
                         ])
                       : _vm._e()
                   ]),
@@ -1270,20 +1317,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.ocupacionesData.observacion,
-                          expression: "ocupacionesData.observacion"
+                          value: _vm.escolaridadData.observacion,
+                          expression: "escolaridadData.observacion"
                         }
                       ],
                       staticClass: "form-control text-capitalize",
                       attrs: { type: "text", placeholder: "Observación" },
-                      domProps: { value: _vm.ocupacionesData.observacion },
+                      domProps: { value: _vm.escolaridadData.observacion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.ocupacionesData,
+                            _vm.escolaridadData,
                             "observacion",
                             $event.target.value
                           )
@@ -1301,7 +1348,7 @@ var render = function() {
                     {
                       staticClass: "btn btn-success",
                       attrs: { type: "button" },
-                      on: { click: _vm.guardarOcupacion }
+                      on: { click: _vm.guardarEscolaridad }
                     },
                     [
                       _c("i", { staticClass: "fa fa-edit" }),
@@ -1340,7 +1387,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "kt-portlet__head-label" }, [
         _c("h3", { staticClass: "kt-portlet__head-title" }, [
           _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-            _vm._v("GESTIÓN DE OCUPACIONES")
+            _vm._v("GESTIÓN DE ESCOLARIDAD")
           ])
         ])
       ])
@@ -1363,19 +1410,6 @@ var staticRenderFns = [
         _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-outline-info btn-icon btn-sm",
-        attrs: { type: "button", title: "Editar" }
-      },
-      [_c("i", { staticClass: "fa fa-edit" })]
-    )
   }
 ]
 render._withStripped = true
@@ -1384,44 +1418,44 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Servicios/ocupaciones_servicios.js":
+/***/ "./resources/js/Servicios/escolaridad_servicios.js":
 /*!*********************************************************!*\
-  !*** ./resources/js/Servicios/ocupaciones_servicios.js ***!
+  !*** ./resources/js/Servicios/escolaridad_servicios.js ***!
   \*********************************************************/
-/*! exports provided: listarOcupaciones, guardarOcupaciones, eliminarOcupaciones */
+/*! exports provided: listarEscolaridad, guardarEscolaridad, eliminarEscolaridad */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarOcupaciones", function() { return listarOcupaciones; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarOcupaciones", function() { return guardarOcupaciones; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarOcupaciones", function() { return eliminarOcupaciones; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarEscolaridad", function() { return listarEscolaridad; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarEscolaridad", function() { return guardarEscolaridad; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarEscolaridad", function() { return eliminarEscolaridad; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
-function listarOcupaciones($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/ocupaciones', $data);
+function listarEscolaridad($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/escolaridad', $data);
 }
-function guardarOcupaciones($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/ocupaciones/guardar', $data);
+function guardarEscolaridad($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/escolaridad/guardar', $data);
 }
-function eliminarOcupaciones($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/ocupaciones/eliminar', $data);
+function eliminarEscolaridad($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/escolaridad/eliminar', $data);
 }
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue":
+/***/ "./resources/js/Vistas/Escolaridad/Escolaridad.vue":
 /*!*********************************************************!*\
-  !*** ./resources/js/Vistas/Ocupaciones/Ocupaciones.vue ***!
+  !*** ./resources/js/Vistas/Escolaridad/Escolaridad.vue ***!
   \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Ocupaciones_vue_vue_type_template_id_21bb8d60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ocupaciones.vue?vue&type=template&id=21bb8d60& */ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=template&id=21bb8d60&");
-/* harmony import */ var _Ocupaciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ocupaciones.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Ocupaciones_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ocupaciones.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _Escolaridad_vue_vue_type_template_id_57e5d470___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Escolaridad.vue?vue&type=template&id=57e5d470& */ "./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=template&id=57e5d470&");
+/* harmony import */ var _Escolaridad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Escolaridad.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Escolaridad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Escolaridad.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1432,9 +1466,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Ocupaciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Ocupaciones_vue_vue_type_template_id_21bb8d60___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Ocupaciones_vue_vue_type_template_id_21bb8d60___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Escolaridad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Escolaridad_vue_vue_type_template_id_57e5d470___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Escolaridad_vue_vue_type_template_id_57e5d470___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1444,54 +1478,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Ocupaciones/Ocupaciones.vue"
+component.options.__file = "resources/js/Vistas/Escolaridad/Escolaridad.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
-  !*** ./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ocupaciones.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Escolaridad.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css&":
+/***/ "./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css&":
 /*!******************************************************************************************!*\
-  !*** ./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css& ***!
+  !*** ./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css& ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ocupaciones.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Escolaridad.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=template&id=21bb8d60&":
+/***/ "./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=template&id=57e5d470&":
 /*!****************************************************************************************!*\
-  !*** ./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=template&id=21bb8d60& ***!
+  !*** ./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=template&id=57e5d470& ***!
   \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_template_id_21bb8d60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ocupaciones.vue?vue&type=template&id=21bb8d60& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Ocupaciones/Ocupaciones.vue?vue&type=template&id=21bb8d60&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_template_id_21bb8d60___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_template_id_57e5d470___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Escolaridad.vue?vue&type=template&id=57e5d470& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Escolaridad/Escolaridad.vue?vue&type=template&id=57e5d470&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_template_id_57e5d470___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ocupaciones_vue_vue_type_template_id_21bb8d60___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Escolaridad_vue_vue_type_template_id_57e5d470___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
