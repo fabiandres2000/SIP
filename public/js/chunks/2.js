@@ -10909,6 +10909,169 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -11153,7 +11316,9 @@ var entero = function entero(value) {
         migrante: "",
         edad: "",
         orientacion: "",
-        identidad_genero: ""
+        identidad_genero: "",
+        perdida_peso: "",
+        programa_icbf: ""
       },
       CA1: {
         id: 0,
@@ -11186,9 +11351,12 @@ var entero = function entero(value) {
         clasificacion: "0",
         id_hogar: 0,
         jefe: "0",
-        orientacion: "",
-        identidad_genero: "",
-        telefono: ""
+        orientacion: "0",
+        identidad_genero: "0",
+        telefono: "",
+        perdida_peso: "0",
+        programa_icbf: "0",
+        excepciones: "0"
       },
       viviendaData: {
         id: 0,
@@ -13230,6 +13398,16 @@ var entero = function entero(value) {
         if (this.datosJefe[i].salario === "") {
           this.$swal("Error...!", "Por favor digite el <b>salario</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
           return false;
+        }
+
+        if (this.datosJefe[i].perdida_peso === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+          return false;
+        }
+
+        if (this.datosJefe[i].programa_icbf === "") {
+          this.$swal("Error...!", "Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+          return false;
         } // VERIFICAR SI ESTA EN LA TABLA
 
 
@@ -13420,6 +13598,21 @@ var entero = function entero(value) {
 
         if (this.datos[i].jefe === "0") {
           this.$swal("Error...!", "Por favor seleccione el <b>jefe de hogar</b> en la fila " + (i + 1) + " de los integrantes", "error");
+          return false;
+        }
+
+        if (this.datos[i].perdida_peso === "0") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila " + (i + 1) + " de los integrantes", "error");
+          return false;
+        }
+
+        if (this.datos[i].programa_icbf === "") {
+          this.$swal("Error...!", "Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila " + (i + 1) + " de los integrantes", "error");
+          return false;
+        }
+
+        if (this.datos[i].excepciones === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>excepciones</b> en la fila " + (i + 1) + " de los integrantes", "error");
           return false;
         } // VERIFICAR SI ESTA EN LA TABLA
 
@@ -13686,7 +13879,12 @@ var entero = function entero(value) {
         }
 
         if (this.Men1A[i].cinta === "") {
-          this.$swal("Error...!", "Por favor seleccione la <b>cinta</b> en la fila " + (i + 1) + " de la tabla primera infancia, niños(as) menores de 1 año", "error");
+          this.$swal("Error...!", "Por favor seleccione la opción<b> P. Cefalico </b> en la fila " + (i + 1) + " de la tabla primera infancia, niños(as) menores de 1 año", "error");
+          return false;
+        }
+
+        if (this.Men1A[i].pb === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción<b> PB </b> en la fila " + (i + 1) + " de la tabla primera infancia, niños(as) menores de 1 año", "error");
           return false;
         }
 
@@ -15012,178 +15210,145 @@ var entero = function entero(value) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
-                if (!(this.CA1.tipo_id == "0")) {
-                  _context10.next = 3;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
-                return _context10.abrupt("return");
-
-              case 3:
-                if (!(this.CA1.identificacion == "")) {
-                  _context10.next = 6;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor digite el documento de identificación!", "error");
-                return _context10.abrupt("return");
-
-              case 6:
-                if (!(this.CA1.sexo == "0")) {
-                  _context10.next = 9;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-                return _context10.abrupt("return");
-
-              case 9:
-                if (!(this.CA1.orientacion === "0")) {
-                  _context10.next = 13;
-                  break;
-                }
-
-                bande = false;
-                this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-                return _context10.abrupt("return");
-
-              case 13:
-                if (!(this.CA1.identidad_genero === "0")) {
-                  _context10.next = 17;
-                  break;
-                }
-
-                bande = false;
-                this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-                return _context10.abrupt("return");
-
-              case 17:
-                if (!(this.CA1.parentesco == "0")) {
-                  _context10.next = 20;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-                return _context10.abrupt("return");
-
-              case 20:
-                if (!(this.CA1.pnom == "0")) {
-                  _context10.next = 23;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-                return _context10.abrupt("return");
-
-              case 23:
-                if (!(this.CA1.pape == "0")) {
-                  _context10.next = 26;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
-                return _context10.abrupt("return");
-
-              case 26:
-                if (!(this.CA1.estado_civil == "0")) {
-                  _context10.next = 29;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
-                return _context10.abrupt("return");
-
-              case 29:
-                if (!(this.CA1.fecha_nac == "")) {
-                  _context10.next = 32;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
-                return _context10.abrupt("return");
-
-              case 32:
-                if (!(this.CA1.escolaridad == "0")) {
-                  _context10.next = 35;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el nivel de escolaridad!", "error");
-                return _context10.abrupt("return");
-
-              case 35:
-                if (!(this.CA1.ocupacion == "0")) {
-                  _context10.next = 38;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-                return _context10.abrupt("return");
-
-              case 38:
-                if (!(this.CA1.etnia == "0")) {
-                  _context10.next = 41;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-                return _context10.abrupt("return");
-
-              case 41:
-                if (!(this.CA1.clasificacion == "0")) {
-                  _context10.next = 44;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
-                return _context10.abrupt("return");
-
-              case 44:
-                if (!(this.CA1.entiende == "0")) {
-                  _context10.next = 47;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la opción entiende español!", "error");
-                return _context10.abrupt("return");
-
-              case 47:
-                if (!(this.CA1.pyp == "0")) {
-                  _context10.next = 50;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-                return _context10.abrupt("return");
-
-              case 50:
-                if (!(this.CA1.migrante == "0")) {
-                  _context10.next = 53;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la opción migrante!", "error");
-                return _context10.abrupt("return");
-
-              case 53:
-                if (!(this.CA1.jefe == "0")) {
-                  _context10.next = 56;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el un jefe de hogar!", "error");
-                return _context10.abrupt("return");
-
-              case 56:
+                // if (this.CA1.tipo_id == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione un tipo de identificación!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.identificacion == "") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor digite el documento de identificación!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.sexo == "0") {
+                //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+                //   return;
+                // }
+                // if (this.CA1.orientacion === "0") {
+                //   bande = false;
+                //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+                //   return;
+                // }
+                // if (this.CA1.identidad_genero === "0") {
+                //   bande = false;
+                //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+                //   return;
+                // }        
+                // if (this.CA1.parentesco == "0") {
+                //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+                //   return;
+                // }
+                // if (this.CA1.pnom == "0") {
+                //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+                //   return;
+                // }
+                // if (this.CA1.pape == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor digite el primer apellido!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.estado_civil == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione el estado civil!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.fecha_nac == "") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione la fecha de nacimiento!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.escolaridad == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione el nivel de escolaridad!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.ocupacion == "0") {
+                //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+                //   return;
+                // }
+                // if (this.CA1.etnia == "0") {
+                //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+                //   return;
+                // }
+                // if (this.CA1.clasificacion == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione la clasificacion de la etnia!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.entiende == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione la opción entiende español!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.pyp == "0") {
+                //   this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+                //   return;
+                // }
+                // if (this.CA1.migrante == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione la opción migrante!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.jefe == "0") {
+                //   this.$swal(
+                //     "Error...!",
+                //     "Por favor seleccione el un jefe de hogar!",
+                //     "error"
+                //   );
+                //   return;
+                // }
+                // if (this.CA1.perdida_peso === "") {
+                //   this.$refs.perdida_peso.focus();
+                //   bande = false;
+                //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+                //   return;
+                // }
+                // if (this.CA1.programa_icbf === "") {
+                //   this.$refs.programa_icbf.focus();
+                //   bande = false;
+                //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+                //   return;
+                // }
+                // if (this.CA1.excepciones === "") {
+                //   bande = false;
+                //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+                //   return;
+                // }        
                 // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
                 this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
                 parametros = {
                   _token: this.csrf,
                   identificacion: this.CA1.identificacion
                 };
-                _context10.prev = 58;
-                _context10.next = 61;
+                _context10.prev = 2;
+                _context10.next = 5;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "EXISTE") {
                     var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
@@ -15250,7 +15415,10 @@ var entero = function entero(value) {
                         jefe: _this8.CA1.jefe,
                         orientacion: _this8.CA1.orientacion,
                         identidad_genero: _this8.CA1.identidad_genero,
-                        telefono: _this8.CA1.telefono
+                        telefono: _this8.CA1.telefono,
+                        perdida_peso: _this8.CA1.perdida_peso,
+                        programa_icbf: _this8.CA1.programa_icbf,
+                        excepciones: _this8.CA1.excepciones
                       });
 
                       if (_this8.CA1.tipo_afiliacion === "CONTRIBUTIVO" || _this8.CA1.tipo_afiliacion === "ESPECIAL") {
@@ -15273,7 +15441,7 @@ var entero = function entero(value) {
                       _this8.CA1.id = "INTE"; // AGREGAR NIÑOS MENORES DE 1 AÑO
 
                       if (edad <= 0) {
-                        _this8.Amenores1Anio(_this8.CA1);
+                        _this8.Amenores1Anio(_this8.CA1, hoy.diff(nacimiento, "months"));
                       } // AGREGAR NIÑOS MENORES DE 1 AÑO
                       // AGREGAR DE 1 A 5 AÑOS
 
@@ -15287,6 +15455,14 @@ var entero = function entero(value) {
                       if (edad >= 6 && edad <= 11) {
                         _this8.Ade6a11Anio(_this8.CA1, edad);
                       } // AGREGAR DE 6 A 11 AÑOS
+                      // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+
+
+                      if (edad < 10) {
+                        if (_this8.CA1.excepciones === "1") {
+                          _this8.Ade10a59Anio(_this8.CA1, edad);
+                        }
+                      } // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
                       // AGREGAR DE 10 A 59 AÑOS
 
 
@@ -15340,35 +15516,35 @@ var entero = function entero(value) {
                   _this8.entrarPorError = true;
                 });
 
-              case 61:
-                _context10.next = 74;
+              case 5:
+                _context10.next = 18;
                 break;
 
-              case 63:
-                _context10.prev = 63;
-                _context10.t0 = _context10["catch"](58);
+              case 7:
+                _context10.prev = 7;
+                _context10.t0 = _context10["catch"](2);
                 _context10.t1 = _context10.t0.response.status;
-                _context10.next = _context10.t1 === 419 ? 68 : _context10.t1 === 422 ? 70 : 72;
+                _context10.next = _context10.t1 === 419 ? 12 : _context10.t1 === 422 ? 14 : 16;
                 break;
 
-              case 68:
+              case 12:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 74);
+                return _context10.abrupt("break", 18);
 
-              case 70:
+              case 14:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 74);
+                return _context10.abrupt("break", 18);
 
-              case 72:
+              case 16:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 74);
+                return _context10.abrupt("break", 18);
 
-              case 74:
+              case 18:
               case "end":
                 return _context10.stop();
             }
           }
-        }, _callee8, this, [[58, 63]]);
+        }, _callee8, this, [[2, 7]]);
       }));
 
       function agregar() {
@@ -15473,7 +15649,9 @@ var entero = function entero(value) {
                         clasificacion: _this9.caracData.clasificacion,
                         edad: _this9.caracData.edad,
                         orientacion: _this9.caracData.orientacion,
-                        identidad_genero: _this9.caracData.identidad_genero
+                        identidad_genero: _this9.caracData.identidad_genero,
+                        perdida_peso: _this9.caracData.perdida_peso,
+                        programa_icbf: _this9.caracData.programa_icbf
                       });
 
                       if (_this9.caracData.tipo_afiliacion === "CONTRIBUTIVO" || _this9.caracData.tipo_afiliacion === "ESPECIAL") {
@@ -15676,6 +15854,19 @@ var entero = function entero(value) {
         this.$refs.salario.focus();
         bande = false;
         this.$swal("Error...!", "Por favor digite el salario!", "error");
+        return;
+      }
+
+      if (this.caracData.perdida_peso === "") {
+        this.$refs.perdida_peso.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+        return;
+      }
+
+      if (this.caracData.programa_icbf === "") {
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
         return;
       }
 
@@ -16633,6 +16824,8 @@ var entero = function entero(value) {
       this.CA1.telefono = "";
       this.CA1.orientacion = "0";
       this.CA1.identidad_genero = "0";
+      this.CA1.perdida_peso = "0";
+      this.CA1.programa_icbf = "0";
     },
     limpiar2: function limpiar2() {
       this.caracData.tipo_id = "";
@@ -16666,6 +16859,8 @@ var entero = function entero(value) {
       this.caracData.puntaje_sisben = "";
       this.caracData.orientacion = "";
       this.caracData.identidad_genero = "";
+      this.caracData.perdida_peso = "";
+      this.caracData.programa_icbf = "";
     },
     mostrarOtro: function mostrarOtro(tipo) {
       if (tipo === "TE") {
@@ -16989,13 +17184,21 @@ var entero = function entero(value) {
 
       this.estratificacionData.id_jefe = "0";
     },
-    Amenores1Anio: function Amenores1Anio(vector) {
+    Amenores1Anio: function Amenores1Anio(vector, meses) {
       var opcion = "";
 
       if (vector.id === "JEFE") {
         opcion = "JEFE";
       } else {
         opcion = "INTE";
+      }
+
+      var pb = "";
+
+      if (meses >= 3) {
+        pb = "";
+      } else {
+        pb = "No Aplica";
       }
 
       this.Men1A.push({
@@ -17036,7 +17239,8 @@ var entero = function entero(value) {
         maltrato: "",
         morbilidad: "",
         tsh: "",
-        opci: opcion
+        opci: opcion,
+        pb: pb
       });
     },
     changeupdateMenA1: function changeupdateMenA1(item, event, opcion) {
@@ -17725,7 +17929,12 @@ var entero = function entero(value) {
         var fecha = moment.utc(item.fecha_ultima, "YYYY-MM-DD");
         var suma = fecha.add(9, "months");
         suma = suma.add(7, "days");
-        item.fecha_probable = suma.format("YYYY-MM-DD"); // console.log(suma.format("DD/MM/YYYY"));
+        item.fecha_probable = suma.format("YYYY-MM-DD");
+        var hoy = moment();
+        var edad = 0;
+        edad = hoy.diff(fecha, "months"); //Calculamos la diferencia en años
+
+        alert(edad); // console.log(suma.format("DD/MM/YYYY"));
         // console.log(item.fecha_probable);
       }
 
@@ -21268,6 +21477,10 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "4" } }, [
                               _vm._v("No hay acceso a servicios públicos")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "5" } }, [
+                              _vm._v("No")
                             ])
                           ]
                         ),
@@ -22660,6 +22873,53 @@ var render = function() {
                         )
                       ],
                       1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [
+                          _vm._v("Perdida de peso en los ultimos 3 meses:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.perdida_peso == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.perdida_peso,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "perdida_peso", $$v)
+                              },
+                              expression: "caracData.perdida_peso"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "ND" } }, [
+                              _vm._v("NO DECLARA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
                     )
                   ]),
                   _vm._v(" "),
@@ -22843,7 +23103,56 @@ var render = function() {
                           }
                         }
                       })
-                    ]),
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [
+                          _vm._v("Pertenece a algún programa del ICBF:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.programa_icbf == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.programa_icbf,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "programa_icbf", $$v)
+                              },
+                              expression: "caracData.programa_icbf"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-1" }, [
                       _c("br"),
@@ -24421,14 +24730,32 @@ var render = function() {
                                           _vm._v(" "),
                                           _c(
                                             "option",
-                                            { attrs: { value: "SI" } },
-                                            [_vm._v("SI")]
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("FISICA")]
                                           ),
                                           _vm._v(" "),
                                           _c(
                                             "option",
-                                            { attrs: { value: "NO" } },
-                                            [_vm._v("NO")]
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("COGNITIVA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("SENSORIAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("PSÍQUICA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "5" } },
+                                            [_vm._v("NINGUNA")]
                                           )
                                         ]
                                       )
@@ -24867,6 +25194,79 @@ var render = function() {
                                         "b-form-select",
                                         {
                                           class:
+                                            item.perdida_peso == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(perdida_peso) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                perdida_peso,
+                                                "perdida_peso",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.perdida_peso,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "perdida_peso",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.perdida_peso"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "ND" } },
+                                            [_vm._v("NO DECLARA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
                                             item.entiende == ""
                                               ? ""
                                               : "is-valid",
@@ -25143,6 +25543,79 @@ var render = function() {
                                     "td",
                                     {
                                       staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.programa_icbf == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(programa_icbf) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                programa_icbf,
+                                                "programa_icbf",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.programa_icbf,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "programa_icbf",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.programa_icbf"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
                                         "text-align": "center",
                                         "vertical-align": "middle"
                                       }
@@ -25385,7 +25858,7 @@ var render = function() {
                           "b-form-select",
                           {
                             ref: "sexo",
-                            class: _vm.CA1.orientacion == "" ? "" : "is-valid",
+                            class: _vm.CA1.orientacion == "0" ? "" : "is-valid",
                             model: {
                               value: _vm.CA1.orientacion,
                               callback: function($$v) {
@@ -25401,7 +25874,7 @@ var render = function() {
                           [
                             _c(
                               "option",
-                              { attrs: { value: "", selected: "" } },
+                              { attrs: { value: "0", selected: "" } },
                               [_vm._v("Seleccione")]
                             ),
                             _vm._v(" "),
@@ -25440,7 +25913,7 @@ var render = function() {
                           "b-form-select",
                           {
                             class:
-                              _vm.CA1.identidad_genero == "" ? "" : "is-valid",
+                              _vm.CA1.identidad_genero == "0" ? "" : "is-valid",
                             model: {
                               value: _vm.CA1.identidad_genero,
                               callback: function($$v) {
@@ -25456,7 +25929,7 @@ var render = function() {
                           [
                             _c(
                               "option",
-                              { attrs: { value: "", selected: "" } },
+                              { attrs: { value: "0", selected: "" } },
                               [_vm._v("Seleccione")]
                             ),
                             _vm._v(" "),
@@ -26407,6 +26880,51 @@ var render = function() {
                         )
                       ],
                       1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [
+                          _vm._v("Perdida de peso en los ultimos 3 meses:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.CA1.perdida_peso == "0" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.perdida_peso,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "perdida_peso", $$v)
+                              },
+                              expression: "CA1.perdida_peso"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "ND" } }, [
+                              _vm._v("NO DECLARA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
                     )
                   ]),
                   _vm._v(" "),
@@ -26551,33 +27069,50 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-1" }, [
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("label", [_vm._v("      ")]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-outline-info btn-icon",
-                          attrs: {
-                            href: "javascript:;",
-                            "data-skin": "dark",
-                            "data-toggle": "kt-tooltip",
-                            "data-placement": "top",
-                            title: "Agregar"
-                          },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.agregar($event)
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [
+                          _vm._v("Pertenece a algún programa del ICBF:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.CA1.programa_icbf == "0" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.programa_icbf,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "programa_icbf", $$v)
+                              },
+                              expression: "CA1.programa_icbf"
                             }
-                          }
-                        },
-                        [_c("i", { staticClass: "fa fa-plus" })]
-                      ),
-                      _vm._v(" \n              ")
-                    ])
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -26632,6 +27167,86 @@ var render = function() {
                       ],
                       1
                     )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Excepciones:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.CA1.excepciones == "0" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.excepciones,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "excepciones", $$v)
+                              },
+                              expression: "CA1.excepciones"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("Vida sexual prematura")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("Consumo de tabaco")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "3" } }, [
+                              _vm._v("Consumo de SPA")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("Consumo de alcohol")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-info btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregar($event)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("div", {
@@ -28199,14 +28814,32 @@ var render = function() {
                                           _vm._v(" "),
                                           _c(
                                             "option",
-                                            { attrs: { value: "SI" } },
-                                            [_vm._v("SI")]
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("FISICA")]
                                           ),
                                           _vm._v(" "),
                                           _c(
                                             "option",
-                                            { attrs: { value: "NO" } },
-                                            [_vm._v("NO")]
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("COGNITIVA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("SENSORIAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("PSÍQUICA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "5" } },
+                                            [_vm._v("NINGUNA")]
                                           )
                                         ]
                                       )
@@ -28651,6 +29284,79 @@ var render = function() {
                                         "b-form-select",
                                         {
                                           class:
+                                            item.perdida_peso == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(perdida_peso) {
+                                              return _vm.updateIntegrante(
+                                                item,
+                                                perdida_peso,
+                                                "perdida_peso",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.perdida_peso,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "perdida_peso",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.perdida_peso"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "ND" } },
+                                            [_vm._v("NO DECLARA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
                                             item.entiende == "0"
                                               ? ""
                                               : "is-valid",
@@ -28887,6 +29593,79 @@ var render = function() {
                                         "b-form-select",
                                         {
                                           class:
+                                            item.programa_icbf == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(programa_icbf) {
+                                              return _vm.updateIntegrante(
+                                                item,
+                                                programa_icbf,
+                                                "programa_icbf",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.programa_icbf,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "programa_icbf",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.programa_icbf"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
                                             item.jefe == "0" ? "" : "is-valid",
                                           staticStyle: { width: "400px" },
                                           on: {
@@ -28996,6 +29775,90 @@ var render = function() {
                                         ]
                                       )
                                     ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.excepciones == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(excepciones) {
+                                              return _vm.updateIntegrante(
+                                                item,
+                                                excepciones,
+                                                "excepciones",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.excepciones,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "excepciones", $$v)
+                                            },
+                                            expression: "item.excepciones"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "0",
+                                                selected: ""
+                                              }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Vida sexual prematura")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("Consumo de tabaco")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("Consumo de SPA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("Consumo de alcohol")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
                                   )
                                 ])
                               }),
@@ -40277,6 +41140,60 @@ var render = function() {
                                       }
                                     },
                                     [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: item.pb,
+                                            expression: "item.pb"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.pb == ""
+                                            ? "is-invalid"
+                                            : "is-valid",
+                                        staticStyle: { width: "150px" },
+                                        attrs: { type: "text" },
+                                        domProps: { value: item.pb },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "pb",
+                                                $event.target.value
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateMenA1(
+                                                item,
+                                                $event,
+                                                "pb"
+                                              )
+                                            }
+                                          ]
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
                                       _c(
                                         "b-form-select",
                                         {
@@ -47858,7 +48775,7 @@ var render = function() {
                                             ? "is-invalid"
                                             : "is-valid",
                                         staticStyle: { width: "150px" },
-                                        attrs: { type: "text" },
+                                        attrs: { type: "text", readonly: "" },
                                         domProps: { value: item.semanas_ges },
                                         on: {
                                           input: [
@@ -57318,6 +58235,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Clasificación de la Etnia")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Perdida de Peso")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Entiende Español")]),
         _vm._v(" "),
         _c("th", [_vm._v("PYP")]),
@@ -57325,6 +58244,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Migrante")]),
         _vm._v(" "),
         _c("th", [_vm._v("Salario")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Programa ICBF")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Opciones")])
       ])
@@ -57407,13 +58328,19 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Clasificación de la Etnia")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Perdida de Peso")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Entiende Español")]),
         _vm._v(" "),
         _c("th", [_vm._v("PYP")]),
         _vm._v(" "),
         _c("th", [_vm._v("Migrante")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Programa ICBF")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Jefe de Hogar")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Excepciones")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Opciones")])
       ])
@@ -57854,7 +58781,7 @@ var staticRenderFns = [
               "text-align": "center",
               "text-transform": "capitalize"
             },
-            attrs: { colspan: "25" }
+            attrs: { colspan: "26" }
           },
           [_vm._v("Crecimiento y Desarrollo")]
         ),
@@ -57908,7 +58835,7 @@ var staticRenderFns = [
               "text-align": "center",
               "text-transform": "capitalize"
             },
-            attrs: { colspan: "8" }
+            attrs: { colspan: "9" }
           },
           [_vm._v("Valoración Nutricional")]
         ),
@@ -58006,6 +58933,8 @@ var staticRenderFns = [
         _c("th", { staticClass: "kt-bg-fill-danger" }, [
           _vm._v("Peso/Longitud")
         ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "kt-bg-fill-danger" }, [_vm._v("PB.")]),
         _vm._v(" "),
         _c("th", { staticClass: "kt-bg-fill-danger" }, [_vm._v("P.Cefalico")]),
         _vm._v(" "),

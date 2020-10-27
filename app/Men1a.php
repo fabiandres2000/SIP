@@ -15,7 +15,7 @@ class Men1a extends Model
         'peso_actual', 'longitud_nacer', 'longitud_actual', 'peso_long', 'cinta', 'edemas',
         'lenguaje', 'motora', 'conducta', 'visuales', 'auditivos', 'carnet',
         'bcg', 'hepb', 'polio', 'pentavalente', 'maltrato', 'morbilidad',
-        'tsh', 'estado', 'id_compania', 'opci',
+        'tsh', 'estado', 'id_compania', 'opci','pb'
     ];
 
     public static function guardar($data, $alias)
@@ -67,6 +67,7 @@ class Men1a extends Model
             'estado' => 'Activo',
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'pb' => $data['pb'],
         ]);
     }
 }

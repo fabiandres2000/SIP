@@ -307,6 +307,7 @@
                     <option value="2">Ocacional</option>
                     <option value="3">Periódico</option>
                     <option value="4">No hay acceso a servicios públicos</option>
+                    <option value="5">No</option>
                   </b-form-select>
                   <div
                     class="valid-feedback"
@@ -732,6 +733,19 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
+
+                <div class="col-lg-4">
+                  <label>Perdida de peso en los ultimos 3 meses:</label>
+                  <b-form-select
+                    v-model="caracData.perdida_peso"
+                    :class="caracData.perdida_peso==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI" >SI</option>
+                    <option value="NO" >NO</option>
+                    <option value="ND">NO DECLARA</option>
+                  </b-form-select>
+                </div>                
               </div>
               <div class="form-group row">
                 <div class="col-lg-3">
@@ -782,6 +796,20 @@
                     @change="formato('salario')"
                   />
                 </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Pertenece a algún programa del ICBF:</label>
+                  <b-form-select
+                    v-model="caracData.programa_icbf"
+                    :class="caracData.programa_icbf==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
                 <div class="col-lg-1">
                   <br />
                   <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -796,7 +824,7 @@
                   >
                     <i class="fa fa-plus"></i>
                   </a>&nbsp;
-                </div>
+                </div>                             
               </div>
               <div class="kt-separator kt-separator--border-dashed"></div>
               <div class="row">
@@ -833,10 +861,12 @@
                           <th>Grado</th>
                           <th>Etnia</th>
                           <th>Clasificación de la Etnia</th>
+                          <th>Perdida de Peso</th>
                           <th>Entiende Español</th>
                           <th>PYP</th>
                           <th>Migrante</th>
                           <th>Salario</th>
+                          <th>Programa ICBF</th>
                           <th class="text-center">Opciones</th>
                         </tr>
                       </thead>
@@ -1203,8 +1233,11 @@
                               style="width:200px;"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
+                              <option value="1">FISICA</option>
+                              <option value="2">COGNITIVA</option>
+                              <option value="3">SENSORIAL</option>
+                              <option value="4">PSÍQUICA</option>
+                              <option value="5">NINGUNA</option>
                             </b-form-select>
                           </td>
                           <td
@@ -1323,6 +1356,21 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
+                              v-model="item.perdida_peso"
+                              :class="item.perdida_peso==''?'':'is-valid'"
+                              @input="perdida_peso=>updateJefe(item,perdida_peso,'perdida_peso',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI" >SI</option>
+                              <option value="NO" >NO</option>
+                              <option value="ND">NO DECLARA</option>
+                            </b-form-select>
+                          </td>                          
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
                               v-model="item.entiende"
                               :class="item.entiende==''?'':'is-valid'"
                               @input="entiende=>updateJefe(item,entiende,'entiende',index)"
@@ -1380,6 +1428,21 @@
                               style="width:150px;"
                             />
                           </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.programa_icbf"
+                              :class="item.programa_icbf==''?'':'is-valid'"
+                              @input="programa_icbf=>updateJefe(item,programa_icbf,'programa_icbf',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>                          
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-outline-danger"
@@ -1394,9 +1457,6 @@
                       </tbody>
                     </table>
                     <div class="kt-separator kt-separator--border-dashed"></div>
-                    <!--begin: Section-->
-
-                    <!--end: Section-->
                   </div>
                 </div>
               </div>
@@ -1461,10 +1521,10 @@
                   <label>Orientación Sexual (*):</label>
                   <b-form-select
                     v-model.trim="CA1.orientacion"
-                    :class="CA1.orientacion==''?'':'is-valid'"
+                    :class="CA1.orientacion=='0'?'':'is-valid'"
                     ref="sexo"
                   >
-                    <option value selected>Seleccione</option>
+                    <option value="0" selected>Seleccione</option>
                     <option value="HETEROSEXUAL">HETEROSEXUAL</option>
                     <option value="HOMOSEXUAL">HOMOSEXUAL</option>
                     <option value="BISEXUAL">BISEXUAL</option>
@@ -1476,9 +1536,9 @@
                   <label>Identidad de Genero (*):</label>
                   <b-form-select
                     v-model.trim="CA1.identidad_genero"
-                    :class="CA1.identidad_genero==''?'':'is-valid'"
+                    :class="CA1.identidad_genero=='0'?'':'is-valid'"
                   >
-                    <option value selected>Seleccione</option>
+                    <option value="0" selected>Seleccione</option>
                     <option value="HETEROSEXUAL">CISGENERO</option>
                     <option value="HOMOSEXUAL">TRANSGENERO</option>
                     <option value="BISEXUAL">TRANSEXUAL</option>
@@ -1780,6 +1840,19 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
+
+                <div class="col-lg-4">
+                  <label>Perdida de peso en los ultimos 3 meses:</label>
+                  <b-form-select
+                    v-model="CA1.perdida_peso"
+                    :class="CA1.perdida_peso=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI" >SI</option>
+                    <option value="NO" >NO</option>
+                    <option value="ND">NO DECLARA</option>
+                  </b-form-select>
+                </div>                
               </div>
               <div class="form-group row">
                 <div class="col-lg-3">
@@ -1812,6 +1885,44 @@
                     <option value="NO">NO</option>
                   </b-form-select>
                 </div>
+                <div class="col-lg-3">
+                  <label>Pertenece a algún programa del ICBF:</label>
+                  <b-form-select
+                    v-model="CA1.programa_icbf"
+                    :class="CA1.programa_icbf=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <label>Jefe del hogar:</label>
+                  <b-form-select v-model="CA1.jefe" :class="CA1.jefe=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in datosJefe"
+                      :value="item.identificacion"
+                      :key="item.value"
+                    >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
+                  </b-form-select>
+                </div>                
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Excepciones:</label>
+                  <b-form-select v-model="CA1.excepciones" :class="CA1.excepciones=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="1">Vida sexual prematura</option>
+                    <option value="2">Consumo de tabaco</option>
+                    <option value="3">Consumo de SPA</option>
+                    <option value="4">Consumo de alcohol</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
                 <div class="col-lg-1">
                   <br />
                   <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -1826,21 +1937,8 @@
                   >
                     <i class="fa fa-plus"></i>
                   </a>&nbsp;
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-lg-12">
-                  <label>Jefe del hogar:</label>
-                  <b-form-select v-model="CA1.jefe" :class="CA1.jefe=='0'?'':'is-valid'">
-                    <option value="0" selected>Seleccione</option>
-                    <option
-                      v-for="item in datosJefe"
-                      :value="item.identificacion"
-                      :key="item.value"
-                    >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
-                  </b-form-select>
-                </div>
-              </div>
+                </div>                
+              </div>  
               <div class="kt-separator kt-separator--border-dashed"></div>
               <div class="row">
                 <div class="col-md-12">
@@ -1876,10 +1974,13 @@
                           <th>Grado</th>
                           <th>Etnia</th>
                           <th>Clasificación de la Etnia</th>
+                          <th>Perdida de Peso</th>                          
                           <th>Entiende Español</th>
                           <th>PYP</th>
                           <th>Migrante</th>
+                          <th>Programa ICBF</th>
                           <th>Jefe de Hogar</th>
+                          <th>Excepciones</th>
                           <th class="text-center">Opciones</th>
                         </tr>
                       </thead>
@@ -2245,8 +2346,11 @@
                               style="width:200px;"
                             >
                               <option value="0" selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
+                              <option value="1">FISICA</option>
+                              <option value="2">COGNITIVA</option>
+                              <option value="3">SENSORIAL</option>
+                              <option value="4">PSÍQUICA</option>
+                              <option value="5">NINGUNA</option>
                             </b-form-select>
                           </td>
                           <td
@@ -2365,6 +2469,21 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
+                              v-model="item.perdida_peso"
+                              :class="item.perdida_peso==''?'':'is-valid'"
+                              @input="perdida_peso=>updateIntegrante(item,perdida_peso,'perdida_peso',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI" >SI</option>
+                              <option value="NO" >NO</option>
+                              <option value="ND">NO DECLARA</option>
+                            </b-form-select>
+                          </td>                          
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
                               v-model="item.entiende"
                               :class="item.entiende=='0'?'':'is-valid'"
                               @input="entiende=>updateIntegrante(item,entiende,'entiende',index)"
@@ -2413,6 +2532,21 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
+                              v-model="item.programa_icbf"
+                              :class="item.programa_icbf==''?'':'is-valid'"
+                              @input="programa_icbf=>updateIntegrante(item,programa_icbf,'programa_icbf',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>                          
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
                               v-model.trim="item.jefe"
                               :class="item.jefe=='0'?'':'is-valid'"
                               @input="jefe=>updateIntegrante(item,jefe,'jefe',index)"
@@ -2436,13 +2570,27 @@
                               <i class="fa fa-trash"></i>
                             </button>
                           </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.excepciones"
+                              :class="item.excepciones==''?'':'is-valid'"
+                              @input="excepciones=>updateIntegrante(item,excepciones,'excepciones',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="1">Vida sexual prematura</option>
+                              <option value="2">Consumo de tabaco</option>
+                              <option value="3">Consumo de SPA</option>
+                              <option value="4">Consumo de alcohol</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>                          
                         </tr>
                       </tbody>
                     </table>
                     <div class="kt-separator kt-separator--border-dashed"></div>
-                    <!--begin: Section-->
-
-                    <!--end: Section-->
                   </div>
                 </div>
               </div>
@@ -5360,7 +5508,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="25"
+                            colspan="26"
                           >Crecimiento y Desarrollo</th>
                           <th
                             class="kt-bg-fill-dark"
@@ -5377,7 +5525,7 @@
                           >Valoración Integral</th>
                           <th
                             class="kt-bg-fill-danger"
-                            colspan="8"
+                            colspan="9"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           >Valoración Nutricional</th>
                           <th
@@ -5415,6 +5563,7 @@
                           <th class="kt-bg-fill-danger">Longitud al Nacer (cm)</th>
                           <th class="kt-bg-fill-danger">Longitud Actual (cm)</th>
                           <th class="kt-bg-fill-danger">Peso/Longitud</th>
+                          <th class="kt-bg-fill-danger">PB.</th>
                           <th class="kt-bg-fill-danger">P.Cefalico</th>
                           <th class="kt-bg-fill-danger">Edemas</th>
                           <th class="kt-bg-fill-info">Lenguaje</th>
@@ -5689,6 +5838,19 @@
                               <option value="NA">No Aplica</option>
                             </b-form-select>
                           </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pb"
+                              @input="changeupdateMenA1(item,$event,'pb')"
+                              :class="item.pb==''?'is-invalid':'is-valid'"
+                            />                          
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -7893,6 +8055,7 @@
                               v-model="item.semanas_ges"
                               @input="changeupdatePosparto(item,$event,'semanas_ges')"
                               :class="item.semanas_ges==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -11057,7 +11220,9 @@
           migrante: "",
           edad: "",
           orientacion: "",
-          identidad_genero: ""
+          identidad_genero: "",
+          perdida_peso: "",
+          programa_icbf: ""
         },
         CA1: {
           id: 0,
@@ -11090,9 +11255,12 @@
           clasificacion: "0",
           id_hogar: 0,
           jefe: "0",
-          orientacion: "",
-          identidad_genero: "",
-          telefono: ""          
+          orientacion: "0",
+          identidad_genero: "0",
+          telefono: "",
+          perdida_peso: "0",
+          programa_icbf: "0",
+          excepciones: "0"   
         },
         viviendaData: {
           id: 0,
@@ -12560,7 +12728,27 @@
               "error"
             );
             return false;
-          }              
+          }
+          if (this.datosJefe[i].perdida_peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].programa_icbf === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }                                  
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datosJefe,
@@ -12786,7 +12974,38 @@
               "error"
             );
             return false;
-          }                    
+          }
+          if (this.datos[i].perdida_peso === "0") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].programa_icbf === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].excepciones === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>excepciones</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }          
+                                            
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datos,
@@ -13164,13 +13383,23 @@
           if (this.Men1A[i].cinta === "") {
             this.$swal(
               "Error...!",
-              "Por favor seleccione la <b>cinta</b> en la fila " +
+              "Por favor seleccione la opción<b> P. Cefalico </b> en la fila " +
                 (i + 1) +
                 " de la tabla primera infancia, niños(as) menores de 1 año",
               "error"
             );
             return false;
           }
+          if (this.Men1A[i].pb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción<b> PB </b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }          
           if (this.Men1A[i].edemas === "") {
             this.$swal(
               "Error...!",
@@ -15582,120 +15811,138 @@
         }
       },
       agregar: async function() {
-        if (this.CA1.tipo_id == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione un tipo de identificación!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.identificacion == "") {
-          this.$swal(
-            "Error...!",
-            "Por favor digite el documento de identificación!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.sexo == "0") {
-          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-          return;
-        }
-        if (this.CA1.orientacion === "0") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-          return;
-        }
-        if (this.CA1.identidad_genero === "0") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-          return;
-        }        
-        if (this.CA1.parentesco == "0") {
-          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-          return;
-        }
-        if (this.CA1.pnom == "0") {
-          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-          return;
-        }
-        if (this.CA1.pape == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor digite el primer apellido!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.estado_civil == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione el estado civil!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.fecha_nac == "") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la fecha de nacimiento!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.escolaridad == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione el nivel de escolaridad!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.ocupacion == "0") {
-          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-          return;
-        }
-        if (this.CA1.etnia == "0") {
-          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-          return;
-        }
-        if (this.CA1.clasificacion == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la clasificacion de la etnia!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.entiende == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción entiende español!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.pyp == "0") {
-          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-          return;
-        }
-        if (this.CA1.migrante == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción migrante!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.jefe == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione el un jefe de hogar!",
-            "error"
-          );
-          return;
-        }
+        // if (this.CA1.tipo_id == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione un tipo de identificación!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.identificacion == "") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor digite el documento de identificación!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.sexo == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+        //   return;
+        // }
+        // if (this.CA1.orientacion === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+        //   return;
+        // }
+        // if (this.CA1.identidad_genero === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+        //   return;
+        // }        
+        // if (this.CA1.parentesco == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+        //   return;
+        // }
+        // if (this.CA1.pnom == "0") {
+        //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+        //   return;
+        // }
+        // if (this.CA1.pape == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor digite el primer apellido!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.estado_civil == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione el estado civil!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.fecha_nac == "") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la fecha de nacimiento!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.escolaridad == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione el nivel de escolaridad!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.ocupacion == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+        //   return;
+        // }
+        // if (this.CA1.etnia == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+        //   return;
+        // }
+        // if (this.CA1.clasificacion == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la clasificacion de la etnia!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.entiende == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la opción entiende español!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.pyp == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+        //   return;
+        // }
+        // if (this.CA1.migrante == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la opción migrante!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.jefe == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione el un jefe de hogar!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.perdida_peso === "") {
+        //   this.$refs.perdida_peso.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+        //   return;
+        // }
+        // if (this.CA1.programa_icbf === "") {
+        //   this.$refs.programa_icbf.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+        //   return;
+        // }
+        // if (this.CA1.excepciones === "") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+        //   return;
+        // }        
+                       
         // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
@@ -15795,7 +16042,10 @@
                     jefe: this.CA1.jefe,
                     orientacion: this.CA1.orientacion,
                     identidad_genero: this.CA1.identidad_genero,
-                    telefono: this.CA1.telefono
+                    telefono: this.CA1.telefono,
+                    perdida_peso: this.CA1.perdida_peso,
+                    programa_icbf: this.CA1.programa_icbf,
+                    excepciones: this.CA1.excepciones
                   });
 
                   if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
@@ -15816,7 +16066,7 @@
 
                   // AGREGAR NIÑOS MENORES DE 1 AÑO
                   if (edad <= 0) {
-                    this.Amenores1Anio(this.CA1);
+                    this.Amenores1Anio(this.CA1,hoy.diff(nacimiento, "months"));
                   }
                   // AGREGAR NIÑOS MENORES DE 1 AÑO
                   // AGREGAR DE 1 A 5 AÑOS
@@ -15831,6 +16081,14 @@
                   }
                   // AGREGAR DE 6 A 11 AÑOS
 
+                  // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+                  if(edad<10){
+                    if(this.CA1.excepciones==="1"){
+                      this.Ade10a59Anio(this.CA1, edad);
+                    }
+                  }  
+                  // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+                
                   // AGREGAR DE 10 A 59 AÑOS
                   if (edad >= 10 && edad <= 59) {
                     this.Ade10a59Anio(this.CA1, edad);
@@ -16008,7 +16266,9 @@
                       clasificacion: this.caracData.clasificacion,
                       edad: this.caracData.edad,
                       orientacion: this.caracData.orientacion,
-                      identidad_genero: this.caracData.identidad_genero                      
+                      identidad_genero: this.caracData.identidad_genero,
+                      perdida_peso: this.caracData.perdida_peso,
+                      programa_icbf: this.caracData.programa_icbf                      
                     });
                     if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
                       this.SAPU=true;
@@ -16200,6 +16460,17 @@
           this.$swal("Error...!", "Por favor digite el salario!", "error");
           return;
         }
+        if (this.caracData.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.caracData.programa_icbf === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }                
         return bande;
         e.preventDefault();
       },
@@ -17092,7 +17363,9 @@
         this.CA1.jefe = "0";
         this.CA1.telefono = "";
         this.CA1.orientacion = "0";
-        this.CA1.identidad_genero = "0";        
+        this.CA1.identidad_genero = "0";
+        this.CA1.perdida_peso = "0";        
+        this.CA1.programa_icbf = "0";
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -17126,6 +17399,8 @@
         this.caracData.puntaje_sisben = "";
         this.caracData.orientacion = "";
         this.caracData.identidad_genero = "";
+        this.caracData.perdida_peso = "";
+        this.caracData.programa_icbf = "";    
       },
       mostrarOtro(tipo) {
         if (tipo === "TE") {
@@ -17484,12 +17759,18 @@
         // this.estratificacionData.ingresos_ciudad = "";
         this.estratificacionData.id_jefe = "0";
       },
-      Amenores1Anio(vector) {
+      Amenores1Anio(vector,meses) {
         let opcion = "";
         if (vector.id === "JEFE") {
           opcion = "JEFE";
         } else {
           opcion = "INTE";
+        }
+        let pb="";
+        if(meses>=3){
+          pb="";
+        }else{
+          pb="No Aplica";
         }
         this.Men1A.push({
           id: 0,
@@ -17529,7 +17810,8 @@
           maltrato: "",
           morbilidad: "",
           tsh: "",
-          opci: opcion
+          opci: opcion,
+          pb: pb
         });
       },
       changeupdateMenA1(item, event, opcion) {
@@ -18110,11 +18392,18 @@
       },
       changeupdatePosparto(item, event, opcion) {
         moment.locale("es");
-        if (opcion === "fecha_ultima") {          
+        if (opcion === "fecha_ultima") {
           let fecha = moment.utc(item.fecha_ultima, "YYYY-MM-DD");
           let suma = fecha.add(9, "months");
           suma = suma.add(7, "days");
           item.fecha_probable=suma.format("YYYY-MM-DD");
+
+          
+          let hoy = moment();
+          let edad = 0;
+          edad = hoy.diff(fecha, "months"); //Calculamos la diferencia en años
+          alert(edad);
+          
           // console.log(suma.format("DD/MM/YYYY"));
           // console.log(item.fecha_probable);
         }

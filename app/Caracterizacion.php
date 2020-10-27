@@ -14,7 +14,7 @@ class Caracterizacion extends Model
         'id_compania', 'estado', 'estado_civil', 'fecha_nacimiento', 'afiliacion_entidad',
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
-        'orientacion','identidad_genero'
+        'orientacion','identidad_genero','perdida_peso','programa_icbf'
     ];
 
     public static function listar($busqueda, $alias)
@@ -116,6 +116,8 @@ class Caracterizacion extends Model
             'migrante' => $data['migrante'],
             'orientacion' => $data['orientacion'],
             'identidad_genero' => $data['identidad_genero'],
+            'perdida_peso' => $data['perdida_peso'],
+            'programa_icbf' => $data['programa_icbf'],        
         ]);
     }
 

@@ -9,36 +9,12 @@ class Integrante extends Model
 {
     protected $table = 'integrantes';
     protected $fillable = [
-        'id_hogar',
-        'tipo_id',
-        'identificacion',
-        'sexo',
-        'parentesco',
-        'pnom',
-        'snon',
-        'pape',
-        'sape',
-        'estado_civil',
-        'fecha_nac',
-        'afi_entidad',
-        'tipo_afiliacion',
-        'embarazo',
-        'embarazo_multiple',
-        'discapacidad',
-        'escolaridad',
-        'ocupacion',
-        'colegio',
-        'grado',
-        'etnia',
-        'entiende',
-        'pyp',
-        'migrante',
-        'id_compania',
-        'estado',
-        'clasificacion',
-        'puntaje_sisben',
-        'otra_eps',
-        'jefe', 'orientacion', 'identidad_genero','telefono'
+        'id_hogar','tipo_id','identificacion','sexo','parentesco','pnom',
+        'snon','pape','sape','estado_civil','fecha_nac','afi_entidad',
+        'tipo_afiliacion','embarazo','embarazo_multiple','discapacidad','escolaridad','ocupacion',
+        'colegio','grado','etnia','entiende','pyp','migrante',
+        'id_compania','estado','clasificacion','puntaje_sisben','otra_eps',
+        'jefe', 'orientacion', 'identidad_genero','telefono','perdida_peso','programa_icbf'
     ];
     public static function guardar($data, $alias)
     {
@@ -78,7 +54,9 @@ class Integrante extends Model
             'jefe' => $jefe->id,
             'orientacion' => $data['orientacion'],
             'identidad_genero' => $data['identidad_genero'],
-            'telefono' => $data['telefono'],            
+            'telefono' => $data['telefono'],
+            'perdida_peso' => $data['perdida_peso'],
+            'programa_icbf' => $data['programa_icbf'],                        
         ]);
     }
 
