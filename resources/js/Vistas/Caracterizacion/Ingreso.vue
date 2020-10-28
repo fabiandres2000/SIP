@@ -2560,16 +2560,6 @@
                               >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
                             </b-form-select>
                           </td>
-                          <td style="text-align:center;vertical-align: middle;text-align: center;">
-                            <button
-                              class="btn btn-icon btn-sm btn-outline-danger"
-                              type="button"
-                              title="Eliminar"
-                              @click="eliminarItem(index,item)"
-                            >
-                              <i class="fa fa-trash"></i>
-                            </button>
-                          </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -2586,7 +2576,17 @@
                               <option value="4">Consumo de alcohol</option>
                               <option value="NA">NO APLICA</option>
                             </b-form-select>
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-danger"
+                              type="button"
+                              title="Eliminar"
+                              @click="eliminarItem(index,item)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </td>                                                    
                         </tr>
                       </tbody>
                     </table>
@@ -7994,6 +7994,7 @@
                               @input="changeupdatePosparto(item,$event,'fecha_ultima')"
                               class="form-control text-capitalize"
                               :class="item.fecha_ultima==''?'is-invalid':'is-valid'"
+                              :max="hoy | moment"
                             />
                           </td>
                           <td
@@ -11952,7 +11953,7 @@
                   this.entrarPorError = true;
                   this.$swal(
                     "Error...!",
-                    "No se pudo guardar los datos de la pestaña investigación",
+                    "No se pudo guardar los datos de la pestaña identificación",
                     "error"
                   );
                   return;
@@ -15811,137 +15812,137 @@
         }
       },
       agregar: async function() {
-        // if (this.CA1.tipo_id == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione un tipo de identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.identificacion == "") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite el documento de identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.sexo == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-        //   return;
-        // }
-        // if (this.CA1.orientacion === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-        //   return;
-        // }
-        // if (this.CA1.identidad_genero === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-        //   return;
-        // }        
-        // if (this.CA1.parentesco == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-        //   return;
-        // }
-        // if (this.CA1.pnom == "0") {
-        //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-        //   return;
-        // }
-        // if (this.CA1.pape == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite el primer apellido!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.estado_civil == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el estado civil!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.fecha_nac == "") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la fecha de nacimiento!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.escolaridad == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el nivel de escolaridad!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.ocupacion == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-        //   return;
-        // }
-        // if (this.CA1.etnia == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-        //   return;
-        // }
-        // if (this.CA1.clasificacion == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la clasificacion de la etnia!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.entiende == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la opción entiende español!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.pyp == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-        //   return;
-        // }
-        // if (this.CA1.migrante == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la opción migrante!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.jefe == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el un jefe de hogar!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.perdida_peso === "") {
-        //   this.$refs.perdida_peso.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-        //   return;
-        // }
-        // if (this.CA1.programa_icbf === "") {
-        //   this.$refs.programa_icbf.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-        //   return;
-        // }
-        // if (this.CA1.excepciones === "") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
-        //   return;
-        // }        
+        if (this.CA1.tipo_id == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.identificacion == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el documento de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.sexo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.CA1.orientacion === "0") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.CA1.identidad_genero === "0") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }        
+        if (this.CA1.parentesco == "0") {
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.CA1.pnom == "0") {
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.CA1.pape == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.estado_civil == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.fecha_nac == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.escolaridad == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el nivel de escolaridad!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.ocupacion == "0") {
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.CA1.etnia == "0") {
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.CA1.clasificacion == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.entiende == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción entiende español!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.pyp == "0") {
+          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+          return;
+        }
+        if (this.CA1.migrante == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción migrante!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.jefe == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el un jefe de hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.CA1.programa_icbf === "") {
+          this.$refs.programa_icbf.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }
+        if (this.CA1.excepciones === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+          return;
+        }        
                        
         // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
         this.CA1.identificacion = this.CA1.identificacion.replace(
@@ -17213,11 +17214,16 @@
           }
         }
         if (caja == "tipoid") {
+          this.caracData.identificacion = ""; 
           if (this.caracData.tipo_id != "CC") {
-            this.caracData.identificacion = this.caracData.identificacion.replace(
-              /[.*+\-?^${}()|[\]\\]/g,
-              ""
-            );
+            if(this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI"){
+              this.caracData.identificacion = this.caracData.tipo_id + Math.floor(Math.random() * 100 + 1);
+            }else{
+              this.caracData.identificacion = this.caracData.identificacion.replace(
+                /[.*+\-?^${}()|[\]\\]/g,
+                ""
+              );
+            }
           } else {
             if (this.caracData.tipo_id == "CC") {
               this.caracData.identificacion = this.caracData.identificacion.replace(
@@ -17258,11 +17264,16 @@
           }
         }
         if (caja == "tipoid2") {
+          this.CA1.identificacion = "";
           if (this.CA1.tipo_id != "CC") {
-            this.CA1.identificacion = this.CA1.identificacion.replace(
-              /[.*+\-?^${}()|[\]\\]/g,
-              ""
-            );
+            if(this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI"){
+              this.CA1.identificacion = this.CA1.tipo_id + Math.floor(Math.random() * 100 + 1);
+            }else{
+              this.CA1.identificacion = this.CA1.identificacion.replace(
+                /[.*+\-?^${}()|[\]\\]/g,
+                ""
+              );
+            }            
           } else {
             if (this.CA1.tipo_id == "CC") {
               this.CA1.identificacion = this.CA1.identificacion.replace(
@@ -17366,6 +17377,7 @@
         this.CA1.identidad_genero = "0";
         this.CA1.perdida_peso = "0";        
         this.CA1.programa_icbf = "0";
+        this.CA1.excepciones = "0";
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -18400,12 +18412,19 @@
 
           
           let hoy = moment();
+          let hoyFormato = moment().format("YYYY-MM-DD");
           let edad = 0;
-          edad = hoy.diff(fecha, "months"); //Calculamos la diferencia en años
-          alert(edad);
-          
-          // console.log(suma.format("DD/MM/YYYY"));
-          // console.log(item.fecha_probable);
+          edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
+          let dife = this.datediff(hoyFormato,item.fecha_ultima);
+          let diaSemanas=0;
+          if(dife[1]!=0){
+            diaSemanas=Math.ceil(dife[2]/7);            
+          }
+          let mesTrimestre = Math.floor(dife[1]/3);
+          let valor = dife[1] * 4; 
+          item.semanas_ges = valor+diaSemanas+mesTrimestre;          
+          console.log(diaSemanas);
+          console.log(dife);
         }
         if (opcion === "fecha_probable") {
           let fecha = moment.utc(item.fecha_probable, "YYYY-MM-DD");
@@ -20470,7 +20489,29 @@
           culturales: "",
           recreativos: ""
         });
-      },      
+      },
+      datediff(date1, date2){
+        var fecha1 =date1.split("-");
+        var fecha2 =date2.split("-");
+
+        var y1 = fecha1[0], m1 = fecha1[1], d1 = fecha1[2],        
+        y2 = fecha2[0], m2 = fecha2[1], d2 = fecha2[2];     
+        
+        if (d1 < d2) {
+          m1--;
+          d1 += this.DaysInMonth(y2, m2);
+          console.log(d1); 
+        }
+        if (m1 < m2) {
+            y1--;
+            m1 += 12;
+        }
+        return [y1 - y2, m1 - m2, d1 - d2];        
+      },
+      DaysInMonth(Y, M) {
+        return new Date(Y, M, 1,12).getDate();
+      },
+   
     }
   };
 </script>

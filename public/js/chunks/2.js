@@ -11072,6 +11072,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -12384,7 +12385,7 @@ var entero = function entero(value) {
                   _this4.errorDevuelto = error.response.data.errors;
                   _this4.entrarPorError = true;
 
-                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña investigación", "error");
+                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña identificación", "error");
 
                   return;
                 });
@@ -15210,145 +15211,210 @@ var entero = function entero(value) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
-                // if (this.CA1.tipo_id == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione un tipo de identificación!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.identificacion == "") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor digite el documento de identificación!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.sexo == "0") {
-                //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-                //   return;
-                // }
-                // if (this.CA1.orientacion === "0") {
-                //   bande = false;
-                //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-                //   return;
-                // }
-                // if (this.CA1.identidad_genero === "0") {
-                //   bande = false;
-                //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-                //   return;
-                // }        
-                // if (this.CA1.parentesco == "0") {
-                //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-                //   return;
-                // }
-                // if (this.CA1.pnom == "0") {
-                //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-                //   return;
-                // }
-                // if (this.CA1.pape == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor digite el primer apellido!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.estado_civil == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione el estado civil!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.fecha_nac == "") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione la fecha de nacimiento!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.escolaridad == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione el nivel de escolaridad!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.ocupacion == "0") {
-                //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-                //   return;
-                // }
-                // if (this.CA1.etnia == "0") {
-                //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-                //   return;
-                // }
-                // if (this.CA1.clasificacion == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione la clasificacion de la etnia!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.entiende == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione la opción entiende español!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.pyp == "0") {
-                //   this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-                //   return;
-                // }
-                // if (this.CA1.migrante == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione la opción migrante!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.jefe == "0") {
-                //   this.$swal(
-                //     "Error...!",
-                //     "Por favor seleccione el un jefe de hogar!",
-                //     "error"
-                //   );
-                //   return;
-                // }
-                // if (this.CA1.perdida_peso === "") {
-                //   this.$refs.perdida_peso.focus();
-                //   bande = false;
-                //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-                //   return;
-                // }
-                // if (this.CA1.programa_icbf === "") {
-                //   this.$refs.programa_icbf.focus();
-                //   bande = false;
-                //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-                //   return;
-                // }
-                // if (this.CA1.excepciones === "") {
-                //   bande = false;
-                //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
-                //   return;
-                // }        
+                if (!(this.CA1.tipo_id == "0")) {
+                  _context10.next = 3;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
+                return _context10.abrupt("return");
+
+              case 3:
+                if (!(this.CA1.identificacion == "")) {
+                  _context10.next = 6;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el documento de identificación!", "error");
+                return _context10.abrupt("return");
+
+              case 6:
+                if (!(this.CA1.sexo == "0")) {
+                  _context10.next = 9;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+                return _context10.abrupt("return");
+
+              case 9:
+                if (!(this.CA1.orientacion === "0")) {
+                  _context10.next = 13;
+                  break;
+                }
+
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+                return _context10.abrupt("return");
+
+              case 13:
+                if (!(this.CA1.identidad_genero === "0")) {
+                  _context10.next = 17;
+                  break;
+                }
+
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+                return _context10.abrupt("return");
+
+              case 17:
+                if (!(this.CA1.parentesco == "0")) {
+                  _context10.next = 20;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+                return _context10.abrupt("return");
+
+              case 20:
+                if (!(this.CA1.pnom == "0")) {
+                  _context10.next = 23;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+                return _context10.abrupt("return");
+
+              case 23:
+                if (!(this.CA1.pape == "0")) {
+                  _context10.next = 26;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
+                return _context10.abrupt("return");
+
+              case 26:
+                if (!(this.CA1.estado_civil == "0")) {
+                  _context10.next = 29;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
+                return _context10.abrupt("return");
+
+              case 29:
+                if (!(this.CA1.fecha_nac == "")) {
+                  _context10.next = 32;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
+                return _context10.abrupt("return");
+
+              case 32:
+                if (!(this.CA1.escolaridad == "0")) {
+                  _context10.next = 35;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el nivel de escolaridad!", "error");
+                return _context10.abrupt("return");
+
+              case 35:
+                if (!(this.CA1.ocupacion == "0")) {
+                  _context10.next = 38;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+                return _context10.abrupt("return");
+
+              case 38:
+                if (!(this.CA1.etnia == "0")) {
+                  _context10.next = 41;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+                return _context10.abrupt("return");
+
+              case 41:
+                if (!(this.CA1.clasificacion == "0")) {
+                  _context10.next = 44;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
+                return _context10.abrupt("return");
+
+              case 44:
+                if (!(this.CA1.entiende == "0")) {
+                  _context10.next = 47;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción entiende español!", "error");
+                return _context10.abrupt("return");
+
+              case 47:
+                if (!(this.CA1.pyp == "0")) {
+                  _context10.next = 50;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+                return _context10.abrupt("return");
+
+              case 50:
+                if (!(this.CA1.migrante == "0")) {
+                  _context10.next = 53;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción migrante!", "error");
+                return _context10.abrupt("return");
+
+              case 53:
+                if (!(this.CA1.jefe == "0")) {
+                  _context10.next = 56;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el un jefe de hogar!", "error");
+                return _context10.abrupt("return");
+
+              case 56:
+                if (!(this.CA1.perdida_peso === "")) {
+                  _context10.next = 61;
+                  break;
+                }
+
+                this.$refs.perdida_peso.focus();
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+                return _context10.abrupt("return");
+
+              case 61:
+                if (!(this.CA1.programa_icbf === "")) {
+                  _context10.next = 66;
+                  break;
+                }
+
+                this.$refs.programa_icbf.focus();
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+                return _context10.abrupt("return");
+
+              case 66:
+                if (!(this.CA1.excepciones === "")) {
+                  _context10.next = 70;
+                  break;
+                }
+
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+                return _context10.abrupt("return");
+
+              case 70:
                 // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
                 this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
                 parametros = {
                   _token: this.csrf,
                   identificacion: this.CA1.identificacion
                 };
-                _context10.prev = 2;
-                _context10.next = 5;
+                _context10.prev = 72;
+                _context10.next = 75;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "EXISTE") {
                     var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
@@ -15516,35 +15582,35 @@ var entero = function entero(value) {
                   _this8.entrarPorError = true;
                 });
 
-              case 5:
-                _context10.next = 18;
+              case 75:
+                _context10.next = 88;
                 break;
 
-              case 7:
-                _context10.prev = 7;
-                _context10.t0 = _context10["catch"](2);
+              case 77:
+                _context10.prev = 77;
+                _context10.t0 = _context10["catch"](72);
                 _context10.t1 = _context10.t0.response.status;
-                _context10.next = _context10.t1 === 419 ? 12 : _context10.t1 === 422 ? 14 : 16;
+                _context10.next = _context10.t1 === 419 ? 82 : _context10.t1 === 422 ? 84 : 86;
                 break;
 
-              case 12:
+              case 82:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 18);
+                return _context10.abrupt("break", 88);
 
-              case 14:
+              case 84:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 18);
+                return _context10.abrupt("break", 88);
 
-              case 16:
+              case 86:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 18);
+                return _context10.abrupt("break", 88);
 
-              case 18:
+              case 88:
               case "end":
                 return _context10.stop();
             }
           }
-        }, _callee8, this, [[2, 7]]);
+        }, _callee8, this, [[72, 77]]);
       }));
 
       function agregar() {
@@ -16682,8 +16748,14 @@ var entero = function entero(value) {
       }
 
       if (caja == "tipoid") {
+        this.caracData.identificacion = "";
+
         if (this.caracData.tipo_id != "CC") {
-          this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          if (this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI") {
+            this.caracData.identificacion = this.caracData.tipo_id + Math.floor(Math.random() * 100 + 1);
+          } else {
+            this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          }
         } else {
           if (this.caracData.tipo_id == "CC") {
             this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
@@ -16722,8 +16794,14 @@ var entero = function entero(value) {
       }
 
       if (caja == "tipoid2") {
+        this.CA1.identificacion = "";
+
         if (this.CA1.tipo_id != "CC") {
-          this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          if (this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI") {
+            this.CA1.identificacion = this.CA1.tipo_id + Math.floor(Math.random() * 100 + 1);
+          } else {
+            this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          }
         } else {
           if (this.CA1.tipo_id == "CC") {
             this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
@@ -16826,6 +16904,7 @@ var entero = function entero(value) {
       this.CA1.identidad_genero = "0";
       this.CA1.perdida_peso = "0";
       this.CA1.programa_icbf = "0";
+      this.CA1.excepciones = "0";
     },
     limpiar2: function limpiar2() {
       this.caracData.tipo_id = "";
@@ -17931,11 +18010,22 @@ var entero = function entero(value) {
         suma = suma.add(7, "days");
         item.fecha_probable = suma.format("YYYY-MM-DD");
         var hoy = moment();
+        var hoyFormato = moment().format("YYYY-MM-DD");
         var edad = 0;
-        edad = hoy.diff(fecha, "months"); //Calculamos la diferencia en años
+        edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
 
-        alert(edad); // console.log(suma.format("DD/MM/YYYY"));
-        // console.log(item.fecha_probable);
+        var dife = this.datediff(hoyFormato, item.fecha_ultima);
+        var diaSemanas = 0;
+
+        if (dife[1] != 0) {
+          diaSemanas = Math.ceil(dife[2] / 7);
+        }
+
+        var mesTrimestre = Math.floor(dife[1] / 3);
+        var valor = dife[1] * 4;
+        item.semanas_ges = valor + diaSemanas + mesTrimestre;
+        console.log(diaSemanas);
+        console.log(dife);
       }
 
       if (opcion === "fecha_probable") {
@@ -20474,6 +20564,32 @@ var entero = function entero(value) {
         culturales: "",
         recreativos: ""
       });
+    },
+    datediff: function datediff(date1, date2) {
+      var fecha1 = date1.split("-");
+      var fecha2 = date2.split("-");
+      var y1 = fecha1[0],
+          m1 = fecha1[1],
+          d1 = fecha1[2],
+          y2 = fecha2[0],
+          m2 = fecha2[1],
+          d2 = fecha2[2];
+
+      if (d1 < d2) {
+        m1--;
+        d1 += this.DaysInMonth(y2, m2);
+        console.log(d1);
+      }
+
+      if (m1 < m2) {
+        y1--;
+        m1 += 12;
+      }
+
+      return [y1 - y2, m1 - m2, d1 - d2];
+    },
+    DaysInMonth: function DaysInMonth(Y, M) {
+      return new Date(Y, M, 1, 12).getDate();
     }
   }
 });
@@ -29745,42 +29861,6 @@ var render = function() {
                                     "td",
                                     {
                                       staticStyle: {
-                                        "text-align": "center",
-                                        "vertical-align": "middle"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "btn btn-icon btn-sm btn-outline-danger",
-                                          attrs: {
-                                            type: "button",
-                                            title: "Eliminar"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.eliminarItem(
-                                                index,
-                                                item
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fa fa-trash"
-                                          })
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "td",
-                                    {
-                                      staticStyle: {
                                         "font-weight": "normal",
                                         "vertical-align": "middle",
                                         "text-align": "left",
@@ -29859,6 +29939,42 @@ var render = function() {
                                       )
                                     ],
                                     1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "text-align": "center",
+                                        "vertical-align": "middle"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-icon btn-sm btn-outline-danger",
+                                          attrs: {
+                                            type: "button",
+                                            title: "Eliminar"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.eliminarItem(
+                                                index,
+                                                item
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-trash"
+                                          })
+                                        ]
+                                      )
+                                    ]
                                   )
                                 ])
                               }),
@@ -48504,7 +48620,11 @@ var render = function() {
                                           item.fecha_ultima == ""
                                             ? "is-invalid"
                                             : "is-valid",
-                                        attrs: { id: "date", type: "date" },
+                                        attrs: {
+                                          id: "date",
+                                          type: "date",
+                                          max: _vm._f("moment")(_vm.hoy)
+                                        },
                                         domProps: { value: item.fecha_ultima },
                                         on: {
                                           input: [
@@ -61246,14 +61366,15 @@ function eliminarOcupaciones($data) {
 /*!*********************************************************!*\
   !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue ***!
   \*********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=template&id=45771cc1& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&");
 /* harmony import */ var _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -61285,7 +61406,7 @@ component.options.__file = "resources/js/Vistas/Caracterizacion/Ingreso.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

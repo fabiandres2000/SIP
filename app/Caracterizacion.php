@@ -14,7 +14,7 @@ class Caracterizacion extends Model
         'id_compania', 'estado', 'estado_civil', 'fecha_nacimiento', 'afiliacion_entidad',
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
-        'orientacion','identidad_genero','perdida_peso','programa_icbf'
+        'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf',
     ];
 
     public static function listar($busqueda, $alias)
@@ -80,6 +80,20 @@ class Caracterizacion extends Model
 
     public static function guardar($data, $alias)
     {
+
+        if ($data['tipo_id'] == "MSI" || $data['tipo_id'] == "ASI") {
+            $count = DB::connection('mysql')->table($alias . '.caracterizacion')
+                ->count();
+            if ($count <= 0) {
+                $data['identificacion'] = str_pad(1, 7, "0", STR_PAD_LEFT);
+            } else {
+                $resp = DB::connection('mysql')->table($alias . '.caracterizacion')
+                    ->orderBy('id', 'desc')->first();
+                $data['identificacion'] = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
+            }
+
+        }
+
         return DB::connection('mysql')->table($alias . '.caracterizacion')->updateOrInsert([
             'id' => $data['id'],
         ], [
@@ -117,7 +131,7 @@ class Caracterizacion extends Model
             'orientacion' => $data['orientacion'],
             'identidad_genero' => $data['identidad_genero'],
             'perdida_peso' => $data['perdida_peso'],
-            'programa_icbf' => $data['programa_icbf'],        
+            'programa_icbf' => $data['programa_icbf'],
         ]);
     }
 

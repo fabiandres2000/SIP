@@ -9,15 +9,29 @@ class Integrante extends Model
 {
     protected $table = 'integrantes';
     protected $fillable = [
-        'id_hogar','tipo_id','identificacion','sexo','parentesco','pnom',
-        'snon','pape','sape','estado_civil','fecha_nac','afi_entidad',
-        'tipo_afiliacion','embarazo','embarazo_multiple','discapacidad','escolaridad','ocupacion',
-        'colegio','grado','etnia','entiende','pyp','migrante',
-        'id_compania','estado','clasificacion','puntaje_sisben','otra_eps',
-        'jefe', 'orientacion', 'identidad_genero','telefono','perdida_peso','programa_icbf'
+        'id_hogar', 'tipo_id', 'identificacion', 'sexo', 'parentesco', 'pnom',
+        'snon', 'pape', 'sape', 'estado_civil', 'fecha_nac', 'afi_entidad',
+        'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'escolaridad', 'ocupacion',
+        'colegio', 'grado', 'etnia', 'entiende', 'pyp', 'migrante',
+        'id_compania', 'estado', 'clasificacion', 'puntaje_sisben', 'otra_eps',
+        'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf',
     ];
     public static function guardar($data, $alias)
     {
+
+        if ($data['tipo_id'] == "MSI" || $data['tipo_id'] == "ASI") {
+            $count = DB::connection('mysql')->table($alias . '.integrantes')
+                ->count();
+            if ($count <= 0) {
+                $data['identificacion'] = str_pad(1, 7, "0", STR_PAD_LEFT);
+            } else {
+                $resp = DB::connection('mysql')->table($alias . '.integrantes')
+                    ->orderBy('id', 'desc')->first();
+                $data['identificacion'] = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
+            }
+
+        }
+
         $jefe = \App\Caracterizacion::buscar($data['jefe'], $alias);
         return DB::connection('mysql')->table($alias . '.integrantes')->updateOrInsert([
             'id' => $data['id'],
@@ -56,7 +70,7 @@ class Integrante extends Model
             'identidad_genero' => $data['identidad_genero'],
             'telefono' => $data['telefono'],
             'perdida_peso' => $data['perdida_peso'],
-            'programa_icbf' => $data['programa_icbf'],                        
+            'programa_icbf' => $data['programa_icbf'],
         ]);
     }
 
