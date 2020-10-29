@@ -12,7 +12,9 @@
             </h3>
           </div>
           <div class="kt-portlet__head-toolbar">            
-            <a href="#" class="btn btn-danger kt-margin-r-10" @click.prevent="volver">
+            <a href="#" class="btn btn-danger kt-margin-r-10" 
+            @click.prevent="volver"            
+            >
               <i class="la la-arrow-left"></i>
               <span class="kt-hidden-mobile">Volver</span>
             </a>
@@ -87,6 +89,8 @@
                     type="button"
                     class="btn btn-brand"
                     @click="cambiarTab1('tabVivienda','tabIdentificacion')"
+                    :disabled="!valGIden"
+                    :class="spinGIden"
                   >
                     <i class="la la-arrow-right"></i>
                     <span class="kt-hidden-mobile">Siguiente</span>
@@ -2993,6 +2997,8 @@
                     type="button"
                     class="btn btn-brand"
                     @click="cambiarTab1('cartxciclo','tabVivienda')"
+                    :disabled="!valGVivi"
+                    :class="spinGVivi"                    
                   >
                     <i class="la la-arrow-right"></i>
                     <span class="kt-hidden-mobile">Siguiente</span>
@@ -5480,6 +5486,8 @@
                     type="button"
                     class="btn btn-brand"
                     @click="cambiarTab1('adolescente','cartxciclo')"
+                    :disabled="!valGCart"
+                    :class="spinGCart"                    
                   >
                     <i class="la la-arrow-right"></i>
                     <span class="kt-hidden-mobile">Siguiente</span>
@@ -8374,6 +8382,8 @@
                     type="button"
                     class="btn btn-brand"
                     @click="cambiarTab1('adultomayor','adolescente')"
+                    :disabled="!valGAdole"
+                    :class="spinGAdole"                    
                   >
                     <i class="la la-arrow-right"></i>
                     <span class="kt-hidden-mobile">Siguiente</span>
@@ -9924,6 +9934,8 @@
                     type="button"
                     class="btn btn-brand"
                     @click="cambiarTab1('migrante','adultomayor')"
+                    :disabled="!valGAdul"
+                    :class="spinGAdul"                    
                   >
                     <i class="la la-arrow-right"></i>
                     <span class="kt-hidden-mobile">Siguiente</span>
@@ -10635,6 +10647,8 @@
                     type="button"
                     class="btn btn-brand"
                     @click="cambiarTab1('guardar','migrante')"
+                    :disabled="!valGMig"
+                    :class="spinGMig"                    
                   >
                     <i class="la la-check"></i>
                     <span class="kt-hidden-mobile">Guardar</span>
@@ -11449,7 +11463,13 @@
         actividadesVector:[],
         actividadesAuxiliar: "",
         SAPU: false,
-        CODIGOGENE: ""
+        CODIGOGENE: "",
+        valGIden: true,
+        valGVivi: true,
+        valGCart: true,
+        valGAdole: true,
+        valGAdul: true,
+        valGMig: true
       };
     },
     validations: {
@@ -11613,9 +11633,51 @@
       calHoy() {
         let hoy = moment();
         return hoy;
-      } 
+      },
+      spinGIden() {
+        if (this.valGIden) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },
+      spinGVivi() {
+        if (this.valGVivi) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },
+      spinGCart() {
+        if (this.valGCart) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },
+      spinGAdole() {
+        if (this.valGAdole) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },
+      spinGAdul() {
+        if (this.valGAdul) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },
+      spinGMig() {
+        if (this.valGMig) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },                                    
     },
-    methods: {
+    methods: {      
       abrirModalOcupaciones(opcion){
         this.opcionOcupaciones=opcion;
         this.txtbusqueda="";
@@ -11931,6 +11993,7 @@
             //VALIDAR LA TABLA FACTORES
             
             //GUARDAR DATOS
+            this.valGIden = false;
             const parametros = {
               _token: this.csrf,
               hogar: this.hogar,
@@ -11947,6 +12010,7 @@
                   if (respuesta.data.OPC == "SI") {
                     this.GIDEN = true;
                     this.IDHOGAR = respuesta.data.IDHOGAR;
+                    this.valGIden = true;
                   }
                 })
                 .catch(error => {
@@ -12007,6 +12071,7 @@
                   return;
                 }
                 //GUARDAR DATOS
+                this.valGVivi = false;
                 const parametros = {
                   _token: this.csrf,
                   vivienda: this.viviendaData,
@@ -12022,7 +12087,8 @@
                     .then(respuesta => {
                       if (respuesta.data.OPC == "SI") {
                         this.GVIVI = true;
-                        bandera = true;                  
+                        bandera = true;
+                        this.valGVivi = true;                  
                       }
                     })
                     .catch(error => {
@@ -12146,6 +12212,7 @@
                 opc: "GUACARCI",
                 IDHOGAR: this.IDHOGAR
               };
+              this.valGCart = false;
               try {
                 await caracterizacionServicios
                   .guardar(parametros)
@@ -12153,6 +12220,7 @@
                     if (respuesta.data.OPC == "SI") {
                       this.GCARXCI = true;
                       bandera = true;
+                      this.valGCart = true;
                     }
                   })
                   .catch(error => {
@@ -12262,6 +12330,7 @@
                 opc: "GUADOLE",
                 IDHOGAR: this.IDHOGAR
               };
+              this.valGAdole = false;
               try {
                 await caracterizacionServicios
                   .guardar(parametros)
@@ -12269,6 +12338,7 @@
                     if (respuesta.data.OPC == "SI") {
                       this.GADOLE = true;
                       bandera = true;
+                      this.valGAdole = true;
                     }
                   })
                   .catch(error => {
@@ -12389,6 +12459,7 @@
                 opc: "GUADULT",
                 IDHOGAR: this.IDHOGAR
               };
+              this.valGAdul = false;
               try {
                 await caracterizacionServicios
                   .guardar(parametros)
@@ -12397,6 +12468,7 @@
                       console.log("SI GUARDE");
                       this.GADULT = true;
                       bandera = true;
+                      this.valGAdul = true;
                     }
                   })
                   .catch(error => {
@@ -12498,6 +12570,7 @@
                 opc: "GUAMIGRA",
                 IDHOGAR: this.IDHOGAR
               };
+              this.valGMig = false;
               try {
                 await caracterizacionServicios
                   .guardar(parametros)
@@ -12508,6 +12581,7 @@
                         "Datos Guardados Exitosamente!",
                         "success"
                       );
+                      this.valGMig = true;
                       this.$router.push("/gestion");
                     }
                   })
@@ -17221,7 +17295,7 @@
           this.caracData.identificacion = ""; 
           if (this.caracData.tipo_id != "CC") {
             if(this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI"){
-              this.caracData.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
+              this.caracData.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
             }else{
               this.caracData.identificacion = this.caracData.identificacion.replace(
                 /[.*+\-?^${}()|[\]\\]/g,
@@ -17271,7 +17345,7 @@
           this.CA1.identificacion = "";
           if (this.CA1.tipo_id != "CC") {
             if(this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI"){
-              this.CA1.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
+              this.CA1.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
             }else{
               this.CA1.identificacion = this.CA1.identificacion.replace(
                 /[.*+\-?^${}()|[\]\\]/g,

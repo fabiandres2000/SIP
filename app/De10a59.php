@@ -35,7 +35,7 @@ class De10a59 extends Model
             'id_integrante' => $integrante->id,
             'id_hogar' => $data['id_hogar'],
             'tipo_id' => $data['tipo_id'],
-            'identificacion' => $data['identificacion'],
+            'identificacion' => $integrante->identificacion,
             'pnom' => $data['pnom'],
             'snom' => $data['snom'],
             'pape' => $data['pape'],

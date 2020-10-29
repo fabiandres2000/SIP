@@ -11073,6 +11073,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -11545,7 +11559,13 @@ var entero = function entero(value) {
       actividadesVector: [],
       actividadesAuxiliar: "",
       SAPU: false,
-      CODIGOGENE: ""
+      CODIGOGENE: "",
+      valGIden: true,
+      valGVivi: true,
+      valGCart: true,
+      valGAdole: true,
+      valGAdul: true,
+      valGMig: true
     };
   },
   validations: {
@@ -11899,6 +11919,48 @@ var entero = function entero(value) {
     calHoy: function calHoy() {
       var hoy = moment();
       return hoy;
+    },
+    spinGIden: function spinGIden() {
+      if (this.valGIden) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
+    },
+    spinGVivi: function spinGVivi() {
+      if (this.valGVivi) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
+    },
+    spinGCart: function spinGCart() {
+      if (this.valGCart) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
+    },
+    spinGAdole: function spinGAdole() {
+      if (this.valGAdole) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
+    },
+    spinGAdul: function spinGAdul() {
+      if (this.valGAdul) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
+    },
+    spinGMig: function spinGMig() {
+      if (this.valGMig) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
     }
   },
   methods: {
@@ -12138,12 +12200,12 @@ var entero = function entero(value) {
                 bandera = false;
 
                 if (!(actual === "tabIdentificacion")) {
-                  _context4.next = 93;
+                  _context4.next = 94;
                   break;
                 }
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 92;
+                  _context4.next = 93;
                   break;
                 }
 
@@ -12366,6 +12428,7 @@ var entero = function entero(value) {
               case 73:
                 //VALIDAR LA TABLA FACTORES
                 //GUARDAR DATOS
+                _this4.valGIden = false;
                 parametros = {
                   _token: _this4.csrf,
                   hogar: _this4.hogar,
@@ -12375,12 +12438,13 @@ var entero = function entero(value) {
                   opcion: "GUARDAR",
                   opc: "GUAINDEN"
                 };
-                _context4.prev = 74;
-                _context4.next = 77;
+                _context4.prev = 75;
+                _context4.next = 78;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GIDEN = true;
                     _this4.IDHOGAR = respuesta.data.IDHOGAR;
+                    _this4.valGIden = true;
                   }
                 })["catch"](function (error) {
                   _this4.errorDevuelto = error.response.data.errors;
@@ -12391,49 +12455,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 77:
-                _context4.next = 90;
+              case 78:
+                _context4.next = 91;
                 break;
 
-              case 79:
-                _context4.prev = 79;
-                _context4.t0 = _context4["catch"](74);
+              case 80:
+                _context4.prev = 80;
+                _context4.t0 = _context4["catch"](75);
                 _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 419 ? 84 : _context4.t1 === 422 ? 86 : 88;
+                _context4.next = _context4.t1 === 419 ? 85 : _context4.t1 === 422 ? 87 : 89;
                 break;
 
-              case 84:
+              case 85:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 90);
+                return _context4.abrupt("break", 91);
 
-              case 86:
+              case 87:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 90);
+                return _context4.abrupt("break", 91);
 
-              case 88:
+              case 89:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 90);
+                return _context4.abrupt("break", 91);
 
-              case 90:
-                _context4.next = 93;
+              case 91:
+                _context4.next = 94;
                 break;
-
-              case 92:
-                bandera = true;
 
               case 93:
+                bandera = true;
+
+              case 94:
                 if (!(actual === "tabVivienda")) {
-                  _context4.next = 129;
+                  _context4.next = 131;
                   break;
                 }
 
                 bandera = true;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 98;
+                  _context4.next = 99;
                   break;
                 }
 
@@ -12441,13 +12505,13 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 98:
+              case 99:
                 _this4.$v.$touch();
 
                 isInvalid = _this4.$v.$invalid;
 
                 if (!isInvalid) {
-                  _context4.next = 105;
+                  _context4.next = 106;
                   break;
                 }
 
@@ -12455,14 +12519,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 105:
+              case 106:
                 if (!(_this4.GVIVI === false && _this4.GIDEN === true && _this4.IDHOGAR !== 0)) {
-                  _context4.next = 128;
+                  _context4.next = 130;
                   break;
                 }
 
                 if (!(_this4.estratificacion.length <= 0)) {
-                  _context4.next = 109;
+                  _context4.next = 110;
                   break;
                 }
 
@@ -12470,8 +12534,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 109:
+              case 110:
                 //GUARDAR DATOS
+                _this4.valGVivi = false;
                 _parametros = {
                   _token: _this4.csrf,
                   vivienda: _this4.viviendaData,
@@ -12481,12 +12546,13 @@ var entero = function entero(value) {
                   opc: "GUAVIVI",
                   IDHOGAR: _this4.IDHOGAR
                 };
-                _context4.prev = 110;
-                _context4.next = 113;
+                _context4.prev = 112;
+                _context4.next = 115;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GVIVI = true;
                     bandera = true;
+                    _this4.valGVivi = true;
                   }
                 })["catch"](function (error) {
                   _this4.errorDevuelto = error.response.data.errors;
@@ -12497,49 +12563,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 113:
-                _context4.next = 126;
-                break;
-
               case 115:
-                _context4.prev = 115;
-                _context4.t2 = _context4["catch"](110);
-                _context4.t3 = _context4.t2.response.status;
-                _context4.next = _context4.t3 === 419 ? 120 : _context4.t3 === 422 ? 122 : 124;
+                _context4.next = 128;
                 break;
 
-              case 120:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 126);
+              case 117:
+                _context4.prev = 117;
+                _context4.t2 = _context4["catch"](112);
+                _context4.t3 = _context4.t2.response.status;
+                _context4.next = _context4.t3 === 419 ? 122 : _context4.t3 === 422 ? 124 : 126;
+                break;
 
               case 122:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 126);
+                return _context4.abrupt("break", 128);
 
               case 124:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 126);
+                return _context4.abrupt("break", 128);
 
               case 126:
-                _context4.next = 129;
-                break;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 128);
 
               case 128:
+                _context4.next = 131;
+                break;
+
+              case 130:
                 bandera = true;
 
-              case 129:
+              case 131:
                 if (!(actual === "cartxciclo")) {
-                  _context4.next = 203;
+                  _context4.next = 206;
                   break;
                 }
 
                 bandera = true;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 134;
+                  _context4.next = 136;
                   break;
                 }
 
@@ -12547,9 +12613,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 134:
+              case 136:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 137;
+                  _context4.next = 139;
                   break;
                 }
 
@@ -12557,121 +12623,121 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 137:
+              case 139:
                 if (!(_this4.GCARXCI === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 202;
+                  _context4.next = 205;
                   break;
                 }
 
                 auxi = false; //VALIDAR LA TABLA MENORES DE 1 AÑO
 
                 if (!(_this4.Men1A.length > 0)) {
-                  _context4.next = 147;
+                  _context4.next = 149;
                   break;
                 }
 
                 _resul3 = _this4.valMen1();
 
                 if (!_resul3) {
-                  _context4.next = 146;
+                  _context4.next = 148;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 147;
+                _context4.next = 149;
                 break;
 
-              case 146:
+              case 148:
                 return _context4.abrupt("return", false);
 
-              case 147:
+              case 149:
                 if (!(_this4.De1A5.length > 0)) {
-                  _context4.next = 155;
+                  _context4.next = 157;
                   break;
                 }
 
                 _resul4 = _this4.valDe1A5();
 
                 if (!_resul4) {
-                  _context4.next = 154;
+                  _context4.next = 156;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 155;
+                _context4.next = 157;
                 break;
 
-              case 154:
+              case 156:
                 return _context4.abrupt("return", false);
 
-              case 155:
+              case 157:
                 if (!(_this4.De6A11.length > 0)) {
-                  _context4.next = 163;
+                  _context4.next = 165;
                   break;
                 }
 
                 _resul5 = _this4.valDe6A11();
 
                 if (!_resul5) {
-                  _context4.next = 162;
+                  _context4.next = 164;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 163;
+                _context4.next = 165;
                 break;
 
-              case 162:
+              case 164:
                 return _context4.abrupt("return", false);
 
-              case 163:
+              case 165:
                 if (!(_this4.De10A59.length > 0)) {
-                  _context4.next = 171;
+                  _context4.next = 173;
                   break;
                 }
 
                 _resul6 = _this4.valDe10A59();
 
                 if (!_resul6) {
-                  _context4.next = 170;
+                  _context4.next = 172;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 171;
+                _context4.next = 173;
                 break;
 
-              case 170:
+              case 172:
                 return _context4.abrupt("return", false);
 
-              case 171:
+              case 173:
                 if (!(_this4.ParPost.length > 0)) {
-                  _context4.next = 179;
+                  _context4.next = 181;
                   break;
                 }
 
                 _resul7 = _this4.valParPost();
 
                 if (!_resul7) {
-                  _context4.next = 178;
+                  _context4.next = 180;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 179;
+                _context4.next = 181;
                 break;
 
-              case 178:
+              case 180:
                 return _context4.abrupt("return", false);
 
-              case 179:
+              case 181:
                 if (!auxi) {
-                  _context4.next = 199;
+                  _context4.next = 202;
                   break;
                 }
 
@@ -12687,12 +12753,14 @@ var entero = function entero(value) {
                   opc: "GUACARCI",
                   IDHOGAR: _this4.IDHOGAR
                 };
-                _context4.prev = 181;
-                _context4.next = 184;
+                _this4.valGCart = false;
+                _context4.prev = 184;
+                _context4.next = 187;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GCARXCI = true;
                     bandera = true;
+                    _this4.valGCart = true;
                   }
                 })["catch"](function (error) {
                   _this4.errorDevuelto = error.response.data.errors;
@@ -12703,38 +12771,31 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 184:
-                _context4.next = 197;
-                break;
-
-              case 186:
-                _context4.prev = 186;
-                _context4.t4 = _context4["catch"](181);
-                _context4.t5 = _context4.t4.response.status;
-                _context4.next = _context4.t5 === 419 ? 191 : _context4.t5 === 422 ? 193 : 195;
-                break;
-
-              case 191:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 197);
-
-              case 193:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 197);
-
-              case 195:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 197);
-
-              case 197:
+              case 187:
                 _context4.next = 200;
                 break;
 
-              case 199:
-                bandera = true;
+              case 189:
+                _context4.prev = 189;
+                _context4.t4 = _context4["catch"](184);
+                _context4.t5 = _context4.t4.response.status;
+                _context4.next = _context4.t5 === 419 ? 194 : _context4.t5 === 422 ? 196 : 198;
+                break;
+
+              case 194:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 200);
+
+              case 196:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 200);
+
+              case 198:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 200);
 
               case 200:
                 _context4.next = 203;
@@ -12744,8 +12805,15 @@ var entero = function entero(value) {
                 bandera = true;
 
               case 203:
+                _context4.next = 206;
+                break;
+
+              case 205:
+                bandera = true;
+
+              case 206:
                 if (!(actual === "adolescente")) {
-                  _context4.next = 265;
+                  _context4.next = 269;
                   break;
                 }
 
@@ -12753,7 +12821,7 @@ var entero = function entero(value) {
                 _auxi = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 209;
+                  _context4.next = 212;
                   break;
                 }
 
@@ -12761,9 +12829,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 209:
+              case 212:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 212;
+                  _context4.next = 215;
                   break;
                 }
 
@@ -12771,14 +12839,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 212:
+              case 215:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 216;
+                  _context4.next = 219;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 216;
+                  _context4.next = 219;
                   break;
                 }
 
@@ -12786,77 +12854,77 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 216:
+              case 219:
                 if (!(_this4.GADOLE === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 264;
+                  _context4.next = 268;
                   break;
                 }
 
                 if (!(_this4.De12A17.length > 0)) {
-                  _context4.next = 225;
+                  _context4.next = 228;
                   break;
                 }
 
                 _resul8 = _this4.valDe12A17();
 
                 if (!_resul8) {
-                  _context4.next = 224;
+                  _context4.next = 227;
                   break;
                 }
 
                 bandera = true;
                 _auxi = true;
-                _context4.next = 225;
+                _context4.next = 228;
                 break;
 
-              case 224:
+              case 227:
                 return _context4.abrupt("return", false);
 
-              case 225:
+              case 228:
                 if (!(_this4.De18A28.length > 0)) {
-                  _context4.next = 233;
+                  _context4.next = 236;
                   break;
                 }
 
                 _resul9 = _this4.valDe18A28();
 
                 if (!_resul9) {
-                  _context4.next = 232;
+                  _context4.next = 235;
                   break;
                 }
 
                 bandera = true;
                 _auxi = true;
-                _context4.next = 233;
+                _context4.next = 236;
                 break;
 
-              case 232:
+              case 235:
                 return _context4.abrupt("return", false);
 
-              case 233:
+              case 236:
                 if (!(_this4.De29A59.length > 0)) {
-                  _context4.next = 241;
+                  _context4.next = 244;
                   break;
                 }
 
                 _resul10 = _this4.valDe29A59();
 
                 if (!_resul10) {
-                  _context4.next = 240;
+                  _context4.next = 243;
                   break;
                 }
 
                 bandera = true;
                 _auxi = true;
-                _context4.next = 241;
+                _context4.next = 244;
                 break;
 
-              case 240:
+              case 243:
                 return _context4.abrupt("return", false);
 
-              case 241:
+              case 244:
                 if (!_auxi) {
-                  _context4.next = 261;
+                  _context4.next = 265;
                   break;
                 }
 
@@ -12870,12 +12938,14 @@ var entero = function entero(value) {
                   opc: "GUADOLE",
                   IDHOGAR: _this4.IDHOGAR
                 };
-                _context4.prev = 243;
-                _context4.next = 246;
+                _this4.valGAdole = false;
+                _context4.prev = 247;
+                _context4.next = 250;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros3).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GADOLE = true;
                     bandera = true;
+                    _this4.valGAdole = true;
                   }
                 })["catch"](function (error) {
                   _this4.errorDevuelto = error.response.data.errors;
@@ -12886,56 +12956,56 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 246:
-                _context4.next = 259;
+              case 250:
+                _context4.next = 263;
                 break;
 
-              case 248:
-                _context4.prev = 248;
-                _context4.t6 = _context4["catch"](243);
+              case 252:
+                _context4.prev = 252;
+                _context4.t6 = _context4["catch"](247);
                 _context4.t7 = _context4.t6.response.status;
-                _context4.next = _context4.t7 === 419 ? 253 : _context4.t7 === 422 ? 255 : 257;
+                _context4.next = _context4.t7 === 419 ? 257 : _context4.t7 === 422 ? 259 : 261;
                 break;
-
-              case 253:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 259);
-
-              case 255:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 259);
 
               case 257:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 259);
+                return _context4.abrupt("break", 263);
 
               case 259:
-                _context4.next = 262;
-                break;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 263);
 
               case 261:
-                bandera = true;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-              case 262:
-                _context4.next = 265;
+                return _context4.abrupt("break", 263);
+
+              case 263:
+                _context4.next = 266;
                 break;
 
-              case 264:
+              case 265:
                 bandera = true;
 
-              case 265:
+              case 266:
+                _context4.next = 269;
+                break;
+
+              case 268:
+                bandera = true;
+
+              case 269:
                 if (!(actual === "adultomayor")) {
-                  _context4.next = 330;
+                  _context4.next = 335;
                   break;
                 }
 
                 _auxi2 = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 270;
+                  _context4.next = 274;
                   break;
                 }
 
@@ -12943,9 +13013,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 270:
+              case 274:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 273;
+                  _context4.next = 277;
                   break;
                 }
 
@@ -12953,14 +13023,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 273:
+              case 277:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 277;
+                  _context4.next = 281;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 277;
+                  _context4.next = 281;
                   break;
                 }
 
@@ -12968,14 +13038,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 277:
+              case 281:
                 if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 281;
+                  _context4.next = 285;
                   break;
                 }
 
                 if (!(_this4.GADOLE === false)) {
-                  _context4.next = 281;
+                  _context4.next = 285;
                   break;
                 }
 
@@ -12983,77 +13053,77 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 281:
+              case 285:
                 if (!(_this4.GADULT === false)) {
-                  _context4.next = 329;
+                  _context4.next = 334;
                   break;
                 }
 
                 if (!(_this4.De60.length > 0)) {
-                  _context4.next = 290;
+                  _context4.next = 294;
                   break;
                 }
 
                 _resul11 = _this4.valDe60();
 
                 if (!_resul11) {
-                  _context4.next = 289;
+                  _context4.next = 293;
                   break;
                 }
 
                 bandera = true;
                 _auxi2 = true;
-                _context4.next = 290;
+                _context4.next = 294;
                 break;
 
-              case 289:
+              case 293:
                 return _context4.abrupt("return", false);
 
-              case 290:
+              case 294:
                 if (!(_this4.EnCro.length > 0)) {
-                  _context4.next = 298;
+                  _context4.next = 302;
                   break;
                 }
 
                 _resul12 = _this4.valEnCro();
 
                 if (!_resul12) {
-                  _context4.next = 297;
+                  _context4.next = 301;
                   break;
                 }
 
                 bandera = true;
                 _auxi2 = true;
-                _context4.next = 298;
+                _context4.next = 302;
                 break;
 
-              case 297:
+              case 301:
                 return _context4.abrupt("return", false);
 
-              case 298:
+              case 302:
                 if (!(_this4.EnInf.length > 0)) {
-                  _context4.next = 306;
+                  _context4.next = 310;
                   break;
                 }
 
                 _resul13 = _this4.valEnInf();
 
                 if (!_resul13) {
-                  _context4.next = 305;
+                  _context4.next = 309;
                   break;
                 }
 
                 bandera = true;
                 _auxi2 = true;
-                _context4.next = 306;
+                _context4.next = 310;
                 break;
 
-              case 305:
+              case 309:
                 return _context4.abrupt("return", false);
 
-              case 306:
+              case 310:
                 if (!_auxi2) {
-                  _context4.next = 326;
+                  _context4.next = 331;
                   break;
                 }
 
@@ -13067,13 +13137,15 @@ var entero = function entero(value) {
                   opc: "GUADULT",
                   IDHOGAR: _this4.IDHOGAR
                 };
-                _context4.prev = 308;
-                _context4.next = 311;
+                _this4.valGAdul = false;
+                _context4.prev = 313;
+                _context4.next = 316;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros4).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     console.log("SI GUARDE");
                     _this4.GADULT = true;
                     bandera = true;
+                    _this4.valGAdul = true;
                   }
                 })["catch"](function (error) {
                   _this4.errorDevuelto = error.response.data.errors;
@@ -13084,56 +13156,56 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 311:
-                _context4.next = 324;
-                break;
-
-              case 313:
-                _context4.prev = 313;
-                _context4.t8 = _context4["catch"](308);
-                _context4.t9 = _context4.t8.response.status;
-                _context4.next = _context4.t9 === 419 ? 318 : _context4.t9 === 422 ? 320 : 322;
+              case 316:
+                _context4.next = 329;
                 break;
 
               case 318:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 324);
-
-              case 320:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 324);
-
-              case 322:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 324);
-
-              case 324:
-                _context4.next = 327;
+                _context4.prev = 318;
+                _context4.t8 = _context4["catch"](313);
+                _context4.t9 = _context4.t8.response.status;
+                _context4.next = _context4.t9 === 419 ? 323 : _context4.t9 === 422 ? 325 : 327;
                 break;
 
-              case 326:
-                bandera = true;
+              case 323:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 329);
+
+              case 325:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 329);
 
               case 327:
-                _context4.next = 330;
-                break;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 329);
 
               case 329:
+                _context4.next = 332;
+                break;
+
+              case 331:
                 bandera = true;
 
-              case 330:
+              case 332:
+                _context4.next = 335;
+                break;
+
+              case 334:
+                bandera = true;
+
+              case 335:
                 if (!(actual === "migrante")) {
-                  _context4.next = 387;
+                  _context4.next = 393;
                   break;
                 }
 
                 _auxi3 = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 335;
+                  _context4.next = 340;
                   break;
                 }
 
@@ -13141,9 +13213,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 335:
+              case 340:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 338;
+                  _context4.next = 343;
                   break;
                 }
 
@@ -13151,14 +13223,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 338:
+              case 343:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 342;
+                  _context4.next = 347;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 342;
+                  _context4.next = 347;
                   break;
                 }
 
@@ -13166,14 +13238,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 342:
+              case 347:
                 if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 346;
+                  _context4.next = 351;
                   break;
                 }
 
                 if (!(_this4.GADOLE === false)) {
-                  _context4.next = 346;
+                  _context4.next = 351;
                   break;
                 }
 
@@ -13181,14 +13253,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 346:
+              case 351:
                 if (!(_this4.De60.length > 0 || _this4.EnCro.length > 0 || _this4.EnInf.length > 0)) {
-                  _context4.next = 350;
+                  _context4.next = 355;
                   break;
                 }
 
                 if (!(_this4.GADULT === false)) {
-                  _context4.next = 350;
+                  _context4.next = 355;
                   break;
                 }
 
@@ -13196,35 +13268,35 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 350:
+              case 355:
                 if (!(_this4.GMIGRA === false)) {
-                  _context4.next = 384;
+                  _context4.next = 390;
                   break;
                 }
 
                 if (!(_this4.Migra.length > 0)) {
-                  _context4.next = 359;
+                  _context4.next = 364;
                   break;
                 }
 
                 _resul14 = _this4.valMigra();
 
                 if (!_resul14) {
-                  _context4.next = 358;
+                  _context4.next = 363;
                   break;
                 }
 
                 bandera = true;
                 _auxi3 = true;
-                _context4.next = 359;
+                _context4.next = 364;
                 break;
 
-              case 358:
+              case 363:
                 return _context4.abrupt("return", false);
 
-              case 359:
+              case 364:
                 if (!_auxi3) {
-                  _context4.next = 379;
+                  _context4.next = 385;
                   break;
                 }
 
@@ -13235,11 +13307,14 @@ var entero = function entero(value) {
                   opc: "GUAMIGRA",
                   IDHOGAR: _this4.IDHOGAR
                 };
-                _context4.prev = 361;
-                _context4.next = 364;
+                _this4.valGMig = false;
+                _context4.prev = 367;
+                _context4.next = 370;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros5).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                    _this4.valGMig = true;
 
                     _this4.$router.push("/gestion");
                   }
@@ -13252,66 +13327,66 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 364:
-                _context4.next = 377;
+              case 370:
+                _context4.next = 383;
                 break;
 
-              case 366:
-                _context4.prev = 366;
-                _context4.t10 = _context4["catch"](361);
+              case 372:
+                _context4.prev = 372;
+                _context4.t10 = _context4["catch"](367);
                 _context4.t11 = _context4.t10.response.status;
-                _context4.next = _context4.t11 === 419 ? 371 : _context4.t11 === 422 ? 373 : 375;
+                _context4.next = _context4.t11 === 419 ? 377 : _context4.t11 === 422 ? 379 : 381;
                 break;
-
-              case 371:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 377);
-
-              case 373:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 377);
-
-              case 375:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 377);
 
               case 377:
-                _context4.next = 382;
-                break;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 383);
 
               case 379:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 383);
+
+              case 381:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 383);
+
+              case 383:
+                _context4.next = 388;
+                break;
+
+              case 385:
                 bandera = true;
 
                 _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
 
                 _this4.$router.push("/gestion");
 
-              case 382:
-                _context4.next = 387;
+              case 388:
+                _context4.next = 393;
                 break;
 
-              case 384:
+              case 390:
                 _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
 
                 _this4.SAPU = false;
 
                 _this4.$router.push("/gestion");
 
-              case 387:
+              case 393:
                 if (bandera) {
                   bandera = false;
                   $('.nav-tabs a[href="#' + opcion + '"]').tab("show");
                 }
 
-              case 388:
+              case 394:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[74, 79], [110, 115], [181, 186], [243, 248], [308, 313], [361, 366]]);
+        }, _callee4, null, [[75, 80], [112, 117], [184, 189], [247, 252], [313, 318], [367, 372]]);
       }))();
     },
     //VALIDACIONES
@@ -16756,7 +16831,7 @@ var entero = function entero(value) {
 
         if (this.caracData.tipo_id != "CC") {
           if (this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI") {
-            this.caracData.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
+            this.caracData.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
           } else {
             this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
           }
@@ -16802,7 +16877,7 @@ var entero = function entero(value) {
 
         if (this.CA1.tipo_id != "CC") {
           if (this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI") {
-            this.CA1.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
+            this.CA1.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
           } else {
             this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
           }
@@ -20875,7 +20950,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-brand",
-                          attrs: { type: "button" },
+                          class: _vm.spinGIden,
+                          attrs: { type: "button", disabled: !_vm.valGIden },
                           on: {
                             click: function($event) {
                               return _vm.cambiarTab1(
@@ -31276,7 +31352,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-brand",
-                          attrs: { type: "button" },
+                          class: _vm.spinGVivi,
+                          attrs: { type: "button", disabled: !_vm.valGVivi },
                           on: {
                             click: function($event) {
                               return _vm.cambiarTab1(
@@ -40112,7 +40189,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-brand",
-                          attrs: { type: "button" },
+                          class: _vm.spinGCart,
+                          attrs: { type: "button", disabled: !_vm.valGCart },
                           on: {
                             click: function($event) {
                               return _vm.cambiarTab1(
@@ -50239,7 +50317,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-brand",
-                          attrs: { type: "button" },
+                          class: _vm.spinGAdole,
+                          attrs: { type: "button", disabled: !_vm.valGAdole },
                           on: {
                             click: function($event) {
                               return _vm.cambiarTab1(
@@ -54968,7 +55047,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-brand",
-                          attrs: { type: "button" },
+                          class: _vm.spinGAdul,
+                          attrs: { type: "button", disabled: !_vm.valGAdul },
                           on: {
                             click: function($event) {
                               return _vm.cambiarTab1("migrante", "adultomayor")
@@ -57096,7 +57176,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-brand",
-                          attrs: { type: "button" },
+                          class: _vm.spinGMig,
+                          attrs: { type: "button", disabled: !_vm.valGMig },
                           on: {
                             click: function($event) {
                               return _vm.cambiarTab1("guardar", "migrante")
@@ -61370,15 +61451,14 @@ function eliminarOcupaciones($data) {
 /*!*********************************************************!*\
   !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue ***!
   \*********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=template&id=45771cc1& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&");
 /* harmony import */ var _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -61410,7 +61490,7 @@ component.options.__file = "resources/js/Vistas/Caracterizacion/Ingreso.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

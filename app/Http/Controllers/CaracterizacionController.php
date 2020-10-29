@@ -320,13 +320,6 @@ class CaracterizacionController extends Controller
                         for ($i = 0; $i < count($datacaracterizacion); $i++) {
                             $datacaracterizacion[$i]['id_hogar'] = $hogarrespuesta;
                             $caracterizacionrespuesta = \App\Caracterizacion::guardar($datacaracterizacion[$i], Session::get('alias'));
-                            // $resp = \App\Caracterizacion::buscarPorId($caracterizacionrespuesta, Session::get('alias'));
-                            // dd($resp);die;
-                            // for ($i = 0; $i < count($dataintegrantes); $i++) {
-                            //     if ($datacaracterizacion[$i]['identificacion'] == $dataintegrantes[$i]['identificacion']) {
-                            //         $dataintegrantes[$i]['identificacion'] = $resp->identificacion;
-                            //     }
-                            // }
                         }
 
                         for ($i = 0; $i < count($dataintegrantes); $i++) {
@@ -510,6 +503,11 @@ class CaracterizacionController extends Controller
                         $Migrarespuesta = \App\Migra::guardar($dataMigra[$i], Session::get('alias'));
                     }
                     // GUARDAR DE MIGRA
+
+                    // CALCULOS FINALES
+                    $resultado = self::calcular($IDHOGAR);
+
+                    // CALCULOS FINALES
                     $respuesta = [
                         'OPC' => 'SI',
                     ];
@@ -837,5 +835,10 @@ class CaracterizacionController extends Controller
             'arrayBarrios' => $arrayBarrios,
         ];
         return response()->json($respuesta, 200);
+    }
+
+    public function calcular($id_hogar)
+    {
+
     }
 }

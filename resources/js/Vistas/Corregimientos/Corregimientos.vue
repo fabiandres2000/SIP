@@ -334,10 +334,17 @@
                 class="btn btn-success"
                 @click="guardarCorregimiento"
                 v-if="banderaBoton"
+                :disabled="!valG"
+                :class="spinG"                
               >
                 <i class="fa fa-edit"></i> Guardar
               </button>
-              <button type="button" class="btn btn-success" @click="editarCorregimiento" v-else>
+              <button type="button" class="btn btn-success" 
+                @click="editarCorregimiento" 
+                :disabled="!valG"
+                :class="spinG"
+                v-else
+              >
                 <i class="fa fa-edit"></i> Guardar
               </button>
               <button type="button" class="btn btn-warning" @click="cerrarModal">
@@ -386,7 +393,8 @@
           hasta: 0
         },
         offset: 4,
-        banderaBoton: true
+        banderaBoton: true,
+        valG: true
       };
     },
     computed: {
@@ -412,7 +420,14 @@
           desde++;
         }
         return paginasArray;
-      }
+      },
+      spinG() {
+        if (this.valG) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },      
     },
     methods: {
       consultar: async function(pagina) {
@@ -501,6 +516,7 @@
             corregimientos: this.datos,
             opcion: "GUARDAR"
           };
+          this.valG = false;
           try {
             await corregimientosServicios
               .guardarCorregimientos(parametros)
@@ -512,12 +528,13 @@
                 this.corregimientosData.corregimiento = "";
                 this.corregimientosData.id = 0;
                 this.bandera = false;
-                this.cerrarModal();
+                this.cerrarModal();                
                 this.$swal(
                   "Guardar...!",
                   "Datos Guardados Exitosamente!",
                   "success"
                 );
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;
@@ -623,6 +640,7 @@
             corregimientos: this.corregimientosData,
             opcion: "EDITAR"
           };
+          this.valG = false;
           try {
             await corregimientosServicios
               .guardarCorregimientos(parametros)
@@ -640,6 +658,7 @@
                   "Datos Guardados Exitosamente!",
                   "success"
                 );
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;

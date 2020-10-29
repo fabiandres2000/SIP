@@ -34,7 +34,7 @@ class Migra extends Model
             'id_integrante' => $integrante->id,
             'id_hogar' => $data['id_hogar'],
             'tipo_id' => $data['tipo_id'],
-            'identificacion' => $data['identificacion'],
+            'identificacion' => $integrante->identificacion,
             'pnom' => $data['pnom'],
             'snom' => $data['snom'],
             'pape' => $data['pape'],
@@ -52,6 +52,6 @@ class Migra extends Model
             'estado' => 'Activo',
             'id_compania' => 1,
             'opci' => $data['opci'],
-        ]);        
+        ]);
     }
 }

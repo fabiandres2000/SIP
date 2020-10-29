@@ -95,7 +95,7 @@ class Integrante extends Model
                 "integrantes.id"
             )
             ->selectRaw('CONCAT_WS(" ",pnom," ",snom," ",pape," ",sape) AS INTEGRANTE')
-            ->selectRaw("YEAR(CURDATE())-YEAR(fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(fecha_nacimiento,'%m-%d'),0,-1) AS edad")
+            ->selectRaw("YEAR(CURDATE())-YEAR(fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(fecha_nac,'%m-%d'),0,-1) AS edad")
             ->get();
         return $respuesta;
     }
@@ -103,6 +103,8 @@ class Integrante extends Model
     public static function buscar($identificacion, $alias)
     {
         return DB::connection('mysql')->table($alias . '.integrantes')
-            ->where('identi_auxi', $identificacion)->last();
+            ->where('identi_auxi', $identificacion)
+            ->orderBy('id', 'desc')
+            ->first();
     }
 }

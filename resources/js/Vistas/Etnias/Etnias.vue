@@ -260,7 +260,11 @@
             </div>
             <hr />
             <div class="text-right">
-              <button type="button" class="btn btn-success" @click="guardarEtnia">
+              <button type="button" class="btn btn-success" 
+                @click="guardarEtnia"
+                :disabled="!valG"
+                :class="spinG"                
+              >
                 <i class="fa fa-edit"></i> Guardar
               </button>
               <button type="button" class="btn btn-warning" @click="cerrarModal">
@@ -360,7 +364,11 @@
 
             <hr />
             <div class="text-right">
-              <button type="button" class="btn btn-success" @click="guardarClasificacion">
+              <button type="button" class="btn btn-success" 
+                @click="guardarClasificacion"
+                :disabled="!valG"
+                :class="spinG"                
+              >
                 <i class="fa fa-edit"></i> Guardar
               </button>
               <button type="button" class="btn btn-warning" @click="cerrarModalClasi">
@@ -408,7 +416,8 @@
         LabelEtnia: "",
         datos: [],
         clasificacion: "",
-        idEtnia: 0
+        idEtnia: 0,
+        valG: true
       };
     },
     computed: {
@@ -449,7 +458,14 @@
           desde++;
         }
         return paginasArray;
-      }
+      },
+      spinG() {
+          if (this.valG) {
+          return {};            
+          } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+          }
+      },      
     },
     methods: {
       consultar: async function(pagina) {
@@ -496,6 +512,7 @@
             observacion: this.etniasData.observacion,
             id: this.etniasData.id
           };
+          this.valG = false;
           try {
             await etniasServicios
               .guardarEtnias(parametros)
@@ -510,6 +527,7 @@
                   "Datos Guardados Exitosamente!",
                   "success"
                 );
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;
@@ -645,6 +663,7 @@
             clasificacion: this.datos,
             id_etnia: this.idEtnia
           };
+          this.valG = false;
           try {
             await etniasServicios
               .guardarClasificacion(parametros)
@@ -659,6 +678,7 @@
                   "Datos Guardados Exitosamente!",
                   "success"
                 );
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;

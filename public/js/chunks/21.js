@@ -534,6 +534,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
+    cambiarPaginas: function cambiarPaginas(pagina) {
+      this.paginacion.pagina_actual = pagina;
+      this.consultar(pagina);
+    },
     consultar: function () {
       var _consultar = _asyncToGenerator(
       /*#__PURE__*/

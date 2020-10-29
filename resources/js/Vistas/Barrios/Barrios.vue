@@ -354,6 +354,8 @@
                 type="button"
                 class="btn btn-success"
                 @click="guardarBarrio"
+                :disabled="!valG"
+                :class="spinG"
                 v-if="banderaBoton"
               >
                 <i class="fa fa-edit"></i> Guardar
@@ -409,7 +411,8 @@
           hasta: 0
         },
         offset: 4,
-        banderaBoton: true
+        banderaBoton: true,
+        valG: true
       };
     },
     computed: {
@@ -435,7 +438,14 @@
           desde++;
         }
         return paginasArray;
-      }
+      },
+      spinG() {
+        if (this.valG) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },      
     },
     methods: {
       consultar: async function(pagina) {
@@ -553,6 +563,7 @@
             barrios: this.datos,
             opcion: "GUARDAR"
           };
+          this.valG = false;
           try {
             await barriosServicios
               .guardarBarrios(parametros)
@@ -566,6 +577,7 @@
                 this.barriosData.id = 0;
                 this.bandera = false;
                 this.cerrarModal();
+                this.valG = true;
                 this.$swal(
                   "Guardar...!",
                   "Datos Guardados Exitosamente!",
@@ -601,6 +613,7 @@
             barrios: this.barriosData,
             opcion: "EDITAR"
           };
+          this.valG = false;
           try {
             await barriosServicios
               .guardarBarrios(parametros)
@@ -619,6 +632,7 @@
                   "Datos Guardados Exitosamente!",
                   "success"
                 );
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;

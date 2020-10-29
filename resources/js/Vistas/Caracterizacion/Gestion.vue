@@ -505,6 +505,10 @@
       }
     },
     methods: {
+      cambiarPaginas: function(pagina) {
+        this.paginacion.pagina_actual = pagina;
+        this.consultar(pagina);
+      },      
       consultar: async function(pagina) {
         const parametros = {
           txtbusqueda: this.txtbusqueda.trim(),

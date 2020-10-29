@@ -364,6 +364,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -404,7 +411,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         hasta: 0
       },
       offset: 4,
-      banderaBoton: true
+      banderaBoton: true,
+      valG: true
     };
   },
   computed: {
@@ -437,6 +445,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return paginasArray;
+    },
+    spinG: function spinG() {
+      if (this.valG) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
     }
   },
   methods: {
@@ -558,7 +573,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
 
                 this.entrarPorError = false;
-                _context2.next = 22;
+                _context2.next = 23;
                 break;
 
               case 4:
@@ -568,8 +583,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   corregimientos: this.datos,
                   opcion: "GUARDAR"
                 };
-                _context2.prev = 6;
-                _context2.next = 9;
+                this.valG = false;
+                _context2.prev = 7;
+                _context2.next = 10;
                 return _Servicios_corregimientos_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarCorregimientos"](parametros).then(function (respuesta) {
                   _this2.consultar(1);
 
@@ -583,40 +599,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this2.cerrarModal();
 
                   _this2.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this2.valG = true;
                 })["catch"](function (error) {
                   _this2.errorDevuelto = error.response.data.errors;
                   _this2.entrarPorError = true;
                 });
 
-              case 9:
-                _context2.next = 22;
+              case 10:
+                _context2.next = 23;
                 break;
 
-              case 11:
-                _context2.prev = 11;
-                _context2.t0 = _context2["catch"](6);
+              case 12:
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](7);
                 _context2.t1 = _context2.t0.response.status;
-                _context2.next = _context2.t1 === 419 ? 16 : _context2.t1 === 422 ? 18 : 20;
+                _context2.next = _context2.t1 === 419 ? 17 : _context2.t1 === 422 ? 19 : 21;
                 break;
 
-              case 16:
+              case 17:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 22);
+                return _context2.abrupt("break", 23);
 
-              case 18:
+              case 19:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 22);
+                return _context2.abrupt("break", 23);
 
-              case 20:
+              case 21:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 22);
+                return _context2.abrupt("break", 23);
 
-              case 22:
+              case 23:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[6, 11]]);
+        }, _callee2, this, [[7, 12]]);
       }));
 
       function guardarCorregimiento() {
@@ -744,7 +762,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }
 
                 this.entrarPorError = false;
-                _context4.next = 22;
+                _context4.next = 23;
                 break;
 
               case 4:
@@ -754,8 +772,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   corregimientos: this.corregimientosData,
                   opcion: "EDITAR"
                 };
-                _context4.prev = 6;
-                _context4.next = 9;
+                this.valG = false;
+                _context4.prev = 7;
+                _context4.next = 10;
                 return _Servicios_corregimientos_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarCorregimientos"](parametros).then(function (respuesta) {
                   _this4.consultar(1);
 
@@ -769,40 +788,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this4.cerrarModal();
 
                   _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this4.valG = true;
                 })["catch"](function (error) {
                   _this4.errorDevuelto = error.response.data.errors;
                   _this4.entrarPorError = true;
                 });
 
-              case 9:
-                _context4.next = 22;
+              case 10:
+                _context4.next = 23;
                 break;
 
-              case 11:
-                _context4.prev = 11;
-                _context4.t0 = _context4["catch"](6);
+              case 12:
+                _context4.prev = 12;
+                _context4.t0 = _context4["catch"](7);
                 _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 419 ? 16 : _context4.t1 === 422 ? 18 : 20;
+                _context4.next = _context4.t1 === 419 ? 17 : _context4.t1 === 422 ? 19 : 21;
                 break;
 
-              case 16:
+              case 17:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 22);
+                return _context4.abrupt("break", 23);
 
-              case 18:
+              case 19:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 22);
+                return _context4.abrupt("break", 23);
 
-              case 20:
+              case 21:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 22);
+                return _context4.abrupt("break", 23);
 
-              case 22:
+              case 23:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this, [[6, 11]]);
+        }, _callee4, this, [[7, 12]]);
       }));
 
       function editarCorregimiento() {
@@ -1780,7 +1801,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-success",
-                          attrs: { type: "button" },
+                          class: _vm.spinG,
+                          attrs: { type: "button", disabled: !_vm.valG },
                           on: { click: _vm.guardarCorregimiento }
                         },
                         [
@@ -1792,7 +1814,8 @@ var render = function() {
                         "button",
                         {
                           staticClass: "btn btn-success",
-                          attrs: { type: "button" },
+                          class: _vm.spinG,
+                          attrs: { type: "button", disabled: !_vm.valG },
                           on: { click: _vm.editarCorregimiento }
                         },
                         [

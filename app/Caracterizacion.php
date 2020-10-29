@@ -95,7 +95,7 @@ class Caracterizacion extends Model
 
         }
 
-        return DB::connection('mysql')->table($alias . '.caracterizacion')->insertGetId([
+        return DB::connection('mysql')->table($alias . '.caracterizacion')->updateOrInsert([
             'id' => $data['id'],
         ], [
             'id_hogar' => $data['id_hogar'],
@@ -198,7 +198,9 @@ class Caracterizacion extends Model
     public static function buscar($identificacion, $alias)
     {
         return DB::connection('mysql')->table($alias . '.caracterizacion')
-            ->where('identi_auxi', $identificacion)->last();
+            ->where('identi_auxi', $identificacion)
+            ->orderBy('id', 'desc')
+            ->first();
     }
     public static function buscarPorId($id, $alias)
     {
