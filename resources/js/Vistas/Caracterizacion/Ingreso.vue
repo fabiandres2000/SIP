@@ -11448,7 +11448,8 @@
         txtbusquedaAct: "",
         actividadesVector:[],
         actividadesAuxiliar: "",
-        SAPU: false
+        SAPU: false,
+        CODIGOGENE: ""
       };
     },
     validations: {
@@ -15799,6 +15800,7 @@
               this.enfcro_options = respuesta.data.arrayEnfCro;
               this.enfinf_options = respuesta.data.arrayEnfInf;
               this.religion_options = respuesta.data.arrayReligion;              
+              this.CODIGOGENE = respuesta.data.codigo;
             });
         } catch (error) {
           switch (error.response.status) {
@@ -16046,7 +16048,8 @@
                     telefono: this.CA1.telefono,
                     perdida_peso: this.CA1.perdida_peso,
                     programa_icbf: this.CA1.programa_icbf,
-                    excepciones: this.CA1.excepciones
+                    excepciones: this.CA1.excepciones,
+                    identi_auxi: ""
                   });
 
                   if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
@@ -16269,7 +16272,8 @@
                       orientacion: this.caracData.orientacion,
                       identidad_genero: this.caracData.identidad_genero,
                       perdida_peso: this.caracData.perdida_peso,
-                      programa_icbf: this.caracData.programa_icbf                      
+                      programa_icbf: this.caracData.programa_icbf,
+                      identi_auxi: ""                      
                     });
                     if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
                       this.SAPU=true;
@@ -17217,7 +17221,7 @@
           this.caracData.identificacion = ""; 
           if (this.caracData.tipo_id != "CC") {
             if(this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI"){
-              this.caracData.identificacion = this.caracData.tipo_id + Math.floor(Math.random() * 100 + 1);
+              this.caracData.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
             }else{
               this.caracData.identificacion = this.caracData.identificacion.replace(
                 /[.*+\-?^${}()|[\]\\]/g,
@@ -17267,7 +17271,7 @@
           this.CA1.identificacion = "";
           if (this.CA1.tipo_id != "CC") {
             if(this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI"){
-              this.CA1.identificacion = this.CA1.tipo_id + Math.floor(Math.random() * 100 + 1);
+              this.CA1.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
             }else{
               this.CA1.identificacion = this.CA1.identificacion.replace(
                 /[.*+\-?^${}()|[\]\\]/g,

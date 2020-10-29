@@ -271,6 +271,8 @@ class CaracterizacionController extends Controller
                     'texto' => strtoupper($item->descripcion),
                 ];
             }
+
+            $codigo = \App\Codigo::guardar(Session::get('alias'), Session::get('sigla'));
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
                 'arrayMuni' => $arrayMuni,
@@ -292,6 +294,7 @@ class CaracterizacionController extends Controller
                 'arrayEnfCro' => $arrayEnfCro,
                 'arrayEnfInf' => $arrayEnfInf,
                 'arrayReligion' => $arrayReligion,
+                'codigo' => $codigo,
             ];
             return response()->json($respuesta, 200);
         } else {
@@ -317,6 +320,13 @@ class CaracterizacionController extends Controller
                         for ($i = 0; $i < count($datacaracterizacion); $i++) {
                             $datacaracterizacion[$i]['id_hogar'] = $hogarrespuesta;
                             $caracterizacionrespuesta = \App\Caracterizacion::guardar($datacaracterizacion[$i], Session::get('alias'));
+                            // $resp = \App\Caracterizacion::buscarPorId($caracterizacionrespuesta, Session::get('alias'));
+                            // dd($resp);die;
+                            // for ($i = 0; $i < count($dataintegrantes); $i++) {
+                            //     if ($datacaracterizacion[$i]['identificacion'] == $dataintegrantes[$i]['identificacion']) {
+                            //         $dataintegrantes[$i]['identificacion'] = $resp->identificacion;
+                            //     }
+                            // }
                         }
 
                         for ($i = 0; $i < count($dataintegrantes); $i++) {

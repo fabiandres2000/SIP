@@ -11544,7 +11544,8 @@ var entero = function entero(value) {
       txtbusquedaAct: "",
       actividadesVector: [],
       actividadesAuxiliar: "",
-      SAPU: false
+      SAPU: false,
+      CODIGOGENE: ""
     };
   },
   validations: {
@@ -15165,6 +15166,7 @@ var entero = function entero(value) {
                   _this7.enfcro_options = respuesta.data.arrayEnfCro;
                   _this7.enfinf_options = respuesta.data.arrayEnfInf;
                   _this7.religion_options = respuesta.data.arrayReligion;
+                  _this7.CODIGOGENE = respuesta.data.codigo;
                 });
 
               case 4:
@@ -15484,7 +15486,8 @@ var entero = function entero(value) {
                         telefono: _this8.CA1.telefono,
                         perdida_peso: _this8.CA1.perdida_peso,
                         programa_icbf: _this8.CA1.programa_icbf,
-                        excepciones: _this8.CA1.excepciones
+                        excepciones: _this8.CA1.excepciones,
+                        identi_auxi: ""
                       });
 
                       if (_this8.CA1.tipo_afiliacion === "CONTRIBUTIVO" || _this8.CA1.tipo_afiliacion === "ESPECIAL") {
@@ -15717,7 +15720,8 @@ var entero = function entero(value) {
                         orientacion: _this9.caracData.orientacion,
                         identidad_genero: _this9.caracData.identidad_genero,
                         perdida_peso: _this9.caracData.perdida_peso,
-                        programa_icbf: _this9.caracData.programa_icbf
+                        programa_icbf: _this9.caracData.programa_icbf,
+                        identi_auxi: ""
                       });
 
                       if (_this9.caracData.tipo_afiliacion === "CONTRIBUTIVO" || _this9.caracData.tipo_afiliacion === "ESPECIAL") {
@@ -16752,7 +16756,7 @@ var entero = function entero(value) {
 
         if (this.caracData.tipo_id != "CC") {
           if (this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI") {
-            this.caracData.identificacion = this.caracData.tipo_id + Math.floor(Math.random() * 100 + 1);
+            this.caracData.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
           } else {
             this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
           }
@@ -16798,7 +16802,7 @@ var entero = function entero(value) {
 
         if (this.CA1.tipo_id != "CC") {
           if (this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI") {
-            this.CA1.identificacion = this.CA1.tipo_id + Math.floor(Math.random() * 100 + 1);
+            this.CA1.identificacion = this.CODIGOGENE + "-" + Math.floor(Math.random() * 100 + 1);
           } else {
             this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
           }

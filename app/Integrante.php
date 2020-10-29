@@ -14,22 +14,22 @@ class Integrante extends Model
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'escolaridad', 'ocupacion',
         'colegio', 'grado', 'etnia', 'entiende', 'pyp', 'migrante',
         'id_compania', 'estado', 'clasificacion', 'puntaje_sisben', 'otra_eps',
-        'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf',
+        'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf', 'identi_auxi',
     ];
     public static function guardar($data, $alias)
     {
 
+        $identi = $data['identificacion'];
         if ($data['tipo_id'] == "MSI" || $data['tipo_id'] == "ASI") {
             $count = DB::connection('mysql')->table($alias . '.integrantes')
                 ->count();
             if ($count <= 0) {
-                $data['identificacion'] = str_pad(1, 7, "0", STR_PAD_LEFT);
+                $identi = str_pad(1, 7, "0", STR_PAD_LEFT);
             } else {
                 $resp = DB::connection('mysql')->table($alias . '.integrantes')
                     ->orderBy('id', 'desc')->first();
-                $data['identificacion'] = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
+                $identi = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
             }
-
         }
 
         $jefe = \App\Caracterizacion::buscar($data['jefe'], $alias);
@@ -38,7 +38,7 @@ class Integrante extends Model
         ], [
             'id_hogar' => $data['id_hogar'],
             'tipo_id' => $data['tipo_id'],
-            'identificacion' => $data['identificacion'],
+            'identificacion' => $identi,
             'sexo' => $data['sexo'],
             'parentesco' => $data['parentesco'],
             'pnom' => $data['pnom'],
@@ -71,6 +71,7 @@ class Integrante extends Model
             'telefono' => $data['telefono'],
             'perdida_peso' => $data['perdida_peso'],
             'programa_icbf' => $data['programa_icbf'],
+            'identi_auxi' => $data['identificacion'],
         ]);
     }
 
@@ -102,6 +103,6 @@ class Integrante extends Model
     public static function buscar($identificacion, $alias)
     {
         return DB::connection('mysql')->table($alias . '.integrantes')
-            ->where('identificacion', $identificacion)->first();
+            ->where('identi_auxi', $identificacion)->last();
     }
 }

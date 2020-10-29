@@ -14,7 +14,7 @@ class Caracterizacion extends Model
         'id_compania', 'estado', 'estado_civil', 'fecha_nacimiento', 'afiliacion_entidad',
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
-        'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf',
+        'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf', 'identi_auxi',
     ];
 
     public static function listar($busqueda, $alias)
@@ -81,20 +81,21 @@ class Caracterizacion extends Model
     public static function guardar($data, $alias)
     {
 
+        $identi = $data['identificacion'];
         if ($data['tipo_id'] == "MSI" || $data['tipo_id'] == "ASI") {
             $count = DB::connection('mysql')->table($alias . '.caracterizacion')
                 ->count();
             if ($count <= 0) {
-                $data['identificacion'] = str_pad(1, 7, "0", STR_PAD_LEFT);
+                $identi = str_pad(1, 7, "0", STR_PAD_LEFT);
             } else {
                 $resp = DB::connection('mysql')->table($alias . '.caracterizacion')
                     ->orderBy('id', 'desc')->first();
-                $data['identificacion'] = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
+                $identi = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
             }
 
         }
 
-        return DB::connection('mysql')->table($alias . '.caracterizacion')->updateOrInsert([
+        return DB::connection('mysql')->table($alias . '.caracterizacion')->insertGetId([
             'id' => $data['id'],
         ], [
             'id_hogar' => $data['id_hogar'],
@@ -103,7 +104,7 @@ class Caracterizacion extends Model
             'afiliacion_entidad' => $data['afiliacion_entidad'],
             'otra_eps' => $data['otra_eps'],
             'tipo_id' => $data['tipo_id'],
-            'identificacion' => $data['identificacion'],
+            'identificacion' => $identi,
             'sexo' => $data['sexo'],
             'parentesco' => $data['parentesco'],
             'pnom' => $data['pnom'],
@@ -132,6 +133,7 @@ class Caracterizacion extends Model
             'identidad_genero' => $data['identidad_genero'],
             'perdida_peso' => $data['perdida_peso'],
             'programa_icbf' => $data['programa_icbf'],
+            'identi_auxi' => $data['identificacion'],
         ]);
     }
 
@@ -196,6 +198,11 @@ class Caracterizacion extends Model
     public static function buscar($identificacion, $alias)
     {
         return DB::connection('mysql')->table($alias . '.caracterizacion')
-            ->where('identificacion', $identificacion)->first();
+            ->where('identi_auxi', $identificacion)->last();
+    }
+    public static function buscarPorId($id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.caracterizacion')
+            ->findOrFail($id);
     }
 }
