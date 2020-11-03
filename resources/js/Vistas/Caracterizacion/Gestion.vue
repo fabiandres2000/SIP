@@ -409,7 +409,7 @@
                                 >{{item.documento}}: {{item.tipo_id.toUpperCase()}}</td>
                                 <td
                                   style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.INTEGRANTE.toUpperCase()}}</td>
+                                >{{item.identificacion.toUpperCase()}}</td>
                                 <td
                                   style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                                 >{{item.sexo.toUpperCase()}}</td>

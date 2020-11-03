@@ -14,6 +14,7 @@
                                     data-toggle="tab"
                                     href="#tabZonas"
                                     role="tab"
+                                    @click="cambiarTab2('tabZonas')"                                    
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -123,6 +124,7 @@
                                     data-toggle="tab"
                                     href="#tabPoblacion"
                                     role="tab"
+                                    @click="cambiarTab2('tabPoblacion')"                                    
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -171,6 +173,7 @@
                                     data-toggle="tab"
                                     href="#tabSalud"
                                     role="tab"
+                                    @click="cambiarTab2('tabSalud')"                                    
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -233,6 +236,7 @@
                                     data-toggle="tab"
                                     href="#tabAmbiental"
                                     role="tab"
+                                    @click="cambiarTab2('tabAmbiental')"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -326,17 +330,18 @@
                     </div>
                 </div>
                 <div class="kt-portlet__body" style="background-color:#F2F3F8;">
-                    <div class="tab-content">
+                    <div class="tab-content" ref="divtab">
                         <!-- PANEL ZONAS -->
                         <div
                             class="tab-pane active"
                             id="tabZonas"
                             role="tabpanel"
+                            
                         >
                             
-                            <div class="row">
+                            <div class="row" >
                                 <!--Begin:: App Aside-->
-                                <div class="col-3">
+                                <div class="col-3" >
                                     <div
                                         class="kt-portlet kt-portlet--height-fluid-half "
                                         style="background-color:#818bb4; height: auto;width: 230px;"
@@ -480,6 +485,7 @@
                                     class="table-responsive"
                                     style="width: 700px;"
                                     id="baradescroll"
+                                    
                                 >
                                     <table class="table table-sm table-hover responsive" >
                                         <tr>
@@ -1069,7 +1075,7 @@
                         </div>
                         <!-- PANEL ZONAS -->
                         <!-- PANEL POBLACION -->
-                        <div class="tab-pane" id="tabPoblacion" role="tabpanel">
+                        <div class="tab-pane" id="tabPoblacion" role="tabpanel" >
                             <div class="row">
                                 <!--Begin:: App Aside-->
                                 <div class="col-3">
@@ -1189,7 +1195,7 @@
                                 <div
                                     class="table-responsive"
                                     style="width: 700px;"
-                                    id="baradescroll"
+                                    id="baradescroll1"
                                 >
                                     <table class="table table-sm table-hover responsive" >
                                         <tr>
@@ -1780,7 +1786,7 @@
                         <!-- PANEL POBLACION -->
 
                         <!-- PANEL SALUD -->
-                        <div class="tab-pane" id="tabSalud" role="tabpanel">
+                        <div class="tab-pane" id="tabSalud" role="tabpanel" >
                             <div class="row">
                                 <!--Begin:: App Aside-->
                                 <div class="col-3">
@@ -1922,7 +1928,7 @@
                                 <div
                                     class="table-responsive"
                                     style="width: 700px;"
-                                    id="baradescroll"
+                                    id="baradescroll2"
                                 >
                                     <table class="table table-sm table-hover responsive" >
                                         <tr>
@@ -3075,7 +3081,517 @@
                             </div>
                         </div>
                         <!-- PANEL SALUD -->
-                        
+
+                        <!-- PANEL AMBIENTAL -->
+                        <div class="tab-pane" id="tabAmbiental" role="tabpanel" >
+                            <div class="row">
+                                <!--Begin:: App Aside-->
+                                <div class="col-3">
+                                    <div
+                                        class="kt-portlet kt-portlet--height-fluid-half "
+                                        style="background-color:#818bb4;height: auto;width: 230px;"
+                                    >
+                                        <div
+                                            class="kt-portlet__body kt-portlet__body--fit-y"
+                                        >
+                                            <!--begin::Widget -->
+                                            <div
+                                                class="kt-widget kt-widget--user-profile-1 camhov"
+                                            >
+                                                <div class="kt-widget__body ">
+                                                    <br />
+                                                    <div
+                                                        class="kt-widget__items "
+                                                    >
+                                                        <a
+                                                            href="javascript:;"
+                                                            class="kt-widget__item "
+                                                        >
+                                                            <span
+                                                                class="kt-widget__section"
+                                                            >
+                                                                <span
+                                                                    class="kt-widget__icon"
+                                                                >
+                                                                    <i
+                                                                        class="kt-nav__link-icon flaticon2-layers"
+                                                                        style="color: white;"
+                                                                    ></i>
+                                                                </span>
+                                                                <span
+                                                                    class="kt-widget__desc"
+                                                                    style="color: white;"
+                                                                    >General</span
+                                                                >
+                                                            </span>
+                                                        </a>
+                                                        <a
+                                                            href="javascript:;"
+                                                            class="kt-widget__item "
+                                                        >
+                                                            <span
+                                                                class="kt-widget__section"
+                                                            >
+                                                                <span
+                                                                    class="kt-widget__icon"
+                                                                >
+                                                                    <i
+                                                                        class="kt-nav__link-icon flaticon2-layers"
+                                                                        style="color: white;"
+                                                                    ></i>
+                                                                </span>
+                                                                <span
+                                                                    class="kt-widget__desc"
+                                                                    style="color: white;"
+                                                                    >Zonas</span
+                                                                >
+                                                            </span>
+                                                        </a>                                                        
+                                                        <a
+                                                            href="javascript:;"
+                                                            class="kt-widget__item "
+                                                        >
+                                                            <span
+                                                                class="kt-widget__section"
+                                                            >
+                                                                <span
+                                                                    class="kt-widget__icon"
+                                                                >
+                                                                    <i
+                                                                        class="kt-nav__link-icon flaticon2-layers"
+                                                                        style="color: white;"
+                                                                    ></i>
+                                                                </span>
+                                                                <span
+                                                                    class="kt-widget__desc"
+                                                                    style="color: white;"
+                                                                    >Urbano</span
+                                                                >
+                                                            </span>
+                                                        </a>
+                                                        <a
+                                                            href="javascript:;"
+                                                            class="kt-widget__item"
+                                                        >
+                                                            <span
+                                                                class="kt-widget__section"
+                                                            >
+                                                                <span
+                                                                    class="kt-widget__icon"
+                                                                >
+                                                                    <i
+                                                                        class="kt-nav__link-icon flaticon2-layers"
+                                                                        style="color: white;"
+                                                                    ></i>
+                                                                </span>
+                                                                <span
+                                                                    class="kt-widget__desc"
+                                                                    style="color: white;"
+                                                                    >Rural</span
+                                                                >
+                                                            </span>
+                                                        </a>
+                                                        <a
+                                                            href="javascript:;"
+                                                            class="kt-widget__item"
+                                                        >
+                                                            <span
+                                                                class="kt-widget__section"
+                                                            >
+                                                                <span
+                                                                    class="kt-widget__icon"
+                                                                >
+                                                                    <i
+                                                                        class="kt-nav__link-icon flaticon2-layers"
+                                                                        style="color: white;"
+                                                                    ></i>
+                                                                </span>
+                                                                <span
+                                                                    class="kt-widget__desc"
+                                                                    style="color: white;"
+                                                                    >Vereda</span
+                                                                >
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Widget -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End:: App Aside-->
+                                <!--Begin:: App Content-->
+                                <div
+                                    class="table-responsive"
+                                    style="width: 700px;"
+                                    id="baradescroll3"
+                                >
+                                    <table class="table table-sm table-hover responsive" >
+                                        <tr>
+                                            <td>
+                                                <div
+                                                    class="kt-portlet kt-portlet--height-fluid grayclase"
+                                                >
+                                                    <div
+                                                        class="kt-widget14 img-contenedor"
+                                                        style="cursor:pointer;width: 200px;"
+                                                    >
+                                                        <div
+                                                            class="kt-widget14__header"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__title text-center font-weight-bold"
+                                                                style="font-size: 9px;"
+                                                            >
+                                                                Contaminación del Aire
+                                                            </h3>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__content "
+                                                        >
+                                                            <div
+                                                                class="kt-widget14__chart text-center "
+                                                            >
+                                                                <img
+                                                                    style="height: 100px; width: 140px; float: right;"
+                                                                    :src="
+                                                                        `${$store.state.serverPath}assets/iconos/ambiental/CONTAMINACION_AIRE.png`
+                                                                    "
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__info"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
+                                                                style="font-size: 12px;color: #818bb4 !important;"
+                                                            >
+                                                                3000
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>                                            
+                                            <td>
+                                                <div
+                                                    class="kt-portlet kt-portlet--height-fluid"
+                                                >
+                                                    <div
+                                                        class="kt-widget14 img-contenedor"
+                                                        style="cursor:pointer;width: 200px;"
+                                                    >
+                                                        <div
+                                                            class="kt-widget14__header"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__title text-center font-weight-bold"
+                                                                style="font-size: 9px;"
+                                                            >
+                                                                Contaminación del Suelo
+                                                            </h3>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__content"
+                                                        >
+                                                            <div
+                                                                class="kt-widget14__chart text-center"
+                                                            >
+                                                                <img
+                                                                    style="height: 100px; width: 140px; float: right;"
+                                                                    :src="
+                                                                        `${$store.state.serverPath}assets/iconos/ambiental/CONTAMINACION_SUELO.png`
+                                                                    "
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__info"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
+                                                                style="font-size: 12px;color: #818bb4 !important;"
+                                                            >
+                                                                Detalles
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>                                            
+                                            <td>
+                                                <div
+                                                    class="kt-portlet kt-portlet--height-fluid"
+                                                >
+                                                    <div
+                                                        class="kt-widget14 img-contenedor"
+                                                        style="cursor:pointer;width: 200px;"
+                                                    >
+                                                        <div
+                                                            class="kt-widget14__header"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__title text-center font-weight-bold"
+                                                                style="font-size: 9px;"
+                                                            >
+                                                                Incendios
+                                                            </h3>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__content"
+                                                        >
+                                                            <div
+                                                                class="kt-widget14__chart text-center"
+                                                            >
+                                                                <img
+                                                                    style="height: 100px; width: 140px; float: right;"
+                                                                    :src="
+                                                                        `${$store.state.serverPath}assets/iconos/ambiental/INCENDIOS.png`
+                                                                    "
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__info"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
+                                                                style="font-size: 12px;color: #818bb4 !important;"
+                                                            >
+                                                                Detalles
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>                                            
+                                            <td>
+                                                <div
+                                                    class="kt-portlet kt-portlet--height-fluid"
+                                                >
+                                                    <div
+                                                        class="kt-widget14 img-contenedor"
+                                                        style="cursor:pointer;width: 200px;"
+                                                    >
+                                                        <div
+                                                            class="kt-widget14__header"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__title text-center font-weight-bold"
+                                                                style="font-size: 9px;"
+                                                            >
+                                                                Insalubridad
+                                                            </h3>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__content"
+                                                        >
+                                                            <div
+                                                                class="kt-widget14__chart text-center"
+                                                            >
+                                                                <img
+                                                                    style="height: 100px; width: 140px; float: right;"
+                                                                    :src="
+                                                                        `${$store.state.serverPath}assets/iconos/ambiental/INSALUBRIDAD.png`
+                                                                    "
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__info"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
+                                                                style="font-size: 12px;color: #818bb4 !important;"
+                                                            >
+                                                                Detalles
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>                                                                                                                                                                                                                                                  
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div
+                                                    class="kt-portlet kt-portlet--height-fluid"
+                                                >
+                                                    <div
+                                                        class="kt-widget14 img-contenedor"
+                                                        style="cursor:pointer;width: 200px;"
+                                                    >
+                                                        <div
+                                                            class="kt-widget14__header"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__title text-center font-weight-bold"
+                                                                style="font-size: 9px;"
+                                                            >
+                                                                Inundaciones
+                                                            </h3>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__content"
+                                                        >
+                                                            <div
+                                                                class="kt-widget14__chart text-center"
+                                                            >
+                                                                <img
+                                                                    style="height: 100px; width: 140px; float: right;"
+                                                                    :src="
+                                                                        `${$store.state.serverPath}assets/iconos/ambiental/INUNDACIONES.png`
+                                                                    "
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__info"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
+                                                                style="font-size: 12px;color: #818bb4 !important;"
+                                                            >
+                                                                Detalles
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div
+                                                    class="kt-portlet kt-portlet--height-fluid"
+                                                >
+                                                    <div
+                                                        class="kt-widget14 img-contenedor"
+                                                        style="cursor:pointer;width: 200px;"
+                                                    >
+                                                        <div
+                                                            class="kt-widget14__header"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__title text-center font-weight-bold"
+                                                                style="font-size: 9px;"
+                                                            >
+                                                                No Acceso a Agua
+                                                            </h3>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__content"
+                                                        >
+                                                            <div
+                                                                class="kt-widget14__chart text-center"
+                                                            >
+                                                                <img
+                                                                    style="height: 100px; width: 140px; float: right;"
+                                                                    :src="
+                                                                        `${$store.state.serverPath}assets/iconos/ambiental/NO_ACCESO_AGUA.png`
+                                                                    "
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__info"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
+                                                                style="font-size: 12px;color: #818bb4 !important;"
+                                                            >
+                                                                Detalles
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <div
+                                                    class="kt-portlet kt-portlet--height-fluid"
+                                                >
+                                                    <div
+                                                        class="kt-widget14 img-contenedor"
+                                                        style="cursor:pointer;width: 200px;"
+                                                    >
+                                                        <div
+                                                            class="kt-widget14__header"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__title text-center font-weight-bold"
+                                                                style="font-size: 9px;"
+                                                            >
+                                                                Proliferación de Plaga
+                                                            </h3>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__content"
+                                                        >
+                                                            <div
+                                                                class="kt-widget14__chart text-center"
+                                                            >
+                                                                <img
+                                                                    style="height: 100px; width: 140px; float: right;"
+                                                                    :src="
+                                                                        `${$store.state.serverPath}assets/iconos/ambiental/PROLIFERACION_DE_PLAGA.png`
+                                                                    "
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="kt-widget14__info"
+                                                        >
+                                                            <h3
+                                                                class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
+                                                                style="font-size: 12px;color: #818bb4 !important;"
+                                                            >
+                                                                Detalles
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                        </tr>                                       
+                                    </table>
+                                </div>
+                                <!--End:: App Content-->                             
+                            </div>
+                        </div>
+                        <!-- PANEL AMBIENTAL -->                        
+                    </div>
+                    <div class="kt-form__actions">
+                        <div class="kt-portlet__foot">
+                            <div class="row">
+                                <div class="col-6 ml-lg-auto">
+                                    <div class="kt-badge kt-badge--xl kt-badge--brand" style="cursor: pointer;" @click="izquierda">
+                                        <i class="flaticon2-back"></i>
+                                    </div>
+                                    <div class="kt-badge kt-badge--xl kt-badge--brand" style="cursor: pointer;" @click="derecha">
+                                        <i class="flaticon2-next"></i>
+                                    </div>                                                                        
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3092,19 +3608,21 @@ export default {
         // var zoom = 1.5;
         // var docViewer = getBrowser().mCurrentBrowser.markupDocumentViewer;
         // docViewer.fullZoom = zoom;
-        let offcanvas = new KTOffcanvas("kt_user_profile_aside", {
-            overlay: true,
-            baseClass: "kt-app__aside",
-            closeBy: "kt_user_profile_aside_close",
-            toggleBy: "kt_subheader_mobile_toggle"
-        });
+        // console.log(window.scrollY);
+        // let offcanvas = new KTOffcanvas("kt_user_profile_aside", {
+        //     overlay: true,
+        //     baseClass: "kt-app__aside",
+        //     closeBy: "kt_user_profile_aside_close",
+        //     toggleBy: "kt_subheader_mobile_toggle"
+        // });
         this.nuevo();
     },
     data() {
         return {
             csrf: document
                 .querySelector('meta[name="csrf-token"]')
-                .getAttribute("content")
+                .getAttribute("content"),
+            barra: "baradescroll"    
         };
     },
     methods: {
@@ -3331,6 +3849,29 @@ export default {
             var ctx = this.$refs.graficaIdeRieAmb;
             var myDoughnut = new Chart(ctx, config);
             //IDENTIFICACION DE RIESGO SALUD
+        },
+        derecha(){
+            var imageWidth = 500;
+            $("#"+this.barra).animate({scrollLeft:"+="+imageWidth}, 500);
+        },
+        izquierda(){
+            var imageWidth = 500;
+            $("#"+this.barra).animate({scrollLeft:"-="+imageWidth}, 500);
+        },
+        cambiarTab2(opcion) {
+            if(opcion==="tabZonas"){
+                this.barra = "baradescroll";                
+            }
+            if(opcion==="tabPoblacion"){
+                this.barra = "baradescroll1";
+            }
+            if(opcion==="tabSalud"){
+                this.barra = "baradescroll2";
+            }
+            if(opcion==="tabAmbiental"){
+                this.barra = "baradescroll3";
+            }
+            $("#"+this.barra).animate({scrollLeft:"-="+0}, 500);
         }
     }
 };
@@ -3346,14 +3887,22 @@ export default {
 /* #baradescroll::-webkit-scrollbar {
     display: none;
 } */
-#baradescroll {
+#baradescroll,#baradescroll1,#baradescroll2,#baradescroll3 {
     overflow-x: hidden;
 }
 
 #baradescroll:hover {
     overflow-x: auto;
 }
-
+#baradescroll1:hover {
+    overflow-x: auto;
+}
+#baradescroll2:hover {
+    overflow-x: auto;
+}
+#baradescroll3:hover {
+    overflow-x: auto;
+}
 .kt-widget__item a:hover {
     color: black !important;
 }

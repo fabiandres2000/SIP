@@ -252,7 +252,11 @@
             </div>
             <hr />
             <div class="text-right">
-              <button type="button" class="btn btn-success" @click="guardarOcupacion">
+              <button type="button" class="btn btn-success" 
+                @click="guardarOcupacion"
+                :disabled="!valG"
+                :class="spinG"                
+              >
                 <i class="fa fa-edit"></i> Guardar
               </button>
               <button type="button" class="btn btn-warning" @click="cerrarModal">
@@ -297,7 +301,8 @@
           hasta: 0
         },
         offset: 4,
-        variableGlobal: "GUARDAR"
+        variableGlobal: "GUARDAR",
+        valG: true        
       };
     },
     computed: {
@@ -338,7 +343,14 @@
           desde++;
         }
         return paginasArray;
-      }
+      },
+      spinG() {
+          if (this.valG) {
+          return {};            
+          } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+          }
+      },      
     },
     methods: {
       consultar: async function(pagina) {
@@ -389,6 +401,7 @@
             id: this.ocupacionesData.id,
             opcion: this.variableGlobal
           };
+          this.valG = false;          
           try {
             await ocupacionesServicios
               .guardarOcupaciones(parametros)
@@ -403,6 +416,7 @@
                   "success"
                 );
                 this.entrarPorError = false;
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;

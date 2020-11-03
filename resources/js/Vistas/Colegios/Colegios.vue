@@ -355,10 +355,17 @@
                 class="btn btn-success"
                 @click="guardarColegio"
                 v-if="banderaBoton"
+                :disabled="!valG"
+                :class="spinG"                
               >
                 <i class="fa fa-edit"></i> Guardar
               </button>
-              <button type="button" class="btn btn-success" @click="editarColegio" v-else>
+              <button type="button" class="btn btn-success" 
+                @click="editarColegio" 
+                :disabled="!valG"
+                :class="spinG"                
+                v-else
+              >
                 <i class="fa fa-edit"></i> Guardar
               </button>
               <button type="button" class="btn btn-warning" @click="cerrarModal">
@@ -409,7 +416,8 @@
           hasta: 0
         },
         offset: 4,
-        banderaBoton: true
+        banderaBoton: true,
+        valG: true
       };
     },
     computed: {
@@ -435,7 +443,14 @@
           desde++;
         }
         return paginasArray;
-      }
+      },
+      spinG() {
+          if (this.valG) {
+          return {};            
+          } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+          }
+      },      
     },
     methods: {
       consultar: async function(pagina) {
@@ -550,6 +565,7 @@
             colegios: this.datos,
             opcion: "GUARDAR"
           };
+          this.valG = false;
           try {
             await colegiosServicios
               .guardar(parametros)
@@ -568,6 +584,7 @@
                   "Datos Guardados Exitosamente!",
                   "success"
                 );
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;
@@ -598,6 +615,7 @@
             colegios: this.colegiosData,
             opcion: "EDITAR"
           };
+          this.valG = false;
           try {
             await colegiosServicios
               .guardar(parametros)
@@ -616,6 +634,7 @@
                   "Datos Guardados Exitosamente!",
                   "success"
                 );
+                this.valG = true;
               })
               .catch(error => {
                 this.errorDevuelto = error.response.data.errors;

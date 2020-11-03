@@ -839,6 +839,6 @@ class CaracterizacionController extends Controller
 
     public function calcular($id_hogar)
     {
-
+        
     }
 }

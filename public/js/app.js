@@ -5224,6 +5224,522 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5239,17 +5755,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     // var zoom = 1.5;
     // var docViewer = getBrowser().mCurrentBrowser.markupDocumentViewer;
     // docViewer.fullZoom = zoom;
-    var offcanvas = new KTOffcanvas("kt_user_profile_aside", {
-      overlay: true,
-      baseClass: "kt-app__aside",
-      closeBy: "kt_user_profile_aside_close",
-      toggleBy: "kt_subheader_mobile_toggle"
-    });
+    // console.log(window.scrollY);
+    // let offcanvas = new KTOffcanvas("kt_user_profile_aside", {
+    //     overlay: true,
+    //     baseClass: "kt-app__aside",
+    //     closeBy: "kt_user_profile_aside_close",
+    //     toggleBy: "kt_subheader_mobile_toggle"
+    // });
     this.nuevo();
   },
   data: function data() {
     return {
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      barra: "baradescroll"
     };
   },
   methods: {
@@ -5501,7 +6019,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return nuevo;
-    }()
+    }(),
+    derecha: function derecha() {
+      var imageWidth = 500;
+      $("#" + this.barra).animate({
+        scrollLeft: "+=" + imageWidth
+      }, 500);
+    },
+    izquierda: function izquierda() {
+      var imageWidth = 500;
+      $("#" + this.barra).animate({
+        scrollLeft: "-=" + imageWidth
+      }, 500);
+    },
+    cambiarTab2: function cambiarTab2(opcion) {
+      if (opcion === "tabZonas") {
+        this.barra = "baradescroll";
+      }
+
+      if (opcion === "tabPoblacion") {
+        this.barra = "baradescroll1";
+      }
+
+      if (opcion === "tabSalud") {
+        this.barra = "baradescroll2";
+      }
+
+      if (opcion === "tabAmbiental") {
+        this.barra = "baradescroll3";
+      }
+
+      $("#" + this.barra).animate({
+        scrollLeft: "-=" + 0
+      }, 500);
+    }
   }
 });
 
@@ -42575,7 +43126,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.color-datepicker {\n    background: #f2f2f2;\n    border: 1px solid #ddd;\n    padding: 0em 1em 1em;\n    margin-bottom: 2em;\n}\n/* #baradescroll::-webkit-scrollbar {\n    display: none;\n} */\n#baradescroll {\n    overflow-x: hidden;\n}\n#baradescroll:hover {\n    overflow-x: auto;\n}\n.kt-widget__item a:hover {\n    color: black !important;\n}\n/* .kt-nav__link-icon:hover{color: black !important;} */\n.kt-widget__item:hover {\n    background: black !important;\n    color: black !important;\n}\n.grayclase {\n    animation: flip 6s linear infinite;\n    transform: rotateX(0deg);\n}\n@keyframes flip {\n0% {\n        transform: rotateX(0deg);\n}\n15% {\n        transform: rotateX(360deg);\n}\n100% {\n        transform: rotateX(360deg);\n}\n}\n@keyframes fade {\n0% {\n        opacity: 0;\n}\n10% {\n        opacity: 1;\n}\n50% {\n        opacity: 1;\n}\n60% {\n        opacity: 0;\n}\n}\n.img-contenedor {\n    -webkit-transition: all 0.9s ease; /* Safari y Chrome */\n    -moz-transition: all 0.9s ease; /* Firefox */\n    -o-transition: all 0.9s ease; /* IE 9 */\n    -ms-transition: all 0.9s ease; /* Opera */\n    width: 100%;\n}\n.img-contenedor:hover {\n    -webkit-transform: scale(1.25);\n    -moz-transform: scale(1.25);\n    -ms-transform: scale(1.25);\n    -o-transform: scale(1.25);\n    transform: scale(1.25);\n}\n", ""]);
+exports.push([module.i, "\n.color-datepicker {\n    background: #f2f2f2;\n    border: 1px solid #ddd;\n    padding: 0em 1em 1em;\n    margin-bottom: 2em;\n}\n/* #baradescroll::-webkit-scrollbar {\n    display: none;\n} */\n#baradescroll,#baradescroll1,#baradescroll2,#baradescroll3 {\n    overflow-x: hidden;\n}\n#baradescroll:hover {\n    overflow-x: auto;\n}\n#baradescroll1:hover {\n    overflow-x: auto;\n}\n#baradescroll2:hover {\n    overflow-x: auto;\n}\n#baradescroll3:hover {\n    overflow-x: auto;\n}\n.kt-widget__item a:hover {\n    color: black !important;\n}\n/* .kt-nav__link-icon:hover{color: black !important;} */\n.kt-widget__item:hover {\n    background: black !important;\n    color: black !important;\n}\n.grayclase {\n    animation: flip 6s linear infinite;\n    transform: rotateX(0deg);\n}\n@keyframes flip {\n0% {\n        transform: rotateX(0deg);\n}\n15% {\n        transform: rotateX(360deg);\n}\n100% {\n        transform: rotateX(360deg);\n}\n}\n@keyframes fade {\n0% {\n        opacity: 0;\n}\n10% {\n        opacity: 1;\n}\n50% {\n        opacity: 1;\n}\n60% {\n        opacity: 0;\n}\n}\n.img-contenedor {\n    -webkit-transition: all 0.9s ease; /* Safari y Chrome */\n    -moz-transition: all 0.9s ease; /* Firefox */\n    -o-transition: all 0.9s ease; /* IE 9 */\n    -ms-transition: all 0.9s ease; /* Opera */\n    width: 100%;\n}\n.img-contenedor:hover {\n    -webkit-transform: scale(1.25);\n    -moz-transform: scale(1.25);\n    -ms-transform: scale(1.25);\n    -o-transform: scale(1.25);\n    transform: scale(1.25);\n}\n", ""]);
 
 // exports
 
@@ -50943,6 +51494,11 @@ var render = function() {
                         "data-toggle": "tab",
                         href: "#tabZonas",
                         role: "tab"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.cambiarTab2("tabZonas")
+                        }
                       }
                     },
                     [
@@ -51103,6 +51659,11 @@ var render = function() {
                         "data-toggle": "tab",
                         href: "#tabPoblacion",
                         role: "tab"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.cambiarTab2("tabPoblacion")
+                        }
                       }
                     },
                     [
@@ -51184,6 +51745,11 @@ var render = function() {
                         "data-toggle": "tab",
                         href: "#tabSalud",
                         role: "tab"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.cambiarTab2("tabSalud")
+                        }
                       }
                     },
                     [
@@ -51281,6 +51847,11 @@ var render = function() {
                         "data-toggle": "tab",
                         href: "#tabAmbiental",
                         role: "tab"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.cambiarTab2("tabAmbiental")
+                        }
                       }
                     },
                     [
@@ -51421,7 +51992,7 @@ var render = function() {
             staticStyle: { "background-color": "#F2F3F8" }
           },
           [
-            _c("div", { staticClass: "tab-content" }, [
+            _c("div", { ref: "divtab", staticClass: "tab-content" }, [
               _c(
                 "div",
                 {
@@ -52274,7 +52845,7 @@ var render = function() {
                       {
                         staticClass: "table-responsive",
                         staticStyle: { width: "700px" },
-                        attrs: { id: "baradescroll" }
+                        attrs: { id: "baradescroll1" }
                       },
                       [
                         _c(
@@ -53111,7 +53682,7 @@ var render = function() {
                       {
                         staticClass: "table-responsive",
                         staticStyle: { width: "700px" },
-                        attrs: { id: "baradescroll" }
+                        attrs: { id: "baradescroll2" }
                       },
                       [
                         _c(
@@ -54696,7 +55267,533 @@ var render = function() {
                     )
                   ])
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tab-pane",
+                  attrs: { id: "tabAmbiental", role: "tabpanel" }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(93),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "table-responsive",
+                        staticStyle: { width: "700px" },
+                        attrs: { id: "baradescroll3" }
+                      },
+                      [
+                        _c(
+                          "table",
+                          {
+                            staticClass: "table table-sm table-hover responsive"
+                          },
+                          [
+                            _c("tr", [
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid grayclase"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(94),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content "
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center "
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/CONTAMINACION_AIRE.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(95)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(96),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/CONTAMINACION_SUELO.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(97)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(98),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/INCENDIOS.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(99)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(100),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/INSALUBRIDAD.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(101)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(102),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/INUNDACIONES.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(103)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(104),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/NO_ACCESO_AGUA.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(105)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(106),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/PROLIFERACION_DE_PLAGA.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(107)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "kt-form__actions" }, [
+              _c("div", { staticClass: "kt-portlet__foot" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-6 ml-lg-auto" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "kt-badge kt-badge--xl kt-badge--brand",
+                        staticStyle: { cursor: "pointer" },
+                        on: { click: _vm.izquierda }
+                      },
+                      [_c("i", { staticClass: "flaticon2-back" })]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "kt-badge kt-badge--xl kt-badge--brand",
+                        staticStyle: { cursor: "pointer" },
+                        on: { click: _vm.derecha }
+                      },
+                      [_c("i", { staticClass: "flaticon2-next" })]
+                    )
+                  ])
+                ])
+              ])
             ])
           ]
         )
@@ -56954,6 +58051,456 @@ var staticRenderFns = [
         [
           _vm._v(
             "\n                                                            Riesgos Materializados\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__info" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Detalles\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [
+      _c(
+        "div",
+        {
+          staticClass: "kt-portlet kt-portlet--height-fluid-half ",
+          staticStyle: {
+            "background-color": "#818bb4",
+            height: "auto",
+            width: "230px"
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "kt-portlet__body kt-portlet__body--fit-y" },
+            [
+              _c(
+                "div",
+                { staticClass: "kt-widget kt-widget--user-profile-1 camhov" },
+                [
+                  _c("div", { staticClass: "kt-widget__body " }, [
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-widget__items " }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "kt-widget__item ",
+                          attrs: { href: "javascript:;" }
+                        },
+                        [
+                          _c("span", { staticClass: "kt-widget__section" }, [
+                            _c("span", { staticClass: "kt-widget__icon" }, [
+                              _c("i", {
+                                staticClass:
+                                  "kt-nav__link-icon flaticon2-layers",
+                                staticStyle: { color: "white" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "kt-widget__desc",
+                                staticStyle: { color: "white" }
+                              },
+                              [_vm._v("General")]
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "kt-widget__item ",
+                          attrs: { href: "javascript:;" }
+                        },
+                        [
+                          _c("span", { staticClass: "kt-widget__section" }, [
+                            _c("span", { staticClass: "kt-widget__icon" }, [
+                              _c("i", {
+                                staticClass:
+                                  "kt-nav__link-icon flaticon2-layers",
+                                staticStyle: { color: "white" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "kt-widget__desc",
+                                staticStyle: { color: "white" }
+                              },
+                              [_vm._v("Zonas")]
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "kt-widget__item ",
+                          attrs: { href: "javascript:;" }
+                        },
+                        [
+                          _c("span", { staticClass: "kt-widget__section" }, [
+                            _c("span", { staticClass: "kt-widget__icon" }, [
+                              _c("i", {
+                                staticClass:
+                                  "kt-nav__link-icon flaticon2-layers",
+                                staticStyle: { color: "white" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "kt-widget__desc",
+                                staticStyle: { color: "white" }
+                              },
+                              [_vm._v("Urbano")]
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "kt-widget__item",
+                          attrs: { href: "javascript:;" }
+                        },
+                        [
+                          _c("span", { staticClass: "kt-widget__section" }, [
+                            _c("span", { staticClass: "kt-widget__icon" }, [
+                              _c("i", {
+                                staticClass:
+                                  "kt-nav__link-icon flaticon2-layers",
+                                staticStyle: { color: "white" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "kt-widget__desc",
+                                staticStyle: { color: "white" }
+                              },
+                              [_vm._v("Rural")]
+                            )
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "kt-widget__item",
+                          attrs: { href: "javascript:;" }
+                        },
+                        [
+                          _c("span", { staticClass: "kt-widget__section" }, [
+                            _c("span", { staticClass: "kt-widget__icon" }, [
+                              _c("i", {
+                                staticClass:
+                                  "kt-nav__link-icon flaticon2-layers",
+                                staticStyle: { color: "white" }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "kt-widget__desc",
+                                staticStyle: { color: "white" }
+                              },
+                              [_vm._v("Vereda")]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "kt-widget14__title text-center font-weight-bold",
+          staticStyle: { "font-size": "9px" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Contaminación del Aire\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__info" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
+        },
+        [
+          _vm._v(
+            "\n                                                            3000\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "kt-widget14__title text-center font-weight-bold",
+          staticStyle: { "font-size": "9px" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Contaminación del Suelo\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__info" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Detalles\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "kt-widget14__title text-center font-weight-bold",
+          staticStyle: { "font-size": "9px" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Incendios\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__info" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Detalles\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "kt-widget14__title text-center font-weight-bold",
+          staticStyle: { "font-size": "9px" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Insalubridad\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__info" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Detalles\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "kt-widget14__title text-center font-weight-bold",
+          staticStyle: { "font-size": "9px" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Inundaciones\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__info" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Detalles\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "kt-widget14__title text-center font-weight-bold",
+          staticStyle: { "font-size": "9px" }
+        },
+        [
+          _vm._v(
+            "\n                                                            No Acceso a Agua\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__info" }, [
+      _c(
+        "h3",
+        {
+          staticClass:
+            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Detalles\n                                                        "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c(
+        "h3",
+        {
+          staticClass: "kt-widget14__title text-center font-weight-bold",
+          staticStyle: { "font-size": "9px" }
+        },
+        [
+          _vm._v(
+            "\n                                                            Proliferación de Plaga\n                                                        "
           )
         ]
       )

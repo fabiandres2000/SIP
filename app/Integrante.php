@@ -87,7 +87,7 @@ class Integrante extends Model
     {
         $respuesta = DB::connection('mysql')->table($alias . '.integrantes')
             ->join($alias . '.parentescos', 'parentescos.id', 'integrantes.parentesco')
-            ->where('integrantes.id', $id)
+            ->where('integrantes.jefe', $id)
             ->select("sexo",
                 "identificacion",
                 "tipo_id",

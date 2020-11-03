@@ -19,7 +19,11 @@
               <span class="kt-hidden-mobile">Volver</span>
             </a>
             <div class="btn-group">
-              <button type="button" class="btn btn-brand" @click.prevent="Actualizar">
+              <button type="button" class="btn btn-brand"
+               @click.prevent="Actualizar"
+              :disabled="!valGActu"
+              :class="spinGActu"                                   
+              >
                 <i class="la la-refresh"></i>
                 <span class="kt-hidden-mobile">Actualizar</span>
               </button>
@@ -90,7 +94,7 @@
                     class="btn btn-brand"
                     @click="cambiarTab1('tabVivienda','tabIdentificacion')"
                     :disabled="!valGIden"
-                    :class="spinGIden"
+                    :class="spinGIden"                    
                   >
                     <i class="la la-arrow-right"></i>
                     <span class="kt-hidden-mobile">Siguiente</span>
@@ -1175,6 +1179,10 @@
                                 value="PPNA"
                                 :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
                               >POBLACIÓN POBRE NO ASEGURADA</option>
+                              <option
+                                value="BENEFICIARIO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >BENEFICIARIO</option>                              
                             </b-form-select>
                           </td>
                           <td
@@ -1619,7 +1627,19 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-3">
+                  <label>Puntaje Sisben:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    v-model.trim="CA1.puntaje_sisben"
+                    :class="CA1.puntaje_sisben==''?'':'is-valid'"
+                    @change="formato('puntaje')"
+                  />
+                </div>                                
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
                   <label>Fecha de Nacimiento:</label>
                   <input
                     id="date"
@@ -1630,6 +1650,7 @@
                     class="form-control text-capitalize"
                     ref="fecha_nacimiento"
                     :max="hoy | moment"
+                    @change="calculaEdad"
                   />
                 </div>
                 <div class="col-lg-2">
@@ -1644,18 +1665,30 @@
                   />
                 </div>
                 <div class="col-lg-2">
-                  <label>Puntaje Sisben:</label>
+                  <label>Meses:</label>
                   <input
                     type="text"
+                    v-model="CA1.meses"
                     class="form-control text-capitalize"
-                    v-model.trim="CA1.puntaje_sisben"
-                    :class="CA1.puntaje_sisben==''?'':'is-valid'"
-                    @change="formato('puntaje')"
+                    placeholder="Edad"
+                    :class="CA1.meses==''?'':'is-valid'"
+                    readonly
                   />
                 </div>
+                <div class="col-lg-2">
+                  <label>Dias:</label>
+                  <input
+                    type="text"
+                    v-model="CA1.dias"
+                    class="form-control text-capitalize"
+                    placeholder="Edad"
+                    :class="CA1.dias==''?'':'is-valid'"
+                    readonly
+                  />
+                </div>                                
               </div>
               <div class="form-group row">
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                   <label>EPS:</label>
                   <b-form-select
                     v-model="CA1.afi_entidad"
@@ -1672,7 +1705,7 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                   <label>Tipo Afiliación:</label>
                   <b-form-select
                     v-model="CA1.tipo_afiliacion"
@@ -2288,6 +2321,10 @@
                                 value="PPNA"
                                 :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
                               >POBLACIÓN POBRE NO ASEGURADA</option>
+                              <option
+                                value="BENEFICIARIO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >BENEFICIARIO</option>
                             </b-form-select>
                           </td>
                           <td
@@ -5834,22 +5871,6 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              style="width:150px;"
-                              v-model="item.cinta"
-                              @input="cinta=>updateMenA1(item,cinta,'cinta')"
-                              :class="item.cinta==''?'is-invalid':'is-valid'"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="PC">P.C</option>
-                              <option value="PB">P.B</option>
-                              <option value="NA">No Aplica</option>
-                            </b-form-select>
-                          </td>
-
-                          <td
-                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                          >
                             <input
                               type="text"
                               style="width:150px;"
@@ -5859,6 +5880,31 @@
                               :class="item.pb==''?'is-invalid':'is-valid'"
                             />                          
                           </td>                          
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <!-- <b-form-select
+                              style="width:150px;"
+                              v-model="item.cinta"
+                              @input="cinta=>updateMenA1(item,cinta,'cinta')"
+                              :class="item.cinta==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="PC">P.C</option>
+                              <option value="PB">P.B</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select> -->
+
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.cinta"
+                              @input="changeupdateMenA1(item,$event,'cinta')"
+                              :class="item.cinta==''?'is-invalid':'is-valid'"
+                            />                            
+                          </td>
+                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -11275,7 +11321,9 @@
           telefono: "",
           perdida_peso: "0",
           programa_icbf: "0",
-          excepciones: "0"   
+          excepciones: "0",
+          meses: 0,
+          dias: 0
         },
         viviendaData: {
           id: 0,
@@ -11469,7 +11517,8 @@
         valGCart: true,
         valGAdole: true,
         valGAdul: true,
-        valGMig: true
+        valGMig: true,
+        valGActu: true
       };
     },
     validations: {
@@ -11675,9 +11724,49 @@
         } else {
           return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
         }
-      },                                    
+      },
+      spinGActu() {
+        if (this.valGActu) {
+          return {};            
+        } else {
+          return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        }
+      },                                                
     },
-    methods: {      
+    methods: {
+      calculaEdad(){
+        var a = moment();
+        var b = moment(this.CA1.fecha_nac);
+
+        var years = a.diff(b, 'year');
+        b.add(years, 'years');
+
+        var months = a.diff(b, 'months');
+        b.add(months, 'months');
+
+        var days = a.diff(b, 'days');
+
+        if(years==0){
+          if(months<=1){
+            if(days<=1){
+                this.CA1.meses = months + " MES";
+                this.CA1.dias = days + " DIA";
+              }else{
+                this.CA1.meses = months + " MES";
+                this.CA1.dias = days + " DIAS";              
+              }
+          }else{
+            if(days<=1){
+              this.CA1.meses = months + " MESES";
+              this.CA1.dias = days + " DIA";         
+            }else{
+              this.CA1.meses = months + " MESES";
+              this.CA1.dias = days + " DIAS";
+            }  
+          }
+
+        }
+      },      
       abrirModalOcupaciones(opcion){
         this.opcionOcupaciones=opcion;
         this.txtbusqueda="";
@@ -11772,6 +11861,7 @@
           id: id,
           opcion: opcion
         };
+        this.valGActu = false;
         try {
           await caracterizacionServicios.actualizar(parametros).then(respuesta => {
             this.corregi_options = respuesta.data.arrayCorregi;
@@ -11793,6 +11883,7 @@
             this.religion_options = respuesta.data.arrayReligion; 
             this.colegio_options = respuesta.data.arrayColegios;
             this.barrio_options = respuesta.data.arrayBarrios;
+            this.valGActu = true;
           });
         } catch (error) {
           switch (error.response.status) {
@@ -15909,12 +16000,10 @@
           return;
         }
         if (this.CA1.orientacion === "0") {
-          bande = false;
           this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
           return;
         }
         if (this.CA1.identidad_genero === "0") {
-          bande = false;
           this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
           return;
         }        
@@ -17920,6 +18009,9 @@
         if (opcion === "peso_long") {
           item.peso_long = event.target.value.replace(/[^.\d]/g, "").trim();
         }
+        if (opcion === "cinta") {
+          item.cinta = event.target.value.replace(/[^.\d]/g, "").trim();
+        }        
       },
       updateMenA1(item, valor, opcion) {
         if (opcion === "hemoclasificacion") {
@@ -17949,9 +18041,9 @@
         if (opcion === "lactancia") {
           item.lactancia = valor;
         }
-        if (opcion === "cinta") {
-          item.cinta = valor;
-        }
+        // if (opcion === "cinta") {
+        //   item.cinta = valor;
+        // }
         if (opcion === "edemas") {
           item.edemas = valor;
         }
