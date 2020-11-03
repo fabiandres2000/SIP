@@ -406,10 +406,10 @@
                                 >{{ (index+1) }}</td>
                                 <td
                                   style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.documento}}: {{item.tipo_id.toUpperCase()}}</td>
+                                >{{item.identificacion}}: {{item.tipo_id.toUpperCase()}}</td>
                                 <td
                                   style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.identificacion.toUpperCase()}}</td>
+                                >{{item.INTEGRANTE.toUpperCase()}}</td>
                                 <td
                                   style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                                 >{{item.sexo.toUpperCase()}}</td>
