@@ -35,3 +35,7 @@ export function validarJefe($data) {
 export function actualizar($data) {
     return http().post('/caracterizacion/actualizar', $data);
 }
+
+export function editarCaracterizacion($data) {
+    return http().post('/caracterizacion/editar', $data);
+}

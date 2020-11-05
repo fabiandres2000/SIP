@@ -302,6 +302,285 @@ class CaracterizacionController extends Controller
         }
     }
 
+    public function editar()
+    {
+        if (Auth::check()) {
+
+            //DATOS BASICOS
+            $consdptos = \App\Dpto::buscarDepartamentos(Session::get('alias'));
+            foreach ($consdptos as $item) {
+                $arrayDpto[] = [
+                    'value' => $item->codigo,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayMuni = [];
+            $consmuni = \App\Muni::buscarMunicipios(Session::get('alias'));
+            foreach ($consmuni as $item) {
+                $arrayMuni[$item->codigo][] = [
+                    'value' => $item->codmun,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $conscorregi = \App\Corregimiento::buscarCorregimientos(Session::get('alias'));
+            $arrayCorregi = [];
+            foreach ($conscorregi as $item) {
+                $arrayCorregi[$item->codmun][] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayVeredas = [];
+            $consveredas = \App\Vereda::buscarVeredas(Session::get('alias'));
+            foreach ($consveredas as $item) {
+                $arrayVeredas[$item->IDCORRE][] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayParentesco = [];
+            $consparentesco = \App\Parentesco::buscar(Session::get('alias'));
+            foreach ($consparentesco as $item) {
+                $arrayParentesco[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayEstado = [];
+            $consestado = \App\EstadoCivil::buscar(Session::get('alias'));
+            foreach ($consestado as $item) {
+                $arrayEstado[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayEscolaridad = [];
+            $consescolaridad = \App\Escolaridad::buscar(Session::get('alias'));
+            foreach ($consescolaridad as $item) {
+                $arrayEscolaridad[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayOcupacion = [];
+            $consocupacion = \App\Ocupacion::buscar(Session::get('alias'));
+            foreach ($consocupacion as $item) {
+                $arrayOcupacion[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayEtnia = [];
+            $consetnia = \App\Etnia::buscar(Session::get('alias'));
+            foreach ($consetnia as $item) {
+                $arrayEtnia[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayAdmini = [];
+            $consadmini = \App\Administradora::buscarAdministradoras(Session::get('alias'));
+            foreach ($consadmini as $item) {
+                $arrayAdmini[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->adm_nombre),
+                ];
+            }
+
+            $arrayCLasifi = [];
+            $consclasifi = \App\ClasificacionEtnia::buscarClasificacion(Session::get('alias'));
+            foreach ($consclasifi as $item) {
+                $arrayCLasifi[$item->id_etnia][] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->clasificacion),
+                ];
+            }
+
+            $arrayGrados = [];
+            $arrayGrados[3][] = [
+                'value' => 'Primero',
+                'texto' => 'Primero',
+            ];
+            $arrayGrados[3][] = [
+                'value' => 'Segundo',
+                'texto' => 'Segundo',
+            ];
+            $arrayGrados[3][] = [
+                'value' => 'Tercero',
+                'texto' => 'Tercero',
+            ];
+            $arrayGrados[3][] = [
+                'value' => 'Cuarto',
+                'texto' => 'Cuarto',
+            ];
+            $arrayGrados[3][] = [
+                'value' => 'Quinto',
+                'texto' => 'Quinto',
+            ];
+            $arrayGrados[14][] = [
+                'value' => 'Sexto',
+                'texto' => 'Sexto',
+            ];
+            $arrayGrados[14][] = [
+                'value' => 'Septimo',
+                'texto' => 'Septimo',
+            ];
+            $arrayGrados[14][] = [
+                'value' => 'Octavo',
+                'texto' => 'Octavo',
+            ];
+            $arrayGrados[14][] = [
+                'value' => 'Noveno',
+                'texto' => 'Noveno',
+            ];
+            $arrayGrados[14][] = [
+                'value' => 'Decimo',
+                'texto' => 'Decimo',
+            ];
+            $arrayGrados[14][] = [
+                'value' => 'Undecimo',
+                'texto' => 'Undecimo',
+            ];
+            $arrayGrados[15][] = [
+                'value' => 'Transicion',
+                'texto' => 'Transición',
+            ];
+            $arrayGrados[15][] = [
+                'value' => 'Parbulo',
+                'texto' => 'Parbulo',
+            ];
+            $arrayGrados[15][] = [
+                'value' => 'Prekinder',
+                'texto' => 'Prekinder',
+            ];
+            $arrayGrados[15][] = [
+                'value' => 'Kinder',
+                'texto' => 'Kinder',
+            ];
+            $arrayMorbilidadNacer = [];
+            $consmorbinacer = \App\MorbilidadNacer::buscar(Session::get('alias'));
+            foreach ($consmorbinacer as $item) {
+                $arrayMorbilidadNacer[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+            $arrayMorbilidad = [];
+            $consmorbi = \App\Morbilidad::buscar(Session::get('alias'));
+            foreach ($consmorbi as $item) {
+                $arrayMorbilidad[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayMetodos = [];
+            $consmetodos = \App\Metodos::buscar(Session::get('alias'));
+            foreach ($consmetodos as $item) {
+                $arrayMetodos[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayMotivos = [];
+            $consmotivos = \App\Motivos::buscar(Session::get('alias'));
+            foreach ($consmotivos as $item) {
+                $arrayMotivos[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayGrupos = [];
+            $consgrupos = \App\Grupo::buscar(Session::get('alias'));
+            foreach ($consgrupos as $item) {
+                $arrayGrupos[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayEnfCro = [];
+            $consenfcro = \App\EnfermedadesCro::buscar(Session::get('alias'));
+            foreach ($consenfcro as $item) {
+                $arrayEnfCro[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayEnfInf = [];
+            $consenfinf = \App\EnfermedadesInf::buscar(Session::get('alias'));
+            foreach ($consenfinf as $item) {
+                $arrayEnfInf[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayReligion = [];
+            $consreli = \App\Religion::buscar(Session::get('alias'));
+            foreach ($consreli as $item) {
+                $arrayReligion[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $id_hogar = request()->get("id_hogar");
+            $codigo = \App\Codigo::buscar(Session::get('alias'), Session::get('sigla'), $id_hogar);
+
+            //DATOS BASICOS
+
+            //DATOS GUARDADOS
+
+            //TABLA HOGAR
+            $hogar = \App\Hogar::buscar(Session::get('alias'), $id_hogar);
+            //TABLA HOGAR
+
+            //DATOS GUARDADOS
+
+            $respuesta = [
+                'arrayDpto' => $arrayDpto,
+                'arrayMuni' => $arrayMuni,
+                'arrayCorregi' => $arrayCorregi,
+                'arrayParentesco' => $arrayParentesco,
+                'arrayEstado' => $arrayEstado,
+                'arrayEscolaridad' => $arrayEscolaridad,
+                'arrayOcupacion' => $arrayOcupacion,
+                'arrayEtnia' => $arrayEtnia,
+                'arrayAdmini' => $arrayAdmini,
+                'arrayCLasifi' => $arrayCLasifi,
+                'arrayVeredas' => $arrayVeredas,
+                'arrayGrados' => $arrayGrados,
+                'arrayMorbilidadNacer' => $arrayMorbilidadNacer,
+                'arrayMorbilidad' => $arrayMorbilidad,
+                'arrayMetodos' => $arrayMetodos,
+                'arrayMotivos' => $arrayMotivos,
+                'arrayGrupos' => $arrayGrupos,
+                'arrayEnfCro' => $arrayEnfCro,
+                'arrayEnfInf' => $arrayEnfInf,
+                'arrayReligion' => $arrayReligion,
+                'codigo' => $codigo,
+
+                'hogar' => $hogar,
+            ];
+            return response()->json($respuesta, 200);
+        } else {
+            return redirect("/login")->with("error", "Su sesion ha terminado");
+        }
+    }
+
     public function guardar()
     {
         if (Auth::check()) {
@@ -331,6 +610,8 @@ class CaracterizacionController extends Controller
                             $datafactores[$i]['id_hogar'] = $hogarrespuesta;
                             $factoresrespuesta = \App\Factores::guardar($datafactores[$i], Session::get('alias'));
                         }
+
+                        $codigo = \App\Codigo::editar(Session::get('alias'), request()->get("CODIGOGENE"), $hogarrespuesta, Session::get('sigla'));
                         $respuesta = [
                             'OPC' => 'SI',
                             'IDHOGAR' => $hogarrespuesta,
@@ -839,6 +1120,6 @@ class CaracterizacionController extends Controller
 
     public function calcular($id_hogar)
     {
-        
+
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,10 +12,11 @@ class Hogar extends Model
     protected $fillable = [
         'id_dpto', 'id_mun', 'id_corre', 'id_vereda', 'id_barrio', 'id_zona',
         'tenencia_vivienda', 'numero_hogares', 'poblacion_especial', 'vias_acceso',
-        'servicios_publicos', 'direccion', 'id_compania', 'estado',
+        'servicios_publicos', 'direccion', 'id_compania', 'estado', 'fecha',
+        'usuario_crear', 'fecha_editar', 'usuario_editar',
     ];
 
-    public static function guardar($data,$alias)
+    public static function guardar($data, $alias)
     {
         return DB::connection('mysql')->table($alias . '.hogar')->insertGetId([
             'id' => $data['id'],
@@ -32,6 +34,16 @@ class Hogar extends Model
             'direccion' => $data['direccion'],
             'id_compania' => 1,
             'estado' => 'Activo',
+            'fecha' => date('Y-m-d'),
+            'usuario_crear' => Auth::user()->id,
+            'fecha_editar' => '',
+            'usuario_editar' => '',
         ]);
+    }
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.hogar')
+            ->where('id', $id_hogar)
+            ->first();
     }
 }

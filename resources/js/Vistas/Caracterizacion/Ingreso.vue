@@ -12091,6 +12091,7 @@
               caracterizacion: this.datosJefe,
               integrantes: this.datos,
               factores: this.factores,
+              CODIGOGENE: this.CODIGOGENE,
               opcion: "GUARDAR",
               opc: "GUAINDEN"
             };

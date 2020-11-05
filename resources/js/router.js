@@ -68,6 +68,11 @@ export const routes = [
             component: () => import('./Vistas/Caracterizacion/Ingreso.vue')
       },
       {
+            path: '/editarIngreso',
+            name: 'Editar',
+            component: () => import('./Vistas/Caracterizacion/Editar.vue')
+      },      
+      {
             path: '/morbilidad_nacer',
             name: 'Morbilidad_Nacer',
             component: () => import('./Vistas/Morbilidad/MorbilidadNacer.vue')

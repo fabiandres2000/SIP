@@ -1,1 +1,1550 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{162:function(t,a,i){"use strict";var e=i(87);i.n(e).a},163:function(t,a,i){(t.exports=i(28)(!1)).push([t.i,"\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n",""])},233:function(t,a,i){"use strict";i.r(a);var e=i(3),s=i.n(e),n=i(30),r=i(131),o=i.n(r),l=i(161),c=i.n(l);function d(t,a,i,e,s,n,r){try{var o=t[n](r),l=o.value}catch(t){return void i(t)}o.done?a(l):Promise.resolve(l).then(e,s)}function v(t){return function(){var a=this,i=arguments;return new Promise((function(e,s){var n=t.apply(a,i);function r(t){d(n,e,s,r,o,"next",t)}function o(t){d(n,e,s,r,o,"throw",t)}r(void 0)}))}}var p,u,f,_,g,m={mounted:function(){this.consultar(1)},data:function(){return{caracterizacion:[],caracterizacion2:[],caracterizacion3:[],integrantes:[],txtbusqueda:"",bandera:!1,csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),datos:[],paginacion:{total:0,pagina_actual:0,por_pagina:0,ultima_pagina:0,desde:0,hasta:0},offset:4}},computed:{esActivo:function(){return this.paginacion.pagina_actual},numeroDePaginas:function(){if(!this.paginacion.hasta)return[];var t=this.paginacion.pagina_actual-this.offset;t<1&&(t=1);var a=t+2*this.offset;a>=this.paginacion.ultima_pagina&&(a=this.paginacion.ultima_pagina);for(var i=[];t<=a;)i.push(t),t++;return i}},methods:{cambiarPaginas:function(t){this.paginacion.pagina_actual=t,this.consultar(t)},consultar:(g=v(s.a.mark((function t(a){var i,e=this;return s.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return i={txtbusqueda:this.txtbusqueda.trim(),_token:this.csrf,page:a},t.prev=1,t.next=4,n.f(i).then((function(t){e.caracterizacion=t.data.caracterizacion.data,e.paginacion=t.data.paginacion}));case 4:t.next=15;break;case 6:t.prev=6,t.t0=t.catch(1),t.t1=t.t0.response.status,t.next=422===t.t1?11:13;break;case 11:case 13:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",15);case 15:case"end":return t.stop()}}),t,this,[[1,6]])}))),function(t){return g.apply(this,arguments)}),eliminar:(_=v(s.a.mark((function t(a){var i,e,r=this;return s.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:i="",e="","Activo"==a.ESTADO?(i="¿Desea anular el usuario "+a.USUARIO+"?",e="Usuario "+a.USUARIO+" anulado de manera exitosa"):(i="¿Desea activar el usuario "+a.USUARIO+"?",e="Usuario "+a.USUARIO+" activado de manera exitosa"),this.$swal({title:i,text:"",icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then((function(t){if(t.value){var i={_token:r.csrf,id:a.id,estado:a.ESTADO};try{n.b(i).then((function(t){r.consultar(1),r.$swal({position:"top-end",icon:"success",title:e,showConfirmButton:!1,timer:2e3})})).catch((function(t){r.$swal("Error...!","Ocurrio un error!","error")}))}catch(t){switch(t.response.status){case 422:default:r.$swal("Error...!","Ocurrio un error!","error")}}}}));case 4:case"end":return t.stop()}}),t,this)}))),function(t){return _.apply(this,arguments)}),ExportarTodo:(f=v(s.a.mark((function t(){var a,i;return s.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:a=new c.a({orientation:"portrait"}),i=document.createElement("canvas"),o()(this.$refs.content,{canvas:i}).then((function(t){var i=t.toDataURL("image/jpeg");a.addImage(i,"JPEG",5,20),a.save("Listado de Usuarios.pdf")})),this.$swal({position:"top-end",icon:"success",title:"Datos exportados a pdf de manera exitosa",showConfirmButton:!1,timer:2e3});case 4:case"end":return t.stop()}}),t,this)}))),function(){return f.apply(this,arguments)}),DescargarPdf:function(t){var a=new Blob([t.data],{type:"application/pdf"}),i=window.URL.createObjectURL(a);if(window.navigator&&window.navigator.msSaveOrOpenBlob)window.navigator.msSaveOrOpenBlob(a);else{var e=document.createElement("a");e.href=i,e.download="Caracterizacion.pdf",e.click(),e.remove(),setTimeout((function(){URL.revokeObjectURL(i)}),100)}},cerrarModal:function(){this.$refs.modalExportar.hide(),this.$refs.modalExportar2.hide()},abrirModal:(u=v(s.a.mark((function t(){var a,i=this;return s.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:a={_token:this.csrf},t.prev=1,n.c(a).then((function(t){i.caracterizacion2=t.data.caracterizacion,i.$refs.modalExportar.show()})).catch((function(t){i.$swal("Error...!","Ocurrio un error!","error")})),t.next=14;break;case 5:t.prev=5,t.t0=t.catch(1),t.t1=t.t0.response.status,t.next=422===t.t1?10:12;break;case 10:case 12:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",14);case 14:case"end":return t.stop()}}),t,this,[[1,5]])}))),function(){return u.apply(this,arguments)}),abrirModal2:(p=v(s.a.mark((function t(a){var i,e=this;return s.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:i={_token:this.csrf,id:a.id},t.prev=1,n.d(i).then((function(t){console.log(t.data.integrantes),e.caracterizacion3=t.data.caracterizacion,e.integrantes=t.data.integrantes,e.$refs.modalExportar2.show()})).catch((function(t){e.$swal("Error...!","Ocurrio un error!","error")})),t.next=14;break;case 5:t.prev=5,t.t0=t.catch(1),t.t1=t.t0.response.status,t.next=422===t.t1?10:12;break;case 10:case 12:return this.$swal("Error...!","Ocurrio un error!","error"),t.abrupt("break",14);case 14:case"end":return t.stop()}}),t,this,[[1,5]])}))),function(t){return p.apply(this,arguments)})}},h=(i(162),i(4)),b=Object(h.a)(m,(function(){var t=this,a=t.$createElement,i=t._self._c||a;return i("div",[i("div",{staticClass:"kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",staticStyle:{"margin-top":"-4%"}},[t._m(0),t._v(" "),i("div",{staticClass:"kt-portlet__body"},[i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-section__content"},[i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-6 col-lg-6"},[i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-section__content"},[i("router-link",{staticClass:"btn btn-outline-primary btn-icon",attrs:{to:"/ingreso",title:"Nueva Caracterización"}},[i("i",{staticClass:"la la-file-text-o"})]),t._v(" \n                  "),i("a",{staticClass:"btn btn-outline-warning btn-icon",attrs:{href:"javascript:;",title:"Exportar a Pdf"},on:{click:t.abrirModal}},[i("i",{staticClass:"la la-file-pdf-o"})])],1)])]),t._v(" "),i("div",{staticClass:"col-md-6 col-lg-6"},[i("form",{staticClass:"kt-form"},[i("div",{staticClass:"form-group"},[i("div",{staticClass:"input-group"},[i("input",{directives:[{name:"model",rawName:"v-model",value:t.txtbusqueda,expression:"txtbusqueda"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Busqueda"},domProps:{value:t.txtbusqueda},on:{input:function(a){a.target.composing||(t.txtbusqueda=a.target.value)}}}),t._v(" "),i("div",{staticClass:"input-group-append"},[i("button",{staticClass:"btn btn-primary btn-icon",attrs:{type:"button"},on:{click:function(a){return t.consultar(1)}}},[i("i",{staticClass:"fa fa-search"})])])])])])])]),t._v(" "),i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-12"},[i("div",{staticClass:"table-responsive"},[i("table",{staticClass:"table table-sm table-hover"},[t._m(1),t._v(" "),i("tbody",t._l(t.caracterizacion,(function(a,e){return i("tr",{key:e},[i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(e+1))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.DPTO.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.MUNI.toUpperCase()))]),t._v(" "),null!==a.CORREGIMIENTO?i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.CORREGIMIENTO.toUpperCase()))]):i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}}),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.IDENTIFICACION.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.USUARIO.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"center"}},[i("span",{staticClass:"kt-badge kt-badge--inline",class:"Activo"==a.ESTADO?"kt-badge--success":"kt-badge--danger"},[t._v(t._s(a.ESTADO.toUpperCase()))])]),t._v(" "),i("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[i("button",{staticClass:"btn btn-outline-success btn-icon btn-sm",attrs:{type:"button",title:"Imprimir"},on:{click:function(i){return t.abrirModal2(a)}}},[i("i",{staticClass:"fa fa-file-pdf"})]),t._v(" "),t._m(2,!0),t._v(" "),i("button",{staticClass:"btn btn-icon btn-sm",class:"Activo"==a.ESTADO?"btn-outline-danger":"btn-outline-success",attrs:{type:"button",title:"Activo"==a.ESTADO?"Anular":"Activar"},on:{click:function(i){return t.eliminar(a)}}},[i("i",{staticClass:"fa",class:"Activo"==a.ESTADO?"fa-trash":"fa-check"})])])])})),0)]),t._v(" "),i("div",{staticClass:"kt-separator kt-separator--border-dashed"}),t._v(" "),i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-pagination kt-pagination--danger"},[i("ul",{staticClass:"kt-pagination__links"},[t.paginacion.pagina_actual>1?i("li",{staticClass:"kt-pagination__link--first"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(1)}}},[i("i",{staticClass:"fa fa-angle-double-left kt-font-danger"})])]):t._e(),t._v(" "),t.paginacion.pagina_actual>1?i("li",{staticClass:"kt-pagination__link--next"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.pagina_actual-1)}}},[i("i",{staticClass:"fa fa-angle-left kt-font-danger"})])]):t._e(),t._v(" "),t._l(t.numeroDePaginas,(function(a,e){return i("li",{key:e,class:[a==t.esActivo?"kt-pagination__link--active":""]},[i("a",{attrs:{href:"javascript:;"},on:{click:function(i){return i.preventDefault(),t.cambiarPaginas(a)}}},[t._v(t._s(a))])])})),t._v(" "),t.paginacion.pagina_actual<t.paginacion.ultima_pagina?i("li",{staticClass:"kt-pagination__link--prev"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.pagina_actual+1)}}},[i("i",{staticClass:"fa fa-angle-right kt-font-danger"})])]):t._e(),t._v(" "),t.paginacion.pagina_actual<t.paginacion.ultima_pagina?i("li",{staticClass:"kt-pagination__link--last"},[i("a",{attrs:{href:"javascript:;"},on:{click:function(a){return a.preventDefault(),t.cambiarPaginas(t.paginacion.ultima_pagina)}}},[i("i",{staticClass:"fa fa-angle-double-right kt-font-danger"})])]):t._e()],2)])])])])])])])]),t._v(" "),i("b-modal",{ref:"modalExportar",attrs:{"hide-footer":"",title:"Listado de Usuarios Caracterizados",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[i("div",{staticClass:"d-block"},[i("div",{ref:"content"},[i("div",{staticClass:"kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"},[i("div",{staticClass:"kt-portlet__body"},[i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-section__content"},[i("div",{staticClass:"row justify-content-center"},[i("div",{staticClass:"col-xl-12"},[i("center",[i("span",{staticClass:"kt-font-boldest",staticStyle:{"font-size":"22px"}},[t._v("SISTEMA INTEGRADO POBLACIONAL")])])],1)]),t._v(" "),i("div",{staticClass:"kt-separator kt-separator--border-dashed"}),t._v(" "),i("div",{staticClass:"row justify-content-center"},[i("div",{staticClass:"col-xl-12"},[i("div",{staticClass:"table-responsive"},[i("p",[i("span",{staticClass:"kt-font-boldest",staticStyle:{"font-size":"18px"}},[t._v("Listado de usuarios caracterizados")])]),t._v(" "),i("table",{staticClass:"table table-sm table-hover"},[i("thead",{},[i("tr",{staticClass:"kt-bg-fill-brand"},[i("th",[t._v("No.")]),t._v(" "),i("th",[t._v("Departamento")]),t._v(" "),i("th",[t._v("Municipio")]),t._v(" "),i("th",[t._v("Corregimiento")]),t._v(" "),i("th",[t._v("Identificación")]),t._v(" "),i("th",[t._v("Usuario")])])]),t._v(" "),i("tbody",t._l(t.caracterizacion2,(function(a,e){return i("tr",{key:e},[i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(e+1))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.DPTO.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.MUNI.toUpperCase()))]),t._v(" "),null!==a.CORREGIMIENTO?i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.CORREGIMIENTO.toUpperCase()))]):i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}}),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.IDENTIFICACION.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.USUARIO.toUpperCase()))])])})),0)]),t._v(" "),i("div",{staticClass:"kt-separator kt-separator--border-dashed"})])])])])])])])]),t._v(" "),i("hr"),t._v(" "),i("div",{staticClass:"text-right"},[i("button",{staticClass:"btn btn-success",attrs:{type:"button"},on:{click:t.ExportarTodo}},[i("i",{staticClass:"la la-file-pdf-o"}),t._v(" Imprimir\n          ")]),t._v(" "),i("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:t.cerrarModal}},[i("i",{staticClass:"fa fa-window-close"}),t._v(" Cerrar\n          ")])])])]),t._v(" "),i("b-modal",{ref:"modalExportar2",attrs:{"hide-footer":"",title:"Detalle de Usuario Caracterizado",size:"xl",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[i("div",{staticClass:"d-block"},[i("div",{ref:"content"},[i("div",{staticClass:"kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"},[i("div",{staticClass:"kt-portlet__body"},[i("div",{staticClass:"kt-section"},[i("div",{staticClass:"kt-section__content"},[i("div",{staticClass:"row justify-content-center"},[i("div",{staticClass:"col-xl-12"},[i("center")],1)]),t._v(" "),i("div",{staticClass:"kt-separator kt-separator--border-dashed"}),t._v(" "),i("div",{staticClass:"row justify-content-center"},[i("div",{staticClass:"col-xl-12"},[i("p",[i("span",{staticClass:"kt-font-boldest",staticStyle:{"font-size":"18px"}},[t._v("Cabeza de Hogar")])])])]),t._v(" "),t._l(t.caracterizacion3,(function(a,e){return i("div",{key:e,staticStyle:{"font-size":"15px"}},[i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-3"},[i("label",{staticClass:"kt-font-bold"},[t._v("Identificación:")])]),t._v(" "),i("div",{staticClass:"col-md-6"},[i("label",[t._v(t._s(a.IDENTIFICACION))])])]),t._v(" "),i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-3"},[i("label",{staticClass:"kt-font-bold"},[t._v("Nombre:")])]),t._v(" "),i("div",{staticClass:"col-md-6"},[i("label",[t._v(t._s(a.USUARIO))])])]),t._v(" "),i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-3"},[i("label",{staticClass:"kt-font-bold"},[t._v("Departamento:")])]),t._v(" "),i("div",{staticClass:"col-md-6"},[i("label",[t._v(t._s(a.DPTO))])])]),t._v(" "),i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-3"},[i("label",{staticClass:"kt-font-bold"},[t._v("Municipio:")])]),t._v(" "),i("div",{staticClass:"col-md-6"},[i("label",[t._v(t._s(a.MUNI))])])]),t._v(" "),i("div",{staticClass:"row"},[i("div",{staticClass:"col-md-3"},[i("label",{staticClass:"kt-font-bold"},[t._v("Dirección:")])]),t._v(" "),i("div",{staticClass:"col-md-6"},[i("label",[t._v(t._s(a.DIRECCION))])])])])})),t._v(" "),i("div",{staticClass:"kt-separator kt-separator--border-dashed"}),t._v(" "),i("div",{staticClass:"row justify-content-center"},[i("div",{staticClass:"col-xl-12"},[i("div",{staticClass:"table-responsive"},[i("p",[i("span",{staticClass:"kt-font-boldest",staticStyle:{"font-size":"18px"}},[t._v("Integrantes del Hogar")])]),t._v(" "),i("table",{staticClass:"table table-sm table-hover"},[i("thead",{},[i("tr",{staticClass:"kt-bg-fill-brand"},[i("th",[t._v("No.")]),t._v(" "),i("th",[t._v("Identificación")]),t._v(" "),i("th",[t._v("Integrante")]),t._v(" "),i("th",[t._v("Sexo")]),t._v(" "),i("th",[t._v("Edad")]),t._v(" "),i("th",[t._v("Parentesco")])])]),t._v(" "),i("tbody",t._l(t.integrantes,(function(a,e){return i("tr",{key:e},[i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[t._v(t._s(e+1))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.documento)+": "+t._s(a.tipo_id.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.identificacion.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.sexo.toUpperCase()))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.edad))]),t._v(" "),i("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[t._v(t._s(a.PARENT))])])})),0)]),t._v(" "),i("div",{staticClass:"kt-separator kt-separator--border-dashed"})])])])],2)])])])]),t._v(" "),i("hr"),t._v(" "),i("div",{staticClass:"text-right"},[i("button",{staticClass:"btn btn-success",attrs:{type:"button"},on:{click:t.ExportarTodo}},[i("i",{staticClass:"la la-file-pdf-o"}),t._v(" Imprimir\n          ")]),t._v(" "),i("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:t.cerrarModal}},[i("i",{staticClass:"fa fa-window-close"}),t._v(" Cerrar\n          ")])])])])],1)])}),[function(){var t=this.$createElement,a=this._self._c||t;return a("div",{staticClass:"kt-portlet__head"},[a("div",{staticClass:"kt-portlet__head-label"},[a("h3",{staticClass:"kt-portlet__head-title"},[a("span",{staticClass:"kt-widget20__number kt-font-danger"},[this._v("GESTIÓN DE CARACTERIZACIÓN")])])])])},function(){var t=this,a=t.$createElement,i=t._self._c||a;return i("thead",{},[i("tr",{staticClass:"kt-bg-fill-brand"},[i("th",[t._v("No.")]),t._v(" "),i("th",[t._v("Departamento")]),t._v(" "),i("th",[t._v("Municipio")]),t._v(" "),i("th",[t._v("Corregimiento")]),t._v(" "),i("th",[t._v("Identificación")]),t._v(" "),i("th",[t._v("Usuario")]),t._v(" "),i("td",{staticClass:"text-center"},[t._v("Estado")]),t._v(" "),i("td",{staticClass:"text-center"},[t._v("Opciones")])])])},function(){var t=this.$createElement,a=this._self._c||t;return a("button",{staticClass:"btn btn-outline-info btn-icon btn-sm",attrs:{type:"button",title:"Editar"}},[a("i",{staticClass:"fa fa-edit"})])}],!1,null,null,null);a.default=b.exports},87:function(t,a,i){var e=i(163);"string"==typeof e&&(e=[[t.i,e,""]]);var s={hmr:!0,transform:void 0,insertInto:void 0};i(29)(e,s);e.locals&&(t.exports=e.locals)}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/enfermedadesCro_servicios */ "./resources/js/Servicios/enfermedadesCro_servicios.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.consultar(1);
+  },
+  name: "barri",
+  data: function data() {
+    return {
+      errores: [],
+      bandera: false,
+      entrarPorError: false,
+      txtbusqueda: "",
+      enfermedadescro: [],
+      enfermedadData: {
+        descripcion: "",
+        observacion: "",
+        id: 0
+      },
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      paginacion: {
+        total: 0,
+        pagina_actual: 0,
+        por_pagina: 0,
+        ultima_pagina: 0,
+        desde: 0,
+        hasta: 0
+      },
+      offset: 4,
+      valG: true
+    };
+  },
+  computed: {
+    // CLASES Y ERRORES DE CAMPO IDENTIFICACION
+    enfermedadescroError: function enfermedadescroError() {
+      var valor = this.enfermedadData.descripcion.trim();
+
+      if (valor == "") {
+        return "El campo es obligatorio";
+      }
+    },
+    enfermedadesClases: function enfermedadesClases() {
+      return [{
+        "is-invalid": this.enfermedadescroError,
+        "is-valid": !this.enfermedadescroError
+      }];
+    },
+    esActivo: function esActivo() {
+      return this.paginacion.pagina_actual;
+    },
+    numeroDePaginas: function numeroDePaginas() {
+      if (!this.paginacion.hasta) {
+        return [];
+      }
+
+      var desde = this.paginacion.pagina_actual - this.offset; // TODO offset
+
+      if (desde < 1) {
+        desde = 1;
+      }
+
+      var aux = this.offset * 2;
+      var hasta = desde + aux;
+
+      if (hasta >= this.paginacion.ultima_pagina) {
+        hasta = this.paginacion.ultima_pagina;
+      }
+
+      var paginasArray = [];
+
+      while (desde <= hasta) {
+        paginasArray.push(desde);
+        desde++;
+      }
+
+      return paginasArray;
+    },
+    spinG: function spinG() {
+      if (this.valG) {
+        return {};
+      } else {
+        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+      }
+    }
+  },
+  methods: {
+    consultar: function () {
+      var _consultar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(pagina) {
+        var _this = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                parametros = {
+                  txtbusqueda: this.txtbusqueda.trim(),
+                  _token: this.csrf,
+                  page: pagina
+                };
+                _context.prev = 1;
+                _context.next = 4;
+                return _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
+                  _this.enfermedadescro = respuesta.data.enfermedadescro.data;
+                  _this.paginacion = respuesta.data.paginacion;
+                });
+
+              case 4:
+                _context.next = 15;
+                break;
+
+              case 6:
+                _context.prev = 6;
+                _context.t0 = _context["catch"](1);
+                _context.t1 = _context.t0.response.status;
+                _context.next = _context.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 15);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[1, 6]]);
+      }));
+
+      function consultar(_x) {
+        return _consultar.apply(this, arguments);
+      }
+
+      return consultar;
+    }(),
+    abrirModal: function abrirModal() {
+      this.enfermedadData.descripcion = "";
+      this.enfermedadData.observacion = "";
+      this.enfermedadData.id = 0;
+      this.errores = [];
+      this.entrarPorError = false;
+      this.$refs.modalEnfermedad.show();
+    },
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalEnfermedad.hide();
+    },
+    guardar: function () {
+      var _guardar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (this.checkForm()) {
+                  _context2.next = 4;
+                  break;
+                }
+
+                this.entrarPorError = false;
+                _context2.next = 23;
+                break;
+
+              case 4:
+                this.errores = [];
+                parametros = {
+                  _token: this.csrf,
+                  descripcion: this.enfermedadData.descripcion,
+                  observacion: this.enfermedadData.observacion,
+                  id: this.enfermedadData.id
+                };
+                this.valG = false;
+                _context2.prev = 7;
+                _context2.next = 10;
+                return _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
+                  _this2.consultar(1);
+
+                  _this2.enfermedadData.descripcion = "";
+                  _this2.enfermedadData.observacion = "";
+                  _this2.enfermedadData.id = 0;
+
+                  _this2.cerrarModal();
+
+                  _this2.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                  _this2.valG = true;
+                })["catch"](function (error) {
+                  _this2.errorDevuelto = error.response.data.errors;
+                  _this2.entrarPorError = true;
+                });
+
+              case 10:
+                _context2.next = 23;
+                break;
+
+              case 12:
+                _context2.prev = 12;
+                _context2.t0 = _context2["catch"](7);
+                _context2.t1 = _context2.t0.response.status;
+                _context2.next = _context2.t1 === 419 ? 17 : _context2.t1 === 422 ? 19 : 21;
+                break;
+
+              case 17:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 23);
+
+              case 19:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 23);
+
+              case 21:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 23);
+
+              case 23:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[7, 12]]);
+      }));
+
+      function guardar() {
+        return _guardar.apply(this, arguments);
+      }
+
+      return guardar;
+    }(),
+    checkForm: function checkForm(e) {
+      this.errores = [];
+
+      if (!this.enfermedadData.descripcion) {
+        this.errores.push("La descripción es obligatoria.");
+      }
+
+      if (!this.errores.length) {
+        return true;
+      } else {
+        return false;
+      }
+
+      e.preventDefault();
+    },
+    cambiarPaginas: function cambiarPaginas(pagina) {
+      this.paginacion.pagina_actual = pagina;
+      this.consultar(pagina);
+    },
+    eliminar: function () {
+      var _eliminar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(usu) {
+        var _this3 = this;
+
+        var title, titulo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                title = "";
+                titulo = "";
+
+                if (usu.estado == "Activo") {
+                  title = "¿Desea anular la enfermedad cronica " + usu.descripcion + "?";
+                  titulo = "Enfermedad cronica " + usu.descripcion + " anulada de manera exitosa";
+                } else {
+                  title = "¿Desea activar la enfermedad cronica " + usu.descripcion + "?";
+                  titulo = "Enfermedad cronica " + usu.descripcion + " activada de manera exitosa";
+                }
+
+                this.$swal({
+                  title: title,
+                  text: "",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Aceptar",
+                  cancelButtonText: "Cancelar"
+                }).then(function (result) {
+                  if (result.value) {
+                    var parametros = {
+                      _token: _this3.csrf,
+                      id: usu.id,
+                      estado: usu.estado
+                    };
+
+                    try {
+                      _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function (respuesta) {
+                        _this3.consultar(1);
+
+                        _this3.$swal({
+                          position: "top-end",
+                          icon: "success",
+                          title: titulo,
+                          showConfirmButton: false,
+                          timer: 2000
+                        });
+                      })["catch"](function (error) {
+                        _this3.$swal("Error...!", "Ocurrio un error!", "error");
+                      });
+                    } catch (error) {
+                      switch (error.response.status) {
+                        case 422:
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+
+                        default:
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+                      }
+                    }
+                  }
+                });
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function eliminar(_x2) {
+        return _eliminar.apply(this, arguments);
+      }
+
+      return eliminar;
+    }(),
+    editar: function () {
+      var _editar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(item) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                this.enfermedadData.descripcion = item.descripcion;
+                this.enfermedadData.observacion = item.observacion;
+                this.enfermedadData.id = item.id;
+                this.$refs.modalEnfermedad.show();
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function editar(_x3) {
+        return _editar.apply(this, arguments);
+      }
+
+      return editar;
+    }()
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "kt-portlet", staticStyle: { "margin-top": "-4%" } },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c("div", { staticClass: "kt-section__content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-primary btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Nueva Enfermedad Cronica"
+                          },
+                          on: { click: _vm.abrirModal }
+                        },
+                        [_c("i", { staticClass: "la la-file-text-o" })]
+                      ),
+                      _vm._v(" \n                ")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda,
+                              expression: "txtbusqueda"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar(1)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.enfermedadescro, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.descripcion))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.observacion))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "center"
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-badge kt-badge--inline",
+                                    class:
+                                      item.estado == "Activo"
+                                        ? "kt-badge--success"
+                                        : "kt-badge--danger"
+                                  },
+                                  [_vm._v(_vm._s(item.estado))]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-icon btn-sm",
+                                    class:
+                                      item.estado == "Activo"
+                                        ? "btn-outline-danger"
+                                        : "btn-outline-success",
+                                    attrs: {
+                                      type: "button",
+                                      title:
+                                        item.estado == "Activo"
+                                          ? "Anular"
+                                          : "Activar"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminar(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa",
+                                      class:
+                                        item.estado == "Activo"
+                                          ? "fa-trash"
+                                          : "fa-check"
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--first"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual - 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(pagina)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(pagina))]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual + 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalEnfermedad",
+            attrs: {
+              "hide-footer": "",
+              title: "Gestion de Enfermedades Cronicas",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12" },
+                  [
+                    _c(
+                      "transition",
+                      { attrs: { duration: 1000, name: "fade" } },
+                      [
+                        _vm.entrarPorError
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "alert alert-warning fade show",
+                                attrs: { role: "alert" }
+                              },
+                              [
+                                _c("div", { staticClass: "alert-icon" }, [
+                                  _c("i", { staticClass: "flaticon-warning" })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-text" }, [
+                                  _vm._v(
+                                    "\n                  Por favor, corrija el(los) siguiente(s) error(es):\n                  "
+                                  ),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    _vm._l(_vm.errorDevuelto, function(
+                                      error,
+                                      index
+                                    ) {
+                                      return _c("li", { key: index }, [
+                                        _vm._v(_vm._s(error))
+                                      ])
+                                    }),
+                                    0
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-close" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "close",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "alert",
+                                        "aria-label": "Close"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [
+                                          _c("i", {
+                                            staticClass: "la la-close"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-lg-12" },
+                  [
+                    _c(
+                      "transition",
+                      { attrs: { duration: 1000, name: "fade" } },
+                      [
+                        _vm.errores.length
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "alert alert-warning fade show",
+                                attrs: { role: "alert" }
+                              },
+                              [
+                                _c("div", { staticClass: "alert-icon" }, [
+                                  _c("i", { staticClass: "flaticon-warning" })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-text" }, [
+                                  _vm._v(
+                                    "\n                  Por favor, corrija el(los) siguiente(s) error(es):\n                  "
+                                  ),
+                                  _c("hr"),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    _vm._l(_vm.errores, function(error, index) {
+                                      return _c("li", { key: index }, [
+                                        _vm._v(_vm._s(error))
+                                      ])
+                                    }),
+                                    0
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "alert-close" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "close",
+                                      attrs: {
+                                        type: "button",
+                                        "data-dismiss": "alert",
+                                        "aria-label": "Close"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [
+                                          _c("i", {
+                                            staticClass: "la la-close"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("form", [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", [_vm._v("Enfermedad Cronica:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.enfermedadData.descripcion,
+                          expression: "enfermedadData.descripcion"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      class: _vm.enfermedadesClases,
+                      attrs: { type: "text", placeholder: "Descripción" },
+                      domProps: { value: _vm.enfermedadData.descripcion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.enfermedadData,
+                            "descripcion",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm.enfermedadescroError
+                      ? _c("div", { staticClass: "invalid-feedback" }, [
+                          _vm._v(_vm._s(_vm.enfermedadescroError))
+                        ])
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", [_vm._v("Observación:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.enfermedadData.observacion,
+                          expression: "enfermedadData.observacion"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      attrs: { type: "text", placeholder: "Observación" },
+                      domProps: { value: _vm.enfermedadData.observacion },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.enfermedadData,
+                            "observacion",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      class: _vm.spinG,
+                      attrs: { type: "button", disabled: !_vm.valG },
+                      on: { click: _vm.guardar }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-edit" }),
+                      _vm._v(" Guardar\n            ")
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning",
+                      attrs: { type: "button" },
+                      on: { click: _vm.cerrarModal }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-window-close" }),
+                      _vm._v(" Cancelar\n            ")
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+            _vm._v("GESTIÓN DE ENFERMEDADES CRONICAS")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Enfermedad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Observación")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/enfermedadesCro_servicios.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/Servicios/enfermedadesCro_servicios.js ***!
+  \*************************************************************/
+/*! exports provided: listar, guardar, eliminar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar", function() { return listar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardar", function() { return guardar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro', $data);
+}
+function guardar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro/guardar', $data);
+}
+function eliminar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro/eliminar', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=template&id=1860428c& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&");
+/* harmony import */ var _EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Enfermedades/EnfermedadesCro.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=template&id=1860428c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

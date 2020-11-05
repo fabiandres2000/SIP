@@ -90,6 +90,7 @@ Route::post('/actividad/eliminar', 'ActividadController@eliminar');
 
 Route::post('/caracterizacion', 'CaracterizacionController@gestion');
 Route::post('/caracterizacion/nuevo', 'CaracterizacionController@nuevo');
+Route::post('/caracterizacion/editar', 'CaracterizacionController@editar');
 Route::post('/caracterizacion/guardar', 'CaracterizacionController@guardar');
 Route::post('/caracterizacion/validar', 'CaracterizacionController@validar');
 Route::post('/caracterizacion/eliminar', 'CaracterizacionController@eliminar');

@@ -45,7 +45,7 @@ class Caracterizacion extends Model
                     "caracterizacion.identificacion AS IDENTIFICACION",
                     "caracterizacion.id",
                     "caracterizacion.sexo",
-                    // "caracterizacion.direccion",
+                    "hogar.id AS IDHOGAR",
                     "caracterizacion.telefono"
                 )
                 ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
@@ -67,7 +67,7 @@ class Caracterizacion extends Model
                     "caracterizacion.identificacion AS IDENTIFICACION",
                     "caracterizacion.id",
                     "caracterizacion.sexo",
-                    // "caracterizacion.direccion",
+                    "hogar.id AS IDHOGAR",
                     "caracterizacion.telefono"
                 )
                 ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')

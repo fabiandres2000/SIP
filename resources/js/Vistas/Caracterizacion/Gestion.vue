@@ -119,6 +119,7 @@
                             type="button"
                             class="btn btn-outline-info btn-icon btn-sm"
                             title="Editar"
+                            @click="editar(item)"
                           >
                             <i class="fa fa-edit"></i>
                           </button>
@@ -406,7 +407,7 @@
                                 >{{ (index+1) }}</td>
                                 <td
                                   style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                                >{{item.identificacion}}: {{item.tipo_id.toUpperCase()}}</td>
+                                >{{item.tipo_id.toUpperCase()}}: {{item.identificacion}}</td>
                                 <td
                                   style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                                 >{{item.INTEGRANTE.toUpperCase()}}</td>
@@ -684,6 +685,14 @@
               break;
           }
         }
+      },
+      editar(item){
+        this.$router.push({
+          name: "Editar",
+          params:{
+            IDHOGAR: item.IDHOGAR,
+          }
+        });
       }
     }
   };
