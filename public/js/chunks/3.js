@@ -15606,6 +15606,18 @@ var entero = function entero(value) {
                         edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
                       }
 
+                      var textoEps = "";
+
+                      if (_this8.CA1.afi_entidad === "OTRA") {
+                        textoEps = "OTRA";
+                      } else {
+                        if (_this8.CA1.afi_entidad === "NINGUNA") {
+                          textoEps = "NINGUNA";
+                        } else {
+                          textoEps = _this8.showText(_this8.CA1.afi_entidad, _this8.admini_options);
+                        }
+                      }
+
                       _this8.datos.push({
                         id: 0,
                         tipo_id: _this8.CA1.tipo_id,
@@ -15622,7 +15634,7 @@ var entero = function entero(value) {
                         fecha_nac: _this8.CA1.fecha_nac,
                         edad: edad,
                         afi_entidad: _this8.CA1.afi_entidad,
-                        textoEps: _this8.showText(_this8.CA1.afi_entidad, _this8.admini_options),
+                        textoEps: textoEps,
                         otra_eps: _this8.CA1.otra_eps,
                         tipo_afiliacion: _this8.CA1.tipo_afiliacion,
                         embarazo: _this8.CA1.embarazo,
@@ -15841,13 +15853,25 @@ var entero = function entero(value) {
                         return false;
                       }
 
+                      var textoEps = "";
+
+                      if (_this9.caracData.afiliacion_entidad === "OTRA") {
+                        textoEps = "OTRA";
+                      } else {
+                        if (_this9.caracData.afiliacion_entidad === "NINGUNA") {
+                          textoEps = "NINGUNA";
+                        } else {
+                          textoEps = _this9.showText(_this9.caracData.afiliacion_entidad, _this9.admini_options);
+                        }
+                      }
+
                       _this9.datosJefe.push({
                         id: 0,
                         id_hogar: 0,
                         telefono: _this9.caracData.telefono,
                         puntaje_sisben: _this9.caracData.puntaje_sisben,
                         afiliacion_entidad: _this9.caracData.afiliacion_entidad,
-                        textoEps: _this9.showText(_this9.caracData.afiliacion_entidad, _this9.admini_options),
+                        textoEps: textoEps,
                         otra_eps: _this9.caracData.otra_eps,
                         tipo_id: _this9.caracData.tipo_id,
                         identificacion: _this9.caracData.identificacion,
@@ -24557,7 +24581,7 @@ var render = function() {
                                         staticStyle: { width: "400px" },
                                         attrs: {
                                           type: "text",
-                                          placeholder: "Ocupación",
+                                          placeholder: "Eps",
                                           readonly: ""
                                         },
                                         domProps: { value: item.textoEps },
@@ -39864,7 +39888,9 @@ var render = function() {
                       { staticClass: "col-lg-5" },
                       [
                         _c("label", [
-                          _vm._v("¿Ingresos mensuales por Hogar en Ciudad?:")
+                          _vm._v(
+                            "¿Ingresos mensuales por Hogar en zona urbana?:"
+                          )
                         ]),
                         _vm._v(" "),
                         _c(

@@ -1125,7 +1125,7 @@
                             <input
                               type="text"
                               class="form-control text-capitalize"
-                              placeholder="Ocupación"
+                              placeholder="Eps"
                               v-model="item.textoEps"
                               :class="item.textoEps==''?'':'is-valid'"
                               style="width:400px;"
@@ -5359,7 +5359,7 @@
               </div>
               <div class="form-group row">
                 <div class="col-lg-5">
-                  <label>¿Ingresos mensuales por Hogar en Ciudad?:</label>
+                  <label>¿Ingresos mensuales por Hogar en zona urbana?:</label>
                   <b-form-select
                     v-model.trim="estratificacionData.ingresos_ciudad"
                     :class="estratificacionData.ingresos_ciudad==''?'':'is-valid'"
@@ -11143,7 +11143,7 @@
     },
     mounted() {
       this.nuevo();
-      this.hoy = moment();      
+      this.hoy = moment();
     },
     filters: {
       moneda(val) {
@@ -16156,6 +16156,17 @@
                   if (nacimiento < hoy) {
                     edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
                   }
+
+                  let textoEps = "";
+                  if(this.CA1.afi_entidad === "OTRA"){                      
+                    textoEps = "OTRA";
+                  }else{
+                    if(this.CA1.afi_entidad === "NINGUNA"){
+                      textoEps = "NINGUNA";
+                    }else{
+                      textoEps = this.showText(this.CA1.afi_entidad,this.admini_options);
+                    }
+                  }                  
                   this.datos.push({
                     id: 0,
                     tipo_id: this.CA1.tipo_id,
@@ -16178,10 +16189,7 @@
                     fecha_nac: this.CA1.fecha_nac,
                     edad: edad,
                     afi_entidad: this.CA1.afi_entidad,
-                    textoEps: this.showText(
-                      this.CA1.afi_entidad,
-                      this.admini_options
-                    ),                    
+                    textoEps: textoEps,                    
                     otra_eps: this.CA1.otra_eps,
                     tipo_afiliacion: this.CA1.tipo_afiliacion,
                     embarazo: this.CA1.embarazo,
@@ -16381,16 +16389,23 @@
                       return false;
                     }
 
+                    let textoEps = "";
+                    if(this.caracData.afiliacion_entidad === "OTRA"){                      
+                      textoEps = "OTRA";
+                    }else{
+                      if(this.caracData.afiliacion_entidad === "NINGUNA"){
+                        textoEps = "NINGUNA";
+                      }else{
+                        textoEps = this.showText(this.caracData.afiliacion_entidad,this.admini_options);
+                      }
+                    }
                     this.datosJefe.push({
                       id: 0,
                       id_hogar: 0,
                       telefono: this.caracData.telefono,
                       puntaje_sisben: this.caracData.puntaje_sisben,
                       afiliacion_entidad: this.caracData.afiliacion_entidad,
-                      textoEps: this.showText(
-                        this.caracData.afiliacion_entidad,
-                        this.admini_options
-                      ),                      
+                      textoEps: textoEps,                      
                       otra_eps: this.caracData.otra_eps,
                       tipo_id: this.caracData.tipo_id,
                       identificacion: this.caracData.identificacion,

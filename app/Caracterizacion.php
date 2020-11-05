@@ -9,7 +9,7 @@ class Caracterizacion extends Model
 {
     protected $table = 'caracterizacion';
     protected $fillable = [
-        'telefono', 'puntaje_sisben', 'ips', 'tipo_id', 'identificacion', 'sexo',
+        'telefono', 'puntaje_sisben', 'tipo_id', 'identificacion', 'sexo',
         'parentesco', 'pnom', 'snom', 'pape', 'sape', 'salario', 'id_hogar',
         'id_compania', 'estado', 'estado_civil', 'fecha_nacimiento', 'afiliacion_entidad',
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
@@ -202,9 +202,21 @@ class Caracterizacion extends Model
             ->orderBy('id', 'desc')
             ->first();
     }
+
     public static function buscarPorId($id, $alias)
     {
         return DB::connection('mysql')->table($alias . '.caracterizacion')
             ->findOrFail($id);
+    }
+
+    public static function buscarJefes($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.caracterizacion')
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->leftjoin($alias . '.administradoras', 'administradoras.id', 'caracterizacion.afiliacion_entidad')
+            ->where('id_hogar', $id_hogar)
+            ->select("caracterizacion.*", "administradoras.adm_nombre AS textoEps")
+            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
+            ->get();
     }
 }

@@ -357,10 +357,1296 @@
               <p>
                 <span class="kt-font-boldest" style="font-size: 15px;">Jefe del Hogar</span>
               </p>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Tipo de Documento (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.tipo_id"
+                    :class="caracData.tipo_id==''?'':'is-valid'"
+                    @change="formato('tipoid')"
+                    ref="tipo_id"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="CC">CEDULA DE CIUDADANIA</option>
+                    <option value="PA">PASAPORTE</option>
+                    <option value="RC">REGISTRO CIVIL</option>
+                    <option value="TI">TARJETA DE IDENTIDAD</option>
+                    <option value="ASI">ADULTO SIN IDENTIFICACIÓN</option>
+                    <option value="MSI">MENOR SIN IDENTIFICACIÓN</option>
+                    <option value="CE">CEDULA DE EXTRANJERIA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Documento (*):</label>
+                  <input
+                    type="text"
+                    ref="identificacion"
+                    class="form-control text-capitalize"
+                    placeholder="Documento"
+                    @change="formato('id1')"
+                    v-model.trim="caracData.identificacion"
+                    :class="caracData.identificacion==''?'':'is-valid'"
+                  />
+                </div>
+                <div class="col-lg-4">
+                  <label>Parentesco (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.parentesco"
+                    :class="caracData.parentesco==''?'':'is-valid'"
+                    ref="parentesco"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in parentesco_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Sexo (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.sexo"
+                    :class="caracData.sexo==''?'':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMENINO">FEMENINO</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Orientación Sexual (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.orientacion"
+                    :class="caracData.orientacion==''?'':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                    <option value="BISEXUAL">BISEXUAL</option>
+                    <option value="NODECLARA">NO DECLARA</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Identidad de Genero (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.identidad_genero"
+                    :class="caracData.identidad_genero==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">CISGENERO</option>
+                    <option value="HOMOSEXUAL">TRANSGENERO</option>
+                    <option value="BISEXUAL">TRANSEXUAL</option>
+                    <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Primer Nombre (*):</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Primer Nombre"
+                    v-model.trim="caracData.pnom"
+                    :class="caracData.pnom==''?'':'is-valid'"
+                    ref="pnom"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Segundo Nombre:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Segundo Nombre"
+                    v-model.trim="caracData.snom"
+                    :class="caracData.snom==''?'':'is-valid'"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Primer Apellido (*):</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Primer Apellido"
+                    v-model.trim="caracData.pape"
+                    :class="caracData.pape==''?'':'is-valid'"
+                    ref="pape"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Segundo Apellido:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Segundo Apellido"
+                    v-model.trim="caracData.sape"
+                    :class="caracData.sape==''?'':'is-valid'"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Telefono:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Telefono"
+                    v-model.trim="caracData.telefono"
+                    :class="caracData.telefono==''?'':'is-valid'"
+                    @change="formato('telefono1')"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Estado Civil (*):</label>
+                  <b-form-select
+                    v-model="caracData.estado_civil"
+                    :class="caracData.estado_civil==''?'':'is-valid'"
+                    ref="estado_civil"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in estado_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Fecha de Nacimiento (*):</label>
+                  <input
+                    id="date"
+                    type="date"
+                    placeholder="Fecha de Nacimiento"
+                    v-model="caracData.fecha_nacimiento"
+                    :class="caracData.fecha_nacimiento==''?'':'is-valid'"
+                    class="form-control text-capitalize"
+                    ref="fecha_nacimiento"
+                    :max="hoy | moment"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label>Edad:</label>
+                  <input
+                    type="text"
+                    v-model="calEdad2"
+                    class="form-control text-capitalize"
+                    placeholder="Edad"
+                    :class="caracData.edad==''?'':'is-valid'"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-2">
+                  <label>Puntaje Sisben:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    v-model.trim="caracData.puntaje_sisben"
+                    :class="caracData.puntaje_sisben==''?'':'is-valid'"
+                    @change="formato('puntaje1')"
+                  />
+                </div>
+
+                <div class="col-lg-7">
+                  <label>Eps (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.afiliacion_entidad"
+                    :class="caracData.afiliacion_entidad==''?'':'is-valid'"
+                    ref="afiliacion_entidad"
+                    @change="mostrarOtro('OEPS1')"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="NINGUNA">NINGUNA</option>
+                    <option value="OTRA">OTRA</option>
+                    <option
+                      v-for="item in admini_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Tipo Afiliación:</label>
+                  <b-form-select
+                    v-model="caracData.tipo_afiliacion"
+                    :class="caracData.tipo_afiliacion==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="0">No Aplica</option>
+                    <option value="SUBSIDIADO">SUBSIDIADO</option>
+                    <option value="CONTRIBUTIVO">CONTRIBUTIVO</option>
+                    <option value="ESPECIAL">ESPECIAL</option>
+                    <option value="PPNA">POBLACIÓN POBRE NO ASEGURADA</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12" v-show="mOEPS1">
+                  <label>Cual:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Cual"
+                    v-model.trim="caracData.otra_eps"
+                    :class="caracData.otra_eps==''?'':'is-valid'"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Embarazo:</label>
+                  <b-form-select
+                    v-model="caracData.embarazo"
+                    :class="caracData.embarazo==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI" :disabled="inputDisabled2">SI</option>
+                    <option value="NO" :disabled="inputDisabled2">NO</option>
+                    <option value="NOAPLICA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Embarazo Multiple:</label>
+                  <b-form-select
+                    v-model="caracData.embarazo_multiple"
+                    :class="caracData.embarazo_multiple==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI" :disabled="inputDisabled2">SI</option>
+                    <option value="NO" :disabled="inputDisabled2">NO</option>
+                    <option value="NOAPLICA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Discapacidad:</label>
+                  <b-form-select
+                    v-model="caracData.discapacidad"
+                    :class="caracData.discapacidad==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="1">FISICA</option>
+                    <option value="2">COGNITIVA</option>
+                    <option value="3">SENSORIAL</option>
+                    <option value="4">PSÍQUICA</option>
+                    <option value="5">NINGUNA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Nivel Educativo:</label>
+                  <b-form-select
+                    v-model="caracData.nivel_escolaridad"
+                    :class="caracData.nivel_escolaridad==''?'':'is-valid'"
+                    @change="mostrarOtro('mOCOL1')"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="0">No Aplica</option>
+                    <option
+                      v-for="item in escolaridad_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-6" v-show="mOCOL1">
+                  <label>Colegio:</label>
+                  <b-form-select
+                    v-model="caracData.colegio"
+                    :class="caracData.colegio==''?'':'is-valid'"
+                    class="form-control kt-select2 selectBus"
+                    style="width: 100%"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in colegio_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3" v-show="mOCOL1">
+                  <label>Grado:</label>
+                  <b-form-select
+                    v-model="caracData.grado"
+                    :class="caracData.grado==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="Ninguno">Ninguno</option>
+                    <option
+                      v-for="item in grados_option[caracData.nivel_escolaridad]"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <label>Ocupación (*):</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Ocupaciones"
+                    v-model="ocupacionAuxiliar"
+                    ref="ocupacion"
+                    :class="ocupacionAuxiliar==''?'':'is-valid'"
+                    @click="abrirModalOcupaciones('jefe')"
+                    :readonly="true"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Etnia (*):</label>
+                  <b-form-select
+                    v-model="caracData.etnia"
+                    :class="caracData.etnia==''?'':'is-valid'"
+                    @change="cambiarCombo('etnia')"
+                    ref="etnia"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in etnia_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+
+                <div class="col-lg-4">
+                  <label>Clasificación de la Etnia (*):</label>
+                  <b-form-select
+                    v-model="caracData.clasificacion"
+                    :class="caracData.clasificacion==''?'':'is-valid'"
+                    ref="clasificacion"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in clasifi_options[caracData.etnia]"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+
+                <div class="col-lg-4">
+                  <label>Perdida de peso en los ultimos 3 meses:</label>
+                  <b-form-select
+                    v-model="caracData.perdida_peso"
+                    :class="caracData.perdida_peso==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="ND">NO DECLARA</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Entiende Español:</label>
+                  <b-form-select
+                    v-model="caracData.entiende"
+                    :class="caracData.entiende==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>PYP:</label>
+                  <b-form-select v-model="caracData.pyp" :class="caracData.pyp==''?'':'is-valid'">
+                    <option value selected>Seleccione</option>
+                    <option value="Crecimiento">Crecimiento y Desarrollo</option>
+                    <option value="Joven">Joven</option>
+                    <option value="Adulto">Adulto Mayor</option>
+                    <option value="Planificacion">Planificación Familiar</option>
+                    <option value="Control">Control Prenatal</option>
+                    <option value="Alimentacion">Alimentación Escolar</option>
+                    <option value="Ninguno">Ninguno</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-2">
+                  <label>Migrante:</label>
+                  <b-form-select
+                    v-model="caracData.migrante"
+                    :class="caracData.migrante==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Salario (*):</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Salario"
+                    v-model.trim="caracData.salario"
+                    :class="caracData.salario==''?'':'is-valid'"
+                    ref="salario"
+                    @change="formato('salario')"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Pertenece a algún programa del ICBF:</label>
+                  <b-form-select
+                    v-model="caracData.programa_icbf"
+                    :class="caracData.programa_icbf==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-info btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar"
+                    @click.prevent="agregarJefe"
+                  >
+                    <i class="fa fa-plus"></i>
+                  </a>&nbsp;
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>No.</th>
+                          <th>Tipo de Documento</th>
+                          <th>Documento</th>
+                          <th>Primer Nombre</th>
+                          <th>Segundo Nombre</th>
+                          <th>Primer Apellido</th>
+                          <th>Segundo Apellido</th>
+                          <th>Sexo</th>
+                          <th>Orientación Sexual</th>
+                          <th>Identidad de Genero</th>
+                          <th>Parentesco</th>
+                          <th>Telefono</th>
+                          <th>Estado Civil</th>
+                          <th>Nacimiento</th>
+                          <th>Edad</th>
+                          <th>Puntaje Sisben</th>
+                          <th>Eps</th>
+                          <th>Cual Eps</th>
+                          <th>Tipo Afiliación</th>
+                          <th>Embarazo</th>
+                          <th>Embarazo Multiple</th>
+                          <th>Discapacidad</th>
+                          <th>Nivel de Escolaridad</th>
+                          <th>Ocupación</th>
+                          <th>Colegio</th>
+                          <th>Grado</th>
+                          <th>Etnia</th>
+                          <th>Clasificación de la Etnia</th>
+                          <th>Perdida de Peso</th>
+                          <th>Entiende Español</th>
+                          <th>PYP</th>
+                          <th>Migrante</th>
+                          <th>Salario</th>
+                          <th>Programa ICBF</th>
+                          <th class="text-center">Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in datosJefe" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.tipo_id"
+                              :class="item.tipo_id==''?'':'is-valid'"
+                              @input="tipo_id=>updateJefe(item,tipo_id,'tipo_id',index)"
+                              style="width:250px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="CC">CEDULA DE CIUDADANIA</option>
+                              <option value="PA">PASAPORTE</option>
+                              <option value="RC">REGISTRO CIVIL</option>
+                              <option value="TI">TARJETA DE IDENTIDAD</option>
+                              <option value="ASI">ADULTO SIN IDENTIFICACIÓN</option>
+                              <option value="MSI">MENOR SIN IDENTIFICACIÓN</option>
+                              <option value="CE">CEDULA DE EXTRANJERIA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Documento"
+                              v-model.trim="item.identificacion"
+                              :class="item.identificacion==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'identificacion',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Primer Nombre"
+                              v-model.trim="item.pnom"
+                              :class="item.pnom==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'pnom',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Segundo Nombre"
+                              v-model.trim="item.snom"
+                              :class="item.snom==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'snom',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Primer Apellido"
+                              v-model.trim="item.pape"
+                              :class="item.pape==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'pape',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Segundo Apellido"
+                              v-model.trim="item.sape"
+                              :class="item.sape==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'sape',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.sexo"
+                              :class="item.sexo==''?'':'is-valid'"
+                              @input="sexo=>updateJefe(item,sexo,'sexo',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="MASCULINO">MASCULINO</option>
+                              <option value="FEMENINO">FEMENINO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.orientacion"
+                              :class="item.orientacion==''?'':'is-valid'"
+                              @input="orientacion=>updateJefe(item,orientacion,'orientacion',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                              <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                              <option value="BISEXUAL">BISEXUAL</option>
+                              <option value="NODECLARA">NO DECLARA</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.identidad_genero"
+                              :class="item.identidad_genero==''?'':'is-valid'"
+                              @input="identidad_genero=>updateJefe(item,identidad_genero,'identidad_genero',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">CISGENERO</option>
+                              <option value="HOMOSEXUAL">TRANSGENERO</option>
+                              <option value="BISEXUAL">TRANSEXUAL</option>
+                              <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.parentesco"
+                              :class="item.parentesco==''?'':'is-valid'"
+                              @input="parentesco=>updateJefe(item,parentesco,'parentesco',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in parentesco_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Telefono"
+                              v-model.trim="item.telefono"
+                              :class="item.telefono==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'telefono',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.estado_civil"
+                              :class="item.estado_civil==''?'':'is-valid'"
+                              @input="estado_civil=>updateJefe(item,estado_civil,'estado_civil',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in estado_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              id="date"
+                              type="date"
+                              placeholder="Fecha de Nacimiento"
+                              v-model="item.fecha_nacimiento"
+                              :class="item.fecha_nacimiento==''?'':'is-valid'"
+                              class="form-control text-capitalize"
+                              :max="hoy | moment"
+                              @input="changeupdateJefe(item,$event,'fecha_nacimiento',index)"
+                              style="width:200px;"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              v-model="item.edad"
+                              class="form-control text-capitalize"
+                              placeholder="Edad"
+                              :class="item.edad==''?'':'is-valid'"
+                              readonly
+                              style="width:100px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Puntaje Sisben"
+                              v-model.trim="item.puntaje_sisben"
+                              :class="item.puntaje_sisben==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'puntaje_sisben',index)"
+                              style="width:150px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Eps"
+                              v-model="item.textoEps"
+                              :class="item.textoEps==''?'':'is-valid'"
+                              style="width:400px;"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Cual"
+                              v-model.trim="item.otra_eps"
+                              :class="item.otra_eps==''?'':'is-valid'"
+                              style="width:400px;"
+                              v-show="item.afiliacion_entidad=='OTRA'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.tipo_afiliacion"
+                              :class="item.tipo_afiliacion==''?'':'is-valid'"
+                              @input="tipo_afiliacion=>updateJefe(item,tipo_afiliacion,'tipo_afiliacion',index)"
+                              style="width:200px;"
+                            >
+                              <option
+                                value
+                                selected
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!=''"
+                              >Seleccione</option>
+                              <option
+                                value="0"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!='NINGUNA'"
+                              >No Aplica</option>
+                              <option
+                                value="SUBSIDIADO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >SUBSIDIADO</option>
+                              <option
+                                value="CONTRIBUTIVO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >CONTRIBUTIVO</option>
+                              <option
+                                value="ESPECIAL"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >ESPECIAL</option>
+                              <option
+                                value="PPNA"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >POBLACIÓN POBRE NO ASEGURADA</option>
+                              <option
+                                value="BENEFICIARIO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >BENEFICIARIO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.embarazo"
+                              :class="item.embarazo==''?'':'is-valid'"
+                              @input="embarazo=>updateJefe(item,embarazo,'embarazo',index)"
+                              style="width:200px;"
+                            >
+                              <option
+                                value
+                                selected
+                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
+                              >Seleccione</option>
+                              <option
+                                value="SI"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
+                              >SI</option>
+                              <option
+                                value="NO"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
+                              >NO</option>
+                              <option value="NOAPLICA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.embarazo_multiple"
+                              :class="item.embarazo_multiple==''?'':'is-valid'"
+                              @input="embarazo_multiple=>updateJefe(item,embarazo_multiple,'embarazo_multiple',index)"
+                              style="width:200px;"
+                            >
+                              <option
+                                value
+                                selected
+                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
+                              >Seleccione</option>
+                              <option
+                                value="SI"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO' || item.embarazo=='NO'"
+                              >SI</option>
+                              <option
+                                value="NO"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
+                              >NO</option>
+                              <option value="NOAPLICA" :disabled="item.embarazo=='NO'">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.discapacidad"
+                              :class="item.discapacidad==''?'':'is-valid'"
+                              @input="discapacidad=>updateJefe(item,discapacidad,'discapacidad',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">FISICA</option>
+                              <option value="2">COGNITIVA</option>
+                              <option value="3">SENSORIAL</option>
+                              <option value="4">PSÍQUICA</option>
+                              <option value="5">NINGUNA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.nivel_escolaridad"
+                              :class="item.nivel_escolaridad==''?'':'is-valid'"
+                              @input="nivel_escolaridad=>updateJefe(item,nivel_escolaridad,'nivel_escolaridad',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="0">No Aplica</option>
+                              <option
+                                v-for="item in escolaridad_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Ocupación"
+                              v-model="item.textoOcupacion"
+                              :class="item.textoOcupacion==''?'':'is-valid'"
+                              style="width:400px;"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Colegio"
+                              v-model="item.colegio"
+                              :class="item.colegio==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'colegio',index)"
+                              style="width:300px;"
+                              v-show="item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.grado"
+                              :class="item.grado==''?'':'is-valid'"
+                              @input="grado=>updateJefe(item,grado,'grado',index)"
+                              style="width:200px;"
+                              v-show="item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="Ninguno">Ninguno</option>
+                              <option
+                                v-for="item in grados_option[item.nivel_escolaridad]"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.etnia"
+                              :class="item.etnia==''?'':'is-valid'"
+                              @input="etnia=>updateJefe(item,etnia,'etnia',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in etnia_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.clasificacion"
+                              :class="item.clasificacion==''?'':'is-valid'"
+                              @input="clasificacion=>updateJefe(item,clasificacion,'clasificacion',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in clasifi_options[item.etnia]"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.perdida_peso"
+                              :class="item.perdida_peso==''?'':'is-valid'"
+                              @input="perdida_peso=>updateJefe(item,perdida_peso,'perdida_peso',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="ND">NO DECLARA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.entiende"
+                              :class="item.entiende==''?'':'is-valid'"
+                              @input="entiende=>updateJefe(item,entiende,'entiende',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.pyp"
+                              :class="item.pyp==''?'':'is-valid'"
+                              @input="pyp=>updateJefe(item,pyp,'pyp',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="Crecimiento">Crecimiento y Desarrollo</option>
+                              <option value="Joven">Joven</option>
+                              <option value="Adulto">Adulto Mayor</option>
+                              <option value="Planificacion">Planificación Familiar</option>
+                              <option value="Control">Control Prenatal</option>
+                              <option value="Alimentacion">Alimentación Escolar</option>
+                              <option value="Ninguno">Ninguno</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.migrante"
+                              :class="item.migrante==''?'':'is-valid'"
+                              @input="migrante=>updateJefe(item,migrante,'migrante',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Salario"
+                              v-model.trim="item.salario"
+                              :class="item.salario==''?'':'is-valid'"
+                              @input="changeupdateJefe(item,$event,'salario',index)"
+                              style="width:150px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.programa_icbf"
+                              :class="item.programa_icbf==''?'':'is-valid'"
+                              @input="programa_icbf=>updateJefe(item,programa_icbf,'programa_icbf',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-danger"
+                              type="button"
+                              title="Eliminar"
+                              @click="eliminarItemJefe(index,item)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="kt-separator kt-separator--border-dashed"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- Identificación -->
           </div>
         </div>
+
+        <!--begin::Modal-->
+        <b-modal
+          ref="modalOcupaciones"
+          hide-footer
+          title="Ocupaciones"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block">
+            <form>
+              <div class="row">
+                <div class="col-md-6 col-lg-6"></div>
+                <div class="col-md-6 col-lg-6">
+                  <form class="kt-form">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Busqueda"
+                          v-model="txtbusqueda"
+                        />
+                        <div class="input-group-append">
+                          <button
+                            type="button"
+                            class="btn btn-primary btn-icon"
+                            @click="consultarOcupaciones(1)"
+                          >
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <div class="table-responsive" style="height: 350px;">
+                    <table class="table table-sm table-hover">
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>No.</th>
+                          <th>Ocupación</th>
+                          <td class="text-center">Opciones</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in ocupacionesVector" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <span class="text-capitalize">{{item.descripcion}}</span>
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-success"
+                              type="button"
+                              title="Seleccionar"
+                              @click="seleccionarOcupaciones(item)"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px"
+                                height="24px"
+                                viewBox="0 0 24 24"
+                                version="1.1"
+                                class="kt-svg-icon"
+                              >
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon id="Shape" points="0 0 24 0 24 24 0 24" />
+                                  <path
+                                    d="M6.26193932,17.6476484 C5.90425297,18.0684559 5.27315905,18.1196257 4.85235158,17.7619393 C4.43154411,17.404253 4.38037434,16.773159 4.73806068,16.3523516 L13.2380607,6.35235158 C13.6013618,5.92493855 14.2451015,5.87991302 14.6643638,6.25259068 L19.1643638,10.2525907 C19.5771466,10.6195087 19.6143273,11.2515811 19.2474093,11.6643638 C18.8804913,12.0771466 18.2484189,12.1143273 17.8356362,11.7474093 L14.0997854,8.42665306 L6.26193932,17.6476484 Z"
+                                    id="Path-94"
+                                    fill="#000000"
+                                    fill-rule="nonzero"
+                                    transform="translate(11.999995, 12.000002) rotate(-180.000000) translate(-11.999995, -12.000002) "
+                                  />
+                                </g>
+                              </svg>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </b-modal>
+        <!--end::Modal-->
+
+        <!--begin::Modal-->
+        <b-modal
+          ref="modalActividad"
+          hide-footer
+          title="Actividades Economicas"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block">
+            <form>
+              <div class="row">
+                <div class="col-md-6 col-lg-6">
+                  <form class="kt-form">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Busqueda"
+                          v-model="txtbusquedaAct"
+                        />
+                        <div class="input-group-append">
+                          <button
+                            type="button"
+                            class="btn btn-primary btn-icon"
+                            @click="consultarActividades(1)"
+                          >
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <div class="table-responsive" style="height: 350px;">
+                    <table class="table table-sm table-hover">
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>No.</th>
+                          <th>Actividad Economica</th>
+                          <td class="text-center">Opciones</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in actividadesVector" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <span class="text-capitalize">{{item.descripcion}}</span>
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-success"
+                              type="button"
+                              title="Seleccionar"
+                              @click="seleccionarActividades(item)"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px"
+                                height="24px"
+                                viewBox="0 0 24 24"
+                                version="1.1"
+                                class="kt-svg-icon"
+                              >
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon id="Shape" points="0 0 24 0 24 24 0 24" />
+                                  <path
+                                    d="M6.26193932,17.6476484 C5.90425297,18.0684559 5.27315905,18.1196257 4.85235158,17.7619393 C4.43154411,17.404253 4.38037434,16.773159 4.73806068,16.3523516 L13.2380607,6.35235158 C13.6013618,5.92493855 14.2451015,5.87991302 14.6643638,6.25259068 L19.1643638,10.2525907 C19.5771466,10.6195087 19.6143273,11.2515811 19.2474093,11.6643638 C18.8804913,12.0771466 18.2484189,12.1143273 17.8356362,11.7474093 L14.0997854,8.42665306 L6.26193932,17.6476484 Z"
+                                    id="Path-94"
+                                    fill="#000000"
+                                    fill-rule="nonzero"
+                                    transform="translate(11.999995, 12.000002) rotate(-180.000000) translate(-11.999995, -12.000002) "
+                                  />
+                                </g>
+                              </svg>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </b-modal>
+        <!--end::Modal-->
       </div>
     </div>
   </div>
@@ -398,6 +1684,7 @@
       Datepicker
     },
     mounted() {
+      this.hoy = moment();
       this.IDHOGAR = this.$route.params.IDHOGAR;
       this.nuevo(this.IDHOGAR);
     },
@@ -1061,23 +2348,24 @@
               this.hogar.id_mun = respuesta.data.hogar.id_mun;
               this.cambiarCombo("muni");
               this.hogar.id_corre = "" + respuesta.data.hogar.id_corre;
-              if (this.hogar.id_corre !== 0) {
+              if (this.hogar.id_corre !== "0") {
                 this.cambiarCombo("corregi");
               }
-              this.hogar.id_vereda = respuesta.data.hogar.id_vereda;
-              this.hogar.id_barrio = respuesta.data.hogar.id_barrio;
-              // this.hogar.id_zona = respuesta.data.hogar.id_zona;
-              // this.hogar.tenencia_vivienda =
-              //   respuesta.data.hogar.tenencia_vivienda;
-              // this.hogar.numero_hogares = respuesta.data.hogar.numero_hogares;
-              // this.hogar.poblacion_especial =
-              //   respuesta.data.hogar.poblacion_especial;
-              // this.hogar.vias_acceso = respuesta.data.hogar.vias_acceso;
-              // this.hogar.servicios_publicos =
-              //   respuesta.data.hogar.servicios_publicos;
-              // this.hogar.direccion = respuesta.data.hogar.direccion;
-
-              console.log(this.hogar);
+              this.hogar.id_vereda = "" + respuesta.data.hogar.id_vereda;
+              this.hogar.id_barrio = "" + respuesta.data.hogar.id_barrio;
+              this.hogar.id_zona = respuesta.data.hogar.id_zona;
+              this.hogar.tenencia_vivienda =
+                respuesta.data.hogar.tenencia_vivienda;
+              this.hogar.numero_hogares =
+                "" + respuesta.data.hogar.numero_hogares;
+              this.hogar.poblacion_especial =
+                respuesta.data.hogar.poblacion_especial;
+              this.hogar.vias_acceso = respuesta.data.hogar.vias_acceso;
+              this.hogar.servicios_publicos =
+                respuesta.data.hogar.servicios_publicos;
+              this.hogar.direccion = respuesta.data.hogar.direccion;
+              this.datosJefe = respuesta.data.jefes;
+              // console.log(this.hogar);
             });
         } catch (error) {
           switch (error.response.status) {
@@ -1219,7 +2507,1330 @@
         if (caja === "etnia") {
           this.CA1.clasificacion = "0";
         }
+      },
+      formato(caja) {
+        if (caja == "id1") {
+          if (this.caracData.tipo_id == "CC") {
+            this.caracData.identificacion = this.caracData.identificacion.replace(
+              /[.*+\-?^${}()|[\]\\]/g,
+              ""
+            );
+            let val = (this.caracData.identificacion / 1)
+              .toFixed(0)
+              .replace(".", ",");
+            this.caracData.identificacion = val
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            if (this.caracData.identificacion == "NaN") {
+              this.caracData.identificacion = "";
+            }
+            if (this.caracData.identificacion == "0") {
+              this.caracData.identificacion = "";
+            }
+          }
+        }
+        if (caja == "salario") {
+          this.caracData.salario = this.caracData.salario.replace(
+            /[.*+\-?^${}()|[\]\\]/g,
+            ""
+          );
+          let val = (this.caracData.salario / 1).toFixed(0).replace(".", ",");
+          this.caracData.salario = val
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+          if (this.caracData.salario == "NaN") {
+            this.caracData.salario = "";
+          }
+          if (this.caracData.salario == "0") {
+            this.caracData.salario = "";
+          }
+        }
+        if (caja == "tipoid") {
+          this.caracData.identificacion = "";
+          if (this.caracData.tipo_id != "CC") {
+            if (
+              this.caracData.tipo_id === "ASI" ||
+              this.caracData.tipo_id === "MSI"
+            ) {
+              this.caracData.identificacion =
+                this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
+            } else {
+              this.caracData.identificacion = this.caracData.identificacion.replace(
+                /[.*+\-?^${}()|[\]\\]/g,
+                ""
+              );
+            }
+          } else {
+            if (this.caracData.tipo_id == "CC") {
+              this.caracData.identificacion = this.caracData.identificacion.replace(
+                /[.*+\-?^${}()|[\]\\]/g,
+                ""
+              );
+              let val = (this.caracData.identificacion / 1)
+                .toFixed(0)
+                .replace(".", ",");
+              this.caracData.identificacion = val
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+              if (this.caracData.identificacion == "NaN") {
+                this.caracData.identificacion = "";
+              }
+              if (this.caracData.identificacion == "0") {
+                this.caracData.identificacion = "";
+              }
+            }
+          }
+        }
+        if (caja == "id2") {
+          if (this.CA1.tipo_id == "CC") {
+            this.CA1.identificacion = this.CA1.identificacion.replace(
+              /[.*+\-?^${}()|[\]\\]/g,
+              ""
+            );
+            let val = (this.CA1.identificacion / 1).toFixed(0).replace(".", ",");
+            this.CA1.identificacion = val
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            if (this.CA1.identificacion == "NaN") {
+              this.CA1.identificacion = "";
+            }
+            if (this.CA1.identificacion == "0") {
+              this.CA1.identificacion = "";
+            }
+          }
+        }
+        if (caja == "tipoid2") {
+          this.CA1.identificacion = "";
+          if (this.CA1.tipo_id != "CC") {
+            if (this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI") {
+              this.CA1.identificacion =
+                this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
+            } else {
+              this.CA1.identificacion = this.CA1.identificacion.replace(
+                /[.*+\-?^${}()|[\]\\]/g,
+                ""
+              );
+            }
+          } else {
+            if (this.CA1.tipo_id == "CC") {
+              this.CA1.identificacion = this.CA1.identificacion.replace(
+                /[.*+\-?^${}()|[\]\\]/g,
+                ""
+              );
+              let val = (this.CA1.identificacion / 1)
+                .toFixed(0)
+                .replace(".", ",");
+              this.CA1.identificacion = val
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+              if (this.CA1.identificacion == "NaN") {
+                this.CA1.identificacion = "";
+              }
+              if (this.CA1.identificacion == "0") {
+                this.CA1.identificacion = "";
+              }
+            }
+          }
+        }
+        if (caja == "telefono1") {
+          this.caracData.telefono = this.caracData.telefono
+            .replace(/[^.\d]/g, "")
+            .trim();
+          if (this.caracData.telefono == "NaN") {
+            this.caracData.telefono = "";
+          }
+          if (this.caracData.telefono == "0") {
+            this.caracData.telefono = "";
+          }
+        }
+        if (caja == "telefono2") {
+          this.CA1.telefono = this.CA1.telefono.replace(/[^.\d]/g, "").trim();
+          if (this.CA1.telefono == "NaN") {
+            this.CA1.telefono = "";
+          }
+          if (this.CA1.telefono == "0") {
+            this.CA1.telefono = "";
+          }
+        }
+        if (caja == "puntaje") {
+        }
+        if (caja == "puntaje1") {
+        }
+      },
+      mostrarOtro(tipo) {
+        if (tipo === "TE") {
+          if (this.viviendaData.tipo_estructura === "5") {
+            this.mOTE = true;
+          } else {
+            this.mOTE = false;
+          }
+          this.viviendaData.otro_tipo_estructura = "";
+        }
+        if (tipo === "TC") {
+          if (this.viviendaData.tipo_cubierta === "9") {
+            this.mOTC = true;
+          } else {
+            this.mOTC = false;
+          }
+          this.viviendaData.otro_tipo_cubierta = "";
+        }
+        if (tipo === "AE") {
+          if (this.viviendaData.actividad_economica === "CUAL") {
+            this.mOAE = true;
+          } else {
+            this.mOAE = false;
+          }
+          this.viviendaData.cual_actividad_economica = "";
+        }
+        if (tipo === "FA") {
+          if (this.viviendaData.fuente_agua === "9") {
+            this.mOFA = true;
+          } else {
+            this.mOFA = false;
+          }
+          this.viviendaData.cual_fuente = "";
+        }
+        if (tipo === "DA") {
+          if (this.viviendaData.donde_almacena_agua === "5") {
+            this.mODA = true;
+          } else {
+            this.mODA = false;
+          }
+          this.viviendaData.otro_almacena_agua = "";
+        }
+        if (tipo === "FB") {
+          if (this.viviendaData.destino_final_basura === "5") {
+            this.mOFB = true;
+          } else {
+            this.mOFB = false;
+          }
+          this.viviendaData.otro_destino_final_basura = "";
+        }
+        if (tipo === "OC") {
+          if (this.viviendaData.otro_cerca === "SI") {
+            this.mOOC = true;
+          } else {
+            this.mOOC = false;
+          }
+          this.viviendaData.cual_cerca = "";
+        }
+        if (tipo === "EV") {
+          if (this.viviendaData.envases_vacios === "7") {
+            this.mOEV = true;
+          } else {
+            this.mOEV = false;
+          }
+          this.viviendaData.otro_envases_vacios = "";
+        }
+        if (tipo === "EP") {
+          if (this.viviendaData.elementos_protecion === "5") {
+            this.mOEP = true;
+          } else {
+            this.mOEP = false;
+          }
+          this.viviendaData.otro_elementos_protecion = "";
+        }
+        if (tipo === "MC") {
+          if (this.viviendaData.metodos_coccion === "6") {
+            this.mOMC = true;
+          } else {
+            this.mOMC = false;
+          }
+          this.viviendaData.otro_metodos_coccion = "";
+        }
+        if (tipo === "AA") {
+          if (this.viviendaData.lugares_almacenan_alimentos === "6") {
+            this.mOAA = true;
+          } else {
+            this.mOAA = false;
+          }
+          this.viviendaData.otro_lugares_almacenan_alimentos = "";
+        }
+        if (tipo === "DH") {
+          if (this.viviendaData.excretas === "7") {
+            this.mODH = true;
+          } else {
+            this.mODH = false;
+          }
+          this.viviendaData.otro_depositan_excretas = "";
+        }
+        if (tipo === "ES") {
+          if (this.viviendaData.tipo_explotacion === "5") {
+            this.mOES = true;
+          } else {
+            this.mOES = false;
+          }
+          this.viviendaData.otro_tipo_explotacion = "";
+        }
+        if (tipo === "OG") {
+          if (this.viviendaData.otros_genera === "SI") {
+            this.mOOG = true;
+          } else {
+            this.mOOG = false;
+          }
+          this.viviendaData.cual_genera = "";
+        }
+        if (tipo === "OEPS1") {
+          if (this.caracData.afiliacion_entidad === "OTRA") {
+            this.mOEPS1 = true;
+          } else {
+            this.mOEPS1 = false;
+          }
+          this.caracData.otra_eps = "";
+        }
+        if (tipo === "OEPS2") {
+          if (this.CA1.afi_entidad === "OTRA") {
+            this.mOEPS2 = true;
+          } else {
+            this.mOEPS2 = false;
+          }
+          this.CA1.otra_eps = "";
+        }
+        if (tipo === "mOCOL1") {
+          if (
+            this.caracData.nivel_escolaridad === 3 ||
+            this.caracData.nivel_escolaridad === 14 ||
+            this.caracData.nivel_escolaridad === 15
+          ) {
+            this.mOCOL1 = true;
+          } else {
+            this.mOCOL1 = false;
+          }
+          this.caracData.colegio = "";
+          this.caracData.grado = "";
+        }
+        if (tipo === "mOCOL2") {
+          if (
+            this.CA1.escolaridad === 3 ||
+            this.CA1.escolaridad === 14 ||
+            this.CA1.escolaridad === 15
+          ) {
+            this.mOCOL2 = true;
+          } else {
+            this.mOCOL2 = false;
+          }
+          this.CA1.colegio = "";
+          this.CA1.grado = "0";
+        }
+      },
+      // OPCIONES DE LAS OCUPACIONES
+      abrirModalOcupaciones(opcion) {
+        this.opcionOcupaciones = opcion;
+        this.txtbusqueda = "";
+        this.consultarOcupaciones(1);
+        this.$refs.modalOcupaciones.show();
+      },
+      cerrarModal() {
+        this.$refs.modalOcupaciones.hide();
+        this.$refs.modalActividad.hide();
+      },
+      async consultarOcupaciones(pagina) {
+        const parametros = {
+          txtbusqueda: this.txtbusqueda.trim(),
+          _token: this.csrf,
+          page: pagina
+        };
+        try {
+          await ocupacionesServicios
+            .listarOcupaciones(parametros)
+            .then(respuesta => {
+              this.ocupacionesVector = respuesta.data.ocupaciones.data;
+              this.paginacionVector = respuesta.data.paginacion;
+            });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
+      seleccionarOcupaciones(item) {
+        if (this.opcionOcupaciones === "jefe") {
+          this.caracData.ocupacion = item.id;
+          this.ocupacionAuxiliar = item.descripcion;
+        } else {
+          this.CA1.ocupacion = item.id;
+          this.ocupacionAuxiliar2 = item.descripcion;
+        }
+        this.$refs.modalOcupaciones.hide();
+      },
+      // OPCIONES DE LAS OCUPACIONES
+
+      //OPCIONES DEL JEFE DE HOGAR
+      agregarJefe: async function() {
+        if (this.checkForm() === true) {
+          // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+          this.caracData.identificacion = this.caracData.identificacion.replace(
+            /[.*+\-?^${}()|[\]\\]/g,
+            ""
+          );
+          const parametros = {
+            _token: this.csrf,
+            identificacion: this.caracData.identificacion
+          };
+          try {
+            await caracterizacionServicios
+              .validarJefe(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "EXISTE") {
+                  let val = (respuesta.data.identificacion / 1)
+                    .toFixed(0)
+                    .replace(".", ",");
+                  let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                  this.$swal(
+                    "Validar...!",
+                    "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
+                    "warning"
+                  );
+                  return false;
+                } else {
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  let resultado = this.datosJefe.filter(identi =>
+                    identi.identificacion.includes(this.caracData.identificacion)
+                  );
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  if (resultado.length) {
+                    this.$swal(
+                      "Validar...!",
+                      "El Documento <b>" +
+                        this.caracData.identificacion +
+                        "</b> Se Encuentra Agregado",
+                      "warning"
+                    );
+                    return false;
+                  } else {
+                    let nacimiento = moment(this.caracData.fecha_nacimiento);
+                    let hoy = moment();
+                    let edad = 0;
+                    if (nacimiento < hoy) {
+                      edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+                    }
+
+                    if (edad < 14) {
+                      this.$swal(
+                        "Validar...!",
+                        "El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años",
+                        "warning"
+                      );
+                      return false;
+                    }
+                    let textoEps = "";
+                    if(this.caracData.afiliacion_entidad === "OTRA"){                      
+                      textoEps = "OTRA";
+                    }else{
+                      if(this.caracData.afiliacion_entidad === "NINGUNA"){
+                        textoEps = "NINGUNA";
+                      }else{
+                        textoEps = this.showText(this.caracData.afiliacion_entidad,this.admini_options);
+                      }
+                    }
+                    this.datosJefe.push({
+                      id: 0,
+                      id_hogar: 0,
+                      telefono: this.caracData.telefono,
+                      puntaje_sisben: this.caracData.puntaje_sisben,
+                      afiliacion_entidad: this.caracData.afiliacion_entidad,
+                      textoEps: textoEps,
+                      otra_eps: this.caracData.otra_eps,
+                      tipo_id: this.caracData.tipo_id,
+                      identificacion: this.caracData.identificacion,
+                      sexo: this.caracData.sexo,
+                      parentesco: this.caracData.parentesco,
+                      textoParentesco: this.showText(
+                        this.caracData.parentesco,
+                        this.parentesco_options
+                      ),
+                      pnom: this.caracData.pnom,
+                      snom: this.caracData.snom,
+                      pape: this.caracData.pape,
+                      sape: this.caracData.sape,
+                      salario: this.caracData.salario,
+                      estado_civil: this.caracData.estado_civil,
+                      textoEstado: this.showText(
+                        this.caracData.estado_civil,
+                        this.estado_options
+                      ),
+                      fecha_nacimiento: this.caracData.fecha_nacimiento,
+                      tipo_afiliacion: this.caracData.tipo_afiliacion,
+                      embarazo: this.caracData.embarazo,
+                      embarazo_multiple: this.caracData.embarazo_multiple,
+                      discapacidad: this.caracData.discapacidad,
+                      nivel_escolaridad: this.caracData.nivel_escolaridad,
+                      ocupacion: this.caracData.ocupacion,
+                      textoOcupacion: this.showText(
+                        this.caracData.ocupacion,
+                        this.ocupacion_options
+                      ),
+                      colegio: this.caracData.colegio,
+                      grado: this.caracData.grado,
+                      entiende: this.caracData.entiende,
+                      migrante: this.caracData.migrante,
+                      pyp: this.caracData.pyp,
+                      etnia: this.caracData.etnia,
+                      textoEtnia: this.showText(
+                        this.caracData.etnia,
+                        this.etnia_options
+                      ),
+                      clasificacion: this.caracData.clasificacion,
+                      edad: this.caracData.edad,
+                      orientacion: this.caracData.orientacion,
+                      identidad_genero: this.caracData.identidad_genero,
+                      perdida_peso: this.caracData.perdida_peso,
+                      programa_icbf: this.caracData.programa_icbf,
+                      identi_auxi: ""
+                    });
+                    if (
+                      this.caracData.tipo_afiliacion === "CONTRIBUTIVO" ||
+                      this.caracData.tipo_afiliacion === "ESPECIAL"
+                    ) {
+                      this.SAPU = true;
+                      this.estratificacionData.afiliacion_salud_privada = "SI";
+                    }
+                    this.ocupacionAuxiliar = "";
+                    this.mOCOL1 = false;
+                    let indice = this.datosJefe.findIndex(
+                      identi =>
+                        identi.identificacion === this.caracData.identificacion
+                    );
+                    this.vectorJefes.push({
+                      index: indice,
+                      identificacion: this.caracData.identificacion
+                    });
+
+                    // AGREGAR FACTORES
+                    // this.AFactores(this.caracData, edad);
+                    // AGREGAR FACTORES
+
+                    this.caracData.id = "JEFE";
+                    // AGREGAR DE 10 A 59 AÑOS
+                    if (edad >= 10 && edad <= 59) {
+                      // this.Ade10a59Anio(this.caracData, edad);
+                    }
+                    // AGREGAR DE 10 A 59 AÑOS
+
+                    // AGREGAR PARTO POSTPARTO
+                    // alert(this.CA1.embarazo_multiple);
+                    if (this.caracData.embarazo === "SI") {
+                      // this.AParPost(this.caracData, edad);
+                    }
+                    // AGREGAR PARTO POSTPARTO
+
+                    // AGREGAR DE 12 A 17 AÑOS
+                    if (edad >= 12 && edad <= 17) {
+                      // this.Ade12a17Anio(this.caracData, edad);
+                    }
+                    // AGREGAR DE 12 A 17 AÑOS
+
+                    // AGREGAR DE 18 A 28 AÑOS
+                    if (edad >= 18 && edad <= 28) {
+                      // this.Ade18a28Anio(this.caracData, edad);
+                    }
+                    // AGREGAR DE 18 A 28 AÑOS
+
+                    // AGREGAR DE 29 A 59 AÑOS
+                    if (edad >= 29 && edad <= 59) {
+                      // this.Ade29a59Anio(this.caracData, edad);
+                    }
+                    // AGREGAR DE 29 A 59 AÑOS
+
+                    // AGREGAR DE 60 ó MAS AÑOS
+                    if (edad >= 60) {
+                      // this.Ade60Anio(this.caracData, edad);
+                    }
+                    // AGREGAR DE 60 ó MAS AÑOS
+
+                    // AGREGAR MIGRANTES
+                    if (this.caracData.migrante === "SI") {
+                      // this.AMigra(this.caracData, edad);
+                    }
+                    // AGREGAR MIGRANTES
+                    this.limpiar2();
+                  }
+                }
+              })
+              .catch(error => {
+                this.errorDevuelto = error.response.data.errors;
+                this.entrarPorError = true;
+              });
+          } catch (error) {
+            this.errorDevuelto = error.response.data.errors;
+            this.entrarPorError = true;
+          }
+        }
+      },
+      checkForm(e) {
+        let bande = true;
+        if (this.caracData.tipo_id === "") {
+          this.$refs.tipo_id.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.identificacion === "") {
+          this.$refs.identificacion.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor digite una identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.sexo === "") {
+          this.$refs.sexo.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.caracData.orientacion === "") {
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la orientación sexual!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.identidad_genero === "") {
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la identidad de genero!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.parentesco === "") {
+          this.$refs.parentesco.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.caracData.pnom === "") {
+          this.$refs.pnom.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.caracData.pape === "") {
+          this.$refs.pape.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.estado_civil === "") {
+          this.$refs.estado_civil.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.fecha_nacimiento === "") {
+          this.$refs.fecha_nacimiento.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.afiliacion_entidad === "") {
+          this.$refs.afiliacion_entidad.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+          return;
+        }
+        if (this.caracData.ocupacion === "") {
+          this.$refs.ocupacion.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.caracData.etnia === "") {
+          this.$refs.etnia.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.caracData.clasificacion === "") {
+          this.$refs.clasificacion.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.salario === "") {
+          this.$refs.salario.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor digite el salario!", "error");
+          return;
+        }
+        if (this.caracData.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la perdida de peso en los ultimos 3 meses!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.programa_icbf === "") {
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione si Pertenece a algún programa del ICBF!",
+            "error"
+          );
+          return;
+        }
+        return bande;
+        e.preventDefault();
+      },
+      showText: function(val, vectorAux) {
+        for (var i = 0; i < vectorAux.length; i++) {
+          if (vectorAux[i].value === val) {
+            return vectorAux[i].texto;
+          }
+        }
+        return "";
+      },
+      eliminarItemJefe: function(index, item) {
+        this.datosJefe.splice(index, 1);
+        this.vectorJefes.splice(index, 1);
+        let identificacion = item.identificacion;
+
+        this.factores = this.factores.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+
+        this.Men1A = this.Men1A.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.De1A5 = this.De1A5.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.De6A11 = this.De6A11.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.De10A59 = this.De10A59.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.ParPost = this.ParPost.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.De12A17 = this.De12A17.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.De18A28 = this.De18A28.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.De29A59 = this.De29A59.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.De60 = this.De60.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+        this.Migra = this.Migra.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+      },
+      limpiar2() {
+        this.caracData.tipo_id = "";
+        this.caracData.identificacion = "";
+        this.caracData.sexo = "";
+        this.caracData.parentesco = "";
+        this.caracData.pnom = "";
+        this.caracData.snom = "";
+        this.caracData.pape = "";
+        this.caracData.sape = "";
+        this.caracData.estado_civil = "";
+        this.caracData.fecha_nacimiento = "";
+        this.caracData.salario = "";
+        this.caracData.telefono = "";
+        this.caracData.edad = 0;
+        this.caracData.afiliacion_entidad = "";
+        this.caracData.otra_eps = "";
+        this.caracData.tipo_afiliacion = "";
+        this.caracData.embarazo = "";
+        this.caracData.embarazo_multiple = "";
+        this.caracData.discapacidad = "";
+        this.caracData.nivel_escolaridad = "";
+        this.caracData.ocupacion = "";
+        this.caracData.colegio = "";
+        this.caracData.grado = "";
+        this.caracData.entiende = "";
+        this.caracData.migrante = "";
+        this.caracData.pyp = "";
+        this.caracData.etnia = "";
+        this.caracData.clasificacion = "";
+        this.caracData.puntaje_sisben = "";
+        this.caracData.orientacion = "";
+        this.caracData.identidad_genero = "";
+        this.caracData.perdida_peso = "";
+        this.caracData.programa_icbf = "";
+      },
+      updateJefe(item, valor, opcion, index) {
+        if (opcion === "tipo_id") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorJefes[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.factores[indice].tipo_id = valor;
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De10A59[indice].tipo_id = valor;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.ParPost[indice].tipo_id = valor;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De12A17[indice].tipo_id = valor;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De18A28[indice].tipo_id = valor;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De29A59[indice].tipo_id = valor;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De60[indice].tipo_id = valor;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.Migra[indice].tipo_id = valor;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion === "sexo") {
+          if (item.sexo === "") {
+            item.embarazo = "";
+            item.embarazo_multiple = "";
+          }
+          if (item.sexo === "MASCULINO") {
+            item.embarazo = "NOAPLICA";
+            item.embarazo_multiple = "NOAPLICA";
+          }
+          if (item.sexo === "FEMENINO") {
+            item.embarazo = "";
+            item.embarazo_multiple = "";
+          }
+
+          //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorJefes[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.factores[indice].sexo = valor;
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De10A59[indice].sexo = valor;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.ParPost[indice].sexo = valor;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De12A17[indice].sexo = valor;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De18A28[indice].sexo = valor;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De29A59[indice].sexo = valor;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De60[indice].sexo = valor;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.Migra[indice].sexo = valor;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion === "embarazo") {
+          if (item.embarazo === "") {
+            item.embarazo_multiple = "";
+          }
+          if (item.embarazo === "SI") {
+            item.embarazo_multiple = "";
+          }
+          if (item.embarazo === "NO") {
+            item.embarazo_multiple = "NO";
+          }
+        }
+        if (opcion === "afiliacion_entidad") {
+          if (item.afiliacion_entidad === "NINGUNA") {
+            item.tipo_afiliacion = "0";
+          } else {
+            if (item.afiliacion_entidad === "OTRA") {
+              item.otra_eps = "";
+            } else {
+              item.tipo_afiliacion = "";
+            }
+          }
+        }
+        if (opcion === "nivel_escolaridad") {
+          item.colegio = "";
+          item.grado = "";
+        }
+      },
+      changeupdateJefe(item, event, opcion, index) {
+        if (opcion == "identificacion") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorJefes[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.factores[indice].identificacion = item.identificacion;
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].identificacion = item.identificacion;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].identificacion = item.identificacion;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].identificacion = item.identificacion;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].identificacion = item.identificacion;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].identificacion = item.identificacion;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].identificacion = item.identificacion;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].identificacion = item.identificacion;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+
+          //CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
+          //DIGITADA EN LA TABLA
+          this.vectorJefes[index].identificacion = item.identificacion;
+          // Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
+          this.vectorJefes.splice(index, 1, this.vectorJefes[index]);
+        }
+        if (opcion == "pnom") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorJefes[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.factores[indice].pnom = item.pnom;
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].pnom = item.pnom;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].pnom = item.pnom;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].pnom = item.pnom;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].pnom = item.pnom;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].pnom = item.pnom;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].pnom = item.pnom;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].pnom = item.pnom;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion == "snom") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorJefes[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.factores[indice].snom = item.snom;
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].snom = item.snom;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].snom = item.snom;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].snom = item.snom;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].snom = item.snom;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].snom = item.snom;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].snom = item.snom;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].snom = item.snom;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion == "pape") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorJefes[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.factores[indice].pape = item.pape;
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].pape = item.pape;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].pape = item.pape;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].pape = item.pape;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].pape = item.pape;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].pape = item.pape;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].pape = item.pape;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].pape = item.pape;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion == "sape") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorJefes[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.factores[indice].sape = item.sape;
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].sape = item.sape;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].sape = item.sape;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].sape = item.sape;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].sape = item.sape;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].sape = item.sape;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].sape = item.sape;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].sape = item.sape;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion == "salario") {
+          item.salario = event.target.value.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          let val = (item.salario / 1).toFixed(0).replace(".", ",");
+          item.salario = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+          if (item.salario == "NaN") {
+            item.salario = "";
+          }
+          if (item.salario == "0") {
+            item.salario = "";
+          }
+        }
       }
+      //OPCIONES DEL JEFE DE HOGAR
     }
   };
 </script>

@@ -548,6 +548,10 @@ class CaracterizacionController extends Controller
             $hogar = \App\Hogar::buscar(Session::get('alias'), $id_hogar);
             //TABLA HOGAR
 
+            //TABLA JEFES DE HOGAR
+            $jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'), $id_hogar);
+            //TABLA JEFES DE HOGAR
+
             //DATOS GUARDADOS
 
             $respuesta = [
@@ -574,6 +578,7 @@ class CaracterizacionController extends Controller
                 'codigo' => $codigo,
 
                 'hogar' => $hogar,
+                'jefes' => $jefes,
             ];
             return response()->json($respuesta, 200);
         } else {

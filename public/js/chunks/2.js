@@ -389,6 +389,1292 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -418,6 +1704,7 @@ var entero = function entero(value) {
     Datepicker: vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   mounted: function mounted() {
+    this.hoy = moment();
     this.IDHOGAR = this.$route.params.IDHOGAR;
     this.nuevo(this.IDHOGAR);
   },
@@ -1323,23 +2610,20 @@ var entero = function entero(value) {
 
                   _this.hogar.id_corre = "" + respuesta.data.hogar.id_corre;
 
-                  if (_this.hogar.id_corre !== 0) {
+                  if (_this.hogar.id_corre !== "0") {
                     _this.cambiarCombo("corregi");
                   }
 
-                  _this.hogar.id_vereda = respuesta.data.hogar.id_vereda;
-                  _this.hogar.id_barrio = respuesta.data.hogar.id_barrio; // this.hogar.id_zona = respuesta.data.hogar.id_zona;
-                  // this.hogar.tenencia_vivienda =
-                  //   respuesta.data.hogar.tenencia_vivienda;
-                  // this.hogar.numero_hogares = respuesta.data.hogar.numero_hogares;
-                  // this.hogar.poblacion_especial =
-                  //   respuesta.data.hogar.poblacion_especial;
-                  // this.hogar.vias_acceso = respuesta.data.hogar.vias_acceso;
-                  // this.hogar.servicios_publicos =
-                  //   respuesta.data.hogar.servicios_publicos;
-                  // this.hogar.direccion = respuesta.data.hogar.direccion;
-
-                  console.log(_this.hogar);
+                  _this.hogar.id_vereda = "" + respuesta.data.hogar.id_vereda;
+                  _this.hogar.id_barrio = "" + respuesta.data.hogar.id_barrio;
+                  _this.hogar.id_zona = respuesta.data.hogar.id_zona;
+                  _this.hogar.tenencia_vivienda = respuesta.data.hogar.tenencia_vivienda;
+                  _this.hogar.numero_hogares = "" + respuesta.data.hogar.numero_hogares;
+                  _this.hogar.poblacion_especial = respuesta.data.hogar.poblacion_especial;
+                  _this.hogar.vias_acceso = respuesta.data.hogar.vias_acceso;
+                  _this.hogar.servicios_publicos = respuesta.data.hogar.servicios_publicos;
+                  _this.hogar.direccion = respuesta.data.hogar.direccion;
+                  _this.datosJefe = respuesta.data.jefes; // console.log(this.hogar);
                 });
 
               case 4:
@@ -1590,7 +2874,1512 @@ var entero = function entero(value) {
       }
 
       return cambiarCombo;
-    }()
+    }(),
+    formato: function formato(caja) {
+      if (caja == "id1") {
+        if (this.caracData.tipo_id == "CC") {
+          this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          var val = (this.caracData.identificacion / 1).toFixed(0).replace(".", ",");
+          this.caracData.identificacion = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+          if (this.caracData.identificacion == "NaN") {
+            this.caracData.identificacion = "";
+          }
+
+          if (this.caracData.identificacion == "0") {
+            this.caracData.identificacion = "";
+          }
+        }
+      }
+
+      if (caja == "salario") {
+        this.caracData.salario = this.caracData.salario.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+        var _val = (this.caracData.salario / 1).toFixed(0).replace(".", ",");
+
+        this.caracData.salario = _val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+        if (this.caracData.salario == "NaN") {
+          this.caracData.salario = "";
+        }
+
+        if (this.caracData.salario == "0") {
+          this.caracData.salario = "";
+        }
+      }
+
+      if (caja == "tipoid") {
+        this.caracData.identificacion = "";
+
+        if (this.caracData.tipo_id != "CC") {
+          if (this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI") {
+            this.caracData.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
+          } else {
+            this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          }
+        } else {
+          if (this.caracData.tipo_id == "CC") {
+            this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+            var _val2 = (this.caracData.identificacion / 1).toFixed(0).replace(".", ",");
+
+            this.caracData.identificacion = _val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+            if (this.caracData.identificacion == "NaN") {
+              this.caracData.identificacion = "";
+            }
+
+            if (this.caracData.identificacion == "0") {
+              this.caracData.identificacion = "";
+            }
+          }
+        }
+      }
+
+      if (caja == "id2") {
+        if (this.CA1.tipo_id == "CC") {
+          this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+          var _val3 = (this.CA1.identificacion / 1).toFixed(0).replace(".", ",");
+
+          this.CA1.identificacion = _val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+          if (this.CA1.identificacion == "NaN") {
+            this.CA1.identificacion = "";
+          }
+
+          if (this.CA1.identificacion == "0") {
+            this.CA1.identificacion = "";
+          }
+        }
+      }
+
+      if (caja == "tipoid2") {
+        this.CA1.identificacion = "";
+
+        if (this.CA1.tipo_id != "CC") {
+          if (this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI") {
+            this.CA1.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
+          } else {
+            this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          }
+        } else {
+          if (this.CA1.tipo_id == "CC") {
+            this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+            var _val4 = (this.CA1.identificacion / 1).toFixed(0).replace(".", ",");
+
+            this.CA1.identificacion = _val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+            if (this.CA1.identificacion == "NaN") {
+              this.CA1.identificacion = "";
+            }
+
+            if (this.CA1.identificacion == "0") {
+              this.CA1.identificacion = "";
+            }
+          }
+        }
+      }
+
+      if (caja == "telefono1") {
+        this.caracData.telefono = this.caracData.telefono.replace(/[^.\d]/g, "").trim();
+
+        if (this.caracData.telefono == "NaN") {
+          this.caracData.telefono = "";
+        }
+
+        if (this.caracData.telefono == "0") {
+          this.caracData.telefono = "";
+        }
+      }
+
+      if (caja == "telefono2") {
+        this.CA1.telefono = this.CA1.telefono.replace(/[^.\d]/g, "").trim();
+
+        if (this.CA1.telefono == "NaN") {
+          this.CA1.telefono = "";
+        }
+
+        if (this.CA1.telefono == "0") {
+          this.CA1.telefono = "";
+        }
+      }
+
+      if (caja == "puntaje") {}
+
+      if (caja == "puntaje1") {}
+    },
+    mostrarOtro: function mostrarOtro(tipo) {
+      if (tipo === "TE") {
+        if (this.viviendaData.tipo_estructura === "5") {
+          this.mOTE = true;
+        } else {
+          this.mOTE = false;
+        }
+
+        this.viviendaData.otro_tipo_estructura = "";
+      }
+
+      if (tipo === "TC") {
+        if (this.viviendaData.tipo_cubierta === "9") {
+          this.mOTC = true;
+        } else {
+          this.mOTC = false;
+        }
+
+        this.viviendaData.otro_tipo_cubierta = "";
+      }
+
+      if (tipo === "AE") {
+        if (this.viviendaData.actividad_economica === "CUAL") {
+          this.mOAE = true;
+        } else {
+          this.mOAE = false;
+        }
+
+        this.viviendaData.cual_actividad_economica = "";
+      }
+
+      if (tipo === "FA") {
+        if (this.viviendaData.fuente_agua === "9") {
+          this.mOFA = true;
+        } else {
+          this.mOFA = false;
+        }
+
+        this.viviendaData.cual_fuente = "";
+      }
+
+      if (tipo === "DA") {
+        if (this.viviendaData.donde_almacena_agua === "5") {
+          this.mODA = true;
+        } else {
+          this.mODA = false;
+        }
+
+        this.viviendaData.otro_almacena_agua = "";
+      }
+
+      if (tipo === "FB") {
+        if (this.viviendaData.destino_final_basura === "5") {
+          this.mOFB = true;
+        } else {
+          this.mOFB = false;
+        }
+
+        this.viviendaData.otro_destino_final_basura = "";
+      }
+
+      if (tipo === "OC") {
+        if (this.viviendaData.otro_cerca === "SI") {
+          this.mOOC = true;
+        } else {
+          this.mOOC = false;
+        }
+
+        this.viviendaData.cual_cerca = "";
+      }
+
+      if (tipo === "EV") {
+        if (this.viviendaData.envases_vacios === "7") {
+          this.mOEV = true;
+        } else {
+          this.mOEV = false;
+        }
+
+        this.viviendaData.otro_envases_vacios = "";
+      }
+
+      if (tipo === "EP") {
+        if (this.viviendaData.elementos_protecion === "5") {
+          this.mOEP = true;
+        } else {
+          this.mOEP = false;
+        }
+
+        this.viviendaData.otro_elementos_protecion = "";
+      }
+
+      if (tipo === "MC") {
+        if (this.viviendaData.metodos_coccion === "6") {
+          this.mOMC = true;
+        } else {
+          this.mOMC = false;
+        }
+
+        this.viviendaData.otro_metodos_coccion = "";
+      }
+
+      if (tipo === "AA") {
+        if (this.viviendaData.lugares_almacenan_alimentos === "6") {
+          this.mOAA = true;
+        } else {
+          this.mOAA = false;
+        }
+
+        this.viviendaData.otro_lugares_almacenan_alimentos = "";
+      }
+
+      if (tipo === "DH") {
+        if (this.viviendaData.excretas === "7") {
+          this.mODH = true;
+        } else {
+          this.mODH = false;
+        }
+
+        this.viviendaData.otro_depositan_excretas = "";
+      }
+
+      if (tipo === "ES") {
+        if (this.viviendaData.tipo_explotacion === "5") {
+          this.mOES = true;
+        } else {
+          this.mOES = false;
+        }
+
+        this.viviendaData.otro_tipo_explotacion = "";
+      }
+
+      if (tipo === "OG") {
+        if (this.viviendaData.otros_genera === "SI") {
+          this.mOOG = true;
+        } else {
+          this.mOOG = false;
+        }
+
+        this.viviendaData.cual_genera = "";
+      }
+
+      if (tipo === "OEPS1") {
+        if (this.caracData.afiliacion_entidad === "OTRA") {
+          this.mOEPS1 = true;
+        } else {
+          this.mOEPS1 = false;
+        }
+
+        this.caracData.otra_eps = "";
+      }
+
+      if (tipo === "OEPS2") {
+        if (this.CA1.afi_entidad === "OTRA") {
+          this.mOEPS2 = true;
+        } else {
+          this.mOEPS2 = false;
+        }
+
+        this.CA1.otra_eps = "";
+      }
+
+      if (tipo === "mOCOL1") {
+        if (this.caracData.nivel_escolaridad === 3 || this.caracData.nivel_escolaridad === 14 || this.caracData.nivel_escolaridad === 15) {
+          this.mOCOL1 = true;
+        } else {
+          this.mOCOL1 = false;
+        }
+
+        this.caracData.colegio = "";
+        this.caracData.grado = "";
+      }
+
+      if (tipo === "mOCOL2") {
+        if (this.CA1.escolaridad === 3 || this.CA1.escolaridad === 14 || this.CA1.escolaridad === 15) {
+          this.mOCOL2 = true;
+        } else {
+          this.mOCOL2 = false;
+        }
+
+        this.CA1.colegio = "";
+        this.CA1.grado = "0";
+      }
+    },
+    // OPCIONES DE LAS OCUPACIONES
+    abrirModalOcupaciones: function abrirModalOcupaciones(opcion) {
+      this.opcionOcupaciones = opcion;
+      this.txtbusqueda = "";
+      this.consultarOcupaciones(1);
+      this.$refs.modalOcupaciones.show();
+    },
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalOcupaciones.hide();
+      this.$refs.modalActividad.hide();
+    },
+    consultarOcupaciones: function consultarOcupaciones(pagina) {
+      var _this3 = this;
+
+      return _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                parametros = {
+                  txtbusqueda: _this3.txtbusqueda.trim(),
+                  _token: _this3.csrf,
+                  page: pagina
+                };
+                _context3.prev = 1;
+                _context3.next = 4;
+                return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function (respuesta) {
+                  _this3.ocupacionesVector = respuesta.data.ocupaciones.data;
+                  _this3.paginacionVector = respuesta.data.paginacion;
+                });
+
+              case 4:
+                _context3.next = 15;
+                break;
+
+              case 6:
+                _context3.prev = 6;
+                _context3.t0 = _context3["catch"](1);
+                _context3.t1 = _context3.t0.response.status;
+                _context3.next = _context3.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 15);
+
+              case 13:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[1, 6]]);
+      }))();
+    },
+    seleccionarOcupaciones: function seleccionarOcupaciones(item) {
+      if (this.opcionOcupaciones === "jefe") {
+        this.caracData.ocupacion = item.id;
+        this.ocupacionAuxiliar = item.descripcion;
+      } else {
+        this.CA1.ocupacion = item.id;
+        this.ocupacionAuxiliar2 = item.descripcion;
+      }
+
+      this.$refs.modalOcupaciones.hide();
+    },
+    // OPCIONES DE LAS OCUPACIONES
+    //OPCIONES DEL JEFE DE HOGAR
+    agregarJefe: function () {
+      var _agregarJefe = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this4 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (!(this.checkForm() === true)) {
+                  _context4.next = 12;
+                  break;
+                }
+
+                // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+                this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+                parametros = {
+                  _token: this.csrf,
+                  identificacion: this.caracData.identificacion
+                };
+                _context4.prev = 3;
+                _context4.next = 6;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC == "EXISTE") {
+                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
+                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                    _this4.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
+
+                    return false;
+                  } else {
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    var resultado = _this4.datosJefe.filter(function (identi) {
+                      return identi.identificacion.includes(_this4.caracData.identificacion);
+                    }); // VERIFICAR SI ESTA EN LA TABLA
+
+
+                    if (resultado.length) {
+                      _this4.$swal("Validar...!", "El Documento <b>" + _this4.caracData.identificacion + "</b> Se Encuentra Agregado", "warning");
+
+                      return false;
+                    } else {
+                      var nacimiento = moment(_this4.caracData.fecha_nacimiento);
+                      var hoy = moment();
+                      var edad = 0;
+
+                      if (nacimiento < hoy) {
+                        edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+                      }
+
+                      if (edad < 14) {
+                        _this4.$swal("Validar...!", "El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años", "warning");
+
+                        return false;
+                      }
+
+                      var textoEps = "";
+
+                      if (_this4.caracData.afiliacion_entidad === "OTRA") {
+                        textoEps = "OTRA";
+                      } else {
+                        if (_this4.caracData.afiliacion_entidad === "NINGUNA") {
+                          textoEps = "NINGUNA";
+                        } else {
+                          textoEps = _this4.showText(_this4.caracData.afiliacion_entidad, _this4.admini_options);
+                        }
+                      }
+
+                      _this4.datosJefe.push({
+                        id: 0,
+                        id_hogar: 0,
+                        telefono: _this4.caracData.telefono,
+                        puntaje_sisben: _this4.caracData.puntaje_sisben,
+                        afiliacion_entidad: _this4.caracData.afiliacion_entidad,
+                        textoEps: textoEps,
+                        otra_eps: _this4.caracData.otra_eps,
+                        tipo_id: _this4.caracData.tipo_id,
+                        identificacion: _this4.caracData.identificacion,
+                        sexo: _this4.caracData.sexo,
+                        parentesco: _this4.caracData.parentesco,
+                        textoParentesco: _this4.showText(_this4.caracData.parentesco, _this4.parentesco_options),
+                        pnom: _this4.caracData.pnom,
+                        snom: _this4.caracData.snom,
+                        pape: _this4.caracData.pape,
+                        sape: _this4.caracData.sape,
+                        salario: _this4.caracData.salario,
+                        estado_civil: _this4.caracData.estado_civil,
+                        textoEstado: _this4.showText(_this4.caracData.estado_civil, _this4.estado_options),
+                        fecha_nacimiento: _this4.caracData.fecha_nacimiento,
+                        tipo_afiliacion: _this4.caracData.tipo_afiliacion,
+                        embarazo: _this4.caracData.embarazo,
+                        embarazo_multiple: _this4.caracData.embarazo_multiple,
+                        discapacidad: _this4.caracData.discapacidad,
+                        nivel_escolaridad: _this4.caracData.nivel_escolaridad,
+                        ocupacion: _this4.caracData.ocupacion,
+                        textoOcupacion: _this4.showText(_this4.caracData.ocupacion, _this4.ocupacion_options),
+                        colegio: _this4.caracData.colegio,
+                        grado: _this4.caracData.grado,
+                        entiende: _this4.caracData.entiende,
+                        migrante: _this4.caracData.migrante,
+                        pyp: _this4.caracData.pyp,
+                        etnia: _this4.caracData.etnia,
+                        textoEtnia: _this4.showText(_this4.caracData.etnia, _this4.etnia_options),
+                        clasificacion: _this4.caracData.clasificacion,
+                        edad: _this4.caracData.edad,
+                        orientacion: _this4.caracData.orientacion,
+                        identidad_genero: _this4.caracData.identidad_genero,
+                        perdida_peso: _this4.caracData.perdida_peso,
+                        programa_icbf: _this4.caracData.programa_icbf,
+                        identi_auxi: ""
+                      });
+
+                      if (_this4.caracData.tipo_afiliacion === "CONTRIBUTIVO" || _this4.caracData.tipo_afiliacion === "ESPECIAL") {
+                        _this4.SAPU = true;
+                        _this4.estratificacionData.afiliacion_salud_privada = "SI";
+                      }
+
+                      _this4.ocupacionAuxiliar = "";
+                      _this4.mOCOL1 = false;
+
+                      var indice = _this4.datosJefe.findIndex(function (identi) {
+                        return identi.identificacion === _this4.caracData.identificacion;
+                      });
+
+                      _this4.vectorJefes.push({
+                        index: indice,
+                        identificacion: _this4.caracData.identificacion
+                      }); // AGREGAR FACTORES
+                      // this.AFactores(this.caracData, edad);
+                      // AGREGAR FACTORES
+
+
+                      _this4.caracData.id = "JEFE"; // AGREGAR DE 10 A 59 AÑOS
+
+                      if (edad >= 10 && edad <= 59) {} // this.Ade10a59Anio(this.caracData, edad);
+                      // AGREGAR DE 10 A 59 AÑOS
+                      // AGREGAR PARTO POSTPARTO
+                      // alert(this.CA1.embarazo_multiple);
+
+
+                      if (_this4.caracData.embarazo === "SI") {} // this.AParPost(this.caracData, edad);
+                      // AGREGAR PARTO POSTPARTO
+                      // AGREGAR DE 12 A 17 AÑOS
+
+
+                      if (edad >= 12 && edad <= 17) {} // this.Ade12a17Anio(this.caracData, edad);
+                      // AGREGAR DE 12 A 17 AÑOS
+                      // AGREGAR DE 18 A 28 AÑOS
+
+
+                      if (edad >= 18 && edad <= 28) {} // this.Ade18a28Anio(this.caracData, edad);
+                      // AGREGAR DE 18 A 28 AÑOS
+                      // AGREGAR DE 29 A 59 AÑOS
+
+
+                      if (edad >= 29 && edad <= 59) {} // this.Ade29a59Anio(this.caracData, edad);
+                      // AGREGAR DE 29 A 59 AÑOS
+                      // AGREGAR DE 60 ó MAS AÑOS
+
+
+                      if (edad >= 60) {} // this.Ade60Anio(this.caracData, edad);
+                      // AGREGAR DE 60 ó MAS AÑOS
+                      // AGREGAR MIGRANTES
+
+
+                      if (_this4.caracData.migrante === "SI") {} // this.AMigra(this.caracData, edad);
+                      // AGREGAR MIGRANTES
+
+
+                      _this4.limpiar2();
+                    }
+                  }
+                })["catch"](function (error) {
+                  _this4.errorDevuelto = error.response.data.errors;
+                  _this4.entrarPorError = true;
+                });
+
+              case 6:
+                _context4.next = 12;
+                break;
+
+              case 8:
+                _context4.prev = 8;
+                _context4.t0 = _context4["catch"](3);
+                this.errorDevuelto = _context4.t0.response.data.errors;
+                this.entrarPorError = true;
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[3, 8]]);
+      }));
+
+      function agregarJefe() {
+        return _agregarJefe.apply(this, arguments);
+      }
+
+      return agregarJefe;
+    }(),
+    checkForm: function checkForm(e) {
+      var bande = true;
+
+      if (this.caracData.tipo_id === "") {
+        this.$refs.tipo_id.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
+        return;
+      }
+
+      if (this.caracData.identificacion === "") {
+        this.$refs.identificacion.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite una identificación!", "error");
+        return;
+      }
+
+      if (this.caracData.sexo === "") {
+        this.$refs.sexo.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+        return;
+      }
+
+      if (this.caracData.orientacion === "") {
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+        return;
+      }
+
+      if (this.caracData.identidad_genero === "") {
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+        return;
+      }
+
+      if (this.caracData.parentesco === "") {
+        this.$refs.parentesco.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+        return;
+      }
+
+      if (this.caracData.pnom === "") {
+        this.$refs.pnom.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+        return;
+      }
+
+      if (this.caracData.pape === "") {
+        this.$refs.pape.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
+        return;
+      }
+
+      if (this.caracData.estado_civil === "") {
+        this.$refs.estado_civil.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
+        return;
+      }
+
+      if (this.caracData.fecha_nacimiento === "") {
+        this.$refs.fecha_nacimiento.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
+        return;
+      }
+
+      if (this.caracData.afiliacion_entidad === "") {
+        this.$refs.afiliacion_entidad.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+        return;
+      }
+
+      if (this.caracData.ocupacion === "") {
+        this.$refs.ocupacion.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+        return;
+      }
+
+      if (this.caracData.etnia === "") {
+        this.$refs.etnia.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+        return;
+      }
+
+      if (this.caracData.clasificacion === "") {
+        this.$refs.clasificacion.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
+        return;
+      }
+
+      if (this.caracData.salario === "") {
+        this.$refs.salario.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite el salario!", "error");
+        return;
+      }
+
+      if (this.caracData.perdida_peso === "") {
+        this.$refs.perdida_peso.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+        return;
+      }
+
+      if (this.caracData.programa_icbf === "") {
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+        return;
+      }
+
+      return bande;
+      e.preventDefault();
+    },
+    showText: function showText(val, vectorAux) {
+      for (var i = 0; i < vectorAux.length; i++) {
+        if (vectorAux[i].value === val) {
+          return vectorAux[i].texto;
+        }
+      }
+
+      return "";
+    },
+    eliminarItemJefe: function eliminarItemJefe(index, item) {
+      this.datosJefe.splice(index, 1);
+      this.vectorJefes.splice(index, 1);
+      var identificacion = item.identificacion;
+      this.factores = this.factores.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.Men1A = this.Men1A.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.De1A5 = this.De1A5.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.De6A11 = this.De6A11.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.De10A59 = this.De10A59.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.ParPost = this.ParPost.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.De12A17 = this.De12A17.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.De18A28 = this.De18A28.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.De29A59 = this.De29A59.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.De60 = this.De60.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.Migra = this.Migra.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+    },
+    limpiar2: function limpiar2() {
+      this.caracData.tipo_id = "";
+      this.caracData.identificacion = "";
+      this.caracData.sexo = "";
+      this.caracData.parentesco = "";
+      this.caracData.pnom = "";
+      this.caracData.snom = "";
+      this.caracData.pape = "";
+      this.caracData.sape = "";
+      this.caracData.estado_civil = "";
+      this.caracData.fecha_nacimiento = "";
+      this.caracData.salario = "";
+      this.caracData.telefono = "";
+      this.caracData.edad = 0;
+      this.caracData.afiliacion_entidad = "";
+      this.caracData.otra_eps = "";
+      this.caracData.tipo_afiliacion = "";
+      this.caracData.embarazo = "";
+      this.caracData.embarazo_multiple = "";
+      this.caracData.discapacidad = "";
+      this.caracData.nivel_escolaridad = "";
+      this.caracData.ocupacion = "";
+      this.caracData.colegio = "";
+      this.caracData.grado = "";
+      this.caracData.entiende = "";
+      this.caracData.migrante = "";
+      this.caracData.pyp = "";
+      this.caracData.etnia = "";
+      this.caracData.clasificacion = "";
+      this.caracData.puntaje_sisben = "";
+      this.caracData.orientacion = "";
+      this.caracData.identidad_genero = "";
+      this.caracData.perdida_peso = "";
+      this.caracData.programa_icbf = "";
+    },
+    updateJefe: function updateJefe(item, valor, opcion, index) {
+      if (opcion === "tipo_id") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var indice = this.factores.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.factores[indice].tipo_id = valor;
+          this.factores.splice(indice, 1, this.factores[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De10A59[indice].tipo_id = valor;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.ParPost[indice].tipo_id = valor;
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De12A17[indice].tipo_id = valor;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De18A28[indice].tipo_id = valor;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De29A59[indice].tipo_id = valor;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De60[indice].tipo_id = valor;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.Migra[indice].tipo_id = valor;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+      }
+
+      if (opcion === "sexo") {
+        if (item.sexo === "") {
+          item.embarazo = "";
+          item.embarazo_multiple = "";
+        }
+
+        if (item.sexo === "MASCULINO") {
+          item.embarazo = "NOAPLICA";
+          item.embarazo_multiple = "NOAPLICA";
+        }
+
+        if (item.sexo === "FEMENINO") {
+          item.embarazo = "";
+          item.embarazo_multiple = "";
+        } //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+
+
+        var _id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.factores[_indice].sexo = valor;
+          this.factores.splice(_indice, 1, this.factores[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De10A59[_indice].sexo = valor;
+          this.De10A59.splice(_indice, 1, this.De10A59[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.ParPost[_indice].sexo = valor;
+          this.ParPost.splice(_indice, 1, this.ParPost[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De12A17[_indice].sexo = valor;
+          this.De12A17.splice(_indice, 1, this.De12A17[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De18A28[_indice].sexo = valor;
+          this.De18A28.splice(_indice, 1, this.De18A28[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De29A59[_indice].sexo = valor;
+          this.De29A59.splice(_indice, 1, this.De29A59[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De60[_indice].sexo = valor;
+          this.De60.splice(_indice, 1, this.De60[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.Migra[_indice].sexo = valor;
+          this.Migra.splice(_indice, 1, this.Migra[_indice]);
+        }
+      }
+
+      if (opcion === "embarazo") {
+        if (item.embarazo === "") {
+          item.embarazo_multiple = "";
+        }
+
+        if (item.embarazo === "SI") {
+          item.embarazo_multiple = "";
+        }
+
+        if (item.embarazo === "NO") {
+          item.embarazo_multiple = "NO";
+        }
+      }
+
+      if (opcion === "afiliacion_entidad") {
+        if (item.afiliacion_entidad === "NINGUNA") {
+          item.tipo_afiliacion = "0";
+        } else {
+          if (item.afiliacion_entidad === "OTRA") {
+            item.otra_eps = "";
+          } else {
+            item.tipo_afiliacion = "";
+          }
+        }
+      }
+
+      if (opcion === "nivel_escolaridad") {
+        item.colegio = "";
+        item.grado = "";
+      }
+    },
+    changeupdateJefe: function changeupdateJefe(item, event, opcion, index) {
+      if (opcion == "identificacion") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var indice = this.factores.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[indice].identificacion = item.identificacion;
+          this.factores.splice(indice, 1, this.factores[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[indice].identificacion = item.identificacion;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[indice].identificacion = item.identificacion;
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[indice].identificacion = item.identificacion;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[indice].identificacion = item.identificacion;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[indice].identificacion = item.identificacion;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[indice].identificacion = item.identificacion;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[indice].identificacion = item.identificacion;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        } //CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
+        //DIGITADA EN LA TABLA
+
+
+        this.vectorJefes[index].identificacion = item.identificacion; // Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
+
+        this.vectorJefes.splice(index, 1, this.vectorJefes[index]);
+      }
+
+      if (opcion == "pnom") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id2 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice2 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice2].pnom = item.pnom;
+          this.factores.splice(_indice2, 1, this.factores[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice2].pnom = item.pnom;
+          this.De10A59.splice(_indice2, 1, this.De10A59[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice2].pnom = item.pnom;
+          this.ParPost.splice(_indice2, 1, this.ParPost[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice2].pnom = item.pnom;
+          this.De12A17.splice(_indice2, 1, this.De12A17[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice2].pnom = item.pnom;
+          this.De18A28.splice(_indice2, 1, this.De18A28[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice2].pnom = item.pnom;
+          this.De29A59.splice(_indice2, 1, this.De29A59[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice2].pnom = item.pnom;
+          this.De60.splice(_indice2, 1, this.De60[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice2].pnom = item.pnom;
+          this.Migra.splice(_indice2, 1, this.Migra[_indice2]);
+        }
+      }
+
+      if (opcion == "snom") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id3 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice3 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice3].snom = item.snom;
+          this.factores.splice(_indice3, 1, this.factores[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice3].snom = item.snom;
+          this.De10A59.splice(_indice3, 1, this.De10A59[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice3].snom = item.snom;
+          this.ParPost.splice(_indice3, 1, this.ParPost[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice3].snom = item.snom;
+          this.De12A17.splice(_indice3, 1, this.De12A17[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice3].snom = item.snom;
+          this.De18A28.splice(_indice3, 1, this.De18A28[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice3].snom = item.snom;
+          this.De29A59.splice(_indice3, 1, this.De29A59[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice3].snom = item.snom;
+          this.De60.splice(_indice3, 1, this.De60[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice3].snom = item.snom;
+          this.Migra.splice(_indice3, 1, this.Migra[_indice3]);
+        }
+      }
+
+      if (opcion == "pape") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id4 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice4 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice4].pape = item.pape;
+          this.factores.splice(_indice4, 1, this.factores[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice4].pape = item.pape;
+          this.De10A59.splice(_indice4, 1, this.De10A59[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice4].pape = item.pape;
+          this.ParPost.splice(_indice4, 1, this.ParPost[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice4].pape = item.pape;
+          this.De12A17.splice(_indice4, 1, this.De12A17[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice4].pape = item.pape;
+          this.De18A28.splice(_indice4, 1, this.De18A28[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice4].pape = item.pape;
+          this.De29A59.splice(_indice4, 1, this.De29A59[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice4].pape = item.pape;
+          this.De60.splice(_indice4, 1, this.De60[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice4].pape = item.pape;
+          this.Migra.splice(_indice4, 1, this.Migra[_indice4]);
+        }
+      }
+
+      if (opcion == "sape") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id5 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice5 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice5].sape = item.sape;
+          this.factores.splice(_indice5, 1, this.factores[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice5].sape = item.sape;
+          this.De10A59.splice(_indice5, 1, this.De10A59[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice5].sape = item.sape;
+          this.ParPost.splice(_indice5, 1, this.ParPost[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice5].sape = item.sape;
+          this.De12A17.splice(_indice5, 1, this.De12A17[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice5].sape = item.sape;
+          this.De18A28.splice(_indice5, 1, this.De18A28[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice5].sape = item.sape;
+          this.De29A59.splice(_indice5, 1, this.De29A59[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice5].sape = item.sape;
+          this.De60.splice(_indice5, 1, this.De60[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice5].sape = item.sape;
+          this.Migra.splice(_indice5, 1, this.Migra[_indice5]);
+        }
+      }
+
+      if (opcion == "salario") {
+        item.salario = event.target.value.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+        var val = (item.salario / 1).toFixed(0).replace(".", ",");
+        item.salario = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+        if (item.salario == "NaN") {
+          item.salario = "";
+        }
+
+        if (item.salario == "0") {
+          item.salario = "";
+        }
+      }
+    } //OPCIONES DEL JEFE DE HOGAR
+
   }
 });
 
@@ -2688,12 +5477,4608 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(2)
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Tipo de Documento (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "tipo_id",
+                            class:
+                              _vm.caracData.tipo_id == "" ? "" : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.formato("tipoid")
+                              }
+                            },
+                            model: {
+                              value: _vm.caracData.tipo_id,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "tipo_id",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "caracData.tipo_id"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "CC" } }, [
+                              _vm._v("CEDULA DE CIUDADANIA")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "PA" } }, [
+                              _vm._v("PASAPORTE")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "RC" } }, [
+                              _vm._v("REGISTRO CIVIL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "TI" } }, [
+                              _vm._v("TARJETA DE IDENTIDAD")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "ASI" } }, [
+                              _vm._v("ADULTO SIN IDENTIFICACIÓN")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "MSI" } }, [
+                              _vm._v("MENOR SIN IDENTIFICACIÓN")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "CE" } }, [
+                              _vm._v("CEDULA DE EXTRANJERIA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("label", [_vm._v("Documento (*):")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.identificacion,
+                            expression: "caracData.identificacion",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        ref: "identificacion",
+                        staticClass: "form-control text-capitalize",
+                        class:
+                          _vm.caracData.identificacion == "" ? "" : "is-valid",
+                        attrs: { type: "text", placeholder: "Documento" },
+                        domProps: { value: _vm.caracData.identificacion },
+                        on: {
+                          change: function($event) {
+                            return _vm.formato("id1")
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "identificacion",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Parentesco (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "parentesco",
+                            class:
+                              _vm.caracData.parentesco == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.parentesco,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "parentesco",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "caracData.parentesco"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.parentesco_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Sexo (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "sexo",
+                            class: _vm.caracData.sexo == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.sexo,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "sexo",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "caracData.sexo"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "MASCULINO" } }, [
+                              _vm._v("MASCULINO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "FEMENINO" } }, [
+                              _vm._v("FEMENINO")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Orientación Sexual (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "sexo",
+                            class:
+                              _vm.caracData.orientacion == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.orientacion,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "orientacion",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "caracData.orientacion"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HETEROSEXUAL" } }, [
+                              _vm._v("HETEROSEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HOMOSEXUAL" } }, [
+                              _vm._v("HOMOSEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "BISEXUAL" } }, [
+                              _vm._v("BISEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NODECLARA" } }, [
+                              _vm._v("NO DECLARA")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Identidad de Genero (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.identidad_genero == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.identidad_genero,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "identidad_genero",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "caracData.identidad_genero"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HETEROSEXUAL" } }, [
+                              _vm._v("CISGENERO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HOMOSEXUAL" } }, [
+                              _vm._v("TRANSGENERO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "BISEXUAL" } }, [
+                              _vm._v("TRANSEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NODECLARA" } }, [
+                              _vm._v("TERCER GENERO Ó NO BINARIOS")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("label", [_vm._v("Primer Nombre (*):")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.pnom,
+                            expression: "caracData.pnom",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        ref: "pnom",
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.pnom == "" ? "" : "is-valid",
+                        attrs: { type: "text", placeholder: "Primer Nombre" },
+                        domProps: { value: _vm.caracData.pnom },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "pnom",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("label", [_vm._v("Segundo Nombre:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.snom,
+                            expression: "caracData.snom",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.snom == "" ? "" : "is-valid",
+                        attrs: { type: "text", placeholder: "Segundo Nombre" },
+                        domProps: { value: _vm.caracData.snom },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "snom",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("label", [_vm._v("Primer Apellido (*):")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.pape,
+                            expression: "caracData.pape",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        ref: "pape",
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.pape == "" ? "" : "is-valid",
+                        attrs: { type: "text", placeholder: "Primer Apellido" },
+                        domProps: { value: _vm.caracData.pape },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "pape",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("label", [_vm._v("Segundo Apellido:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.sape,
+                            expression: "caracData.sape",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.sape == "" ? "" : "is-valid",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Segundo Apellido"
+                        },
+                        domProps: { value: _vm.caracData.sape },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "sape",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("label", [_vm._v("Telefono:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.telefono,
+                            expression: "caracData.telefono",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.telefono == "" ? "" : "is-valid",
+                        attrs: { type: "text", placeholder: "Telefono" },
+                        domProps: { value: _vm.caracData.telefono },
+                        on: {
+                          change: function($event) {
+                            return _vm.formato("telefono1")
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "telefono",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Estado Civil (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "estado_civil",
+                            class:
+                              _vm.caracData.estado_civil == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.estado_civil,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "estado_civil", $$v)
+                              },
+                              expression: "caracData.estado_civil"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.estado_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("label", [_vm._v("Fecha de Nacimiento (*):")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.caracData.fecha_nacimiento,
+                            expression: "caracData.fecha_nacimiento"
+                          }
+                        ],
+                        ref: "fecha_nacimiento",
+                        staticClass: "form-control text-capitalize",
+                        class:
+                          _vm.caracData.fecha_nacimiento == ""
+                            ? ""
+                            : "is-valid",
+                        attrs: {
+                          id: "date",
+                          type: "date",
+                          placeholder: "Fecha de Nacimiento",
+                          max: _vm._f("moment")(_vm.hoy)
+                        },
+                        domProps: { value: _vm.caracData.fecha_nacimiento },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "fecha_nacimiento",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-2" }, [
+                      _c("label", [_vm._v("Edad:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.calEdad2,
+                            expression: "calEdad2"
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.edad == "" ? "" : "is-valid",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Edad",
+                          readonly: ""
+                        },
+                        domProps: { value: _vm.calEdad2 },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.calEdad2 = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-lg-2" }, [
+                      _c("label", [_vm._v("Puntaje Sisben:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.puntaje_sisben,
+                            expression: "caracData.puntaje_sisben",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class:
+                          _vm.caracData.puntaje_sisben == "" ? "" : "is-valid",
+                        attrs: { type: "text" },
+                        domProps: { value: _vm.caracData.puntaje_sisben },
+                        on: {
+                          change: function($event) {
+                            return _vm.formato("puntaje1")
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "puntaje_sisben",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-7" },
+                      [
+                        _c("label", [_vm._v("Eps (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "afiliacion_entidad",
+                            class:
+                              _vm.caracData.afiliacion_entidad == ""
+                                ? ""
+                                : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.mostrarOtro("OEPS1")
+                              }
+                            },
+                            model: {
+                              value: _vm.caracData.afiliacion_entidad,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "afiliacion_entidad",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "caracData.afiliacion_entidad"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NINGUNA" } }, [
+                              _vm._v("NINGUNA")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "OTRA" } }, [
+                              _vm._v("OTRA")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.admini_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Tipo Afiliación:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.tipo_afiliacion == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.tipo_afiliacion,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "tipo_afiliacion", $$v)
+                              },
+                              expression: "caracData.tipo_afiliacion"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "0" } }, [
+                              _vm._v("No Aplica")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SUBSIDIADO" } }, [
+                              _vm._v("SUBSIDIADO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "CONTRIBUTIVO" } }, [
+                              _vm._v("CONTRIBUTIVO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "ESPECIAL" } }, [
+                              _vm._v("ESPECIAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "PPNA" } }, [
+                              _vm._v("POBLACIÓN POBRE NO ASEGURADA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.mOEPS1,
+                            expression: "mOEPS1"
+                          }
+                        ],
+                        staticClass: "col-lg-12"
+                      },
+                      [
+                        _c("label", [_vm._v("Cual:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model.trim",
+                              value: _vm.caracData.otra_eps,
+                              expression: "caracData.otra_eps",
+                              modifiers: { trim: true }
+                            }
+                          ],
+                          staticClass: "form-control text-capitalize",
+                          class: _vm.caracData.otra_eps == "" ? "" : "is-valid",
+                          attrs: { type: "text", placeholder: "Cual" },
+                          domProps: { value: _vm.caracData.otra_eps },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.caracData,
+                                "otra_eps",
+                                $event.target.value.trim()
+                              )
+                            },
+                            blur: function($event) {
+                              return _vm.$forceUpdate()
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Embarazo:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.embarazo == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.embarazo,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "embarazo", $$v)
+                              },
+                              expression: "caracData.embarazo"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                attrs: {
+                                  value: "SI",
+                                  disabled: _vm.inputDisabled2
+                                }
+                              },
+                              [_vm._v("SI")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                attrs: {
+                                  value: "NO",
+                                  disabled: _vm.inputDisabled2
+                                }
+                              },
+                              [_vm._v("NO")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NOAPLICA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Embarazo Multiple:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.embarazo_multiple == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.embarazo_multiple,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "embarazo_multiple",
+                                  $$v
+                                )
+                              },
+                              expression: "caracData.embarazo_multiple"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                attrs: {
+                                  value: "SI",
+                                  disabled: _vm.inputDisabled2
+                                }
+                              },
+                              [_vm._v("SI")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                attrs: {
+                                  value: "NO",
+                                  disabled: _vm.inputDisabled2
+                                }
+                              },
+                              [_vm._v("NO")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NOAPLICA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Discapacidad:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.discapacidad == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.discapacidad,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "discapacidad", $$v)
+                              },
+                              expression: "caracData.discapacidad"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("FISICA")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("COGNITIVA")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "3" } }, [
+                              _vm._v("SENSORIAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("PSÍQUICA")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "5" } }, [
+                              _vm._v("NINGUNA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Nivel Educativo:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.nivel_escolaridad == ""
+                                ? ""
+                                : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.mostrarOtro("mOCOL1")
+                              }
+                            },
+                            model: {
+                              value: _vm.caracData.nivel_escolaridad,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "nivel_escolaridad",
+                                  $$v
+                                )
+                              },
+                              expression: "caracData.nivel_escolaridad"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "0" } }, [
+                              _vm._v("No Aplica")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.escolaridad_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.mOCOL1,
+                            expression: "mOCOL1"
+                          }
+                        ],
+                        staticClass: "col-lg-6"
+                      },
+                      [
+                        _c("label", [_vm._v("Colegio:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            staticClass: "form-control kt-select2 selectBus",
+                            class:
+                              _vm.caracData.colegio == "" ? "" : "is-valid",
+                            staticStyle: { width: "100%" },
+                            model: {
+                              value: _vm.caracData.colegio,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "colegio", $$v)
+                              },
+                              expression: "caracData.colegio"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.colegio_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.mOCOL1,
+                            expression: "mOCOL1"
+                          }
+                        ],
+                        staticClass: "col-lg-3"
+                      },
+                      [
+                        _c("label", [_vm._v("Grado:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.caracData.grado == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.grado,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "grado", $$v)
+                              },
+                              expression: "caracData.grado"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Ninguno" } }, [
+                              _vm._v("Ninguno")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.grados_option[
+                                _vm.caracData.nivel_escolaridad
+                              ],
+                              function(item) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: item.value,
+                                    domProps: { value: item.value }
+                                  },
+                                  [_vm._v(_vm._s(item.texto))]
+                                )
+                              }
+                            )
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("label", [_vm._v("Ocupación (*):")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.ocupacionAuxiliar,
+                            expression: "ocupacionAuxiliar"
+                          }
+                        ],
+                        ref: "ocupacion",
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.ocupacionAuxiliar == "" ? "" : "is-valid",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Ocupaciones",
+                          readonly: true
+                        },
+                        domProps: { value: _vm.ocupacionAuxiliar },
+                        on: {
+                          click: function($event) {
+                            return _vm.abrirModalOcupaciones("jefe")
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.ocupacionAuxiliar = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Etnia (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "etnia",
+                            class: _vm.caracData.etnia == "" ? "" : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.cambiarCombo("etnia")
+                              }
+                            },
+                            model: {
+                              value: _vm.caracData.etnia,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "etnia", $$v)
+                              },
+                              expression: "caracData.etnia"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.etnia_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Clasificación de la Etnia (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "clasificacion",
+                            class:
+                              _vm.caracData.clasificacion == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.clasificacion,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "clasificacion", $$v)
+                              },
+                              expression: "caracData.clasificacion"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.clasifi_options[_vm.caracData.etnia],
+                              function(item) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: item.value,
+                                    domProps: { value: item.value }
+                                  },
+                                  [_vm._v(_vm._s(item.texto))]
+                                )
+                              }
+                            )
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [
+                          _vm._v("Perdida de peso en los ultimos 3 meses:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.perdida_peso == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.perdida_peso,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "perdida_peso", $$v)
+                              },
+                              expression: "caracData.perdida_peso"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "ND" } }, [
+                              _vm._v("NO DECLARA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Entiende Español:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.entiende == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.entiende,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "entiende", $$v)
+                              },
+                              expression: "caracData.entiende"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("PYP:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.caracData.pyp == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.pyp,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "pyp", $$v)
+                              },
+                              expression: "caracData.pyp"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Crecimiento" } }, [
+                              _vm._v("Crecimiento y Desarrollo")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Joven" } }, [
+                              _vm._v("Joven")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Adulto" } }, [
+                              _vm._v("Adulto Mayor")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Planificacion" } },
+                              [_vm._v("Planificación Familiar")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Control" } }, [
+                              _vm._v("Control Prenatal")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Alimentacion" } }, [
+                              _vm._v("Alimentación Escolar")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Ninguno" } }, [
+                              _vm._v("Ninguno")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-2" },
+                      [
+                        _c("label", [_vm._v("Migrante:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.migrante == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.migrante,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "migrante", $$v)
+                              },
+                              expression: "caracData.migrante"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("label", [_vm._v("Salario (*):")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.salario,
+                            expression: "caracData.salario",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        ref: "salario",
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.salario == "" ? "" : "is-valid",
+                        attrs: { type: "text", placeholder: "Salario" },
+                        domProps: { value: _vm.caracData.salario },
+                        on: {
+                          change: function($event) {
+                            return _vm.formato("salario")
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "salario",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [
+                          _vm._v("Pertenece a algún programa del ICBF:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.programa_icbf == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.programa_icbf,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "programa_icbf", $$v)
+                              },
+                              expression: "caracData.programa_icbf"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-info btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregarJefe($event)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "kt-separator kt-separator--border-dashed"
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("div", { staticClass: "table-responsive" }, [
+                        _c(
+                          "table",
+                          { staticClass: "table table-sm table-hover" },
+                          [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.datosJefe, function(item, index) {
+                                return _c("tr", { key: index }, [
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle"
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(index + 1))]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.tipo_id == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "250px" },
+                                          on: {
+                                            input: function(tipo_id) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                tipo_id,
+                                                "tipo_id",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.tipo_id,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "tipo_id",
+                                                typeof $$v === "string"
+                                                  ? $$v.trim()
+                                                  : $$v
+                                              )
+                                            },
+                                            expression: "item.tipo_id"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "CC" } },
+                                            [_vm._v("CEDULA DE CIUDADANIA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PA" } },
+                                            [_vm._v("PASAPORTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "RC" } },
+                                            [_vm._v("REGISTRO CIVIL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "TI" } },
+                                            [_vm._v("TARJETA DE IDENTIDAD")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "ASI" } },
+                                            [
+                                              _vm._v(
+                                                "ADULTO SIN IDENTIFICACIÓN"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "MSI" } },
+                                            [_vm._v("MENOR SIN IDENTIFICACIÓN")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "CE" } },
+                                            [_vm._v("CEDULA DE EXTRANJERIA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.identificacion,
+                                            expression: "item.identificacion",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.identificacion == ""
+                                            ? ""
+                                            : "is-valid",
+                                        staticStyle: { width: "200px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Documento"
+                                        },
+                                        domProps: {
+                                          value: item.identificacion
+                                        },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "identificacion",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "identificacion",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.pnom,
+                                            expression: "item.pnom",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.pnom == "" ? "" : "is-valid",
+                                        staticStyle: { width: "200px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Primer Nombre"
+                                        },
+                                        domProps: { value: item.pnom },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "pnom",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "pnom",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.snom,
+                                            expression: "item.snom",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.snom == "" ? "" : "is-valid",
+                                        staticStyle: { width: "200px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Segundo Nombre"
+                                        },
+                                        domProps: { value: item.snom },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "snom",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "snom",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.pape,
+                                            expression: "item.pape",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.pape == "" ? "" : "is-valid",
+                                        staticStyle: { width: "200px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Primer Apellido"
+                                        },
+                                        domProps: { value: item.pape },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "pape",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "pape",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.sape,
+                                            expression: "item.sape",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.sape == "" ? "" : "is-valid",
+                                        staticStyle: { width: "200px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Segundo Apellido"
+                                        },
+                                        domProps: { value: item.sape },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "sape",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "sape",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.sexo == "" ? "" : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(sexo) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                sexo,
+                                                "sexo",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.sexo,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "sexo",
+                                                typeof $$v === "string"
+                                                  ? $$v.trim()
+                                                  : $$v
+                                              )
+                                            },
+                                            expression: "item.sexo"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "MASCULINO" } },
+                                            [_vm._v("MASCULINO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "FEMENINO" } },
+                                            [_vm._v("FEMENINO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.orientacion == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(orientacion) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                orientacion,
+                                                "orientacion",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.orientacion,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "orientacion",
+                                                typeof $$v === "string"
+                                                  ? $$v.trim()
+                                                  : $$v
+                                              )
+                                            },
+                                            expression: "item.orientacion"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "HETEROSEXUAL" }
+                                            },
+                                            [_vm._v("HETEROSEXUAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "HOMOSEXUAL" } },
+                                            [_vm._v("HOMOSEXUAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "BISEXUAL" } },
+                                            [_vm._v("BISEXUAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NODECLARA" } },
+                                            [_vm._v("NO DECLARA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.identidad_genero == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(identidad_genero) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                identidad_genero,
+                                                "identidad_genero",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.identidad_genero,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "identidad_genero",
+                                                typeof $$v === "string"
+                                                  ? $$v.trim()
+                                                  : $$v
+                                              )
+                                            },
+                                            expression: "item.identidad_genero"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "HETEROSEXUAL" }
+                                            },
+                                            [_vm._v("CISGENERO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "HOMOSEXUAL" } },
+                                            [_vm._v("TRANSGENERO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "BISEXUAL" } },
+                                            [_vm._v("TRANSEXUAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NODECLARA" } },
+                                            [
+                                              _vm._v(
+                                                "TERCER GENERO Ó NO BINARIOS"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.parentesco == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(parentesco) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                parentesco,
+                                                "parentesco",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.parentesco,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "parentesco",
+                                                typeof $$v === "string"
+                                                  ? $$v.trim()
+                                                  : $$v
+                                              )
+                                            },
+                                            expression: "item.parentesco"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.parentesco_options,
+                                            function(item) {
+                                              return _c(
+                                                "option",
+                                                {
+                                                  key: item.value,
+                                                  domProps: {
+                                                    value: item.value
+                                                  }
+                                                },
+                                                [_vm._v(_vm._s(item.texto))]
+                                              )
+                                            }
+                                          )
+                                        ],
+                                        2
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.telefono,
+                                            expression: "item.telefono",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.telefono == "" ? "" : "is-valid",
+                                        staticStyle: { width: "200px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Telefono"
+                                        },
+                                        domProps: { value: item.telefono },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "telefono",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "telefono",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.estado_civil == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(estado_civil) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                estado_civil,
+                                                "estado_civil",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.estado_civil,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "estado_civil",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.estado_civil"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(_vm.estado_options, function(
+                                            item
+                                          ) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: item.value,
+                                                domProps: { value: item.value }
+                                              },
+                                              [_vm._v(_vm._s(item.texto))]
+                                            )
+                                          })
+                                        ],
+                                        2
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: item.fecha_nacimiento,
+                                            expression: "item.fecha_nacimiento"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.fecha_nacimiento == ""
+                                            ? ""
+                                            : "is-valid",
+                                        staticStyle: { width: "200px" },
+                                        attrs: {
+                                          id: "date",
+                                          type: "date",
+                                          placeholder: "Fecha de Nacimiento",
+                                          max: _vm._f("moment")(_vm.hoy),
+                                          readonly: ""
+                                        },
+                                        domProps: {
+                                          value: item.fecha_nacimiento
+                                        },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "fecha_nacimiento",
+                                                $event.target.value
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "fecha_nacimiento",
+                                                index
+                                              )
+                                            }
+                                          ]
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: item.edad,
+                                            expression: "item.edad"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.edad == "" ? "" : "is-valid",
+                                        staticStyle: { width: "100px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Edad",
+                                          readonly: ""
+                                        },
+                                        domProps: { value: item.edad },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              item,
+                                              "edad",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.puntaje_sisben,
+                                            expression: "item.puntaje_sisben",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.puntaje_sisben == ""
+                                            ? ""
+                                            : "is-valid",
+                                        staticStyle: { width: "150px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Puntaje Sisben"
+                                        },
+                                        domProps: {
+                                          value: item.puntaje_sisben
+                                        },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "puntaje_sisben",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "puntaje_sisben",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: item.textoEps,
+                                            expression: "item.textoEps"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.textoEps == "" ? "" : "is-valid",
+                                        staticStyle: { width: "400px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Eps",
+                                          readonly: ""
+                                        },
+                                        domProps: { value: item.textoEps },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              item,
+                                              "textoEps",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.otra_eps,
+                                            expression: "item.otra_eps",
+                                            modifiers: { trim: true }
+                                          },
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              item.afiliacion_entidad == "OTRA",
+                                            expression:
+                                              "item.afiliacion_entidad=='OTRA'"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.otra_eps == "" ? "" : "is-valid",
+                                        staticStyle: { width: "400px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Cual"
+                                        },
+                                        domProps: { value: item.otra_eps },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              item,
+                                              "otra_eps",
+                                              $event.target.value.trim()
+                                            )
+                                          },
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.tipo_afiliacion == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(tipo_afiliacion) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                tipo_afiliacion,
+                                                "tipo_afiliacion",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.tipo_afiliacion,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "tipo_afiliacion",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.tipo_afiliacion"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "",
+                                                selected: "",
+                                                disabled:
+                                                  item.afiliacion_entidad ==
+                                                    "" ||
+                                                  item.afiliacion_entidad != ""
+                                              }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "0",
+                                                disabled:
+                                                  item.afiliacion_entidad ==
+                                                    "" ||
+                                                  item.afiliacion_entidad !=
+                                                    "NINGUNA"
+                                              }
+                                            },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "SUBSIDIADO",
+                                                disabled:
+                                                  item.afiliacion_entidad ==
+                                                    "" ||
+                                                  item.afiliacion_entidad ==
+                                                    "NINGUNA"
+                                              }
+                                            },
+                                            [_vm._v("SUBSIDIADO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "CONTRIBUTIVO",
+                                                disabled:
+                                                  item.afiliacion_entidad ==
+                                                    "" ||
+                                                  item.afiliacion_entidad ==
+                                                    "NINGUNA"
+                                              }
+                                            },
+                                            [_vm._v("CONTRIBUTIVO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "ESPECIAL",
+                                                disabled:
+                                                  item.afiliacion_entidad ==
+                                                    "" ||
+                                                  item.afiliacion_entidad ==
+                                                    "NINGUNA"
+                                              }
+                                            },
+                                            [_vm._v("ESPECIAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "PPNA",
+                                                disabled:
+                                                  item.afiliacion_entidad ==
+                                                    "" ||
+                                                  item.afiliacion_entidad ==
+                                                    "NINGUNA"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "POBLACIÓN POBRE NO ASEGURADA"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "BENEFICIARIO",
+                                                disabled:
+                                                  item.afiliacion_entidad ==
+                                                    "" ||
+                                                  item.afiliacion_entidad ==
+                                                    "NINGUNA"
+                                              }
+                                            },
+                                            [_vm._v("BENEFICIARIO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.embarazo == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(embarazo) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                embarazo,
+                                                "embarazo",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.embarazo,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "embarazo", $$v)
+                                            },
+                                            expression: "item.embarazo"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "",
+                                                selected: "",
+                                                disabled:
+                                                  item.sexo == "MASCULINO" ||
+                                                  item.sexo == "FEMENINO"
+                                              }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "SI",
+                                                disabled:
+                                                  item.sexo == "" ||
+                                                  item.sexo == "MASCULINO"
+                                              }
+                                            },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "NO",
+                                                disabled:
+                                                  item.sexo == "" ||
+                                                  item.sexo == "MASCULINO"
+                                              }
+                                            },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NOAPLICA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.embarazo_multiple == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(embarazo_multiple) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                embarazo_multiple,
+                                                "embarazo_multiple",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.embarazo_multiple,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "embarazo_multiple",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.embarazo_multiple"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "",
+                                                selected: "",
+                                                disabled:
+                                                  item.sexo == "MASCULINO" ||
+                                                  item.sexo == "FEMENINO"
+                                              }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "SI",
+                                                disabled:
+                                                  item.sexo == "" ||
+                                                  item.sexo == "MASCULINO" ||
+                                                  item.embarazo == "NO"
+                                              }
+                                            },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "NO",
+                                                disabled:
+                                                  item.sexo == "" ||
+                                                  item.sexo == "MASCULINO"
+                                              }
+                                            },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: {
+                                                value: "NOAPLICA",
+                                                disabled: item.embarazo == "NO"
+                                              }
+                                            },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.discapacidad == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(discapacidad) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                discapacidad,
+                                                "discapacidad",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.discapacidad,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "discapacidad",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.discapacidad"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("FISICA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("COGNITIVA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("SENSORIAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("PSÍQUICA")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "5" } },
+                                            [_vm._v("NINGUNA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.nivel_escolaridad == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(nivel_escolaridad) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                nivel_escolaridad,
+                                                "nivel_escolaridad",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.nivel_escolaridad,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "nivel_escolaridad",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.nivel_escolaridad"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "0" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.escolaridad_options,
+                                            function(item) {
+                                              return _c(
+                                                "option",
+                                                {
+                                                  key: item.value,
+                                                  domProps: {
+                                                    value: item.value
+                                                  }
+                                                },
+                                                [_vm._v(_vm._s(item.texto))]
+                                              )
+                                            }
+                                          )
+                                        ],
+                                        2
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: item.textoOcupacion,
+                                            expression: "item.textoOcupacion"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.textoOcupacion == ""
+                                            ? ""
+                                            : "is-valid",
+                                        staticStyle: { width: "400px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Ocupación",
+                                          readonly: ""
+                                        },
+                                        domProps: {
+                                          value: item.textoOcupacion
+                                        },
+                                        on: {
+                                          input: function($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              item,
+                                              "textoOcupacion",
+                                              $event.target.value
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: item.colegio,
+                                            expression: "item.colegio"
+                                          },
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              item.nivel_escolaridad == 3 ||
+                                              item.nivel_escolaridad == 14 ||
+                                              item.nivel_escolaridad == 15,
+                                            expression:
+                                              "item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.colegio == "" ? "" : "is-valid",
+                                        staticStyle: { width: "300px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Colegio"
+                                        },
+                                        domProps: { value: item.colegio },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "colegio",
+                                                $event.target.value
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "colegio",
+                                                index
+                                              )
+                                            }
+                                          ]
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "show",
+                                              rawName: "v-show",
+                                              value:
+                                                item.nivel_escolaridad == 3 ||
+                                                item.nivel_escolaridad == 14 ||
+                                                item.nivel_escolaridad == 15,
+                                              expression:
+                                                "item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
+                                            }
+                                          ],
+                                          class:
+                                            item.grado == "" ? "" : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(grado) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                grado,
+                                                "grado",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.grado,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "grado", $$v)
+                                            },
+                                            expression: "item.grado"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Ninguno" } },
+                                            [_vm._v("Ninguno")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.grados_option[
+                                              item.nivel_escolaridad
+                                            ],
+                                            function(item) {
+                                              return _c(
+                                                "option",
+                                                {
+                                                  key: item.value,
+                                                  domProps: {
+                                                    value: item.value
+                                                  }
+                                                },
+                                                [_vm._v(_vm._s(item.texto))]
+                                              )
+                                            }
+                                          )
+                                        ],
+                                        2
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.etnia == "" ? "" : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(etnia) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                etnia,
+                                                "etnia",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.etnia,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "etnia", $$v)
+                                            },
+                                            expression: "item.etnia"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(_vm.etnia_options, function(
+                                            item
+                                          ) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: item.value,
+                                                domProps: { value: item.value }
+                                              },
+                                              [_vm._v(_vm._s(item.texto))]
+                                            )
+                                          })
+                                        ],
+                                        2
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.clasificacion == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(clasificacion) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                clasificacion,
+                                                "clasificacion",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.clasificacion,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "clasificacion",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.clasificacion"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.clasifi_options[item.etnia],
+                                            function(item) {
+                                              return _c(
+                                                "option",
+                                                {
+                                                  key: item.value,
+                                                  domProps: {
+                                                    value: item.value
+                                                  }
+                                                },
+                                                [_vm._v(_vm._s(item.texto))]
+                                              )
+                                            }
+                                          )
+                                        ],
+                                        2
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.perdida_peso == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(perdida_peso) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                perdida_peso,
+                                                "perdida_peso",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.perdida_peso,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "perdida_peso",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.perdida_peso"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "ND" } },
+                                            [_vm._v("NO DECLARA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.entiende == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(entiende) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                entiende,
+                                                "entiende",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.entiende,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "entiende", $$v)
+                                            },
+                                            expression: "item.entiende"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.pyp == "" ? "" : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(pyp) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                pyp,
+                                                "pyp",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.pyp,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "pyp", $$v)
+                                            },
+                                            expression: "item.pyp"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Crecimiento" } },
+                                            [_vm._v("Crecimiento y Desarrollo")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Joven" } },
+                                            [_vm._v("Joven")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Adulto" } },
+                                            [_vm._v("Adulto Mayor")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "Planificacion" }
+                                            },
+                                            [_vm._v("Planificación Familiar")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Control" } },
+                                            [_vm._v("Control Prenatal")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "Alimentacion" }
+                                            },
+                                            [_vm._v("Alimentación Escolar")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Ninguno" } },
+                                            [_vm._v("Ninguno")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.migrante == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(migrante) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                migrante,
+                                                "migrante",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.migrante,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "migrante", $$v)
+                                            },
+                                            expression: "item.migrante"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model.trim",
+                                            value: item.salario,
+                                            expression: "item.salario",
+                                            modifiers: { trim: true }
+                                          }
+                                        ],
+                                        staticClass:
+                                          "form-control text-capitalize",
+                                        class:
+                                          item.salario == "" ? "" : "is-valid",
+                                        staticStyle: { width: "150px" },
+                                        attrs: {
+                                          type: "text",
+                                          placeholder: "Salario"
+                                        },
+                                        domProps: { value: item.salario },
+                                        on: {
+                                          input: [
+                                            function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                item,
+                                                "salario",
+                                                $event.target.value.trim()
+                                              )
+                                            },
+                                            function($event) {
+                                              return _vm.changeupdateJefe(
+                                                item,
+                                                $event,
+                                                "salario",
+                                                index
+                                              )
+                                            }
+                                          ],
+                                          blur: function($event) {
+                                            return _vm.$forceUpdate()
+                                          }
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.programa_icbf == ""
+                                              ? ""
+                                              : "is-valid",
+                                          staticStyle: { width: "200px" },
+                                          on: {
+                                            input: function(programa_icbf) {
+                                              return _vm.updateJefe(
+                                                item,
+                                                programa_icbf,
+                                                "programa_icbf",
+                                                index
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: item.programa_icbf,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                item,
+                                                "programa_icbf",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "item.programa_icbf"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("NO APLICA")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "text-align": "center",
+                                        "vertical-align": "middle"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-icon btn-sm btn-outline-danger",
+                                          attrs: {
+                                            type: "button",
+                                            title: "Eliminar"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.eliminarItemJefe(
+                                                index,
+                                                item
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-trash"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              }),
+                              0
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ])
+                  ])
                 ]
               )
             ])
-          ])
-        ]
+          ]),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              ref: "modalOcupaciones",
+              attrs: {
+                "hide-footer": "",
+                title: "Ocupaciones",
+                size: "xl",
+                centered: "",
+                "header-bg-variant": "danger",
+                "header-text-variant": "light",
+                "no-close-on-backdrop": true
+              }
+            },
+            [
+              _c("div", { staticClass: "d-block" }, [
+                _c("form", [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6 col-lg-6" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                      _c("form", { staticClass: "kt-form" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "input-group" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.txtbusqueda,
+                                  expression: "txtbusqueda"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "text", placeholder: "Busqueda" },
+                              domProps: { value: _vm.txtbusqueda },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.txtbusqueda = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "input-group-append" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary btn-icon",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.consultarOcupaciones(1)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-search" })]
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "table-responsive",
+                          staticStyle: { height: "350px" }
+                        },
+                        [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _c("thead", {}, [
+                                _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                                  _c("th", [_vm._v("No.")]),
+                                  _vm._v(" "),
+                                  _c("th", [_vm._v("Ocupación")]),
+                                  _vm._v(" "),
+                                  _c("td", { staticClass: "text-center" }, [
+                                    _vm._v("Opciones")
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.ocupacionesVector, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c("tr", { key: index }, [
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(index + 1))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle",
+                                          "text-align": "left",
+                                          "text-transform": "capitalize"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-capitalize" },
+                                          [_vm._v(_vm._s(item.descripcion))]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "text-align": "center",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-icon btn-sm btn-outline-success",
+                                            attrs: {
+                                              type: "button",
+                                              title: "Seleccionar"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.seleccionarOcupaciones(
+                                                  item
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "svg",
+                                              {
+                                                staticClass: "kt-svg-icon",
+                                                attrs: {
+                                                  xmlns:
+                                                    "http://www.w3.org/2000/svg",
+                                                  "xmlns:xlink":
+                                                    "http://www.w3.org/1999/xlink",
+                                                  width: "24px",
+                                                  height: "24px",
+                                                  viewBox: "0 0 24 24",
+                                                  version: "1.1"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "g",
+                                                  {
+                                                    attrs: {
+                                                      stroke: "none",
+                                                      "stroke-width": "1",
+                                                      fill: "none",
+                                                      "fill-rule": "evenodd"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("polygon", {
+                                                      attrs: {
+                                                        id: "Shape",
+                                                        points:
+                                                          "0 0 24 0 24 24 0 24"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d:
+                                                          "M6.26193932,17.6476484 C5.90425297,18.0684559 5.27315905,18.1196257 4.85235158,17.7619393 C4.43154411,17.404253 4.38037434,16.773159 4.73806068,16.3523516 L13.2380607,6.35235158 C13.6013618,5.92493855 14.2451015,5.87991302 14.6643638,6.25259068 L19.1643638,10.2525907 C19.5771466,10.6195087 19.6143273,11.2515811 19.2474093,11.6643638 C18.8804913,12.0771466 18.2484189,12.1143273 17.8356362,11.7474093 L14.0997854,8.42665306 L6.26193932,17.6476484 Z",
+                                                        id: "Path-94",
+                                                        fill: "#000000",
+                                                        "fill-rule": "nonzero",
+                                                        transform:
+                                                          "translate(11.999995, 12.000002) rotate(-180.000000) translate(-11.999995, -12.000002) "
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-right" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        attrs: { type: "button" },
+                        on: { click: _vm.cerrarModal }
+                      },
+                      [
+                        _c("i", { staticClass: "fa fa-window-close" }),
+                        _vm._v(" Cerrar\n              ")
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              ref: "modalActividad",
+              attrs: {
+                "hide-footer": "",
+                title: "Actividades Economicas",
+                size: "xl",
+                centered: "",
+                "header-bg-variant": "danger",
+                "header-text-variant": "light",
+                "no-close-on-backdrop": true
+              }
+            },
+            [
+              _c("div", { staticClass: "d-block" }, [
+                _c("form", [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                      _c("form", { staticClass: "kt-form" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "input-group" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.txtbusquedaAct,
+                                  expression: "txtbusquedaAct"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "text", placeholder: "Busqueda" },
+                              domProps: { value: _vm.txtbusquedaAct },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.txtbusquedaAct = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "input-group-append" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary btn-icon",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.consultarActividades(1)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "fa fa-search" })]
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "table-responsive",
+                          staticStyle: { height: "350px" }
+                        },
+                        [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _c("thead", {}, [
+                                _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                                  _c("th", [_vm._v("No.")]),
+                                  _vm._v(" "),
+                                  _c("th", [_vm._v("Actividad Economica")]),
+                                  _vm._v(" "),
+                                  _c("td", { staticClass: "text-center" }, [
+                                    _vm._v("Opciones")
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.actividadesVector, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c("tr", { key: index }, [
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(index + 1))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle",
+                                          "text-align": "left",
+                                          "text-transform": "capitalize"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-capitalize" },
+                                          [_vm._v(_vm._s(item.descripcion))]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "text-align": "center",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-icon btn-sm btn-outline-success",
+                                            attrs: {
+                                              type: "button",
+                                              title: "Seleccionar"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.seleccionarActividades(
+                                                  item
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "svg",
+                                              {
+                                                staticClass: "kt-svg-icon",
+                                                attrs: {
+                                                  xmlns:
+                                                    "http://www.w3.org/2000/svg",
+                                                  "xmlns:xlink":
+                                                    "http://www.w3.org/1999/xlink",
+                                                  width: "24px",
+                                                  height: "24px",
+                                                  viewBox: "0 0 24 24",
+                                                  version: "1.1"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "g",
+                                                  {
+                                                    attrs: {
+                                                      stroke: "none",
+                                                      "stroke-width": "1",
+                                                      fill: "none",
+                                                      "fill-rule": "evenodd"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c("polygon", {
+                                                      attrs: {
+                                                        id: "Shape",
+                                                        points:
+                                                          "0 0 24 0 24 24 0 24"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c("path", {
+                                                      attrs: {
+                                                        d:
+                                                          "M6.26193932,17.6476484 C5.90425297,18.0684559 5.27315905,18.1196257 4.85235158,17.7619393 C4.43154411,17.404253 4.38037434,16.773159 4.73806068,16.3523516 L13.2380607,6.35235158 C13.6013618,5.92493855 14.2451015,5.87991302 14.6643638,6.25259068 L19.1643638,10.2525907 C19.5771466,10.6195087 19.6143273,11.2515811 19.2474093,11.6643638 C18.8804913,12.0771466 18.2484189,12.1143273 17.8356362,11.7474093 L14.0997854,8.42665306 L6.26193932,17.6476484 Z",
+                                                        id: "Path-94",
+                                                        fill: "#000000",
+                                                        "fill-rule": "nonzero",
+                                                        transform:
+                                                          "translate(11.999995, 12.000002) rotate(-180.000000) translate(-11.999995, -12.000002) "
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-right" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        attrs: { type: "button" },
+                        on: { click: _vm.cerrarModal }
+                      },
+                      [
+                        _c("i", { staticClass: "fa fa-window-close" }),
+                        _vm._v(" Cerrar\n              ")
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]
+          )
+        ],
+        1
       )
     ])
   ])
@@ -2739,6 +10124,84 @@ var staticRenderFns = [
         },
         [_vm._v("Jefe del Hogar")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tipo de Documento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Documento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Primer Nombre")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Segundo Nombre")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Primer Apellido")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Segundo Apellido")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Sexo")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Orientación Sexual")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Identidad de Genero")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Parentesco")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Telefono")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Estado Civil")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nacimiento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Edad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Puntaje Sisben")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Eps")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Cual Eps")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tipo Afiliación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Embarazo")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Embarazo Multiple")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Discapacidad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nivel de Escolaridad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Ocupación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Colegio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Grado")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Etnia")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Clasificación de la Etnia")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Perdida de Peso")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Entiende Español")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("PYP")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Migrante")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Salario")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Programa ICBF")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [_vm._v("Opciones")])
+      ])
     ])
   }
 ]
