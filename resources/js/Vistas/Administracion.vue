@@ -335,10 +335,8 @@
                         <div
                             class="tab-pane active"
                             id="tabZonas"
-                            role="tabpanel"
-                            
+                            role="tabpanel"                            
                         >
-                            
                             <div class="row" >
                                 <!--Begin:: App Aside-->
                                 <div class="col-3" >
@@ -1076,12 +1074,12 @@
                         <!-- PANEL ZONAS -->
                         <!-- PANEL POBLACION -->
                         <div class="tab-pane" id="tabPoblacion" role="tabpanel" >
-                            <div class="row">
+                            <div class="row">                                                     
                                 <!--Begin:: App Aside-->
                                 <div class="col-3">
                                     <div
                                         class="kt-portlet kt-portlet--height-fluid-half "
-                                        style="background-color:#818bb4;height: auto;width: 230px;"
+                                        style="background-color:#818bb4;height: auto;width: 230px;"                                        
                                     >
                                         <div
                                             class="kt-portlet__body kt-portlet__body--fit-y"
@@ -1202,6 +1200,13 @@
                                             <td>
                                                 <div
                                                     class="kt-portlet kt-portlet--height-fluid grayclase"
+                                                    data-container="body" 
+                                                    data-toggle="kt-popover" 
+                                                    data-placement="left" 
+                                                    data-content=""
+                                                    data-html="true"
+                                                    title="<b>Población Entrevistada</b>"
+                                                    @click="abrirModal('PobEnt')"
                                                 >
                                                     <div
                                                         class="kt-widget14 img-contenedor"
@@ -1219,8 +1224,9 @@
                                                             </h3>
                                                         </div>
                                                         <div
-                                                            class="kt-widget14__content "
+                                                            class="kt-widget14__content"                                                            
                                                         >
+                                                            
                                                             <div
                                                                 class="kt-widget14__chart text-center "
                                                             >
@@ -1239,7 +1245,7 @@
                                                                 class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
                                                                 style="font-size: 12px;color: #818bb4 !important;"
                                                             >
-                                                                705 Personas
+                                                                {{pob_entrevistada}} Personas
                                                             </h3>
                                                         </div>
                                                     </div>
@@ -1252,7 +1258,14 @@
                                             <td></td>
                                             <td>
                                                 <div
-                                                    class="kt-portlet kt-portlet--height-fluid"
+                                                    class="kt-portlet kt-portlet--height-fluid"    
+                                                    data-container="body" 
+                                                    data-toggle="kt-popover" 
+                                                    data-placement="left" 
+                                                    data-content=""
+                                                    data-html="true"
+                                                    title="<b>Viviendas Visitadas</b>"
+                                                    @click="abrirModal('VivVis')"
                                                 >
                                                     <div
                                                         class="kt-widget14 img-contenedor"
@@ -1290,7 +1303,7 @@
                                                                 class="kt-widget14__legend kt-font-danger font-weight-bold text-center"
                                                                 style="font-size: 12px;color: #818bb4 !important;"
                                                             >
-                                                                200 Viviendas
+                                                                {{viv_visitadas}} Viviendas
                                                             </h3>
                                                         </div>
                                                     </div>
@@ -1304,6 +1317,13 @@
                                             <td>
                                                 <div
                                                     class="kt-portlet kt-portlet--height-fluid"
+                                                    data-container="body" 
+                                                    data-toggle="kt-popover" 
+                                                    data-placement="left" 
+                                                    data-content=""
+                                                    data-html="true"
+                                                    title="<b>Hogares Visitados</b>"
+                                                    @click="abrirModal('HogVis')"
                                                 >
                                                     <div
                                                         class="kt-widget14 img-contenedor"
@@ -1414,10 +1434,11 @@
                                             <td>
                                                 <div
                                                     class="kt-portlet kt-portlet--height-fluid grayclase"
+                                                    @click="abrirModal('Salud')"
                                                 >
                                                     <div
                                                         class="kt-widget14 img-contenedor"
-                                                        style="cursor:pointer;width: 200px;"
+                                                        style="cursor:pointer;width: 200px;"                                                        
                                                     >
                                                         <div
                                                             class="kt-widget14__header"
@@ -1513,10 +1534,12 @@
                                             <td>
                                                 <div
                                                     class="kt-portlet kt-portlet--height-fluid"
+                                                    @click="abrirModal('Socio')"
                                                 >
                                                     <div
                                                         class="kt-widget14 img-contenedor"
                                                         style="cursor:pointer;width: 200px;"
+                                                        
                                                     >
                                                         <div
                                                             class="kt-widget14__header"
@@ -3594,6 +3617,373 @@
                         </div>
                     </div>
                 </div>
+
+                <!--begin::Modal-->
+                <div class="modal fade" id="modalProfesional" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title " id="exampleModalLabel"><span style="color:#5d78ff;font-size: 2.3rem; "> Estadisticas</span></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <section v-show="varmodal == 'PobEnt'">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="kt-portlet kt-portlet--height-fluid">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Total de Población Entrevistada
+                                                        </h3>
+                                                        <!-- <span class="kt-widget14__desc">
+                                                            Revenue change breakdown by cities
+                                                        </span> -->
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaPobEnt1" id="graficaPobEnt1" style="height: 300px; width: 300px;"></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #5d78ff !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{pob_entrevistadaPor}}% Entrevistada</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="kt-portlet kt-portlet--height-fluid">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Viviendas Visitadas
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaPorCi" id="graficaPorCi" style="height: 300px; width: 300px;"></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{viviendas}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #dd0b19 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{viv_visitadas}}% Entrevistada</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                                                                                                    
+                                    </div>
+                                </section>
+
+                                <section v-show="varmodal == 'VivVis'">
+                                    <div class="row">
+                                        <div class="col-md-12" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Viviendas Visitadas
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaPorCi2" id="graficaPorCi2" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{viviendas}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #dd0b19 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{viv_visitadas}}% Visitadas</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                                                                                                    
+                                    </div>
+                                </section>
+
+                                <section v-show="varmodal == 'HogVis'">
+                                    <div class="row">
+                                        <div class="col-md-12" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Hogares Visitados
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaHogVis" id="graficaHogVis" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{viviendas}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #dd0b19 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{totalhogares}} Visitados</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                                                                                                    
+                                    </div>
+                                </section>
+
+                                <section v-show="varmodal == 'Salud'">
+                                    <div class="row">
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Adolescentes Embarazadas
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaAdoEmb" id="graficaAdoEmb" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #dd0b19 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{adolescentes}} Embarazadas</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Adultos con Enfermedades Cronicas
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaAdulCro" id="graficaAdulCro" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #e1b621 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{adulCron}} Enf. Cronicas</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">   
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Adultos con Enfermedades Infecciosas
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaAdulInfec" id="graficaAdulInfec" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #3c84c5 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{adulInfec}} Enf. Infecciosas</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Total de Gestantes
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaGestan" id="graficaGestan" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #de3f41 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{gestantes}} Gestantes</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                                                                                                                                                                                                                            
+                                    </div>
+                                </section>
+
+                                <section v-show="varmodal == 'Socio'">
+                                    <div class="row">
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Población Inmigrante
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaPobInm" id="graficaPobInm" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #dd0b19 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{inmigrantes}} Inmigrantes</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Desempleados
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaDesem" id="graficaDesem" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #e1b621 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{desempleados}} Desempleados</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">   
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Población Indigenas
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaIndi" id="graficaIndi" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #3c84c5 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{indigenas}} Indigenas</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6" >
+                                            <div class="kt-portlet kt-portlet--height-fluid ">
+                                                <div class="kt-widget14">
+                                                    <div class="kt-widget14__header">
+                                                        <h3 class="kt-widget14__title">
+                                                            Analfabetas
+                                                        </h3>
+                                                    </div>
+                                                    <div class="kt-widget14__content">
+                                                        <div class="kt-widget14__chart">
+                                                            <div ref="graficaAnalfa" id="graficaAnalfa" style="height: 300px; width: 300px;" class=""></div>
+                                                        </div>
+                                                        <div class="kt-widget14__legends">
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet " style="background-color: #646C9A !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{poblacion}}% Total</span></span>
+                                                            </div>
+                                                            <div class="kt-widget14__legend">
+                                                                <span class="kt-widget14__bullet" style="background-color: #de3f41 !important;"></span>
+                                                                <span class="kt-widget14__stats"><span style="color: black;">{{analfabetas}} Analfabetas</span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                                                                                                                                                                                                                            
+                                    </div>
+                                </section>                                                                                                                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" @click="cerrarModal">
+                                        <i class="fa fa-window-close"></i> Cerrar
+                                    </button>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Modal-->              
             </div>
         </div>
     </div>
@@ -3601,20 +3991,9 @@
 
 <script>
 "use strict";
-import * as caracterizacionServicios from "../Servicios/caracterizacion_servicios";
+import * as administracionServicios from "../Servicios/administracion_servicios";
 export default {
     mounted() {
-        // $("html").css("MozTransform", "scale(.98)");
-        // var zoom = 1.5;
-        // var docViewer = getBrowser().mCurrentBrowser.markupDocumentViewer;
-        // docViewer.fullZoom = zoom;
-        // console.log(window.scrollY);
-        // let offcanvas = new KTOffcanvas("kt_user_profile_aside", {
-        //     overlay: true,
-        //     baseClass: "kt-app__aside",
-        //     closeBy: "kt_user_profile_aside_close",
-        //     toggleBy: "kt_subheader_mobile_toggle"
-        // });
         this.nuevo();
     },
     data() {
@@ -3622,233 +4001,51 @@ export default {
             csrf: document
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content"),
-            barra: "baradescroll"    
+            barra: "baradescroll",
+            varmodal: "",
+            poblacion: 0,
+            pob_entrevistada: 0,
+            pob_entrevistadaPor: 0,
+            viviendas: 0,
+            viv_visitadas: 0,
+            viv_visitadasPor: 0,
+            hog_visitados: 0,
+            hog_visitadosPor: 0,
+            totalhogares: 0,
+            adolescentes: 0,
+            adulCron: 0,
+            adulInfec: 0,
+            gestantes: 0,
+            inmigrantes: 0,
+            desempleados: 0,
+            indigenas: 0,
+            analfabetas: 0
         };
     },
     methods: {
         nuevo: async function() {
-            // demo loading
-            var loading = new KTDialog({
-                type: "loader",
-                placement: "top center",
-                message: "Cargando ..."
-            });
-            loading.show();
-
-            setTimeout(function() {
-                loading.hide();
-            }, 3000);
-            //POBLACION ENTREVISTADA
-            if (!this.$refs.graficaPobEnt) {
-                return;
-            }
-
-            var config = {
-                type: "doughnut",
-                data: {
-                    datasets: [
-                        {
-                            data: [35, 30],
-                            backgroundColor: ["#3c84c5", "#dd0b19", "#5d78ff"]
-                        }
-                    ],
-                    labels: ["Población Total", "Población Entrevistada"]
-                },
-                options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                        position: "bottom"
-                    },
-                    title: {
-                        display: false,
-                        text: "Technology"
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true
-                    },
-                    tooltips: {
-                        enabled: true,
-                        intersect: false,
-                        mode: "nearest",
-                        bodySpacing: 5,
-                        yPadding: 10,
-                        xPadding: 10,
-                        caretPadding: 0,
-                        displayColors: false,
-                        backgroundColor: "#5d78ff",
-                        titleFontColor: "#ffffff",
-                        cornerRadius: 4,
-                        footerSpacing: 0,
-                        titleSpacing: 0
-                    }
-                }
+            const parametros = {
+                _token: this.csrf,
+                opcion: "Todos"
             };
-            var ctx = this.$refs.graficaPobEnt;
-            var myDoughnut = new Chart(ctx, config);
-            //POBLACION ENTREVISTADA
 
-            //VIVIENDAS VISITADAS
-            if (!this.$refs.graficaVivVi) {
-                return;
-            }
-
-            var config = {
-                type: "doughnut",
-                data: {
-                    datasets: [
-                        {
-                            data: [300, 80],
-                            backgroundColor: ["#409143", "#f5a719", "#5d78ff"]
-                        }
-                    ],
-                    labels: ["Viviendas Totales", "Viviendas Visitadas"]
-                },
-                options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                        position: "top"
-                    },
-                    title: {
-                        display: false,
-                        text: "Technology"
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true
-                    },
-                    tooltips: {
-                        enabled: false,
-                        intersect: false,
-                        mode: "nearest",
-                        bodySpacing: 5,
-                        yPadding: 10,
-                        xPadding: 10,
-                        caretPadding: 0,
-                        displayColors: false,
-                        backgroundColor: "#5d78ff",
-                        titleFontColor: "#ffffff",
-                        cornerRadius: 4,
-                        footerSpacing: 0,
-                        titleSpacing: 0
-                    }
+            try {
+            await administracionServicios
+                .listar(parametros)
+                .then(respuesta => {
+                    this.pob_entrevistada = respuesta.data.totalEntrevistada;
+                    this.viv_visitadas = respuesta.data.viviendasVisitados;
+                });
+            } catch (error) {
+                switch (error.response.status) {
+                    case 422:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                    default:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
                 }
-            };
-            var ctx = this.$refs.graficaVivVi;
-            var myDoughnut = new Chart(ctx, config);
-            //VIVIENDAS VISITADAS
-
-            //IDENTIFICACION DE RIESGO SALUD
-            if (!this.$refs.graficaIdeRieSal) {
-                return;
-            }
-
-            var config = {
-                type: "doughnut",
-                data: {
-                    datasets: [
-                        {
-                            data: [100, 35],
-                            backgroundColor: ["#34bfa3", "#fd3995", "#5d78ff"]
-                        }
-                    ],
-                    labels: ["Población Total", "Porcentaje de Salud"]
-                },
-                options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                        position: "top"
-                    },
-                    title: {
-                        display: false,
-                        text: "Technology"
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true
-                    },
-                    tooltips: {
-                        enabled: false,
-                        intersect: false,
-                        mode: "nearest",
-                        bodySpacing: 5,
-                        yPadding: 10,
-                        xPadding: 10,
-                        caretPadding: 0,
-                        displayColors: false,
-                        backgroundColor: "#5d78ff",
-                        titleFontColor: "#ffffff",
-                        cornerRadius: 4,
-                        footerSpacing: 0,
-                        titleSpacing: 0
-                    }
-                }
-            };
-            var ctx = this.$refs.graficaIdeRieSal;
-            var myDoughnut = new Chart(ctx, config);
-            //IDENTIFICACION DE RIESGO SALUD
-
-            //IDENTIFICACION DE RIESGO SALUD
-            if (!this.$refs.graficaIdeRieAmb) {
-                return;
-            }
-
-            var config = {
-                type: "doughnut",
-                data: {
-                    datasets: [
-                        {
-                            data: [100, 32],
-                            backgroundColor: ["#34bfa3", "#fd3995", "#5d78ff"]
-                        }
-                    ],
-                    labels: ["Población Total", "Porcentaje Ambiental"]
-                },
-                options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                        position: "top"
-                    },
-                    title: {
-                        display: false,
-                        text: "Technology"
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true
-                    },
-                    tooltips: {
-                        enabled: false,
-                        intersect: false,
-                        mode: "nearest",
-                        bodySpacing: 5,
-                        yPadding: 10,
-                        xPadding: 10,
-                        caretPadding: 0,
-                        displayColors: false,
-                        backgroundColor: "#5d78ff",
-                        titleFontColor: "#ffffff",
-                        cornerRadius: 4,
-                        footerSpacing: 0,
-                        titleSpacing: 0
-                    }
-                }
-            };
-            var ctx = this.$refs.graficaIdeRieAmb;
-            var myDoughnut = new Chart(ctx, config);
-            //IDENTIFICACION DE RIESGO SALUD
+            }            
         },
         derecha(){
             var imageWidth = 500;
@@ -3872,12 +4069,441 @@ export default {
                 this.barra = "baradescroll3";
             }
             $("#"+this.barra).animate({scrollLeft:"-="+0}, 500);
-        }
+        },
+        abrirModal(opcion) {
+            // this.$refs.modalProfesional.show();
+            $("#modalProfesional").modal("show");
+            this.buscar(opcion);
+        },
+        cerrarModal() {
+            $("#modalProfesional").modal("hide");
+        },
+        buscar: async function(opcion){
+            //POBLACION ENTREVISTADA
+            if(opcion === "PobEnt"){
+                const parametros = {
+                    _token: this.csrf,
+                    opcion: opcion
+                };
+
+                try {
+                await administracionServicios
+                    .listar(parametros)
+                    .then(respuesta => {
+                        
+                        this.poblacion = Math.floor(respuesta.data.poblacion/respuesta.data.poblacion*100);
+                        this.pob_entrevistadaPor = Math.floor(respuesta.data.totalEntrevistada/respuesta.data.poblacion*100);
+                        this.viviendas = Math.floor(respuesta.data.viviendas/respuesta.data.viviendas*100);
+                        this.viv_visitadasPor = Math.floor(respuesta.data.viviendasVisitados/respuesta.data.viviendas*100);
+
+                        this.$refs.graficaPobEnt1.length="";
+                        $("#graficaPobEnt1").html("");
+                        Morris.Donut({
+                            element: 'graficaPobEnt1',
+                            resize: true,
+                            data: [{
+                                    label: "Población Total",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Población Entrevistada",
+                                    value: respuesta.data.totalEntrevistada
+                                }
+                            ],
+                            // formatter: function (value, data) { 
+                            //     return Math.floor(value/3000*100) + '%'; 
+                            // },                    
+                            colors: [
+                                "networking", "#5d78ff", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaPobEnt1").find("tspan").attr('dy', '5');
+                        
+                        this.$refs.graficaPorCi.length="";
+                        $("#graficaPorCi").html("");
+                        Morris.Donut({
+                            element: 'graficaPorCi',
+                            resize: true,
+                            data: [{
+                                    label: "Total Viviendas",
+                                    value: respuesta.data.viviendas
+                                },
+                                {
+                                    label: "Viviendas Visitadas",
+                                    value: respuesta.data.viviendasVisitados
+                                }
+                            ],
+                            // formatter: function (value, data) { 
+                            //     return Math.floor(value/3000*100) + '%'; 
+                            // },                    
+                            colors: [
+                                "networking", "#dd0b19", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaPorCi").find("tspan").attr('dy', '5');                        
+                        // console.log(this.totalCiclos);
+                        });
+
+
+                } catch (error) {
+                    switch (error.response.status) {
+                        case 422:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                        default:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                    }
+                }                
+            }
+            if(opcion === "VivVis"){
+                const parametros = {
+                    _token: this.csrf,
+                    opcion: opcion
+                };
+
+                try {
+                await administracionServicios
+                    .listar(parametros)
+                    .then(respuesta => {                        
+                        this.viviendas = Math.floor(respuesta.data.viviendas/respuesta.data.viviendas*100);
+                        this.viv_visitadasPor = Math.floor(respuesta.data.viviendasVisitados/respuesta.data.viviendas*100);
+                        
+                        this.$refs.graficaPorCi2.length="";
+                        $("#graficaPorCi2").html("");
+                        Morris.Donut({
+                            element: 'graficaPorCi2',
+                            resize: true,
+                            data: [{
+                                    label: "Total Viviendas",
+                                    value: respuesta.data.viviendas
+                                },
+                                {
+                                    label: "Viviendas Visitadas",
+                                    value: respuesta.data.viviendasVisitados
+                                }
+                            ],
+                            // formatter: function (value, data) { 
+                            //     return Math.floor(value/3000*100) + '%'; 
+                            // },                    
+                            colors: [
+                                "networking", "#dd0b19", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaPorCi2").find("tspan").attr('dy', '5');                        
+                        // console.log(this.totalCiclos);
+                        });
+
+
+                } catch (error) {
+                    switch (error.response.status) {
+                        case 422:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                        default:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                    }
+                }                
+            }
+            if(opcion === "HogVis"){
+                const parametros = {
+                    _token: this.csrf,
+                    opcion: opcion
+                };
+
+                try {
+                await administracionServicios
+                    .listar(parametros)
+                    .then(respuesta => {                        
+                        this.viviendas = Math.floor(respuesta.data.viviendas/respuesta.data.viviendas*100);
+                        this.viv_visitadasPor = Math.floor(respuesta.data.viviendasVisitados/respuesta.data.viviendas*100);
+                        this.totalhogares = respuesta.data.totalhogares;
+                        this.$refs.graficaHogVis.length="";
+                        $("#graficaHogVis").html("");
+                        Morris.Donut({
+                            element: 'graficaHogVis',
+                            resize: true,
+                            data: [{
+                                    label: "Total Viviendas",
+                                    value: respuesta.data.viviendas
+                                },
+                                {
+                                    label: "Hogares Visitados",
+                                    value: respuesta.data.totalhogares
+                                }
+                            ],
+                            // formatter: function (value, data) { 
+                            //     return Math.floor(value/3000*100) + '%'; 
+                            // },                    
+                            colors: [
+                                "networking", "#dd0b19", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaHogVis").find("tspan").attr('dy', '5');                        
+                        // console.log(this.totalCiclos);
+                        });
+
+
+                } catch (error) {
+                    switch (error.response.status) {
+                        case 422:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                        default:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                    }
+                }                
+            }            
+            if(opcion === "Salud"){
+                const parametros = {
+                    _token: this.csrf,
+                    opcion: opcion
+                };
+
+                try {
+                await administracionServicios
+                    .listar(parametros)
+                    .then(respuesta => {                        
+                        this.poblacion = Math.floor(respuesta.data.poblacion/respuesta.data.poblacion*100);                        
+                        this.adolescentes = respuesta.data.adolescentes;
+                        this.adulCron = respuesta.data.adulCron;
+                        this.adulInfec = respuesta.data.adulInfec;
+                        this.gestantes = respuesta.data.gestantes;
+                        
+                        
+                        this.$refs.graficaAdoEmb.length="";
+                        $("#graficaAdoEmb").html("");
+                        Morris.Donut({
+                            element: 'graficaAdoEmb',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Adolescentes Embarazadas",
+                                    value: respuesta.data.adolescentes
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#dd0b19", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaAdoEmb").find("tspan").attr('dy', '5');                        
+
+                        this.$refs.graficaAdulCro.length="";
+                        $("#graficaAdulCro").html("");
+                        Morris.Donut({
+                            element: 'graficaAdulCro',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Enfermedades Cronicas",
+                                    value: respuesta.data.adulCron
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#e1b621", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaAdulCro").find("tspan").attr('dy', '5');
+
+                        this.$refs.graficaAdulInfec.length="";
+                        $("#graficaAdulInfec").html("");
+                        Morris.Donut({
+                            element: 'graficaAdulInfec',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Enfermedades Infecciosas",
+                                    value: respuesta.data.adulInfec
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#3c84c5", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaAdulInfec").find("tspan").attr('dy', '5');
+
+                        this.$refs.graficaGestan.length="";
+                        $("#graficaGestan").html("");
+                        Morris.Donut({
+                            element: 'graficaGestan',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Gestantes",
+                                    value: respuesta.data.gestantes
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#de3f41", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaGestan").find("tspan").attr('dy', '5');                        
+                            
+                            
+                    });
+
+
+                } catch (error) {
+                    switch (error.response.status) {
+                        case 422:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                        default:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                    }
+                }                
+            }
+            if(opcion === "Socio"){
+                const parametros = {
+                    _token: this.csrf,
+                    opcion: opcion
+                };
+
+                try {
+                await administracionServicios
+                    .listar(parametros)
+                    .then(respuesta => {                        
+                        this.poblacion = Math.floor(respuesta.data.poblacion/respuesta.data.poblacion*100);                        
+                        this.inmigrantes = respuesta.data.inmigrantes;
+                        this.desempleados = respuesta.data.desempleados;
+                        this.indigenas = respuesta.data.indigenas;
+                        this.analfabetas = respuesta.data.analfabetas;
+                        
+                        this.$refs.graficaPobInm.length="";
+                        $("#graficaPobInm").html("");
+                        Morris.Donut({
+                            element: 'graficaPobInm',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Población Inmigrante",
+                                    value: respuesta.data.inmigrantes
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#dd0b19", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaPobInm").find("tspan").attr('dy', '5');                        
+
+                        this.$refs.graficaDesem.length="";
+                        $("#graficaDesem").html("");
+                        Morris.Donut({
+                            element: 'graficaDesem',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Desempleados",
+                                    value: respuesta.data.desempleados
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#e1b621", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaDesem").find("tspan").attr('dy', '5');  
+
+                        this.$refs.graficaIndi.length="";
+                        $("#graficaIndi").html("");
+                        Morris.Donut({
+                            element: 'graficaIndi',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Indigenas",
+                                    value: respuesta.data.indigenas
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#3c84c5", "#5d78ff"
+                            ],
+                        });                        
+                        $("#graficaIndi").find("tspan").attr('dy', '5');
+                        
+                        this.$refs.graficaAnalfa.length="";
+                        $("#graficaAnalfa").html("");
+                        Morris.Donut({
+                            element: 'graficaAnalfa',
+                            resize: true,
+                            data: [{
+                                    label: "Total Población",
+                                    value: respuesta.data.poblacion
+                                },
+                                {
+                                    label: "Analfabetas",
+                                    value: respuesta.data.analfabetas
+                                }
+                            ],                 
+                            colors: [
+                                "networking", "#de3f41", "#de3f41"
+                            ],
+                        });                        
+                        $("#graficaAnalfa").find("tspan").attr('dy', '5');                                                 
+
+
+
+                    });
+
+
+                } catch (error) {
+                    switch (error.response.status) {
+                        case 422:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                        default:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                    }
+                }                
+            }                                  
+            this.varmodal = opcion;
+            //POBLACION ENTREVISTADA
+            
+        }      
     }
 };
 </script>
 
 <style>
+.kt-bg-wor{
+    background-color: #646C9A !important;
+}
+.modal-lg, .modal-xl {
+    max-width: 90%;
+}
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .modal-title {
+    color: #f8f9fa !important;
+  }
+  .close {
+    display: none;
+  }
 .color-datepicker {
     background: #f2f2f2;
     border: 1px solid #ddd;

@@ -1270,11 +1270,12 @@
                               type="text"
                               class="form-control text-capitalize"
                               placeholder="Colegio"
-                              v-model="item.colegio"
-                              :class="item.colegio==''?'':'is-valid'"
+                              v-model="item.textoColegio"
+                              :class="item.textoColegio==''?'':'is-valid'"
                               @input="changeupdateJefe(item,$event,'colegio',index)"
                               style="width:300px;"
                               v-show="item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
+                              readonly
                             />
                           </td>
                           <td
@@ -1436,6 +1437,1513 @@
                     </table>
                     <div class="kt-separator kt-separator--border-dashed"></div>
                   </div>
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span class="kt-font-boldest" style="font-size: 18px;">B.Integrantes de la familia</span>
+              </p>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Tipo de Documento:</label>
+                  <b-form-select
+                    v-model="CA1.tipo_id"
+                    @change="formato('tipoid2')"
+                    :class="CA1.tipo_id=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="CC">CEDULA DE CIUDADANIA</option>
+                    <option value="PA">PASAPORTE</option>
+                    <option value="RC">REGISTRO CIVIL</option>
+                    <option value="TI">TARJETA DE IDENTIDAD</option>
+                    <option value="ASI">ADULTO SIN IDENTIFICACIÓN</option>
+                    <option value="MSI">MENOR SIN IDENTIFICACIÓN</option>
+                    <option value="CE">CEDULA DE EXTRANJERIA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Documento:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Documento"
+                    v-model="CA1.identificacion"
+                    @change="formato('id2')"
+                    :class="CA1.identificacion==''?'':'is-valid'"
+                  />
+                </div>
+                <div class="col-lg-4">
+                  <label>Parentesco:</label>
+                  <b-form-select
+                    v-model="CA1.parentesco"
+                    :class="CA1.parentesco=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in parentesco_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Sexo:</label>
+                  <b-form-select v-model="CA1.sexo" :class="CA1.sexo=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="MASCULINO">MASCULINO</option>
+                    <option value="FEMENINO">FEMENINO</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Orientación Sexual (*):</label>
+                  <b-form-select
+                    v-model.trim="CA1.orientacion"
+                    :class="CA1.orientacion=='0'?'':'is-valid'"
+                    ref="sexo"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                    <option value="BISEXUAL">BISEXUAL</option>
+                    <option value="NODECLARA">NO DECLARA</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-4">
+                  <label>Identidad de Genero (*):</label>
+                  <b-form-select
+                    v-model.trim="CA1.identidad_genero"
+                    :class="CA1.identidad_genero=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">CISGENERO</option>
+                    <option value="HOMOSEXUAL">TRANSGENERO</option>
+                    <option value="BISEXUAL">TRANSEXUAL</option>
+                    <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Primer Nombre:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Primer Nombre"
+                    v-model="CA1.pnom"
+                    :class="CA1.pnom==''?'':'is-valid'"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Segundo Nombre:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Segundo Nombre"
+                    v-model="CA1.snom"
+                    :class="CA1.snom==''?'':'is-valid'"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Primer Apellido:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Primer Apellido"
+                    v-model="CA1.pape"
+                    :class="CA1.pape==''?'':'is-valid'"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Segundo Apellido:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Segundo Apellido"
+                    v-model="CA1.sape"
+                    :class="CA1.sape==''?'':'is-valid'"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Telefono:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Telefono"
+                    v-model.trim="CA1.telefono"
+                    :class="CA1.telefono==''?'':'is-valid'"
+                    @change="formato('telefono2')"
+                  />
+                </div>
+                <div class="col-lg-3">
+                  <label>Estado Civil:</label>
+                  <b-form-select
+                    v-model="CA1.estado_civil"
+                    :class="CA1.estado_civil=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in estado_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Puntaje Sisben:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    v-model.trim="CA1.puntaje_sisben"
+                    :class="CA1.puntaje_sisben==''?'':'is-valid'"
+                    @change="formato('puntaje')"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Fecha de Nacimiento:</label>
+                  <input
+                    id="date"
+                    type="date"
+                    placeholder="Fecha de Nacimiento"
+                    v-model="CA1.fecha_nac"
+                    :class="CA1.fecha_nac==''?'':'is-valid'"
+                    class="form-control text-capitalize"
+                    ref="fecha_nacimiento"
+                    :max="hoy | moment"
+                    @change="calculaEdad"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label>Edad:</label>
+                  <input
+                    type="text"
+                    v-model="calEdad"
+                    class="form-control text-capitalize"
+                    placeholder="Edad"
+                    :class="CA1.edad==''?'':'is-valid'"
+                    readonly
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label>Meses:</label>
+                  <input
+                    type="text"
+                    v-model="CA1.meses"
+                    class="form-control text-capitalize"
+                    placeholder="Edad"
+                    :class="CA1.meses==''?'':'is-valid'"
+                    readonly
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label>Dias:</label>
+                  <input
+                    type="text"
+                    v-model="CA1.dias"
+                    class="form-control text-capitalize"
+                    placeholder="Edad"
+                    :class="CA1.dias==''?'':'is-valid'"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-8">
+                  <label>EPS:</label>
+                  <b-form-select
+                    v-model="CA1.afi_entidad"
+                    :class="CA1.afi_entidad=='0'?'':'is-valid'"
+                    @change="mostrarOtro('OEPS2')"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="NINGUNA">NINGUNA</option>
+                    <option value="OTRA">OTRA</option>
+                    <option
+                      v-for="item in admini_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-2">
+                  <label>Tipo Afiliación:</label>
+                  <b-form-select
+                    v-model="CA1.tipo_afiliacion"
+                    :class="CA1.tipo_afiliacion=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="NA">No Aplica</option>
+                    <option value="SUBSIDIADO">SUBSIDIADO</option>
+                    <option value="CONTRIBUTIVO">CONTRIBUTIVO</option>
+                    <option value="ESPECIAL">ESPECIAL</option>
+                    <option value="PPNA">POBLACIÓN POBRE NO ASEGURADA</option>
+                    <option value="BENEFICIARIO">BENEFICIARIO</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12" v-show="mOEPS2">
+                  <label>Cual:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Cual"
+                    v-model.trim="CA1.otra_eps"
+                    :class="CA1.otra_eps==''?'':'is-valid'"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Embarazo:</label>
+                  <b-form-select v-model="CA1.embarazo" :class="CA1.embarazo=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI" :disabled="inputDisabled">SI</option>
+                    <option value="NO" :disabled="inputDisabled">NO</option>
+                    <option value="NOAPLICA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Embarazo Multiple:</label>
+                  <b-form-select
+                    v-model="CA1.embarazo_multiple"
+                    :class="CA1.embarazo_multiple=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI" :disabled="inputDisabled">SI</option>
+                    <option value="NO" :disabled="inputDisabled">NO</option>
+                    <option value="NOAPLICA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Discapacidad:</label>
+                  <b-form-select
+                    v-model="CA1.discapacidad"
+                    :class="CA1.discapacidad=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="1">FISICA</option>
+                    <option value="2">COGNITIVA</option>
+                    <option value="3">SENSORIAL</option>
+                    <option value="4">PSÍQUICA</option>
+                    <option value="5">NINGUNA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Nivel Educativo:</label>
+                  <b-form-select
+                    v-model="CA1.escolaridad"
+                    :class="CA1.escolaridad=='0'?'':'is-valid'"
+                    @change="mostrarOtro('mOCOL2')"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="NA">No Aplica</option>
+                    <option
+                      v-for="item in escolaridad_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-6" v-show="mOCOL2">
+                  <label>Colegio:</label>
+                  <b-form-select v-model="CA1.colegio" :class="CA1.colegio==''?'':'is-valid'">
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in colegio_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3" v-show="mOCOL2">
+                  <label>Grado:</label>
+                  <b-form-select v-model="CA1.grado" :class="CA1.grado=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="NA">No Aplica</option>
+                    <option
+                      v-for="item in grados_option[CA1.escolaridad]"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <label>Ocupación:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Ocupaciones"
+                    v-model="ocupacionAuxiliar2"
+                    ref="ocupacion"
+                    :class="ocupacionAuxiliar2==''?'':'is-valid'"
+                    @click="abrirModalOcupaciones('inte')"
+                    :readonly="true"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Etnia:</label>
+                  <b-form-select
+                    v-model="CA1.etnia"
+                    :class="CA1.etnia=='0'?'':'is-valid'"
+                    @change="cambiarCombo('etnia')"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in etnia_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+
+                <div class="col-lg-4">
+                  <label>Clasificación de la Etnia:</label>
+                  <b-form-select
+                    v-model="CA1.clasificacion"
+                    :class="CA1.clasificacion=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in clasifi_options[CA1.etnia]"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>
+
+                <div class="col-lg-4">
+                  <label>Perdida de peso en los ultimos 3 meses:</label>
+                  <b-form-select
+                    v-model="CA1.perdida_peso"
+                    :class="CA1.perdida_peso=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="ND">NO DECLARA</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-3">
+                  <label>Entiende Español:</label>
+                  <b-form-select v-model="CA1.entiende" :class="CA1.entiende=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>PYP:</label>
+                  <b-form-select v-model="CA1.pyp" :class="CA1.pyp=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="Crecimiento">Crecimiento y Desarrollo</option>
+                    <option value="Joven">Joven</option>
+                    <option value="Adulto">Adulto Mayor</option>
+                    <option value="Planificacion">Planificación Familiar</option>
+                    <option value="Control">Control Prenatal</option>
+                    <option value="Alimentacion">Alimentación Escolar</option>
+                    <option value="Ninguno">Ninguno</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Migrante:</label>
+                  <b-form-select v-model="CA1.migrante" :class="CA1.migrante=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-3">
+                  <label>Pertenece a algún programa del ICBF:</label>
+                  <b-form-select
+                    v-model="CA1.programa_icbf"
+                    :class="CA1.programa_icbf=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-12">
+                  <label>Jefe del hogar:</label>
+                  <b-form-select v-model="CA1.jefe" :class="CA1.jefe=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in datosJefe"
+                      :value="item.identificacion"
+                      :key="item.value"
+                    >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
+                  </b-form-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Excepciones:</label>
+                  <b-form-select
+                    v-model="CA1.excepciones"
+                    :class="CA1.excepciones=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="1">Vida sexual prematura</option>
+                    <option value="2">Consumo de tabaco</option>
+                    <option value="3">Consumo de SPA</option>
+                    <option value="4">Consumo de alcohol</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-info btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar"
+                    @click.prevent="agregar"
+                  >
+                    <i class="fa fa-plus"></i>
+                  </a>&nbsp;
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>No.</th>
+                          <th>Tipo de Documento</th>
+                          <th>Documento</th>
+                          <th>Primer Nombre</th>
+                          <th>Segundo Nombre</th>
+                          <th>Primer Apellido</th>
+                          <th>Segundo Apellido</th>
+                          <th>Sexo</th>
+                          <th>Orientación Sexual</th>
+                          <th>Identidad de Genero</th>
+                          <th>Parentesco</th>
+                          <th>Telefono</th>
+                          <th>Estado Civil</th>
+                          <th>Nacimiento</th>
+                          <th>Edad</th>
+                          <th>Puntaje Sisben</th>
+                          <th>Eps</th>
+                          <th>Cual Eps</th>
+                          <th>Tipo Afiliación</th>
+                          <th>Embarazo</th>
+                          <th>Embarazo Multiple</th>
+                          <th>Discapacidad</th>
+                          <th>Nivel de Escolaridad</th>
+                          <th>Ocupación</th>
+                          <th>Colegio</th>
+                          <th>Grado</th>
+                          <th>Etnia</th>
+                          <th>Clasificación de la Etnia</th>
+                          <th>Perdida de Peso</th>
+                          <th>Entiende Español</th>
+                          <th>PYP</th>
+                          <th>Migrante</th>
+                          <th>Programa ICBF</th>
+                          <th>Jefe de Hogar</th>
+                          <th>Excepciones</th>
+                          <th class="text-center">Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in datos" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.tipo_id"
+                              :class="item.tipo_id=='0'?'':'is-valid'"
+                              @input="tipo_id=>updateIntegrante(item,tipo_id,'tipo_id',index)"
+                              style="width:250px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="CC">CEDULA DE CIUDADANIA</option>
+                              <option value="PA">PASAPORTE</option>
+                              <option value="RC">REGISTRO CIVIL</option>
+                              <option value="TI">TARJETA DE IDENTIDAD</option>
+                              <option value="ASI">ADULTO SIN IDENTIFICACIÓN</option>
+                              <option value="MSI">MENOR SIN IDENTIFICACIÓN</option>
+                              <option value="CE">CEDULA DE EXTRANJERIA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Documento"
+                              v-model.trim="item.identificacion"
+                              :class="item.identificacion==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'identificacion',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Primer Nombre"
+                              v-model.trim="item.pnom"
+                              :class="item.pnom==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'pnom',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Segundo Nombre"
+                              v-model.trim="item.snom"
+                              :class="item.snom==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'snom',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Primer Apellido"
+                              v-model.trim="item.pape"
+                              :class="item.pape==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'pape',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Segundo Apellido"
+                              v-model.trim="item.sape"
+                              :class="item.sape==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'sape',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.sexo"
+                              :class="item.sexo=='0'?'':'is-valid'"
+                              @input="sexo=>updateIntegrante(item,sexo,'sexo',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="MASCULINO">MASCULINO</option>
+                              <option value="FEMENINO">FEMENINO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.orientacion"
+                              :class="item.orientacion=='0'?'':'is-valid'"
+                              @input="orientacion=>updateIntegrante(item,orientacion,'orientacion',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                              <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                              <option value="BISEXUAL">BISEXUAL</option>
+                              <option value="NODECLARA">NO DECLARA</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.identidad_genero"
+                              :class="item.identidad_genero=='0'?'':'is-valid'"
+                              @input="identidad_genero=>updateIntegrante(item,identidad_genero,'identidad_genero',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="HETEROSEXUAL">CISGENERO</option>
+                              <option value="HOMOSEXUAL">TRANSGENERO</option>
+                              <option value="BISEXUAL">TRANSEXUAL</option>
+                              <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.parentesco"
+                              :class="item.parentesco=='0'?'':'is-valid'"
+                              @input="parentesco=>updateIntegrante(item,parentesco,'parentesco',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option
+                                v-for="item in parentesco_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Telefono"
+                              v-model.trim="item.telefono"
+                              :class="item.telefono==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'telefono',index)"
+                              style="width:200px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.estado_civil"
+                              :class="item.estado_civil=='0'?'':'is-valid'"
+                              @input="estado_civil=>updateIntegrante(item,estado_civil,'estado_civil',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option
+                                v-for="item in estado_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              id="date"
+                              type="date"
+                              placeholder="Fecha de Nacimiento"
+                              v-model="item.fecha_nac"
+                              :class="item.fecha_nac==''?'':'is-valid'"
+                              class="form-control text-capitalize"
+                              :max="hoy | moment"
+                              @input="changeupdateIntegrante(item,$event,'fecha_nac',index)"
+                              style="width:200px;"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              v-model="item.edad"
+                              class="form-control text-capitalize"
+                              placeholder="Edad"
+                              :class="item.edad==''?'':'is-valid'"
+                              readonly
+                              style="width:100px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Puntaje Sisben"
+                              v-model.trim="item.puntaje_sisben"
+                              :class="item.puntaje_sisben==''?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'puntaje_sisben',index)"
+                              style="width:150px;"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Ocupación"
+                              v-model="item.textoEps"
+                              :class="item.textoEps==''?'':'is-valid'"
+                              style="width:400px;"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Cual"
+                              v-model.trim="item.otra_eps"
+                              :class="item.otra_eps==''?'':'is-valid'"
+                              style="width:400px;"
+                              v-show="item.afi_entidad=='OTRA'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.tipo_afiliacion"
+                              :class="item.tipo_afiliacion=='0'?'':'is-valid'"
+                              @input="tipo_afiliacion=>updateIntegrante(item,tipo_afiliacion,'tipo_afiliacion',index)"
+                              style="width:200px;"
+                            >
+                              <option
+                                value="0"
+                                selected
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!=''"
+                              >Seleccione</option>
+                              <option
+                                value="NA"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!='NINGUNA'"
+                              >No Aplica</option>
+                              <option
+                                value="SUBSIDIADO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >SUBSIDIADO</option>
+                              <option
+                                value="CONTRIBUTIVO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >CONTRIBUTIVO</option>
+                              <option
+                                value="ESPECIAL"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >ESPECIAL</option>
+                              <option
+                                value="PPNA"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >POBLACIÓN POBRE NO ASEGURADA</option>
+                              <option
+                                value="BENEFICIARIO"
+                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
+                              >BENEFICIARIO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.embarazo"
+                              :class="item.embarazo=='0'?'':'is-valid'"
+                              @input="embarazo=>updateIntegrante(item,embarazo,'embarazo',index)"
+                              style="width:200px;"
+                            >
+                              <option
+                                value="0"
+                                selected
+                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
+                              >Seleccione</option>
+                              <option
+                                value="SI"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
+                              >SI</option>
+                              <option
+                                value="NO"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
+                              >NO</option>
+                              <option value="NOAPLICA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.embarazo_multiple"
+                              :class="item.embarazo_multiple=='0'?'':'is-valid'"
+                              @input="embarazo_multiple=>updateIntegrante(item,embarazo_multiple,'embarazo_multiple',index)"
+                              style="width:200px;"
+                            >
+                              <option
+                                value="0"
+                                selected
+                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
+                              >Seleccione</option>
+                              <option
+                                value="SI"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO' || item.embarazo=='NO'"
+                              >SI</option>
+                              <option
+                                value="NO"
+                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
+                              >NO</option>
+                              <option value="NOAPLICA" :disabled="item.embarazo=='NO'">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.discapacidad"
+                              :class="item.discapacidad=='0'?'':'is-valid'"
+                              @input="discapacidad=>updateIntegrante(item,discapacidad,'discapacidad',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="1">FISICA</option>
+                              <option value="2">COGNITIVA</option>
+                              <option value="3">SENSORIAL</option>
+                              <option value="4">PSÍQUICA</option>
+                              <option value="5">NINGUNA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.escolaridad"
+                              :class="item.escolaridad=='0'?'':'is-valid'"
+                              @input="escolaridad=>updateIntegrante(item,escolaridad,'escolaridad',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option
+                                v-for="item in escolaridad_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Ocupación"
+                              v-model="item.textoOcupacion"
+                              :class="item.textoOcupacion==''?'':'is-valid'"
+                              style="width:400px;"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Colegio"
+                              v-model="item.textoColegio"
+                              :class="item.textoColegio=='0'?'':'is-valid'"
+                              @input="changeupdateIntegrante(item,$event,'colegio',index)"
+                              style="width:300px;"
+                              v-show="item.escolaridad==3 || item.escolaridad==14 || item.escolaridad==15"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.grado"
+                              :class="item.grado=='0'?'':'is-valid'"
+                              @input="grado=>updateIntegrante(item,grado,'grado',index)"
+                              style="width:200px;"
+                              v-show="item.escolaridad==3 || item.escolaridad==14 || item.escolaridad==15"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="Ninguno">Ninguno</option>
+                              <option
+                                v-for="item in grados_option[item.escolaridad]"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.etnia"
+                              :class="item.etnia=='0'?'':'is-valid'"
+                              @input="etnia=>updateIntegrante(item,etnia,'etnia',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option
+                                v-for="item in etnia_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.clasificacion"
+                              :class="item.clasificacion=='0'?'':'is-valid'"
+                              @input="clasificacion=>updateIntegrante(item,clasificacion,'clasificacion',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option
+                                v-for="item in clasifi_options[item.etnia]"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.perdida_peso"
+                              :class="item.perdida_peso==''?'':'is-valid'"
+                              @input="perdida_peso=>updateIntegrante(item,perdida_peso,'perdida_peso',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="ND">NO DECLARA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.entiende"
+                              :class="item.entiende=='0'?'':'is-valid'"
+                              @input="entiende=>updateIntegrante(item,entiende,'entiende',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.pyp"
+                              :class="item.pyp=='0'?'':'is-valid'"
+                              @input="pyp=>updateIntegrante(item,pyp,'pyp',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="Crecimiento">Crecimiento y Desarrollo</option>
+                              <option value="Joven">Joven</option>
+                              <option value="Adulto">Adulto Mayor</option>
+                              <option value="Planificacion">Planificación Familiar</option>
+                              <option value="Control">Control Prenatal</option>
+                              <option value="Alimentacion">Alimentación Escolar</option>
+                              <option value="Ninguno">Ninguno</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.migrante"
+                              :class="item.migrante=='0'?'':'is-valid'"
+                              @input="migrante=>updateIntegrante(item,migrante,'migrante',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.programa_icbf"
+                              :class="item.programa_icbf==''?'':'is-valid'"
+                              @input="programa_icbf=>updateIntegrante(item,programa_icbf,'programa_icbf',index)"
+                              style="width:200px;"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model.trim="item.jefe"
+                              :class="item.jefe=='0'?'':'is-valid'"
+                              @input="jefe=>updateIntegrante(item,jefe,'jefe',index)"
+                              style="width:400px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option
+                                v-for="item in datosJefe"
+                                :value="item.identificacion"
+                                :key="item.value"
+                              >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              v-model="item.excepciones"
+                              :class="item.excepciones==''?'':'is-valid'"
+                              @input="excepciones=>updateIntegrante(item,excepciones,'excepciones',index)"
+                              style="width:200px;"
+                            >
+                              <option value="0" selected>Seleccione</option>
+                              <option value="1">Vida sexual prematura</option>
+                              <option value="2">Consumo de tabaco</option>
+                              <option value="3">Consumo de SPA</option>
+                              <option value="4">Consumo de alcohol</option>
+                              <option value="NA">NO APLICA</option>
+                            </b-form-select>
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-danger"
+                              type="button"
+                              title="Eliminar"
+                              @click="eliminarItem(index,item)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="kt-separator kt-separator--border-dashed"></div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <br />
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >FACTORES DE RIESGO Y PROTECTORES DE LA FAMILIA</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="5"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Como Corrige Usted a Sus Hijos</th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Adicciones</th>
+                          <th
+                            class="kt-bg-fill-brand"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Violencia Intrafamiliar</th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="2"
+                          >Estilos de Vida Saludables</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Partiicipa en Grupos Organizados</th>
+                        </tr>
+                        <tr class="kt-bg-fill-warning">
+                          <td class="kt-bg-fill-success">No.</td>
+                          <td class="kt-bg-fill-success">Documento</td>
+                          <td class="kt-bg-fill-success">Nombre</td>
+                          <td class="kt-bg-fill-success">Sexo</td>
+                          <td class="kt-bg-fill-success">Edad</td>
+                          <td class="kt-bg-fill-danger">Dialogos</td>
+                          <td class="kt-bg-fill-danger">Sanción ó Supresión</td>
+                          <td class="kt-bg-fill-danger">Castigo Verbal</td>
+                          <td class="kt-bg-fill-danger">Castigo Fisico</td>
+                          <td class="kt-bg-fill-warning">Alcohol</td>
+                          <td class="kt-bg-fill-warning">Tabaco</td>
+                          <td class="kt-bg-fill-warning">Sustancias Psicoactivas</td>
+                          <td class="kt-bg-fill-warning">Apuestas</td>
+                          <td class="kt-bg-fill-brand">Violencia Fisica</td>
+                          <td class="kt-bg-fill-brand">Violencia Psicologica</td>
+                          <td class="kt-bg-fill-brand">Violencia Economica</td>
+                          <td class="kt-bg-fill-brand">Abuso Sexual</td>
+                          <td class="kt-bg-fill-dark">Actividad Fisica</td>
+                          <td class="kt-bg-fill-dark">Consumo de Frutas y Verduras</td>
+                          <td class="kt-bg-fill-danger">Religiosos</td>
+                          <td class="kt-bg-fill-danger">Sociales</td>
+                          <td class="kt-bg-fill-danger">Culturales</td>
+                          <td class="kt-bg-fill-danger">Recreativos</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in factores" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.dialogos"
+                              :class="item.dialogos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.sancion"
+                              :class="item.sancion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.castigo_verbal"
+                              :class="item.castigo_verbal==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.castigo_fisico"
+                              :class="item.castigo_fisico==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.alcohol"
+                              :class="item.alcohol==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tabaco"
+                              :class="item.tabaco==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.sustancias_psico"
+                              :class="item.sustancias_psico==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.apuestas"
+                              :class="item.apuestas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.violencia_fisica"
+                              :class="item.violencia_fisica==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.violencia_psico"
+                              :class="item.violencia_psico==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.violencia_economica"
+                              :class="item.violencia_economica==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.abuso_sexual"
+                              :class="item.abuso_sexual==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.actividad_fisica"
+                              :class="item.actividad_fisica==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.consumo_frutas"
+                              :class="item.consumo_frutas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.religiosos"
+                              :class="item.religiosos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.sociales"
+                              :class="item.sociales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.culturales"
+                              :class="item.culturales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.recreativos"
+                              :class="item.recreativos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
                 </div>
               </div>
             </div>
@@ -2363,9 +3871,31 @@
               this.hogar.vias_acceso = respuesta.data.hogar.vias_acceso;
               this.hogar.servicios_publicos =
                 respuesta.data.hogar.servicios_publicos;
+
+              // GESTION DE LAS VARIABLES DEL HOGAR
               this.hogar.direccion = respuesta.data.hogar.direccion;
               this.datosJefe = respuesta.data.jefes;
-              // console.log(this.hogar);
+              this.datos = respuesta.data.integrantes;
+              this.factores = respuesta.data.factores;
+
+              console.log(this.datosJefe)
+              for (let i = 0; i < this.datosJefe.length; i++) {
+                let indice = this.datosJefe.findIndex(
+                  identi =>
+                    identi.identificacion === this.datosJefe[i].identificacion
+                );
+                this.vectorJefes.push({
+                  index: indice,
+                  identificacion: this.datosJefe[i].identificacion
+                });
+                              
+              }
+              for (let i = 0; i < this.vectorJefes.length; i++) {
+                console.log("index: " + this.vectorJefes[i].index + " -> identificacion: " + this.vectorJefes[i].identificacion);
+              }
+              // GESTION DE LAS VARIABLES DEL HOGAR
+
+              
             });
         } catch (error) {
           switch (error.response.status) {
@@ -2919,13 +4449,16 @@
                       return false;
                     }
                     let textoEps = "";
-                    if(this.caracData.afiliacion_entidad === "OTRA"){                      
+                    if (this.caracData.afiliacion_entidad === "OTRA") {
                       textoEps = "OTRA";
-                    }else{
-                      if(this.caracData.afiliacion_entidad === "NINGUNA"){
+                    } else {
+                      if (this.caracData.afiliacion_entidad === "NINGUNA") {
                         textoEps = "NINGUNA";
-                      }else{
-                        textoEps = this.showText(this.caracData.afiliacion_entidad,this.admini_options);
+                      } else {
+                        textoEps = this.showText(
+                          this.caracData.afiliacion_entidad,
+                          this.admini_options
+                        );
                       }
                     }
                     this.datosJefe.push({
@@ -2966,6 +4499,10 @@
                         this.ocupacion_options
                       ),
                       colegio: this.caracData.colegio,
+                      textoColegio: this.showText(
+                        this.caracData.colegio,
+                        this.colegio_options
+                      ),
                       grado: this.caracData.grado,
                       entiende: this.caracData.entiende,
                       migrante: this.caracData.migrante,
@@ -3001,6 +4538,7 @@
                       identificacion: this.caracData.identificacion
                     });
 
+                    console.log(vectorJefes);
                     // AGREGAR FACTORES
                     // this.AFactores(this.caracData, edad);
                     // AGREGAR FACTORES
@@ -3829,8 +5367,829 @@
             item.salario = "";
           }
         }
-      }
+      },
       //OPCIONES DEL JEFE DE HOGAR
+
+      //OPCIONES DE LOS INTEGRANTES
+      calculaEdad() {
+        var a = moment();
+        var b = moment(this.CA1.fecha_nac);
+
+        var years = a.diff(b, "year");
+        b.add(years, "years");
+
+        var months = a.diff(b, "months");
+        b.add(months, "months");
+
+        var days = a.diff(b, "days");
+
+        if (years == 0) {
+          if (months <= 1) {
+            if (days <= 1) {
+              this.CA1.meses = months + " MES";
+              this.CA1.dias = days + " DIA";
+            } else {
+              this.CA1.meses = months + " MES";
+              this.CA1.dias = days + " DIAS";
+            }
+          } else {
+            if (days <= 1) {
+              this.CA1.meses = months + " MESES";
+              this.CA1.dias = days + " DIA";
+            } else {
+              this.CA1.meses = months + " MESES";
+              this.CA1.dias = days + " DIAS";
+            }
+          }
+        }
+      },
+      updateIntegrante(item, valor, opcion, index) {
+        if (opcion === "tipo_id") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorIntegrante[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].tipo_id = valor;
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De1A5[indice].tipo_id = valor;
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De6A11[indice].tipo_id = valor;
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De10A59[indice].tipo_id = valor;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.ParPost[indice].tipo_id = valor;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De12A17[indice].tipo_id = valor;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De18A28[indice].tipo_id = valor;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De29A59[indice].tipo_id = valor;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De60[indice].tipo_id = valor;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.Migra[indice].tipo_id = valor;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion === "sexo") {
+          if (item.sexo === "0") {
+            item.embarazo = "0";
+            item.embarazo_multiple = "0";
+          }
+          if (item.sexo === "MASCULINO") {
+            item.embarazo = "NOAPLICA";
+            item.embarazo_multiple = "NOAPLICA";
+          }
+          if (item.sexo === "FEMENINO") {
+            item.embarazo = "0";
+            item.embarazo_multiple = "0";
+          }
+
+          //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorIntegrante[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].sexo = valor;
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De1A5[indice].sexo = valor;
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De6A11[indice].sexo = valor;
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De10A59[indice].sexo = valor;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.ParPost[indice].sexo = valor;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De12A17[indice].sexo = valor;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De18A28[indice].sexo = valor;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De29A59[indice].sexo = valor;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De60[indice].sexo = valor;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.Migra[indice].sexo = valor;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion === "embarazo") {
+          if (item.embarazo === "0") {
+            item.embarazo_multiple = "0";
+          }
+          if (item.embarazo === "SI") {
+            item.embarazo_multiple = "0";
+          }
+          if (item.embarazo === "NO") {
+            item.embarazo_multiple = "NO";
+          }
+        }
+        if (opcion === "afi_entidad") {
+          if (item.afi_entidad === "NINGUNA") {
+            item.tipo_afiliacion = "0";
+          } else {
+            if (item.afi_entidad === "OTRA") {
+              item.otra_eps = "";
+            } else {
+              item.tipo_afiliacion = "0";
+            }
+          }
+        }
+        if (opcion === "escolaridad") {
+          item.colegio = "";
+          item.grado = "0";
+        }
+      },
+      changeupdateIntegrante(item, event, opcion, index) {
+        if (opcion == "identificacion") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorIntegrante[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].identificacion = item.identificacion;
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De1A5[indice].identificacion = item.identificacion;
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De6A11[indice].identificacion = item.identificacion;
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].identificacion = item.identificacion;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].identificacion = item.identificacion;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].identificacion = item.identificacion;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].identificacion = item.identificacion;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].identificacion = item.identificacion;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].identificacion = item.identificacion;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].identificacion = item.identificacion;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+
+          //CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
+          //DIGITADA EN LA TABLA
+          this.vectorIntegrante[index].identificacion = item.identificacion;
+          // Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
+          this.vectorIntegrante.splice(index, 1, this.vectorIntegrante[index]);
+        }
+        if (opcion == "pnom") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorIntegrante[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].pnom = item.pnom;
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De1A5[indice].pnom = item.pnom;
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De6A11[indice].pnom = item.pnom;
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].pnom = item.pnom;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].pnom = item.pnom;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].pnom = item.pnom;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].pnom = item.pnom;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].pnom = item.pnom;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].pnom = item.pnom;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].pnom = item.pnom;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion == "snom") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorIntegrante[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].snom = item.snom;
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De1A5[indice].snom = item.snom;
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De6A11[indice].snom = item.snom;
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].snom = item.snom;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].snom = item.snom;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].snom = item.snom;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].snom = item.snom;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].snom = item.snom;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].snom = item.snom;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].snom = item.snom;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion == "pape") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorIntegrante[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].pape = item.pape;
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De1A5[indice].pape = item.pape;
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De6A11[indice].pape = item.pape;
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].pape = item.pape;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].pape = item.pape;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].pape = item.pape;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].pape = item.pape;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].pape = item.pape;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].pape = item.pape;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].pape = item.pape;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+        if (opcion == "sape") {
+          //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+          //VIENE DE LA TABLA
+          let id = this.vectorIntegrante[index].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].sape = item.sape;
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De1A5[indice].sape = item.sape;
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De6A11[indice].sape = item.sape;
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De10A59[indice].sape = item.sape;
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.ParPost[indice].sape = item.sape;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De12A17[indice].sape = item.sape;
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De18A28[indice].sape = item.sape;
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De29A59[indice].sape = item.sape;
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.De60[indice].sape = item.sape;
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+            this.Migra[indice].sape = item.sape;
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+      },
+      //OPCIONES DE LOS INTEGRANTES
+
+      //OPCIONES DE LOS CICLOS DE VIDA
+      Ade10a59Anio(vector, edad) {
+        let opcion = "";
+        if (vector.id === "JEFE") {
+          opcion = "JEFE";
+        } else {
+          opcion = "INTE";
+        }
+        if(vector.sexo==="MASCULINO"){
+          this.De10A59.push({
+            id: 0,
+            tipo_id: vector.tipo_id,
+            identificacion: vector.identificacion,
+            pnom: vector.pnom,
+            snom: vector.snom,
+            pape: vector.pape,
+            sape: vector.sape,
+            sexo: vector.sexo,
+            edad: edad,
+            primera_mes: "NA",
+            flujo_vaginal: "NA",
+            flujo_uretral: "",
+            relaciones_sexuales: "",
+            compa_sexuales: "",
+            usa_condon: "",
+            abortos_seis: "NA",
+            embarazo_adolecentes: "NA",
+            metodo: "",
+            tiempo_metodo: "",
+            controles: "",
+            motivo: "",
+            citologia: "NA",
+            colposcopia: "NA",
+            examen_seno: "NA",
+            violencia: "",
+            tdit: "NA",
+            tripleviral: "NA",
+            nacidos_vivos: "NA",
+            abortos: "NA",
+            examen_prostata: "",
+            biposia_prostata: "",
+            opci: opcion
+          });                    
+        }else{
+          this.De10A59.push({
+            id: 0,
+            tipo_id: vector.tipo_id,
+            identificacion: vector.identificacion,
+            pnom: vector.pnom,
+            snom: vector.snom,
+            pape: vector.pape,
+            sape: vector.sape,
+            sexo: vector.sexo,
+            edad: edad,
+            primera_mes: "",
+            flujo_vaginal: "",
+            flujo_uretral: "",
+            relaciones_sexuales: "",
+            compa_sexuales: "",
+            usa_condon: "",
+            abortos_seis: "",
+            embarazo_adolecentes: "",
+            metodo: "",
+            tiempo_metodo: "",
+            controles: "",
+            motivo: "",
+            citologia: "",
+            colposcopia: "",
+            examen_seno: "",
+            violencia: "",
+            tdit: "",
+            tripleviral: "",
+            nacidos_vivos: "",
+            abortos: "",
+            examen_prostata: "NA",
+            biposia_prostata: "NA",
+            opci: opcion
+          });
+        }
+      },
+      changeupdateDe10A59(item, event, opcion) {},
+      updateDe10A59(item, valor, opcion) {
+        if (opcion === "flujo_vaginal") {
+          item.flujo_vaginal = valor;
+        }
+        if (opcion === "flujo_uretral") {
+          item.flujo_uretral = valor;
+        }
+        if (opcion === "relaciones_sexuales") {
+          item.relaciones_sexuales = valor;
+        }
+        if (opcion === "usa_condon") {
+          item.usa_condon = valor;
+        }
+        if (opcion === "abortos_seis") {
+          item.abortos_seis = valor;
+        }
+        if (opcion === "embarazo_adolecentes") {
+          item.embarazo_adolecentes = valor;
+        }
+        if (opcion === "metodo") {
+          item.metodo = valor;
+        }
+        if (opcion === "motivo") {
+          item.motivo = valor;
+        }
+        if (opcion === "controles") {
+          item.controles = valor;
+        }
+        if (opcion === "citologia") {
+          item.citologia = valor;
+        }
+        if (opcion === "colposcopia") {
+          item.colposcopia = valor;
+        }
+        if (opcion === "examen_seno") {
+          item.examen_seno = valor;
+        }
+        if (opcion === "violencia") {
+          item.violencia = valor;
+        }
+        if (opcion === "tdit") {
+          item.tdit = valor;
+        }
+        if (opcion === "tripleviral") {
+          item.tripleviral = valor;
+        }
+        if (opcion === "abortos") {
+          item.abortos = valor;
+        }
+        if (opcion === "examen_prostata") {
+          item.examen_prostata = valor;
+        }
+        if (opcion === "biposia_prostata") {
+          item.biposia_prostata = valor;
+        }
+        if (opcion === "tiempo_metodo") {
+          item.tiempo_metodo = valor;
+        }
+        if (opcion === "primera_mes") {
+          if(item.sexo==="MASCULINO"){
+            item.primera_mes = "NA";
+          }else{
+            item.primera_mes = valor;
+          }          
+        } 
+        if (opcion === "compa_sexuales") {
+          if(item.sexo==="MASCULINO"){
+            item.compa_sexuales = "NA";
+          }else{
+            item.compa_sexuales = valor;
+          }          
+        }
+        if (opcion === "nacidos_vivos") {
+          if(item.sexo==="MASCULINO"){
+            item.nacidos_vivos = "NA";
+          }else{
+            item.nacidos_vivos = valor;
+          }          
+        }                       
+      },
+      //OPCIONES DE LOS CICLOS DE VIDA
     }
   };
 </script>

@@ -1304,11 +1304,12 @@
                               type="text"
                               class="form-control text-capitalize"
                               placeholder="Colegio"
-                              v-model="item.colegio"
-                              :class="item.colegio==''?'':'is-valid'"
+                              v-model="item.textoColegio"
+                              :class="item.textoColegio==''?'':'is-valid'"
                               @input="changeupdateJefe(item,$event,'colegio',index)"
                               style="width:300px;"
                               v-show="item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
+                              readonly
                             />
                           </td>
                           <td
@@ -2446,11 +2447,12 @@
                               type="text"
                               class="form-control text-capitalize"
                               placeholder="Colegio"
-                              v-model="item.colegio"
-                              :class="item.colegio=='0'?'':'is-valid'"
+                              v-model="item.textoColegio"
+                              :class="item.textoColegio=='0'?'':'is-valid'"
                               @input="changeupdateIntegrante(item,$event,'colegio',index)"
                               style="width:300px;"
                               v-show="item.escolaridad==3 || item.escolaridad==14 || item.escolaridad==15"
+                              readonly
                             />
                           </td>
                           <td
@@ -16206,6 +16208,10 @@
                       this.ocupacion_options
                     ),
                     colegio: this.CA1.colegio,
+                    textoColegio: this.showText(
+                      this.CA1.colegio,
+                      this.colegio_options
+                    ),                    
                     grado: this.CA1.grado,
                     entiende: this.CA1.entiende,
                     migrante: this.CA1.migrante,
@@ -16437,6 +16443,10 @@
                         this.ocupacion_options
                       ),
                       colegio: this.caracData.colegio,
+                      textoColegio: this.showText(
+                        this.caracData.colegio,
+                        this.colegio_options
+                      ),                      
                       grado: this.caracData.grado,
                       entiende: this.caracData.entiende,
                       migrante: this.caracData.migrante,

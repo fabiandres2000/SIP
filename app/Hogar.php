@@ -46,4 +46,11 @@ class Hogar extends Model
             ->where('id', $id_hogar)
             ->first();
     }
+
+    public static function total($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.hogar')
+            ->where('estado', 'Activo')
+            ->count();
+    }    
 }

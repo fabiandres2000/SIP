@@ -21,7 +21,7 @@ class UsuarioController extends Controller
         if ($resultado) {
             $alias = \App\User::consultarEnte($resultado->id);
             Session::put('alias', $alias->alias);
-            Session::put('idusuario', $alias->alias);
+            Session::put('idusuario', $resultado->id);
             Session::put('sigla', $alias->sigla);
             $opc = true;
             $mensaje = "Usuario logueado";

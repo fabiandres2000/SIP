@@ -92,7 +92,6 @@ class Caracterizacion extends Model
                     ->orderBy('id', 'desc')->first();
                 $identi = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
             }
-
         }
 
         return DB::connection('mysql')->table($alias . '.caracterizacion')->updateOrInsert([
@@ -214,9 +213,38 @@ class Caracterizacion extends Model
         return DB::connection('mysql')->table($alias . '.caracterizacion')
             ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
             ->leftjoin($alias . '.administradoras', 'administradoras.id', 'caracterizacion.afiliacion_entidad')
+            ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'caracterizacion.ocupacion')
+            ->leftjoin($alias . '.colegios', 'colegios.id', 'caracterizacion.colegio')
             ->where('id_hogar', $id_hogar)
-            ->select("caracterizacion.*", "administradoras.adm_nombre AS textoEps")
+            ->select("caracterizacion.*", "ocupaciones.descripcion AS textoOcupacion", "colegios.descripcion as textoColegio")
+            ->selectRaw("CASE "
+                . " WHEN caracterizacion.afiliacion_entidad IS NULL THEN '' "
+                . " WHEN caracterizacion.afiliacion_entidad='OTRA' THEN 'OTRA' "
+                . " WHEN caracterizacion.afiliacion_entidad='NINGUNA' THEN 'NINGUNA' "
+                . " ELSE administradoras.adm_nombre "
+                . " END AS textoEps"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN caracterizacion.snom IS NULL THEN '' "
+                . " WHEN caracterizacion.snom = '' THEN '' "
+                . " ELSE caracterizacion.snom "
+                . " END snom"
+                . " ")
             ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
             ->get();
     }
+    public static function total($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.caracterizacion')
+            ->where('estado', 'Activo')
+            ->count();
+    }
+
+    public static function totalHogares($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.caracterizacion')
+            ->where('estado', 'Activo')
+            ->groupBy('id_hogar')
+            ->get();
+    }    
 }

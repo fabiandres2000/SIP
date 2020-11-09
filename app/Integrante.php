@@ -107,4 +107,118 @@ class Integrante extends Model
             ->orderBy('id', 'desc')
             ->first();
     }
+
+    public static function buscarIntegrantes($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'integrantes.jefe')
+            ->leftjoin($alias . '.administradoras', 'administradoras.id', 'integrantes.afi_entidad')
+            ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'integrantes.ocupacion')
+            ->leftjoin($alias . '.colegios', 'colegios.id', 'integrantes.colegio')
+            ->where('integrantes.id_hogar', $id_hogar)
+            ->select("integrantes.*",
+                "ocupaciones.descripcion AS textoOcupacion", 
+                "colegios.descripcion as textoColegio",
+                "caracterizacion.identificacion AS jefe")
+            ->selectRaw("CASE "
+                . " WHEN integrantes.afi_entidad IS NULL THEN '' "
+                . " WHEN integrantes.afi_entidad='OTRA' THEN 'OTRA' "
+                . " WHEN integrantes.afi_entidad='NINGUNA' THEN 'NINGUNA' "
+                . " ELSE administradoras.adm_nombre "
+                . " END AS textoEps"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN integrantes.snom IS NULL THEN '' "
+                . " WHEN integrantes.snom = '' THEN '' "
+                . " ELSE integrantes.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->get();
+    }
+
+    public static function total($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->where('estado', 'Activo')
+            ->count();
+    }
+
+    public static function adolEmba($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->where('estado', 'Activo')
+            ->where('embarazo', 'SI')
+            ->havingRaw("edad>= 12 AND edad<=17")
+            ->get();
+    }
+
+    public static function adulCron($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->join($alias . '.de60', 'de60.id_integrante', 'integrantes.id')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->where('integrantes.estado', 'Activo')
+            ->where('enfermedades_cronicas', 'SI')
+            ->havingRaw("edad>= 60")
+            ->get();
+    }
+
+    public static function adulInfec($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->join($alias . '.de60', 'de60.id_integrante', 'integrantes.id')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->where('integrantes.estado', 'Activo')
+            ->where('enfermedades_infecciosas', 'SI')
+            ->havingRaw("edad>= 60")
+            ->get();
+    }
+
+    public static function gestantes($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->where('integrantes.estado', 'Activo')
+            ->where('embarazo', 'SI')
+            ->get();
+    }
+
+    public static function inmigrantes($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->where('integrantes.estado', 'Activo')
+            ->where('migrante', 'SI')
+            ->get();
+    }
+
+    public static function desempleado($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->join($alias . '.ocupaciones', 'ocupaciones.id', 'integrantes.ocupacion')
+            ->where('integrantes.estado', 'Activo')
+            ->where('ocupaciones.id', '9992')
+            ->get();
+    }
+
+    public static function indigenas($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->where('integrantes.estado', 'Activo')
+            ->where('etnia', '4')
+            ->get();
+    }
+
+    public static function analfabetas($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->join($alias . '.escolaridad', 'escolaridad.id', 'integrantes.escolaridad')
+            ->where('integrantes.estado', 'Activo')
+            ->where('escolaridad.id', '13')
+            ->get();
+    }
 }

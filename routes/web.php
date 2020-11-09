@@ -99,3 +99,5 @@ Route::post('/caracterizacion/exportar2', 'CaracterizacionController@exportar2')
 Route::post('/caracterizacion/validarJefe', 'CaracterizacionController@validarJefe');
 Route::post('/caracterizacion/actualizar', 'CaracterizacionController@actualizar');
 
+Route::post('/estadisticas', 'AdministracionController@estadisticas');
+

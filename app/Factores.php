@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use DB;
+use Illuminate\Database\Eloquent\Model;
+
 class Factores extends Model
 {
     protected $table = 'factores';
@@ -46,7 +47,27 @@ class Factores extends Model
             'religiosos' => $data['religiosos'],
             'sociales' => $data['sociales'],
             'culturales' => $data['culturales'],
-            'recreativos' => $data['recreativos']
-        ]);        
+            'recreativos' => $data['recreativos'],
+        ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.factores')
+            ->join($alias . '.hogar', 'hogar.id', 'factores.id_hogar')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'factores.id_jefe')
+            ->where('factores.id_hogar', $id_hogar)
+            ->select("factores.*"
+            ,"caracterizacion.identificacion AS id_jefe"
+            ,"caracterizacion.tipo_id AS tipo_id"
+            ,"caracterizacion.identificacion AS identificacion"
+            ,"caracterizacion.pnom AS pnom"
+            ,"caracterizacion.snom AS snom"
+            ,"caracterizacion.pape AS pape"
+            ,"caracterizacion.sape AS sape"
+            ,"caracterizacion.sexo AS sexo"
+            )
+            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
+            ->get();
     }
 }

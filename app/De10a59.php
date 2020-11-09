@@ -23,7 +23,7 @@ class De10a59 extends Model
             // BUSCAR ID JEFE
             $integrante = \App\Caracterizacion::buscar($data['identificacion'], $alias);
             // BUSCAR ID JEFE
-            
+
         } else {
             // BUSCAR ID INTEGRANTE
             $integrante = \App\Integrante::buscar($data['identificacion'], $alias);
@@ -67,5 +67,41 @@ class De10a59 extends Model
             'id_compania' => 1,
             'opci' => $data['opci'],
         ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        $jefes = DB::connection('mysql')->table($alias . '.de10a59')
+            ->join($alias . '.hogar', 'hogar.id', 'de10a59.id_hogar')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'de10a59.id_integrante')
+            ->where('de10a59.id_hogar', $id_hogar)
+            ->select("de10a59.*"
+                , "caracterizacion.tipo_id AS tipo_id"
+                , "caracterizacion.identificacion AS identificacion"
+                , "caracterizacion.pnom AS pnom"
+                , "caracterizacion.snom AS snom"
+                , "caracterizacion.pape AS pape"
+                , "caracterizacion.sape AS sape"
+                , "caracterizacion.sexo AS sexo"
+            )
+            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad");
+
+        $integrantes = DB::connection('mysql')->table($alias . '.de10a59')
+            ->join($alias . '.hogar', 'hogar.id', 'de10a59.id_hogar')
+            ->join($alias . '.integrantes', 'integrantes.id', 'de10a59.id_integrante')
+            ->where('de10a59.id_hogar', $id_hogar)
+            ->select("de10a59.*"
+                , "integrantes.tipo_id AS tipo_id"
+                , "integrantes.identificacion AS identificacion"
+                , "integrantes.pnom AS pnom"
+                , "integrantes.snom AS snom"
+                , "integrantes.pape AS pape"
+                , "integrantes.sape AS sape"
+                , "integrantes.sexo AS sexo"
+            )
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->union($jefes)->get();         
+
+        return $integrantes;
     }
 }

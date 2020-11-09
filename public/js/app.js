@@ -2138,7 +2138,397 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Servicios/caracterizacion_servicios */ "./resources/js/Servicios/caracterizacion_servicios.js");
+/* harmony import */ var _Servicios_administracion_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Servicios/administracion_servicios */ "./resources/js/Servicios/administracion_servicios.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5751,23 +6141,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    // $("html").css("MozTransform", "scale(.98)");
-    // var zoom = 1.5;
-    // var docViewer = getBrowser().mCurrentBrowser.markupDocumentViewer;
-    // docViewer.fullZoom = zoom;
-    // console.log(window.scrollY);
-    // let offcanvas = new KTOffcanvas("kt_user_profile_aside", {
-    //     overlay: true,
-    //     baseClass: "kt-app__aside",
-    //     closeBy: "kt_user_profile_aside_close",
-    //     toggleBy: "kt_subheader_mobile_toggle"
-    // });
     this.nuevo();
   },
   data: function data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-      barra: "baradescroll"
+      barra: "baradescroll",
+      varmodal: "",
+      poblacion: 0,
+      pob_entrevistada: 0,
+      pob_entrevistadaPor: 0,
+      viviendas: 0,
+      viv_visitadas: 0,
+      viv_visitadasPor: 0,
+      hog_visitados: 0,
+      hog_visitadosPor: 0,
+      totalhogares: 0,
+      adolescentes: 0,
+      adulCron: 0,
+      adulInfec: 0,
+      gestantes: 0,
+      inmigrantes: 0,
+      desempleados: 0,
+      indigenas: 0,
+      analfabetas: 0
     };
   },
   methods: {
@@ -5775,243 +6172,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _nuevo = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var loading, config, ctx, myDoughnut;
+        var _this = this;
+
+        var parametros;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // demo loading
-                loading = new KTDialog({
-                  type: "loader",
-                  placement: "top center",
-                  message: "Cargando ..."
+                parametros = {
+                  _token: this.csrf,
+                  opcion: "Todos"
+                };
+                _context.prev = 1;
+                _context.next = 4;
+                return _Servicios_administracion_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
+                  _this.pob_entrevistada = respuesta.data.totalEntrevistada;
+                  _this.viv_visitadas = respuesta.data.viviendasVisitados;
                 });
-                loading.show();
-                setTimeout(function () {
-                  loading.hide();
-                }, 3000); //POBLACION ENTREVISTADA
 
-                if (this.$refs.graficaPobEnt) {
-                  _context.next = 5;
-                  break;
-                }
+              case 4:
+                _context.next = 15;
+                break;
 
-                return _context.abrupt("return");
+              case 6:
+                _context.prev = 6;
+                _context.t0 = _context["catch"](1);
+                _context.t1 = _context.t0.response.status;
+                _context.next = _context.t1 === 422 ? 11 : 13;
+                break;
 
-              case 5:
-                config = {
-                  type: "doughnut",
-                  data: {
-                    datasets: [{
-                      data: [35, 30],
-                      backgroundColor: ["#3c84c5", "#dd0b19", "#5d78ff"]
-                    }],
-                    labels: ["Población Total", "Población Entrevistada"]
-                  },
-                  options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                      display: false,
-                      position: "bottom"
-                    },
-                    title: {
-                      display: false,
-                      text: "Technology"
-                    },
-                    animation: {
-                      animateScale: true,
-                      animateRotate: true
-                    },
-                    tooltips: {
-                      enabled: true,
-                      intersect: false,
-                      mode: "nearest",
-                      bodySpacing: 5,
-                      yPadding: 10,
-                      xPadding: 10,
-                      caretPadding: 0,
-                      displayColors: false,
-                      backgroundColor: "#5d78ff",
-                      titleFontColor: "#ffffff",
-                      cornerRadius: 4,
-                      footerSpacing: 0,
-                      titleSpacing: 0
-                    }
-                  }
-                };
-                ctx = this.$refs.graficaPobEnt;
-                myDoughnut = new Chart(ctx, config); //POBLACION ENTREVISTADA
-                //VIVIENDAS VISITADAS
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 15);
 
-                if (this.$refs.graficaVivVi) {
-                  _context.next = 10;
-                  break;
-                }
-
-                return _context.abrupt("return");
-
-              case 10:
-                config = {
-                  type: "doughnut",
-                  data: {
-                    datasets: [{
-                      data: [300, 80],
-                      backgroundColor: ["#409143", "#f5a719", "#5d78ff"]
-                    }],
-                    labels: ["Viviendas Totales", "Viviendas Visitadas"]
-                  },
-                  options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                      display: false,
-                      position: "top"
-                    },
-                    title: {
-                      display: false,
-                      text: "Technology"
-                    },
-                    animation: {
-                      animateScale: true,
-                      animateRotate: true
-                    },
-                    tooltips: {
-                      enabled: false,
-                      intersect: false,
-                      mode: "nearest",
-                      bodySpacing: 5,
-                      yPadding: 10,
-                      xPadding: 10,
-                      caretPadding: 0,
-                      displayColors: false,
-                      backgroundColor: "#5d78ff",
-                      titleFontColor: "#ffffff",
-                      cornerRadius: 4,
-                      footerSpacing: 0,
-                      titleSpacing: 0
-                    }
-                  }
-                };
-                ctx = this.$refs.graficaVivVi;
-                myDoughnut = new Chart(ctx, config); //VIVIENDAS VISITADAS
-                //IDENTIFICACION DE RIESGO SALUD
-
-                if (this.$refs.graficaIdeRieSal) {
-                  _context.next = 15;
-                  break;
-                }
-
-                return _context.abrupt("return");
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 15);
 
               case 15:
-                config = {
-                  type: "doughnut",
-                  data: {
-                    datasets: [{
-                      data: [100, 35],
-                      backgroundColor: ["#34bfa3", "#fd3995", "#5d78ff"]
-                    }],
-                    labels: ["Población Total", "Porcentaje de Salud"]
-                  },
-                  options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                      display: false,
-                      position: "top"
-                    },
-                    title: {
-                      display: false,
-                      text: "Technology"
-                    },
-                    animation: {
-                      animateScale: true,
-                      animateRotate: true
-                    },
-                    tooltips: {
-                      enabled: false,
-                      intersect: false,
-                      mode: "nearest",
-                      bodySpacing: 5,
-                      yPadding: 10,
-                      xPadding: 10,
-                      caretPadding: 0,
-                      displayColors: false,
-                      backgroundColor: "#5d78ff",
-                      titleFontColor: "#ffffff",
-                      cornerRadius: 4,
-                      footerSpacing: 0,
-                      titleSpacing: 0
-                    }
-                  }
-                };
-                ctx = this.$refs.graficaIdeRieSal;
-                myDoughnut = new Chart(ctx, config); //IDENTIFICACION DE RIESGO SALUD
-                //IDENTIFICACION DE RIESGO SALUD
-
-                if (this.$refs.graficaIdeRieAmb) {
-                  _context.next = 20;
-                  break;
-                }
-
-                return _context.abrupt("return");
-
-              case 20:
-                config = {
-                  type: "doughnut",
-                  data: {
-                    datasets: [{
-                      data: [100, 32],
-                      backgroundColor: ["#34bfa3", "#fd3995", "#5d78ff"]
-                    }],
-                    labels: ["Población Total", "Porcentaje Ambiental"]
-                  },
-                  options: {
-                    cutoutPercentage: 75,
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                      display: false,
-                      position: "top"
-                    },
-                    title: {
-                      display: false,
-                      text: "Technology"
-                    },
-                    animation: {
-                      animateScale: true,
-                      animateRotate: true
-                    },
-                    tooltips: {
-                      enabled: false,
-                      intersect: false,
-                      mode: "nearest",
-                      bodySpacing: 5,
-                      yPadding: 10,
-                      xPadding: 10,
-                      caretPadding: 0,
-                      displayColors: false,
-                      backgroundColor: "#5d78ff",
-                      titleFontColor: "#ffffff",
-                      cornerRadius: 4,
-                      footerSpacing: 0,
-                      titleSpacing: 0
-                    }
-                  }
-                };
-                ctx = this.$refs.graficaIdeRieAmb;
-                myDoughnut = new Chart(ctx, config); //IDENTIFICACION DE RIESGO SALUD
-
-              case 23:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[1, 6]]);
       }));
 
       function nuevo() {
@@ -6052,7 +6255,424 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       $("#" + this.barra).animate({
         scrollLeft: "-=" + 0
       }, 500);
-    }
+    },
+    abrirModal: function abrirModal(opcion) {
+      // this.$refs.modalProfesional.show();
+      $("#modalProfesional").modal("show");
+      this.buscar(opcion);
+    },
+    cerrarModal: function cerrarModal() {
+      $("#modalProfesional").modal("hide");
+    },
+    buscar: function () {
+      var _buscar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(opcion) {
+        var _this2 = this;
+
+        var parametros, _parametros, _parametros2, _parametros3, _parametros4;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(opcion === "PobEnt")) {
+                  _context2.next = 16;
+                  break;
+                }
+
+                parametros = {
+                  _token: this.csrf,
+                  opcion: opcion
+                };
+                _context2.prev = 2;
+                _context2.next = 5;
+                return _Servicios_administracion_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
+                  _this2.poblacion = Math.floor(respuesta.data.poblacion / respuesta.data.poblacion * 100);
+                  _this2.pob_entrevistadaPor = Math.floor(respuesta.data.totalEntrevistada / respuesta.data.poblacion * 100);
+                  _this2.viviendas = Math.floor(respuesta.data.viviendas / respuesta.data.viviendas * 100);
+                  _this2.viv_visitadasPor = Math.floor(respuesta.data.viviendasVisitados / respuesta.data.viviendas * 100);
+                  _this2.$refs.graficaPobEnt1.length = "";
+                  $("#graficaPobEnt1").html("");
+                  Morris.Donut({
+                    element: 'graficaPobEnt1',
+                    resize: true,
+                    data: [{
+                      label: "Población Total",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Población Entrevistada",
+                      value: respuesta.data.totalEntrevistada
+                    }],
+                    // formatter: function (value, data) { 
+                    //     return Math.floor(value/3000*100) + '%'; 
+                    // },                    
+                    colors: ["networking", "#5d78ff", "#5d78ff"]
+                  });
+                  $("#graficaPobEnt1").find("tspan").attr('dy', '5');
+                  _this2.$refs.graficaPorCi.length = "";
+                  $("#graficaPorCi").html("");
+                  Morris.Donut({
+                    element: 'graficaPorCi',
+                    resize: true,
+                    data: [{
+                      label: "Total Viviendas",
+                      value: respuesta.data.viviendas
+                    }, {
+                      label: "Viviendas Visitadas",
+                      value: respuesta.data.viviendasVisitados
+                    }],
+                    // formatter: function (value, data) { 
+                    //     return Math.floor(value/3000*100) + '%'; 
+                    // },                    
+                    colors: ["networking", "#dd0b19", "#5d78ff"]
+                  });
+                  $("#graficaPorCi").find("tspan").attr('dy', '5'); // console.log(this.totalCiclos);
+                });
+
+              case 5:
+                _context2.next = 16;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](2);
+                _context2.t1 = _context2.t0.response.status;
+                _context2.next = _context2.t1 === 422 ? 12 : 14;
+                break;
+
+              case 12:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 16);
+
+              case 14:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 16);
+
+              case 16:
+                if (!(opcion === "VivVis")) {
+                  _context2.next = 32;
+                  break;
+                }
+
+                _parametros = {
+                  _token: this.csrf,
+                  opcion: opcion
+                };
+                _context2.prev = 18;
+                _context2.next = 21;
+                return _Servicios_administracion_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](_parametros).then(function (respuesta) {
+                  _this2.viviendas = Math.floor(respuesta.data.viviendas / respuesta.data.viviendas * 100);
+                  _this2.viv_visitadasPor = Math.floor(respuesta.data.viviendasVisitados / respuesta.data.viviendas * 100);
+                  _this2.$refs.graficaPorCi2.length = "";
+                  $("#graficaPorCi2").html("");
+                  Morris.Donut({
+                    element: 'graficaPorCi2',
+                    resize: true,
+                    data: [{
+                      label: "Total Viviendas",
+                      value: respuesta.data.viviendas
+                    }, {
+                      label: "Viviendas Visitadas",
+                      value: respuesta.data.viviendasVisitados
+                    }],
+                    // formatter: function (value, data) { 
+                    //     return Math.floor(value/3000*100) + '%'; 
+                    // },                    
+                    colors: ["networking", "#dd0b19", "#5d78ff"]
+                  });
+                  $("#graficaPorCi2").find("tspan").attr('dy', '5'); // console.log(this.totalCiclos);
+                });
+
+              case 21:
+                _context2.next = 32;
+                break;
+
+              case 23:
+                _context2.prev = 23;
+                _context2.t2 = _context2["catch"](18);
+                _context2.t3 = _context2.t2.response.status;
+                _context2.next = _context2.t3 === 422 ? 28 : 30;
+                break;
+
+              case 28:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 32);
+
+              case 30:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 32);
+
+              case 32:
+                if (!(opcion === "HogVis")) {
+                  _context2.next = 48;
+                  break;
+                }
+
+                _parametros2 = {
+                  _token: this.csrf,
+                  opcion: opcion
+                };
+                _context2.prev = 34;
+                _context2.next = 37;
+                return _Servicios_administracion_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](_parametros2).then(function (respuesta) {
+                  _this2.viviendas = Math.floor(respuesta.data.viviendas / respuesta.data.viviendas * 100);
+                  _this2.viv_visitadasPor = Math.floor(respuesta.data.viviendasVisitados / respuesta.data.viviendas * 100);
+                  _this2.totalhogares = respuesta.data.totalhogares;
+                  _this2.$refs.graficaHogVis.length = "";
+                  $("#graficaHogVis").html("");
+                  Morris.Donut({
+                    element: 'graficaHogVis',
+                    resize: true,
+                    data: [{
+                      label: "Total Viviendas",
+                      value: respuesta.data.viviendas
+                    }, {
+                      label: "Hogares Visitados",
+                      value: respuesta.data.totalhogares
+                    }],
+                    // formatter: function (value, data) { 
+                    //     return Math.floor(value/3000*100) + '%'; 
+                    // },                    
+                    colors: ["networking", "#dd0b19", "#5d78ff"]
+                  });
+                  $("#graficaHogVis").find("tspan").attr('dy', '5'); // console.log(this.totalCiclos);
+                });
+
+              case 37:
+                _context2.next = 48;
+                break;
+
+              case 39:
+                _context2.prev = 39;
+                _context2.t4 = _context2["catch"](34);
+                _context2.t5 = _context2.t4.response.status;
+                _context2.next = _context2.t5 === 422 ? 44 : 46;
+                break;
+
+              case 44:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 48);
+
+              case 46:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 48);
+
+              case 48:
+                if (!(opcion === "Salud")) {
+                  _context2.next = 64;
+                  break;
+                }
+
+                _parametros3 = {
+                  _token: this.csrf,
+                  opcion: opcion
+                };
+                _context2.prev = 50;
+                _context2.next = 53;
+                return _Servicios_administracion_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](_parametros3).then(function (respuesta) {
+                  _this2.poblacion = Math.floor(respuesta.data.poblacion / respuesta.data.poblacion * 100);
+                  _this2.adolescentes = respuesta.data.adolescentes;
+                  _this2.adulCron = respuesta.data.adulCron;
+                  _this2.adulInfec = respuesta.data.adulInfec;
+                  _this2.gestantes = respuesta.data.gestantes;
+                  _this2.$refs.graficaAdoEmb.length = "";
+                  $("#graficaAdoEmb").html("");
+                  Morris.Donut({
+                    element: 'graficaAdoEmb',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Adolescentes Embarazadas",
+                      value: respuesta.data.adolescentes
+                    }],
+                    colors: ["networking", "#dd0b19", "#5d78ff"]
+                  });
+                  $("#graficaAdoEmb").find("tspan").attr('dy', '5');
+                  _this2.$refs.graficaAdulCro.length = "";
+                  $("#graficaAdulCro").html("");
+                  Morris.Donut({
+                    element: 'graficaAdulCro',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Enfermedades Cronicas",
+                      value: respuesta.data.adulCron
+                    }],
+                    colors: ["networking", "#e1b621", "#5d78ff"]
+                  });
+                  $("#graficaAdulCro").find("tspan").attr('dy', '5');
+                  _this2.$refs.graficaAdulInfec.length = "";
+                  $("#graficaAdulInfec").html("");
+                  Morris.Donut({
+                    element: 'graficaAdulInfec',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Enfermedades Infecciosas",
+                      value: respuesta.data.adulInfec
+                    }],
+                    colors: ["networking", "#3c84c5", "#5d78ff"]
+                  });
+                  $("#graficaAdulInfec").find("tspan").attr('dy', '5');
+                  _this2.$refs.graficaGestan.length = "";
+                  $("#graficaGestan").html("");
+                  Morris.Donut({
+                    element: 'graficaGestan',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Gestantes",
+                      value: respuesta.data.gestantes
+                    }],
+                    colors: ["networking", "#de3f41", "#5d78ff"]
+                  });
+                  $("#graficaGestan").find("tspan").attr('dy', '5');
+                });
+
+              case 53:
+                _context2.next = 64;
+                break;
+
+              case 55:
+                _context2.prev = 55;
+                _context2.t6 = _context2["catch"](50);
+                _context2.t7 = _context2.t6.response.status;
+                _context2.next = _context2.t7 === 422 ? 60 : 62;
+                break;
+
+              case 60:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 64);
+
+              case 62:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 64);
+
+              case 64:
+                if (!(opcion === "Socio")) {
+                  _context2.next = 80;
+                  break;
+                }
+
+                _parametros4 = {
+                  _token: this.csrf,
+                  opcion: opcion
+                };
+                _context2.prev = 66;
+                _context2.next = 69;
+                return _Servicios_administracion_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](_parametros4).then(function (respuesta) {
+                  _this2.poblacion = Math.floor(respuesta.data.poblacion / respuesta.data.poblacion * 100);
+                  _this2.inmigrantes = respuesta.data.inmigrantes;
+                  _this2.desempleados = respuesta.data.desempleados;
+                  _this2.indigenas = respuesta.data.indigenas;
+                  _this2.analfabetas = respuesta.data.analfabetas;
+                  _this2.$refs.graficaPobInm.length = "";
+                  $("#graficaPobInm").html("");
+                  Morris.Donut({
+                    element: 'graficaPobInm',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Población Inmigrante",
+                      value: respuesta.data.inmigrantes
+                    }],
+                    colors: ["networking", "#dd0b19", "#5d78ff"]
+                  });
+                  $("#graficaPobInm").find("tspan").attr('dy', '5');
+                  _this2.$refs.graficaDesem.length = "";
+                  $("#graficaDesem").html("");
+                  Morris.Donut({
+                    element: 'graficaDesem',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Desempleados",
+                      value: respuesta.data.desempleados
+                    }],
+                    colors: ["networking", "#e1b621", "#5d78ff"]
+                  });
+                  $("#graficaDesem").find("tspan").attr('dy', '5');
+                  _this2.$refs.graficaIndi.length = "";
+                  $("#graficaIndi").html("");
+                  Morris.Donut({
+                    element: 'graficaIndi',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Indigenas",
+                      value: respuesta.data.indigenas
+                    }],
+                    colors: ["networking", "#3c84c5", "#5d78ff"]
+                  });
+                  $("#graficaIndi").find("tspan").attr('dy', '5');
+                  _this2.$refs.graficaAnalfa.length = "";
+                  $("#graficaAnalfa").html("");
+                  Morris.Donut({
+                    element: 'graficaAnalfa',
+                    resize: true,
+                    data: [{
+                      label: "Total Población",
+                      value: respuesta.data.poblacion
+                    }, {
+                      label: "Analfabetas",
+                      value: respuesta.data.analfabetas
+                    }],
+                    colors: ["networking", "#de3f41", "#de3f41"]
+                  });
+                  $("#graficaAnalfa").find("tspan").attr('dy', '5');
+                });
+
+              case 69:
+                _context2.next = 80;
+                break;
+
+              case 71:
+                _context2.prev = 71;
+                _context2.t8 = _context2["catch"](66);
+                _context2.t9 = _context2.t8.response.status;
+                _context2.next = _context2.t9 === 422 ? 76 : 78;
+                break;
+
+              case 76:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 80);
+
+              case 78:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 80);
+
+              case 80:
+                this.varmodal = opcion; //POBLACION ENTREVISTADA
+
+              case 81:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[2, 7], [18, 23], [34, 39], [50, 55], [66, 71]]);
+      }));
+
+      function buscar(_x) {
+        return _buscar.apply(this, arguments);
+      }
+
+      return buscar;
+    }()
   }
 });
 
@@ -43126,7 +43746,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.color-datepicker {\n    background: #f2f2f2;\n    border: 1px solid #ddd;\n    padding: 0em 1em 1em;\n    margin-bottom: 2em;\n}\n/* #baradescroll::-webkit-scrollbar {\n    display: none;\n} */\n#baradescroll,#baradescroll1,#baradescroll2,#baradescroll3 {\n    overflow-x: hidden;\n}\n#baradescroll:hover {\n    overflow-x: auto;\n}\n#baradescroll1:hover {\n    overflow-x: auto;\n}\n#baradescroll2:hover {\n    overflow-x: auto;\n}\n#baradescroll3:hover {\n    overflow-x: auto;\n}\n.kt-widget__item a:hover {\n    color: black !important;\n}\n/* .kt-nav__link-icon:hover{color: black !important;} */\n.kt-widget__item:hover {\n    background: black !important;\n    color: black !important;\n}\n.grayclase {\n    animation: flip 6s linear infinite;\n    transform: rotateX(0deg);\n}\n@keyframes flip {\n0% {\n        transform: rotateX(0deg);\n}\n15% {\n        transform: rotateX(360deg);\n}\n100% {\n        transform: rotateX(360deg);\n}\n}\n@keyframes fade {\n0% {\n        opacity: 0;\n}\n10% {\n        opacity: 1;\n}\n50% {\n        opacity: 1;\n}\n60% {\n        opacity: 0;\n}\n}\n.img-contenedor {\n    -webkit-transition: all 0.9s ease; /* Safari y Chrome */\n    -moz-transition: all 0.9s ease; /* Firefox */\n    -o-transition: all 0.9s ease; /* IE 9 */\n    -ms-transition: all 0.9s ease; /* Opera */\n    width: 100%;\n}\n.img-contenedor:hover {\n    -webkit-transform: scale(1.25);\n    -moz-transform: scale(1.25);\n    -ms-transform: scale(1.25);\n    -o-transform: scale(1.25);\n    transform: scale(1.25);\n}\n", ""]);
+exports.push([module.i, "\n.kt-bg-wor{\n    background-color: #646C9A !important;\n}\n.modal-lg, .modal-xl {\n    max-width: 90%;\n}\n.modal-backdrop {\n    background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n    color: #f8f9fa !important;\n}\n.close {\n    display: none;\n}\n.color-datepicker {\n    background: #f2f2f2;\n    border: 1px solid #ddd;\n    padding: 0em 1em 1em;\n    margin-bottom: 2em;\n}\n/* #baradescroll::-webkit-scrollbar {\n    display: none;\n} */\n#baradescroll,#baradescroll1,#baradescroll2,#baradescroll3 {\n    overflow-x: hidden;\n}\n#baradescroll:hover {\n    overflow-x: auto;\n}\n#baradescroll1:hover {\n    overflow-x: auto;\n}\n#baradescroll2:hover {\n    overflow-x: auto;\n}\n#baradescroll3:hover {\n    overflow-x: auto;\n}\n.kt-widget__item a:hover {\n    color: black !important;\n}\n/* .kt-nav__link-icon:hover{color: black !important;} */\n.kt-widget__item:hover {\n    background: black !important;\n    color: black !important;\n}\n.grayclase {\n    animation: flip 6s linear infinite;\n    transform: rotateX(0deg);\n}\n@keyframes flip {\n0% {\n        transform: rotateX(0deg);\n}\n15% {\n        transform: rotateX(360deg);\n}\n100% {\n        transform: rotateX(360deg);\n}\n}\n@keyframes fade {\n0% {\n        opacity: 0;\n}\n10% {\n        opacity: 1;\n}\n50% {\n        opacity: 1;\n}\n60% {\n        opacity: 0;\n}\n}\n.img-contenedor {\n    -webkit-transition: all 0.9s ease; /* Safari y Chrome */\n    -moz-transition: all 0.9s ease; /* Firefox */\n    -o-transition: all 0.9s ease; /* IE 9 */\n    -ms-transition: all 0.9s ease; /* Opera */\n    width: 100%;\n}\n.img-contenedor:hover {\n    -webkit-transform: scale(1.25);\n    -moz-transform: scale(1.25);\n    -ms-transform: scale(1.25);\n    -o-transform: scale(1.25);\n    transform: scale(1.25);\n}\n", ""]);
 
 // exports
 
@@ -52860,7 +53480,20 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid grayclase"
+                                      "kt-portlet kt-portlet--height-fluid grayclase",
+                                    attrs: {
+                                      "data-container": "body",
+                                      "data-toggle": "kt-popover",
+                                      "data-placement": "left",
+                                      "data-content": "",
+                                      "data-html": "true",
+                                      title: "<b>Población Entrevistada</b>"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal("PobEnt")
+                                      }
+                                    }
                                   },
                                   [
                                     _c(
@@ -52879,7 +53512,7 @@ var render = function() {
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "kt-widget14__content "
+                                            staticClass: "kt-widget14__content"
                                           },
                                           [
                                             _c(
@@ -52907,7 +53540,32 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _vm._m(25)
+                                        _c(
+                                          "div",
+                                          { staticClass: "kt-widget14__info" },
+                                          [
+                                            _c(
+                                              "h3",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+                                                staticStyle: {
+                                                  "font-size": "12px",
+                                                  color: "#818bb4 !important"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                                            " +
+                                                    _vm._s(
+                                                      _vm.pob_entrevistada
+                                                    ) +
+                                                    " Personas\n                                                        "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
                                       ]
                                     )
                                   ]
@@ -52929,7 +53587,125 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
+                                      "kt-portlet kt-portlet--height-fluid",
+                                    attrs: {
+                                      "data-container": "body",
+                                      "data-toggle": "kt-popover",
+                                      "data-placement": "left",
+                                      "data-content": "",
+                                      "data-html": "true",
+                                      title: "<b>Viviendas Visitadas</b>"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal("VivVis")
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(25),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/zonas/viviendas.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "kt-widget14__info" },
+                                          [
+                                            _c(
+                                              "h3",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__legend kt-font-danger font-weight-bold text-center",
+                                                staticStyle: {
+                                                  "font-size": "12px",
+                                                  color: "#818bb4 !important"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                                            " +
+                                                    _vm._s(_vm.viv_visitadas) +
+                                                    " Viviendas\n                                                        "
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid",
+                                    attrs: {
+                                      "data-container": "body",
+                                      "data-toggle": "kt-popover",
+                                      "data-placement": "left",
+                                      "data-content": "",
+                                      "data-html": "true",
+                                      title: "<b>Hogares Visitados</b>"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal("HogVis")
+                                      }
+                                    }
                                   },
                                   [
                                     _c(
@@ -52958,19 +53734,28 @@ var render = function() {
                                                   "kt-widget14__chart text-center"
                                               },
                                               [
-                                                _c("img", {
-                                                  staticStyle: {
-                                                    height: "100px",
-                                                    width: "140px",
-                                                    float: "right"
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "kt-font-danger font-weight-bold text-center"
                                                   },
-                                                  attrs: {
-                                                    src:
-                                                      _vm.$store.state
-                                                        .serverPath +
-                                                      "assets/iconos/zonas/viviendas.png"
-                                                  }
-                                                })
+                                                  [
+                                                    _c("img", {
+                                                      staticStyle: {
+                                                        height: "100px",
+                                                        width: "140px",
+                                                        float: "right"
+                                                      },
+                                                      attrs: {
+                                                        src:
+                                                          _vm.$store.state
+                                                            .serverPath +
+                                                          "assets/iconos/zonas/hogares.png"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
                                               ]
                                             )
                                           ]
@@ -53044,7 +53829,7 @@ var render = function() {
                                                         src:
                                                           _vm.$store.state
                                                             .serverPath +
-                                                          "assets/iconos/zonas/hogares.png"
+                                                          "assets/iconos/zonas/riesgosmate.png"
                                                       }
                                                     })
                                                   ]
@@ -53076,7 +53861,12 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
+                                      "kt-portlet kt-portlet--height-fluid grayclase",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal("Salud")
+                                      }
+                                    }
                                   },
                                   [
                                     _c(
@@ -53105,28 +53895,19 @@ var render = function() {
                                                   "kt-widget14__chart text-center"
                                               },
                                               [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "kt-font-danger font-weight-bold text-center"
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
                                                   },
-                                                  [
-                                                    _c("img", {
-                                                      staticStyle: {
-                                                        height: "100px",
-                                                        width: "140px",
-                                                        float: "right"
-                                                      },
-                                                      attrs: {
-                                                        src:
-                                                          _vm.$store.state
-                                                            .serverPath +
-                                                          "assets/iconos/zonas/riesgosmate.png"
-                                                      }
-                                                    })
-                                                  ]
-                                                )
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/zonas/riesgosalud.png"
+                                                  }
+                                                })
                                               ]
                                             )
                                           ]
@@ -53154,7 +53935,7 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid grayclase"
+                                      "kt-portlet kt-portlet--height-fluid"
                                   },
                                   [
                                     _c(
@@ -53193,7 +53974,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/zonas/riesgosalud.png"
+                                                      "assets/iconos/zonas/riesgosambi.png"
                                                   }
                                                 })
                                               ]
@@ -53206,24 +53987,21 @@ var render = function() {
                                     )
                                   ]
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
                               _c("td", [
                                 _c(
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
+                                      "kt-portlet kt-portlet--height-fluid",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal("Socio")
+                                      }
+                                    }
                                   },
                                   [
                                     _c(
@@ -53252,19 +54030,28 @@ var render = function() {
                                                   "kt-widget14__chart text-center"
                                               },
                                               [
-                                                _c("img", {
-                                                  staticStyle: {
-                                                    height: "100px",
-                                                    width: "140px",
-                                                    float: "right"
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "kt-font-danger font-weight-bold text-center"
                                                   },
-                                                  attrs: {
-                                                    src:
-                                                      _vm.$store.state
-                                                        .serverPath +
-                                                      "assets/iconos/zonas/riesgosambi.png"
-                                                  }
-                                                })
+                                                  [
+                                                    _c("img", {
+                                                      staticStyle: {
+                                                        height: "100px",
+                                                        width: "140px",
+                                                        float: "right"
+                                                      },
+                                                      attrs: {
+                                                        src:
+                                                          _vm.$store.state
+                                                            .serverPath +
+                                                          "assets/iconos/zonas/socio.png"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
                                               ]
                                             )
                                           ]
@@ -53275,10 +54062,18 @@ var render = function() {
                                     )
                                   ]
                                 )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
                               _c("td", [
                                 _c(
                                   "div",
@@ -53330,7 +54125,7 @@ var render = function() {
                                                         src:
                                                           _vm.$store.state
                                                             .serverPath +
-                                                          "assets/iconos/zonas/socio.png"
+                                                          "assets/iconos/zonas/geo.png"
                                                       }
                                                     })
                                                   ]
@@ -53362,7 +54157,7 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
+                                      "kt-portlet kt-portlet--height-fluid grayclase "
                                   },
                                   [
                                     _c(
@@ -53408,7 +54203,7 @@ var render = function() {
                                                         src:
                                                           _vm.$store.state
                                                             .serverPath +
-                                                          "assets/iconos/zonas/geo.png"
+                                                          "assets/iconos/zonas/migrante.png"
                                                       }
                                                     })
                                                   ]
@@ -53440,7 +54235,7 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid grayclase "
+                                      "kt-portlet kt-portlet--height-fluid"
                                   },
                                   [
                                     _c(
@@ -53486,7 +54281,7 @@ var render = function() {
                                                         src:
                                                           _vm.$store.state
                                                             .serverPath +
-                                                          "assets/iconos/zonas/migrante.png"
+                                                          "assets/iconos/zonas/kit.png"
                                                       }
                                                     })
                                                   ]
@@ -53518,7 +54313,7 @@ var render = function() {
                                   "div",
                                   {
                                     staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
+                                      "kt-portlet kt-portlet--height-fluid grayclase"
                                   },
                                   [
                                     _c(
@@ -53564,84 +54359,6 @@ var render = function() {
                                                         src:
                                                           _vm.$store.state
                                                             .serverPath +
-                                                          "assets/iconos/zonas/kit.png"
-                                                      }
-                                                    })
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._m(43)
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "kt-portlet kt-portlet--height-fluid grayclase"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "kt-widget14 img-contenedor",
-                                        staticStyle: {
-                                          cursor: "pointer",
-                                          width: "200px"
-                                        }
-                                      },
-                                      [
-                                        _vm._m(44),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "kt-widget14__content"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "kt-widget14__chart text-center"
-                                              },
-                                              [
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "kt-font-danger font-weight-bold text-center"
-                                                  },
-                                                  [
-                                                    _c("img", {
-                                                      staticStyle: {
-                                                        height: "100px",
-                                                        width: "140px",
-                                                        float: "right"
-                                                      },
-                                                      attrs: {
-                                                        src:
-                                                          _vm.$store.state
-                                                            .serverPath +
                                                           "assets/iconos/zonas/vias.png"
                                                       }
                                                     })
@@ -53652,7 +54369,7 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _vm._m(45)
+                                        _vm._m(43)
                                       ]
                                     )
                                   ]
@@ -53675,7 +54392,7 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(46),
+                    _vm._m(44),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -53711,7 +54428,7 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _vm._m(47),
+                                        _vm._m(45),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -53737,6 +54454,75 @@ var render = function() {
                                                       _vm.$store.state
                                                         .serverPath +
                                                       "assets/iconos/salud/poblacion.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(46)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(47),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/salud/maternoPerinatal.png"
                                                   }
                                                 })
                                               ]
@@ -53805,7 +54591,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/maternoPerinatal.png"
+                                                      "assets/iconos/salud/alteracionesNutricionales.png"
                                                   }
                                                 })
                                               ]
@@ -53874,7 +54660,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/alteracionesNutricionales.png"
+                                                      "assets/iconos/salud/enfermedadesInfecciosas.png"
                                                   }
                                                 })
                                               ]
@@ -53943,7 +54729,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/enfermedadesInfecciosas.png"
+                                                      "assets/iconos/salud/usospa.png"
                                                   }
                                                 })
                                               ]
@@ -54012,75 +54798,6 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/usospa.png"
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._m(56)
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "kt-widget14 img-contenedor",
-                                        staticStyle: {
-                                          cursor: "pointer",
-                                          width: "200px"
-                                        }
-                                      },
-                                      [
-                                        _vm._m(57),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "kt-widget14__content"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "kt-widget14__chart text-center"
-                                              },
-                                              [
-                                                _c("img", {
-                                                  staticStyle: {
-                                                    height: "100px",
-                                                    width: "140px",
-                                                    float: "right"
-                                                  },
-                                                  attrs: {
-                                                    src:
-                                                      _vm.$store.state
-                                                        .serverPath +
                                                       "assets/iconos/salud/enfermedadesCardiovascular.png"
                                                   }
                                                 })
@@ -54089,7 +54806,7 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _vm._m(58)
+                                        _vm._m(56)
                                       ]
                                     )
                                   ]
@@ -54125,7 +54842,7 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _vm._m(59),
+                                        _vm._m(57),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -54151,6 +54868,75 @@ var render = function() {
                                                       _vm.$store.state
                                                         .serverPath +
                                                       "assets/iconos/salud/cancer.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(58)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(59),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/salud/transtornosVisuales.png"
                                                   }
                                                 })
                                               ]
@@ -54219,7 +55005,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/transtornosVisuales.png"
+                                                      "assets/iconos/salud/transtornosAuditivos.png"
                                                   }
                                                 })
                                               ]
@@ -54288,7 +55074,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/transtornosAuditivos.png"
+                                                      "assets/iconos/salud/saludBucal.png"
                                                   }
                                                 })
                                               ]
@@ -54357,7 +55143,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/saludBucal.png"
+                                                      "assets/iconos/salud/saludMental.png"
                                                   }
                                                 })
                                               ]
@@ -54426,7 +55212,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/saludMental.png"
+                                                      "assets/iconos/salud/violencias.png"
                                                   }
                                                 })
                                               ]
@@ -54439,18 +55225,10 @@ var render = function() {
                                     )
                                   ]
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
                               _c("td", [
                                 _c(
                                   "div",
@@ -54495,7 +55273,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/violencias.png"
+                                                      "assets/iconos/salud/enfermedadesRespiratorias.png"
                                                   }
                                                 })
                                               ]
@@ -54508,10 +55286,18 @@ var render = function() {
                                     )
                                   ]
                                 )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
                               _c("td", [
                                 _c(
                                   "div",
@@ -54556,7 +55342,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/enfermedadesRespiratorias.png"
+                                                      "assets/iconos/salud/enfermedadesZoonoticas.png"
                                                   }
                                                 })
                                               ]
@@ -54625,7 +55411,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/enfermedadesZoonoticas.png"
+                                                      "assets/iconos/salud/enfermedadesHuerfanas.png"
                                                   }
                                                 })
                                               ]
@@ -54694,7 +55480,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/enfermedadesHuerfanas.png"
+                                                      "assets/iconos/salud/transtornosDegenerativos.png"
                                                   }
                                                 })
                                               ]
@@ -54763,7 +55549,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/transtornosDegenerativos.png"
+                                                      "assets/iconos/salud/adolescentesEmbarazo.png"
                                                   }
                                                 })
                                               ]
@@ -54832,7 +55618,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/adolescentesEmbarazo.png"
+                                                      "assets/iconos/salud/gestantes.png"
                                                   }
                                                 })
                                               ]
@@ -54901,7 +55687,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/gestantes.png"
+                                                      "assets/iconos/salud/menoresNoEscolarizados.png"
                                                   }
                                                 })
                                               ]
@@ -54970,7 +55756,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/menoresNoEscolarizados.png"
+                                                      "assets/iconos/salud/poblacionNoAsegurada.png"
                                                   }
                                                 })
                                               ]
@@ -55039,7 +55825,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/poblacionNoAsegurada.png"
+                                                      "assets/iconos/salud/adultoMayor.png"
                                                   }
                                                 })
                                               ]
@@ -55108,7 +55894,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/adultoMayor.png"
+                                                      "assets/iconos/salud/estadisticas.png"
                                                   }
                                                 })
                                               ]
@@ -55177,75 +55963,6 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/salud/estadisticas.png"
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._m(90)
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "kt-widget14 img-contenedor",
-                                        staticStyle: {
-                                          cursor: "pointer",
-                                          width: "200px"
-                                        }
-                                      },
-                                      [
-                                        _vm._m(91),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "kt-widget14__content"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "kt-widget14__chart text-center"
-                                              },
-                                              [
-                                                _c("img", {
-                                                  staticStyle: {
-                                                    height: "100px",
-                                                    width: "140px",
-                                                    float: "right"
-                                                  },
-                                                  attrs: {
-                                                    src:
-                                                      _vm.$store.state
-                                                        .serverPath +
                                                       "assets/iconos/zonas/riesgosmate.png"
                                                   }
                                                 })
@@ -55254,7 +55971,7 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _vm._m(92)
+                                        _vm._m(90)
                                       ]
                                     )
                                   ]
@@ -55277,7 +55994,7 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(93),
+                    _vm._m(91),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -55313,7 +56030,7 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _vm._m(94),
+                                        _vm._m(92),
                                         _vm._v(" "),
                                         _c(
                                           "div",
@@ -55339,6 +56056,75 @@ var render = function() {
                                                       _vm.$store.state
                                                         .serverPath +
                                                       "assets/iconos/ambiental/CONTAMINACION_AIRE.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(93)
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "kt-widget14 img-contenedor",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(94),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/ambiental/CONTAMINACION_SUELO.png"
                                                   }
                                                 })
                                               ]
@@ -55407,7 +56193,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/ambiental/CONTAMINACION_SUELO.png"
+                                                      "assets/iconos/ambiental/INCENDIOS.png"
                                                   }
                                                 })
                                               ]
@@ -55476,7 +56262,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/ambiental/INCENDIOS.png"
+                                                      "assets/iconos/ambiental/INSALUBRIDAD.png"
                                                   }
                                                 })
                                               ]
@@ -55489,18 +56275,10 @@ var render = function() {
                                     )
                                   ]
                                 )
-                              ]),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
                               _c("td", [
                                 _c(
                                   "div",
@@ -55545,7 +56323,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/ambiental/INSALUBRIDAD.png"
+                                                      "assets/iconos/ambiental/INUNDACIONES.png"
                                                   }
                                                 })
                                               ]
@@ -55558,10 +56336,18 @@ var render = function() {
                                     )
                                   ]
                                 )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tr", [
+                              ]),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
+                              _c("td"),
+                              _vm._v(" "),
                               _c("td", [
                                 _c(
                                   "div",
@@ -55606,7 +56392,7 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/ambiental/INUNDACIONES.png"
+                                                      "assets/iconos/ambiental/NO_ACCESO_AGUA.png"
                                                   }
                                                 })
                                               ]
@@ -55675,75 +56461,6 @@ var render = function() {
                                                     src:
                                                       _vm.$store.state
                                                         .serverPath +
-                                                      "assets/iconos/ambiental/NO_ACCESO_AGUA.png"
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._m(105)
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td"),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "kt-portlet kt-portlet--height-fluid"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "kt-widget14 img-contenedor",
-                                        staticStyle: {
-                                          cursor: "pointer",
-                                          width: "200px"
-                                        }
-                                      },
-                                      [
-                                        _vm._m(106),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass: "kt-widget14__content"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "kt-widget14__chart text-center"
-                                              },
-                                              [
-                                                _c("img", {
-                                                  staticStyle: {
-                                                    height: "100px",
-                                                    width: "140px",
-                                                    float: "right"
-                                                  },
-                                                  attrs: {
-                                                    src:
-                                                      _vm.$store.state
-                                                        .serverPath +
                                                       "assets/iconos/ambiental/PROLIFERACION_DE_PLAGA.png"
                                                   }
                                                 })
@@ -55752,7 +56469,7 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _vm._m(107)
+                                        _vm._m(105)
                                       ]
                                     )
                                   ]
@@ -55795,6 +56512,1636 @@ var render = function() {
                 ])
               ])
             ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "modalProfesional",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-dialog modal-lg",
+                attrs: { role: "document" }
+              },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(106),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "section",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.varmodal == "PobEnt",
+                            expression: "varmodal == 'PobEnt'"
+                          }
+                        ]
+                      },
+                      [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid"
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(107),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaPobEnt1",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaPobEnt1" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#5d78ff !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.pob_entrevistadaPor
+                                                        ) + "% Entrevistada"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid"
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(108),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaPorCi",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaPorCi" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.viviendas) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#dd0b19 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.viv_visitadas
+                                                        ) + "% Entrevistada"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "section",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.varmodal == "VivVis",
+                            expression: "varmodal == 'VivVis'"
+                          }
+                        ]
+                      },
+                      [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-md-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(109),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaPorCi2",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaPorCi2" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.viviendas) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#dd0b19 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.viv_visitadas
+                                                        ) + "% Visitadas"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "section",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.varmodal == "HogVis",
+                            expression: "varmodal == 'HogVis'"
+                          }
+                        ]
+                      },
+                      [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-md-12" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(110),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaHogVis",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaHogVis" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.viviendas) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#dd0b19 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.totalhogares
+                                                        ) + " Visitados"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "section",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.varmodal == "Salud",
+                            expression: "varmodal == 'Salud'"
+                          }
+                        ]
+                      },
+                      [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(111),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaAdoEmb",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaAdoEmb" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#dd0b19 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.adolescentes
+                                                        ) + " Embarazadas"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(112),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaAdulCro",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaAdulCro" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#e1b621 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.adulCron) +
+                                                          " Enf. Cronicas"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(113),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaAdulInfec",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaAdulInfec" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#3c84c5 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.adulInfec) +
+                                                          " Enf. Infecciosas"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(114),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaGestan",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaGestan" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#de3f41 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.gestantes) +
+                                                          " Gestantes"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "section",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.varmodal == "Socio",
+                            expression: "varmodal == 'Socio'"
+                          }
+                        ]
+                      },
+                      [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(115),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaPobInm",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaPobInm" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#dd0b19 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.inmigrantes
+                                                        ) + " Inmigrantes"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(116),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaDesem",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaDesem" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#e1b621 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.desempleados
+                                                        ) + " Desempleados"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(117),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaIndi",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaIndi" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#3c84c5 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.indigenas) +
+                                                          " Indigenas"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-6" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "kt-portlet kt-portlet--height-fluid "
+                              },
+                              [
+                                _c("div", { staticClass: "kt-widget14" }, [
+                                  _vm._m(118),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-widget14__content" },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__chart" },
+                                        [
+                                          _c("div", {
+                                            ref: "graficaAnalfa",
+                                            staticStyle: {
+                                              height: "300px",
+                                              width: "300px"
+                                            },
+                                            attrs: { id: "graficaAnalfa" }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "kt-widget14__legends" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet ",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#646C9A !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(_vm.poblacion) +
+                                                          "% Total"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__legend"
+                                            },
+                                            [
+                                              _c("span", {
+                                                staticClass:
+                                                  "kt-widget14__bullet",
+                                                staticStyle: {
+                                                  "background-color":
+                                                    "#de3f41 !important"
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__stats"
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticStyle: {
+                                                        color: "black"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.analfabetas
+                                                        ) + " Analfabetas"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          attrs: { type: "button" },
+                          on: { click: _vm.cerrarModal }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-window-close" }),
+                          _vm._v(" Cerrar\n                                ")
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ]
+            )
           ]
         )
       ])
@@ -56596,26 +58943,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "kt-widget14__info" }, [
-      _c(
-        "h3",
-        {
-          staticClass:
-            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
-          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
-        },
-        [
-          _vm._v(
-            "\n                                                            705 Personas\n                                                        "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "kt-widget14__header" }, [
       _c(
         "h3",
@@ -56626,26 +58953,6 @@ var staticRenderFns = [
         [
           _vm._v(
             "\n                                                            Viviendas\n                                                            Visitadas\n                                                        "
-          )
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "kt-widget14__info" }, [
-      _c(
-        "h3",
-        {
-          staticClass:
-            "kt-widget14__legend kt-font-danger font-weight-bold text-center",
-          staticStyle: { "font-size": "12px", color: "#818bb4 !important" }
-        },
-        [
-          _vm._v(
-            "\n                                                            200 Viviendas\n                                                        "
           )
         ]
       )
@@ -58524,6 +60831,177 @@ var staticRenderFns = [
           )
         ]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title ", attrs: { id: "exampleModalLabel" } },
+        [
+          _c(
+            "span",
+            { staticStyle: { color: "#5d78ff", "font-size": "2.3rem" } },
+            [_vm._v(" Estadisticas")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Total de Población Entrevistada\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Viviendas Visitadas\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Viviendas Visitadas\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Hogares Visitados\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Adolescentes Embarazadas\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Adultos con Enfermedades Cronicas\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Adultos con Enfermedades Infecciosas\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Total de Gestantes\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Población Inmigrante\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Desempleados\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Población Indigenas\n                                                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-widget14__header" }, [
+      _c("h3", { staticClass: "kt-widget14__title" }, [
+        _vm._v(
+          "\n                                                        Analfabetas\n                                                    "
+        )
+      ])
     ])
   }
 ]
@@ -77702,56 +80180,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Servicios/caracterizacion_servicios.js":
-/*!*************************************************************!*\
-  !*** ./resources/js/Servicios/caracterizacion_servicios.js ***!
-  \*************************************************************/
-/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion */
+/***/ "./resources/js/Servicios/administracion_servicios.js":
+/*!************************************************************!*\
+  !*** ./resources/js/Servicios/administracion_servicios.js ***!
+  \************************************************************/
+/*! exports provided: listar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarCaracterizacion", function() { return listarCaracterizacion; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nuevaCaracterizacion", function() { return nuevaCaracterizacion; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardar", function() { return guardar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validar", function() { return validar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarCaracterizacion", function() { return eliminarCaracterizacion; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarCaracterizacion", function() { return exportarCaracterizacion; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarCaracterizacion2", function() { return exportarCaracterizacion2; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validarJefe", function() { return validarJefe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actualizar", function() { return actualizar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editarCaracterizacion", function() { return editarCaracterizacion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar", function() { return listar; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
-function listarCaracterizacion($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion', $data);
-}
-function nuevaCaracterizacion($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/nuevo', $data);
-}
-function guardar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/guardar', $data);
-}
-function validar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/validar', $data);
-}
-function eliminarCaracterizacion($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/eliminar', $data);
-}
-function exportarCaracterizacion($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/exportar', $data);
-}
-function exportarCaracterizacion2($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/exportar2', $data);
-}
-function validarJefe($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/validarJefe', $data);
-}
-function actualizar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/actualizar', $data);
-}
-function editarCaracterizacion($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/editar', $data);
+function listar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/estadisticas', $data);
 }
 
 /***/ }),
@@ -78246,7 +80688,7 @@ var routes = [{
   path: '/veredas',
   name: 'Veredas',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./Vistas/Veredas/Veredas.vue */ "./resources/js/Vistas/Veredas/Veredas.vue"));
+    return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./Vistas/Veredas/Veredas.vue */ "./resources/js/Vistas/Veredas/Veredas.vue"));
   }
 }, {
   path: '/usuarios',
@@ -78258,43 +80700,43 @@ var routes = [{
   path: '/corregimientos',
   name: 'Corregimientos',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./Vistas/Corregimientos/Corregimientos.vue */ "./resources/js/Vistas/Corregimientos/Corregimientos.vue"));
+    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./Vistas/Corregimientos/Corregimientos.vue */ "./resources/js/Vistas/Corregimientos/Corregimientos.vue"));
   }
 }, {
   path: '/etnias',
   name: 'Etnias',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./Vistas/Etnias/Etnias.vue */ "./resources/js/Vistas/Etnias/Etnias.vue"));
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./Vistas/Etnias/Etnias.vue */ "./resources/js/Vistas/Etnias/Etnias.vue"));
   }
 }, {
   path: '/ocupaciones',
   name: 'Ocupaciones',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./Vistas/Ocupaciones/Ocupaciones.vue */ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue"));
+    return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./Vistas/Ocupaciones/Ocupaciones.vue */ "./resources/js/Vistas/Ocupaciones/Ocupaciones.vue"));
   }
 }, {
   path: '/parentescos',
   name: 'Parentescos',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./Vistas/Parentescos/Parentescos.vue */ "./resources/js/Vistas/Parentescos/Parentescos.vue"));
+    return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./Vistas/Parentescos/Parentescos.vue */ "./resources/js/Vistas/Parentescos/Parentescos.vue"));
   }
 }, {
   path: '/estadocivil',
   name: 'Estadocivil',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./Vistas/Estadocivil/Estadocivil.vue */ "./resources/js/Vistas/Estadocivil/Estadocivil.vue"));
+    return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./Vistas/Estadocivil/Estadocivil.vue */ "./resources/js/Vistas/Estadocivil/Estadocivil.vue"));
   }
 }, {
   path: '/escolaridad',
   name: 'Escolaridad',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./Vistas/Escolaridad/Escolaridad.vue */ "./resources/js/Vistas/Escolaridad/Escolaridad.vue"));
+    return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./Vistas/Escolaridad/Escolaridad.vue */ "./resources/js/Vistas/Escolaridad/Escolaridad.vue"));
   }
 }, {
   path: '/gestion',
   name: 'Gestion',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Gestion.vue */ "./resources/js/Vistas/Caracterizacion/Gestion.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Gestion.vue */ "./resources/js/Vistas/Caracterizacion/Gestion.vue"));
   }
 }, {
   path: '/ingreso',
@@ -78312,55 +80754,55 @@ var routes = [{
   path: '/morbilidad_nacer',
   name: 'Morbilidad_Nacer',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./Vistas/Morbilidad/MorbilidadNacer.vue */ "./resources/js/Vistas/Morbilidad/MorbilidadNacer.vue"));
+    return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./Vistas/Morbilidad/MorbilidadNacer.vue */ "./resources/js/Vistas/Morbilidad/MorbilidadNacer.vue"));
   }
 }, {
   path: '/morbilidad',
   name: 'Morbilidad',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./Vistas/Morbilidad/Morbilidad.vue */ "./resources/js/Vistas/Morbilidad/Morbilidad.vue"));
+    return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./Vistas/Morbilidad/Morbilidad.vue */ "./resources/js/Vistas/Morbilidad/Morbilidad.vue"));
   }
 }, {
   path: '/metodos',
   name: 'Metodos',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./Vistas/Metodos/Metodos.vue */ "./resources/js/Vistas/Metodos/Metodos.vue"));
+    return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./Vistas/Metodos/Metodos.vue */ "./resources/js/Vistas/Metodos/Metodos.vue"));
   }
 }, {
   path: '/motivos',
   name: 'Motivos',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./Vistas/Motivos/Motivos.vue */ "./resources/js/Vistas/Motivos/Motivos.vue"));
+    return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./Vistas/Motivos/Motivos.vue */ "./resources/js/Vistas/Motivos/Motivos.vue"));
   }
 }, {
   path: '/grupos',
   name: 'Grupos',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./Vistas/Grupos/Grupos.vue */ "./resources/js/Vistas/Grupos/Grupos.vue"));
+    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./Vistas/Grupos/Grupos.vue */ "./resources/js/Vistas/Grupos/Grupos.vue"));
   }
 }, {
   path: '/enfermedadesCro',
   name: 'EnfermedadesCro',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./Vistas/Enfermedades/EnfermedadesCro.vue */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue"));
+    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./Vistas/Enfermedades/EnfermedadesCro.vue */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue"));
   }
 }, {
   path: '/enfermedadesInf',
   name: 'EnfermedadesInf',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./Vistas/Enfermedades/EnfermedadesInf.vue */ "./resources/js/Vistas/Enfermedades/EnfermedadesInf.vue"));
+    return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./Vistas/Enfermedades/EnfermedadesInf.vue */ "./resources/js/Vistas/Enfermedades/EnfermedadesInf.vue"));
   }
 }, {
   path: '/religion',
   name: 'Religion',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./Vistas/Religion/Religion.vue */ "./resources/js/Vistas/Religion/Religion.vue"));
+    return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./Vistas/Religion/Religion.vue */ "./resources/js/Vistas/Religion/Religion.vue"));
   }
 }, {
   path: '/colegios',
   name: 'Colegios',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./Vistas/Colegios/Colegios.vue */ "./resources/js/Vistas/Colegios/Colegios.vue"));
+    return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./Vistas/Colegios/Colegios.vue */ "./resources/js/Vistas/Colegios/Colegios.vue"));
   }
 }, {
   path: '/ayu',

@@ -11133,6 +11133,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -15645,6 +15647,7 @@ var entero = function entero(value) {
                         ocupacion: _this8.CA1.ocupacion,
                         textoOcupacion: _this8.showText(_this8.CA1.ocupacion, _this8.ocupacion_options),
                         colegio: _this8.CA1.colegio,
+                        textoColegio: _this8.showText(_this8.CA1.colegio, _this8.colegio_options),
                         grado: _this8.CA1.grado,
                         entiende: _this8.CA1.entiende,
                         migrante: _this8.CA1.migrante,
@@ -15894,6 +15897,7 @@ var entero = function entero(value) {
                         ocupacion: _this9.caracData.ocupacion,
                         textoOcupacion: _this9.showText(_this9.caracData.ocupacion, _this9.ocupacion_options),
                         colegio: _this9.caracData.colegio,
+                        textoColegio: _this9.showText(_this9.caracData.colegio, _this9.colegio_options),
                         grado: _this9.caracData.grado,
                         entiende: _this9.caracData.entiende,
                         migrante: _this9.caracData.migrante,
@@ -25233,8 +25237,8 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: item.colegio,
-                                            expression: "item.colegio"
+                                            value: item.textoColegio,
+                                            expression: "item.textoColegio"
                                           },
                                           {
                                             name: "show",
@@ -25250,13 +25254,16 @@ var render = function() {
                                         staticClass:
                                           "form-control text-capitalize",
                                         class:
-                                          item.colegio == "" ? "" : "is-valid",
+                                          item.textoColegio == ""
+                                            ? ""
+                                            : "is-valid",
                                         staticStyle: { width: "300px" },
                                         attrs: {
                                           type: "text",
-                                          placeholder: "Colegio"
+                                          placeholder: "Colegio",
+                                          readonly: ""
                                         },
-                                        domProps: { value: item.colegio },
+                                        domProps: { value: item.textoColegio },
                                         on: {
                                           input: [
                                             function($event) {
@@ -25265,7 +25272,7 @@ var render = function() {
                                               }
                                               _vm.$set(
                                                 item,
-                                                "colegio",
+                                                "textoColegio",
                                                 $event.target.value
                                               )
                                             },
@@ -29396,8 +29403,8 @@ var render = function() {
                                           {
                                             name: "model",
                                             rawName: "v-model",
-                                            value: item.colegio,
-                                            expression: "item.colegio"
+                                            value: item.textoColegio,
+                                            expression: "item.textoColegio"
                                           },
                                           {
                                             name: "show",
@@ -29413,13 +29420,16 @@ var render = function() {
                                         staticClass:
                                           "form-control text-capitalize",
                                         class:
-                                          item.colegio == "0" ? "" : "is-valid",
+                                          item.textoColegio == "0"
+                                            ? ""
+                                            : "is-valid",
                                         staticStyle: { width: "300px" },
                                         attrs: {
                                           type: "text",
-                                          placeholder: "Colegio"
+                                          placeholder: "Colegio",
+                                          readonly: ""
                                         },
-                                        domProps: { value: item.colegio },
+                                        domProps: { value: item.textoColegio },
                                         on: {
                                           input: [
                                             function($event) {
@@ -29428,7 +29438,7 @@ var render = function() {
                                               }
                                               _vm.$set(
                                                 item,
-                                                "colegio",
+                                                "textoColegio",
                                                 $event.target.value
                                               )
                                             },
@@ -61584,6 +61594,60 @@ function eliminarBarrios($data) {
 }
 function comboBarrios($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/caracterizacion_servicios.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/Servicios/caracterizacion_servicios.js ***!
+  \*************************************************************/
+/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarCaracterizacion", function() { return listarCaracterizacion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nuevaCaracterizacion", function() { return nuevaCaracterizacion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardar", function() { return guardar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validar", function() { return validar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarCaracterizacion", function() { return eliminarCaracterizacion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarCaracterizacion", function() { return exportarCaracterizacion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarCaracterizacion2", function() { return exportarCaracterizacion2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validarJefe", function() { return validarJefe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actualizar", function() { return actualizar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editarCaracterizacion", function() { return editarCaracterizacion; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listarCaracterizacion($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion', $data);
+}
+function nuevaCaracterizacion($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/nuevo', $data);
+}
+function guardar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/guardar', $data);
+}
+function validar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/validar', $data);
+}
+function eliminarCaracterizacion($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/eliminar', $data);
+}
+function exportarCaracterizacion($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/exportar', $data);
+}
+function exportarCaracterizacion2($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/exportar2', $data);
+}
+function validarJefe($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/validarJefe', $data);
+}
+function actualizar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/actualizar', $data);
+}
+function editarCaracterizacion($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/editar', $data);
 }
 
 /***/ }),

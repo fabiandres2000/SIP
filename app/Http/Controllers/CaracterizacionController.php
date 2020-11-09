@@ -552,7 +552,20 @@ class CaracterizacionController extends Controller
             $jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'), $id_hogar);
             //TABLA JEFES DE HOGAR
 
+            //TABLA INTEGRANTES
+            $integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'), $id_hogar);
+            //TABLA INTEGRANTES
             //DATOS GUARDADOS
+
+            //TABLA FACTORES
+            $factores = \App\Factores::buscar(Session::get('alias'), $id_hogar);
+            //TABLA FACTORES
+
+            //TABLA MENORES DE 10 A 59 AÑOS
+            $De10a59 = \App\De10a59::buscar(Session::get('alias'), $id_hogar);
+            //TABLA MENORES DE 10 A 59 AÑOS
+
+            dd($De10a59);die;
 
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
@@ -579,6 +592,8 @@ class CaracterizacionController extends Controller
 
                 'hogar' => $hogar,
                 'jefes' => $jefes,
+                'integrantes' => $integrantes,
+                'factores' => $factores,
             ];
             return response()->json($respuesta, 200);
         } else {
