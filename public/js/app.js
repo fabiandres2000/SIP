@@ -80748,7 +80748,7 @@ var routes = [{
   path: '/editarIngreso',
   name: 'Editar',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Editar.vue */ "./resources/js/Vistas/Caracterizacion/Editar.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(25)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Editar.vue */ "./resources/js/Vistas/Caracterizacion/Editar.vue"));
   }
 }, {
   path: '/morbilidad_nacer',

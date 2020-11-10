@@ -561,11 +561,136 @@ class CaracterizacionController extends Controller
             $factores = \App\Factores::buscar(Session::get('alias'), $id_hogar);
             //TABLA FACTORES
 
+            //TABLA VIVIENDA
+            $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $id_hogar);
+            $vivienda = [];
+            $vivienda = [
+                'id' => $respuvivi->id,
+                'id_hogar' => $respuvivi->id_hogar,
+                'tipo_vivienda' => $respuvivi->tipo_vivienda,
+                'tipo_estructura' => $respuvivi->tipo_estructura,
+                'otro_tipo_estructura' => $respuvivi->otro_tipo_estructura,
+                'numero_cuartos' => $respuvivi->numero_cuartos,
+                'personas_por_cuartos' => $respuvivi->personas_por_cuartos,
+                'material_predominante' => $respuvivi->material_predominante,
+                'tipo_cubierta' => $respuvivi->tipo_cubierta,
+                'otro_tipo_cubierta' => $respuvivi->otro_tipo_cubierta,
+
+                'actividad_economica' => $respuvivi->actividad_economica,
+                'cual_actividad_economica' => $respuvivi->cual_actividad_economica,
+                'evento_afecta_vivienda' => $respuvivi->evento_afecta_vivienda,
+                'familias_accion' => $respuvivi->familias_accion,
+                'promedio_ingresos' => $respuvivi->promedio_ingresos,
+                'promedio_gastos' => $respuvivi->promedio_gastos,
+                'fuente_agua' => $respuvivi->fuente_agua,
+                'energia_electrica' => $respuvivi->energia_electrica,
+                'gas_natural' => $respuvivi->gas_natural,
+                'acueducto' => $respuvivi->acueducto,
+
+                'alcantarillado' => $respuvivi->alcantarillado,
+                'telefono_fijo' => $respuvivi->telefono_fijo,
+                'aseo' => $respuvivi->aseo,
+                'internet_subsidiado' => $respuvivi->internet_subsidiado,
+                'internet_privado' => $respuvivi->internet_privado,
+                'cual_fuente' => $respuvivi->cual_fuente,
+                'donde_almacena_agua' => $respuvivi->donde_almacena_agua,
+                'otro_almacena_agua' => $respuvivi->otro_almacena_agua,
+                'ubicacion_tanque' => $respuvivi->ubicacion_tanque,
+                'tipo_tratamiento_agua' => $respuvivi->tipo_tratamiento_agua,
+
+                'destino_final_basura' => $respuvivi->destino_final_basura,
+                'otro_destino_final_basura' => $respuvivi->otro_destino_final_basura,
+                'porquerizas' => $respuvivi->porquerizas,
+                'plagas' => $respuvivi->plagas,
+                'industrias' => $respuvivi->industrias,
+                'malos_olores' => $respuvivi->malos_olores,
+                'rellenos' => $respuvivi->rellenos,
+                'contaminacion_a' => $respuvivi->contaminacion_a,
+                'contaminacion_v' => $respuvivi->contaminacion_v,
+                'rio' => $respuvivi->rio,
+
+                'otro_cerca' => $respuvivi->otro_cerca,
+                'cual_cerca' => $respuvivi->cual_cerca,
+                'aereopuertos' => $respuvivi->aereopuertos,
+                'avenidas_transitadas' => $respuvivi->avenidas_transitadas,
+                'lotes_abandonados' => $respuvivi->lotes_abandonados,
+                'servicio_sanitario' => $respuvivi->servicio_sanitario,
+                'donde_sanitario' => $respuvivi->donde_sanitario,
+                'excretas' => $respuvivi->excretas,
+                'otro_depositan_excretas' => $respuvivi->otro_depositan_excretas,
+                'cocina' => $respuvivi->cocina,
+
+                'dormitorio_a' => $respuvivi->dormitorio_a,
+                'sala' => $respuvivi->sala,
+                'dormitorio_n' => $respuvivi->dormitorio_n,
+                'sanitario' => $respuvivi->sanitario,
+                'lavadero' => $respuvivi->lavadero,
+                'iluminacion_adecuada' => $respuvivi->iluminacion_adecuada,
+                'techo_adecuado' => $respuvivi->techo_adecuado,
+                'ventilacion_adecuada' => $respuvivi->ventilacion_adecuada,
+                'pisos_adecuado' => $respuvivi->pisos_adecuado,
+                'paredes_adecuadas' => $respuvivi->paredes_adecuadas,
+
+                'gasolina' => $respuvivi->gasolina,
+                'plaguicidas' => $respuvivi->plaguicidas,
+                'detergentes' => $respuvivi->detergentes,
+                'plaguicidas_insectos' => $respuvivi->plaguicidas_insectos,
+                'envases_vacios' => $respuvivi->envases_vacios,
+                'otro_envases_vacios' => $respuvivi->otro_envases_vacios,
+                'elementos_protecion' => $respuvivi->elementos_protecion,
+                'otro_elementos_protecion' => $respuvivi->otro_elementos_protecion,
+                'metodos_coccion' => $respuvivi->metodos_coccion,
+                'otro_metodos_coccion' => $respuvivi->otro_metodos_coccion,
+
+                'lugares_preparan_alimentos' => $respuvivi->lugares_preparan_alimentos,
+                'lugares_almacenan_alimentos' => $respuvivi->lugares_almacenan_alimentos,
+                'otro_lugares_almacenan_alimentos' => $respuvivi->otro_lugares_almacenan_alimentos,
+                'lava_frutas' => $respuvivi->lava_frutas,
+                'tipo_explotacion' => $respuvivi->tipo_explotacion,
+                'otro_tipo_explotacion' => $respuvivi->otro_tipo_explotacion,
+                'flora_afectados' => $respuvivi->flora_afectados,
+                'fauna_afectados' => $respuvivi->fauna_afectados,
+                'suelo_afectados' => $respuvivi->suelo_afectados,
+                'aire_afectados' => $respuvivi->aire_afectados,
+
+                'agua_afectados' => $respuvivi->agua_afectados,
+                'residuos_solidos_genera' => $respuvivi->residuos_solidos_genera,
+                'aguas_servidas_genera' => $respuvivi->aguas_servidas_genera,
+                'desechos_cocina_genera' => $respuvivi->desechos_cocina_genera,
+                'heces_animales_genera' => $respuvivi->heces_animales_genera,
+                'quimicos_genera' => $respuvivi->quimicos_genera,
+                'otros_genera' => $respuvivi->otros_genera,
+                'cual_genera' => $respuvivi->cual_genera,
+                'tipo_combustible' => $respuvivi->tipo_combustible,
+                'mantenimiento_red' => $respuvivi->mantenimiento_red,
+
+                'zona_alto_riesgo' => $respuvivi->zona_alto_riesgo,
+                'almacenamiento_residuos' => $respuvivi->almacenamiento_residuos,
+                'fuente_contaminacion' => $respuvivi->fuente_contaminacion,
+                'aguas_negras' => $respuvivi->aguas_negras,
+                'zonas_verdes' => $respuvivi->zonas_verdes,
+                'desplazamientos' => $respuvivi->desplazamientos,
+                'rotacion_cultivo' => $respuvivi->rotacion_cultivo,
+                'emplea_fertilizantes' => $respuvivi->emplea_fertilizantes,
+                'suministro_energia_ilegal' => $respuvivi->suministro_energia_ilegal,
+                'quema_cultivo' => $respuvivi->quema_cultivo,
+
+                'mantenimiento_preventivo' => $respuvivi->mantenimiento_preventivo,
+                'veces_inundaciones' => $respuvivi->veces_inundaciones,
+                'fachada' => $respuvivi->fachada,
+                'cuantos_baños' => $respuvivi->cuantos_baños,
+                'estado_conservacion_baños' => $respuvivi->estado_conservacion_baños,
+                'acabados_externos' => $respuvivi->acabados_externos,
+                'estado_conservacion_estructuras' => $respuvivi->estado_conservacion_estructuras,
+                'mobiliario_cocina' => $respuvivi->mobiliario_cocina,
+                'andenes' => $respuvivi->andenes,
+            ];
+
+            //TABLA VIVIENDA            
+
             //TABLA MENORES DE 10 A 59 AÑOS
             $De10a59 = \App\De10a59::buscar(Session::get('alias'), $id_hogar);
             //TABLA MENORES DE 10 A 59 AÑOS
-
-            dd($De10a59);die;
 
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
@@ -594,6 +719,8 @@ class CaracterizacionController extends Controller
                 'jefes' => $jefes,
                 'integrantes' => $integrantes,
                 'factores' => $factores,
+                'vivienda' => $vivienda,
+                'De10a59' => $De10a59,                
             ];
             return response()->json($respuesta, 200);
         } else {

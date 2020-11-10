@@ -148,4 +148,12 @@ class Vivienda extends Model
             'andenes' => $data['andenes'],
         ]);
     }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.vivienda')
+            ->join($alias . '.hogar', 'hogar.id', 'vivienda.id_hogar')
+            ->where('vivienda.id_hogar', $id_hogar)
+            ->first();
+    }
 }
