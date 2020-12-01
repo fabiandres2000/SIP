@@ -65,9 +65,30 @@ class De18a28 extends Model
             'queesvih' => $data['queesvih'],
             'queescancerutero' => $data['queescancerutero'],
             'queespapiloma' => $data['queespapiloma'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
         ]);        
     }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.de18a28')
+            ->where('de18a28.id_hogar', $id_hogar)
+            ->where('de18a28.estado', 'Activo')
+            ->select("de18a28.*")
+            ->selectRaw("CASE "
+                . " WHEN de18a28.snom IS NULL THEN '' "
+                . " WHEN de18a28.snom = '' THEN '' "
+                . " ELSE de18a28.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN de18a28.sape IS NULL THEN '' "
+                . " WHEN de18a28.sape = '' THEN '' "
+                . " ELSE de18a28.sape "
+                . " END sape"
+                . " ")            
+            ->get();
+    }    
 }

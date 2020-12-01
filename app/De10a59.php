@@ -14,7 +14,7 @@ class De10a59 extends Model
         'compa_sexuales', 'usa_condon', 'abortos_seis', 'metodo', 'tiempo_metodo', 'controles',
         'motivo', 'citologia', 'colposcopia', 'examen_seno', 'violencia', 'tdit',
         'tripleviral', 'nacidos_vivos', 'abortos', 'examen_prostata', 'biposia_prostata',
-        'estado', 'id_compania', 'opci',
+        'estado', 'id_compania', 'opci', 'embarazo_adolecentes',
     ];
 
     public static function guardar($data, $alias)
@@ -63,9 +63,10 @@ class De10a59 extends Model
             'abortos' => $data['abortos'],
             'examen_prostata' => $data['examen_prostata'],
             'biposia_prostata' => $data['biposia_prostata'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
+            'embarazo_adolecentes' => $data['embarazo_adolecentes'],
         ]);
     }
 
@@ -73,6 +74,20 @@ class De10a59 extends Model
     {
         return DB::connection('mysql')->table($alias . '.de10a59')
             ->where('de10a59.id_hogar', $id_hogar)
+            ->where('de10a59.estado', 'Activo')
+            ->select("de10a59.*")
+            ->selectRaw("CASE "
+                . " WHEN de10a59.snom IS NULL THEN '' "
+                . " WHEN de10a59.snom = '' THEN '' "
+                . " ELSE de10a59.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN de10a59.sape IS NULL THEN '' "
+                . " WHEN de10a59.sape = '' THEN '' "
+                . " ELSE de10a59.sape "
+                . " END sape"
+                . " ")
             ->get();
     }
 }

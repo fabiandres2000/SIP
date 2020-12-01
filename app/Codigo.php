@@ -47,7 +47,9 @@ class Codigo extends Model
 
     public static function editar($alias, $num, $id_hogar, $sigla)
     {
-        $num = explode($sigla, $num);
+        $ali = substr($sigla, 0, 4);
+        $num = explode($ali, $num);
+        
         return DB::connection('mysql')->table($alias . '.codigos')
             ->where('num', $num[1])->update([
             'id_hogar' => $id_hogar,

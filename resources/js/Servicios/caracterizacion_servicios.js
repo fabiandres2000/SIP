@@ -39,3 +39,7 @@ export function actualizar($data) {
 export function editarCaracterizacion($data) {
     return http().post('/caracterizacion/editar', $data);
 }
+
+export function eliminar($data) {
+    return http().post('/caracterizacion/eliminar', $data);
+}

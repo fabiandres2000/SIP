@@ -71,9 +71,30 @@ class De12a17 extends Model
             'madre' => $data['madre'],
             'hermanos' => $data['hermanos'],
             'conyuge' => $data['conyuge'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
-        ]);       
+        ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.de12a17')
+            ->where('de12a17.id_hogar', $id_hogar)
+            ->where('de12a17.estado', 'Activo')
+            ->select("de12a17.*")
+            ->selectRaw("CASE "
+                . " WHEN de12a17.snom IS NULL THEN '' "
+                . " WHEN de12a17.snom = '' THEN '' "
+                . " ELSE de12a17.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN de12a17.sape IS NULL THEN '' "
+                . " WHEN de12a17.sape = '' THEN '' "
+                . " ELSE de12a17.sape "
+                . " END sape"
+                . " ")            
+            ->get();
     }
 }

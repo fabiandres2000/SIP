@@ -14,7 +14,7 @@ class Integrante extends Model
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'escolaridad', 'ocupacion',
         'colegio', 'grado', 'etnia', 'entiende', 'pyp', 'migrante',
         'id_compania', 'estado', 'clasificacion', 'puntaje_sisben', 'otra_eps',
-        'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf', 'identi_auxi',
+        'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'excepciones',
     ];
     public static function guardar($data, $alias)
     {
@@ -62,7 +62,7 @@ class Integrante extends Model
             'pyp' => $data['pyp'],
             'migrante' => $data['migrante'],
             'id_compania' => 1,
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'clasificacion' => $data['clasificacion'],
             'puntaje_sisben' => $data['puntaje_sisben'],
             'jefe' => $jefe->id,
@@ -72,6 +72,8 @@ class Integrante extends Model
             'perdida_peso' => $data['perdida_peso'],
             'programa_icbf' => $data['programa_icbf'],
             'identi_auxi' => $data['identificacion'],
+            'excepciones' => $data['excepciones'],
+
         ]);
     }
 
@@ -116,11 +118,23 @@ class Integrante extends Model
             ->leftjoin($alias . '.administradoras', 'administradoras.id', 'integrantes.afi_entidad')
             ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'integrantes.ocupacion')
             ->leftjoin($alias . '.colegios', 'colegios.id', 'integrantes.colegio')
+
+            ->leftjoin($alias . '.parentescos', 'parentescos.id', 'integrantes.parentesco')
+            ->leftjoin($alias . '.estadocivil', 'estadocivil.id', 'integrantes.estado_civil')
+            ->leftjoin($alias . '.escolaridad', 'escolaridad.id', 'integrantes.escolaridad')
+            ->leftjoin($alias . '.etnias', 'etnias.id', 'integrantes.etnia')
+            ->leftjoin($alias . '.clasificacion_etnia', 'clasificacion_etnia.id', 'integrantes.clasificacion')
             ->where('integrantes.id_hogar', $id_hogar)
+            ->where('integrantes.estado', 'Activo')
             ->select("integrantes.*",
-                "ocupaciones.descripcion AS textoOcupacion", 
+                "ocupaciones.descripcion AS textoOcupacion",
                 "colegios.descripcion as textoColegio",
-                "caracterizacion.identificacion AS jefe")
+                "caracterizacion.identificacion AS jefe",
+                "parentescos.descripcion AS textoParentesco",
+                "estadocivil.descripcion AS textoEstado",
+                "escolaridad.descripcion AS textoEscolaridad",
+                "etnias.descripcion AS textoEtnia",
+                "clasificacion_etnia.clasificacion AS textoClasificacion")
             ->selectRaw("CASE "
                 . " WHEN integrantes.afi_entidad IS NULL THEN '' "
                 . " WHEN integrantes.afi_entidad='OTRA' THEN 'OTRA' "
@@ -133,6 +147,23 @@ class Integrante extends Model
                 . " WHEN integrantes.snom = '' THEN '' "
                 . " ELSE integrantes.snom "
                 . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN integrantes.sape IS NULL THEN '' "
+                . " WHEN integrantes.sape = '' THEN '' "
+                . " ELSE integrantes.sape "
+                . " END sape"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN integrantes.excepciones IS NULL THEN '' "
+                . " WHEN integrantes.excepciones = '' THEN '' "
+                . " WHEN integrantes.excepciones = '1' THEN 'Vida sexual prematura' "
+                . " WHEN integrantes.excepciones = '2' THEN 'Consumo de tabaco' "
+                . " WHEN integrantes.excepciones = '3' THEN 'Consumo de SPA' "
+                . " WHEN integrantes.excepciones = '4' THEN 'Consumo de alcohol' "
+                . " WHEN integrantes.excepciones = 'NA' THEN 'NO APLICA' "
+                . " ELSE integrantes.excepciones "
+                . " END textoExcepciones"
                 . " ")
             ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
             ->get();

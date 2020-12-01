@@ -25,4 +25,12 @@ class Animal extends Model
             'estado' => 'Activo',
         ]);
     }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.animales')
+            ->where('animales.id_hogar', $id_hogar)
+            ->where('animales.estado', 'Activo')
+            ->get();
+    }
 }

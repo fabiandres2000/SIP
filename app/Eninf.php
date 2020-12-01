@@ -43,9 +43,30 @@ class Eninf extends Model
             'tiempo' => $data['tiempo'],
             'tratamiento' => $data['tratamiento'],
             'complicaciones' => $data['complicaciones'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
-        ]);        
+        ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.eninf')
+            ->where('eninf.id_hogar', $id_hogar)
+            ->where('eninf.estado', 'Activo')
+            ->select("eninf.*")
+            ->selectRaw("CASE "
+                . " WHEN eninf.snom IS NULL THEN '' "
+                . " WHEN eninf.snom = '' THEN '' "
+                . " ELSE eninf.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN eninf.sape IS NULL THEN '' "
+                . " WHEN eninf.sape = '' THEN '' "
+                . " ELSE eninf.sape "
+                . " END sape"
+                . " ")            
+            ->get();
     }
 }

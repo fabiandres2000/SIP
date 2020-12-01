@@ -153,7 +153,10 @@ class Vivienda extends Model
     {
         return DB::connection('mysql')->table($alias . '.vivienda')
             ->join($alias . '.hogar', 'hogar.id', 'vivienda.id_hogar')
+            ->leftjoin($alias . '.actividades_economicas', 'actividades_economicas.id', 'vivienda.actividad_economica')
             ->where('vivienda.id_hogar', $id_hogar)
+            ->where('vivienda.estado', 'Activo')
+            ->select("vivienda.*","actividades_economicas.descripcion AS actividadesAuxiliar")
             ->first();
     }
 }

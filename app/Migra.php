@@ -49,9 +49,30 @@ class Migra extends Model
             'necesidad' => $data['necesidad'],
             'dependen' => $data['dependen'],
             'ingreso' => $data['ingreso'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
         ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.migra')
+            ->where('migra.id_hogar', $id_hogar)
+            ->where('migra.estado', 'Activo')
+            ->select("migra.*")
+            ->selectRaw("CASE "
+                . " WHEN migra.snom IS NULL THEN '' "
+                . " WHEN migra.snom = '' THEN '' "
+                . " ELSE migra.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN migra.sape IS NULL THEN '' "
+                . " WHEN migra.sape = '' THEN '' "
+                . " ELSE migra.sape "
+                . " END sape"
+                . " ")            
+            ->get();
     }
 }

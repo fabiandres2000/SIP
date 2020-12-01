@@ -1,6 +1,6 @@
 <template>
   <!--Begin::Section-->
-  <div class="row">   
+  <div class="row">
     <div class="col-12">
       <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile" style="margin-top: -4%;">
         <div
@@ -92,14 +92,22 @@
           </ul>
           <div class="tab-content">
             <div class="vld-parent">
-                <loading :active.sync="isLoading" 
-                :can-cancel="true" 
+              <loading
+                :active.sync="isLoading"
+                :can-cancel="true"
                 :on-cancel="onCancel"
                 :is-full-page="true"
-                >
-                <h3>Cargando... Por Favor Espere</h3>
-                </loading>             
-            </div>             
+              >
+                <div class="alert alert-success" role="alert">
+                  <div class="alert-icon">
+                    <i class="fa fa-spinner"></i>
+                  </div>
+                  <div class="alert-text">
+                    <h3>Cargando... Por Favor Espere!!!</h3>
+                  </div>
+                </div>
+              </loading>
+            </div>
             <!-- Identificación -->
             <div class="tab-pane active" id="tabIdentificacion" role="tabpanel">
               <div class="row">
@@ -389,7 +397,7 @@
                   <label>Documento (*):</label>
                   <input
                     type="text"
-                    ref="identificacion"
+                    ref="identificacionJefe"
                     class="form-control text-capitalize"
                     placeholder="Documento"
                     @change="formato('id1')"
@@ -448,10 +456,10 @@
                     :class="caracData.identidad_genero==''?'':'is-valid'"
                   >
                     <option value selected>Seleccione</option>
-                    <option value="HETEROSEXUAL">CISGENERO</option>
-                    <option value="HOMOSEXUAL">TRANSGENERO</option>
-                    <option value="BISEXUAL">TRANSEXUAL</option>
-                    <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                    <option value="CISGENERO">CISGENERO</option>
+                    <option value="TRANSGENERO">TRANSGENERO</option>
+                    <option value="TRANSEXUAL">TRANSEXUAL</option>
+                    <option value="TERCER GENERO Ó NO BINARIOS">TERCER GENERO Ó NO BINARIOS</option>
                     <option value="NA">NO APLICA</option>
                   </b-form-select>
                 </div>
@@ -589,7 +597,7 @@
                     :class="caracData.tipo_afiliacion==''?'':'is-valid'"
                   >
                     <option value selected>Seleccione</option>
-                    <option value="0">No Aplica</option>
+                    <option value="NA">No Aplica</option>
                     <option value="SUBSIDIADO">SUBSIDIADO</option>
                     <option value="CONTRIBUTIVO">CONTRIBUTIVO</option>
                     <option value="ESPECIAL">ESPECIAL</option>
@@ -641,11 +649,11 @@
                     :class="caracData.discapacidad==''?'':'is-valid'"
                   >
                     <option value selected>Seleccione</option>
-                    <option value="1">FISICA</option>
-                    <option value="2">COGNITIVA</option>
-                    <option value="3">SENSORIAL</option>
-                    <option value="4">PSÍQUICA</option>
-                    <option value="5">NINGUNA</option>
+                    <option value="FISICA">FISICA</option>
+                    <option value="COGNITIVA">COGNITIVA</option>
+                    <option value="SENSORIAL">SENSORIAL</option>
+                    <option value="PSÍQUICA">PSÍQUICA</option>
+                    <option value="NINGUNA">NINGUNA</option>
                   </b-form-select>
                 </div>
                 <div class="col-lg-3">
@@ -656,7 +664,6 @@
                     @change="mostrarOtro('mOCOL1')"
                   >
                     <option value selected>Seleccione</option>
-                    <option value="0">No Aplica</option>
                     <option
                       v-for="item in escolaridad_options"
                       :value="item.value"
@@ -823,7 +830,7 @@
                     <option value="NA">NO APLICA</option>
                   </b-form-select>
                 </div>
-                <div class="col-lg-1">
+                <div class="col-lg-1" v-if="bandeGuaEdiJefe==true">
                   <br />
                   <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   <a
@@ -836,6 +843,36 @@
                     @click.prevent="agregarJefe"
                   >
                     <i class="fa fa-plus"></i>
+                  </a>&nbsp;
+                </div>
+                <div class="col-lg-1" v-if="bandeGuaEdiJefe==false">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-info btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Editar"
+                    @click.prevent="editarJefe"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </a>&nbsp;
+                </div>
+                <div class="col-lg-1" v-if="bandeGuaEdiJefe==false">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-danger btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Cancelar"
+                    @click.prevent="CancelarEditarJefe"
+                  >
+                    <i class="fa fa-external-link-alt"></i>
                   </a>&nbsp;
                 </div>
               </div>
@@ -889,21 +926,15 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Tipo Documento"
                               v-model.trim="item.tipo_id"
                               :class="item.tipo_id==''?'':'is-valid'"
-                              @input="tipo_id=>updateJefe(item,tipo_id,'tipo_id',index)"
                               style="width:250px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="CC">CEDULA DE CIUDADANIA</option>
-                              <option value="PA">PASAPORTE</option>
-                              <option value="RC">REGISTRO CIVIL</option>
-                              <option value="TI">TARJETA DE IDENTIDAD</option>
-                              <option value="ASI">ADULTO SIN IDENTIFICACIÓN</option>
-                              <option value="MSI">MENOR SIN IDENTIFICACIÓN</option>
-                              <option value="CE">CEDULA DE EXTRANJERIA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -914,8 +945,8 @@
                               placeholder="Documento"
                               v-model.trim="item.identificacion"
                               :class="item.identificacion==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'identificacion',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -927,9 +958,9 @@
                               placeholder="Primer Nombre"
                               v-model.trim="item.pnom"
                               :class="item.pnom==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'pnom',index)"
                               style="width:200px;"
-                            />
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -940,8 +971,8 @@
                               placeholder="Segundo Nombre"
                               v-model.trim="item.snom"
                               :class="item.snom==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'snom',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -953,8 +984,8 @@
                               placeholder="Primer Apellido"
                               v-model.trim="item.pape"
                               :class="item.pape==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'pape',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -966,75 +997,61 @@
                               placeholder="Segundo Apellido"
                               v-model.trim="item.sape"
                               :class="item.sape==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'sape',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Sexo"
                               v-model.trim="item.sexo"
                               :class="item.sexo==''?'':'is-valid'"
-                              @input="sexo=>updateJefe(item,sexo,'sexo',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="MASCULINO">MASCULINO</option>
-                              <option value="FEMENINO">FEMENINO</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Orientación"
                               v-model.trim="item.orientacion"
                               :class="item.orientacion==''?'':'is-valid'"
-                              @input="orientacion=>updateJefe(item,orientacion,'orientacion',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="HETEROSEXUAL">HETEROSEXUAL</option>
-                              <option value="HOMOSEXUAL">HOMOSEXUAL</option>
-                              <option value="BISEXUAL">BISEXUAL</option>
-                              <option value="NODECLARA">NO DECLARA</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Identidad de Genero"
                               v-model.trim="item.identidad_genero"
                               :class="item.identidad_genero==''?'':'is-valid'"
-                              @input="identidad_genero=>updateJefe(item,identidad_genero,'identidad_genero',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="HETEROSEXUAL">CISGENERO</option>
-                              <option value="HOMOSEXUAL">TRANSGENERO</option>
-                              <option value="BISEXUAL">TRANSEXUAL</option>
-                              <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
-
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model.trim="item.parentesco"
-                              :class="item.parentesco==''?'':'is-valid'"
-                              @input="parentesco=>updateJefe(item,parentesco,'parentesco',index)"
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Parentesco"
+                              v-model.trim="item.textoParentesco"
+                              :class="item.textoParentesco==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option
-                                v-for="item in parentesco_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1045,26 +1062,22 @@
                               placeholder="Telefono"
                               v-model.trim="item.telefono"
                               :class="item.telefono==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'telefono',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.estado_civil"
-                              :class="item.estado_civil==''?'':'is-valid'"
-                              @input="estado_civil=>updateJefe(item,estado_civil,'estado_civil',index)"
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Estado Civil"
+                              v-model="item.textoEstado"
+                              :class="item.textoEstado==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option
-                                v-for="item in estado_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1077,7 +1090,6 @@
                               :class="item.fecha_nacimiento==''?'':'is-valid'"
                               class="form-control text-capitalize"
                               :max="hoy | moment"
-                              @input="changeupdateJefe(item,$event,'fecha_nacimiento',index)"
                               style="width:200px;"
                               readonly
                             />
@@ -1104,8 +1116,8 @@
                               placeholder="Puntaje Sisben"
                               v-model.trim="item.puntaje_sisben"
                               :class="item.puntaje_sisben==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'puntaje_sisben',index)"
                               style="width:150px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -1119,7 +1131,7 @@
                               :class="item.textoEps==''?'':'is-valid'"
                               style="width:400px;"
                               readonly
-                            />
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1132,132 +1144,73 @@
                               :class="item.otra_eps==''?'':'is-valid'"
                               style="width:400px;"
                               v-show="item.afiliacion_entidad=='OTRA'"
+                              readonly
                             />
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Tipo de Afiliación"
                               v-model="item.tipo_afiliacion"
                               :class="item.tipo_afiliacion==''?'':'is-valid'"
-                              @input="tipo_afiliacion=>updateJefe(item,tipo_afiliacion,'tipo_afiliacion',index)"
                               style="width:200px;"
-                            >
-                              <option
-                                value
-                                selected
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!=''"
-                              >Seleccione</option>
-                              <option
-                                value="0"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!='NINGUNA'"
-                              >No Aplica</option>
-                              <option
-                                value="SUBSIDIADO"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >SUBSIDIADO</option>
-                              <option
-                                value="CONTRIBUTIVO"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >CONTRIBUTIVO</option>
-                              <option
-                                value="ESPECIAL"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >ESPECIAL</option>
-                              <option
-                                value="PPNA"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >POBLACIÓN POBRE NO ASEGURADA</option>
-                              <option
-                                value="BENEFICIARIO"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >BENEFICIARIO</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Embarazo"
                               v-model="item.embarazo"
                               :class="item.embarazo==''?'':'is-valid'"
-                              @input="embarazo=>updateJefe(item,embarazo,'embarazo',index)"
                               style="width:200px;"
-                            >
-                              <option
-                                value
-                                selected
-                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
-                              >Seleccione</option>
-                              <option
-                                value="SI"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
-                              >SI</option>
-                              <option
-                                value="NO"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
-                              >NO</option>
-                              <option value="NOAPLICA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Embarazo Multiple"
                               v-model="item.embarazo_multiple"
                               :class="item.embarazo_multiple==''?'':'is-valid'"
-                              @input="embarazo_multiple=>updateJefe(item,embarazo_multiple,'embarazo_multiple',index)"
                               style="width:200px;"
-                            >
-                              <option
-                                value
-                                selected
-                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
-                              >Seleccione</option>
-                              <option
-                                value="SI"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO' || item.embarazo=='NO'"
-                              >SI</option>
-                              <option
-                                value="NO"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
-                              >NO</option>
-                              <option value="NOAPLICA" :disabled="item.embarazo=='NO'">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Discapacidad"
                               v-model="item.discapacidad"
                               :class="item.discapacidad==''?'':'is-valid'"
-                              @input="discapacidad=>updateJefe(item,discapacidad,'discapacidad',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="1">FISICA</option>
-                              <option value="2">COGNITIVA</option>
-                              <option value="3">SENSORIAL</option>
-                              <option value="4">PSÍQUICA</option>
-                              <option value="5">NINGUNA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.nivel_escolaridad"
-                              :class="item.nivel_escolaridad==''?'':'is-valid'"
-                              @input="nivel_escolaridad=>updateJefe(item,nivel_escolaridad,'nivel_escolaridad',index)"
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Nivel de Escolaridad"
+                              v-model="item.textoNivel"
+                              :class="item.textoNivel==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="0">No Aplica</option>
-                              <option
-                                v-for="item in escolaridad_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1270,7 +1223,7 @@
                               :class="item.textoOcupacion==''?'':'is-valid'"
                               style="width:400px;"
                               readonly
-                            />
+                            />                           
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1281,7 +1234,6 @@
                               placeholder="Colegio"
                               v-model="item.textoColegio"
                               :class="item.textoColegio==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'colegio',index)"
                               style="width:300px;"
                               v-show="item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
                               readonly
@@ -1290,118 +1242,94 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Grado"
                               v-model="item.grado"
                               :class="item.grado==''?'':'is-valid'"
-                              @input="grado=>updateJefe(item,grado,'grado',index)"
                               style="width:200px;"
                               v-show="item.nivel_escolaridad==3 || item.nivel_escolaridad==14 || item.nivel_escolaridad==15"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="Ninguno">Ninguno</option>
-                              <option
-                                v-for="item in grados_option[item.nivel_escolaridad]"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.etnia"
-                              :class="item.etnia==''?'':'is-valid'"
-                              @input="etnia=>updateJefe(item,etnia,'etnia',index)"
+                            <input
+                              type="text"                              
+                              placeholder="Etnia"
+                              class="form-control text-capitalize"
+                              v-model="item.textoEtnia"
+                              :class="item.textoEtnia==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option
-                                v-for="item in etnia_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                                                     
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.clasificacion"
-                              :class="item.clasificacion==''?'':'is-valid'"
-                              @input="clasificacion=>updateJefe(item,clasificacion,'clasificacion',index)"
+                            <input
+                              type="text"                              
+                              placeholder="Clasificación"
+                              class="form-control text-capitalize"
+                              v-model="item.textoClasificacion"
+                              :class="item.textoClasificacion==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option
-                                v-for="item in clasifi_options[item.etnia]"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Perdida de Peso"
                               v-model="item.perdida_peso"
                               :class="item.perdida_peso==''?'':'is-valid'"
-                              @input="perdida_peso=>updateJefe(item,perdida_peso,'perdida_peso',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                              <option value="ND">NO DECLARA</option>
-                            </b-form-select>
-                          </td>
+                              readonly
+                            />                            
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Entiende Español"
                               v-model="item.entiende"
                               :class="item.entiende==''?'':'is-valid'"
-                              @input="entiende=>updateJefe(item,entiende,'entiende',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Pertenece a algún Programa PYP"
                               v-model="item.pyp"
                               :class="item.pyp==''?'':'is-valid'"
-                              @input="pyp=>updateJefe(item,pyp,'pyp',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="Crecimiento">Crecimiento y Desarrollo</option>
-                              <option value="Joven">Joven</option>
-                              <option value="Adulto">Adulto Mayor</option>
-                              <option value="Planificacion">Planificación Familiar</option>
-                              <option value="Control">Control Prenatal</option>
-                              <option value="Alimentacion">Alimentación Escolar</option>
-                              <option value="Ninguno">Ninguno</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Migrante"
                               v-model="item.migrante"
                               :class="item.migrante==''?'':'is-valid'"
-                              @input="migrante=>updateJefe(item,migrante,'migrante',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1412,34 +1340,42 @@
                               placeholder="Salario"
                               v-model.trim="item.salario"
                               :class="item.salario==''?'':'is-valid'"
-                              @input="changeupdateJefe(item,$event,'salario',index)"
                               style="width:150px;"
+                              readonly
                             />
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Pertenece a algún programa del ICBF"
                               v-model="item.programa_icbf"
                               :class="item.programa_icbf==''?'':'is-valid'"
-                              @input="programa_icbf=>updateJefe(item,programa_icbf,'programa_icbf',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
-                          </td>
+                              readonly
+                            />                            
+                          </td>                          
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
-                            <button
-                              class="btn btn-icon btn-sm btn-outline-danger"
-                              type="button"
-                              title="Eliminar"
-                              @click="eliminarItemJefe(index,item)"
-                            >
-                              <i class="fa fa-trash"></i>
-                            </button>
+                            <div style="width:70px;" v-if="GIDEN==false">
+                              <button v-if="item.id==0"
+                                class="btn btn-icon btn-sm btn-outline-danger"
+                                type="button"
+                                title="Eliminar"
+                                @click="eliminarItemJefe(index,item)"
+                              >
+                                <i class="fa fa-trash"></i>
+                              </button>
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-warning"
+                                type="button"
+                                title="Editar"
+                                @click="editarItemJefe(index,item)"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>                            
+                            </div>
                           </td>
                         </tr>
                       </tbody>
@@ -1475,6 +1411,7 @@
                   <input
                     type="text"
                     class="form-control text-capitalize"
+                    ref="identificacionInte"
                     placeholder="Documento"
                     v-model="CA1.identificacion"
                     @change="formato('id2')"
@@ -1527,10 +1464,10 @@
                     :class="CA1.identidad_genero=='0'?'':'is-valid'"
                   >
                     <option value="0" selected>Seleccione</option>
-                    <option value="HETEROSEXUAL">CISGENERO</option>
-                    <option value="HOMOSEXUAL">TRANSGENERO</option>
-                    <option value="BISEXUAL">TRANSEXUAL</option>
-                    <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
+                    <option value="CISGENERO">CISGENERO</option>
+                    <option value="TRANSGENERO">TRANSGENERO</option>
+                    <option value="TRANSEXUAL">TRANSEXUAL</option>
+                    <option value="TERCER GENERO Ó NO BINARIOS">TERCER GENERO Ó NO BINARIOS</option>
                     <option value="NA">NO APLICA</option>
                   </b-form-select>
                 </div>
@@ -1738,11 +1675,11 @@
                     :class="CA1.discapacidad=='0'?'':'is-valid'"
                   >
                     <option value="0" selected>Seleccione</option>
-                    <option value="1">FISICA</option>
-                    <option value="2">COGNITIVA</option>
-                    <option value="3">SENSORIAL</option>
-                    <option value="4">PSÍQUICA</option>
-                    <option value="5">NINGUNA</option>
+                    <option value="FISICA">FISICA</option>
+                    <option value="COGNITIVA">COGNITIVA</option>
+                    <option value="SENSORIAL">SENSORIAL</option>
+                    <option value="PSÍQUICA">PSÍQUICA</option>
+                    <option value="NINGUNA">NINGUNA</option>
                   </b-form-select>
                 </div>
                 <div class="col-lg-3">
@@ -1753,7 +1690,6 @@
                     @change="mostrarOtro('mOCOL2')"
                   >
                     <option value="0" selected>Seleccione</option>
-                    <option value="NA">No Aplica</option>
                     <option
                       v-for="item in escolaridad_options"
                       :value="item.value"
@@ -1907,19 +1843,16 @@
               <div class="form-group row">
                 <div class="col-lg-4">
                   <label>Excepciones:</label>
-                  <b-form-select
-                    v-model="CA1.excepciones"
-                    :class="CA1.excepciones=='0'?'':'is-valid'"
-                  >
+                  <b-form-select v-model="CA1.excepciones" :class="CA1.excepciones=='0'?'':'is-valid'">
                     <option value="0" selected>Seleccione</option>
-                    <option value="1">Vida sexual prematura</option>
-                    <option value="2">Consumo de tabaco</option>
-                    <option value="3">Consumo de SPA</option>
-                    <option value="4">Consumo de alcohol</option>
-                    <option value="NA">NO APLICA</option>
+                    <option
+                      v-for="item in opciones7"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
                   </b-form-select>
-                </div>
-                <div class="col-lg-1">
+                </div>                
+                <div class="col-lg-1" v-if="bandeGuaEdiInte==true">
                   <br />
                   <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   <a
@@ -1934,6 +1867,36 @@
                     <i class="fa fa-plus"></i>
                   </a>&nbsp;
                 </div>
+                <div class="col-lg-1" v-if="bandeGuaEdiInte==false">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-info btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Editar"
+                    @click.prevent="editarInte"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </a>&nbsp;
+                </div>
+                <div class="col-lg-1" v-if="bandeGuaEdiInte==false">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-danger btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Cancelar"
+                    @click.prevent="CancelarEditarInte"
+                  >
+                    <i class="fa fa-external-link-alt"></i>
+                  </a>&nbsp;
+                </div>                                
               </div>
               <div class="kt-separator kt-separator--border-dashed"></div>
               <div class="row">
@@ -1986,21 +1949,15 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Tipo de Documento"
                               v-model.trim="item.tipo_id"
-                              :class="item.tipo_id=='0'?'':'is-valid'"
-                              @input="tipo_id=>updateIntegrante(item,tipo_id,'tipo_id',index)"
+                              :class="item.tipo_id==''?'':'is-valid'"
                               style="width:250px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="CC">CEDULA DE CIUDADANIA</option>
-                              <option value="PA">PASAPORTE</option>
-                              <option value="RC">REGISTRO CIVIL</option>
-                              <option value="TI">TARJETA DE IDENTIDAD</option>
-                              <option value="ASI">ADULTO SIN IDENTIFICACIÓN</option>
-                              <option value="MSI">MENOR SIN IDENTIFICACIÓN</option>
-                              <option value="CE">CEDULA DE EXTRANJERIA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2011,8 +1968,8 @@
                               placeholder="Documento"
                               v-model.trim="item.identificacion"
                               :class="item.identificacion==''?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'identificacion',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -2024,8 +1981,8 @@
                               placeholder="Primer Nombre"
                               v-model.trim="item.pnom"
                               :class="item.pnom==''?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'pnom',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -2037,8 +1994,8 @@
                               placeholder="Segundo Nombre"
                               v-model.trim="item.snom"
                               :class="item.snom==''?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'snom',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -2050,8 +2007,8 @@
                               placeholder="Primer Apellido"
                               v-model.trim="item.pape"
                               :class="item.pape==''?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'pape',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -2063,75 +2020,61 @@
                               placeholder="Segundo Apellido"
                               v-model.trim="item.sape"
                               :class="item.sape==''?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'sape',index)"
                               style="width:200px;"
+                              readonly
                             />
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Sexo"
                               v-model.trim="item.sexo"
-                              :class="item.sexo=='0'?'':'is-valid'"
-                              @input="sexo=>updateIntegrante(item,sexo,'sexo',index)"
+                              :class="item.sexo==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="MASCULINO">MASCULINO</option>
-                              <option value="FEMENINO">FEMENINO</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
-
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Orientación"
                               v-model.trim="item.orientacion"
-                              :class="item.orientacion=='0'?'':'is-valid'"
-                              @input="orientacion=>updateIntegrante(item,orientacion,'orientacion',index)"
+                              :class="item.orientacion==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="HETEROSEXUAL">HETEROSEXUAL</option>
-                              <option value="HOMOSEXUAL">HOMOSEXUAL</option>
-                              <option value="BISEXUAL">BISEXUAL</option>
-                              <option value="NODECLARA">NO DECLARA</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                           
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Identidad de Genero"
                               v-model.trim="item.identidad_genero"
-                              :class="item.identidad_genero=='0'?'':'is-valid'"
-                              @input="identidad_genero=>updateIntegrante(item,identidad_genero,'identidad_genero',index)"
+                              :class="item.identidad_genero==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="HETEROSEXUAL">CISGENERO</option>
-                              <option value="HOMOSEXUAL">TRANSGENERO</option>
-                              <option value="BISEXUAL">TRANSEXUAL</option>
-                              <option value="NODECLARA">TERCER GENERO Ó NO BINARIOS</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
-                          </td>
+                              readonly
+                            />                            
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model.trim="item.parentesco"
-                              :class="item.parentesco=='0'?'':'is-valid'"
-                              @input="parentesco=>updateIntegrante(item,parentesco,'parentesco',index)"
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Parentesco"
+                              v-model.trim="item.textoParentesco"
+                              :class="item.textoParentesco==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option
-                                v-for="item in parentesco_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2142,26 +2085,22 @@
                               placeholder="Telefono"
                               v-model.trim="item.telefono"
                               :class="item.telefono==''?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'telefono',index)"
                               style="width:200px;"
+                              readonly
                             />
-                          </td>
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.estado_civil"
-                              :class="item.estado_civil=='0'?'':'is-valid'"
-                              @input="estado_civil=>updateIntegrante(item,estado_civil,'estado_civil',index)"
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Estado Civil"
+                              v-model="item.textoEstado"
+                              :class="item.textoEstado==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option
-                                v-for="item in estado_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2174,7 +2113,6 @@
                               :class="item.fecha_nac==''?'':'is-valid'"
                               class="form-control text-capitalize"
                               :max="hoy | moment"
-                              @input="changeupdateIntegrante(item,$event,'fecha_nac',index)"
                               style="width:200px;"
                               readonly
                             />
@@ -2201,8 +2139,8 @@
                               placeholder="Puntaje Sisben"
                               v-model.trim="item.puntaje_sisben"
                               :class="item.puntaje_sisben==''?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'puntaje_sisben',index)"
                               style="width:150px;"
+                              readonly
                             />
                           </td>
                           <td
@@ -2211,12 +2149,12 @@
                             <input
                               type="text"
                               class="form-control text-capitalize"
-                              placeholder="Ocupación"
+                              placeholder="Eps"
                               v-model="item.textoEps"
                               :class="item.textoEps==''?'':'is-valid'"
                               style="width:400px;"
                               readonly
-                            />
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2229,132 +2167,73 @@
                               :class="item.otra_eps==''?'':'is-valid'"
                               style="width:400px;"
                               v-show="item.afi_entidad=='OTRA'"
+                              readonly
                             />
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Afiliación"
                               v-model="item.tipo_afiliacion"
-                              :class="item.tipo_afiliacion=='0'?'':'is-valid'"
-                              @input="tipo_afiliacion=>updateIntegrante(item,tipo_afiliacion,'tipo_afiliacion',index)"
+                              :class="item.tipo_afiliacion==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option
-                                value="0"
-                                selected
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!=''"
-                              >Seleccione</option>
-                              <option
-                                value="NA"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad!='NINGUNA'"
-                              >No Aplica</option>
-                              <option
-                                value="SUBSIDIADO"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >SUBSIDIADO</option>
-                              <option
-                                value="CONTRIBUTIVO"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >CONTRIBUTIVO</option>
-                              <option
-                                value="ESPECIAL"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >ESPECIAL</option>
-                              <option
-                                value="PPNA"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >POBLACIÓN POBRE NO ASEGURADA</option>
-                              <option
-                                value="BENEFICIARIO"
-                                :disabled="item.afiliacion_entidad=='' || item.afiliacion_entidad=='NINGUNA'"
-                              >BENEFICIARIO</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Embarazo"
                               v-model="item.embarazo"
-                              :class="item.embarazo=='0'?'':'is-valid'"
-                              @input="embarazo=>updateIntegrante(item,embarazo,'embarazo',index)"
+                              :class="item.embarazo==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option
-                                value="0"
-                                selected
-                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
-                              >Seleccione</option>
-                              <option
-                                value="SI"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
-                              >SI</option>
-                              <option
-                                value="NO"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
-                              >NO</option>
-                              <option value="NOAPLICA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Embarazo Multiple"
                               v-model="item.embarazo_multiple"
-                              :class="item.embarazo_multiple=='0'?'':'is-valid'"
-                              @input="embarazo_multiple=>updateIntegrante(item,embarazo_multiple,'embarazo_multiple',index)"
+                              :class="item.embarazo_multiple==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option
-                                value="0"
-                                selected
-                                :disabled="item.sexo=='MASCULINO' || item.sexo=='FEMENINO'"
-                              >Seleccione</option>
-                              <option
-                                value="SI"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO' || item.embarazo=='NO'"
-                              >SI</option>
-                              <option
-                                value="NO"
-                                :disabled="item.sexo=='' || item.sexo=='MASCULINO'"
-                              >NO</option>
-                              <option value="NOAPLICA" :disabled="item.embarazo=='NO'">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Discapacidad"
                               v-model="item.discapacidad"
-                              :class="item.discapacidad=='0'?'':'is-valid'"
-                              @input="discapacidad=>updateIntegrante(item,discapacidad,'discapacidad',index)"
+                              :class="item.discapacidad==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="1">FISICA</option>
-                              <option value="2">COGNITIVA</option>
-                              <option value="3">SENSORIAL</option>
-                              <option value="4">PSÍQUICA</option>
-                              <option value="5">NINGUNA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.escolaridad"
-                              :class="item.escolaridad=='0'?'':'is-valid'"
-                              @input="escolaridad=>updateIntegrante(item,escolaridad,'escolaridad',index)"
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Nivel Educativo"
+                              v-model="item.textoEscolaridad"
+                              :class="item.textoEscolaridad==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="NA">No Aplica</option>
-                              <option
-                                v-for="item in escolaridad_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2367,7 +2246,7 @@
                               :class="item.textoOcupacion==''?'':'is-valid'"
                               style="width:400px;"
                               readonly
-                            />
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2377,8 +2256,7 @@
                               class="form-control text-capitalize"
                               placeholder="Colegio"
                               v-model="item.textoColegio"
-                              :class="item.textoColegio=='0'?'':'is-valid'"
-                              @input="changeupdateIntegrante(item,$event,'colegio',index)"
+                              :class="item.textoColegio==''?'':'is-valid'"
                               style="width:300px;"
                               v-show="item.escolaridad==3 || item.escolaridad==14 || item.escolaridad==15"
                               readonly
@@ -2387,178 +2265,155 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Embarazo Multiple"
                               v-model="item.grado"
-                              :class="item.grado=='0'?'':'is-valid'"
-                              @input="grado=>updateIntegrante(item,grado,'grado',index)"
+                              :class="item.grado==''?'':'is-valid'"
                               style="width:200px;"
+                              readonly
                               v-show="item.escolaridad==3 || item.escolaridad==14 || item.escolaridad==15"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="Ninguno">Ninguno</option>
-                              <option
-                                v-for="item in grados_option[item.escolaridad]"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.etnia"
-                              :class="item.etnia=='0'?'':'is-valid'"
-                              @input="etnia=>updateIntegrante(item,etnia,'etnia',index)"
+                            <input
+                              type="text"                              
+                              placeholder="Etnia"
+                              class="form-control text-capitalize"
+                              v-model="item.textoEtnia"
+                              :class="item.textoEtnia==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option
-                                v-for="item in etnia_options"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                                                     
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.clasificacion"
-                              :class="item.clasificacion=='0'?'':'is-valid'"
-                              @input="clasificacion=>updateIntegrante(item,clasificacion,'clasificacion',index)"
+                            <input
+                              type="text"                              
+                              placeholder="Clasificación"
+                              class="form-control text-capitalize"
+                              v-model="item.textoClasificacion"
+                              :class="item.textoClasificacion==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option
-                                v-for="item in clasifi_options[item.etnia]"
-                                :value="item.value"
-                                :key="item.value"
-                              >{{item.texto}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Perdida de Peso"
                               v-model="item.perdida_peso"
                               :class="item.perdida_peso==''?'':'is-valid'"
-                              @input="perdida_peso=>updateIntegrante(item,perdida_peso,'perdida_peso',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                              <option value="ND">NO DECLARA</option>
-                            </b-form-select>
-                          </td>
+                              readonly
+                            />                           
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Entiende el Español"
                               v-model="item.entiende"
-                              :class="item.entiende=='0'?'':'is-valid'"
-                              @input="entiende=>updateIntegrante(item,entiende,'entiende',index)"
+                              :class="item.entiende==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Perdida de Peso"
                               v-model="item.pyp"
-                              :class="item.pyp=='0'?'':'is-valid'"
-                              @input="pyp=>updateIntegrante(item,pyp,'pyp',index)"
+                              :class="item.pyp==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="Crecimiento">Crecimiento y Desarrollo</option>
-                              <option value="Joven">Joven</option>
-                              <option value="Adulto">Adulto Mayor</option>
-                              <option value="Planificacion">Planificación Familiar</option>
-                              <option value="Control">Control Prenatal</option>
-                              <option value="Alimentacion">Alimentación Escolar</option>
-                              <option value="Ninguno">Ninguno</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Perdida de Peso"
                               v-model="item.migrante"
-                              :class="item.migrante=='0'?'':'is-valid'"
-                              @input="migrante=>updateIntegrante(item,migrante,'migrante',index)"
+                              :class="item.migrante==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Programa ICBF"
                               v-model="item.programa_icbf"
                               :class="item.programa_icbf==''?'':'is-valid'"
-                              @input="programa_icbf=>updateIntegrante(item,programa_icbf,'programa_icbf',index)"
                               style="width:200px;"
-                            >
-                              <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
-                          </td>
+                              readonly
+                            />                            
+                          </td>                          
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Jefe de Hogar"
                               v-model.trim="item.jefe"
-                              :class="item.jefe=='0'?'':'is-valid'"
-                              @input="jefe=>updateIntegrante(item,jefe,'jefe',index)"
+                              :class="item.jefe==''?'':'is-valid'"
                               style="width:400px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option
-                                v-for="item in datosJefe"
-                                :value="item.identificacion"
-                                :key="item.value"
-                              >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <b-form-select
-                              v-model="item.excepciones"
-                              :class="item.excepciones==''?'':'is-valid'"
-                              @input="excepciones=>updateIntegrante(item,excepciones,'excepciones',index)"
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Excepciones"
+                              v-model="item.textoExcepciones"
+                              :class="item.textoExcepciones==''?'':'is-valid'"
                               style="width:200px;"
-                            >
-                              <option value="0" selected>Seleccione</option>
-                              <option value="1">Vida sexual prematura</option>
-                              <option value="2">Consumo de tabaco</option>
-                              <option value="3">Consumo de SPA</option>
-                              <option value="4">Consumo de alcohol</option>
-                              <option value="NA">NO APLICA</option>
-                            </b-form-select>
+                              readonly
+                            />                            
                           </td>
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
-                            <button
-                              class="btn btn-icon btn-sm btn-outline-danger"
-                              type="button"
-                              title="Eliminar"
-                              @click="eliminarItem(index,item)"
-                            >
-                              <i class="fa fa-trash"></i>
-                            </button>
-                          </td>
+                            <div style="width:70px;" v-if="GIDEN==false">
+
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-danger"
+                                type="button"
+                                title="Eliminar"
+                                @click="eliminarItem(index,item)"
+                              >
+                                <i class="fa fa-trash"></i>
+                              </button>
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-warning"
+                                type="button"
+                                title="Editar"
+                                @click="editarItemInte(index,item)"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>                            
+                            </div>
+                          </td>                                                    
                         </tr>
                       </tbody>
                     </table>
@@ -2967,7 +2822,7 @@
                     class="btn btn-brand"
                     @click="cambiarTab1('cartxciclo','tabVivienda')"
                     :disabled="!valGVivi"
-                    :class="spinGVivi"                    
+                    :class="spinGVivi"
                   >
                     <i class="la la-arrow-right"></i>
                     <span class="kt-hidden-mobile">Siguiente</span>
@@ -3149,12 +3004,12 @@
                     <option value="4">Empleado</option>
                     <option value="5">Emprendedor</option>
                     <option value="CUAL">CUAL</option>
-                  </b-form-select> -->
+                  </b-form-select>-->
                   <input
                     type="text"
                     class="form-control text-capitalize"
                     placeholder="Ocupaciones"
-                    v-model="actividadesAuxiliar"                    
+                    v-model="actividadesAuxiliar"
                     ref="ocupacion"
                     :class="actividadesAuxiliar==''?'':'is-valid'"
                     @click="abrirModalActividades()"
@@ -3165,7 +3020,7 @@
                     <span
                       v-if="!$v.viviendaData.actividad_economica.required"
                     >La Actividad Economica es obligatoria</span>
-                  </div> -->
+                  </div>-->
                 </div>
                 <div class="col-lg-10" v-show="mOAE">
                   <label>Cual:</label>
@@ -3941,9 +3796,9 @@
                     <option value="2">Inodoro con descarga al aire libre</option>
                     <option value="3">Inodoro conectado a red de alcantarillado</option>
                     <option value="4">En agua corriente</option>
-                    <option value="5">Pozo séptico</option>                                        
+                    <option value="5">Pozo séptico</option>
                     <option value="6">Campo abierto</option>
-                    <option value="7">Otro</option>                    
+                    <option value="7">Otro</option>
                   </b-form-select>
                   <div class="valid-feedback">Donde se Disponen las Excretas (HECES) Valido</div>
                   <div class="invalid-feedback">
@@ -5445,7 +5300,5400 @@
                 </div>
               </div>
             </div>
-            <!-- Vivienda -->            
+            <!-- Vivienda -->
+
+            <!-- Cart. X ciclo -->
+            <div class="tab-pane" id="cartxciclo" role="tabpanel">
+              <div class="row">
+                <div class="col-12 kt-align-right">
+                  <button
+                    type="button"
+                    class="btn btn-brand"
+                    @click="cambiarTab1('adolescente','cartxciclo')"
+                    :disabled="!valGCart"
+                    :class="spinGCart"
+                  >
+                    <i class="la la-arrow-right"></i>
+                    <span class="kt-hidden-mobile">Siguiente</span>
+                  </button>
+                </div>
+              </div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 18px;"
+                >IV CARACTERIZACIÓN POR CICLO VITAL</span>
+              </p>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >A. PRIMERA INFANCIA NIÑOS(AS) MENORES DE UN AÑO</span>
+              </p>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="26"
+                          >Crecimiento y Desarrollo</th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="8"
+                          >Vacunación</th>
+                        </tr>
+                        <tr>
+                          <th class="kt-bg-fill-success" colspan="9"></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Integral</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="9"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Nutricional</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración del Desarrollo</th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Problemas</th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="8"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-success">
+                          <th>No.</th>
+                          <th>Documento</th>
+                          <th>Nombre</th>
+                          <th>Sexo</th>
+                          <th>Lugar de Nacimiento</th>
+                          <th>Hemoclasificación</th>
+                          <th>Complicaciones en el parto</th>
+                          <th>Via de Parto</th>
+                          <th>Control de CyC</th>
+                          <th class="kt-bg-fill-dark">2-3 meses</th>
+                          <th class="kt-bg-fill-dark">6-8 meses</th>
+                          <th class="kt-bg-fill-dark">9-11 meses</th>
+                          <th class="kt-bg-fill-danger">Lactancia Exclusiva</th>
+                          <th class="kt-bg-fill-danger">Peso al Nacer (Kgs)</th>
+                          <th class="kt-bg-fill-danger">Peso Actual (Kgs)</th>
+                          <th class="kt-bg-fill-danger">Longitud al Nacer (cm)</th>
+                          <th class="kt-bg-fill-danger">Longitud Actual (cm)</th>
+                          <th class="kt-bg-fill-danger">Peso/Longitud</th>
+                          <th class="kt-bg-fill-danger">PB.</th>
+                          <th class="kt-bg-fill-danger">P.Cefalico</th>
+                          <th class="kt-bg-fill-danger">Edemas</th>
+                          <th class="kt-bg-fill-info">Lenguaje</th>
+                          <th class="kt-bg-fill-info">Motora</th>
+                          <th class="kt-bg-fill-info">Conducta</th>
+                          <th class="kt-bg-fill-warning">Visuales</th>
+                          <th class="kt-bg-fill-warning">Auditivos</th>
+                          <th class="kt-bg-fill-dark">Carnet (PAI)</th>
+                          <th class="kt-bg-fill-dark">BCG</th>
+                          <th class="kt-bg-fill-dark">HEP-B</th>
+                          <th class="kt-bg-fill-dark">POLIO</th>
+                          <th class="kt-bg-fill-dark">PENTAVALENTE</th>
+                          <th class="kt-bg-fill-dark">Maltrato</th>
+                          <th class="kt-bg-fill-dark">Morbilidad</th>
+                          <th class="kt-bg-fill-dark">TSH</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in Men1A" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              :class="item.tipo_id==''?'':'is-valid'"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              :class="item.pnom==''?'':'is-valid'"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              :class="item.sexo==''?'':'is-valid'"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.lugar_nacimiento"
+                              @input="lugar_nacimiento=>updateMenA1(item,lugar_nacimiento,'lugar_nacimiento')"
+                              :class="item.lugar_nacimiento==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="HOSPITAL">HOSPITAL</option>
+                              <option value="CASA">CASA</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.hemoclasificacion"
+                              @input="hemoclasificacion=>updateMenA1(item,hemoclasificacion,'hemoclasificacion')"
+                              :class="item.hemoclasificacion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:200px;"
+                              v-model="item.compli_parto"
+                              @input="compli_parto=>updateMenA1(item,compli_parto,'compli_parto')"
+                              :class="item.compli_parto==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.via_parto"
+                              @input="via_parto=>updateMenA1(item,via_parto,'via_parto')"
+                              :class="item.via_parto==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="CESAREA">CESAREA</option>
+                              <option value="PARTO">PARTO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.cyc"
+                              @input="cyc=>updateMenA1(item,cyc,'cyc')"
+                              :class="item.cyc==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.valoracion_23"
+                              @input="valoracion_23=>updateMenA1(item,valoracion_23,'valoracion_23')"
+                              :class="item.valoracion_23==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.valoracion_68"
+                              @input="valoracion_68=>updateMenA1(item,valoracion_68,'valoracion_68')"
+                              :class="item.valoracion_68==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.valoracion_911"
+                              @input="valoracion_911=>updateMenA1(item,valoracion_911,'valoracion_911')"
+                              :class="item.valoracion_911==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.lactancia"
+                              @input="lactancia=>updateMenA1(item,lactancia,'lactancia')"
+                              :class="item.lactancia==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso_nacer"
+                              @input="changeupdateMenA1(item,$event,'peso_nacer')"
+                              :class="item.peso_nacer==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso_actual"
+                              @input="changeupdateMenA1(item,$event,'peso_actual')"
+                              :class="item.peso_actual==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.longitud_nacer"
+                              @input="changeupdateMenA1(item,$event,'longitud_nacer')"
+                              :class="item.longitud_nacer==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.longitud_actual"
+                              @input="changeupdateMenA1(item,$event,'longitud_actual')"
+                              :class="item.longitud_actual==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:160px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso_long"
+                              @input="changeupdateMenA1(item,$event,'peso_long')"
+                              :class="item.peso_long==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pb"
+                              @input="changeupdateMenA1(item,$event,'pb')"
+                              :class="item.pb==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.cinta"
+                              @input="changeupdateMenA1(item,$event,'cinta')"
+                              :class="item.cinta==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.edemas"
+                              @input="edemas=>updateMenA1(item,edemas,'edemas')"
+                              :class="item.edemas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.lenguaje"
+                              @input="lenguaje=>updateMenA1(item,lenguaje,'lenguaje')"
+                              :class="item.lenguaje==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.motora"
+                              @input="motora=>updateMenA1(item,motora,'motora')"
+                              :class="item.motora==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conducta"
+                              @input="conducta=>updateMenA1(item,conducta,'conducta')"
+                              :class="item.conducta==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.visuales"
+                              @input="visuales=>updateMenA1(item,visuales,'visuales')"
+                              :class="item.visuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.auditivos"
+                              @input="auditivos=>updateMenA1(item,auditivos,'auditivos')"
+                              :class="item.auditivos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.carnet"
+                              @input="carnet=>updateMenA1(item,carnet,'carnet')"
+                              :class="item.carnet==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="DESAC">DESAC</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.bcg"
+                              @input="bcg=>updateMenA1(item,bcg,'bcg')"
+                              :class="item.bcg==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.hepb"
+                              @input="hepb=>updateMenA1(item,hepb,'hepb')"
+                              :class="item.hepb==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="D4">D4</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.polio"
+                              @input="polio=>updateMenA1(item,polio,'polio')"
+                              :class="item.polio==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="D4">D4</option>
+                              <option value="D5">D5</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.pentavalente"
+                              @input="pentavalente=>updateMenA1(item,pentavalente,'pentavalente')"
+                              :class="item.pentavalente==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.maltrato"
+                              @input="maltrato=>updateMenA1(item,maltrato,'maltrato')"
+                              :class="item.maltrato==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.morbilidad"
+                              @input="morbilidad=>updateMenA1(item,morbilidad,'morbilidad')"
+                              :class="item.morbilidad==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in morbilidadNacer_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tsh"
+                              @input="tsh=>updateMenA1(item,tsh,'tsh')"
+                              :class="item.tsh==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">SI-NORMAL</option>
+                              <option value="2">SI-ANORMAL</option>
+                              <option value="3">SI-NO SABE EL RESULTADO</option>
+                              <option value="4">NO SE TOMO EL EXAMEN</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >B.PRIMERA INFANCIA NIÑOS(AS) DE 1 A 5 AÑOS (12 a 60 Meses)</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="22"
+                          >Crecimiento y Desarrollo</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Salud Oral</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="8"
+                          >Vacunación</th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          ></th>
+                        </tr>
+                        <tr>
+                          <th class="kt-bg-fill-success" colspan="7"></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Integral</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="7"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Nutricional</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Problemas</th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Problemas</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="8"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-primary">
+                          <td>No.</td>
+                          <td>Documento</td>
+                          <td>Nombre</td>
+                          <td>Sexo</td>
+                          <td>Edad</td>
+                          <td>Beneficiario de un Programa</td>
+                          <td>Control de CyC</td>
+                          <td class="kt-bg-fill-dark">18-23 meses</td>
+                          <td class="kt-bg-fill-dark">30-35 meses</td>
+                          <td class="kt-bg-fill-dark">4 años</td>
+                          <td class="kt-bg-fill-danger">Peso(Kgs)</td>
+                          <td class="kt-bg-fill-danger">Talla(cm)</td>
+                          <td class="kt-bg-fill-danger">IMC</td>
+                          <td class="kt-bg-fill-danger">P.B</td>
+                          <td class="kt-bg-fill-danger">P/T</td>
+                          <td class="kt-bg-fill-danger">T/E</td>
+                          <td class="kt-bg-fill-danger">Perimetro Cefálico</td>
+                          <td class="kt-bg-fill-info">Lenguaje</td>
+                          <td class="kt-bg-fill-info">Motora</td>
+                          <td class="kt-bg-fill-info">Conducta</td>
+                          <td class="kt-bg-fill-warning">Visuales</td>
+                          <td class="kt-bg-fill-warning">Auditivos</td>
+                          <td class="kt-bg-fill-danger">Caries</td>
+                          <td class="kt-bg-fill-danger">No. Cepillado Dia</td>
+                          <td class="kt-bg-fill-danger">Consulta Odontologica (ultimos 6 meses)</td>
+                          <td class="kt-bg-fill-info">Carnet (PAI)</td>
+                          <td class="kt-bg-fill-info">BCG</td>
+                          <td class="kt-bg-fill-info">POLIO</td>
+                          <td class="kt-bg-fill-info">DPT</td>
+                          <td class="kt-bg-fill-info">Fiebre Amarilla</td>
+                          <td class="kt-bg-fill-info">Triple Viral</td>
+                          <td class="kt-bg-fill-info">Pentavalente</td>
+                          <td class="kt-bg-fill-info">Otras</td>
+                          <td class="kt-bg-fill-dark">Desparacitado</td>
+                          <td class="kt-bg-fill-dark">Señales de Maltrato</td>
+                          <td class="kt-bg-fill-dark">Enfermedad</td>
+                          <td class="kt-bg-fill-dark">Medicamento</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in De1A5" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.beneficiario"
+                              @input="beneficiario=>updateDe1A5(item,beneficiario,'beneficiario')"
+                              :class="item.beneficiario==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">Hogares Comunitarios</option>
+                              <option value="2">ICBF</option>
+                              <option value="3">Desayuno Escolar</option>
+                              <option value="4">Jardin Social - CDI</option>
+                              <option value="5">Otro</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.cyc"
+                              @input="cyc=>updateDe1A5(item,cyc,'cyc')"
+                              :class="item.cyc==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.valoracion_1823"
+                              @input="valoracion_1823=>updateDe1A5(item,valoracion_1823,'valoracion_1823')"
+                              :class="item.valoracion_1823==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.valoracion_3035"
+                              @input="valoracion_3035=>updateDe1A5(item,valoracion_3035,'valoracion_3035')"
+                              :class="item.valoracion_3035==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.valoracion_4"
+                              @input="valoracion_4=>updateDe1A5(item,valoracion_4,'valoracion_4')"
+                              :class="item.valoracion_4==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso"
+                              @input="changeupdateDe1A5(item,$event,'peso')"
+                              :class="item.peso==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.talla"
+                              @input="changeupdateDe1A5(item,$event,'talla')"
+                              :class="item.talla==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.imc"
+                              @input="changeupdateDe1A5(item,$event,'imc')"
+                              readonly
+                              :class="item.imc==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pb"
+                              @input="changeupdateDe1A5(item,$event,'pb')"
+                              :class="item.pb==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pt"
+                              @input="changeupdateDe1A5(item,$event,'pt')"
+                              :class="item.pt==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.te"
+                              @input="changeupdateDe1A5(item,$event,'te')"
+                              :class="item.te==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pcefalico"
+                              @input="changeupdateDe1A5(item,$event,'pcefalico')"
+                              :class="item.pcefalico==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.lenguaje"
+                              @input="lenguaje=>updateDe1A5(item,lenguaje,'lenguaje')"
+                              :class="item.lenguaje==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.motora"
+                              @input="motora=>updateDe1A5(item,motora,'motora')"
+                              :class="item.motora==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conducta"
+                              @input="conducta=>updateDe1A5(item,conducta,'conducta')"
+                              :class="item.conducta==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.visuales"
+                              @input="visuales=>updateDe1A5(item,visuales,'visuales')"
+                              :class="item.visuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.auditivos"
+                              @input="auditivos=>updateDe1A5(item,auditivos,'auditivos')"
+                              :class="item.auditivos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.caries"
+                              @input="caries=>updateDe1A5(item,caries,'caries')"
+                              :class="item.caries==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.nocepillado"
+                              @input="changeupdateDe1A5(item,$event,'nocepillado')"
+                              :class="item.nocepillado==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.consultaodon"
+                              @input="consultaodon=>updateDe1A5(item,consultaodon,'consultaodon')"
+                              :class="item.consultaodon==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.carnet"
+                              @input="carnet=>updateDe1A5(item,carnet,'carnet')"
+                              :class="item.carnet==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="DESACTUALIZADO">DESACTUALIZADO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.bcg"
+                              @input="bcg=>updateDe1A5(item,bcg,'bcg')"
+                              :class="item.bcg==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.polio"
+                              @input="polio=>updateDe1A5(item,polio,'polio')"
+                              :class="item.polio==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="D4">D4</option>
+                              <option value="D5">D5</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.dpt"
+                              @input="dpt=>updateDe1A5(item,dpt,'dpt')"
+                              :class="item.dpt==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="D4">D4</option>
+                              <option value="D5">D5</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.fiebrea"
+                              @input="fiebrea=>updateDe1A5(item,fiebrea,'fiebrea')"
+                              :class="item.fiebrea==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tripleviral"
+                              @input="tripleviral=>updateDe1A5(item,tripleviral,'tripleviral')"
+                              :class="item.tripleviral==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.pentavalente"
+                              @input="pentavalente=>updateDe1A5(item,pentavalente,'pentavalente')"
+                              :class="item.pentavalente==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.otras"
+                              @input="changeupdateDe1A5(item,$event,'otras')"
+                              :class="item.otras==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.desparacitado"
+                              @input="desparacitado=>updateDe1A5(item,desparacitado,'desparacitado')"
+                              :class="item.desparacitado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.maltrato"
+                              @input="maltrato=>updateDe1A5(item,maltrato,'maltrato')"
+                              :class="item.maltrato==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedad"
+                              @input="enfermedad=>updateDe1A5(item,enfermedad,'enfermedad')"
+                              :class="item.enfermedad==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.medicamento"
+                              @input="medicamento=>updateDe1A5(item,medicamento,'medicamento')"
+                              :class="item.medicamento==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                              <option value="NA">No Aplica</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >C.INFANCIA NIÑOS(AS) DE 6 A 11 AÑOS</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="14"
+                          >Crecimiento y Desarrollo</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Salud Oral</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="5"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Relación Familiar</th>
+                        </tr>
+                        <tr>
+                          <th class="kt-bg-fill-success" colspan="6"></th>
+                          <th class="kt-bg-fill-success" colspan="1"></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Nutricional</th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Problemas</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="5"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-primary">
+                          <td>No.</td>
+                          <td>Documento</td>
+                          <td>Nombre</td>
+                          <td>Sexo</td>
+                          <td>Edad</td>
+                          <td>Control de CyC</td>
+                          <td class="kt-bg-fill-dark">Valoración Integral</td>
+                          <td class="kt-bg-fill-danger">Peso(Kgs)</td>
+                          <td class="kt-bg-fill-danger">Talla(cm)</td>
+                          <td class="kt-bg-fill-danger">IMC/E</td>
+                          <!-- <td class="kt-bg-fill-danger">P.B</td> -->
+                          <!-- <td class="kt-bg-fill-danger">P/T</td> -->
+                          <td class="kt-bg-fill-danger">T/E</td>
+                          <td class="kt-bg-fill-warning">Conducta</td>
+                          <td class="kt-bg-fill-warning">Visuales</td>
+                          <td class="kt-bg-fill-warning">Auditivos</td>
+                          <td class="kt-bg-fill-danger">Dientes Sanos</td>
+                          <td class="kt-bg-fill-danger">Consulta Odontologica (ultimos 6 meses)</td>
+                          <td class="kt-bg-fill-danger">No. Aplicacion Fluor</td>
+                          <td class="kt-bg-fill-danger">No. Cepillado Dia</td>
+                          <td class="kt-bg-fill-info">Señales Maltrato ó Abuso</td>
+                          <td class="kt-bg-fill-info">Sustancias Psicoactivas</td>
+                          <td class="kt-bg-fill-info">Desparacitado</td>
+                          <td class="kt-bg-fill-info">Enfermedad</td>
+                          <td class="kt-bg-fill-info">Medicamento</td>
+                          <td class="kt-bg-fill-dark">Padre</td>
+                          <td class="kt-bg-fill-dark">Madre</td>
+                          <td class="kt-bg-fill-dark">Hermanos</td>
+                          <td class="kt-bg-fill-dark">Conyuge</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in De6A11" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.cyc"
+                              @input="cyc=>updateDe6A11(item,cyc,'cyc')"
+                              :class="item.cyc==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.atencion"
+                              @input="atencion=>updateDe6A11(item,atencion,'atencion')"
+                              :class="item.atencion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso"
+                              @input="changeupdateDe6A11(item,$event,'peso')"
+                              :class="item.peso==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.talla"
+                              @input="changeupdateDe6A11(item,$event,'talla')"
+                              :class="item.talla==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.imc"
+                              @input="changeupdateDe6A11(item,$event,'imc')"
+                              readonly
+                              :class="item.imc==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pb"
+                              @input="changeupdateDe6A11(item,$event,'pb')"
+                              :class="item.pb==''?'is-invalid':'is-valid'"
+                            />
+                          </td>-->
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pt"
+                              @input="changeupdateDe6A11(item,$event,'pt')"
+                              :class="item.pt==''?'is-invalid':'is-valid'"
+                            />
+                          </td>-->
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.te"
+                              @input="changeupdateDe6A11(item,$event,'te')"
+                              :class="item.te==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conducta"
+                              @input="conducta=>updateDe6A11(item,conducta,'conducta')"
+                              :class="item.conducta==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.visuales"
+                              @input="visuales=>updateDe6A11(item,visuales,'visuales')"
+                              :class="item.visuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.auditivos"
+                              @input="auditivos=>updateDe6A11(item,auditivos,'auditivos')"
+                              :class="item.auditivos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.dientes_sanos"
+                              @input="dientes_sanos=>updateDe6A11(item,dientes_sanos,'dientes_sanos')"
+                              :class="item.dientes_sanos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.consultaodon"
+                              @input="consultaodon=>updateDe6A11(item,consultaodon,'consultaodon')"
+                              :class="item.consultaodon==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.nofluor"
+                              @input="nofluor=>updateDe6A11(item,nofluor,'nofluor')"
+                              :class="item.nofluor==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">NO APLICA</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="NI">NINGUNO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.nocepillado"
+                              @input="changeupdateDe6A11(item,$event,'nocepillado')"
+                              :class="item.nocepillado==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.maltrato"
+                              @input="maltrato=>updateDe6A11(item,maltrato,'maltrato')"
+                              :class="item.maltrato==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.sustanciaspsico"
+                              @input="sustanciaspsico=>updateDe6A11(item,sustanciaspsico,'sustanciaspsico')"
+                              :class="item.sustanciaspsico==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.desparacitado"
+                              @input="desparacitado=>updateDe6A11(item,desparacitado,'desparacitado')"
+                              :class="item.desparacitado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedad"
+                              @input="enfermedad=>updateDe6A11(item,enfermedad,'enfermedad')"
+                              :class="item.enfermedad==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.medicamento"
+                              @input="medicamento=>updateDe6A11(item,medicamento,'medicamento')"
+                              :class="item.medicamento==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.padre"
+                              @input="padre=>updateDe6A11(item,padre,'padre')"
+                              :class="item.padre==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.madre"
+                              @input="madre=>updateDe6A11(item,madre,'madre')"
+                              :class="item.madre==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.hermanos"
+                              @input="hermanos=>updateDe6A11(item,hermanos,'hermanos')"
+                              :class="item.hermanos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conyuge"
+                              @input="conyuge=>updateDe6A11(item,conyuge,'conyuge')"
+                              :class="item.conyuge==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >D.SALUD SEXUAL Y REPRODUCTIVA DE 10 A 59 AÑOS</span>
+              </p> 
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="17"
+                          >Planificación Familiar(Hombres y Mujeres de 10 a 59 años)</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="8"
+                          >Mujer</th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="2"
+                          >Hombre</th>
+                        </tr>
+                        <tr>
+                          <th class="kt-bg-fill-success" colspan="13"></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Planifica</th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >No Planifica</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Vacunas</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-primary">
+                          <td>No.</td>
+                          <td>Documento</td>
+                          <td>Nombre</td>
+                          <td>Sexo</td>
+                          <td>Edad</td>
+                          <td class="kt-bg-fill-success">Edad Primera Mestruación</td>
+                          <td class="kt-bg-fill-success">Flujo Vaginal</td>
+                          <td class="kt-bg-fill-success">Flujo Uretral</td>
+                          <td class="kt-bg-fill-success">Relaciones Sexuales</td>
+                          <td class="kt-bg-fill-success">No. Compañeros Sexuales</td>
+                          <td class="kt-bg-fill-success">Usa Condon</td>
+                          <td class="kt-bg-fill-success">Abortos Antes de 6 Meses</td>
+                          <td class="kt-bg-fill-success">Embarazo en Adolecentes</td>
+                          <td class="kt-bg-fill-danger">Metodo</td>
+                          <td class="kt-bg-fill-danger">Tiempo de Metodo</td>
+                          <td class="kt-bg-fill-danger">Controles Ultimo Año</td>
+                          <td class="kt-bg-fill-warning">Motivo</td>
+                          <td class="kt-bg-fill-danger">Citologia Cervico Vaginal</td>
+                          <td class="kt-bg-fill-danger">Colposcopia</td>
+                          <td class="kt-bg-fill-danger">Examen de seno</td>
+                          <td class="kt-bg-fill-danger">Violencia Intrafamiliar</td>
+                          <td class="kt-bg-fill-info">TD/IT</td>
+                          <td class="kt-bg-fill-info">Triple Viral</td>
+                          <td class="kt-bg-fill-danger">Hijos Nacidos Vivos</td>
+                          <td class="kt-bg-fill-danger">Abortos</td>
+                          <td class="kt-bg-fill-dark">Examen de Prostata</td>
+                          <td class="kt-bg-fill-dark">Biposia de Prostata</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in De10A59" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                              @input="sexo=>updateDe10A59(item,sexo,'sexo')"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.primera_mes"
+                              @input="primera_mes=>updateDe10A59(item,primera_mes,'primera_mes')"
+                              :class="item.primera_mes==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Menor de 10 años</option>
+                              <option value="2">Entre 10 y 12 años</option>
+                              <option value="3">Entre 12 y 14 años</option>
+                              <option value="4">Mas de 15 años</option>
+                              <option value="5">Ninguna</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.flujo_vaginal"
+                              @input="flujo_vaginal=>updateDe10A59(item,flujo_vaginal,'flujo_vaginal')"
+                              :class="item.flujo_vaginal==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.flujo_uretral"
+                              @input="flujo_uretral=>updateDe10A59(item,flujo_uretral,'flujo_uretral')"
+                              :class="item.flujo_uretral==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.relaciones_sexuales"
+                              @input="relaciones_sexuales=>updateDe10A59(item,relaciones_sexuales,'relaciones_sexuales')"
+                              :class="item.relaciones_sexuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.compa_sexuales"
+                              @input="compa_sexuales=>updateDe10A59(item,compa_sexuales,'compa_sexuales')"
+                              :class="item.compa_sexuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">1 Compañero</option>
+                              <option value="2">Entre 2 y 3</option>
+                              <option value="3">Entre 4 y 6</option>
+                              <option value="4">Entre 7 y 9</option>
+                              <option value="5">Mas de 10</option>
+                              <option value="6">Ninguna</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.usa_condon"
+                              @input="usa_condon=>updateDe10A59(item,usa_condon,'usa_condon')"
+                              :class="item.usa_condon==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.abortos_seis"
+                              @input="abortos_seis=>updateDe10A59(item,abortos_seis,'abortos_seis')"
+                              :class="item.abortos_seis==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.embarazo_adolecentes"
+                              @input="embarazo_adolecentes=>updateDe10A59(item,embarazo_adolecentes,'embarazo_adolecentes')"
+                              :class="item.embarazo_adolecentes==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.metodo"
+                              @input="metodo=>updateDe10A59(item,metodo,'metodo')"
+                              :class="item.metodo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option
+                                v-for="item in metodos_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tiempo_metodo"
+                              @input="tiempo_metodo=>updateDe10A59(item,tiempo_metodo,'tiempo_metodo')"
+                              :class="item.tiempo_metodo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Menos de 6 meses</option>
+                              <option value="2">Menos de 1 año</option>
+                              <option value="3">Mas de 1 año</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.controles"
+                              @input="controles=>updateDe10A59(item,controles,'controles')"
+                              :class="item.controles==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.motivo"
+                              @input="motivo=>updateDe10A59(item,motivo,'motivo')"
+                              :class="item.motivo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in motivos_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.citologia"
+                              @input="citologia=>updateDe10A59(item,citologia,'citologia')"
+                              :class="item.citologia==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.colposcopia"
+                              @input="colposcopia=>updateDe10A59(item,colposcopia,'colposcopia')"
+                              :class="item.colposcopia==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.examen_seno"
+                              @input="examen_seno=>updateDe10A59(item,examen_seno,'examen_seno')"
+                              :class="item.examen_seno==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.violencia"
+                              @input="violencia=>updateDe10A59(item,violencia,'violencia')"
+                              :class="item.violencia==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.tdit"
+                              @input="tdit=>updateDe10A59(item,tdit,'tdit')"
+                              :class="item.tdit==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="D4">D4</option>
+                              <option value="D5">D5</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.tripleviral"
+                              @input="tripleviral=>updateDe10A59(item,tripleviral,'tripleviral')"
+                              :class="item.tripleviral==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="D1">D1</option>
+                              <option value="D1">D2</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.nacidos_vivos"
+                              @input="nacidos_vivos=>updateDe10A59(item,nacidos_vivos,'nacidos_vivos')"
+                              :class="item.nacidos_vivos==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">1 Hijo</option>
+                              <option value="2">Entre 2 y 3</option>
+                              <option value="3">Entre 4 y 6</option>
+                              <option value="4">Mas de 7</option>
+                              <option value="5">Ninguna</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.abortos"
+                              @input="abortos=>updateDe10A59(item,abortos,'abortos')"
+                              :class="item.abortos==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.examen_prostata"
+                              @input="examen_prostata=>updateDe10A59(item,examen_prostata,'examen_prostata')"
+                              :class="item.examen_prostata==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='FEMENINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;background-color:white;"
+                              v-model="item.biposia_prostata"
+                              @input="biposia_prostata=>updateDe10A59(item,biposia_prostata,'biposia_prostata')"
+                              :class="item.biposia_prostata==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='FEMENINO'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span class="kt-font-boldest" style="font-size: 14px;">GESTACIÓN PARTO Y POSTPARTO</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="28"
+                          >Gestión</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="2"
+                          >Parto</th>
+                          <!-- <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="1"
+                          >PostParto</th>-->
+                          <th
+                            class="kt-bg-fill-info"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Morbilidad</th>
+                        </tr>
+                        <tr>
+                          <th class="kt-bg-fill-success" colspan="6"></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Riesgo Materno</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Nutricional</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Examen</th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="5"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-success"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Habitos</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <!-- <th
+                            class="kt-bg-fill-dark"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>-->
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-info">
+                          <td>No.</td>
+                          <td>Documento</td>
+                          <td>Nombre</td>
+                          <td>Sexo</td>
+                          <td>Edad</td>
+                          <td>Aceptación del Embarazo</td>
+                          <td class="kt-bg-fill-danger">Control Prenatal</td>
+                          <td class="kt-bg-fill-danger">Atención del Parto</td>
+                          <td>Carnet de Control Prenatal</td>
+                          <td>Fecha Ultima Mestruación</td>
+                          <td>Fecha Probable Parto</td>
+                          <td class="kt-bg-fill-warning">Peso(Kgs)</td>
+                          <td class="kt-bg-fill-warning">Talla(cm)</td>
+                          <td class="kt-bg-fill-warning">IMC/EG</td>
+                          <td class="kt-bg-fill-warning">Gestación (Sem)</td>
+                          <td>No. Controles Prenatales</td>
+                          <td class="kt-bg-fill-danger">Vih</td>
+                          <td class="kt-bg-fill-danger">Toxoplasma</td>
+                          <td class="kt-bg-fill-danger">V.D.R.L</td>
+                          <td class="kt-bg-fill-dark">Odontologia</td>
+                          <td class="kt-bg-fill-dark">Vacunación TD/IT</td>
+                          <td class="kt-bg-fill-dark">Fecha Ultimo Parto</td>
+                          <td class="kt-bg-fill-dark">Suplementación con Hierro</td>
+                          <td class="kt-bg-fill-dark">Enfermedades Cronicas</td>
+                          <td class="kt-bg-fill-success">Sedentarismo</td>
+                          <td class="kt-bg-fill-success">Fuma</td>
+                          <td class="kt-bg-fill-success">Consumo SPA</td>
+                          <td class="kt-bg-fill-success">Consume Bebidas Alcoholicas</td>
+                          <td class="kt-bg-fill-danger">Tipo de Parto</td>
+                          <td class="kt-bg-fill-danger">Atención Institucional</td>
+                          <!-- <td class="kt-bg-fill-dark">Consulta de Control 8 Dias</td> -->
+                          <td>Gestación</td>
+                          <td>Parto</td>
+                          <td>Postparto</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in ParPost" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.aceptacion"
+                              @input="aceptacion=>updatePosparto(item,aceptacion,'aceptacion')"
+                              :class="item.aceptacion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.control_prenatal"
+                              @input="control_prenatal=>updatePosparto(item,control_prenatal,'control_prenatal')"
+                              :class="item.control_prenatal==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.atencion_parto"
+                              @input="atencion_parto=>updatePosparto(item,atencion_parto,'atencion_parto')"
+                              :class="item.atencion_parto==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SICASA">SI EN CASA</option>
+                              <option value="SIHOSPITAL">SI EN HOSPITAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.carnet"
+                              @input="carnet=>updatePosparto(item,carnet,'carnet')"
+                              :class="item.carnet==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              id="date"
+                              type="date"
+                              v-model="item.fecha_ultima"
+                              @input="changeupdatePosparto(item,$event,'fecha_ultima')"
+                              class="form-control text-capitalize"
+                              :class="item.fecha_ultima==''?'is-invalid':'is-valid'"
+                              :max="hoy | moment"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              id="date"
+                              type="date"
+                              v-model="item.fecha_probable"
+                              @input="changeupdatePosparto(item,$event,'fecha_probable')"
+                              class="form-control text-capitalize"
+                              :class="item.fecha_probable==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso"
+                              @input="changeupdatePosparto(item,$event,'peso')"
+                              :class="item.peso==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.talla"
+                              @input="changeupdatePosparto(item,$event,'talla')"
+                              :class="item.talla==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.imc"
+                              @input="changeupdatePosparto(item,$event,'imc')"
+                              readonly
+                              :class="item.imc==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.semanas_ges"
+                              @input="changeupdatePosparto(item,$event,'semanas_ges')"
+                              :class="item.semanas_ges==''?'is-invalid':'is-valid'"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.num_controles"
+                              @input="num_controles=>updatePosparto(item,num_controles,'num_controles')"
+                              :class="item.num_controles==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.vih"
+                              @input="vih=>updatePosparto(item,vih,'vih')"
+                              :class="item.vih==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIP">SI POSITIVO</option>
+                              <option value="SIN">SI NEGATIVO</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.toxoplasma"
+                              @input="toxoplasma=>updatePosparto(item,toxoplasma,'toxoplasma')"
+                              :class="item.toxoplasma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIP">SI POSITIVO</option>
+                              <option value="SIN">SI NEGATIVO</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.vdrl"
+                              @input="vdrl=>updatePosparto(item,vdrl,'vdrl')"
+                              :class="item.vdrl==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIP">SI POSITIVO</option>
+                              <option value="SIN">SI NEGATIVO</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.odontologia"
+                              @input="odontologia=>updatePosparto(item,odontologia,'odontologia')"
+                              :class="item.odontologia==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.vacunaciontdit"
+                              @input="vacunaciontdit=>updatePosparto(item,vacunaciontdit,'vacunaciontdit')"
+                              :class="item.vacunaciontdit==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="D1">D1</option>
+                              <option value="D2">D2</option>
+                              <option value="D3">D3</option>
+                              <option value="D4">D4</option>
+                              <option value="D5">D5</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              id="date"
+                              type="date"
+                              v-model="item.fecha_ultimo_parto"
+                              class="form-control text-capitalize"
+                              @input="changeupdatePosparto(item,$event,'fecha_ultimo_parto')"
+                              :class="item.fecha_ultimo_parto==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.suplementacion"
+                              @input="suplementacion=>updatePosparto(item,suplementacion,'suplementacion')"
+                              :class="item.suplementacion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedades_cronicas"
+                              @input="enfermedades_cronicas=>updatePosparto(item,enfermedades_cronicas,'enfermedades_cronicas')"
+                              :class="item.enfermedades_cronicas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.sedentarismo"
+                              @input="sedentarismo=>updatePosparto(item,sedentarismo,'sedentarismo')"
+                              :class="item.sedentarismo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.fuma"
+                              @input="fuma=>updatePosparto(item,fuma,'fuma')"
+                              :class="item.fuma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.consumo"
+                              @input="consumo=>updatePosparto(item,consumo,'consumo')"
+                              :class="item.consumo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.bebidas"
+                              @input="bebidas=>updatePosparto(item,bebidas,'bebidas')"
+                              :class="item.bebidas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tipo_parto"
+                              @input="tipo_parto=>updatePosparto(item,tipo_parto,'tipo_parto')"
+                              :class="item.tipo_parto==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="VAGINAL">VAGINAL</option>
+                              <option value="CESAREA">CESAREA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.atencion_institucional"
+                              @input="atencion_institucional=>updatePosparto(item,atencion_institucional,'atencion_institucional')"
+                              :class="item.atencion_institucional==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.cc18"
+                              @input="cc18=>updatePosparto(item,cc18,'cc18')"
+                              :class="item.cc18==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>-->
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.morgestacion"
+                              @input="morgestacion=>updatePosparto(item,morgestacion,'morgestacion')"
+                              :class="item.morgestacion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in morbilidad_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.morparto"
+                              @input="morparto=>updatePosparto(item,morparto,'morparto')"
+                              :class="item.morparto==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in morbilidad_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.morposparto"
+                              @input="morposparto=>updatePosparto(item,morposparto,'morposparto')"
+                              :class="item.morposparto==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in morbilidad_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Cart. X ciclo -->
+
+            <!-- Adolescente -->
+            <div class="tab-pane" id="adolescente" role="tabpanel">
+              <div class="row">
+                <div class="col-12 kt-align-right">
+                  <button
+                    type="button"
+                    class="btn btn-brand"
+                    @click="cambiarTab1('adultomayor','adolescente')"
+                    :disabled="!valGAdole"
+                    :class="spinGAdole"                    
+                  >
+                    <i class="la la-arrow-right"></i>
+                    <span class="kt-hidden-mobile">Siguiente</span>
+                  </button>
+                </div>
+              </div>
+              <p>
+                <span class="kt-font-boldest" style="font-size: 14px;">ADOLESCENTES DE 12 A 17 AÑOS</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="11"
+                          >Crecimiento y Desarrollo</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="1"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Salud Oral</th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="11"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-warning">
+                          <td class="kt-bg-fill-success">No.</td>
+                          <td class="kt-bg-fill-success">Documento</td>
+                          <td class="kt-bg-fill-success">Nombre</td>
+                          <td class="kt-bg-fill-success">Sexo</td>
+                          <td class="kt-bg-fill-success">Edad</td>
+                          <td class="kt-bg-fill-success">Peso(Kgs)</td>
+                          <td class="kt-bg-fill-success">Talla(m)</td>
+                          <td class="kt-bg-fill-success">IMC</td>
+                          <!-- <td class="kt-bg-fill-success">PB</td> -->
+                          <td class="kt-bg-fill-success">Visuales</td>
+                          <td class="kt-bg-fill-success">Auditivos</td>
+                          <td class="kt-bg-fill-success">De Conducta</td>
+                          <td class="kt-bg-fill-danger">Enfermedad Cronica</td>
+                          <td class="kt-bg-fill-dark">Dientes Sanos</td>
+                          <td class="kt-bg-fill-dark">Consulta Odontologica (ultimos 6 meses)</td>
+                          <td class="kt-bg-fill-dark">No. Cepillado Dia</td>
+                          <td class="kt-bg-fill-warning">Señales de Maltrato</td>
+                          <td class="kt-bg-fill-warning">Alcohol</td>
+                          <td class="kt-bg-fill-warning">Fuma</td>
+                          <td class="kt-bg-fill-warning">SPA</td>
+                          <td class="kt-bg-fill-warning">Desparacitado</td>
+                          <td class="kt-bg-fill-warning">Empleo</td>
+                          <td class="kt-bg-fill-warning">Religión</td>
+                          <td class="kt-bg-fill-warning">Sabe que es VIH</td>
+                          <td class="kt-bg-fill-warning">Sabe que es Cancer de Utero</td>
+                          <td class="kt-bg-fill-warning">Sabe que es el Papiloma</td>
+                          <td class="kt-bg-fill-warning">Sabe que es el Cancer de Seno</td>
+                          <td class="kt-bg-fill-danger">Padre</td>
+                          <td class="kt-bg-fill-danger">Madre</td>
+                          <td class="kt-bg-fill-danger">Hermanos</td>
+                          <td class="kt-bg-fill-danger">Conyuge</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in De12A17" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso"
+                              @input="changeupdateDe12A17(item,$event,'peso')"
+                              :class="item.peso==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.talla"
+                              @input="changeupdateDe12A17(item,$event,'talla')"
+                              :class="item.talla==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.imc"
+                              @input="changeupdateDe12A17(item,$event,'imc')"
+                              readonly
+                              :class="item.imc==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pb"
+                              @input="changeupdateDe12A17(item,$event,'pb')"
+                              :class="item.pb==''?'is-invalid':'is-valid'"
+                            />
+                          </td> -->
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.visuales"
+                              @input="visuales=>updateDe12A17(item,visuales,'visuales')"
+                              :class="item.visuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.auditivos"
+                              @input="auditivos=>updateDe12A17(item,auditivos,'auditivos')"
+                              :class="item.auditivos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conducta"
+                              @input="conducta=>updateDe12A17(item,conducta,'conducta')"
+                              :class="item.conducta==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedades_cronicas"
+                              @input="enfermedades_cronicas=>updateDe12A17(item,enfermedades_cronicas,'enfermedades_cronicas')"
+                              :class="item.enfermedades_cronicas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.dientes_sanos"
+                              @input="dientes_sanos=>updateDe12A17(item,dientes_sanos,'dientes_sanos')"
+                              :class="item.dientes_sanos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.consultaodon"
+                              @input="consultaodon=>updateDe12A17(item,consultaodon,'consultaodon')"
+                              :class="item.consultaodon==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.nocepillado"
+                              @input="changeupdateDe12A17(item,$event,'nocepillado')"
+                              :class="item.nocepillado==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.maltrato"
+                              @input="maltrato=>updateDe12A17(item,maltrato,'maltrato')"
+                              :class="item.maltrato==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.alcohol"
+                              @input="alcohol=>updateDe12A17(item,alcohol,'alcohol')"
+                              :class="item.alcohol==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.fuma"
+                              @input="fuma=>updateDe12A17(item,fuma,'fuma')"
+                              :class="item.fuma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.spa"
+                              @input="spa=>updateDe12A17(item,spa,'spa')"
+                              :class="item.spa==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.desparacitado"
+                              @input="desparacitado=>updateDe12A17(item,desparacitado,'desparacitado')"
+                              :class="item.desparacitado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.empleo"
+                              @input="empleo=>updateDe12A17(item,empleo,'empleo')"
+                              :class="item.empleo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.religion"
+                              @input="religion=>updateDe12A17(item,religion,'religion')"
+                              :class="item.religion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in religion_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>                           
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queesvih"
+                              @input="queesvih=>updateDe12A17(item,queesvih,'queesvih')"
+                              :class="item.queesvih==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queescancerutero"
+                              @input="queescancerutero=>updateDe12A17(item,queescancerutero,'queescancerutero')"
+                              :class="item.queescancerutero==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queespapiloma"
+                              @input="queespapiloma=>updateDe12A17(item,queespapiloma,'queespapiloma')"
+                              :class="item.queespapiloma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queescancerseno"
+                              @input="queescancerseno=>updateDe12A17(item,queescancerseno,'queescancerseno')"
+                              :class="item.queescancerseno==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.padre"
+                              @input="padre=>updateDe12A17(item,padre,'padre')"
+                              :class="item.padre==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.madre"
+                              @input="madre=>updateDe12A17(item,madre,'madre')"
+                              :class="item.madre==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.hermanos"
+                              @input="hermanos=>updateDe12A17(item,hermanos,'hermanos')"
+                              :class="item.hermanos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conyuge"
+                              @input="conyuge=>updateDe12A17(item,conyuge,'conyuge')"
+                              :class="item.conyuge==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">BUENA</option>
+                              <option value="2">MUY BUENA</option>
+                              <option value="3">REGULAR</option>
+                              <option value="4">MALA</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >JUVENTUD, JOVENES DE 18 A 28 AÑOS</span>
+              </p>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="13"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Salud Oral</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="1"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Consumo Sustancias Psicoactivas</th>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="6"
+                          ></th>
+                        </tr>
+                        <tr>
+                          <th class="kt-bg-fill-success" colspan="5"></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Nutricional</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Problemas</th>
+                          <th
+                            class="kt-bg-fill-success"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Habitos</th>
+                          <th
+                            class="kt-bg-fill-success"
+                            colspan="6"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-success">
+                          <td>No.</td>
+                          <td>Documento</td>
+                          <td>Nombre</td>
+                          <td>Sexo</td>
+                          <td>Edad</td>
+                          <td class="kt-bg-fill-danger">Peso(Kgs)</td>
+                          <td class="kt-bg-fill-danger">Talla(m)</td>
+                          <td class="kt-bg-fill-danger">IMC</td>
+                          <td class="kt-bg-fill-danger">P. Cintura</td>
+                          <!-- <td class="kt-bg-fill-danger">PB</td> -->
+                          <td class="kt-bg-fill-info">Visuales</td>
+                          <td class="kt-bg-fill-info">Auditivos</td>
+                          <td class="kt-bg-fill-info">De Conducta</td>
+                          <td class="kt-bg-fill-success">Enfermedad Cronica</td>
+                          <td class="kt-bg-fill-danger">Dientes Sanos</td>
+                          <td class="kt-bg-fill-danger">Consulta Odontologica (ultimos 6 meses)</td>
+                          <td class="kt-bg-fill-danger">No. Cepillado Dia</td>
+                          <td class="kt-bg-fill-info">Señales de Maltrato</td>
+                          <td class="kt-bg-fill-warning">Alcohol</td>
+                          <td class="kt-bg-fill-warning">Fuma</td>
+                          <td class="kt-bg-fill-warning">SPA</td>
+                          <td>Desparacitado</td>
+                          <td>Empleo</td>
+                          <td>Religión</td>
+                          <td>Sabe que es VIH</td>
+                          <td>Sabe que es Cancer de Utero</td>
+                          <td>Sabe que es el Papiloma</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in De18A28" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso"
+                              @input="changeupdateDe18A28(item,$event,'peso')"
+                              :class="item.peso==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.talla"
+                              @input="changeupdateDe18A28(item,$event,'talla')"
+                              :class="item.talla==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.imc"
+                              @input="changeupdateDe18A28(item,$event,'imc')"
+                              readonly
+                              :class="item.imc==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pcintura"
+                              @input="changeupdateDe18A28(item,$event,'pcintura')"
+                              :class="item.pcintura==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pb"
+                              @input="changeupdateDe18A28(item,$event,'pb')"
+                              :class="item.pb==''?'is-invalid':'is-valid'"
+                            />
+                          </td> -->
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.visuales"
+                              @input="visuales=>updateDe18A28(item,visuales,'visuales')"
+                              :class="item.visuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.auditivos"
+                              @input="auditivos=>updateDe18A28(item,auditivos,'auditivos')"
+                              :class="item.auditivos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conducta"
+                              @input="conducta=>updateDe18A28(item,conducta,'conducta')"
+                              :class="item.conducta==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedades_cronicas"
+                              @input="enfermedades_cronicas=>updateDe18A28(item,enfermedades_cronicas,'enfermedades_cronicas')"
+                              :class="item.enfermedades_cronicas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.dientes_sanos"
+                              @input="dientes_sanos=>updateDe18A28(item,dientes_sanos,'dientes_sanos')"
+                              :class="item.dientes_sanos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.consultaodon"
+                              @input="consultaodon=>updateDe18A28(item,consultaodon,'consultaodon')"
+                              :class="item.consultaodon==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.nocepillado"
+                              @input="changeupdateDe18A28(item,$event,'nocepillado')"
+                              :class="item.nocepillado==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.maltrato"
+                              @input="maltrato=>updateDe18A28(item,maltrato,'maltrato')"
+                              :class="item.maltrato==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.alcohol"
+                              @input="alcohol=>updateDe18A28(item,alcohol,'alcohol')"
+                              :class="item.alcohol==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.fuma"
+                              @input="fuma=>updateDe18A28(item,fuma,'fuma')"
+                              :class="item.fuma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.spa"
+                              @input="spa=>updateDe18A28(item,spa,'spa')"
+                              :class="item.spa==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.desparacitado"
+                              @input="desparacitado=>updateDe18A28(item,desparacitado,'desparacitado')"
+                              :class="item.desparacitado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.empleo"
+                              @input="empleo=>updateDe18A28(item,empleo,'empleo')"
+                              :class="item.empleo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.religion"
+                              @input="religion=>updateDe18A28(item,religion,'religion')"
+                              :class="item.religion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in religion_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>                            
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queesvih"
+                              @input="queesvih=>updateDe18A28(item,queesvih,'queesvih')"
+                              :class="item.queesvih==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queescancerutero"
+                              @input="queescancerutero=>updateDe18A28(item,queescancerutero,'queescancerutero')"
+                              :class="item.queescancerutero==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queespapiloma"
+                              @input="queespapiloma=>updateDe18A28(item,queespapiloma,'queespapiloma')"
+                              :class="item.queespapiloma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <div class="kt-separator kt-separator--border-dashed"></div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >HOMBRES Y MUJERES DE 29 AÑOS A 59 AÑOS</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="13"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Salud Oral</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="1"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Consumo Sustancias Psicoactivas</th>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="2"
+                          ></th>
+                          <!-- <th
+                            class="kt-bg-fill-dark"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="3"
+                          >Detección Temprana</th> -->
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="6"
+                          ></th>
+                        </tr>
+                        <tr>
+                          <th class="kt-bg-fill-success" colspan="5"></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Valoración Nutricional</th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Problemas</th>
+                          <th
+                            class="kt-bg-fill-success"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-info"
+                            colspan="1"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          >Habitos</th>
+                          <th
+                            class="kt-bg-fill-success"
+                            colspan="2"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-dark"
+                            colspan="3"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-success"
+                            colspan="4"
+                            style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-success">
+                          <td>No.</td>
+                          <td>Documento</td>
+                          <td>Nombre</td>
+                          <td>Sexo</td>
+                          <td>Edad</td>
+                          <td class="kt-bg-fill-danger">Peso(Kgs)</td>
+                          <td class="kt-bg-fill-danger">Talla(m)</td>
+                          <td class="kt-bg-fill-danger">IMC</td>
+                          <td class="kt-bg-fill-danger">P. Cintura</td>
+                          <!-- <td class="kt-bg-fill-danger">PB</td> -->
+                          <td class="kt-bg-fill-info">Visuales</td>
+                          <td class="kt-bg-fill-info">Auditivos</td>
+                          <td class="kt-bg-fill-info">De Conducta</td>
+                          <td class="kt-bg-fill-success">Enfermedad Cronica</td>
+                          <td class="kt-bg-fill-danger">Dientes Sanos</td>
+                          <td class="kt-bg-fill-danger">Consulta Odontologica (ultimos 6 meses)</td>
+                          <td class="kt-bg-fill-danger">No. Cepillado Dia</td>
+                          <td class="kt-bg-fill-info">Señales de Maltrato</td>
+                          <td class="kt-bg-fill-warning">Alcohol</td>
+                          <td class="kt-bg-fill-warning">Fuma</td>
+                          <td class="kt-bg-fill-warning">SPA</td>
+                          <td>Desparacitado</td>
+                          <td>Empleo</td>
+                          <!-- <td class="kt-bg-fill-dark">Examen de Prostata</td>
+                          <td class="kt-bg-fill-dark">Citologias</td>
+                          <td class="kt-bg-fill-dark">Examen de MAMA</td> -->
+                          <td>Religión</td>
+                          <td>Sabe que es VIH</td>
+                          <td>Sabe que es Cancer de Utero</td>
+                          <td>Sabe que es el Papiloma</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in De29A59" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso"
+                              @input="changeupdateDe29A59(item,$event,'peso')"
+                              :class="item.peso==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.talla"
+                              @input="changeupdateDe29A59(item,$event,'talla')"
+                              :class="item.talla==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.imc"
+                              @input="changeupdateDe29A59(item,$event,'imc')"
+                              readonly
+                              :class="item.imc==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pcintura"
+                              @input="changeupdateDe29A59(item,$event,'pcintura')"
+                              :class="item.pcintura==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pb"
+                              @input="changeupdateDe29A59(item,$event,'pb')"
+                              :class="item.pb==''?'is-invalid':'is-valid'"
+                            />
+                          </td> -->
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.visuales"
+                              @input="visuales=>updateDe29A59(item,visuales,'visuales')"
+                              :class="item.visuales==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.auditivos"
+                              @input="auditivos=>updateDe29A59(item,auditivos,'auditivos')"
+                              :class="item.auditivos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.conducta"
+                              @input="conducta=>updateDe29A59(item,conducta,'conducta')"
+                              :class="item.conducta==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedades_cronicas"
+                              @input="enfermedades_cronicas=>updateDe29A59(item,enfermedades_cronicas,'enfermedades_cronicas')"
+                              :class="item.enfermedades_cronicas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.dientes_sanos"
+                              @input="dientes_sanos=>updateDe29A59(item,dientes_sanos,'dientes_sanos')"
+                              :class="item.dientes_sanos==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.consultaodon"
+                              @input="consultaodon=>updateDe29A59(item,consultaodon,'consultaodon')"
+                              :class="item.consultaodon==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.nocepillado"
+                              @input="changeupdateDe29A59(item,$event,'nocepillado')"
+                              :class="item.nocepillado==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.maltrato"
+                              @input="maltrato=>updateDe29A59(item,maltrato,'maltrato')"
+                              :class="item.maltrato==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.alcohol"
+                              @input="alcohol=>updateDe29A59(item,alcohol,'alcohol')"
+                              :class="item.alcohol==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.fuma"
+                              @input="fuma=>updateDe29A59(item,fuma,'fuma')"
+                              :class="item.fuma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.spa"
+                              @input="spa=>updateDe29A59(item,spa,'spa')"
+                              :class="item.spa==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.desparacitado"
+                              @input="desparacitado=>updateDe29A59(item,desparacitado,'desparacitado')"
+                              :class="item.desparacitado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.empleo"
+                              @input="empleo=>updateDe29A59(item,empleo,'empleo')"
+                              :class="item.empleo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.examen_prostata"
+                              @input="examen_prostata=>updateDe29A59(item,examen_prostata,'examen_prostata')"
+                              :class="item.examen_prostata==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.citologia"
+                              @input="citologia=>updateDe29A59(item,citologia,'citologia')"
+                              :class="item.citologia==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.examen_mama"
+                              @input="examen_mama=>updateDe29A59(item,examen_mama,'examen_mama')"
+                              :class="item.examen_mama==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td> -->
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.religion"
+                              @input="religion=>updateDe29A59(item,religion,'religion')"
+                              :class="item.religion==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in religion_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>                            
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queesvih"
+                              @input="queesvih=>updateDe29A59(item,queesvih,'queesvih')"
+                              :class="item.queesvih==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queescancerutero"
+                              @input="queescancerutero=>updateDe29A59(item,queescancerutero,'queescancerutero')"
+                              :class="item.queescancerutero==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.queespapiloma"
+                              @input="queespapiloma=>updateDe29A59(item,queespapiloma,'queespapiloma')"
+                              :class="item.queespapiloma==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Adolescente -->
+
+            <!-- Adulto Mayor -->
+            <div class="tab-pane" id="adultomayor" role="tabpanel">
+              <div class="row">
+                <div class="col-12 kt-align-right">
+                  <button
+                    type="button"
+                    class="btn btn-brand"
+                    @click="cambiarTab1('migrante','adultomayor')"
+                    :disabled="!valGAdul"
+                    :class="spinGAdul"                    
+                  >
+                    <i class="la la-arrow-right"></i>
+                    <span class="kt-hidden-mobile">Siguiente</span>
+                  </button>
+                </div>
+              </div>
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >E. ADULTO MAYOR (HOMBRES Y MUJERES DE 60 AÑOS Y MAS)</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="6"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Valoración Nutricional</th>
+                          <th
+                            class="kt-bg-fill-warning"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="15"
+                          ></th>
+                        </tr>
+                        <tr class="kt-bg-fill-warning">
+                          <td class="kt-bg-fill-success">No.</td>
+                          <td class="kt-bg-fill-success">Documento</td>
+                          <td class="kt-bg-fill-success">Nombre</td>
+                          <td class="kt-bg-fill-success">Sexo</td>
+                          <td class="kt-bg-fill-success">Edad</td>
+                          <td class="kt-bg-fill-success">Grupo de Ayudas</td>
+                          <td class="kt-bg-fill-danger">Peso(Kgs)</td>
+                          <td class="kt-bg-fill-danger">Talla(m)</td>
+                          <td class="kt-bg-fill-danger">IMC</td>
+                          <td class="kt-bg-fill-danger">P.Cintura</td>
+                          <!-- <td class="kt-bg-fill-danger">Glicemia</td> -->
+                          <td class="kt-bg-fill-warning">Cigarrillo ó Tabaco</td>
+                          <td class="kt-bg-fill-warning">Consumo de Alcohol</td>
+                          <td class="kt-bg-fill-warning">Actividad Fisica Recreativa</td>
+                          <td class="kt-bg-fill-warning">Sintomático Respiratorio</td>
+                          <td class="kt-bg-fill-warning">Examen de Seno</td>
+                          <td class="kt-bg-fill-warning">Citologia Cervico Vaginal</td>
+                          <td class="kt-bg-fill-warning">Colposcopia</td>
+                          <td class="kt-bg-fill-warning">Examen de Prostata</td>
+                          <td class="kt-bg-fill-warning">Biposia de Prostata</td>
+                          <td class="kt-bg-fill-warning">Examen de Agudeza Visual</td>
+                          <td class="kt-bg-fill-warning">Subsidio de Entidad del Estado</td>
+                          <td class="kt-bg-fill-warning">Enfermedades Cronicas</td>
+                          <td class="kt-bg-fill-warning">Enfermedades Infecciosas</td>
+                          <td class="kt-bg-fill-warning">Empleo</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in De60" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.grupo_ayudas"
+                              @input="grupo_ayudas=>updateDe60(item,grupo_ayudas,'grupo_ayudas')"
+                              :class="item.grupo_ayudas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option
+                                v-for="item in grupos_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.peso"
+                              @input="changeupdateDe60(item,$event,'peso')"
+                              :class="item.peso==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.talla"
+                              @input="changeupdateDe60(item,$event,'talla')"
+                              :class="item.talla==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.imc"
+                              @input="changeupdateDe60(item,$event,'imc')"
+                              readonly
+                              :class="item.imc==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.pa"
+                              @input="changeupdateDe60(item,$event,'pa')"
+                              :class="item.pa==''?'is-invalid':'is-valid'"
+                            />
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.glicemia"
+                              @input="changeupdateDe60(item,$event,'glicemia')"
+                              :class="item.glicemia==''?'is-invalid':'is-valid'"
+                            />
+                          </td> -->
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.cigarrillo"
+                              @input="cigarrillo=>updateDe60(item,cigarrillo,'cigarrillo')"
+                              :class="item.cigarrillo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.alcohol"
+                              @input="alcohol=>updateDe60(item,alcohol,'alcohol')"
+                              :class="item.alcohol==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.actividad_fisica"
+                              @input="actividad_fisica=>updateDe60(item,actividad_fisica,'actividad_fisica')"
+                              :class="item.actividad_fisica==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.sintomatico"
+                              @input="sintomatico=>updateDe60(item,sintomatico,'sintomatico')"
+                              :class="item.sintomatico==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.examen_seno"
+                              @input="examen_seno=>updateDe60(item,examen_seno,'examen_seno')"
+                              :class="item.examen_seno==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.citologia"
+                              @input="citologia=>updateDe60(item,citologia,'citologia')"
+                              :class="item.citologia==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.colposcopia"
+                              @input="colposcopia=>updateDe60(item,colposcopia,'colposcopia')"
+                              :class="item.colposcopia==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.examen_prostata"
+                              @input="examen_prostata=>updateDe60(item,examen_prostata,'examen_prostata')"
+                              :class="item.examen_prostata==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.biposia_prostata"
+                              @input="biposia_prostata=>updateDe60(item,biposia_prostata,'biposia_prostata')"
+                              :class="item.biposia_prostata==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.agudeza_visual"
+                              @input="agudeza_visual=>updateDe60(item,agudeza_visual,'agudeza_visual')"
+                              :class="item.agudeza_visual==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SIN">SI NORMAL</option>
+                              <option value="SIA">SI ANORMAL</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.subsidio"
+                              @input="subsidio=>updateDe60(item,subsidio,'subsidio')"
+                              :class="item.subsidio==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedades_cronicas"
+                              @input="enfermedades_cronicas=>updateDe60(item,enfermedades_cronicas,'enfermedades_cronicas')"
+                              :class="item.enfermedades_cronicas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedades_infecciosas"
+                              @input="enfermedades_infecciosas=>updateDe60(item,enfermedades_infecciosas,'enfermedades_infecciosas')"
+                              :class="item.enfermedades_infecciosas==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.empleo"
+                              @input="empleo=>updateDe60(item,empleo,'empleo')"
+                              :class="item.empleo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>                          
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <p>
+                <span class="kt-font-boldest" style="font-size: 14px;">V. MORBILIDAD GENERAL</span>
+              </p>
+              <p>
+                <span class="kt-font-boldest" style="font-size: 10px;">ENFERMEDAD CRONICA</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Enfermedad Cronica</th>
+                        </tr>
+                        <tr class="kt-bg-fill-warning">
+                          <td class="kt-bg-fill-success">No.</td>
+                          <td class="kt-bg-fill-success">Documento</td>
+                          <td class="kt-bg-fill-success">Nombre</td>
+                          <td class="kt-bg-fill-success">Sexo</td>
+                          <td class="kt-bg-fill-danger">Nombre de la Enfermedad</td>
+                          <td class="kt-bg-fill-danger">Diagnosticado Hace cuanto tiempo</td>
+                          <td class="kt-bg-fill-danger">Está en Tratamiento</td>
+                          <!-- <td class="kt-bg-fill-danger">Complicaciones</td> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in EnCro" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1)"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedad"
+                              @input="enfermedad=>updateEnCro(item,enfermedad,'enfermedad')"
+                              :class="item.enfermedad==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in enfcro_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tiempo"
+                              @input="tiempo=>updateEnCro(item,tiempo,'tiempo')"
+                              :class="item.tiempo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">Reciente</option>
+                              <option value="2">3 Meses</option>
+                              <option value="3">Entre 3 y 6 meses</option>
+                              <option value="4">Mas de 1 año</option>
+                            </b-form-select>                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tratamiento"
+                              @input="tratamiento=>updateEnCro(item,tratamiento,'tratamiento')"
+                              :class="item.tratamiento==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.complicaciones"
+                              @input="changeupdateEnCro(item,$event,'complicaciones')"
+                              :class="item.complicaciones==''?'is-invalid':'is-valid'"
+                            />
+                          </td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+              <p>
+                <span class="kt-font-boldest" style="font-size: 10px;">ENFERMEDADES INFECCIOSAS</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          ></th>
+                          <th
+                            class="kt-bg-fill-brand"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="4"
+                          >Enfermedad Infecciosas</th>
+                        </tr>
+                        <tr class="kt-bg-fill-warning">
+                          <td class="kt-bg-fill-success">No.</td>
+                          <td class="kt-bg-fill-success">Documento</td>
+                          <td class="kt-bg-fill-success">Nombre</td>
+                          <td class="kt-bg-fill-success">Sexo</td>
+                          <td class="kt-bg-fill-brand">Nombre de la Enfermedad</td>
+                          <td class="kt-bg-fill-brand">Diagnosticado Hace cuanto tiempo</td>
+                          <td class="kt-bg-fill-brand">Está en Tratamiento</td>
+                          <!-- <td class="kt-bg-fill-brand">Complicaciones</td> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in EnInf" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1)"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.enfermedad"
+                              @input="enfermedad=>updateEnInf(item,enfermedad,'enfermedad')"
+                              :class="item.enfermedad==''?'is-invalid':'is-valid'"
+                            > 
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in enfinf_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tiempo"
+                              @input="tiempo=>updateEnInf(item,tiempo,'tiempo')"
+                              :class="item.tiempo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">Menos de 6 Meses</option>
+                              <option value="2">Menos de 1 Años</option>
+                              <option value="3">Menos de 5 Años</option>
+                              <option value="4">Mas de 5 Años</option>
+                            </b-form-select>                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tratamiento"
+                              @input="tratamiento=>updateEnInf(item,tratamiento,'tratamiento')"
+                              :class="item.tratamiento==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <!-- <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              v-model="item.complicaciones"
+                              @input="changeupdateEnInf(item,$event,'complicaciones')"
+                              :class="item.complicaciones==''?'is-invalid':'is-valid'"
+                            />
+                          </td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Adulto Mayor -->
+
+            <!-- Migrante -->
+            <div class="tab-pane" id="migrante" role="tabpanel">
+              <div class="row">
+                <div class="col-12 kt-align-right">
+                  <button
+                    type="button"
+                    class="btn btn-brand"
+                    @click="cambiarTab1('guardar','migrante')"
+                    :disabled="!valGMig"
+                    :class="spinGMig"                    
+                  >
+                    <i class="la la-check"></i>
+                    <span class="kt-hidden-mobile">Guardar</span>
+                  </button>
+                </div>
+              </div>
+              <p>
+                <span class="kt-font-boldest" style="font-size: 14px;">MIGRANTE</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-success"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="14"
+                          >Migrante</th>
+                        </tr>
+                        <tr>
+                          <th
+                            class="kt-bg-fill-info"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="6"
+                          >Identificación</th>
+                          <th
+                            class="kt-bg-fill-danger"
+                            style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
+                            colspan="7"
+                          >Condicciones</th>
+                        </tr>
+                        <tr class="kt-bg-fill-warning">
+                          <td class="kt-bg-fill-info">No.</td>
+                          <td class="kt-bg-fill-info">Documento</td>
+                          <td class="kt-bg-fill-info">Nombre</td>
+                          <td class="kt-bg-fill-info">Sexo</td>
+                          <td class="kt-bg-fill-info">Edad</td>
+                          <td class="kt-bg-fill-info">Pais de Origen</td>
+                          <td class="kt-bg-fill-danger">Registrado Como Migrante</td>
+                          <td class="kt-bg-fill-danger">Hace Cuanto Llego Al Pais</td>
+                          <td class="kt-bg-fill-danger">¿En el Futuro Usted Piensa?</td>
+                          <td class="kt-bg-fill-danger">¿Usted a Recibido Ayudas del Gobierno?</td>
+                          <td class="kt-bg-fill-danger">Principal Necesidad en Estos Momnetos</td>
+                          <td class="kt-bg-fill-danger">Personas Que Dependen de Usted</td>
+                          <td class="kt-bg-fill-danger">Ingreso Mensual Actualmente</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in Migra" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1)"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white; "
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              :class="item.pais==''?'is-invalid':'is-valid'"
+                              v-model="item.pais"
+                              @input="changeupdateMigra(item,$event,'pais')"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.registrado"
+                              @input="registrado=>updateMigra(item,registrado,'registrado')"
+                              class="form-control text-capitalize"
+                              :class="item.registrado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.cuantollego"
+                              @input="cuantollego=>updateMigra(item,cuantollego,'cuantollego')"
+                              class="form-control text-capitalize"
+                              :class="item.cuantollego==''?'is-invalid':'is-valid'"
+                            >
+                              <option value="1">Menos de 3 meses</option>
+                              <option value="2">6 meses a 12 meses</option>
+                              <option value="3">12 meses a 24 meses</option>
+                              <option value="4">Más de 24 meses</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.futuro"
+                              @input="futuro=>updateMigra(item,futuro,'futuro')"
+                              class="form-control text-capitalize"
+                              :class="item.futuro==''?'is-invalid':'is-valid'"                              
+                            >
+                              <option value="1">Volver al Pais de Origen</option>
+                              <option value="2">Radicarse en este pais</option>
+                              <option value="3">Irse a otro Pais</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.recibido"
+                              @input="recibido=>updateMigra(item,recibido,'recibido')"
+                              class="form-control text-capitalize"
+                              :class="item.recibido==''?'is-invalid':'is-valid'"                                                            
+                            >
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.necesidad"
+                              @input="necesidad=>updateMigra(item,necesidad,'necesidad')"
+                              class="form-control text-capitalize"
+                              :class="item.necesidad==''?'is-invalid':'is-valid'"                              
+                            >
+                              <option value="1">Hospedaje</option>
+                              <option value="2">Alimentación</option>
+                              <option value="3">Transporte</option>
+                              <option value="4">Salud</option>
+                              <option value="5">Trabajo</option>
+                              <option value="6">Ropa</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              style="width:150px;"
+                              class="form-control text-capitalize"
+                              :class="item.dependen==''?'is-invalid':'is-valid'"                              
+                              v-model="item.dependen"
+                              @input="changeupdateMigra(item,$event,'dependen',index)"
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.ingreso"
+                              @input="ingreso=>updateMigra(item,ingreso,'ingreso')"
+                              class="form-control text-capitalize"
+                              :class="item.ingreso==''?'is-invalid':'is-valid'"                              
+                            >
+                              <option value="1">menos de 500.000</option>
+                              <option value="2">500.000 a 800.0000</option>
+                              <option value="3">mas de 800.000</option>
+                            </b-form-select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Migrante -->                                  
           </div>
         </div>
 
@@ -5676,9 +10924,9 @@
     return /^[0-9]*$/.test(value);
   };
   // Import component
-  import Loading from 'vue-loading-overlay';
+  import Loading from "vue-loading-overlay";
   // Import stylesheet
-  import 'vue-loading-overlay/dist/vue-loading.css';
+  import "vue-loading-overlay/dist/vue-loading.css";
   import {
     required,
     numeric,
@@ -5693,10 +10941,14 @@
       Datepicker,
       Loading
     },
-    mounted() {
+    beforeMount() {
       this.hoy = moment();
       this.IDHOGAR = this.$route.params.IDHOGAR;
-      this.nuevo(this.IDHOGAR);
+      if (this.IDHOGAR == null) {
+        this.$router.push("/gestion");
+      } else {
+        this.nuevo(this.IDHOGAR);
+      }
     },
     filters: {
       moneda(val) {
@@ -5710,7 +10962,7 @@
     data() {
       return {
         isLoading: false,
-        fullPage: true,        
+        fullPage: true,
         hoy: "",
         csrf: document
           .querySelector('meta[name="csrf-token"]')
@@ -5786,6 +11038,13 @@
           { value: 7, texto: "Mas de $ 10.170.001" },
           { value: 8, texto: "No aplica" }
         ],
+        opciones7: [
+          { value: '1', texto: "Vida sexual prematura" },
+          { value: '2', texto: "Consumo de tabaco" },
+          { value: '3', texto: "Consumo de SPA" },
+          { value: '4', texto: "Consumo de alcohol" },
+          { value: 'NA', texto: "NO APLICA" }
+        ],        
         hogar: {
           id: 0,
           id_dpto: "",
@@ -6073,7 +11332,16 @@
         valGAdole: true,
         valGAdul: true,
         valGMig: true,
-        valGActu: true
+        valGActu: true,
+        bandeGuaEdiJefe: true,
+        indiceEditJefe: null,
+        bandeGuaEdiInte: true,
+        indiceEditInte: null,
+        idEditar: null,
+        identificacionEditar: null,
+        fechaEditar: null,
+        edadEditar: null,
+        embarazoEditar: null,         
       };
     },
     validations: {
@@ -6324,16 +11592,13 @@
       }
     },
     methods: {
-            doAjax() {
-                this.isLoading = true;
-                // simulate AJAX
-                setTimeout(() => {
-                  this.isLoading = false
-                },5000)
-            },
-            onCancel() {
-              console.log('User cancelled the loader.')
-            },      
+      onCancel() {
+        // this.isLoading = true;
+        // // simulate AJAX
+        // setTimeout(() => {
+        //   this.isLoading = false
+        // },5000)
+      },
       nuevo: async function(id_hogar) {
         const parametros = {
           _token: this.csrf,
@@ -6366,9 +11631,10 @@
               this.religion_options = respuesta.data.arrayReligion;
               this.CODIGOGENE = respuesta.data.codigo;
 
+              this.IDHOGAR = respuesta.data.hogar.id;
               this.hogar.id = respuesta.data.hogar.id;
               this.hogar.id_dpto = respuesta.data.hogar.id_dpto;
-              this.hogar.id_mun = respuesta.data.hogar.id_mun;
+              this.hogar.id_mun = respuesta.data.hogar.id_mun.padStart(3, 0);
               this.cambiarCombo("muni");
               this.hogar.id_corre = "" + respuesta.data.hogar.id_corre;
               if (this.hogar.id_corre !== "0") {
@@ -6376,7 +11642,7 @@
               }
               this.hogar.id_vereda = "" + respuesta.data.hogar.id_vereda;
               this.hogar.id_barrio = "" + respuesta.data.hogar.id_barrio;
-              this.hogar.id_zona = respuesta.data.hogar.id_zona;
+              this.hogar.id_zona = "" + respuesta.data.hogar.id_zona;
               this.hogar.tenencia_vivienda =
                 respuesta.data.hogar.tenencia_vivienda;
               this.hogar.numero_hogares =
@@ -6391,8 +11657,7 @@
               this.hogar.direccion = respuesta.data.hogar.direccion;
               this.datosJefe = respuesta.data.jefes;
               this.datos = respuesta.data.integrantes;
-              this.factores = respuesta.data.factores;
-              this.De10a59 = respuesta.data.De10a59;              
+              this.factores = respuesta.data.factores;              
               for (let i = 0; i < this.datosJefe.length; i++) {
                 let indice = this.datosJefe.findIndex(
                   identi =>
@@ -6401,11 +11666,19 @@
                 this.vectorJefes.push({
                   index: indice,
                   identificacion: this.datosJefe[i].identificacion
-                });                              
+                });
+              }
+
+              for (let i = 0; i < this.datos.length; i++) {
+                let indice = this.datos.findIndex(
+                  identi => identi.identificacion === this.datos[i].identificacion
+                );
+                this.vectorIntegrante.push({
+                  index: indice,
+                  identificacion: this.datos[i].identificacion
+                });
               }
               // GESTION DE LAS VARIABLES DEL HOGAR
-
-              // GESTION DE LAS VARIABLES DE LA VIVIENDA
               this.viviendaData.id = respuesta.data.vivienda.id;
               this.viviendaData.id_hogar = respuesta.data.vivienda.id_hogar;
               this.viviendaData.tipo_vivienda = respuesta.data.vivienda.tipo_vivienda;
@@ -6417,6 +11690,7 @@
               this.viviendaData.tipo_cubierta = respuesta.data.vivienda.tipo_cubierta;
               this.viviendaData.otro_tipo_cubierta = respuesta.data.vivienda.otro_tipo_cubierta;
               this.viviendaData.actividad_economica = respuesta.data.vivienda.actividad_economica;
+              this.actividadesAuxiliar=respuesta.data.vivienda.actividadesAuxiliar;
               this.viviendaData.cual_actividad_economica = respuesta.data.vivienda.cual_actividad_economica;
               this.viviendaData.evento_afecta_vivienda = respuesta.data.vivienda.evento_afecta_vivienda;
               this.viviendaData.familias_accion = respuesta.data.vivienda.familias_accion;
@@ -6475,7 +11749,7 @@
               this.viviendaData.elementos_protecion = respuesta.data.vivienda.elementos_protecion;
               this.viviendaData.otro_elementos_protecion = respuesta.data.vivienda.otro_elementos_protecion;
               this.viviendaData.metodos_coccion = respuesta.data.vivienda.metodos_coccion;
-              this.viviendaData.otro_metodos_coccion = respuesta.data.vivienda.otro_metodos_coccion;              
+              this.viviendaData.otro_metodos_coccion = respuesta.data.vivienda.otro_metodos_coccion;
               this.viviendaData.lugares_preparan_alimentos = respuesta.data.vivienda.lugares_preparan_alimentos;
               this.viviendaData.lugares_almacenan_alimentos = respuesta.data.vivienda.lugares_almacenan_alimentos;
               this.viviendaData.otro_lugares_almacenan_alimentos = respuesta.data.vivienda.otro_lugares_almacenan_alimentos;
@@ -6514,11 +11788,40 @@
               this.viviendaData.acabados_externos = respuesta.data.vivienda.acabados_externos;
               this.viviendaData.estado_conservacion_estructuras = respuesta.data.vivienda.estado_conservacion_estructuras;
               this.viviendaData.mobiliario_cocina = respuesta.data.vivienda.mobiliario_cocina;
-              this.viviendaData.andenes = respuesta.data.vivienda.andenes;              
-              // console.log(this.viviendaData);                    
+              this.viviendaData.andenes = respuesta.data.vivienda.andenes;
+
+              this.animalesData = respuesta.data.animales;
+              this.estratificacion = respuesta.data.estratificacion;
               // GESTION DE LAS VARIABLES DE LA VIVIENDA
 
-              this.isLoading = false;
+              // console.log(this.viviendaData);
+              // GESTION DE LAS VARIABLES DE CART X CICLO
+              this.Men1A = respuesta.data.Men1A;
+              this.De1A5 = respuesta.data.De1A5;
+              this.De6A11 = respuesta.data.De6A11;
+              this.De10A59 = respuesta.data.De10A59;
+                                      
+              this.ParPost = respuesta.data.ParPost;
+              // GESTION DE LAS VARIABLES DE CART X CICLO
+
+              // GESTION DE LAS VARIABLES DE ADOLESCENTES
+              this.De12A17 = respuesta.data.De12A17;
+              this.De18A28 = respuesta.data.De18A28;
+              this.De29A59 = respuesta.data.De29A59;
+            
+              // GESTION DE LAS VARIABLES DE ADOLESCENTES
+
+              // GESTION DE LAS VARIABLES DE ADULTO MAYOR
+              this.De60 = respuesta.data.De60;
+              this.EnCro = respuesta.data.EnCro;
+              this.EnInf = respuesta.data.EnInf;
+              // GESTION DE LAS VARIABLES DE ADULTO MAYOR
+              
+              // GESTION DE LAS VARIABLES DE MIGRANTES
+              this.Migra = respuesta.data.Migra;
+              // GESTION DE LAS VARIABLES DE MIGRANTES
+
+              this.isLoading = false;              
             });
         } catch (error) {
           switch (error.response.status) {
@@ -6531,6 +11834,56 @@
           }
         }
       },
+      async Actualizar(){
+        let id=0;
+        let opcion="";
+        if(this.hogar.id_corre!=""){
+          opcion="CORRE";
+          id=this.hogar.id_corre;
+        }else{
+          opcion="MUN";
+          id=this.hogar.id_mun;          
+        }
+        const parametros = {
+          _token: this.csrf,
+          id: id,
+          opcion: opcion
+        };
+        this.valGActu = false;
+        try {
+          await caracterizacionServicios.actualizar(parametros).then(respuesta => {
+            this.corregi_options = respuesta.data.arrayCorregi;
+            this.vereda_options = respuesta.data.arrayVeredas;
+            this.parentesco_options = respuesta.data.arrayParentesco;
+            this.estado_options = respuesta.data.arrayEstado;
+            this.escolaridad_options = respuesta.data.arrayEscolaridad;
+            this.ocupacion_options = respuesta.data.arrayOcupacion;
+            this.etnia_options = respuesta.data.arrayEtnia;
+            this.admini_options = respuesta.data.arrayAdmini;
+            this.clasifi_options = respuesta.data.arrayCLasifi;
+            this.morbilidadNacer_options = respuesta.data.arrayMorbilidadNacer;
+            this.morbilidad_options = respuesta.data.arrayMorbilidad;
+            this.metodos_options = respuesta.data.arrayMetodos;
+            this.motivos_options = respuesta.data.arrayMotivos;
+            this.grupos_options = respuesta.data.arrayGrupos;
+            this.enfcro_options = respuesta.data.arrayEnfCro;
+            this.enfinf_options = respuesta.data.arrayEnfInf;
+            this.religion_options = respuesta.data.arrayReligion; 
+            this.colegio_options = respuesta.data.arrayColegios;
+            this.barrio_options = respuesta.data.arrayBarrios;
+            this.valGActu = true;
+          });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },      
       async cambiarTab1(opcion, actual) {
         let bandera = false;
         if (actual === "tabIdentificacion") {
@@ -6631,32 +11984,6 @@
               } else {
                 return false;
               }
-              this.vectorAyuda = [];
-              await this.valJef2();
-              if (this.vectorAyuda.length > 0) {
-                for (let i = 0; i < this.vectorAyuda.length; i++) {
-                  if (this.vectorAyuda[i].error === "ERROR1") {
-                    let val = (this.vectorAyuda[i].identificacion / 1)
-                      .toFixed(0)
-                      .replace(".", ",");
-                    let iden = val
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                    this.$swal(
-                      "Validar...!",
-                      "El Documento <b>" +
-                        iden +
-                        "</b> De La Fila <b>" +
-                        (i + 1) +
-                        "</b> Se Encuentra Registrado",
-                      "warning"
-                    );
-                    bandera = false;
-                  }
-                }
-              } else {
-                bandera = true;
-              }
             }
             //VALIDAR LA TABLA JEFES DE HOGAR
 
@@ -6668,47 +11995,20 @@
               } else {
                 return false;
               }
-              this.vectorAyuda = [];
-              await this.valInt2();
-              if (this.vectorAyuda.length > 0) {
-                for (let i = 0; i < this.vectorAyuda.length; i++) {
-                  if (this.vectorAyuda[i].error === "ERROR1") {
-                    let val1 = (this.vectorAyuda[i].identificacion / 1)
-                      .toFixed(0)
-                      .replace(".", ",");
-                    let iden1 = val1
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                    this.$swal(
-                      "Validar...!",
-                      "El Documento <b>" +
-                        iden1 +
-                        "</b> De La Fila <b>" +
-                        (i + 1) +
-                        "</b> Se Encuentra Registrado En Los Integrantes",
-                      "warning"
-                    );
-                    bandera = false;
-                  }
-                }
-              } else {
-                bandera = true;
-              }
             }
             //VALIDAR LA TABLA INTEGRANTES
 
-            
             //VALIDAR LA TABLA FACTORES
             if (this.factores.length > 0) {
               let resul = this.valFactores();
               if (resul) {
-                bandera = true;     
+                bandera = true;
               } else {
                 return false;
               }
             }
             //VALIDAR LA TABLA FACTORES
-            
+
             //GUARDAR DATOS
             this.valGIden = false;
             const parametros = {
@@ -6718,8 +12018,9 @@
               integrantes: this.datos,
               factores: this.factores,
               CODIGOGENE: this.CODIGOGENE,
-              opcion: "GUARDAR",
-              opc: "GUAINDEN"
+              opcion: "MODIFICAR",
+              opc: "GUAINDEN",
+              id_hogar: this.IDHOGAR
             };
             try {
               await caracterizacionServicios
@@ -6755,22 +12056,22 @@
               }
             }
             //GUARDAR DATOS
-          }else{
+          } else {
             bandera = true;
           }
         }
         if (actual === "tabVivienda") {
           bandera = true;
-          if (this.GIDEN===false) {
+          if (this.GIDEN === false) {
             this.$swal(
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
               "error"
-            );            
+            );
             return false;
-          }          
+          }
           this.$v.$touch();
-          const isInvalid = this.$v.$invalid;          
+          const isInvalid = this.$v.$invalid;
           if (isInvalid) {
             this.$swal(
               "Error...!",
@@ -6779,73 +12080,77 @@
             );
             return false;
           } else {
-            if (this.GVIVI === false && this.GIDEN===true && this.IDHOGAR!==0) {
-                if (this.estratificacion.length <= 0) {
-                  this.$swal(
-                    "Error...!",
-                    "Por favor agregue por lo menos una estratificación",
-                    "error"
-                  );
-                  return;
+            if (
+              this.GVIVI === false &&
+              this.GIDEN === true &&
+              this.IDHOGAR !== 0
+            ) {
+              if (this.estratificacion.length <= 0) {
+                this.$swal(
+                  "Error...!",
+                  "Por favor agregue por lo menos una estratificación",
+                  "error"
+                );
+                return;
+              }
+              //GUARDAR DATOS
+              this.valGVivi = false;
+              const parametros = {
+                _token: this.csrf,
+                vivienda: this.viviendaData,
+                estratificacion: this.estratificacion,
+                Animales: this.animalesData,
+                opcion: "MODIFICAR",
+                opc: "GUAVIVI",
+                IDHOGAR: this.IDHOGAR
+              };
+              try {
+                await caracterizacionServicios
+                  .guardar(parametros)
+                  .then(respuesta => {
+                    if (respuesta.data.OPC == "SI") {
+                      this.GVIVI = true;
+                      bandera = true;
+                      this.valGVivi = true;
+                    }
+                  })
+                  .catch(error => {
+                    this.errorDevuelto = error.response.data.errors;
+                    this.entrarPorError = true;
+                    this.$swal(
+                      "Error...!",
+                      "No se pudo guardar los datos de la pestaña vivienda",
+                      "error"
+                    );
+                    return;
+                  });
+              } catch (error) {
+                switch (error.response.status) {
+                  case 419:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                  case 422:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
+                  default:
+                    this.$swal("Error...!", "Ocurrio un error!", "error");
+                    break;
                 }
-                //GUARDAR DATOS
-                this.valGVivi = false;
-                const parametros = {
-                  _token: this.csrf,
-                  vivienda: this.viviendaData,
-                  estratificacion: this.estratificacion,
-                  Animales: this.animalesData,
-                  opcion: "GUARDAR",
-                  opc: "GUAVIVI",
-                  IDHOGAR: this.IDHOGAR
-                };
-                try {
-                  await caracterizacionServicios
-                    .guardar(parametros)
-                    .then(respuesta => {
-                      if (respuesta.data.OPC == "SI") {
-                        this.GVIVI = true;
-                        bandera = true;
-                        this.valGVivi = true;                  
-                      }
-                    })
-                    .catch(error => {
-                      this.errorDevuelto = error.response.data.errors;
-                      this.entrarPorError = true;
-                      this.$swal(
-                        "Error...!",
-                        "No se pudo guardar los datos de la pestaña vivienda",
-                        "error"
-                      );
-                      return;                    
-                    });
-                } catch (error) {
-                  switch (error.response.status) {
-                    case 419:
-                      this.$swal("Error...!", "Ocurrio un error!", "error");
-                      break;
-                    case 422:
-                      this.$swal("Error...!", "Ocurrio un error!", "error");
-                      break;
-                    default:
-                      this.$swal("Error...!", "Ocurrio un error!", "error");
-                      break;
-                  }
-                }
-                //GUARDAR DATOS
-            }else{
+              }
+              //GUARDAR DATOS
+            } else {
               bandera = true;
             }
-          }          
+          }
         }
         if (actual === "cartxciclo") {
           bandera = true;
-          if (this.GIDEN===false) {
+          if (this.GIDEN === false) {
             this.$swal(
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
               "error"
-            );            
+            );
             return false;
           }
           if (this.GVIVI === false) {
@@ -6853,17 +12158,21 @@
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
               "error"
-            );            
+            );
             return false;
-          }          
-          if (this.GCARXCI === false && this.GIDEN===true && this.GVIVI === true) {
-            let auxi=false;
+          }
+          if (
+            this.GCARXCI === false &&
+            this.GIDEN === true &&
+            this.GVIVI === true
+          ) {
+            let auxi = false;
             //VALIDAR LA TABLA MENORES DE 1 AÑO
             if (this.Men1A.length > 0) {
               let resul = this.valMen1();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
@@ -6875,7 +12184,7 @@
               let resul = this.valDe1A5();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
@@ -6887,7 +12196,7 @@
               let resul = this.valDe6A11();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
@@ -6899,25 +12208,25 @@
               let resul = this.valDe10A59();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
             }
-            //VALIDAR LA TABLA DE 10 A 59 AÑOS          
+            //VALIDAR LA TABLA DE 10 A 59 AÑOS
 
             //VALIDAR LA TABLA POSTPAR
             if (this.ParPost.length > 0) {
               let resul = this.valParPost();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
             }
-            //VALIDAR LA TABLA POSTPAR                        
-            if(auxi){
+            //VALIDAR LA TABLA POSTPAR
+            if (auxi) {
               //GUARDAR DATOS
               const parametros = {
                 _token: this.csrf,
@@ -6926,7 +12235,7 @@
                 De6A11: this.De6A11,
                 De10A59: this.De10A59,
                 ParPost: this.ParPost,
-                opcion: "GUARDAR",
+                opcion: "MODIFICAR",
                 opc: "GUACARCI",
                 IDHOGAR: this.IDHOGAR
               };
@@ -6949,7 +12258,7 @@
                       "No se pudo guardar los datos de la pestaña ciclos",
                       "error"
                     );
-                    return;                  
+                    return;
                   });
               } catch (error) {
                 switch (error.response.status) {
@@ -6963,24 +12272,24 @@
                     this.$swal("Error...!", "Ocurrio un error!", "error");
                     break;
                 }
-              }            
+              }
               //GUARDAR DATOS
-            }else{
+            } else {
               bandera = true;
             }
-          }else{
+          } else {
             bandera = true;
           }
         }
         if (actual === "adolescente") {
           bandera = true;
-          let auxi=false;
-          if (this.GIDEN===false) {
+          let auxi = false;
+          if (this.GIDEN === false) {
             this.$swal(
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
               "error"
-            );            
+            );
             return false;
           }
           if (this.GVIVI === false) {
@@ -6988,30 +12297,40 @@
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
               "error"
-            );            
+            );
             return false;
-          }      
-          if(this.Men1A.length > 0 || this.De1A5.length > 0 || this.De6A11.length > 0 || this.De10A59.length > 0 || this.ParPost.length > 0){
-            if(this.GCARXCI === false){
+          }
+          if (
+            this.Men1A.length > 0 ||
+            this.De1A5.length > 0 ||
+            this.De6A11.length > 0 ||
+            this.De10A59.length > 0 ||
+            this.ParPost.length > 0
+          ) {
+            if (this.GCARXCI === false) {
               this.$swal(
                 "Error...!",
                 "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo",
                 "error"
-              );            
+              );
               return false;
             }
-          }          
-          if (this.GADOLE === false && this.GIDEN===true && this.GVIVI === true ) {
+          }
+          if (
+            this.GADOLE === false &&
+            this.GIDEN === true &&
+            this.GVIVI === true
+          ) {
             //VALIDAR LA TABLA DE 12 A 17 AÑOS
             if (this.De12A17.length > 0) {
               let resul = this.valDe12A17();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
-            }            
+            }
             //VALIDAR LA TABLA DE 12 A 17 AÑOS
 
             //VALIDAR LA TABLA DE 18 A 28 AÑOS
@@ -7019,11 +12338,11 @@
               let resul = this.valDe18A28();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
-            }            
+            }
             //VALIDAR LA TABLA DE 18 A 28 AÑOS
 
             //VALIDAR LA TABLA DE 29 A 59 AÑOS
@@ -7031,20 +12350,20 @@
               let resul = this.valDe29A59();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
-            }            
+            }
             //VALIDAR LA TABLA DE 29 A 59 AÑOS
-            if(auxi){
+            if (auxi) {
               //GUARDAR DATOS
               const parametros = {
                 _token: this.csrf,
                 De12A17: this.De12A17,
                 De18A28: this.De18A28,
                 De29A59: this.De29A59,
-                opcion: "GUARDAR",
+                opcion: "MODIFICAR",
                 opc: "GUADOLE",
                 IDHOGAR: this.IDHOGAR
               };
@@ -7067,7 +12386,7 @@
                       "No se pudo guardar los datos de la pestaña adolescentes",
                       "error"
                     );
-                    return;                  
+                    return;
                   });
               } catch (error) {
                 switch (error.response.status) {
@@ -7081,23 +12400,23 @@
                     this.$swal("Error...!", "Ocurrio un error!", "error");
                     break;
                 }
-              }            
+              }
               //GUARDAR DATOS
-            }else{
+            } else {
               bandera = true;
             }
-          }else{
+          } else {
             bandera = true;
           }
         }
         if (actual === "adultomayor") {
-          let auxi=false;
-          if (this.GIDEN===false) {
+          let auxi = false;
+          if (this.GIDEN === false) {
             this.$swal(
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
               "error"
-            );            
+            );
             return false;
           }
           if (this.GVIVI === false) {
@@ -7105,75 +12424,85 @@
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
               "error"
-            );            
+            );
             return false;
           }
-          
-          if(this.Men1A.length > 0 || this.De1A5.length > 0 || this.De6A11.length > 0 || this.De10A59.length > 0 || this.ParPost.length > 0){
-            if(this.GCARXCI === false){              
+
+          if (
+            this.Men1A.length > 0 ||
+            this.De1A5.length > 0 ||
+            this.De6A11.length > 0 ||
+            this.De10A59.length > 0 ||
+            this.ParPost.length > 0
+          ) {
+            if (this.GCARXCI === false) {
               this.$swal(
                 "Error...!",
                 "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo",
                 "error"
-              );            
+              );
               return false;
             }
-          }                   
-          if(this.De12A17.length > 0 || this.De18A28.length > 0 || this.De29A59.length > 0 ){
-            if(this.GADOLE === false){
+          }
+          if (
+            this.De12A17.length > 0 ||
+            this.De18A28.length > 0 ||
+            this.De29A59.length > 0
+          ) {
+            if (this.GADOLE === false) {
               this.$swal(
                 "Error...!",
                 "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes",
                 "error"
-              );            
+              );
               return false;
-            }                        
-          }        
-                    
-          //VALIDAR LA TABLA ENFERMEDADES INFECCIOSAS          
-          if (this.GADULT === false ) {
+            }
+          }
+
+          //VALIDAR LA TABLA ENFERMEDADES INFECCIOSAS
+          if (this.GADULT === false) {
             //VALIDAR LA TABLA MAYORES DE 60 AÑOS
             if (this.De60.length > 0) {
               let resul = this.valDe60();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
-            }                        
+            }
             //VALIDAR LA TABLA MAYORES DE 60 AÑOS
-                        
+
             //VALIDAR LA TABLA ENFERMEDADES CRONICAS
             if (this.EnCro.length > 0) {
               let resul = this.valEnCro();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
-            }                        
+            }
             //VALIDAR LA TABLA ENFERMEDADES CRONICAS
-            
+
             //VALIDAR LA TABLA ENFERMEDADES INFECCIOSAS
             if (this.EnInf.length > 0) {
               let resul = this.valEnInf();
               if (resul) {
                 bandera = true;
-                auxi=true;
+                auxi = true;
               } else {
                 return false;
               }
-            }          
-            if(auxi){
+            }
+            if (auxi) {
               //GUARDAR DATOS
               const parametros = {
                 _token: this.csrf,
                 De60: this.De60,
                 EnCro: this.EnCro,
                 EnInf: this.EnInf,
-                opcion: "GUARDAR",
+                opcion: "MODIFICAR",
                 opc: "GUADULT",
                 IDHOGAR: this.IDHOGAR
               };
@@ -7197,7 +12526,7 @@
                       "No se pudo guardar los datos de la pestaña adultos",
                       "error"
                     );
-                    return;                  
+                    return;
                   });
               } catch (error) {
                 switch (error.response.status) {
@@ -7211,23 +12540,23 @@
                     this.$swal("Error...!", "Ocurrio un error!", "error");
                     break;
                 }
-              }            
-              //GUARDAR DATOS            
-            }else{
+              }
+              //GUARDAR DATOS
+            } else {
               bandera = true;
             }
-          }else{
+          } else {
             bandera = true;
           }
         }
         if (actual === "migrante") {
-          let auxi=false;
-          if (this.GIDEN===false) {
+          let auxi = false;
+          if (this.GIDEN === false) {
             this.$swal(
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
               "error"
-            );            
+            );
             return false;
           }
           if (this.GVIVI === false) {
@@ -7235,56 +12564,70 @@
               "Error...!",
               "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
               "error"
-            );            
+            );
             return false;
-          }          
-          if(this.Men1A.length > 0 || this.De1A5.length > 0 || this.De6A11.length > 0 || this.De10A59.length > 0 || this.ParPost.length > 0){
-            if(this.GCARXCI === false){
+          }
+          if (
+            this.Men1A.length > 0 ||
+            this.De1A5.length > 0 ||
+            this.De6A11.length > 0 ||
+            this.De10A59.length > 0 ||
+            this.ParPost.length > 0
+          ) {
+            if (this.GCARXCI === false) {
               this.$swal(
                 "Error...!",
                 "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo",
                 "error"
-              );            
+              );
               return false;
             }
           }
-          if(this.De12A17.length > 0 || this.De18A28.length > 0 || this.De29A59.length > 0 ){
-            if(this.GADOLE === false){
+          if (
+            this.De12A17.length > 0 ||
+            this.De18A28.length > 0 ||
+            this.De29A59.length > 0
+          ) {
+            if (this.GADOLE === false) {
               this.$swal(
                 "Error...!",
                 "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes",
                 "error"
-              );            
+              );
               return false;
-            }                        
+            }
           }
-          if(this.De60.length > 0 || this.EnCro.length > 0 || this.EnInf.length > 0 ){
-            if(this.GADULT === false){
+          if (
+            this.De60.length > 0 ||
+            this.EnCro.length > 0 ||
+            this.EnInf.length > 0
+          ) {
+            if (this.GADULT === false) {
               this.$swal(
                 "Error...!",
                 "Por Favor Complete Los Campos Obligatorios de la Pestaña Adulto mayor",
                 "error"
-              );            
+              );
               return false;
-            }                        
-          }                    
+            }
+          }
           if (this.GMIGRA === false) {
             //VALIDAR LA TABLA MIGRANTES
             if (this.Migra.length > 0) {
               let resul = this.valMigra();
               if (resul) {
-                bandera = true;  
-                auxi=true;              
+                bandera = true;
+                auxi = true;
               } else {
                 return false;
               }
-            }            
+            }
             //VALIDAR LA TABLA MIGRANTES
-            if(auxi){
+            if (auxi) {
               const parametros = {
                 _token: this.csrf,
                 Migra: this.Migra,
-                opcion: "GUARDAR",
+                opcion: "MODIFICAR",
                 opc: "GUAMIGRA",
                 IDHOGAR: this.IDHOGAR
               };
@@ -7311,7 +12654,7 @@
                       "No se pudo guardar los datos de la pestaña migrantes",
                       "error"
                     );
-                    return;                  
+                    return;
                   });
               } catch (error) {
                 switch (error.response.status) {
@@ -7325,40 +12668,35 @@
                     this.$swal("Error...!", "Ocurrio un error!", "error");
                     break;
                 }
-              }                        
-            }else{
+              }
+            } else {
               bandera = true;
               this.$swal(
                 "Guardar...!",
                 "Datos Guardados Exitosamente!",
                 "success"
               );
-              this.$router.push("/gestion");              
+              this.$router.push("/gestion");
             }
-          }else{
-            this.$swal(
-              "Guardar...!",
-              "Datos Guardados Exitosamente!",
-              "success"
-            );
-            this.SAPU=false;
-            this.$router.push("/gestion");          
+          } else {
+            this.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+            this.SAPU = false;
+            this.$router.push("/gestion");
           }
         }
         if (bandera) {
           bandera = false;
           $('.nav-tabs a[href="#' + opcion + '"]').tab("show");
         }
-      },      
+      },
       cambiarTab2(opcion) {
-        if(this.GIDEN===false){
+        if (this.GIDEN === false) {
           // $('.nav-tabs a[href="#' + opcion + '"]').tab('show');
-          $('.nav-tabs a[href="#tabIdentificacion"]').tab('show');
+          $('.nav-tabs a[href="#tabIdentificacion"]').tab("show");
           return false;
-        }else{
-
-        }                
-      },      
+        } else {
+        }
+      },
       volver() {
         this.$router.push("/gestion");
       },
@@ -7394,11 +12732,20 @@
           }
         }
       },
+      isNumeric: function(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+      },      
       validarNumHog() {
         if (this.hogar.numero_hogares <= 0) {
           this.hogar.numero_hogares = "";
         }
       },
+      SoloNumeros: function(event) {
+        if (event.keyCode < 48 || event.keyCode > 57) {
+          return false;
+          // this.caracData.salario = 0;
+        }
+      },      
       cambiarCombo: async function(caja) {
         if (caja === "dpto") {
           this.hogar.id_mun = "";
@@ -7871,7 +13218,7 @@
                 } else {
                   // VERIFICAR SI ESTA EN LA TABLA
                   let resultado = this.datosJefe.filter(identi =>
-                    identi.identificacion.includes(this.caracData.identificacion)
+                    identi.identificacion==this.caracData.identificacion
                   );
                   // VERIFICAR SI ESTA EN LA TABLA
                   if (resultado.length) {
@@ -7899,17 +13246,15 @@
                       );
                       return false;
                     }
+
                     let textoEps = "";
-                    if (this.caracData.afiliacion_entidad === "OTRA") {
+                    if(this.caracData.afiliacion_entidad === "OTRA"){
                       textoEps = "OTRA";
-                    } else {
-                      if (this.caracData.afiliacion_entidad === "NINGUNA") {
+                    }else{
+                      if(this.caracData.afiliacion_entidad === "NINGUNA"){
                         textoEps = "NINGUNA";
-                      } else {
-                        textoEps = this.showText(
-                          this.caracData.afiliacion_entidad,
-                          this.admini_options
-                        );
+                      }else{
+                        textoEps = this.showText(this.caracData.afiliacion_entidad,this.admini_options);
                       }
                     }
                     this.datosJefe.push({
@@ -7918,7 +13263,7 @@
                       telefono: this.caracData.telefono,
                       puntaje_sisben: this.caracData.puntaje_sisben,
                       afiliacion_entidad: this.caracData.afiliacion_entidad,
-                      textoEps: textoEps,
+                      textoEps: textoEps,                      
                       otra_eps: this.caracData.otra_eps,
                       tipo_id: this.caracData.tipo_id,
                       identificacion: this.caracData.identificacion,
@@ -7944,6 +13289,10 @@
                       embarazo_multiple: this.caracData.embarazo_multiple,
                       discapacidad: this.caracData.discapacidad,
                       nivel_escolaridad: this.caracData.nivel_escolaridad,
+                      textoNivel: this.showText(
+                        this.caracData.nivel_escolaridad,
+                        this.escolaridad_options
+                      ),                      
                       ocupacion: this.caracData.ocupacion,
                       textoOcupacion: this.showText(
                         this.caracData.ocupacion,
@@ -7953,7 +13302,7 @@
                       textoColegio: this.showText(
                         this.caracData.colegio,
                         this.colegio_options
-                      ),
+                      ),                      
                       grado: this.caracData.grado,
                       entiende: this.caracData.entiende,
                       migrante: this.caracData.migrante,
@@ -7964,21 +13313,24 @@
                         this.etnia_options
                       ),
                       clasificacion: this.caracData.clasificacion,
+                      textoClasificacion: this.showText2(
+                        this.caracData.clasificacion,
+                        this.clasifi_options,
+                        this.caracData.etnia
+                      ),                      
                       edad: this.caracData.edad,
                       orientacion: this.caracData.orientacion,
                       identidad_genero: this.caracData.identidad_genero,
                       perdida_peso: this.caracData.perdida_peso,
                       programa_icbf: this.caracData.programa_icbf,
-                      identi_auxi: ""
+                      identi_auxi: "",
+                      estado: "Activo"                      
                     });
-                    if (
-                      this.caracData.tipo_afiliacion === "CONTRIBUTIVO" ||
-                      this.caracData.tipo_afiliacion === "ESPECIAL"
-                    ) {
-                      this.SAPU = true;
-                      this.estratificacionData.afiliacion_salud_privada = "SI";
-                    }
-                    this.ocupacionAuxiliar = "";
+                    if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
+                      this.SAPU=true;
+                      this.estratificacionData.afiliacion_salud_privada="SI";        
+                    }                    
+                    this.ocupacionAuxiliar="";
                     this.mOCOL1 = false;
                     let indice = this.datosJefe.findIndex(
                       identi =>
@@ -7989,52 +13341,49 @@
                       identificacion: this.caracData.identificacion
                     });
 
-                    console.log(vectorJefes);
                     // AGREGAR FACTORES
-                    // this.AFactores(this.caracData, edad);
+                    this.AFactores(this.caracData, edad);
                     // AGREGAR FACTORES
 
-                    this.caracData.id = "JEFE";
                     // AGREGAR DE 10 A 59 AÑOS
                     if (edad >= 10 && edad <= 59) {
-                      // this.Ade10a59Anio(this.caracData, edad);
+                      this.Ade10a59Anio(this.caracData, edad, "JEFE");
                     }
                     // AGREGAR DE 10 A 59 AÑOS
 
                     // AGREGAR PARTO POSTPARTO
-                    // alert(this.CA1.embarazo_multiple);
                     if (this.caracData.embarazo === "SI") {
-                      // this.AParPost(this.caracData, edad);
+                      this.AParPost(this.caracData, edad, "JEFE");
                     }
                     // AGREGAR PARTO POSTPARTO
 
                     // AGREGAR DE 12 A 17 AÑOS
                     if (edad >= 12 && edad <= 17) {
-                      // this.Ade12a17Anio(this.caracData, edad);
+                      this.Ade12a17Anio(this.caracData, edad, "JEFE");
                     }
                     // AGREGAR DE 12 A 17 AÑOS
 
                     // AGREGAR DE 18 A 28 AÑOS
                     if (edad >= 18 && edad <= 28) {
-                      // this.Ade18a28Anio(this.caracData, edad);
+                      this.Ade18a28Anio(this.caracData, edad, "JEFE");
                     }
                     // AGREGAR DE 18 A 28 AÑOS
 
                     // AGREGAR DE 29 A 59 AÑOS
                     if (edad >= 29 && edad <= 59) {
-                      // this.Ade29a59Anio(this.caracData, edad);
+                      this.Ade29a59Anio(this.caracData, edad, "JEFE");
                     }
                     // AGREGAR DE 29 A 59 AÑOS
 
                     // AGREGAR DE 60 ó MAS AÑOS
                     if (edad >= 60) {
-                      // this.Ade60Anio(this.caracData, edad);
+                      this.Ade60Anio(this.caracData, edad, "JEFE");
                     }
                     // AGREGAR DE 60 ó MAS AÑOS
 
                     // AGREGAR MIGRANTES
                     if (this.caracData.migrante === "SI") {
-                      // this.AMigra(this.caracData, edad);
+                      this.AMigra(this.caracData, edad, "JEFE");
                     }
                     // AGREGAR MIGRANTES
                     this.limpiar2();
@@ -8194,7 +13543,7 @@
         }
         return bande;
         e.preventDefault();
-      },
+      },      
       showText: function(val, vectorAux) {
         for (var i = 0; i < vectorAux.length; i++) {
           if (vectorAux[i].value === val) {
@@ -8203,45 +13552,144 @@
         }
         return "";
       },
+      showText2: function(val, vectorAux,id) {
+        if(id === ""){
+          return "";
+        }        
+        for (var i = 0; i < vectorAux[id].length; i++) {
+          console.log(vectorAux[id][i].value);
+          if (vectorAux[id][i].value === val) {
+            return vectorAux[id][i].texto;
+          }
+        }
+        return "";
+      },      
       eliminarItemJefe: function(index, item) {
-        this.datosJefe.splice(index, 1);
-        this.vectorJefes.splice(index, 1);
-        let identificacion = item.identificacion;
+        if(item.id===0){
+          this.datosJefe.splice(index, 1);
+          this.vectorJefes.splice(index, 1);
+          let identificacion = item.identificacion;
 
-        this.factores = this.factores.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
+          this.factores = this.factores.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
 
-        this.Men1A = this.Men1A.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De1A5 = this.De1A5.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De6A11 = this.De6A11.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De10A59 = this.De10A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.ParPost = this.ParPost.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De12A17 = this.De12A17.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De18A28 = this.De18A28.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De29A59 = this.De29A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De60 = this.De60.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.Migra = this.Migra.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
+          this.Men1A = this.Men1A.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De1A5 = this.De1A5.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De6A11 = this.De6A11.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De10A59 = this.De10A59.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.ParPost = this.ParPost.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De12A17 = this.De12A17.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De18A28 = this.De18A28.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De29A59 = this.De29A59.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De60 = this.De60.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.EnCro = this.EnCro.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.EnInf = this.EnInf.filter(function(men) {
+            return men.identificacion != identificacion;
+          });                
+          this.Migra = this.Migra.filter(function(men) {
+            return men.identificacion != identificacion;
+          });          
+        }else{
+          // let identificacion = item.identificacion;
+
+          // let indice = this.datosJefe.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.datosJefe[indice].estado = "Inactivo";
+          //   this.datosJefe.splice(indice, 1, this.datosJefe[indice]);
+          // }
+                    
+          // indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.Men1A[indice].estado = "Inactivo";
+          //   this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          // }        
+
+          // indice = this.De1A5.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.De1A5[indice].estado = "Inactivo";
+          //   this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          // }        
+
+          // indice = this.De6A11.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.De6A11[indice].estado = "Inactivo";
+          //   this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          // }        
+
+          // indice = this.De10A59.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.De10A59[indice].estado = "Inactivo";
+          //   this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          // }        
+
+          // indice = this.De12A17.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.De12A17[indice].estado = "Inactivo";
+          //   this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          // }        
+          
+          // indice = this.De18A28.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.De18A28[indice].estado = "Inactivo";
+          //   this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          // }        
+          
+          // indice = this.De29A59.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.De29A59[indice].estado = "Inactivo";
+          //   this.De29A59.splice(indice, 1, this.De29A59[indice]);        
+          // }        
+
+          // indice = this.De60.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.De60[indice].estado = "Inactivo";
+          //   this.De60.splice(indice, 1, this.De60[indice]);
+          // }        
+
+          // indice = this.EnCro.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.EnCro[indice].estado = "Inactivo";
+          //   this.EnCro.splice(indice, 1, this.EnCro[indice]);
+          // }        
+
+          // indice = this.EnInf.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.EnInf[indice].estado = "Inactivo";
+          //   this.EnInf.splice(indice, 1, this.EnInf[indice]);        
+          // }        
+
+          // indice = this.Migra.findIndex(identi => identi.identificacion === identificacion);
+          // if(indice >= 0){
+          //   this.Migra[indice].estado = "Inactivo";
+          //   this.Migra.splice(indice, 1, this.Migra[indice]);                
+          // }
+          // this.$swal(
+          //   "Eliminar...!",
+          //   "Datos En Proceso de Eliminación!",
+          //   "success"
+          // );          
+        }
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -8277,6 +13725,15 @@
         this.caracData.identidad_genero = "";
         this.caracData.perdida_peso = "";
         this.caracData.programa_icbf = "";
+
+        this.bandeGuaEdiJefe = true;
+        this.indiceEditJefe = null;
+        this.ocupacionAuxiliar = "";
+        this.idEditar = null;
+        this.identificacionEditar = null;
+        this.fechaEditar = null;
+        this.edadEditar = null;
+        this.embarazoEditar = null;
       },
       updateJefe(item, valor, opcion, index) {
         if (opcion === "tipo_id") {
@@ -8819,9 +14276,1118 @@
           }
         }
       },
+      AFactores(vector, edad) {
+        this.factores.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          dialogos: "",
+          sancion: "",
+          castigo_verbal: "",
+          castigo_fisico: "",
+          alcohol: "",
+          tabaco: "",
+          sustancias_psico: "",
+          apuestas: "",
+          violencia_fisica: "",
+          violencia_psico: "",
+          violencia_economica: "",
+          abuso_sexual: "",
+          actividad_fisica: "",
+          consumo_frutas: "",
+          religiosos: "",
+          sociales: "",
+          culturales: "",
+          recreativos: "",
+          estado: "Activo"
+        });
+      },
+      datediff(date1, date2){
+        var fecha1 =date1.split("-");
+        var fecha2 =date2.split("-");
+
+        var y1 = fecha1[0], m1 = fecha1[1], d1 = fecha1[2],        
+        y2 = fecha2[0], m2 = fecha2[1], d2 = fecha2[2];     
+        
+        if (d1 < d2) {
+          m1--;
+          d1 += this.DaysInMonth(y2, m2);
+          console.log(d1); 
+        }
+        if (m1 < m2) {
+            y1--;
+            m1 += 12;
+        }
+        return [y1 - y2, m1 - m2, d1 - d2];        
+      },
+      DaysInMonth(Y, M) {
+        return new Date(Y, M, 1,12).getDate();
+      },
+      validarTablaJefes: async function() {
+        for (let i = 0; i < this.datosJefe.length; i++) {
+          const parametros = {
+            _token: this.csrf,
+            identificacion: this.datosJefe[i].identificacion
+          };
+          try {
+            await caracterizacionServicios
+              .validarJefe(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "EXISTE") {
+                  let val = (respuesta.data.identificacion / 1)
+                    .toFixed(0)
+                    .replace(".", ",");
+                  let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                  this.$swal(
+                    "Validar...!",
+                    "El Documento <b>" +
+                      iden +
+                      "</b> De La Fila <b>" +
+                      (i + 1) +
+                      "</b> Se Encuentra Registrado",
+                    "warning"
+                  );
+                  // item.identificacion="";
+                  return false;
+                } else {
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  let resultado = this.datosJefe.filter(identi =>
+                    identi.identificacion.includes(
+                      this.datosJefe[i].identificacion
+                    )
+                  );
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  if (resultado.length > 1) {
+                    this.$swal(
+                      "Validar...!",
+                      "El Documento <b>" +
+                        this.datosJefe[i].identificacion +
+                        "</b> De La Fila <b>" +
+                        (i + 1) +
+                        "</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar",
+                      "warning"
+                    );
+                    // item.identificacion="";
+                    return false;
+                  } else {
+                    if (this.datosJefe[i].tipo_id === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione un <b>tipo de identificación</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].identificacion === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor digite una <b>identificación</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].pnom === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor digite el <b>primer nombre</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].pape === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor digite el <b>primer apellido</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].sexo === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>sexo</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].parentesco === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>parentesco</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].estado_civil === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>estado civil</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].fecha_nacimiento === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].afiliacion_entidad === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>eps</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].tipo_afiliacion === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>tipo de afiliación</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].nivel_escolaridad === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].ocupacion === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>ocupación</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].etnia === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>etnia</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].clasificacion === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datosJefe[i].salario === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor digite el <b>salario</b> en la fila " +
+                          (i + 1) +
+                          " de los jefes de hogar",
+                        "error"
+                      );
+                      return false;
+                    }
+                    return true;
+                  }
+                }
+              })
+              .catch(error => {});
+          } catch (error) {}
+        }
+      },
+      editarItemJefe: function(index, item) {
+        this.bandeGuaEdiJefe = false;        
+        this.indiceEditJefe = index;
+        this.caracData.id = item.id;
+        this.caracData.id_hogar = item.id_hogar;
+        this.caracData.telefono = item.telefono;
+        this.caracData.puntaje_sisben = item.puntaje_sisben;
+        this.caracData.afiliacion_entidad = item.afiliacion_entidad;
+        this.caracData.otra_eps = item.otra_eps;
+        this.caracData.tipo_id = item.tipo_id;
+        this.caracData.identificacion = item.identificacion;
+        this.caracData.sexo = item.sexo;
+        this.caracData.parentesco = item.parentesco;
+        this.caracData.pnom = item.pnom;
+        this.caracData.snom = item.snom;
+        this.caracData.pape = item.pape;
+        this.caracData.sape = item.sape;
+        this.caracData.salario = item.salario;
+        this.caracData.id_compania = item.id_compania;
+        this.caracData.estado = item.estado;
+        this.caracData.estado_civil = item.estado_civil;
+        this.caracData.fecha_nacimiento = item.fecha_nacimiento;
+        this.caracData.tipo_afiliacion = item.tipo_afiliacion;
+        this.caracData.embarazo = item.embarazo;
+        this.caracData.embarazo_multiple = item.embarazo_multiple;
+        this.caracData.discapacidad = item.discapacidad;
+        this.caracData.nivel_escolaridad = item.nivel_escolaridad;
+        this.caracData.ocupacion = item.ocupacion;
+        this.caracData.colegio = item.colegio;
+        this.caracData.grado = item.grado;
+        this.caracData.etnia = item.etnia;
+        this.caracData.clasificacion = item.clasificacion;
+        this.caracData.entiende = item.entiende;
+        this.caracData.pyp = item.pyp;
+        this.caracData.migrante = item.migrante;
+        this.caracData.edad = item.edad;
+        this.caracData.orientacion = item.orientacion;
+        this.caracData.identidad_genero = item.identidad_genero;
+        this.caracData.perdida_peso = item.perdida_peso;
+        this.caracData.programa_icbf = item.programa_icbf;
+        this.ocupacionAuxiliar = item.textoOcupacion;
+        this.$refs.identificacionJefe.focus();
+
+        this.idEditar = item.id;
+        this.identificacionEditar = item.identificacion;
+        this.fechaEditar = item.fecha_nacimiento;
+        this.edadEditar = item.edad;
+        this.embarazoEditar = item.embarazo;
+      },
+      CancelarEditarJefe: function(){
+        this.limpiar2();
+      },
+      editarJefe: async function(){
+        this.caracData.identificacion = this.caracData.identificacion.replace(
+          /[.*+\-?^${}()|[\]\\]/g,
+          ""
+        );        
+        if(this.identificacionEditar===this.caracData.identificacion){
+          this.ediJe();
+        }else{
+          if (this.checkForm() === true) {
+            // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+  
+            const parametros = {
+              _token: this.csrf,
+              identificacion: this.caracData.identificacion
+            };
+            try {
+              await caracterizacionServicios
+                .validarJefe(parametros)
+                .then(respuesta => {
+                  if (respuesta.data.OPC == "EXISTE") {
+                    let val = (respuesta.data.identificacion / 1)
+                      .toFixed(0)
+                      .replace(".", ",");
+                    let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                    this.$swal(
+                      "Validar...!",
+                      "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
+                      "warning"
+                    );
+                    return false;
+                  } else {
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    let resultado = this.datosJefe.filter(identi =>
+                      identi.identificacion==this.caracData.identificacion
+                    );
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    if (resultado.length) {
+                      this.$swal(
+                        "Validar...!",
+                        "El Documento <b>" +
+                          this.caracData.identificacion +
+                          "</b> Se Encuentra Agregado",
+                        "warning"
+                      );
+                      return false;
+                    } else {
+                      this.ediJe();
+                    }
+                  }
+                })
+                .catch(error => {
+                  this.errorDevuelto = error.response.data.errors;
+                  this.entrarPorError = true;
+                });
+            } catch (error) {
+              this.errorDevuelto = error.response.data.errors;
+              this.entrarPorError = true;
+            }
+          }        
+        }        
+      },
+      ediJe(){
+        let nacimiento = moment(this.caracData.fecha_nacimiento);
+        let hoy = moment();
+        let edad = 0;
+        if (nacimiento < hoy) {
+          edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+        }
+
+        if (edad < 14) {
+          this.$swal(
+            "Validar...!",
+            "El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años",
+            "warning"
+          );
+          return false;
+        }
+
+        let textoEps = "";
+        if(this.caracData.afiliacion_entidad === "OTRA"){
+          textoEps = "OTRA";
+        }else{
+          if(this.caracData.afiliacion_entidad === "NINGUNA"){
+            textoEps = "NINGUNA";
+          }else{
+            textoEps = this.showText(this.caracData.afiliacion_entidad,this.admini_options);
+          }
+        }
+
+        if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
+          this.SAPU=true;
+          this.estratificacionData.afiliacion_salud_privada="SI";        
+        }                    
+        this.ocupacionAuxiliar="";
+        this.mOCOL1 = false;
+
+
+        let id = this.vectorJefes[this.indiceEditJefe].identificacion;
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        let indice = this.factores.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.factores[indice].tipo_id = this.caracData.tipo_id;
+          this.factores[indice].sexo = this.caracData.sexo;
+          this.factores[indice].identificacion = this.caracData.identificacion;
+          this.factores[indice].pnom = this.caracData.pnom;
+          this.factores[indice].snom = this.caracData.snom;
+          this.factores[indice].pape = this.caracData.pape;
+          this.factores[indice].sape = this.caracData.sape;
+          this.factores.splice(indice, 1, this.factores[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De10A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De10A59[indice].tipo_id = this.caracData.tipo_id;
+          this.De10A59[indice].sexo = this.caracData.sexo;
+          this.De10A59[indice].identificacion = this.caracData.identificacion;
+          this.De10A59[indice].pnom = this.caracData.pnom;
+          this.De10A59[indice].snom = this.caracData.snom;
+          this.De10A59[indice].pape = this.caracData.pape;
+          this.De10A59[indice].sape = this.caracData.sape;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }
+
+        if(this.embarazoEditar==="SI"){
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if(this.caracData.embarazo==="SI"){
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+            if (indice >= 0) {
+              this.ParPost[indice].tipo_id = this.caracData.tipo_id;
+              this.ParPost[indice].sexo = this.caracData.sexo;
+              this.ParPost[indice].identificacion = this.caracData.identificacion;
+              this.ParPost[indice].pnom = this.caracData.pnom;
+              this.ParPost[indice].snom = this.caracData.snom;
+              this.ParPost[indice].pape = this.caracData.pape;
+              this.ParPost[indice].sape = this.caracData.sape;
+              this.ParPost.splice(indice, 1, this.ParPost[indice]);
+            }
+          }else if(this.caracData.embarazo==="NO"){
+            //ELIMINO
+            // let iden = this.identificacionEditar;
+            this.ParPost[indice].estado = "Inactivo";
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);            
+            // this.ParPost = this.ParPost.filter(function(men) {
+            //   return men.identificacion != iden;
+            // });                        
+            // this.eliminarParpost(this.caracData.identificacion,"JEFE");
+          }
+        }else{
+          if(this.caracData.embarazo==="SI"){
+            //AGREGO
+            this.AParPost(this.caracData, edad, "JEFE");
+          }
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De12A17[indice].tipo_id = this.caracData.tipo_id;
+          this.De12A17[indice].sexo = this.caracData.sexo;
+          this.De12A17[indice].identificacion = this.caracData.identificacion;
+          this.De12A17[indice].pnom = this.caracData.pnom;
+          this.De12A17[indice].snom = this.caracData.snom;
+          this.De12A17[indice].pape = this.caracData.pape;
+          this.De12A17[indice].sape = this.caracData.sape;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De18A28[indice].tipo_id = this.caracData.tipo_id;
+          this.De18A28[indice].sexo = this.caracData.sexo;
+          this.De18A28[indice].identificacion = this.caracData.identificacion;
+          this.De18A28[indice].pnom = this.caracData.pnom;
+          this.De18A28[indice].snom = this.caracData.snom;
+          this.De18A28[indice].pape = this.caracData.pape;
+          this.De18A28[indice].sape = this.caracData.sape;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De29A59[indice].tipo_id = this.caracData.tipo_id;
+          this.De29A59[indice].sexo = this.caracData.sexo;
+          this.De29A59[indice].identificacion = this.caracData.identificacion;
+          this.De29A59[indice].pnom = this.caracData.pnom;
+          this.De29A59[indice].snom = this.caracData.snom;
+          this.De29A59[indice].pape = this.caracData.pape;
+          this.De29A59[indice].sape = this.caracData.sape;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De60.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De60[indice].tipo_id = this.caracData.tipo_id;
+          this.De60[indice].sexo = this.caracData.sexo;
+          this.De60[indice].identificacion = this.caracData.identificacion;
+          this.De60[indice].pnom = this.caracData.pnom;
+          this.De60[indice].snom = this.caracData.snom;
+          this.De60[indice].pape = this.caracData.pape;
+          this.De60[indice].sape = this.caracData.sape;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.EnCro.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.EnCro[indice].tipo_id = this.caracData.tipo_id;
+          this.EnCro[indice].sexo = this.caracData.sexo;
+          this.EnCro[indice].identificacion = this.caracData.identificacion;
+          this.EnCro[indice].pnom = this.caracData.pnom;
+          this.EnCro[indice].snom = this.caracData.snom;
+          this.EnCro[indice].pape = this.caracData.pape;
+          this.EnCro[indice].sape = this.caracData.sape;
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }        
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.EnInf.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.EnInf[indice].tipo_id = this.caracData.tipo_id;
+          this.EnInf[indice].sexo = this.caracData.sexo;
+          this.EnInf[indice].identificacion = this.caracData.identificacion;
+          this.EnInf[indice].pnom = this.caracData.pnom;
+          this.EnInf[indice].snom = this.caracData.snom;
+          this.EnInf[indice].pape = this.caracData.pape;
+          this.EnInf[indice].sape = this.caracData.sape;
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.Migra.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.Migra[indice].tipo_id = this.caracData.tipo_id;
+          this.Migra[indice].sexo = this.caracData.sexo;
+          this.Migra[indice].identificacion = this.caracData.identificacion;
+          this.Migra[indice].pnom = this.caracData.pnom;
+          this.Migra[indice].snom = this.caracData.snom;
+          this.Migra[indice].pape = this.caracData.pape;
+          this.Migra[indice].sape = this.caracData.sape;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+
+        if(this.caracData.fecha_nacimiento !== this.fechaEditar){
+          if(edad !== this.edadEditar){
+            // ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
+            this.eliEdad(this.identificacionEditar,this.caracData,edad,"JEFE");
+          }
+        }
+        this.datosJefe[this.indiceEditJefe].id = this.caracData.id;
+        this.datosJefe[this.indiceEditJefe].id_hogar = this.caracData.id_hogar;
+        this.datosJefe[this.indiceEditJefe].telefono = this.caracData.telefono;
+        this.datosJefe[this.indiceEditJefe].puntaje_sisben = this.caracData.puntaje_sisben;
+        this.datosJefe[this.indiceEditJefe].afiliacion_entidad = this.caracData.afiliacion_entidad;
+        this.datosJefe[this.indiceEditJefe].textoEps = textoEps;
+        this.datosJefe[this.indiceEditJefe].otra_eps = this.caracData.otra_eps;
+        this.datosJefe[this.indiceEditJefe].tipo_id = this.caracData.tipo_id;
+        this.datosJefe[this.indiceEditJefe].identificacion = this.caracData.identificacion;
+        this.datosJefe[this.indiceEditJefe].sexo = this.caracData.sexo;
+        this.datosJefe[this.indiceEditJefe].parentesco = this.caracData.parentesco;
+        this.datosJefe[this.indiceEditJefe].textoParentesco = this.showText(this.caracData.parentesco,this.parentesco_options);
+        this.datosJefe[this.indiceEditJefe].pnom = this.caracData.pnom;
+        this.datosJefe[this.indiceEditJefe].snom = this.caracData.snom;
+        this.datosJefe[this.indiceEditJefe].pape = this.caracData.pape;
+        this.datosJefe[this.indiceEditJefe].sape = this.caracData.sape;
+        this.datosJefe[this.indiceEditJefe].salario = this.caracData.salario;
+        this.datosJefe[this.indiceEditJefe].id_compania = this.caracData.id_compania;
+        this.datosJefe[this.indiceEditJefe].estado = this.caracData.estado;
+        this.datosJefe[this.indiceEditJefe].estado_civil = this.caracData.estado_civil;
+        this.datosJefe[this.indiceEditJefe].textoEstado = this.showText(this.caracData.estado_civil,this.estado_options);
+        this.datosJefe[this.indiceEditJefe].fecha_nacimiento = this.caracData.fecha_nacimiento;
+        this.datosJefe[this.indiceEditJefe].tipo_afiliacion = this.caracData.tipo_afiliacion;
+        this.datosJefe[this.indiceEditJefe].embarazo = this.caracData.embarazo;
+        this.datosJefe[this.indiceEditJefe].embarazo_multiple = this.caracData.embarazo_multiple;
+        this.datosJefe[this.indiceEditJefe].discapacidad = this.caracData.discapacidad;
+        this.datosJefe[this.indiceEditJefe].nivel_escolaridad = this.caracData.nivel_escolaridad;
+        this.datosJefe[this.indiceEditJefe].textoNivel = this.showText(this.caracData.nivel_escolaridad,this.escolaridad_options);
+        this.datosJefe[this.indiceEditJefe].ocupacion = this.caracData.ocupacion;
+        this.datosJefe[this.indiceEditJefe].textoOcupacion = this.showText(this.caracData.ocupacion,this.ocupacion_options);
+        this.datosJefe[this.indiceEditJefe].colegio = this.caracData.colegio;
+        this.datosJefe[this.indiceEditJefe].textoColegio = this.showText(this.caracData.colegio,this.colegio_options);
+        this.datosJefe[this.indiceEditJefe].grado = this.caracData.grado;
+        this.datosJefe[this.indiceEditJefe].etnia = this.caracData.etnia;
+        this.datosJefe[this.indiceEditJefe].textoEtnia = this.showText(this.caracData.etnia,this.etnia_options);
+        this.datosJefe[this.indiceEditJefe].clasificacion = this.caracData.clasificacion;
+        this.datosJefe[this.indiceEditJefe].textoClasificacion = this.showText2(this.caracData.clasificacion,this.clasifi_options,this.caracData.etnia);
+        this.datosJefe[this.indiceEditJefe].entiende = this.caracData.entiende;
+        this.datosJefe[this.indiceEditJefe].pyp = this.caracData.pyp;
+        this.datosJefe[this.indiceEditJefe].migrante = this.caracData.migrante;
+        this.datosJefe[this.indiceEditJefe].edad = this.caracData.edad;
+        this.datosJefe[this.indiceEditJefe].orientacion = this.caracData.orientacion;
+        this.datosJefe[this.indiceEditJefe].identidad_genero = this.caracData.identidad_genero;
+        this.datosJefe[this.indiceEditJefe].perdida_peso = this.caracData.perdida_peso;
+        this.datosJefe[this.indiceEditJefe].programa_icbf = this.caracData.programa_icbf;
+        this.datosJefe[this.indiceEditJefe].ocupacionAuxiliar = this.caracData.textoOcupacion;        
+        this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);
+        this.CancelarEditarJefe();
+      },
+      eliEdad(identificacion,vector,edad,opcion){
+        let indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.Men1A[indice].estado = "Inactivo";
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        }        
+
+        indice = this.De1A5.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De1A5[indice].estado = "Inactivo";
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        }        
+
+        indice = this.De6A11.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De6A11[indice].estado = "Inactivo";
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        }        
+
+        indice = this.De10A59.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De10A59[indice].estado = "Inactivo";
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }        
+
+        indice = this.De12A17.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De12A17[indice].estado = "Inactivo";
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }        
+        
+        indice = this.De18A28.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De18A28[indice].estado = "Inactivo";
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }        
+        
+        indice = this.De29A59.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De29A59[indice].estado = "Inactivo";
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);        
+        }        
+
+        indice = this.De60.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De60[indice].estado = "Inactivo";
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }        
+
+        indice = this.EnCro.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.EnCro[indice].estado = "Inactivo";
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }        
+
+        indice = this.EnInf.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.EnInf[indice].estado = "Inactivo";
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);        
+        }        
+
+        indice = this.Migra.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.Migra[indice].estado = "Inactivo";
+          this.Migra.splice(indice, 1, this.Migra[indice]);                
+        }        
+                
+        // AGREGAR NIÑOS MENORES DE 1 AÑO
+        if (edad <= 0) {
+          this.Amenores1Anio(vector,hoy.diff(nacimiento, "months"), opcion);
+        }
+        // AGREGAR NIÑOS MENORES DE 1 AÑO
+        // AGREGAR DE 1 A 5 AÑOS
+        if (edad >= 1 && edad <= 5) {
+          this.Ade1a5Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 1 A 5 AÑOS
+
+        // AGREGAR DE 6 A 11 AÑOS
+        if (edad >= 6 && edad <= 11) {
+          this.Ade6a11Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 6 A 11 AÑOS
+
+        // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+        if(edad<10){
+          if(vector.excepciones==="1"){
+            this.Ade10a59Anio(vector, edad, opcion);
+          }
+        }  
+        // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+
+        // AGREGAR DE 10 A 59 AÑOS
+        if (edad >= 10 && edad <= 59) {
+          this.Ade10a59Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 10 A 59 AÑOS
+
+        // AGREGAR PARTO POSTPARTO
+        if (vector.embarazo === "SI") {
+          this.AParPost(vector, edad, opcion);
+        }
+        // AGREGAR PARTO POSTPARTO
+
+        // AGREGAR DE 12 A 17 AÑOS
+        if (edad >= 12 && edad <= 17) {
+          this.Ade12a17Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 12 A 17 AÑOS
+
+        // AGREGAR DE 18 A 28 AÑOS
+        if (edad >= 18 && edad <= 28) {
+          this.Ade18a28Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 18 A 28 AÑOS
+
+        // AGREGAR DE 29 A 59 AÑOS
+        if (edad >= 29 && edad <= 59) {
+          this.Ade29a59Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 29 A 59 AÑOS
+
+        // AGREGAR DE 60 ó MAS AÑOS
+        if (edad >= 60) {
+          this.Ade60Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 60 ó MAS AÑOS
+
+        // AGREGAR MIGRANTES
+        if (vector.migrante === "SI") {
+          this.AMigra(vector, edad, opcion);
+        }
+        // AGREGAR MIGRANTES               
+      },                         
       //OPCIONES DEL JEFE DE HOGAR
 
       //OPCIONES DE LOS INTEGRANTES
+      agregar: async function() {
+        if (this.CA1.tipo_id == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.identificacion == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el documento de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.sexo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.CA1.orientacion === "0") {
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.CA1.identidad_genero === "0") {
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }        
+        if (this.CA1.parentesco == "0") {
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.CA1.pnom == "0") {
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.CA1.pape == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.estado_civil == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.fecha_nac == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.escolaridad == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el nivel de escolaridad!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.ocupacion == "0") {
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.CA1.etnia == "0") {
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.CA1.clasificacion == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.entiende == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción entiende español!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.pyp == "0") {
+          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+          return;
+        }
+        if (this.CA1.migrante == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción migrante!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.jefe == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el un jefe de hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.CA1.programa_icbf === "") {
+          this.$refs.programa_icbf.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }
+        if (this.CA1.excepciones === "0") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+          return;
+        }        
+                       
+        // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
+        this.CA1.identificacion = this.CA1.identificacion.replace(
+          /[.*+\-?^${}()|[\]\\]/g,
+          ""
+        );
+        const parametros = {
+          _token: this.csrf,
+          identificacion: this.CA1.identificacion
+        };
+        try {
+          await caracterizacionServicios
+            .validar(parametros)
+            .then(respuesta => {
+              if (respuesta.data.OPC == "EXISTE") {
+                let val = (respuesta.data.identificacion / 1)
+                  .toFixed(0)
+                  .replace(".", ",");
+                let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                this.$swal(
+                  "Validar...!",
+                  "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
+                  "warning"
+                );
+                return false;
+              } else {
+                // VERIFICAR SI ESTA EN LA TABLA
+                let resultado = this.datos.filter(identi =>
+                  identi.identificacion==this.CA1.identificacion
+                );
+                // VERIFICAR SI ESTA EN LA TABLA
+                if (resultado.length > 0) {
+                  this.$swal(
+                    "Validar...!",
+                    "El Documento <b>" +
+                      this.CA1.identificacion +
+                      "</b> Se Encuentra Agregado",
+                    "warning"
+                  );
+                  return false;
+                } else {
+                  let nacimiento = moment(this.CA1.fecha_nac);
+                  let hoy = moment();
+                  let edad = 0;
+                  if (nacimiento < hoy) {
+                    edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+                  }
+
+                  let textoEps = "";
+                  if(this.CA1.afi_entidad === "OTRA"){
+                    textoEps = "OTRA";
+                  }else{
+                    if(this.CA1.afi_entidad === "NINGUNA"){
+                      textoEps = "NINGUNA";
+                    }else{
+                      textoEps = this.showText(this.CA1.afi_entidad,this.admini_options);
+                    }
+                  }                  
+                  this.datos.push({
+                    id: 0,
+                    tipo_id: this.CA1.tipo_id,
+                    identificacion: this.CA1.identificacion,
+                    sexo: this.CA1.sexo,
+                    parentesco: this.CA1.parentesco,
+                    textoParentesco: this.showText(
+                      this.CA1.parentesco,
+                      this.parentesco_options
+                    ),
+                    pnom: this.CA1.pnom,
+                    snom: this.CA1.snom,
+                    pape: this.CA1.pape,
+                    sape: this.CA1.sape,
+                    estado_civil: this.CA1.estado_civil,
+                    textoEstado: this.showText(
+                      this.CA1.estado_civil,
+                      this.estado_options
+                    ),
+                    fecha_nac: this.CA1.fecha_nac,
+                    edad: edad,
+                    afi_entidad: this.CA1.afi_entidad,
+                    textoEps: textoEps,                    
+                    otra_eps: this.CA1.otra_eps,
+                    tipo_afiliacion: this.CA1.tipo_afiliacion,
+                    embarazo: this.CA1.embarazo,
+                    embarazo_multiple: this.CA1.embarazo_multiple,
+                    discapacidad: this.CA1.discapacidad,
+                    escolaridad: this.CA1.escolaridad,
+                    textoEscolaridad: this.showText(
+                      this.CA1.escolaridad,
+                      this.escolaridad_options
+                    ),
+                    ocupacion: this.CA1.ocupacion,
+                    textoOcupacion: this.showText(
+                      this.CA1.ocupacion,
+                      this.ocupacion_options
+                    ),
+                    colegio: this.CA1.colegio,
+                    textoColegio: this.showText(
+                      this.CA1.colegio,
+                      this.colegio_options
+                    ),                    
+                    grado: this.CA1.grado,
+                    entiende: this.CA1.entiende,
+                    migrante: this.CA1.migrante,
+                    pyp: this.CA1.pyp,
+                    etnia: this.CA1.etnia,
+                    textoEtnia: this.showText(this.CA1.etnia, this.etnia_options),
+                    clasificacion: this.CA1.clasificacion,
+                    textoClasificacion: this.showText2(
+                      this.CA1.clasificacion,
+                      this.clasifi_options,
+                      this.CA1.etnia
+                    ),                    
+                    puntaje_sisben: this.CA1.puntaje_sisben,
+                    jefe: this.CA1.jefe,
+                    orientacion: this.CA1.orientacion,
+                    identidad_genero: this.CA1.identidad_genero,
+                    telefono: this.CA1.telefono,
+                    perdida_peso: this.CA1.perdida_peso,
+                    programa_icbf: this.CA1.programa_icbf,
+                    excepciones: this.CA1.excepciones,
+                    textoExcepciones: this.showText(this.CA1.excepciones, this.opciones7),
+                    identi_auxi: "",
+                    estado: "Activo"
+                  });
+
+                  if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
+                    this.SAPU=true;
+                    this.estratificacionData.afiliacion_salud_privada="SI";        
+                  }
+                  this.ocupacionAuxiliar2="";
+                  this.mOCOL2 = false;
+                  let indice = this.datos.findIndex(
+                    identi => identi.identificacion === this.CA1.identificacion
+                  );
+                  this.vectorIntegrante.push({
+                    index: indice,
+                    identificacion: this.CA1.identificacion
+                  });
+
+                  // AGREGAR NIÑOS MENORES DE 1 AÑO
+                  if (edad <= 0) {
+                    this.Amenores1Anio(this.CA1,hoy.diff(nacimiento, "months"), "INTE");
+                  }
+                  // AGREGAR NIÑOS MENORES DE 1 AÑO
+                  // AGREGAR DE 1 A 5 AÑOS
+                  if (edad >= 1 && edad <= 5) {
+                    this.Ade1a5Anio(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR DE 1 A 5 AÑOS
+
+                  // AGREGAR DE 6 A 11 AÑOS
+                  if (edad >= 6 && edad <= 11) {
+                    this.Ade6a11Anio(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR DE 6 A 11 AÑOS
+
+                  // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+                  if(edad<10){
+                    if(this.CA1.excepciones==="1"){
+                      this.Ade10a59Anio(this.CA1, edad, "INTE");
+                    }
+                  }  
+                  // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+                
+                  // AGREGAR DE 10 A 59 AÑOS
+                  if (edad >= 10 && edad <= 59) {
+                    this.Ade10a59Anio(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR DE 10 A 59 AÑOS
+
+                  // AGREGAR PARTO POSTPARTO
+                  // alert(this.CA1.embarazo_multiple);
+                  if (this.CA1.embarazo === "SI") {
+                    this.AParPost(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR PARTO POSTPARTO
+
+                  // AGREGAR DE 12 A 17 AÑOS
+                  if (edad >= 12 && edad <= 17) {
+                    this.Ade12a17Anio(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR DE 12 A 17 AÑOS
+
+                  // AGREGAR DE 18 A 28 AÑOS
+                  if (edad >= 18 && edad <= 28) {
+                    this.Ade18a28Anio(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR DE 18 A 28 AÑOS
+
+                  // AGREGAR DE 29 A 59 AÑOS
+                  if (edad >= 29 && edad <= 59) {
+                    this.Ade29a59Anio(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR DE 29 A 59 AÑOS
+
+                  // AGREGAR DE 60 ó MAS AÑOS
+                  if (edad >= 60) {
+                    this.Ade60Anio(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR DE 60 ó MAS AÑOS
+
+                  // AGREGAR MIGRANTES
+
+                  if (this.CA1.migrante === "SI") {
+                    this.AMigra(this.CA1, edad, "INTE");
+                  }
+                  // AGREGAR MIGRANTES
+                  this.limpiar();
+                }
+              }
+            })
+            .catch(error => {
+              this.errorDevuelto = error.response.data.errors;
+              this.entrarPorError = true;
+            });
+        } catch (error) {
+          switch (error.response.status) {
+            case 419:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+        // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
+      },      
       calculaEdad() {
         var a = moment();
         var b = moment(this.CA1.fecha_nac);
@@ -9477,130 +16043,4864 @@
           }
         }
       },
+      limpiar() {
+        this.CA1.tipo_id = "0";
+        this.CA1.identificacion = "";
+        this.CA1.sexo = "0";
+        this.CA1.parentesco = "0";
+        this.CA1.pnom = "";
+        this.CA1.snom = "";
+        this.CA1.pape = "";
+        this.CA1.sape = "";
+        this.CA1.estado_civil = "0";
+        this.CA1.fecha_nac = "";
+        this.CA1.edad = 0;
+        this.CA1.afi_entidad = "0";
+        this.CA1.tipo_afiliacion = "0";
+        this.CA1.otra_eps = "";
+        this.CA1.embarazo = "0";
+        this.CA1.embarazo_multiple = "0";
+        this.CA1.discapacidad = "0";
+        this.CA1.escolaridad = "0";
+        this.CA1.ocupacion = "0";
+        this.CA1.colegio = "";
+        this.CA1.grado = "0";
+        this.CA1.entiende = "0";
+        this.CA1.migrante = "0";
+        this.CA1.pyp = "0";
+        this.CA1.etnia = "0";
+        this.CA1.clasificacion = "0";
+        this.CA1.puntaje_sisben = "";
+        this.CA1.jefe = "0";
+        this.CA1.telefono = "";
+        this.CA1.orientacion = "0";
+        this.CA1.identidad_genero = "0";
+        this.CA1.perdida_peso = "0";        
+        this.CA1.programa_icbf = "0";
+        this.CA1.excepciones = "0";
+        this.CA1.meses = "";
+        this.CA1.dias = "";
+        this.ocupacionAuxiliar2 = "";
+        this.bandeGuaEdiInte = true;
+        this.indiceEditInte = null;
+        
+        this.idEditar = null;
+        this.identificacionEditar = null;
+        this.fechaEditar = null;
+        this.edadEditar = null;
+        this.embarazoEditar = null;        
+      },
+      eliminarItem: function(index, item) {
+        if(item.id===0){
+          this.datos.splice(index, 1);
+          this.vectorIntegrante.splice(index, 1);
+          let identificacion = item.identificacion;
+          this.Men1A = this.Men1A.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De1A5 = this.De1A5.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De6A11 = this.De6A11.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De10A59 = this.De10A59.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.ParPost = this.ParPost.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De12A17 = this.De12A17.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De18A28 = this.De18A28.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De29A59 = this.De29A59.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.De60 = this.De60.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.EnCro = this.EnCro.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+          this.EnInf = this.EnInf.filter(function(men) {
+            return men.identificacion != identificacion;
+          });        
+          this.Migra = this.Migra.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+        }else{          
+          let identificacion = item.identificacion;
+
+          let indice = this.datos.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.datos[indice].estado = "Inactivo";
+            this.datos.splice(indice, 1, this.datos[indice]);
+          }          
+          indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.Men1A[indice].estado = "Inactivo";
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }        
+
+          indice = this.De1A5.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.De1A5[indice].estado = "Inactivo";
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }        
+
+          indice = this.De6A11.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.De6A11[indice].estado = "Inactivo";
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }        
+
+          indice = this.De10A59.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.De10A59[indice].estado = "Inactivo";
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }        
+
+          indice = this.De12A17.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.De12A17[indice].estado = "Inactivo";
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }        
+          
+          indice = this.De18A28.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.De18A28[indice].estado = "Inactivo";
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }        
+          
+          indice = this.De29A59.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.De29A59[indice].estado = "Inactivo";
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);        
+          }        
+
+          indice = this.De60.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.De60[indice].estado = "Inactivo";
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }        
+
+          indice = this.EnCro.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.EnCro[indice].estado = "Inactivo";
+            this.EnCro.splice(indice, 1, this.EnCro[indice]);
+          }        
+
+          indice = this.EnInf.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.EnInf[indice].estado = "Inactivo";
+            this.EnInf.splice(indice, 1, this.EnInf[indice]);        
+          }        
+
+          indice = this.Migra.findIndex(identi => identi.identificacion === identificacion);
+          if(indice >= 0){
+            this.Migra[indice].estado = "Inactivo";
+            this.Migra.splice(indice, 1, this.Migra[indice]);                
+          }
+          this.$swal(
+            "Eliminar...!",
+            "Datos En Proceso de Eliminación!",
+            "success"
+          );          
+          console.log(this.De10A59);
+        }
+      },
+      validarTablaIntegrantes: async function() {
+        for (let i = 0; i < this.datos.length; i++) {
+          const parametros = {
+            _token: this.csrf,
+            identificacion: this.datos[i].identificacion
+          };
+          try {
+            await caracterizacionServicios
+              .validarJefe(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "EXISTE") {
+                  let val = (respuesta.data.identificacion / 1)
+                    .toFixed(0)
+                    .replace(".", ",");
+                  let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                  this.$swal(
+                    "Validar...!",
+                    "El Documento <b>" +
+                      iden +
+                      "</b> De La Fila <b>" +
+                      (i + 1) +
+                      "</b> Se Encuentra Registrado",
+                    "warning"
+                  );
+                  // item.identificacion="";
+                  return false;
+                } else {
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  let resultado = this.datos.filter(identi =>
+                    identi.identificacion.includes(this.datos[i].identificacion)
+                  );
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  if (resultado.length > 1) {
+                    this.$swal(
+                      "Validar...!",
+                      "El Documento <b>" +
+                        this.datos[i].identificacion +
+                        "</b> De La Fila <b>" +
+                        (i + 1) +
+                        "</b>  Se Encuentra Agregado En La Tabla de Integrantes",
+                      "warning"
+                    );
+                    // item.identificacion="";
+                    return false;
+                  } else {
+                    if (this.datos[i].tipo_id === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione un <b>tipo de identificación</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].identificacion === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor digite una <b>identificación</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].pnom === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor digite el <b>primer nombre</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].pape === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor digite el <b>primer apellido</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].sexo === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>sexo</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].parentesco === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>parentesco</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].estado_civil === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>estado civil</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].fecha_nac === "") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].afi_entidad === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>eps</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].tipo_afiliacion === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>tipo de afiliación</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].escolaridad === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].ocupacion === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>ocupación</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].etnia === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>etnia</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].clasificacion === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    if (this.datos[i].jefe === "0") {
+                      this.$swal(
+                        "Error...!",
+                        "Por favor seleccione el <b>jefe de hogar</b> en la fila " +
+                          (i + 1) +
+                          " de los integrantes",
+                        "error"
+                      );
+                      return false;
+                    }
+                    return true;
+                  }
+                }
+              })
+              .catch(error => {});
+          } catch (error) {}
+        }
+      },
+      editarItemInte: function(index, item) {
+        this.bandeGuaEdiInte = false;        
+        this.indiceEditInte = index;
+        this.CA1.id = item.id;
+        this.CA1.tipo_id = item.tipo_id;
+        this.CA1.identificacion = item.identificacion;
+        this.CA1.sexo = item.sexo;
+        this.CA1.parentesco = item.parentesco;
+        this.CA1.pnom = item.pnom;
+        this.CA1.snom = item.snom;
+        this.CA1.pape = item.pape;
+        this.CA1.sape = item.sape;
+        this.CA1.estado_civil = item.estado_civil;
+        this.CA1.fecha_nac = item.fecha_nac;
+        this.CA1.edad = item.edad;
+        this.CA1.puntaje_sisben = item.puntaje_sisben;
+        this.CA1.afi_entidad = item.afi_entidad;
+        this.CA1.otra_eps = item.otra_eps;
+        this.CA1.tipo_afiliacion = item.tipo_afiliacion;
+        this.CA1.embarazo = item.embarazo;
+        setTimeout(() => {
+          this.CA1.embarazo_multiple = item.embarazo_multiple;
+        }, 1000);
+        this.CA1.discapacidad = item.discapacidad;
+        this.CA1.escolaridad = item.escolaridad;
+        this.CA1.ocupacion = item.ocupacion;
+        this.CA1.colegio = item.colegio;
+        this.CA1.grado = item.grado;
+        this.CA1.entiende = item.entiende;
+        this.CA1.migrante = item.migrante;
+        this.CA1.pyp = item.pyp;
+        this.CA1.etnia = item.etnia;
+        this.CA1.clasificacion = item.clasificacion;
+        this.CA1.id_hogar = item.id_hogar;
+        this.CA1.jefe = item.jefe;
+        this.CA1.orientacion = item.orientacion;
+        this.CA1.identidad_genero = item.identidad_genero;
+        this.CA1.telefono = item.telefono;
+        this.CA1.perdida_peso = item.perdida_peso;
+        this.CA1.programa_icbf = item.programa_icbf;
+        this.CA1.excepciones = item.excepciones;
+        this.CA1.meses = item.meses;
+        this.CA1.dias = item.dias
+        this.ocupacionAuxiliar2 = item.textoOcupacion;        
+
+        this.$refs.identificacionInte.focus();
+
+        this.idEditar = item.id;
+        this.identificacionEditar = item.identificacion;
+        this.fechaEditar = item.fecha_nac;
+        this.edadEditar = item.edad;
+        this.embarazoEditar = item.embarazo;
+               
+      },
+      CancelarEditarInte: function(){
+        this.limpiar();
+      },
+      editarInte: async function(){
+        if (this.CA1.tipo_id == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.identificacion == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el documento de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.sexo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.CA1.orientacion === "0") {
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.CA1.identidad_genero === "0") {
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }        
+        if (this.CA1.parentesco == "0") {
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.CA1.pnom == "0") {
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.CA1.pape == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.estado_civil == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.fecha_nac == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.escolaridad == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el nivel de escolaridad!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.ocupacion == "0") {
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.CA1.etnia == "0") {
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.CA1.clasificacion == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.entiende == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción entiende español!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.pyp == "0") {
+          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+          return;
+        }
+        if (this.CA1.migrante == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción migrante!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.jefe == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el un jefe de hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.CA1.programa_icbf === "") {
+          this.$refs.programa_icbf.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }
+        if (this.CA1.excepciones === "0") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+          return;
+        }        
+        this.CA1.identificacion = this.CA1.identificacion.replace(
+          /[.*+\-?^${}()|[\]\\]/g,
+          ""
+        );        
+        if(this.identificacionEditar===this.CA1.identificacion){
+          this.ediIn();
+        }else{
+          const parametros = {
+            _token: this.csrf,
+            identificacion: this.CA1.identificacion
+          };
+          try {
+            await caracterizacionServicios
+              .validar(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "EXISTE") {
+                  let val = (respuesta.data.identificacion / 1)
+                    .toFixed(0)
+                    .replace(".", ",");
+                  let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                  this.$swal(
+                    "Validar...!",
+                    "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
+                    "warning"
+                  );
+                  return false;
+                } else {
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  let resultado = this.datos.filter(identi =>
+                    identi.identificacion==this.CA1.identificacion
+                  );
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  if (resultado.length > 0) {
+                    this.$swal(
+                      "Validar...!",
+                      "El Documento <b>" +
+                        this.CA1.identificacion +
+                        "</b> Se Encuentra Agregado",
+                      "warning"
+                    );
+                    return false;
+                  } else {
+                    this.ediIn();
+                  }
+                }
+              })
+              .catch(error => {
+                this.errorDevuelto = error.response.data.errors;
+                this.entrarPorError = true;
+              });
+          } catch (error) {
+            switch (error.response.status) {
+              case 419:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              case 422:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              default:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+            }
+          }
+        }
+      },
+      ediIn(){
+        console.log("ID = " + this.idEditar);
+        console.log("ID = " + this.identificacionEditar);
+        console.log("ID = " + this.fechaEditar);
+        console.log("ID = " + this.embarazoEditar);
+        this.CA1.identificacion = this.CA1.identificacion.replace(
+          /[.*+\-?^${}()|[\]\\]/g,
+          ""
+        );        
+        let nacimiento = moment(this.CA1.fecha_nac);
+        let hoy = moment();
+        let edad = 0;
+        if (nacimiento < hoy) {
+          edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+        }
+
+        let textoEps = "";
+        if(this.CA1.afi_entidad === "OTRA"){
+          textoEps = "OTRA";
+        }else{
+          if(this.CA1.afi_entidad === "NINGUNA"){
+            textoEps = "NINGUNA";
+          }else{
+            textoEps = this.showText(this.CA1.afi_entidad,this.admini_options);
+          }
+        }
+        if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
+          this.SAPU=true;
+          this.estratificacionData.afiliacion_salud_privada="SI";        
+        }
+        this.ocupacionAuxiliar2="";
+        this.mOCOL2 = false;        
+        let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        let indice = this.factores.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.factores[indice].tipo_id = this.CA1.tipo_id;
+          this.factores[indice].sexo = this.CA1.sexo;
+          this.factores[indice].identificacion = this.CA1.identificacion;
+          this.factores[indice].pnom = this.CA1.pnom;
+          this.factores[indice].snom = this.CA1.snom;
+          this.factores[indice].pape = this.CA1.pape;
+          this.factores[indice].sape = this.CA1.sape;
+          this.factores.splice(indice, 1, this.factores[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.Men1A.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.Men1A[indice].tipo_id = this.CA1.tipo_id;
+          this.Men1A[indice].sexo = this.CA1.sexo;
+          this.Men1A[indice].identificacion = this.CA1.identificacion;
+          this.Men1A[indice].pnom = this.CA1.pnom;
+          this.Men1A[indice].snom = this.CA1.snom;
+          this.Men1A[indice].pape = this.CA1.pape;
+          this.Men1A[indice].sape = this.CA1.sape;
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De1A5.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De1A5[indice].tipo_id = this.CA1.tipo_id;
+          this.De1A5[indice].sexo = this.CA1.sexo;
+          this.De1A5[indice].identificacion = this.CA1.identificacion;
+          this.De1A5[indice].pnom = this.CA1.pnom;
+          this.De1A5[indice].snom = this.CA1.snom;
+          this.De1A5[indice].pape = this.CA1.pape;
+          this.De1A5[indice].sape = this.CA1.sape;
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        }   
+        
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De6A11.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De6A11[indice].tipo_id = this.CA1.tipo_id;
+          this.De6A11[indice].sexo = this.CA1.sexo;
+          this.De6A11[indice].identificacion = this.CA1.identificacion;
+          this.De6A11[indice].pnom = this.CA1.pnom;
+          this.De6A11[indice].snom = this.CA1.snom;
+          this.De6A11[indice].pape = this.CA1.pape;
+          this.De6A11[indice].sape = this.CA1.sape;
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        }        
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De10A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De10A59[indice].tipo_id = this.CA1.tipo_id;
+          this.De10A59[indice].sexo = this.CA1.sexo;
+          this.De10A59[indice].identificacion = this.CA1.identificacion;
+          this.De10A59[indice].pnom = this.CA1.pnom;
+          this.De10A59[indice].snom = this.CA1.snom;
+          this.De10A59[indice].pape = this.CA1.pape;
+          this.De10A59[indice].sape = this.CA1.sape;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }        
+        if(this.embarazoEditar==="SI"){
+          indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+          if(this.CA1.embarazo==="SI"){
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+            if (indice >= 0) {
+              this.ParPost[indice].tipo_id = this.CA1.tipo_id;
+              this.ParPost[indice].sexo = this.CA1.sexo;
+              this.ParPost[indice].identificacion = this.CA1.identificacion;
+              this.ParPost[indice].pnom = this.CA1.pnom;
+              this.ParPost[indice].snom = this.CA1.snom;
+              this.ParPost[indice].pape = this.CA1.pape;
+              this.ParPost[indice].sape = this.CA1.sape;
+              this.ParPost.splice(indice, 1, this.ParPost[indice]);
+            }
+          }else if(this.CA1.embarazo==="NO"){
+            //ELIMINO
+            // let iden = this.identificacionEditar;            
+            this.ParPost[indice].estado = "Inactivo";
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+            // this.ParPost = this.ParPost.filter(function(men) {
+            //   return men.identificacion != iden;
+            // });            
+            // this.eliminarParpost(this.identificacionEditar,"INTE");
+          }
+        }else{
+          if(this.CA1.embarazo==="SI"){
+            //AGREGO
+            this.AParPost(this.CA1, edad, "INTE");
+          }
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De12A17[indice].tipo_id = this.CA1.tipo_id;
+          this.De12A17[indice].sexo = this.CA1.sexo;
+          this.De12A17[indice].identificacion = this.CA1.identificacion;
+          this.De12A17[indice].pnom = this.CA1.pnom;
+          this.De12A17[indice].snom = this.CA1.snom;
+          this.De12A17[indice].pape = this.CA1.pape;
+          this.De12A17[indice].sape = this.CA1.sape;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De18A28[indice].tipo_id = this.CA1.tipo_id;
+          this.De18A28[indice].sexo = this.CA1.sexo;
+          this.De18A28[indice].identificacion = this.CA1.identificacion;
+          this.De18A28[indice].pnom = this.CA1.pnom;
+          this.De18A28[indice].snom = this.CA1.snom;
+          this.De18A28[indice].pape = this.CA1.pape;
+          this.De18A28[indice].sape = this.CA1.sape;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De29A59[indice].tipo_id = this.CA1.tipo_id;
+          this.De29A59[indice].sexo = this.CA1.sexo;
+          this.De29A59[indice].identificacion = this.CA1.identificacion;
+          this.De29A59[indice].pnom = this.CA1.pnom;
+          this.De29A59[indice].snom = this.CA1.snom;
+          this.De29A59[indice].pape = this.CA1.pape;
+          this.De29A59[indice].sape = this.CA1.sape;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.De60.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.De60[indice].tipo_id = this.CA1.tipo_id;
+          this.De60[indice].sexo = this.CA1.sexo;
+          this.De60[indice].identificacion = this.CA1.identificacion;
+          this.De60[indice].pnom = this.CA1.pnom;
+          this.De60[indice].snom = this.CA1.snom;
+          this.De60[indice].pape = this.CA1.pape;
+          this.De60[indice].sape = this.CA1.sape;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.EnCro.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.EnCro[indice].tipo_id = this.CA1.tipo_id;
+          this.EnCro[indice].sexo = this.CA1.sexo;
+          this.EnCro[indice].identificacion = this.CA1.identificacion;
+          this.EnCro[indice].pnom = this.CA1.pnom;
+          this.EnCro[indice].snom = this.CA1.snom;
+          this.EnCro[indice].pape = this.CA1.pape;
+          this.EnCro[indice].sape = this.CA1.sape;
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }        
+
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.EnInf.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.EnInf[indice].tipo_id = this.CA1.tipo_id;
+          this.EnInf[indice].sexo = this.CA1.sexo;
+          this.EnInf[indice].identificacion = this.CA1.identificacion;
+          this.EnInf[indice].pnom = this.CA1.pnom;
+          this.EnInf[indice].snom = this.CA1.snom;
+          this.EnInf[indice].pape = this.CA1.pape;
+          this.EnInf[indice].sape = this.CA1.sape;
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+        indice = this.Migra.findIndex(identi => identi.identificacion === id);
+        if (indice >= 0) {
+          this.Migra[indice].tipo_id = this.CA1.tipo_id;
+          this.Migra[indice].sexo = this.CA1.sexo;
+          this.Migra[indice].identificacion = this.CA1.identificacion;
+          this.Migra[indice].pnom = this.CA1.pnom;
+          this.Migra[indice].snom = this.CA1.snom;
+          this.Migra[indice].pape = this.CA1.pape;
+          this.Migra[indice].sape = this.CA1.sape;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+        this.datos[this.indiceEditInte].id = this.CA1.id;
+        this.datos[this.indiceEditInte].tipo_id = this.CA1.tipo_id;
+        this.datos[this.indiceEditInte].identificacion = this.CA1.identificacion;
+        this.datos[this.indiceEditInte].sexo = this.CA1.sexo;
+        this.datos[this.indiceEditInte].parentesco = this.CA1.parentesco;
+        this.datos[this.indiceEditInte].textoParentesco = this.showText(this.CA1.parentesco,this.parentesco_options);
+        this.datos[this.indiceEditInte].pnom = this.CA1.pnom;
+        this.datos[this.indiceEditInte].snom = this.CA1.snom;
+        this.datos[this.indiceEditInte].pape = this.CA1.pape;
+        this.datos[this.indiceEditInte].sape = this.CA1.sape;
+        this.datos[this.indiceEditInte].estado_civil = this.CA1.estado_civil;
+        this.datos[this.indiceEditInte].textoEstado = this.showText(this.CA1.estado_civil,this.estado_options);
+        this.datos[this.indiceEditInte].fecha_nac = this.CA1.fecha_nac;
+        this.datos[this.indiceEditInte].edad = this.CA1.edad;
+        this.datos[this.indiceEditInte].puntaje_sisben = this.CA1.puntaje_sisben;
+        this.datos[this.indiceEditInte].afi_entidad = this.CA1.afi_entidad;
+        this.datos[this.indiceEditInte].textoEps = textoEps;
+        this.datos[this.indiceEditInte].otra_eps = this.CA1.otra_eps;
+        this.datos[this.indiceEditInte].tipo_afiliacion = this.CA1.tipo_afiliacion;
+        this.datos[this.indiceEditInte].embarazo = this.CA1.embarazo;
+        this.datos[this.indiceEditInte].embarazo_multiple = this.CA1.embarazo_multiple;
+        this.datos[this.indiceEditInte].discapacidad = this.CA1.discapacidad;
+        this.datos[this.indiceEditInte].escolaridad = this.CA1.escolaridad;
+        this.datos[this.indiceEditInte].textoEscolaridad = this.showText(this.CA1.escolaridad,this.escolaridad_options);
+        this.datos[this.indiceEditInte].ocupacion = this.CA1.ocupacion;
+        this.datos[this.indiceEditInte].textoOcupacion = this.showText(this.CA1.ocupacion,this.ocupacion_options);
+        this.datos[this.indiceEditInte].colegio = this.CA1.colegio;
+        this.datos[this.indiceEditInte].textoColegio = this.showText(this.CA1.colegio,this.colegio_options);
+        this.datos[this.indiceEditInte].grado = this.CA1.grado;
+        this.datos[this.indiceEditInte].entiende = this.CA1.entiende;
+        this.datos[this.indiceEditInte].migrante = this.CA1.migrante;
+        this.datos[this.indiceEditInte].pyp = this.CA1.pyp;
+        this.datos[this.indiceEditInte].etnia = this.CA1.etnia;
+        this.datos[this.indiceEditInte].textoEtnia = this.showText(this.CA1.etnia, this.etnia_options);
+        this.datos[this.indiceEditInte].clasificacion = this.CA1.clasificacion;
+        this.datos[this.indiceEditInte].textoClasificacion = this.showText2(this.CA1.clasificacion,this.clasifi_options,this.CA1.etnia);
+        this.datos[this.indiceEditInte].id_hogar = this.CA1.id_hogar;
+        this.datos[this.indiceEditInte].jefe = this.CA1.jefe;
+        this.datos[this.indiceEditInte].orientacion = this.CA1.orientacion;
+        this.datos[this.indiceEditInte].identidad_genero = this.CA1.identidad_genero;
+        this.datos[this.indiceEditInte].telefono = this.CA1.telefono;
+        this.datos[this.indiceEditInte].perdida_peso = this.CA1.perdida_peso;
+        this.datos[this.indiceEditInte].programa_icbf = this.CA1.programa_icbf;
+        this.datos[this.indiceEditInte].excepciones = this.CA1.excepciones;
+        this.datos[this.indiceEditInte].textoExcepciones = this.showText(this.CA1.excepciones, this.opciones7);
+        this.datos[this.indiceEditInte].meses = this.CA1.meses;
+        this.datos[this.indiceEditInte].dias = this.CA1.dias;                    
+        this.datos[this.indiceEditInte].ocupacionAuxiliar = this.CA1.textoOcupacion2;        
+        this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
+        this.CancelarEditarInte();        
+      },                        
       //OPCIONES DE LOS INTEGRANTES
 
+      //VALIDACIONES DE IDENTIFICACION
+      valJef1() {
+        for (let i = 0; i < this.datosJefe.length; i++) {
+          if (this.datosJefe[i].tipo_id === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione un <b>tipo de identificación</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].identificacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite una <b>identificación</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].pnom === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>primer nombre</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].pape === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>primer apellido</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].sexo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>sexo</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].orientacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Orientación Sexual</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].identidad_genero === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Identidad de Genero</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }          
+          if (this.datosJefe[i].parentesco === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>parentesco</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].estado_civil === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>estado civil</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].fecha_nacimiento === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].afiliacion_entidad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>eps</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].tipo_afiliacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>tipo de afiliación</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].nivel_escolaridad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].ocupacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>ocupación</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].etnia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>etnia</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].clasificacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].salario === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>salario</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].perdida_peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].programa_icbf === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }                                  
+          // VERIFICAR SI ESTA EN LA TABLA
+          let resultado = this.buscarIguales(
+            this.datosJefe,
+            this.datosJefe[i].identificacion
+          );
+          // VERIFICAR SI ESTA EN LA TABLA
+          if (resultado > 1) {
+            this.$swal(
+              "Validar...!",
+              "El Documento <b>" +
+                this.datosJefe[i].identificacion +
+                "</b> De La Fila <b>" +
+                (i + 1) +
+                "</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar",
+              "warning"
+            );
+            return false;
+          }
+        }
+        return true;
+      },
+      buscarIguales(vector, busqueda) {
+        let contador = 0;
+        for (let i = 0; i < vector.length; i++) {
+          if (vector[i].identificacion === busqueda) {
+            contador++;
+          }
+        }
+        return contador;
+      },
+      valJef2: async function() {
+        for (let i = 0; i < this.datosJefe.length; i++) {
+          const parametros = {
+            _token: this.csrf,
+            identificacion: this.datosJefe[i].identificacion
+          };
+          try {
+            await caracterizacionServicios
+              .validarJefe(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "EXISTE") {
+                  this.vectorAyuda.push({
+                    identificacion: respuesta.data.identificacion,
+                    fila: i + 1,
+                    error: "ERROR1"
+                  });
+                  return false;
+                } else {
+                }
+              })
+              .catch(error => {});
+          } catch (error) {}
+        }
+      },
+      valInt1() {
+        for (let i = 0; i < this.datos.length; i++) {
+          if (this.datos[i].tipo_id === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione un <b>tipo de identificación</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].identificacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite una <b>identificación</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].pnom === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>primer nombre</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].pape === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>primer apellido</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].sexo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>sexo</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].orientacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Orientación Sexual</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].identidad_genero === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Identidad de Genero</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }          
+          if (this.datos[i].parentesco === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>parentesco</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].estado_civil === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>estado civil</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].fecha_nac === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].afi_entidad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>eps</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].tipo_afiliacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>tipo de afiliación</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].escolaridad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].ocupacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>ocupación</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].etnia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>etnia</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].clasificacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].jefe === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>jefe de hogar</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].perdida_peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].programa_icbf === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].excepciones === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>excepciones</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }          
+                                            
+          // VERIFICAR SI ESTA EN LA TABLA
+          let resultado = this.buscarIguales(
+            this.datos,
+            this.datos[i].identificacion
+          );
+          // VERIFICAR SI ESTA EN LA TABLA
+          if (resultado > 1) {
+            this.$swal(
+              "Validar...!",
+              "El Documento <b>" +
+                this.datos[i].identificacion +
+                "</b> De La Fila <b>" +
+                (i + 1) +
+                "</b>  Se Encuentra Agregado En La Tabla de Integrantes",
+              "warning"
+            );
+            // item.identificacion="";
+            return false;
+          }
+        }
+        return true;
+      },
+      valInt2: async function() {
+        for (let i = 0; i < this.datos.length; i++) {
+          const parametros = {
+            _token: this.csrf,
+            identificacion: this.datos[i].identificacion
+          };
+          try {
+            await caracterizacionServicios
+              .validar(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "EXISTE") {
+                  this.vectorAyuda.push({
+                    identificacion: respuesta.data.identificacion,
+                    fila: i + 1,
+                    error: "ERROR1"
+                  });
+                  return false;
+                } else {
+                }
+              })
+              .catch(error => {});
+          } catch (error) {}
+        }
+      },
+      valFactores() {
+        for (let i = 0; i < this.factores.length; i++) {
+          if (this.factores[i].dialogos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Dialogos</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].sancion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Sanción ó Supresión</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].castigo_verbal === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Castigo Verbal</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].castigo_fisico === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Castigo Fisico</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].alcohol === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Alcohol</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].tabaco === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Tabaco</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].sustancias_psico === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Sustancias Psicoactivas</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].apuestas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Apuestas</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].violencia_fisica === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Violencia Fisica</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].violencia_psico === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Violencia Psicologica</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].violencia_economica === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Violencia Economica</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].abuso_sexual === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Abuso Sexual</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].actividad_fisica === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Actividad Fisica</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].consumo_frutas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Consumo de Frutas y Verduras</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].religiosos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Religiosos</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].sociales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Sociales</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].culturales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Culturales</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }
+          if (this.factores[i].recreativos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Recreativos</b> en la fila " +
+                (i + 1) +
+                " de la tabla factores de riesgo y protectores de la familia",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                                                                                                                                                                                      
+        }
+        return true;
+      },
+      //VALIDACIONES DE IDENTIFICACION
+
+      //VALIDACIONES DE LOS CICLOS
+      valMen1() {
+        for (let i = 0; i < this.Men1A.length; i++) {
+          if (this.Men1A[i].lugar_nacimiento === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>lugar de nacimiento</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].hemoclasificacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>hemoclasificacion</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].compli_parto === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>complicaciones en el parto</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].via_parto === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>via del parto</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].cyc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>control de CyC</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].valoracion_23 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>valoración integral de 2 a 3 meses</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].valoracion_68 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>valoración integral de 6 a 8 meses</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].valoracion_911 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>valoración integral de 9 a 11 meses</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].lactancia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>lactancia exclusiva</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].peso_nacer === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>peso al nacer</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].peso_actual === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>peso actual</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].longitud_nacer === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>longitud al nacer</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].longitud_actual === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>longitud actual</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].longitud_actual === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>longitud actual</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].cinta === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción<b> P. Cefalico </b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].pb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción<b> PB </b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }          
+          if (this.Men1A[i].edemas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>edemas</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].lenguaje === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la valoración del desarrollo el <b>lenguaje</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].motora === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la valoración del desarrollo la opcion <b>motora</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].conducta === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la valoración del desarrollo la <b>conducta</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].visuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si tiene problemas <b>visuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].auditivos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si tiene problemas <b>auditivos</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].carnet === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene <b>CARNET(PAI)</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].bcg === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>BCG</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].hepb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>HEP-B</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].polio === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>POLIO</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].pentavalente === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la vacunación si tiene la vacuna <b>PENTAVALENTE</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].maltrato === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si sufre de <b>maltrato</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].morbilidad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>morbilidad</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }
+          if (this.Men1A[i].tsh === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>TSH</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) menores de 1 año",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                    
+        }
+        return true;
+      },
+      valDe1A5(){
+        for (let i = 0; i < this.De1A5.length; i++) {
+          if (this.De1A5[i].beneficiario === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Beneficiario de un Programa</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].cyc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Control de CyC</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].valoracion_1823 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la Valoración Integral <b>18-23 meses</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].valoracion_3035 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la Valoración Integral <b>30-35 meses</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].valoracion_4 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la Valoración Integral <b>4 años</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional el <b>peso</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional la <b>talla</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].imc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional el <b>IMC</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].pb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional el <b>P.B</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].pt === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional el <b>P/T</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].te === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional el <b>T/E</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].pcefalico === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en la Valoración Nutricional el <b>Perimetro Cefálico</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }                    
+          if (this.De1A5[i].lenguaje === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la Valoración Del Desarrollo el <b>Lenguaje</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].motora === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la Valoración Del Desarrollo <b>Motora</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].conducta === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de la Valoración Del Desarrollo La <b>Conducta</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].visuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Problemas Los <b>Visuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].auditivos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Problemas Los <b>Auditivos</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].caries === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Salud Oral Las <b>Caries</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].nocepillado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite en Salud Oral El <b>No. Cepillado Dia</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].consultaodon === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Salud Oral La <b>Consulta Odontologica</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].carnet === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación el <b>Carnet (PAI)</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].bcg === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación el <b>BCG</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].polio === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación el <b>POLIO</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].dpt === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación el <b>DPT</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].fiebrea === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación la <b>Fiebre Amarilla</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].tripleviral === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación la <b>Triple Viral</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].pentavalente === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de Vacunación la <b>Pentavalente</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }          
+          
+          if (this.De1A5[i].desparacitado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Desparacitado</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].maltrato === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione las <b> Señales de Maltrato</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].enfermedad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b> Enfermedad</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De1A5[i].medicamento === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b> Medicamento</b> en la fila " +
+                (i + 1) +
+                " de la tabla primera infancia, niños(as) de 1 a 5 años",
+              "error"
+            );
+            return false;
+          }                                                           
+        }
+        return true;
+      },
+      valDe6A11(){
+        for (let i = 0; i < this.De6A11.length; i++) {
+          if (this.De6A11[i].cyc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Control de CyC</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].atencion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Atencion Por</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>Peso</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>Talla</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].imc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>IMC/E</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].pb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>P.B</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          // if (this.De6A11[i].pt === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor digite el <b>P/T</b> en la fila " +
+          //       (i + 1) +
+          //       " de la tabla infancia, niños(as) de 6 a 11 años",
+          //     "error"
+          //   );
+          //   return false;
+          // }
+          if (this.De6A11[i].te === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>T/E</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].conducta === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de problemas la <b>Conducta</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].visuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de problemas <b>Visuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].auditivos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de problemas <b>Auditivos</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].dientes_sanos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de salud oral <b>Dientes Sanos</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].consultaodon === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de salud oral la <b>Consulta Odontologica</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].nofluor === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de salud oral el <b>No. Aplicacion Fluor</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].nocepillado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione de salud oral el <b>No. Cepillado Dia</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].maltrato === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Señales Maltrato ó Abuso</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].sustanciaspsico === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Sustancias Psicoactivas</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].desparacitado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Desparacitado</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].enfermedad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Enfermedad</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].medicamento === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Medicamento</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].padre === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione Relación Familiar <b>Padre</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].madre === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione Relación Familiar <b>Madre</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De6A11[i].hermanos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione Relación Familiar <b>Hermanos</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                                                     
+          if (this.De6A11[i].conyuge === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione Relación Familiar <b>Conyuge</b> en la fila " +
+                (i + 1) +
+                " de la tabla infancia, niños(as) de 6 a 11 años",
+              "error"
+            );
+            return false;
+          }          
+        }
+        return true;
+      },
+      valDe10A59(){
+        for (let i = 0; i < this.De10A59.length; i++) {
+          if (this.De10A59[i].primera_mes === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Edad Primera Mestruación</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].flujo_vaginal === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Flujo Vaginal</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].flujo_uretral === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Flujo Uretral</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].relaciones_sexuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Relaciones Sexuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].compa_sexuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>No. Compañeros Sexuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].usa_condon === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Usa Condon</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].abortos_seis === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Abortos Antes de 6 Meses</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].embarazo_adolecentes === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Embarazo en Adolecentes</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].metodo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Metodo</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].tiempo_metodo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>Tiempo de Metodo</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].controles === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Controles Ultimo Año</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].motivo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione en No Planifica el <b>Motivo</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].citologia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Citologia Cervico Vaginal</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].colposcopia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Colposcopia</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].examen_seno === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Examen de seno</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].violencia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Violencia Intrafamiliar</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].tdit === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione en Vacunación la <b>TD/IT</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].tripleviral === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione en Vacunación la <b>Triple Viral</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].nacidos_vivos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite los <b>Hijos Nacidos Vivos</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].abortos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Abortos</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].examen_prostata === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Examen de Prostata</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De10A59[i].biposia_prostata === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione <b>Biposia de Prostata</b> en la fila " +
+                (i + 1) +
+                " de la tabla salud sexual y reproductiva de 10 a 59 años",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                                            
+        }
+        return true;
+      },
+      valParPost(){
+        for (let i = 0; i < this.ParPost.length; i++) {
+          if (this.ParPost[i].aceptacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Aceptación del Embarazo</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].control_prenatal === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Control Prenatal</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].atencion_parto === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Atención del Parto</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].carnet === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Carnet de Control Prenatal</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].fecha_ultima === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Fecha Ultima Mestruación</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].fecha_probable === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la <b>Fecha Probable Parto</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>Peso</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>Talla</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].imc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>IMC</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].semanas_ges === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite las <b>Semanas de Gestación</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].num_controles === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>No. Controles Prenatales</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].vih === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Vih</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].toxoplasma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>Toxoplasma</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].vdrl === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el <b>V.D.R.L</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].odontologia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Odontologia</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].vacunaciontdit === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Vacunación TD/IT</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          // if (this.ParPost[i].fecha_ultimo_parto === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor seleccione la opción <b>Fecha Ultimo Parto</b> en la fila " +
+          //       (i + 1) +
+          //       " de la gestión de parto y postparto",
+          //     "error"
+          //   );
+          //   return false;
+          // }
+          if (this.ParPost[i].suplementacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Suplementación con Hierro</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].enfermedades_cronicas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Enfermedades Cronicas</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].sedentarismo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Sedentarismo</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].fuma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Fuma</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                                  
+          if (this.ParPost[i].consumo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Consumo SPA</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].bebidas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Consume Bebidas Alcoholicas</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].tipo_parto === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Tipo de Parto</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].atencion_institucional === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Atención Institucional</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].cc18 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Consulta de Control 8 Dias</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].morgestacion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Gestación</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].morparto === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Parto</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }
+          if (this.ParPost[i].morposparto === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Postparto</b> en la fila " +
+                (i + 1) +
+                " de la gestión de parto y postparto",
+              "error"
+            );
+            return false;
+          }                                                                              
+        }
+        return true;
+      },
+      valDe12A17(){
+        for (let i = 0; i < this.De12A17.length; i++) {
+          if (this.De12A17[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>Peso</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>Talla</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].imc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>IMC</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].pb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>PB</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].visuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Visuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].auditivos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Auditivos</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].conducta === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>De Conducta</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].enfermedades_cronicas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Enfermedad Cronica</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].dientes_sanos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Dientes Sanos</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].consultaodon === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Consulta Odontologica</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].nocepillado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>No. Cepillado Dia</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].maltrato === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Señales de Maltrato</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].alcohol === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Alcohol</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].fuma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Fuma</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].spa === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>SPA</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].desparacitado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Desparacitado</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].empleo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Empleo</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].religion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Religión</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].queesvih === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es VIH</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].queescancerutero === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es Cancer de Utero</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].queespapiloma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es el Papiloma</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].queescancerseno === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es el Cancer de Seno</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].padre === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Padre</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].madre === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Madre</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].hermanos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Hermanos</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De12A17[i].conyuge === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Conyuge</b> en la fila " +
+                (i + 1) +
+                " de la tabla adolescentes de 12 a 17 años",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                                                                                 
+        }
+        return true;
+      },
+      valDe18A28(){
+        for (let i = 0; i < this.De18A28.length; i++) { 
+          if (this.De18A28[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>Peso</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>Talla</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].imc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>IMC</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].pcintura === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>P. Cintura</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }          
+          if (this.De18A28[i].pb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>PB</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].visuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Visuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].auditivos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Auditivos</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].conducta === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>De Conducta</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].enfermedades_cronicas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Enfermedad Cronica</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].dientes_sanos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Dientes Sanos</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].consultaodon === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Consulta Odontologica</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].nocepillado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>No. Cepillado Dia</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].maltrato === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Señales de Maltrato</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].alcohol === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Alcohol</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].fuma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Fuma</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].spa === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>SPA</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].desparacitado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Desparacitado</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].empleo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Empleo</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].religion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Religión</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].queesvih === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es VIH</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].queescancerutero === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es Cancer de Utero</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De18A28[i].queespapiloma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es el Papiloma</b> en la fila " +
+                (i + 1) +
+                " de la tabla juventud, jovenes de 18 a 28 años",
+              "error"
+            );
+            return false;
+          }          
+        }
+        return true;
+      },
+      valDe29A59(){
+        for (let i = 0; i < this.De29A59.length; i++) { 
+          if (this.De29A59[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>Peso</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>Talla</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].imc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>IMC</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].pcintura === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>P. Cintura</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }          
+          if (this.De29A59[i].pb === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>PB</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].visuales === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Visuales</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].auditivos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Auditivos</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].conducta === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>De Conducta</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].enfermedades_cronicas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Enfermedad Cronica</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].dientes_sanos === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Dientes Sanos</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].consultaodon === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Consulta Odontologica</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].nocepillado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>No. Cepillado Dia</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].maltrato === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Señales de Maltrato</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].alcohol === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Alcohol</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].fuma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Fuma</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].spa === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>SPA</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].desparacitado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Desparacitado</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].empleo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Empleo</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].examen_prostata === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Examen de Prostata</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].citologia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Citologias</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].examen_mama === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Examen de MAMA</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }                              
+          if (this.De29A59[i].religion === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Religión</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].queesvih === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es VIH</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].queescancerutero === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es Cancer de Utero</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }
+          if (this.De29A59[i].queespapiloma === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sabe que es el Papiloma</b> en la fila " +
+                (i + 1) +
+                " de la tabla hombres y mujeres de 29 a 59 años",
+              "error"
+            );
+            return false;
+          }          
+        }
+        return true;
+      },
+      valDe60(){
+        for (let i = 0; i < this.De60.length; i++) { 
+          if (this.De60[i].grupo_ayudas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Grupo de Ayudas</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>Peso</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>Talla</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].imc === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>IMC</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].pa === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>PA</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          // if (this.De60[i].glicemia === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor seleccione la opcion <b>Glicemia</b> en la fila " +
+          //       (i + 1) +
+          //       " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+          //     "error"
+          //   );
+          //   return false;
+          // }
+          if (this.De60[i].cigarrillo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Cigarrillo ó Tabaco</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].alcohol === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Consumo de Alcohol</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].actividad_fisica === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Actividad Fisica Recreativa</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].sintomatico === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Sintomático Respiratorio</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].examen_seno === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Examen de Seno</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].citologia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Citologia Cervico Vaginal</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].colposcopia === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Colposcopia</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].examen_prostata === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Examen de Prostata</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].biposia_prostata === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Biposia de Prostata</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].agudeza_visual === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Examen de Agudeza Visual</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].subsidio === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Subsidio de Entidad del Estado</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].enfermedades_cronicas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Enfermedades Cronicas</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].enfermedades_infecciosas === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Enfermedades Infecciosas</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }
+          if (this.De60[i].empleo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Empleo</b> en la fila " +
+                (i + 1) +
+                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                      
+        }
+        return true;
+      },
+      valEnCro(){
+        for (let i = 0; i < this.EnCro.length; i++) { 
+          if (this.EnCro[i].enfermedad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades cronicas",
+              "error"
+            );
+            return false;
+          }
+          if (this.EnCro[i].tiempo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades cronicas",
+              "error"
+            );
+            return false;
+          }
+          if (this.EnCro[i].tratamiento === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades cronicas",
+              "error"
+            );
+            return false;
+          }
+          if (this.EnCro[i].complicaciones === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>Complicaciones</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades cronicas",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                     
+        } 
+        return true;      
+      },
+      valEnInf(){
+        for (let i = 0; i < this.EnInf.length; i++) { 
+          if (this.EnInf[i].enfermedad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades infecciosas",
+              "error"
+            );
+            return false;
+          }
+          if (this.EnInf[i].tiempo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades infecciosas",
+              "error"
+            );
+            return false;
+          }
+          if (this.EnInf[i].tratamiento === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades infecciosas",
+              "error"
+            );
+            return false;
+          }
+          if (this.EnInf[i].complicaciones === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opcion <b>Complicaciones</b> en la fila " +
+                (i + 1) +
+                " de la tabla enfermedades infecciosas",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                     
+        } 
+        return true;         
+      },
+      valMigra(){
+        for (let i = 0; i < this.Migra.length; i++) { 
+          if (this.Migra[i].pais === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opción <b>Pais de Origen</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrante",
+              "error"
+            );
+            return false;
+          }
+          if (this.Migra[i].registrado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Registrado Como Migrante</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.Migra[i].cuantollego === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Hace Cuanto Llego Al Pais</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.Migra[i].futuro === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>En el Futuro Usted Piensa</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.Migra[i].recibido === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Usted a Recibido Ayudas del Gobierno</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.Migra[i].necesidad === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opcion <b>Principal Necesidad en Estos Momnetos</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.Migra[i].dependen === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opción <b>Personas Que Dependen de Usted</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrante",
+              "error"
+            );
+            return false;
+          }
+          if (this.Migra[i].ingreso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la opción <b>Ingreso Mensual Actualmente</b> en la fila " +
+                (i + 1) +
+                " de la tabla migrante",
+              "error"
+            );
+            return false;
+          }                                      
+          
+        } 
+        return true;
+      },
+      //VALIDACIONES DE LOS CICLOS      
+
       //OPCIONES DE LA VIVIENDA
-      llenarVivienda(data){
-        this.viviendaData.id = data.vivienda[0].id;
-        this.viviendaData.id_hogar = data.vivienda[0].id_hogar;
-        this.viviendaData.tipo_vivienda = data.vivienda[0].tipo_vivienda;
-        this.viviendaData.tipo_estructura = data.vivienda[0].tipo_estructura;
-        this.viviendaData.otro_tipo_estructura = data.vivienda[0].otro_tipo_estructura;
-        this.viviendaData.numero_cuartos = data.vivienda[0].numero_cuartos;
-        this.viviendaData.personas_por_cuartos = data.vivienda[0].personas_por_cuartos;
-        this.viviendaData.material_predominante = data.vivienda[0].material_predominante;
-        this.viviendaData.tipo_cubierta = data.vivienda[0].tipo_cubierta;
-        this.viviendaData.otro_tipo_cubierta = data.vivienda[0].otro_tipo_cubierta;
-        this.viviendaData.actividad_economica = data.vivienda[0].actividad_economica;
-        this.viviendaData.cual_actividad_economica = data.vivienda[0].cual_actividad_economica;
-        this.viviendaData.evento_afecta_vivienda = data.vivienda[0].evento_afecta_vivienda;
-        this.viviendaData.familias_accion = data.vivienda[0].familias_accion;
-        this.viviendaData.promedio_ingresos = data.vivienda[0].promedio_ingresos;
-        this.viviendaData.promedio_gastos = data.vivienda[0].promedio_gastos;
-        this.viviendaData.fuente_agua = data.vivienda[0].fuente_agua;
-        this.viviendaData.energia_electrica = data.vivienda[0].energia_electrica;
-        this.viviendaData.gas_natural = data.vivienda[0].gas_natural;
-        this.viviendaData.acueducto = data.vivienda[0].acueducto;
-        this.viviendaData.alcantarillado = data.vivienda[0].alcantarillado;
-        this.viviendaData.telefono_fijo = data.vivienda[0].telefono_fijo;
-        this.viviendaData.aseo = data.vivienda[0].aseo;
-        this.viviendaData.internet_subsidiado = data.vivienda[0].internet_subsidiado;
-        this.viviendaData.internet_privado = data.vivienda[0].internet_privado;
-        this.viviendaData.cual_fuente = data.vivienda[0].cual_fuente;
-        this.viviendaData.donde_almacena_agua = data.vivienda[0].donde_almacena_agua;
-        this.viviendaData.otro_almacena_agua = data.vivienda[0].otro_almacena_agua;
-        this.viviendaData.ubicacion_tanque = data.vivienda[0].ubicacion_tanque;
-        this.viviendaData.tipo_tratamiento_agua = data.vivienda[0].tipo_tratamiento_agua;
-        this.viviendaData.destino_final_basura = data.vivienda[0].destino_final_basura;
-        this.viviendaData.otro_destino_final_basura = data.vivienda[0].otro_destino_final_basura;
-        this.viviendaData.porquerizas = data.vivienda[0].porquerizas;
-        this.viviendaData.plagas = data.vivienda[0].plagas;
-        this.viviendaData.industrias = data.vivienda[0].industrias;
-        this.viviendaData.malos_olores = data.vivienda[0].malos_olores;
-        this.viviendaData.rellenos = data.vivienda[0].rellenos;
-        this.viviendaData.contaminacion_a = data.vivienda[0].contaminacion_a;
-        this.viviendaData.contaminacion_v = data.vivienda[0].contaminacion_v;
-        this.viviendaData.rio = data.vivienda[0].rio;
-        this.viviendaData.otro_cerca = data.vivienda[0].otro_cerca;
-        this.viviendaData.cual_cerca = data.vivienda[0].cual_cerca;
-        this.viviendaData.aereopuertos = data.vivienda[0].aereopuertos;
-        this.viviendaData.avenidas_transitadas = data.vivienda[0].avenidas_transitadas;
-        this.viviendaData.lotes_abandonados = data.vivienda[0].lotes_abandonados;
-        this.viviendaData.servicio_sanitario = data.vivienda[0].servicio_sanitario;
-        this.viviendaData.donde_sanitario = data.vivienda[0].donde_sanitario;
-        this.viviendaData.excretas = data.vivienda[0].excretas;
-        this.viviendaData.otro_depositan_excretas = data.vivienda[0].otro_depositan_excretas;
-        this.viviendaData.cocina = data.vivienda[0].cocina;
-        this.viviendaData.dormitorio_a = data.vivienda[0].dormitorio_a;
-        this.viviendaData.sala = data.vivienda[0].sala;
-        this.viviendaData.dormitorio_n = data.vivienda[0].dormitorio_n;
-        this.viviendaData.sanitario = data.vivienda[0].sanitario;
-        this.viviendaData.lavadero = data.vivienda[0].lavadero;
-        this.viviendaData.iluminacion_adecuada = data.vivienda[0].iluminacion_adecuada;
-        this.viviendaData.techo_adecuado = data.vivienda[0].techo_adecuado;
-        this.viviendaData.ventilacion_adecuada = data.vivienda[0].ventilacion_adecuada;
-        this.viviendaData.pisos_adecuado = data.vivienda[0].pisos_adecuado;
-        this.viviendaData.paredes_adecuadas = data.vivienda[0].paredes_adecuadas;
-        this.viviendaData.gasolina = data.vivienda[0].gasolina;
-        this.viviendaData.plaguicidas = data.vivienda[0].plaguicidas;
-        this.viviendaData.detergentes = data.vivienda[0].detergentes;
-        this.viviendaData.plaguicidas_insectos = data.vivienda[0].plaguicidas_insectos;
-        this.viviendaData.envases_vacios = data.vivienda[0].envases_vacios;
-        this.viviendaData.otro_envases_vacios = data.vivienda[0].otro_envases_vacios;
-        this.viviendaData.elementos_protecion = data.vivienda[0].elementos_protecion;
-        this.viviendaData.otro_elementos_protecion = data.vivienda[0].otro_elementos_protecion;
-        this.viviendaData.metodos_coccion = data.vivienda[0].metodos_coccion;
-        this.viviendaData.otro_metodos_coccion = data.vivienda[0].otro_metodos_coccion;
-        this.viviendaData.lugares_preparan_alimentos = data.vivienda[0].lugares_preparan_alimentos;
-        this.viviendaData.lugares_almacenan_alimentos = data.vivienda[0].lugares_almacenan_alimentos;
-        this.viviendaData.otro_lugares_almacenan_alimentos = data.vivienda[0].otro_lugares_almacenan_alimentos;
-        this.viviendaData.lava_frutas = data.vivienda[0].lava_frutas;
-        this.viviendaData.tipo_explotacion = data.vivienda[0].tipo_explotacion;
-        this.viviendaData.otro_tipo_explotacion = data.vivienda[0].otro_tipo_explotacion;
-        this.viviendaData.flora_afectados = data.vivienda[0].flora_afectados;
-        this.viviendaData.fauna_afectados = data.vivienda[0].fauna_afectados;
-        this.viviendaData.suelo_afectados = data.vivienda[0].suelo_afectados;
-        this.viviendaData.aire_afectados = data.vivienda[0].aire_afectados;
-        this.viviendaData.agua_afectados = data.vivienda[0].agua_afectados;
-        this.viviendaData.residuos_solidos_genera = data.vivienda[0].residuos_solidos_genera;
-        this.viviendaData.aguas_servidas_genera = data.vivienda[0].aguas_servidas_genera;
-        this.viviendaData.desechos_cocina_genera = data.vivienda[0].desechos_cocina_genera;
-        this.viviendaData.heces_animales_genera = data.vivienda[0].heces_animales_genera;
-        this.viviendaData.quimicos_genera = data.vivienda[0].quimicos_genera;
-        this.viviendaData.otros_genera = data.vivienda[0].otros_genera;
-        this.viviendaData.cual_genera = data.vivienda[0].cual_genera;
-        this.viviendaData.tipo_combustible = data.vivienda[0].tipo_combustible;
-        this.viviendaData.mantenimiento_red = data.vivienda[0].mantenimiento_red;
-        this.viviendaData.zona_alto_riesgo = data.vivienda[0].zona_alto_riesgo;
-        this.viviendaData.almacenamiento_residuos = data.vivienda[0].almacenamiento_residuos;
-        this.viviendaData.fuente_contaminacion = data.vivienda[0].fuente_contaminacion;
-        this.viviendaData.aguas_negras = data.vivienda[0].aguas_negras;
-        this.viviendaData.zonas_verdes = data.vivienda[0].zonas_verdes;
-        this.viviendaData.desplazamientos = data.vivienda[0].desplazamientos;
-        this.viviendaData.rotacion_cultivo = data.vivienda[0].rotacion_cultivo;
-        this.viviendaData.emplea_fertilizantes = data.vivienda[0].emplea_fertilizantes;
-        this.viviendaData.suministro_energia_ilegal = data.vivienda[0].suministro_energia_ilegal;
-        this.viviendaData.quema_cultivo = data.vivienda[0].quema_cultivo;
-        this.viviendaData.mantenimiento_preventivo = data.vivienda[0].mantenimiento_preventivo;
-        this.viviendaData.veces_inundaciones = data.vivienda[0].veces_inundaciones;
-        this.viviendaData.fachada = data.vivienda[0].fachada;
-        this.viviendaData.cuantos_baños = data.vivienda[0].cuantos_baños;
-        this.viviendaData.estado_conservacion_baños = data.vivienda[0].estado_conservacion_baños;
-        this.viviendaData.acabados_externos = data.vivienda[0].acabados_externos;
-        this.viviendaData.estado_conservacion_estructuras = data.vivienda[0].estado_conservacion_estructuras;
-        this.viviendaData.mobiliario_cocina = data.vivienda[0].mobiliario_cocina;
-        this.viviendaData.andenes = data.vivienda[0].andenes;
+      abrirModalActividades() {
+        this.txtbusquedaAct = "";
+        this.consultarActividades(1);
+        this.$refs.modalActividad.show();
+      },
+      async consultarActividades(pagina) {
+        const parametros = {
+          txtbusqueda: this.txtbusquedaAct.trim(),
+          _token: this.csrf,
+          page: pagina
+        };
+        try {
+          await actividadesServicios.listar(parametros).then(respuesta => {
+            this.actividadesVector = respuesta.data.actividades.data;
+          });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
+      seleccionarActividades(item) {
+        this.viviendaData.actividad_economica = item.id;
+        this.actividadesAuxiliar = item.descripcion;
+        this.$refs.modalActividad.hide();
+      },
+      llenarVivienda(data) {
+        // this.viviendaData.id = data.vivienda[0].id;
+        // this.viviendaData.id_hogar = data.vivienda[0].id_hogar;
+        // this.viviendaData.tipo_vivienda = data.vivienda[0].tipo_vivienda;
+        // this.viviendaData.tipo_estructura = data.vivienda[0].tipo_estructura;
+        // this.viviendaData.otro_tipo_estructura = data.vivienda[0].otro_tipo_estructura;
+        // this.viviendaData.numero_cuartos = data.vivienda[0].numero_cuartos;
+        // this.viviendaData.personas_por_cuartos = data.vivienda[0].personas_por_cuartos;
+        // this.viviendaData.material_predominante = data.vivienda[0].material_predominante;
+        // this.viviendaData.tipo_cubierta = data.vivienda[0].tipo_cubierta;
+        // this.viviendaData.otro_tipo_cubierta = data.vivienda[0].otro_tipo_cubierta;
+        // this.viviendaData.actividad_economica = data.vivienda[0].actividad_economica;
+        // this.viviendaData.cual_actividad_economica = data.vivienda[0].cual_actividad_economica;
+        // this.viviendaData.evento_afecta_vivienda = data.vivienda[0].evento_afecta_vivienda;
+        // this.viviendaData.familias_accion = data.vivienda[0].familias_accion;
+        // this.viviendaData.promedio_ingresos = data.vivienda[0].promedio_ingresos;
+        // this.viviendaData.promedio_gastos = data.vivienda[0].promedio_gastos;
+        // this.viviendaData.fuente_agua = data.vivienda[0].fuente_agua;
+        // this.viviendaData.energia_electrica = data.vivienda[0].energia_electrica;
+        // this.viviendaData.gas_natural = data.vivienda[0].gas_natural;
+        // this.viviendaData.acueducto = data.vivienda[0].acueducto;
+        // this.viviendaData.alcantarillado = data.vivienda[0].alcantarillado;
+        // this.viviendaData.telefono_fijo = data.vivienda[0].telefono_fijo;
+        // this.viviendaData.aseo = data.vivienda[0].aseo;
+        // this.viviendaData.internet_subsidiado = data.vivienda[0].internet_subsidiado;
+        // this.viviendaData.internet_privado = data.vivienda[0].internet_privado;
+        // this.viviendaData.cual_fuente = data.vivienda[0].cual_fuente;
+        // this.viviendaData.donde_almacena_agua = data.vivienda[0].donde_almacena_agua;
+        // this.viviendaData.otro_almacena_agua = data.vivienda[0].otro_almacena_agua;
+        // this.viviendaData.ubicacion_tanque = data.vivienda[0].ubicacion_tanque;
+        // this.viviendaData.tipo_tratamiento_agua = data.vivienda[0].tipo_tratamiento_agua;
+        // this.viviendaData.destino_final_basura = data.vivienda[0].destino_final_basura;
+        // this.viviendaData.otro_destino_final_basura = data.vivienda[0].otro_destino_final_basura;
+        // this.viviendaData.porquerizas = data.vivienda[0].porquerizas;
+        // this.viviendaData.plagas = data.vivienda[0].plagas;
+        // this.viviendaData.industrias = data.vivienda[0].industrias;
+        // this.viviendaData.malos_olores = data.vivienda[0].malos_olores;
+        // this.viviendaData.rellenos = data.vivienda[0].rellenos;
+        // this.viviendaData.contaminacion_a = data.vivienda[0].contaminacion_a;
+        // this.viviendaData.contaminacion_v = data.vivienda[0].contaminacion_v;
+        // this.viviendaData.rio = data.vivienda[0].rio;
+        // this.viviendaData.otro_cerca = data.vivienda[0].otro_cerca;
+        // this.viviendaData.cual_cerca = data.vivienda[0].cual_cerca;
+        // this.viviendaData.aereopuertos = data.vivienda[0].aereopuertos;
+        // this.viviendaData.avenidas_transitadas = data.vivienda[0].avenidas_transitadas;
+        // this.viviendaData.lotes_abandonados = data.vivienda[0].lotes_abandonados;
+        // this.viviendaData.servicio_sanitario = data.vivienda[0].servicio_sanitario;
+        // this.viviendaData.donde_sanitario = data.vivienda[0].donde_sanitario;
+        // this.viviendaData.excretas = data.vivienda[0].excretas;
+        // this.viviendaData.otro_depositan_excretas = data.vivienda[0].otro_depositan_excretas;
+        // this.viviendaData.cocina = data.vivienda[0].cocina;
+        // this.viviendaData.dormitorio_a = data.vivienda[0].dormitorio_a;
+        // this.viviendaData.sala = data.vivienda[0].sala;
+        // this.viviendaData.dormitorio_n = data.vivienda[0].dormitorio_n;
+        // this.viviendaData.sanitario = data.vivienda[0].sanitario;
+        // this.viviendaData.lavadero = data.vivienda[0].lavadero;
+        // this.viviendaData.iluminacion_adecuada = data.vivienda[0].iluminacion_adecuada;
+        // this.viviendaData.techo_adecuado = data.vivienda[0].techo_adecuado;
+        // this.viviendaData.ventilacion_adecuada = data.vivienda[0].ventilacion_adecuada;
+        // this.viviendaData.pisos_adecuado = data.vivienda[0].pisos_adecuado;
+        // this.viviendaData.paredes_adecuadas = data.vivienda[0].paredes_adecuadas;
+        // this.viviendaData.gasolina = data.vivienda[0].gasolina;
+        // this.viviendaData.plaguicidas = data.vivienda[0].plaguicidas;
+        // this.viviendaData.detergentes = data.vivienda[0].detergentes;
+        // this.viviendaData.plaguicidas_insectos = data.vivienda[0].plaguicidas_insectos;
+        // this.viviendaData.envases_vacios = data.vivienda[0].envases_vacios;
+        // this.viviendaData.otro_envases_vacios = data.vivienda[0].otro_envases_vacios;
+        // this.viviendaData.elementos_protecion = data.vivienda[0].elementos_protecion;
+        // this.viviendaData.otro_elementos_protecion = data.vivienda[0].otro_elementos_protecion;
+        // this.viviendaData.metodos_coccion = data.vivienda[0].metodos_coccion;
+        // this.viviendaData.otro_metodos_coccion = data.vivienda[0].otro_metodos_coccion;
+        // this.viviendaData.lugares_preparan_alimentos = data.vivienda[0].lugares_preparan_alimentos;
+        // this.viviendaData.lugares_almacenan_alimentos = data.vivienda[0].lugares_almacenan_alimentos;
+        // this.viviendaData.otro_lugares_almacenan_alimentos = data.vivienda[0].otro_lugares_almacenan_alimentos;
+        // this.viviendaData.lava_frutas = data.vivienda[0].lava_frutas;
+        // this.viviendaData.tipo_explotacion = data.vivienda[0].tipo_explotacion;
+        // this.viviendaData.otro_tipo_explotacion = data.vivienda[0].otro_tipo_explotacion;
+        // this.viviendaData.flora_afectados = data.vivienda[0].flora_afectados;
+        // this.viviendaData.fauna_afectados = data.vivienda[0].fauna_afectados;
+        // this.viviendaData.suelo_afectados = data.vivienda[0].suelo_afectados;
+        // this.viviendaData.aire_afectados = data.vivienda[0].aire_afectados;
+        // this.viviendaData.agua_afectados = data.vivienda[0].agua_afectados;
+        // this.viviendaData.residuos_solidos_genera = data.vivienda[0].residuos_solidos_genera;
+        // this.viviendaData.aguas_servidas_genera = data.vivienda[0].aguas_servidas_genera;
+        // this.viviendaData.desechos_cocina_genera = data.vivienda[0].desechos_cocina_genera;
+        // this.viviendaData.heces_animales_genera = data.vivienda[0].heces_animales_genera;
+        // this.viviendaData.quimicos_genera = data.vivienda[0].quimicos_genera;
+        // this.viviendaData.otros_genera = data.vivienda[0].otros_genera;
+        // this.viviendaData.cual_genera = data.vivienda[0].cual_genera;
+        // this.viviendaData.tipo_combustible = data.vivienda[0].tipo_combustible;
+        // this.viviendaData.mantenimiento_red = data.vivienda[0].mantenimiento_red;
+        // this.viviendaData.zona_alto_riesgo = data.vivienda[0].zona_alto_riesgo;
+        // this.viviendaData.almacenamiento_residuos = data.vivienda[0].almacenamiento_residuos;
+        // this.viviendaData.fuente_contaminacion = data.vivienda[0].fuente_contaminacion;
+        // this.viviendaData.aguas_negras = data.vivienda[0].aguas_negras;
+        // this.viviendaData.zonas_verdes = data.vivienda[0].zonas_verdes;
+        // this.viviendaData.desplazamientos = data.vivienda[0].desplazamientos;
+        // this.viviendaData.rotacion_cultivo = data.vivienda[0].rotacion_cultivo;
+        // this.viviendaData.emplea_fertilizantes = data.vivienda[0].emplea_fertilizantes;
+        // this.viviendaData.suministro_energia_ilegal = data.vivienda[0].suministro_energia_ilegal;
+        // this.viviendaData.quema_cultivo = data.vivienda[0].quema_cultivo;
+        // this.viviendaData.mantenimiento_preventivo = data.vivienda[0].mantenimiento_preventivo;
+        // this.viviendaData.veces_inundaciones = data.vivienda[0].veces_inundaciones;
+        // this.viviendaData.fachada = data.vivienda[0].fachada;
+        // this.viviendaData.cuantos_baños = data.vivienda[0].cuantos_baños;
+        // this.viviendaData.estado_conservacion_baños = data.vivienda[0].estado_conservacion_baños;
+        // this.viviendaData.acabados_externos = data.vivienda[0].acabados_externos;
+        // this.viviendaData.estado_conservacion_estructuras = data.vivienda[0].estado_conservacion_estructuras;
+        // this.viviendaData.mobiliario_cocina = data.vivienda[0].mobiliario_cocina;
+        // this.viviendaData.andenes = data.vivienda[0].andenes;
+      },
+      eliminarItemAnimales: function(index) {
+        this.animalesData.splice(index, 1);
+      },
+      eliminarItemEstratificacion: function(index) {
+        this.estratificacion.splice(index, 1);
+      },
+      agregarAnimales: function() {
+        if (this.animal === "") {
+          this.$swal("Error...!", "Por favor Digite Un Animal!", "error");
+          return;
+        }
+        if (this.vacunadoAnimal === "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Si El Animal Se Encuentra Vacunado!",
+            "error"
+          );
+          return;
+        }
+        if (this.cuantosAnimal === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Digite cuantos Animales Tiene!",
+            "error"
+          );
+          return;
+        }
+        if (!this.isNumeric(this.cuantosAnimal)) {
+          this.$swal(
+            "Error...!",
+            "Por favor Digite cuantos Animales Tiene!",
+            "error"
+          );
+          return;
+        }
+        this.animalesData.push({
+          id: 0,
+          animal: this.animal,
+          cuantos: this.cuantosAnimal,
+          vacunados: this.vacunadoAnimal
+        });
+        this.animal = "";
+        this.cuantosAnimal = "";
+        this.vacunadoAnimal = "0";
+      },
+      agregarEstratificacion: function() {
+        if (this.estratificacionData.cuenta_internet === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Si Cuenta ese Hogar con Internet!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.tiene_pc_escritorio === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Si Tiene computador de Escritorío!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.tiene_pc_portatil === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Si Tiene Computador Portatil!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.cuantos_celulares === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Cuantos celulares en uso hay en el Hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.tiene_equipo_sonido === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Si Tiene Equipo de sonido!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.cuantos_tv_color === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Cuantos Tv a Color!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.cuantos_vehiculos === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Cuantos Vehiculos de Uso exclusivo tiene el Hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.nivel_instruccion === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Cual es el nivel de Instrucción del jefe del Hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.afiliacion_salud_privada === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Si Alguien en el Hogar posee afiliación de salud Privada o contribituva, prepagada!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.ingresos_zona_rural === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Ingresos mensuales por Hogar zona rural!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.ingresos_ciudad === "") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione Ingresos mensuales por Hogar en Ciudad!",
+            "error"
+          );
+          return;
+        }
+        if (this.estratificacionData.id_jefe === "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor Seleccione El Jefe del Hogar!",
+            "error"
+          );
+          return;
+        }
+
+        this.estratificacion.push({
+          id: 0,
+          id_hogar: 0,
+          cuenta_internet: this.estratificacionData.cuenta_internet,
+          tiene_pc_escritorio: this.estratificacionData.tiene_pc_escritorio,
+          tiene_pc_portatil: this.estratificacionData.tiene_pc_portatil,
+          cuantos_celulares: this.estratificacionData.cuantos_celulares,
+          tiene_equipo_sonido: this.estratificacionData.tiene_equipo_sonido,
+          cuantos_tv_color: this.estratificacionData.cuantos_tv_color,
+          cuantos_vehiculos: this.estratificacionData.cuantos_vehiculos,
+          nivel_instruccion: this.estratificacionData.nivel_instruccion,
+          afiliacion_salud_privada: this.estratificacionData
+            .afiliacion_salud_privada,
+          ingresos_zona_rural: this.estratificacionData.ingresos_zona_rural,
+          ingresos_ciudad: this.estratificacionData.ingresos_ciudad,
+          id_jefe: this.estratificacionData.id_jefe,
+          texto_cuantos_celulares: this.showText(
+            this.estratificacionData.cuantos_celulares,
+            this.opciones1
+          ),
+          texto_cuantos_tv_color: this.showText(
+            this.estratificacionData.cuantos_tv_color,
+            this.opciones2
+          ),
+          texto_cuantos_vehiculos: this.showText(
+            this.estratificacionData.cuantos_vehiculos,
+            this.opciones3
+          ),
+          texto_nivel_instruccion: this.showText(
+            this.estratificacionData.nivel_instruccion,
+            this.opciones4
+          ),
+          texto_ingresos_zona_rural: this.showText(
+            this.estratificacionData.ingresos_zona_rural,
+            this.opciones5
+          ),
+          texto_ingresos_ciudad: this.showText(
+            this.estratificacionData.ingresos_ciudad,
+            this.opciones6
+          )
+        });
+        this.estratificacionData.cuenta_internet = "";
+        this.estratificacionData.tiene_pc_escritorio = "";
+        this.estratificacionData.tiene_pc_portatil = "";
+        this.estratificacionData.cuantos_celulares = "";
+        this.estratificacionData.tiene_equipo_sonido = "";
+        this.estratificacionData.cuantos_tv_color = "";
+        this.estratificacionData.cuantos_vehiculos = "";
+        this.estratificacionData.nivel_instruccion = "";
+        if (this.SAPU === true) {
+          this.estratificacionData.afiliacion_salud_privada = "SI";
+        } else {
+          this.estratificacionData.afiliacion_salud_privada = "";
+        }
+        // this.estratificacionData.ingresos_zona_rural = "";
+        // this.estratificacionData.ingresos_ciudad = "";
+        this.estratificacionData.id_jefe = "0";
       },
       //OPCIONES DE LA VIVIENDA
 
       //OPCIONES DE LOS CICLOS DE VIDA
-      Ade10a59Anio(vector, edad) {
-        let opcion = "";
-        if (vector.id === "JEFE") {
-          opcion = "JEFE";
-        } else {
-          opcion = "INTE";
+      Amenores1Anio(vector,meses, opcion) {
+        let pb="";
+        if(meses>=3){
+          pb="";
+        }else{
+          pb="No Aplica";
         }
+        this.Men1A.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          lugar_nacimiento: "",
+          hemoclasificacion: "",
+          compli_parto: "",
+          via_parto: "",
+          cyc: "",
+          valoracion_23: "",
+          valoracion_68: "",
+          valoracion_911: "",
+          lactancia: "",
+          peso_nacer: "",
+          peso_actual: "",
+          longitud_nacer: "",
+          longitud_actual: "",
+          peso_long: "",
+          cinta: "",
+          edemas: "",
+          lenguaje: "",
+          motora: "",
+          conducta: "",
+          visuales: "",
+          auditivos: "",
+          carnet: "",
+          bcg: "",
+          hepb: "",
+          polio: "",
+          pentavalente: "",
+          maltrato: "",
+          morbilidad: "",
+          tsh: "",
+          opci: opcion,
+          pb: pb,
+          estado: "Activo"
+        });
+      },
+      changeupdateMenA1(item, event, opcion) {
+        if (opcion === "peso_nacer") {
+          item.peso_nacer = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "peso_actual") {
+          item.peso_actual = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "longitud_nacer") {
+          item.longitud_nacer = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "longitud_actual") {
+          item.longitud_actual = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "peso_long") {
+          item.peso_long = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "cinta") {
+          item.cinta = event.target.value.replace(/[^.\d]/g, "").trim();
+        }        
+      },
+      updateMenA1(item, valor, opcion) {
+        if (opcion === "hemoclasificacion") {
+          item.hemoclasificacion = valor;
+        }
+        if (opcion === "lugar_nacimiento") {
+          item.lugar_nacimiento = valor;
+        }
+        if (opcion === "compli_parto") {
+          item.compli_parto = valor;
+        }
+        if (opcion === "via_parto") {
+          item.via_parto = valor;
+        }
+        if (opcion === "cyc") {
+          item.cyc = valor;
+        }
+        if (opcion === "valoracion_23") {
+          item.valoracion_23 = valor;
+        }
+        if (opcion === "valoracion_68") {
+          item.valoracion_68 = valor;
+        }
+        if (opcion === "valoracion_911") {
+          item.valoracion_911 = valor;
+        }
+        if (opcion === "lactancia") {
+          item.lactancia = valor;
+        }
+        // if (opcion === "cinta") {
+        //   item.cinta = valor;
+        // }
+        if (opcion === "edemas") {
+          item.edemas = valor;
+        }
+        if (opcion === "lenguaje") {
+          item.lenguaje = valor;
+        }
+        if (opcion === "motora") {
+          item.motora = valor;
+        }
+        if (opcion === "conducta") {
+          item.conducta = valor;
+        }
+        if (opcion === "visuales") {
+          item.visuales = valor;
+        }
+        if (opcion === "auditivos") {
+          item.auditivos = valor;
+        }
+        if (opcion === "carnet") {
+          item.carnet = valor;
+        }
+        if (opcion === "bcg") {
+          item.bcg = valor;
+        }
+        if (opcion === "hepb") {
+          item.hepb = valor;
+        }
+        if (opcion === "polio") {
+          item.polio = valor;
+        }
+        if (opcion === "pentavalente") {
+          item.pentavalente = valor;
+        }
+        if (opcion === "maltrato") {
+          item.maltrato = valor;
+        }
+        if (opcion === "morbilidad") {
+          item.morbilidad = valor;
+        }
+        if (opcion === "tsh") {
+          item.tsh = valor;
+        }
+      },
+      Ade1a5Anio(vector, edad, opcion) {
+        this.De1A5.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          beneficiario: "",
+          cyc: "",
+          valoracion_1823: "",
+          valoracion_3035: "",
+          valoracion_4: "",
+          peso: "",
+          talla: "",
+          imc: "",
+          pb: "",
+          pt: "",
+          te: "",
+          lenguaje: "",
+          motora: "",
+          conducta: "",
+          visuales: "",
+          auditivos: "",
+          caries: "",
+          nocepillado: "",
+          consultaodon: "",
+          carnet: "",
+          bcg: "",
+          polio: "",
+          dpt: "",
+          fiebrea: "",
+          tripleviral: "",
+          pentavalente: "",
+          otras: "",
+          desparacitado: "",
+          maltrato: "",
+          enfermedad: "",
+          medicamento: "",
+          opci: opcion,
+          pcefalico: "",
+          estado: "Activo"
+        });
+      },
+      changeupdateDe1A5(item, event, opcion) {
+        if (opcion === "peso") {
+          item.peso = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "talla") {
+          item.talla = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        // if (opcion === "imc") {
+        //   item.imc = event.target.value.replace( /[^.\d]/g, '' ).trim();;
+        // }
+        if (opcion === "pb") {
+          item.pb = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pt") {
+          item.pt = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "te") {
+          item.te = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "nocepillado") {
+          item.nocepillado = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "otras") {
+          item.otras = event.target.value.trim();
+        }
+      },
+      updateDe1A5(item, valor, opcion) {
+        if (opcion === "beneficiario") {
+          item.beneficiario = valor;
+        }
+        if (opcion === "cyc") {
+          item.cyc = valor;
+        }
+        if (opcion === "valoracion_1823") {
+          item.valoracion_1823 = valor;
+        }
+        if (opcion === "valoracion_3035") {
+          item.valoracion_3035 = valor;
+        }
+        if (opcion === "valoracion_4") {
+          item.valoracion_4 = valor;
+        }
+        if (opcion === "lenguaje") {
+          item.lenguaje = valor;
+        }
+        if (opcion === "motora") {
+          item.motora = valor;
+        }
+        if (opcion === "conducta") {
+          item.conducta = valor;
+        }
+        if (opcion === "visuales") {
+          item.visuales = valor;
+        }
+        if (opcion === "auditivos") {
+          item.auditivos = valor;
+        }
+        if (opcion === "caries") {
+          item.caries = valor;
+        }
+        if (opcion === "consultaodon") {
+          item.consultaodon = valor;
+        }
+        if (opcion === "carnet") {
+          item.carnet = valor;
+        }
+        if (opcion === "bcg") {
+          item.bcg = valor;
+        }
+        if (opcion === "polio") {
+          item.polio = valor;
+        }
+        if (opcion === "dpt") {
+          item.dpt = valor;
+        }
+        if (opcion === "fiebrea") {
+          item.fiebrea = valor;
+        }
+        if (opcion === "tripleviral") {
+          item.tripleviral = valor;
+        }
+        if (opcion === "pentavalente") {
+          item.pentavalente = valor;
+        }        
+        
+        if (opcion === "desparacitado") {
+          item.desparacitado = valor;
+        }
+        if (opcion === "maltrato") {
+          item.maltrato = valor;
+        }
+        if (opcion === "enfermedad") {
+          item.enfermedad = valor;
+        }
+        if (opcion === "medicamento") {
+          item.medicamento = valor;
+        }
+      },
+      Ade6a11Anio(vector, edad, opcion) {
+        this.De6A11.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          cyc: "",
+          atencion: "",
+          peso: "",
+          talla: "",
+          imc: "",
+          pb: "NA",
+          pt: "NA",
+          te: "",
+          conducta: "",
+          visuales: "",
+          auditivos: "",
+          dientes_sanos: "",
+          consultaodon: "",
+          nofluor: "",
+          nocepillado: "",
+          maltrato: "",
+          sustanciaspsico: "",
+          desparacitado: "",
+          enfermedad: "",
+          medicamento: "",
+          padre: "",
+          madre: "",
+          hermanos: "",
+          conyuge: "",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdateDe6A11(item, event, opcion) {
+        if (opcion === "peso") {
+          item.peso = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "talla") {
+          item.talla = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "imc") {
+          item.imc = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pb") {
+          item.pb = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pt") {
+          item.pt = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "te") {
+          item.te = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "nocepillado") {
+          item.nocepillado = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+      },
+      updateDe6A11(item, valor, opcion) {
+        if (opcion === "cyc") {
+          item.cyc = valor;
+        }
+        if (opcion === "atencion") {
+          item.atencion = valor;
+        }
+        if (opcion === "conducta") {
+          item.conducta = valor;
+        }
+        if (opcion === "visuales") {
+          item.visuales = valor;
+        }
+        if (opcion === "auditivos") {
+          item.auditivos = valor;
+        }
+        if (opcion === "dientes_sanos") {
+          item.dientes_sanos = valor;
+        }
+        if (opcion === "consultaodon") {
+          item.consultaodon = valor;
+        }
+        if (opcion === "maltrato") {
+          item.maltrato = valor;
+        }
+        if (opcion === "sustanciaspsico") {
+          item.sustanciaspsico = valor;
+        }
+        if (opcion === "desparacitado") {
+          item.desparacitado = valor;
+        }
+        if (opcion === "enfermedad") {
+          item.enfermedad = valor;
+        }
+        if (opcion === "medicamento") {
+          item.medicamento = valor;
+        }
+        if (opcion === "padre") {
+          item.padre = valor;
+        }
+        if (opcion === "madre") {
+          item.madre = valor;
+        }
+        if (opcion === "hermanos") {
+          item.hermanos = valor;
+        }
+        if (opcion === "conyuge") {
+          item.conyuge = valor;
+        }
+        if (opcion === "nofluor") {
+          item.nofluor = valor;
+        }        
+      },
+      Ade10a59Anio(vector, edad, opcion) {
         if(vector.sexo==="MASCULINO"){
           this.De10A59.push({
             id: 0,
@@ -9634,7 +20934,8 @@
             abortos: "NA",
             examen_prostata: "",
             biposia_prostata: "",
-            opci: opcion
+            opci: opcion,
+            estado: "Activo"
           });                    
         }else{
           this.De10A59.push({
@@ -9669,11 +20970,14 @@
             abortos: "",
             examen_prostata: "NA",
             biposia_prostata: "NA",
-            opci: opcion
+            opci: opcion,
+            estado: "Activo"
           });
         }
       },
-      changeupdateDe10A59(item, event, opcion) {},
+      changeupdateDe10A59(item, event, opcion) {
+       
+      },
       updateDe10A59(item, valor, opcion) {
         if (opcion === "flujo_vaginal") {
           item.flujo_vaginal = valor;
@@ -9754,6 +21058,829 @@
           }          
         }                       
       },
+      AParPost(vector, edad, opcion) {
+        this.ParPost.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          aceptacion: "",
+          control_prenatal: "",
+          atencion_parto: "",
+          carnet: "",
+          fecha_ultima: "",
+          fecha_probable: "",
+          peso: "",
+          talla: "",
+          imc: "",
+          semanas_ges: "",
+          num_controles: "",
+          vih: "",
+          toxoplasma: "",
+          vdrl: "",
+          odontologia: "",
+          vacunaciontdit: "",
+          fecha_ultimo_parto: "",
+          suplementacion: "",
+          enfermedades_cronicas: "",
+          sedentarismo: "",
+          fuma: "",
+          consumo: "",
+          bebidas: "",
+          tipo_parto: "",
+          atencion_institucional: "",
+          cc18: "NA",
+          morgestacion: "",
+          morparto: "",
+          morposparto: "",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdatePosparto(item, event, opcion) {
+        moment.locale("es");
+        if (opcion === "fecha_ultima") {
+          let fecha = moment.utc(item.fecha_ultima, "YYYY-MM-DD");
+          let suma = fecha.add(9, "months");
+          suma = suma.add(7, "days");
+          item.fecha_probable=suma.format("YYYY-MM-DD");
+
+          
+          let hoy = moment();
+          let hoyFormato = moment().format("YYYY-MM-DD");
+          let edad = 0;
+          edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
+          let dife = this.datediff(hoyFormato,item.fecha_ultima);
+          let diaSemanas=0;
+          if(dife[1]!=0){
+            diaSemanas=Math.ceil(dife[2]/7);            
+          }
+          let mesTrimestre = Math.floor(dife[1]/3);
+          let valor = dife[1] * 4; 
+          item.semanas_ges = valor+diaSemanas+mesTrimestre;          
+          console.log(diaSemanas);
+          console.log(dife);
+        }
+        if (opcion === "fecha_probable") {
+          let fecha = moment.utc(item.fecha_probable, "YYYY-MM-DD");
+          let suma = fecha.subtract(9, "months");
+          suma = suma.subtract(7, "days");
+          item.fecha_ultima=suma.format("YYYY-MM-DD");
+          // item.fecha_probable = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "peso") {
+          item.peso = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "talla") {
+          item.talla = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "imc") {
+          item.imc = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "semanas_ges") {
+          item.semanas_ges = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "fecha_ultimo_parto") {
+          // item.fecha_ultimo_parto = event.target.value
+          //   .replace(/[^.\d]/g, "")
+          //   .trim();
+        }
+      },
+      updatePosparto(item, valor, opcion) {
+        if (opcion === "aceptacion") {
+          item.aceptacion = valor;
+        }
+        if (opcion === "control_prenatal") {
+          item.control_prenatal = valor;
+        }
+        if (opcion === "atencion_parto") {
+          item.atencion_parto = valor;
+        }
+        if (opcion === "carnet") {
+          item.carnet = valor;
+        }
+        if (opcion === "num_controles") {
+          item.num_controles = valor;
+        }
+        if (opcion === "vih") {
+          item.vih = valor;
+        }
+        if (opcion === "toxoplasma") {
+          item.toxoplasma = valor;
+        }
+        if (opcion === "vdrl") {
+          item.vdrl = valor;
+        }
+        if (opcion === "odontologia") {
+          item.odontologia = valor;
+        }
+        if (opcion === "vacunaciontdit") {
+          item.vacunaciontdit = valor;
+        }
+        if (opcion === "suplementacion") {
+          item.suplementacion = valor;
+        }
+        if (opcion === "enfermedades_cronicas") {
+          item.enfermedades_cronicas = valor;
+        }
+        if (opcion === "sedentarismo") {
+          item.sedentarismo = valor;
+        }
+        if (opcion === "fuma") {
+          item.fuma = valor;
+        }
+        if (opcion === "consumo") {
+          item.consumo = valor;
+        }
+        if (opcion === "bebidas") {
+          item.bebidas = valor;
+        }
+        if (opcion === "tipo_parto") {
+          item.tipo_parto = valor;
+        }
+        if (opcion === "atencion_institucional") {
+          item.atencion_institucional = valor;
+        }
+        if (opcion === "cc18") {
+          item.cc18 = valor;
+        }
+        if (opcion === "morgestacion") {
+          item.morgestacion = valor;
+        }
+        if (opcion === "morparto") {
+          item.morparto = valor;
+        }
+        if (opcion === "morposparto") {
+          item.morposparto = valor;
+        }
+      },
+      eliminarParpost: async function(identificacion,tabla){
+        const parametros = {
+          _token: this.csrf,
+          identificacion: identificacion,
+          id_hogar: this.IDHOGAR,
+          opcion: "PARPOST",
+          tabla: tabla
+        };
+        try {
+          await caracterizacionServicios
+          .eliminar(parametros)
+          .then(respuesta => {
+            if(respuesta.OPC==="SI"){              
+              return true;
+            }else{
+              return false;
+            }
+          })
+          .catch(error => {
+
+            });            
+        } catch (error) {
+          switch (error.response.status) {
+            case 419:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }          
+        }        
+      },      
+      Ade12a17Anio(vector, edad, opcion) {
+        this.De12A17.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          peso: "",
+          talla: "",
+          imc: "",
+          pb: "NA",
+          visuales: "",
+          auditivos: "",
+          conducta: "",
+          enfermedades_cronicas: "",
+          dientes_sanos: "",
+          consultaodon: "",
+          nocepillado: "",
+          maltrato: "",
+          alcohol: "",
+          fuma: "",
+          spa: "",
+          desparacitado: "",
+          empleo: "",
+          religion: "",
+          queesvih: "",
+          queescancerutero: "",
+          queespapiloma: "",
+          queescancerseno: "",
+          padre: "",
+          madre: "",
+          hermanos: "",
+          conyuge: "",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdateDe12A17(item, event, opcion) {
+        if (opcion === "peso") {
+          item.peso = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "talla") {
+          item.talla = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "imc") {
+          item.imc = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "pb") {
+          item.pb = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "nocepillado") {
+          item.nocepillado = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+      },
+      updateDe12A17(item, valor, opcion) {
+        if (opcion === "conducta") {
+          item.conducta = valor;
+        }
+        if (opcion === "visuales") {
+          item.visuales = valor;
+        }
+        if (opcion === "auditivos") {
+          item.auditivos = valor;
+        }
+        if (opcion === "enfermedades_cronicas") {
+          item.enfermedades_cronicas = valor;
+        }
+        if (opcion === "dientes_sanos") {
+          item.dientes_sanos = valor;
+        }
+        if (opcion === "consultaodon") {
+          item.consultaodon = valor;
+        }
+        if (opcion === "maltrato") {
+          item.maltrato = valor;
+        }
+        if (opcion === "alcohol") {
+          item.alcohol = valor;
+        }
+        if (opcion === "fuma") {
+          item.fuma = valor;
+        }
+        if (opcion === "spa") {
+          item.spa = valor;
+        }
+        if (opcion === "desparacitado") {
+          item.desparacitado = valor;
+        }
+        if (opcion === "empleo") {
+          item.empleo = valor;
+        }
+        if (opcion === "religion") {
+          item.religion = valor;
+        }        
+        if (opcion === "queesvih") {
+          item.queesvih = valor;
+        }
+        if (opcion === "queescancerutero") {
+          item.queescancerutero = valor;
+        }
+        if (opcion === "queespapiloma") {
+          item.queespapiloma = valor;
+        }
+        if (opcion === "queescancerseno") {
+          item.queescancerseno = valor;
+        }
+        if (opcion === "padre") {
+          item.padre = valor;
+        }
+        if (opcion === "madre") {
+          item.madre = valor;
+        }
+        if (opcion === "hermanos") {
+          item.hermanos = valor;
+        }
+        if (opcion === "conyuge") {
+          item.conyuge = valor;
+        }
+      },
+      Ade18a28Anio(vector, edad, opcion) {
+        this.De18A28.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          peso: "",
+          talla: "",
+          imc: "",
+          pcintura: "",
+          pb: "NA",
+          visuales: "",
+          auditivos: "",
+          conducta: "",
+          enfermedades_cronicas: "",
+          dientes_sanos: "",
+          consultaodon: "",
+          nocepillado: "",
+          maltrato: "",
+          alcohol: "",
+          fuma: "",
+          spa: "",
+          desparacitado: "",
+          empleo: "",
+          religion: "",
+          queesvih: "",
+          queescancerutero: "",
+          queespapiloma: "",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdateDe18A28(item, event, opcion) {
+        if (opcion === "peso") {
+          item.peso = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "talla") {
+          item.talla = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "imc") {
+          item.imc = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pb") {
+          item.pb = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pcintura") {
+          item.pcintura = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "nocepillado") {
+          item.nocepillado = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+      },
+      updateDe18A28(item, valor, opcion) {
+        if (opcion === "conducta") {
+          item.conducta = valor;
+        }
+        if (opcion === "visuales") {
+          item.visuales = valor;
+        }
+        if (opcion === "auditivos") {
+          item.auditivos = valor;
+        }
+        if (opcion === "enfermedades_cronicas") {
+          item.enfermedades_cronicas = valor;
+        }
+        if (opcion === "dientes_sanos") {
+          item.dientes_sanos = valor;
+        }
+        if (opcion === "consultaodon") {
+          item.consultaodon = valor;
+        }
+        if (opcion === "maltrato") {
+          item.maltrato = valor;
+        }
+        if (opcion === "alcohol") {
+          item.alcohol = valor;
+        }
+        if (opcion === "fuma") {
+          item.fuma = valor;
+        }
+        if (opcion === "spa") {
+          item.spa = valor;
+        }
+        if (opcion === "desparacitado") {
+          item.desparacitado = valor;
+        }
+        if (opcion === "empleo") {
+          item.empleo = valor;
+        }
+        if (opcion === "religion") {
+          item.religion = valor;
+        }        
+        if (opcion === "queesvih") {
+          item.queesvih = valor;
+        }
+        if (opcion === "queescancerutero") {
+          item.queescancerutero = valor;
+        }
+        if (opcion === "queespapiloma") {
+          item.queespapiloma = valor;
+        }
+      },
+      Ade29a59Anio(vector, edad, opcion) {
+        this.De29A59.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          peso: "",
+          talla: "",
+          imc: "",
+          pcintura: "",
+          pb: "NA",
+          visuales: "",
+          auditivos: "",
+          conducta: "",
+          enfermedades_cronicas: "",
+          dientes_sanos: "",
+          consultaodon: "",
+          nocepillado: "",
+          maltrato: "",
+          alcohol: "",
+          fuma: "",
+          spa: "",
+          desparacitado: "",
+          empleo: "",
+          examen_prostata: "NA",
+          citologia: "NA",
+          examen_mama: "NA",
+          religion: "",
+          queesvih: "",
+          queescancerutero: "",
+          queespapiloma: "",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdateDe29A59(item, event, opcion) {
+        if (opcion === "peso") {
+          item.peso = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "talla") {
+          item.talla = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "imc") {
+          item.imc = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pb") {
+          item.pb = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pcintura") {
+          item.pcintura = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "nocepillado") {
+          item.nocepillado = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+      },
+      updateDe29A59(item, valor, opcion) {
+        if (opcion === "conducta") {
+          item.conducta = valor;
+        }
+        if (opcion === "visuales") {
+          item.visuales = valor;
+        }
+        if (opcion === "auditivos") {
+          item.auditivos = valor;
+        }
+        if (opcion === "enfermedades_cronicas") {
+          item.enfermedades_cronicas = valor;
+        }
+        if (opcion === "dientes_sanos") {
+          item.dientes_sanos = valor;
+        }
+        if (opcion === "consultaodon") {
+          item.consultaodon = valor;
+        }
+        if (opcion === "maltrato") {
+          item.maltrato = valor;
+        }
+        if (opcion === "alcohol") {
+          item.alcohol = valor;
+        }
+        if (opcion === "fuma") {
+          item.fuma = valor;
+        }
+        if (opcion === "spa") {
+          item.spa = valor;
+        }
+        if (opcion === "desparacitado") {
+          item.desparacitado = valor;
+        }
+        if (opcion === "empleo") {
+          item.empleo = valor;
+        }
+        if (opcion === "religion") {
+          item.religion = valor;
+        }        
+        if (opcion === "examen_prostata") {
+          item.examen_prostata = valor;
+        }
+        if (opcion === "citologia") {
+          item.citologia = valor;
+        }
+        if (opcion === "examen_mama") {
+          item.examen_mama = valor;
+        }
+        if (opcion === "queesvih") {
+          item.queesvih = valor;
+        }
+        if (opcion === "queescancerutero") {
+          item.queescancerutero = valor;
+        }
+        if (opcion === "queespapiloma") {
+          item.queespapiloma = valor;
+        }
+      },
+      Ade60Anio(vector, edad, opcion) {
+        this.De60.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          grupo_ayudas: "",
+          peso: "",
+          talla: "",
+          imc: "",
+          pa: "",
+          glicemia: "",
+          cigarrillo: "",
+          alcohol: "",
+          actividad_fisica: "",
+          sintomatico: "",
+          examen_seno: "",
+          citologia: "",
+          colposcopia: "",
+          examen_prostata: "",
+          biposia_prostata: "",
+          agudeza_visual: "",
+          subsidio: "",
+          enfermedades_cronicas: "",
+          enfermedades_infecciosas: "",
+          opci: opcion,
+          empleo: "",
+          estado: "Activo"
+        });
+      },
+      changeupdateDe60(item, event, opcion) {
+        if (opcion === "peso") {
+          item.peso = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "talla") {
+          item.talla = event.target.value.replace(/[^.\d]/g, "").trim();
+          item.imc = this.calcularImc(item.peso, item.talla);
+        }
+        if (opcion === "imc") {
+          item.imc = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+        if (opcion === "pa") {
+          item.pa = event.target.value.trim();
+        }
+        if (opcion === "glicemia") {
+          item.glicemia = event.target.value.trim();
+        }
+      },
+      updateDe60(item, valor, opcion) {
+        if (opcion === "grupo_ayudas") {
+          item.grupo_ayudas = valor;
+        }
+        if (opcion === "cigarrillo") {
+          item.cigarrillo = valor;
+        }
+        if (opcion === "alcohol") {
+          item.alcohol = valor;
+        }
+        if (opcion === "actividad_fisica") {
+          item.actividad_fisica = valor;
+        }
+        if (opcion === "sintomatico") {
+          item.sintomatico = valor;
+        }
+        if (opcion === "examen_seno") {
+          item.examen_seno = valor;
+        }
+        if (opcion === "citologia") {
+          item.citologia = valor;
+        }
+        if (opcion === "colposcopia") {
+          item.colposcopia = valor;
+        }
+        if (opcion === "examen_prostata") {
+          item.examen_prostata = valor;
+        }
+        if (opcion === "biposia_prostata") {
+          item.biposia_prostata = valor;
+        }
+        if (opcion === "agudeza_visual") {
+          item.agudeza_visual = valor;
+        }
+        if (opcion === "subsidio") {
+          item.subsidio = valor;
+        }
+        if (opcion === "enfermedades_cronicas") {
+          item.enfermedades_cronicas = valor;
+          if (valor === "SI") {
+            // AGREGAR ENFERMEDADES CONTAGIOSAS
+            this.AEnCro(item);
+            // AGREGAR ENFERMEDADES CONTAGIOSAS
+          } else {
+            // ELIMINAR ENFERMEDADES CONTAGIOSAS
+            this.EEnCro(item);
+            // ELIMINAR ENFERMEDADES CONTAGIOSAS
+          }
+        }
+        if (opcion === "enfermedades_infecciosas") {
+          item.enfermedades_infecciosas = valor;
+          if (valor === "SI") {
+            // AGREGAR ENFERMEDADES INFECCIOSAS
+            this.AEnInf(item);
+            // AGREGAR ENFERMEDADES INFECCIOSAS
+          } else {
+            // ELIMINAR ENFERMEDADES INFECCIOSAS
+            this.EEnInf(item);
+            // ELIMINAR ENFERMEDADES INFECCIOSAS
+          }
+        }
+      },
+      AEnCro(vector) {
+        let opcion = "";
+        if (vector.opci === "JEFE") {
+          opcion = "JEFE";
+        } else {
+          opcion = "INTE";
+        }
+        this.EnCro.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          enfermedad: "",
+          tiempo: "",
+          tratamiento: "",
+          complicaciones: "0",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdateEnCro(item, event, opcion) {
+        if (opcion === "complicaciones") {
+          item.complicaciones = event.target.value.trim();
+        }
+      },
+      updateEnCro(item, valor, opcion) {
+        if (opcion === "enfermedad") {
+          item.enfermedad = valor;
+        }
+        if (opcion === "tratamiento") {
+          item.tratamiento = valor;
+        }
+        if (opcion === "tiempo") {
+          item.tiempo = valor;
+        }        
+      },
+      EEnCro(item) {
+        let identificacion = item.identificacion;
+        this.EnCro = this.EnCro.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+      },
+      AEnInf(vector) {
+        let opcion = "";
+        if (vector.opci === "JEFE") {
+          opcion = "JEFE";
+        } else {
+          opcion = "INTE";
+        }
+        this.EnInf.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          enfermedad: "",
+          tiempo: "",
+          tratamiento: "",
+          complicaciones: "0",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdateEnInf(item, event, opcion) {
+        if (opcion === "complicaciones") {
+          item.complicaciones = event.target.value.trim();
+        }
+      },
+      updateEnInf(item, valor, opcion) {
+        if (opcion === "enfermedad") {
+          item.enfermedad = valor;
+        }
+        if (opcion === "tratamiento") {
+          item.tratamiento = valor;
+        }
+        if (opcion === "tiempo") {
+          item.tiempo = valor;
+        }        
+      },
+      EEnInf(item) {
+        let identificacion = item.identificacion;
+        this.EnInf = this.EnInf.filter(function(men) {
+          return men.identificacion != identificacion;
+        });
+      },
+      AMigra(vector, edad, opcion) {
+        this.Migra.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          pais: "",
+          registrado: "",
+          cuantollego: "",
+          futuro: "",
+          recibido: "",
+          necesidad: "",
+          dependen: "",
+          ingreso: "",
+          opci: opcion,
+          estado: "Activo"
+        });
+      },
+      changeupdateMigra(item, event, opcion) {
+        if (opcion === "pais") {
+          item.pais = event.target.value.trim();
+        }
+        if (opcion === "dependen") {
+          item.dependen = event.target.value.replace(/[^.\d]/g, "").trim();
+        }
+      },
+      updateMigra(item, valor, opcion) {
+        if (opcion === "registrado") {
+          item.registrado = valor;
+        }
+        if (opcion === "cuantollego") {
+          item.cuantollego = valor;
+        }
+        if (opcion === "futuro") {
+          item.futuro = valor;
+        }
+        if (opcion === "recibido") {
+          item.recibido = valor;
+        }
+        if (opcion === "necesidad") {
+          item.necesidad = valor;
+        }
+        if (opcion === "ingreso") {
+          item.ingreso = valor;
+        }
+      },
+      calcularImc(peso, talla) {
+        if (peso === "") {
+          peso = 0;
+        }
+        if (talla === "") {
+          talla = 1;
+        }
+        talla=talla/100;     
+        let imc = peso / (talla * talla);
+        return imc.toFixed(2);
+      },      
       //OPCIONES DE LOS CICLOS DE VIDA
     }
   };

@@ -62,10 +62,31 @@ class De60 extends Model
             'subsidio' => $data['subsidio'],
             'enfermedades_cronicas' => $data['enfermedades_cronicas'],
             'enfermedades_infecciosas' => $data['enfermedades_infecciosas'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
             'empleo' => $data['empleo'],
         ]);        
     }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.de60')
+            ->where('de60.id_hogar', $id_hogar)
+            ->where('de60.estado', 'Activo')
+            ->select("de60.*")
+            ->selectRaw("CASE "
+                . " WHEN de60.snom IS NULL THEN '' "
+                . " WHEN de60.snom = '' THEN '' "
+                . " ELSE de60.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN de60.sape IS NULL THEN '' "
+                . " WHEN de60.sape = '' THEN '' "
+                . " ELSE de60.sape "
+                . " END sape"
+                . " ")            
+            ->get();
+    }    
 }

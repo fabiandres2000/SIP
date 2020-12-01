@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use DB;
+use Illuminate\Database\Eloquent\Model;
+
 class De1a5 extends Model
 {
     protected $table = 'de1a5';
@@ -14,7 +15,7 @@ class De1a5 extends Model
         'te', 'lenguaje', 'motora', 'conducta', 'visuales', 'auditivos',
         'caries', 'nocepillado', 'consultaodon', 'carnet', 'bcg', 'polio',
         'dpt', 'fiebrea', 'tripleviral', 'otras', 'desparacitado', 'maltrato',
-        'enfermedad', 'medicamento', 'estado', 'id_compania', 'opci', 'pentavalente','pcefalico'
+        'enfermedad', 'medicamento', 'estado', 'id_compania', 'opci', 'pentavalente', 'pcefalico',
     ];
 
     public static function guardar($data, $alias)
@@ -25,7 +26,7 @@ class De1a5 extends Model
         // BUSCAR ID INTEGRANTE
         return DB::connection('mysql')->table($alias . '.de1a5')->updateOrInsert([
             'id' => $data['id'],
-        ], [            
+        ], [
             'id_integrante' => $integrante->id,
             'id_hogar' => $data['id_hogar'],
             'tipo_id' => $data['tipo_id'],
@@ -67,10 +68,31 @@ class De1a5 extends Model
             'maltrato' => $data['maltrato'],
             'enfermedad' => $data['enfermedad'],
             'medicamento' => $data['medicamento'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
-            'pcefalico' => $data['pcefalico'],            
+            'pcefalico' => $data['pcefalico'],
         ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.de1a5')
+            ->where('de1a5.id_hogar', $id_hogar)
+            ->where('de1a5.estado', 'Activo')
+            ->select("de1a5.*")
+            ->selectRaw("CASE "
+                . " WHEN de1a5.snom IS NULL THEN '' "
+                . " WHEN de1a5.snom = '' THEN '' "
+                . " ELSE de1a5.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN de1a5.sape IS NULL THEN '' "
+                . " WHEN de1a5.sape = '' THEN '' "
+                . " ELSE de1a5.sape "
+                . " END sape"
+                . " ")            
+            ->get();
     }
 }

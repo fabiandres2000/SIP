@@ -40,7 +40,7 @@ class Factores extends Model
             'violencia_psico' => $data['violencia_psico'],
             'violencia_economica' => $data['violencia_economica'],
             'id_compania' => 1,
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'abuso_sexual' => $data['abuso_sexual'],
             'actividad_fisica' => $data['actividad_fisica'],
             'consumo_frutas' => $data['consumo_frutas'],
@@ -57,15 +57,16 @@ class Factores extends Model
             ->join($alias . '.hogar', 'hogar.id', 'factores.id_hogar')
             ->join($alias . '.caracterizacion', 'caracterizacion.id', 'factores.id_jefe')
             ->where('factores.id_hogar', $id_hogar)
+            ->where('factores.estado', 'Activo')
             ->select("factores.*"
-            ,"caracterizacion.identificacion AS id_jefe"
-            ,"caracterizacion.tipo_id AS tipo_id"
-            ,"caracterizacion.identificacion AS identificacion"
-            ,"caracterizacion.pnom AS pnom"
-            ,"caracterizacion.snom AS snom"
-            ,"caracterizacion.pape AS pape"
-            ,"caracterizacion.sape AS sape"
-            ,"caracterizacion.sexo AS sexo"
+                , "caracterizacion.identificacion AS id_jefe"
+                , "caracterizacion.tipo_id AS tipo_id"
+                , "caracterizacion.identificacion AS identificacion"
+                , "caracterizacion.pnom AS pnom"
+                , "caracterizacion.snom AS snom"
+                , "caracterizacion.pape AS pape"
+                , "caracterizacion.sape AS sape"
+                , "caracterizacion.sexo AS sexo"
             )
             ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
             ->get();

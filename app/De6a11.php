@@ -25,7 +25,7 @@ class De6a11 extends Model
         // BUSCAR ID INTEGRANTE
         return DB::connection('mysql')->table($alias . '.de6a11')->updateOrInsert([
             'id' => $data['id'],
-        ], [            
+        ], [
             'id_integrante' => $integrante->id,
             'id_hogar' => $data['id_hogar'],
             'tipo_id' => $data['tipo_id'],
@@ -60,9 +60,30 @@ class De6a11 extends Model
             'madre' => $data['madre'],
             'hermanos' => $data['hermanos'],
             'conyuge' => $data['conyuge'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
         ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.de6a11')
+            ->where('de6a11.id_hogar', $id_hogar)
+            ->where('de6a11.estado', 'Activo')
+            ->select("de6a11.*")
+            ->selectRaw("CASE "
+                . " WHEN de6a11.snom IS NULL THEN '' "
+                . " WHEN de6a11.snom = '' THEN '' "
+                . " ELSE de6a11.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN de6a11.sape IS NULL THEN '' "
+                . " WHEN de6a11.sape = '' THEN '' "
+                . " ELSE de6a11.sape "
+                . " END sape"
+                . " ")            
+            ->get();
     }
 }

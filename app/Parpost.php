@@ -74,9 +74,50 @@ class Parpost extends Model
             'morgestacion' => $data['morgestacion'],
             'morparto' => $data['morparto'],
             'morposparto' => $data['morposparto'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
-        ]);        
+        ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.parpost')
+            ->where('parpost.id_hogar', $id_hogar)
+            ->where('estado', 'Activo')
+            ->select("parpost.*")
+            ->selectRaw("CASE "
+                . " WHEN parpost.snom IS NULL THEN '' "
+                . " WHEN parpost.snom = '' THEN '' "
+                . " ELSE parpost.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN parpost.sape IS NULL THEN '' "
+                . " WHEN parpost.sape = '' THEN '' "
+                . " ELSE parpost.sape "
+                . " END sape"
+                . " ")            
+            ->get();
+    }
+
+    public static function editarestado($estado, $identificacion, $tabla, $alias)
+    {
+
+        // BUSCAR ID
+        if ($tabla == "JEFE") {
+            // BUSCAR ID JEFE
+            $respuesta = \App\Caracterizacion::buscar($identificacion, $alias);
+            // BUSCAR ID JEFE
+        } else {
+            // BUSCAR ID INTEGRANTE
+            $respuesta = \App\Integrante::buscar($identificacion, $alias);
+            // BUSCAR ID INTEGRANTE
+        }
+        // BUSCAR ID
+        // dd($respuesta->id);die;
+        return DB::connection('mysql')->table($alias . '.parpost')->where('id_integrante', $respuesta->id)->update([
+            'estado' => $estado,
+        ]);
     }
 }

@@ -15,7 +15,7 @@ class Men1a extends Model
         'peso_actual', 'longitud_nacer', 'longitud_actual', 'peso_long', 'cinta', 'edemas',
         'lenguaje', 'motora', 'conducta', 'visuales', 'auditivos', 'carnet',
         'bcg', 'hepb', 'polio', 'pentavalente', 'maltrato', 'morbilidad',
-        'tsh', 'estado', 'id_compania', 'opci','pb'
+        'tsh', 'estado', 'id_compania', 'opci', 'pb',
     ];
 
     public static function guardar($data, $alias)
@@ -64,10 +64,31 @@ class Men1a extends Model
             'maltrato' => $data['maltrato'],
             'morbilidad' => $data['morbilidad'],
             'tsh' => $data['tsh'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
             'pb' => $data['pb'],
         ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.men1a')
+            ->where('men1a.id_hogar', $id_hogar)
+            ->where('men1a.estado', 'Activo')
+            ->select("men1a.*")
+            ->selectRaw("CASE "
+                . " WHEN men1a.snom IS NULL THEN '' "
+                . " WHEN men1a.snom = '' THEN '' "
+                . " ELSE men1a.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN men1a.sape IS NULL THEN '' "
+                . " WHEN men1a.sape = '' THEN '' "
+                . " ELSE men1a.sape "
+                . " END sape"
+                . " ")
+            ->get();
     }
 }

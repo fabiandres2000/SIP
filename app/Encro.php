@@ -44,9 +44,30 @@ class Encro extends Model
             'tiempo' => $data['tiempo'],
             'tratamiento' => $data['tratamiento'],
             'complicaciones' => $data['complicaciones'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
-        ]);        
+        ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.encro')
+            ->where('encro.id_hogar', $id_hogar)
+            ->where('encro.estado', 'Activo')
+            ->select("encro.*")
+            ->selectRaw("CASE "
+                . " WHEN encro.snom IS NULL THEN '' "
+                . " WHEN encro.snom = '' THEN '' "
+                . " ELSE encro.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN encro.sape IS NULL THEN '' "
+                . " WHEN encro.sape = '' THEN '' "
+                . " ELSE encro.sape "
+                . " END sape"
+                . " ")            
+            ->get();
     }
 }

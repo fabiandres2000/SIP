@@ -69,9 +69,30 @@ class De29a59 extends Model
             'queesvih' => $data['queesvih'],
             'queescancerutero' => $data['queescancerutero'],
             'queespapiloma' => $data['queespapiloma'],
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'id_compania' => 1,
             'opci' => $data['opci'],
-        ]);       
+        ]);
+    }
+
+    public static function buscar($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.de29a59')
+            ->where('de29a59.id_hogar', $id_hogar)
+            ->where('de29a59.estado', 'Activo')
+            ->select("de29a59.*")
+            ->selectRaw("CASE "
+                . " WHEN de29a59.snom IS NULL THEN '' "
+                . " WHEN de29a59.snom = '' THEN '' "
+                . " ELSE de29a59.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN de29a59.sape IS NULL THEN '' "
+                . " WHEN de29a59.sape = '' THEN '' "
+                . " ELSE de29a59.sape "
+                . " END sape"
+                . " ")            
+            ->get();
     }
 }

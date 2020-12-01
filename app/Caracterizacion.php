@@ -111,7 +111,7 @@ class Caracterizacion extends Model
             'pape' => $data['pape'],
             'sape' => $data['sape'],
             'id_compania' => 1,
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
             'salario' => $data['salario'],
             'estado_civil' => $data['estado_civil'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
@@ -215,8 +215,24 @@ class Caracterizacion extends Model
             ->leftjoin($alias . '.administradoras', 'administradoras.id', 'caracterizacion.afiliacion_entidad')
             ->leftjoin($alias . '.ocupaciones', 'ocupaciones.id', 'caracterizacion.ocupacion')
             ->leftjoin($alias . '.colegios', 'colegios.id', 'caracterizacion.colegio')
+
+            ->leftjoin($alias . '.parentescos', 'parentescos.id', 'caracterizacion.parentesco')
+            ->leftjoin($alias . '.estadocivil', 'estadocivil.id', 'caracterizacion.estado_civil')
+            ->leftjoin($alias . '.escolaridad', 'escolaridad.id', 'caracterizacion.nivel_escolaridad')
+            ->leftjoin($alias . '.etnias', 'etnias.id', 'caracterizacion.etnia')
+            ->leftjoin($alias . '.clasificacion_etnia', 'clasificacion_etnia.id', 'caracterizacion.clasificacion')
+
             ->where('id_hogar', $id_hogar)
-            ->select("caracterizacion.*", "ocupaciones.descripcion AS textoOcupacion", "colegios.descripcion as textoColegio")
+            ->where('caracterizacion.estado', 'Activo')
+            ->select("caracterizacion.*",
+                "ocupaciones.descripcion AS textoOcupacion",
+                "colegios.descripcion as textoColegio",
+                "parentescos.descripcion AS textoParentesco",
+                "estadocivil.descripcion AS textoEstado",
+                "escolaridad.descripcion AS textoNivel",
+                "etnias.descripcion AS textoEtnia",
+                "clasificacion_etnia.clasificacion AS textoClasificacion"
+            )
             ->selectRaw("CASE "
                 . " WHEN caracterizacion.afiliacion_entidad IS NULL THEN '' "
                 . " WHEN caracterizacion.afiliacion_entidad='OTRA' THEN 'OTRA' "
@@ -229,6 +245,12 @@ class Caracterizacion extends Model
                 . " WHEN caracterizacion.snom = '' THEN '' "
                 . " ELSE caracterizacion.snom "
                 . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN caracterizacion.sape IS NULL THEN '' "
+                . " WHEN caracterizacion.sape = '' THEN '' "
+                . " ELSE caracterizacion.sape "
+                . " END sape"
                 . " ")
             ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
             ->get();
@@ -246,5 +268,5 @@ class Caracterizacion extends Model
             ->where('estado', 'Activo')
             ->groupBy('id_hogar')
             ->get();
-    }    
+    }
 }
