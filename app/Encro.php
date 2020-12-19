@@ -70,4 +70,11 @@ class Encro extends Model
                 . " ")            
             ->get();
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.encro')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }    
 }

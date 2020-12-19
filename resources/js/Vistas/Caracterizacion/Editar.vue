@@ -88,7 +88,7 @@
                 role="tab"
                 @click="cambiarTab2('migrante')"
               >Migrante</a>
-            </li>
+            </li>           
           </ul>
           <div class="tab-content">
             <div class="vld-parent">
@@ -3008,7 +3008,7 @@
                   <input
                     type="text"
                     class="form-control text-capitalize"
-                    placeholder="Ocupaciones"
+                    placeholder="Actividad Económica"
                     v-model="actividadesAuxiliar"
                     ref="ocupacion"
                     :class="actividadesAuxiliar==''?'':'is-valid'"
@@ -3124,8 +3124,7 @@
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
-                    <option value="1">Acueducto publico</option>
-                    <option value="2">Acueducto veredal comunal</option>
+                    <option value="1">Acueducto</option>
                     <option value="3">Pozo con bomba</option>
                     <option value="4">Laguna o jaguey</option>
                     <option value="5">Rio quebrada ó manantial</option>
@@ -3384,7 +3383,7 @@
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
-                    <option value="1">Aseo municipal</option>
+                    <option value="1">Recolección y dispocisión en el aseo municipal</option>
                     <option value="2">Quemada</option>
                     <option value="3">Cielo Abierto</option>
                     <option value="4">Enterrada</option>
@@ -3504,7 +3503,7 @@
                   </div>
                 </div>
                 <div class="col-lg-3">
-                  <label>Contaminación Auditiva:</label>
+                  <label>Ruido:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.contaminacion_a.$model"
                     :class="{'is-invalid': $v.viviendaData.contaminacion_a.$error,'is-valid':!$v.viviendaData.contaminacion_a.$invalid}"
@@ -3514,14 +3513,14 @@
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Contaminación Auditiva Valida</div>
+                  <div class="valid-feedback">Ruido Valido</div>
                   <div class="invalid-feedback">
                     <span
                       v-if="!$v.viviendaData.contaminacion_a.required"
-                    >Contaminación Auditiva es obligatoria</span>
+                    >Ruido es obligatorio</span>
                   </div>
                 </div>
-                <div class="col-lg-3">
+                <!-- <div class="col-lg-3">
                   <label>Contaminación Visual:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.contaminacion_v.$model"
@@ -3538,9 +3537,9 @@
                       v-if="!$v.viviendaData.contaminacion_v.required"
                     >Contaminación Visual es obligatoria</span>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-lg-3">
-                  <label>Rio ó Quebrada:</label>
+                  <label>Cuerpos de agua:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.rio.$model"
                     :class="{'is-invalid': $v.viviendaData.rio.$error,'is-valid':!$v.viviendaData.rio.$invalid}"
@@ -3550,14 +3549,14 @@
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Rio ó Quebrada Valido</div>
+                  <div class="valid-feedback">Cuerpos de agua Valido</div>
                   <div class="invalid-feedback">
-                    <span v-if="!$v.viviendaData.rio.required">Rio ó Quebrada es obligatorio</span>
+                    <span v-if="!$v.viviendaData.rio.required">Cuerpos de agua es obligatorio</span>
                   </div>
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-3">
+                <!-- <div class="col-lg-3">
                   <label>Aereopuertos:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.aereopuertos.$model"
@@ -3572,9 +3571,9 @@
                   <div class="invalid-feedback">
                     <span v-if="!$v.viviendaData.aereopuertos.required">Aereopuertos es obligatorio</span>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-lg-3">
-                  <label>Avenidas transitadas:</label>
+                  <label>Avenidas:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.avenidas_transitadas.$model"
                     :class="{'is-invalid': $v.viviendaData.avenidas_transitadas.$error,'is-valid':!$v.viviendaData.avenidas_transitadas.$invalid}"
@@ -3584,11 +3583,11 @@
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Avenidas transitadas Valida</div>
+                  <div class="valid-feedback">Avenidas Valida</div>
                   <div class="invalid-feedback">
                     <span
                       v-if="!$v.viviendaData.avenidas_transitadas.required"
-                    >Avenidas transitadas es obligatoria</span>
+                    >Avenidas es obligatoria</span>
                   </div>
                 </div>
                 <div class="col-lg-3">
@@ -3793,10 +3792,9 @@
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="1">Letrina</option>
-                    <option value="2">Inodoro con descarga al aire libre</option>
                     <option value="3">Inodoro conectado a red de alcantarillado</option>
-                    <option value="4">En agua corriente</option>
-                    <option value="5">Pozo séptico</option>
+                    <option value="4">Cuerpos de aguas</option>
+                    <option value="5">Inododoro conectado a pozo séptico</option>
                     <option value="6">Campo abierto</option>
                     <option value="7">Otro</option>
                   </b-form-select>
@@ -3842,7 +3840,7 @@
                   </div>
                 </div>
                 <div class="col-lg-4">
-                  <label>Dormitorio Adultos:</label>
+                  <label>Dormitorio:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.dormitorio_a.$model"
                     :class="{'is-invalid': $v.viviendaData.dormitorio_a.$error,'is-valid':!$v.viviendaData.dormitorio_a.$invalid}"
@@ -3852,11 +3850,11 @@
                     <option value="NO">NO</option>
                     <option value="NA">NO APLICA</option>
                   </b-form-select>
-                  <div class="valid-feedback">Dormitorio Adultos Valido</div>
+                  <div class="valid-feedback">Dormitorio Valido</div>
                   <div class="invalid-feedback">
                     <span
                       v-if="!$v.viviendaData.dormitorio_a.required"
-                    >El Dormitorio Adultos es obligatorio</span>
+                    >El Dormitorio es obligatorio</span>
                   </div>
                 </div>
                 <div class="col-lg-4">
@@ -3877,7 +3875,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-4">
+                <!-- <div class="col-lg-4">
                   <label>Dormitorio Niño:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.dormitorio_n.$model"
@@ -3894,7 +3892,7 @@
                       v-if="!$v.viviendaData.dormitorio_n.required"
                     >El Dormitorio Niño es obligatorio</span>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-lg-4">
                   <label>Sanitario:</label>
                   <b-form-select
@@ -4327,7 +4325,7 @@
                   />
                 </div>
               </div>
-              <p>
+              <!-- <p>
                 <span
                   class="kt-font-boldest"
                   style="font-size: 18px;"
@@ -4416,7 +4414,7 @@
                     <span v-if="!$v.viviendaData.agua_afectados.required">Agua es obligatoria</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <p>
                 <span
                   class="kt-font-boldest"
@@ -4425,95 +4423,61 @@
               </p>
               <div class="form-group row">
                 <div class="col-lg-4">
-                  <label>Residuos sólidos:</label>
+                  <label>Residuos Aprovechables:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.residuos_solidos_genera.$model"
-                    :class="{'is-invalid': $v.viviendaData.residuos_solidos_genera.$error,'is-valid':!$v.viviendaData.residuos_solidos_genera.$invalid}"
+                    v-model.trim="$v.viviendaData.residuos_aprovechables.$model"
+                    :class="{'is-invalid': $v.viviendaData.residuos_aprovechables.$error,'is-valid':!$v.viviendaData.residuos_aprovechables.$invalid}"
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Residuos sólidos Valido</div>
+                  <div class="valid-feedback">Residuos Aprovechables Valido</div>
                   <div class="invalid-feedback">
                     <span
-                      v-if="!$v.viviendaData.residuos_solidos_genera.required"
-                    >Residuos sólidos es obligatorio</span>
+                      v-if="!$v.viviendaData.residuos_aprovechables.required"
+                    >Residuos Aprovechables es obligatorio</span>
                   </div>
                 </div>
                 <div class="col-lg-4">
-                  <label>Aguas servidas:</label>
+                  <label>Residuos Organicos:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.aguas_servidas_genera.$model"
-                    :class="{'is-invalid': $v.viviendaData.aguas_servidas_genera.$error,'is-valid':!$v.viviendaData.aguas_servidas_genera.$invalid}"
+                    v-model.trim="$v.viviendaData.residuos_organicos.$model"
+                    :class="{'is-invalid': $v.viviendaData.residuos_organicos.$error,'is-valid':!$v.viviendaData.residuos_organicos.$invalid}"
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Aguas servidas Valida</div>
+                  <div class="valid-feedback">Residuos Organicos Valido</div>
                   <div class="invalid-feedback">
                     <span
-                      v-if="!$v.viviendaData.aguas_servidas_genera.required"
-                    >Aguas servidas es obligatoria</span>
+                      v-if="!$v.viviendaData.residuos_organicos.required"
+                    >Residuos Organicos es obligatorio</span>
                   </div>
                 </div>
                 <div class="col-lg-4">
-                  <label>Desechos de cocinas:</label>
+                  <label>Residuos Aprovechables:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.desechos_cocina_genera.$model"
-                    :class="{'is-invalid': $v.viviendaData.desechos_cocina_genera.$error,'is-valid':!$v.viviendaData.desechos_cocina_genera.$invalid}"
+                    v-model.trim="$v.viviendaData.residuos_no_aprovechables.$model"
+                    :class="{'is-invalid': $v.viviendaData.residuos_no_aprovechables.$error,'is-valid':!$v.viviendaData.residuos_no_aprovechables.$invalid}"
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Desechos de cocinas Valido</div>
+                  <div class="valid-feedback">Residuos Aprovechables Valido</div>
                   <div class="invalid-feedback">
                     <span
-                      v-if="!$v.viviendaData.desechos_cocina_genera.required"
-                    >Desechos de cocinas es obligatorio</span>
+                      v-if="!$v.viviendaData.residuos_no_aprovechables.required"
+                    >Residuos Aprovechables es obligatorio</span>
                   </div>
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-4">
-                  <label>Heces de animales:</label>
-                  <b-form-select
-                    v-model.trim="$v.viviendaData.heces_animales_genera.$model"
-                    :class="{'is-invalid': $v.viviendaData.heces_animales_genera.$error,'is-valid':!$v.viviendaData.heces_animales_genera.$invalid}"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option value="NA">No Aplica</option>
-                    <option value="SI">SI</option>
-                    <option value="NO">NO</option>
-                  </b-form-select>
-                  <div class="valid-feedback">Heces de animales Valido</div>
-                  <div class="invalid-feedback">
-                    <span
-                      v-if="!$v.viviendaData.heces_animales_genera.required"
-                    >Heces de animales es obligatorio</span>
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <label>Químicos:</label>
-                  <b-form-select
-                    v-model.trim="$v.viviendaData.quimicos_genera.$model"
-                    :class="{'is-invalid': $v.viviendaData.quimicos_genera.$error,'is-valid':!$v.viviendaData.quimicos_genera.$invalid}"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option value="NA">No Aplica</option>
-                    <option value="SI">SI</option>
-                    <option value="NO">NO</option>
-                  </b-form-select>
-                  <div class="valid-feedback">Químicos Valido</div>
-                  <div class="invalid-feedback">
-                    <span v-if="!$v.viviendaData.quimicos_genera.required">Químicos es obligatorio</span>
-                  </div>
-                </div>
                 <div class="col-lg-4">
                   <label>Otros:</label>
                   <b-form-select
@@ -4569,7 +4533,7 @@
                     >Cuál es el tipo de combustible utilizado en su casa para cocinar es obligatorio</span>
                   </div>
                 </div>
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                   <label>¿Realizan mantenimiento de la red de suministros de gas natural?:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.mantenimiento_red.$model"
@@ -4588,7 +4552,7 @@
                       v-if="!$v.viviendaData.mantenimiento_red.required"
                     >Aguas servidas es obligatoria</span>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="form-group row">
                 <div class="col-lg-5">
@@ -4600,7 +4564,7 @@
                     <option value selected>Seleccione</option>
                     <option value="0">No Aplica</option>
                     <option value="1">Ladera</option>
-                    <option value="2">Rio</option>
+                    <option value="2">Cuerpos de agua</option>
                     <option value="3">suelo inestable, derrumbes</option>
                   </b-form-select>
                   <div
@@ -4634,7 +4598,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                   <label>Existe una fuente de contaminación cerca del lugar de la vivienda:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.fuente_contaminacion.$model"
@@ -4653,7 +4617,7 @@
                       v-if="!$v.viviendaData.fuente_contaminacion.required"
                     >Existe una fuente de contaminación cerca del lugar de la vivienda es obligatoria</span>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-lg-6">
                   <label>¿Se presenta en tu barrio problemáticas de aguas negras?:</label>
                   <b-form-select
@@ -4661,9 +4625,9 @@
                     :class="{'is-invalid': $v.viviendaData.aguas_negras.$error,'is-valid':!$v.viviendaData.aguas_negras.$invalid}"
                   >
                     <option value selected>Seleccione</option>
-                    <option value="NA">No Aplica</option>
-                    <option value="SI">SI</option>
-                    <option value="NO">NO</option>
+                    <option value="FRECUENTE">FRECUENTE</option>
+                    <option value="NUNCA">NUNCA</option>
+                    <option value="OCASIONAL">OCASIONAL</option>
                   </b-form-select>
                   <div
                     class="valid-feedback"
@@ -4765,7 +4729,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                   <label>Suministro de energía ilegal :</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.suministro_energia_ilegal.$model"
@@ -4782,7 +4746,7 @@
                       v-if="!$v.viviendaData.suministro_energia_ilegal.required"
                     >Suministro de energía ilegal es obligatoria</span>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-lg-6">
                   <label>¿Usted realiza quema de cultivo?:</label>
                   <b-form-select
@@ -11178,11 +11142,11 @@
           malos_olores: "",
           rellenos: "",
           contaminacion_a: "",
-          contaminacion_v: "",
+          contaminacion_v: "NA",
           rio: "",
           otro_cerca: "",
           cual_cerca: "",
-          aereopuertos: "",
+          aereopuertos: "NA",
           avenidas_transitadas: "",
           lotes_abandonados: "",
           servicio_sanitario: "",
@@ -11192,7 +11156,7 @@
           cocina: "",
           dormitorio_a: "",
           sala: "",
-          dormitorio_n: "",
+          dormitorio_n: "NA",
           sanitario: "",
           lavadero: "",
           iluminacion_adecuada: "",
@@ -11216,29 +11180,29 @@
           lava_frutas: "",
           tipo_explotacion: "",
           otro_tipo_explotacion: "",
-          flora_afectados: "",
-          fauna_afectados: "",
-          suelo_afectados: "",
-          aire_afectados: "",
-          agua_afectados: "",
-          residuos_solidos_genera: "",
-          aguas_servidas_genera: "",
-          desechos_cocina_genera: "",
-          heces_animales_genera: "",
-          quimicos_genera: "",
+          flora_afectados: "NA",
+          fauna_afectados: "NA",
+          suelo_afectados: "NA",
+          aire_afectados: "NA",
+          agua_afectados: "NA",
+          residuos_solidos_genera: "NA",
+          aguas_servidas_genera: "NA",
+          desechos_cocina_genera: "NA",
+          heces_animales_genera: "NA",
+          quimicos_genera: "NA",
           otros_genera: "",
           cual_genera: "",
           tipo_combustible: "",
-          mantenimiento_red: "",
+          mantenimiento_red: "NA",
           zona_alto_riesgo: "",
           almacenamiento_residuos: "",
-          fuente_contaminacion: "",
+          fuente_contaminacion: "NA",
           aguas_negras: "",
           zonas_verdes: "",
           desplazamientos: "",
           rotacion_cultivo: "",
           emplea_fertilizantes: "",
-          suministro_energia_ilegal: "",
+          suministro_energia_ilegal: "NA",
           quema_cultivo: "",
           mantenimiento_preventivo: "",
           veces_inundaciones: "",
@@ -11248,7 +11212,10 @@
           acabados_externos: "",
           estado_conservacion_estructuras: "",
           mobiliario_cocina: "",
-          andenes: ""
+          andenes: "",
+          residuos_aprovechables: "",
+          residuos_organicos: "",
+          residuos_no_aprovechables: ""          
         },
         estratificacionData: {
           cuenta_internet: "",
@@ -11333,6 +11300,7 @@
         valGAdul: true,
         valGMig: true,
         valGActu: true,
+        valGEst: true,
         bandeGuaEdiJefe: true,
         indiceEditJefe: null,
         bandeGuaEdiInte: true,
@@ -11376,10 +11344,8 @@
         malos_olores: { required },
         rellenos: { required },
         contaminacion_a: { required },
-        contaminacion_v: { required },
         rio: { required },
         otro_cerca: { required },
-        aereopuertos: { required },
         avenidas_transitadas: { required },
         lotes_abandonados: { required },
         servicio_sanitario: { required },
@@ -11388,7 +11354,6 @@
         cocina: { required },
         dormitorio_a: { required },
         sala: { required },
-        dormitorio_n: { required },
         sanitario: { required },
         lavadero: { required },
         iluminacion_adecuada: { required },
@@ -11407,28 +11372,16 @@
         lugares_almacenan_alimentos: { required },
         lava_frutas: { required },
         tipo_explotacion: { required },
-        flora_afectados: { required },
-        fauna_afectados: { required },
-        suelo_afectados: { required },
-        aire_afectados: { required },
-        agua_afectados: { required },
-        residuos_solidos_genera: { required },
-        aguas_servidas_genera: { required },
-        desechos_cocina_genera: { required },
-        heces_animales_genera: { required },
-        quimicos_genera: { required },
         otros_genera: { required },
         tipo_combustible: { required },
-        mantenimiento_red: { required },
         zona_alto_riesgo: { required },
         almacenamiento_residuos: { required },
-        fuente_contaminacion: { required },
         aguas_negras: { required },
         zonas_verdes: { required },
         desplazamientos: { required },
         rotacion_cultivo: { required },
         emplea_fertilizantes: { required },
-        suministro_energia_ilegal: { required },
+
         quema_cultivo: { required },
         mantenimiento_preventivo: { required },
         veces_inundaciones: { required },
@@ -11439,7 +11392,10 @@
         acabados_externos: { required },
         estado_conservacion_estructuras: { required },
         mobiliario_cocina: { required },
-        andenes: { required }
+        andenes: { required },
+        residuos_aprovechables: { required },
+        residuos_organicos: { required },
+        residuos_no_aprovechables: { required }        
       }
     },
     computed: {
@@ -11589,7 +11545,7 @@
             "kt-spinner--light"
           ];
         }
-      }
+      }      
     },
     methods: {
       onCancel() {
@@ -11789,6 +11745,10 @@
               this.viviendaData.estado_conservacion_estructuras = respuesta.data.vivienda.estado_conservacion_estructuras;
               this.viviendaData.mobiliario_cocina = respuesta.data.vivienda.mobiliario_cocina;
               this.viviendaData.andenes = respuesta.data.vivienda.andenes;
+
+              this.viviendaData.residuos_aprovechables = respuesta.data.vivienda.residuos_aprovechables;
+              this.viviendaData.residuos_organicos = respuesta.data.vivienda.residuos_organicos;
+              this.viviendaData.residuos_no_aprovechables = respuesta.data.vivienda.residuos_no_aprovechables;              
 
               this.animalesData = respuesta.data.animales;
               this.estratificacion = respuesta.data.estratificacion;

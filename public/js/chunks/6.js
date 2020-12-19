@@ -12,10 +12,521 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/caracterizacion_servicios */ "./resources/js/Servicios/caracterizacion_servicios.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/npm/index.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Servicios_establecimientos_servicios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Servicios/establecimientos_servicios */ "./resources/js/Servicios/establecimientos_servicios.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/npm/index.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_4__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -477,9 +988,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.consultar(1);
+    this.consultar2(1);
   },
   data: function data() {
     return {
@@ -488,6 +1001,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       caracterizacion3: [],
       integrantes: [],
       txtbusqueda: "",
+      txtbusqueda2: "",
+      txtbusqueda3: "",
       bandera: false,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
       datos: [],
@@ -499,7 +1014,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         desde: 0,
         hasta: 0
       },
-      offset: 4
+      paginacion2: {
+        total: 0,
+        pagina_actual: 0,
+        por_pagina: 0,
+        ultima_pagina: 0,
+        desde: 0,
+        hasta: 0
+      },
+      paginacion3: {
+        total: 0,
+        pagina_actual: 0,
+        por_pagina: 0,
+        ultima_pagina: 0,
+        desde: 0,
+        hasta: 0
+      },
+      offset: 4,
+      establecimientos: [],
+      unidades: []
     };
   },
   computed: {
@@ -532,12 +1065,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return paginasArray;
+    },
+    esActivo2: function esActivo2() {
+      return this.paginacion2.pagina_actual;
+    },
+    numeroDePaginas2: function numeroDePaginas2() {
+      if (!this.paginacion2.hasta) {
+        return [];
+      }
+
+      var desde = this.paginacion2.pagina_actual - this.offset; // TODO offset
+
+      if (desde < 1) {
+        desde = 1;
+      }
+
+      var aux = this.offset * 2;
+      var hasta = desde + aux;
+
+      if (hasta >= this.paginacion2.ultima_pagina) {
+        hasta = this.paginacion2.ultima_pagina;
+      }
+
+      var paginasArray = [];
+
+      while (desde <= hasta) {
+        paginasArray.push(desde);
+        desde++;
+      }
+
+      return paginasArray;
     }
   },
   methods: {
     cambiarPaginas: function cambiarPaginas(pagina) {
       this.paginacion.pagina_actual = pagina;
       this.consultar(pagina);
+    },
+    cambiarPaginas2: function cambiarPaginas2(pagina) {
+      this.paginacion2.pagina_actual = pagina;
+      this.consultar2(pagina);
     },
     consultar: function () {
       var _consultar = _asyncToGenerator(
@@ -595,26 +1162,82 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return consultar;
     }(),
-    eliminar: function () {
-      var _eliminar = _asyncToGenerator(
+    consultar2: function () {
+      var _consultar2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(usu) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(pagina) {
         var _this2 = this;
 
-        var title, titulo;
+        var parametros;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
+              case 0:
+                parametros = {
+                  txtbusqueda: this.txtbusqueda2.trim(),
+                  _token: this.csrf,
+                  page: pagina
+                };
+                _context2.prev = 1;
+                _context2.next = 4;
+                return _Servicios_establecimientos_servicios__WEBPACK_IMPORTED_MODULE_2__["listar"](parametros).then(function (respuesta) {
+                  _this2.establecimientos = respuesta.data.establecimientos.data;
+                  _this2.paginacion2 = respuesta.data.paginacion;
+                });
+
+              case 4:
+                _context2.next = 15;
+                break;
+
+              case 6:
+                _context2.prev = 6;
+                _context2.t0 = _context2["catch"](1);
+                _context2.t1 = _context2.t0.response.status;
+                _context2.next = _context2.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 15);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context2.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[1, 6]]);
+      }));
+
+      function consultar2(_x2) {
+        return _consultar2.apply(this, arguments);
+      }
+
+      return consultar2;
+    }(),
+    eliminar: function () {
+      var _eliminar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(usu) {
+        var _this3 = this;
+
+        var title, titulo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 title = "";
                 titulo = "";
 
                 if (usu.ESTADO == "Activo") {
-                  title = "¿Desea anular el usuario " + usu.USUARIO + "?";
-                  titulo = "Usuario " + usu.USUARIO + " anulado de manera exitosa";
+                  title = "¿Desea anular la caracterización del usuario " + usu.USUARIO + "?";
+                  titulo = "Caracterización del usuario " + usu.USUARIO + " anulado de manera exitosa";
                 } else {
-                  title = "¿Desea activar el usuario " + usu.USUARIO + "?";
-                  titulo = "Usuario " + usu.USUARIO + " activado de manera exitosa";
+                  title = "¿Desea activar la caracterización del usuario " + usu.USUARIO + "?";
+                  titulo = "Caracterización del usuario " + usu.USUARIO + " activado de manera exitosa";
                 }
 
                 this.$swal({
@@ -629,16 +1252,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (result) {
                   if (result.value) {
                     var parametros = {
-                      _token: _this2.csrf,
+                      _token: _this3.csrf,
+                      id_hogar: usu.IDHOGAR,
                       id: usu.id,
-                      estado: usu.ESTADO
+                      estado: usu.ESTADO,
+                      opcion: "CARACTERIZACION"
                     };
 
                     try {
                       _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminarCaracterizacion"](parametros).then(function (respuesta) {
-                        _this2.consultar(1);
+                        _this3.consultar(1);
 
-                        _this2.$swal({
+                        _this3.$swal({
                           position: "top-end",
                           icon: "success",
                           title: titulo,
@@ -646,17 +1271,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           timer: 2000
                         });
                       })["catch"](function (error) {
-                        _this2.$swal("Error...!", "Ocurrio un error!", "error");
+                        _this3.$swal("Error...!", "Ocurrio un error!", "error");
                       });
                     } catch (error) {
                       switch (error.response.status) {
                         case 422:
-                          _this2.$swal("Error...!", "Ocurrio un error!", "error");
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
 
                           break;
 
                         default:
-                          _this2.$swal("Error...!", "Ocurrio un error!", "error");
+                          _this3.$swal("Error...!", "Ocurrio un error!", "error");
 
                           break;
                       }
@@ -666,33 +1291,116 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
-      function eliminar(_x2) {
+      function eliminar(_x3) {
         return _eliminar.apply(this, arguments);
       }
 
       return eliminar;
     }(),
+    eliminar2: function () {
+      var _eliminar2 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(usu) {
+        var _this4 = this;
+
+        var title, titulo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                title = "";
+                titulo = "";
+
+                if (usu.ESTADO == "Activo") {
+                  title = "¿Desea anular el establecimiento " + usu.razon + "?";
+                  titulo = "Establecimiento " + usu.razon + " anulado de manera exitosa";
+                } else {
+                  title = "¿Desea activar el establecimiento " + usu.razon + "?";
+                  titulo = "Establecimiento " + usu.razon + " activado de manera exitosa";
+                }
+
+                this.$swal({
+                  title: title,
+                  text: "",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Aceptar",
+                  cancelButtonText: "Cancelar"
+                }).then(function (result) {
+                  if (result.value) {
+                    var parametros = {
+                      _token: _this4.csrf,
+                      id: usu.id,
+                      estado: usu.ESTADO
+                    };
+
+                    try {
+                      _Servicios_establecimientos_servicios__WEBPACK_IMPORTED_MODULE_2__["eliminar"](parametros).then(function (respuesta) {
+                        _this4.consultar2(1);
+
+                        _this4.$swal({
+                          position: "top-end",
+                          icon: "success",
+                          title: titulo,
+                          showConfirmButton: false,
+                          timer: 2000
+                        });
+                      })["catch"](function (error) {
+                        _this4.$swal("Error...!", "Ocurrio un error!", "error");
+                      });
+                    } catch (error) {
+                      switch (error.response.status) {
+                        case 422:
+                          _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+
+                        default:
+                          _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                          break;
+                      }
+                    }
+                  }
+                });
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function eliminar2(_x4) {
+        return _eliminar2.apply(this, arguments);
+      }
+
+      return eliminar2;
+    }(),
     ExportarTodo: function () {
       var _ExportarTodo = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
         var doc, canvasElement;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                doc = new jspdf__WEBPACK_IMPORTED_MODULE_3___default.a({
+                doc = new jspdf__WEBPACK_IMPORTED_MODULE_4___default.a({
                   // orientation: "landscape"
                   orientation: "portrait"
                 });
                 canvasElement = document.createElement("canvas");
-                html2canvas__WEBPACK_IMPORTED_MODULE_2___default()(this.$refs.content, {
+                html2canvas__WEBPACK_IMPORTED_MODULE_3___default()(this.$refs.content, {
                   canvas: canvasElement
                 }).then(function (canvas) {
                   var img = canvas.toDataURL("image/jpeg"); // doc.setFontSize(22);
@@ -711,10 +1419,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
               case "end":
-                return _context3.stop();
+                return _context5.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee5, this);
       }));
 
       function ExportarTodo() {
@@ -746,53 +1454,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     cerrarModal: function cerrarModal() {
       this.$refs.modalExportar.hide();
       this.$refs.modalExportar2.hide();
+      this.$refs.modalAbrir.hide();
     },
     abrirModal: function () {
       var _abrirModal = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var _this3 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var _this5 = this;
 
         var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
                 parametros = {
                   _token: this.csrf
                 };
-                _context4.prev = 1;
+                _context6.prev = 1;
                 _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["exportarCaracterizacion"](parametros).then(function (respuesta) {
-                  _this3.caracterizacion2 = respuesta.data.caracterizacion;
+                  _this5.caracterizacion2 = respuesta.data.caracterizacion;
 
-                  _this3.$refs.modalExportar.show();
+                  _this5.$refs.modalExportar.show();
                 })["catch"](function (error) {
-                  _this3.$swal("Error...!", "Ocurrio un error!", "error");
+                  _this5.$swal("Error...!", "Ocurrio un error!", "error");
                 });
-                _context4.next = 14;
+                _context6.next = 14;
                 break;
 
               case 5:
-                _context4.prev = 5;
-                _context4.t0 = _context4["catch"](1);
-                _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 422 ? 10 : 12;
+                _context6.prev = 5;
+                _context6.t0 = _context6["catch"](1);
+                _context6.t1 = _context6.t0.response.status;
+                _context6.next = _context6.t1 === 422 ? 10 : 12;
                 break;
 
               case 10:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 14);
+                return _context6.abrupt("break", 14);
 
               case 12:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 14);
+                return _context6.abrupt("break", 14);
 
               case 14:
               case "end":
-                return _context4.stop();
+                return _context6.stop();
             }
           }
-        }, _callee4, this, [[1, 5]]);
+        }, _callee6, this, [[1, 5]]);
       }));
 
       function abrirModal() {
@@ -804,65 +1513,106 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     abrirModal2: function () {
       var _abrirModal2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(item) {
-        var _this4 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(item) {
+        var _this6 = this;
 
         var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context7.prev = _context7.next) {
               case 0:
                 parametros = {
                   _token: this.csrf,
                   id: item.id
                 };
-                _context5.prev = 1;
+                _context7.prev = 1;
                 _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["exportarCaracterizacion2"](parametros).then(function (respuesta) {
                   console.log(respuesta.data.integrantes);
-                  _this4.caracterizacion3 = respuesta.data.caracterizacion;
-                  _this4.integrantes = respuesta.data.integrantes;
+                  _this6.caracterizacion3 = respuesta.data.caracterizacion;
+                  _this6.integrantes = respuesta.data.integrantes;
 
-                  _this4.$refs.modalExportar2.show();
+                  _this6.$refs.modalExportar2.show();
                 })["catch"](function (error) {
-                  _this4.$swal("Error...!", "Ocurrio un error!", "error");
+                  _this6.$swal("Error...!", "Ocurrio un error!", "error");
                 });
-                _context5.next = 14;
+                _context7.next = 14;
                 break;
 
               case 5:
-                _context5.prev = 5;
-                _context5.t0 = _context5["catch"](1);
-                _context5.t1 = _context5.t0.response.status;
-                _context5.next = _context5.t1 === 422 ? 10 : 12;
+                _context7.prev = 5;
+                _context7.t0 = _context7["catch"](1);
+                _context7.t1 = _context7.t0.response.status;
+                _context7.next = _context7.t1 === 422 ? 10 : 12;
                 break;
 
               case 10:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context5.abrupt("break", 14);
+                return _context7.abrupt("break", 14);
 
               case 12:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context5.abrupt("break", 14);
+                return _context7.abrupt("break", 14);
 
               case 14:
               case "end":
-                return _context5.stop();
+                return _context7.stop();
             }
           }
-        }, _callee5, this, [[1, 5]]);
+        }, _callee7, this, [[1, 5]]);
       }));
 
-      function abrirModal2(_x3) {
+      function abrirModal2(_x5) {
         return _abrirModal2.apply(this, arguments);
       }
 
       return abrirModal2;
     }(),
+    abrir: function abrir() {
+      // this.$refs.modalAbrir.show();
+      this.$router.push({
+        name: "Establecimientos",
+        params: {
+          IDHOGAR: 0
+        }
+      });
+    },
+    seleccionarOpcion: function seleccionarOpcion(opcion) {
+      if (opcion === "ingreso") {
+        this.$router.push({
+          name: "Ingreso"
+        });
+      } else {
+        this.$router.push({
+          name: "Establecimientos",
+          params: {
+            IDHOGAR: 0
+          }
+        });
+      }
+    },
     editar: function editar(item) {
       this.$router.push({
         name: "Editar",
         params: {
           IDHOGAR: item.IDHOGAR
+        }
+      });
+    },
+    editar2: function editar2(item) {
+      this.$router.push({
+        name: "EditarEstablecimientos",
+        params: {
+          id: item.id,
+          IDHOGAR: item.IDHOGAR
+        }
+      });
+    },
+    abrir3: function abrir3() {
+      // this.$refs.modalAbrir.show();
+      this.$router.push({
+        name: "Unidades",
+        params: {
+          IDHOGAR: 0
         }
       });
     }
@@ -883,7 +1633,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n", ""]);
+exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n.modal-sm {\n  max-width: 40%;\n}\n", ""]);
 
 // exports
 
@@ -968,6 +1718,7 @@ var render = function() {
                           [_c("i", { staticClass: "la la-file-text-o" })]
                         ),
                         _vm._v(" \n                  "),
+                        _vm._v(" "),
                         _c(
                           "a",
                           {
@@ -2088,9 +2839,1194 @@ var render = function() {
               ])
             ])
           ]
+        ),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalAbrir",
+            attrs: {
+              "hide-footer": "",
+              title: "Seleccione una opción",
+              size: "sm",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("div", { staticClass: "d-block" }, [
+              _c("div", { ref: "content" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+                  },
+                  [
+                    _c("div", { staticClass: "kt-portlet__body" }, [
+                      _c("div", { staticClass: "kt-section" }, [
+                        _c("div", { staticClass: "kt-section__content" }, [
+                          _c(
+                            "div",
+                            { staticClass: "row justify-content-center" },
+                            [
+                              _c("div", { staticClass: "col-md-6" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid",
+                                    attrs: {
+                                      "data-container": "body",
+                                      "data-toggle": "kt-popover",
+                                      "data-placement": "left",
+                                      "data-content": "",
+                                      "data-html": "true"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "kt-widget14",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.seleccionarOpcion(
+                                              "ingreso"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__header"
+                                          },
+                                          [
+                                            _c(
+                                              "h3",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__title text-center font-weight-bold",
+                                                staticStyle: {
+                                                  "font-size": "11px"
+                                                }
+                                              },
+                                              [_vm._v("Vivienda")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/zonas/hogares.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-6" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "kt-portlet kt-portlet--height-fluid",
+                                    attrs: {
+                                      "data-container": "body",
+                                      "data-toggle": "kt-popover",
+                                      "data-placement": "left",
+                                      "data-content": "",
+                                      "data-html": "true"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "kt-widget14",
+                                        staticStyle: {
+                                          cursor: "pointer",
+                                          width: "200px"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.seleccionarOpcion(
+                                              "establecimiento"
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__header"
+                                          },
+                                          [
+                                            _c(
+                                              "h3",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__title text-center font-weight-bold",
+                                                staticStyle: {
+                                                  "font-size": "11px"
+                                                }
+                                              },
+                                              [_vm._v("Establecimiento")]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass: "kt-widget14__content"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "kt-widget14__chart text-center"
+                                              },
+                                              [
+                                                _c("img", {
+                                                  staticStyle: {
+                                                    height: "100px",
+                                                    width: "140px",
+                                                    float: "right"
+                                                  },
+                                                  attrs: {
+                                                    src:
+                                                      _vm.$store.state
+                                                        .serverPath +
+                                                      "assets/iconos/zonas/viviendas.png"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-right" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
+                    attrs: { type: "button" },
+                    on: { click: _vm.cerrarModal }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-window-close" }),
+                    _vm._v(" Cerrar\n          ")
+                  ]
+                )
+              ])
+            ])
+          ]
         )
       ],
       1
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "kt-separator kt-separator--border-dashed" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
+        staticStyle: { "margin-top": "-4%" }
+      },
+      [
+        _vm._m(2),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c("div", { staticClass: "kt-section__content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-primary btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Nuevo Establecimiento"
+                          },
+                          on: { click: _vm.abrir }
+                        },
+                        [_c("i", { staticClass: "la la-file-text-o" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-warning btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Exportar a Pdf"
+                          },
+                          on: { click: _vm.abrirModal }
+                        },
+                        [_c("i", { staticClass: "la la-file-pdf-o" })]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda2,
+                              expression: "txtbusqueda2"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda2 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda2 = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar2(1)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.establecimientos, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            item.CORREGIMIENTO !== null
+                              ? _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(item.CORREGIMIENTO.toUpperCase())
+                                    )
+                                  ]
+                                )
+                              : _c("td", {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle",
+                                    "text-align": "left",
+                                    "text-transform": "capitalize"
+                                  }
+                                }),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.razon.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.nit.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.representante.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-success btn-icon btn-sm",
+                                    attrs: {
+                                      type: "button",
+                                      title: "Imprimir"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal2(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-file-pdf" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar2(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-icon btn-sm",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "btn-outline-danger"
+                                        : "btn-outline-success",
+                                    attrs: {
+                                      type: "button",
+                                      title:
+                                        item.ESTADO == "Activo"
+                                          ? "Anular"
+                                          : "Activar"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminar2(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa",
+                                      class:
+                                        item.ESTADO == "Activo"
+                                          ? "fa-trash"
+                                          : "fa-check"
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion2.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--first"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.pagina_actual -
+                                                  1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas2, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo2
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas2(pagina)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(pagina))]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual <
+                              _vm.paginacion2.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.pagina_actual +
+                                                  1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual <
+                              _vm.paginacion2.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "kt-separator kt-separator--border-dashed" }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile",
+        staticStyle: { "margin-top": "-4%" }
+      },
+      [
+        _vm._m(4),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c("div", { staticClass: "kt-section__content" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-primary btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Nueva Unidad Productiva"
+                          },
+                          on: { click: _vm.abrir3 }
+                        },
+                        [_c("i", { staticClass: "la la-file-text-o" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-warning btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            title: "Exportar a Pdf"
+                          },
+                          on: { click: _vm.abrirModal }
+                        },
+                        [_c("i", { staticClass: "la la-file-pdf-o" })]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda3,
+                              expression: "txtbusqueda3"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda3 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda3 = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar2(1)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table table-sm table-hover" }, [
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.establecimientos, function(item, index) {
+                          return _c("tr", { key: index }, [
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [_vm._v(_vm._s(index + 1))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.DPTO.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.MUNI.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            item.CORREGIMIENTO !== null
+                              ? _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(item.CORREGIMIENTO.toUpperCase())
+                                    )
+                                  ]
+                                )
+                              : _c("td", {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle",
+                                    "text-align": "left",
+                                    "text-transform": "capitalize"
+                                  }
+                                }),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.razon.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.nit.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "font-weight": "normal",
+                                  "vertical-align": "middle",
+                                  "text-align": "left",
+                                  "text-transform": "capitalize"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.representante.toUpperCase()))]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "vertical-align": "middle"
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-success btn-icon btn-sm",
+                                    attrs: {
+                                      type: "button",
+                                      title: "Imprimir"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.abrirModal2(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-file-pdf" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-outline-info btn-icon btn-sm",
+                                    attrs: { type: "button", title: "Editar" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.editar2(item)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fa fa-edit" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-icon btn-sm",
+                                    class:
+                                      item.ESTADO == "Activo"
+                                        ? "btn-outline-danger"
+                                        : "btn-outline-success",
+                                    attrs: {
+                                      type: "button",
+                                      title:
+                                        item.ESTADO == "Activo"
+                                          ? "Anular"
+                                          : "Activar"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminar2(item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa",
+                                      class:
+                                        item.ESTADO == "Activo"
+                                          ? "fa-trash"
+                                          : "fa-check"
+                                    })
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        }),
+                        0
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "kt-separator kt-separator--border-dashed"
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion2.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--first"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.pagina_actual -
+                                                  1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas2, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo2
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas2(pagina)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(pagina))]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual <
+                              _vm.paginacion2.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.pagina_actual +
+                                                  1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion2.pagina_actual <
+                              _vm.paginacion2.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas2(
+                                                _vm.paginacion2.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
     )
   ])
 }
@@ -2128,6 +4064,82 @@ var staticRenderFns = [
         _c("th", [_vm._v("Usuario")]),
         _vm._v(" "),
         _c("td", { staticClass: "text-center" }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+            _vm._v("GESTIÓN DE ESTABLECIMIENTOS")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Departamento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Municipio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Corregimiento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Razón Social")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nit")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Representante")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+            _vm._v("GESTIÓN DE UNIDADES PRODUCTIVAS")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Departamento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Municipio")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Corregimiento")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nombre de la Finca")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Identificación")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Productor")]),
         _vm._v(" "),
         _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
       ])
@@ -2194,6 +4206,44 @@ function editarCaracterizacion($data) {
 }
 function eliminar($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/eliminar', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/establecimientos_servicios.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/Servicios/establecimientos_servicios.js ***!
+  \**************************************************************/
+/*! exports provided: listar, nuevo, guardar, eliminar, combo, editar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar", function() { return listar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nuevo", function() { return nuevo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardar", function() { return guardar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "combo", function() { return combo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editar", function() { return editar; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function listar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos', $data);
+}
+function nuevo($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/nuevo', $data);
+}
+function guardar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/guardar', $data);
+}
+function eliminar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/eliminar', $data);
+}
+function combo($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/combo', $data);
+}
+function editar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/establecimientos/editar', $data);
 }
 
 /***/ }),

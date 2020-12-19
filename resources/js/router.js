@@ -71,7 +71,7 @@ export const routes = [
             path: '/editarIngreso',
             name: 'Editar',
             component: () => import('./Vistas/Caracterizacion/Editar.vue')
-      },      
+      },
       {
             path: '/morbilidad_nacer',
             name: 'Morbilidad_Nacer',
@@ -126,6 +126,26 @@ export const routes = [
             path: '/actividad',
             name: 'Actividad',
             component: () => import('./Vistas/Actividad/Actividad.vue')
+      },
+      {
+            path: '/establecimientos',
+            name: 'Establecimientos',
+            component: () => import('./Vistas/Establecimientos/Establecimientos.vue')
+      },
+      {
+            path: '/establecimientos/editar',
+            name: 'EditarEstablecimientos',
+            component: () => import('./Vistas/Establecimientos/Editar.vue')
+      },
+      {
+            path: '/unidades',
+            name: 'Unidades',
+            component: () => import('./Vistas/Unidades/Unidades.vue')
+      },
+      {
+            path: '/unidades/editar',
+            name: 'EditarUnidades',
+            component: () => import('./Vistas/Unidades/Editar.vue')
       }
 
 ];

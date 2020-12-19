@@ -48,6 +48,7 @@ class Caracterizacion extends Model
                     "hogar.id AS IDHOGAR",
                     "caracterizacion.telefono"
                 )
+                ->where("hogar.estado", "Activo")
                 ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
                 ->orderBy('caracterizacion.id', 'DESC')
                 ->paginate(10);
@@ -60,6 +61,7 @@ class Caracterizacion extends Model
                     $join->on('muni.codmun', '=', 'hogar.id_mun');
                 })
                 ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'hogar.id_corre')
+                ->where("hogar.estado", "Activo")
                 ->select("dptos.descripcion AS DPTO",
                     "muni.descripcion AS MUNI",
                     "corregimientos.descripcion AS CORREGIMIENTO",
@@ -268,5 +270,12 @@ class Caracterizacion extends Model
             ->where('estado', 'Activo')
             ->groupBy('id_hogar')
             ->get();
+    }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.caracterizacion')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
     }
 }

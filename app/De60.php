@@ -88,5 +88,12 @@ class De60 extends Model
                 . " END sape"
                 . " ")            
             ->get();
+    }
+    
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.de60')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
     }    
 }

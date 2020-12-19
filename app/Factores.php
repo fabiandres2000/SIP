@@ -71,4 +71,11 @@ class Factores extends Model
             ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
             ->get();
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.factores')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }
 }

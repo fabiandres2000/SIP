@@ -252,4 +252,11 @@ class Integrante extends Model
             ->where('escolaridad.id', '13')
             ->get();
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }
 }

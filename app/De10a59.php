@@ -90,4 +90,11 @@ class De10a59 extends Model
                 . " ")
             ->get();
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.de10a59')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }    
 }

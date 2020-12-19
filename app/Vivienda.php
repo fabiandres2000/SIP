@@ -27,7 +27,7 @@ class Vivienda extends Model
         'fuente_contaminacion', 'aguas_negras', 'zonas_verdes', 'desplazamientos', 'rotacion_cultivo', 'emplea_fertilizantes',
         'suministro_energia_ilegal', 'quema_cultivo', 'mantenimiento_preventivo', 'veces_inundaciones', 'promedio_gastos', 'id_compania',
         'fachada', 'cuantos_baños', 'estado_conservacion_baños', 'acabados_externos', 'estado_conservacion_estructuras',
-        'mobiliario_cocina', 'andenes',
+        'mobiliario_cocina', 'andenes', 'residuos_aprovechables', 'residuos_organicos', 'residuos_no_aprovechables',
     ];
 
     public static function guardar($data, $alias)
@@ -146,6 +146,9 @@ class Vivienda extends Model
             'estado_conservacion_estructuras' => $data['estado_conservacion_estructuras'],
             'mobiliario_cocina' => $data['mobiliario_cocina'],
             'andenes' => $data['andenes'],
+            'residuos_aprovechables' => $data['residuos_aprovechables'],
+            'residuos_organicos' => $data['residuos_organicos'],
+            'residuos_no_aprovechables' => $data['residuos_no_aprovechables'],
         ]);
     }
 
@@ -156,7 +159,14 @@ class Vivienda extends Model
             ->leftjoin($alias . '.actividades_economicas', 'actividades_economicas.id', 'vivienda.actividad_economica')
             ->where('vivienda.id_hogar', $id_hogar)
             ->where('vivienda.estado', 'Activo')
-            ->select("vivienda.*","actividades_economicas.descripcion AS actividadesAuxiliar")
+            ->select("vivienda.*", "actividades_economicas.descripcion AS actividadesAuxiliar")
             ->first();
+    }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.vivienda')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
     }
 }

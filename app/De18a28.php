@@ -91,4 +91,11 @@ class De18a28 extends Model
                 . " ")            
             ->get();
     }    
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.de18a28')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }    
 }

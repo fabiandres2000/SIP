@@ -91,4 +91,11 @@ class Men1a extends Model
                 . " ")
             ->get();
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.men1a')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }    
 }

@@ -1157,7 +1157,7 @@ class CaracterizacionController extends Controller
                         'OPC' => 'SI',
                     ];
                     return response()->json($respuesta, 200);
-                }                
+                }
                 if (request()->get("opc") == "GUADULT") {
                     $dataDe60 = request()->get("De60");
                     $dataEnCro = request()->get("EnCro");
@@ -1202,7 +1202,7 @@ class CaracterizacionController extends Controller
                         'OPC' => 'SI',
                     ];
                     return response()->json($respuesta, 200);
-                }                                                
+                }
             }
         } else {
             return redirect("/login")->with("error", "Su sesion ha terminado");
@@ -1536,9 +1536,32 @@ class CaracterizacionController extends Controller
     {
         if (Auth::check()) {
             $opcion = request()->get("opcion");
-            $id_hogar = request()->get("id_hogar");
+
             $OPC = "";
+            if ($opcion == "CARACTERIZACION") {
+                $id = request()->get("id");
+                $id_hogar = request()->get("id_hogar");
+                $respuesta = \App\Hogar::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Caracterizacion::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Integrante::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Factores::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Vivienda::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Men1a::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\De1a5::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\De6a11::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\De10a59::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Parpost::editarestado2("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\De12a17::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\De18a28::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\De29a59::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\De60::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Encro::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Eninf::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Migra::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $OPC = "SI";
+            }
             if ($opcion == "PARPOST") {
+                $id_hogar = request()->get("id_hogar");
                 //TABLA PARPOST
                 $identificacion = request()->get("identificacion");
                 $tabla = request()->get("tabla");

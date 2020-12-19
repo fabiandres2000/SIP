@@ -66,7 +66,14 @@ class Eninf extends Model
                 . " WHEN eninf.sape = '' THEN '' "
                 . " ELSE eninf.sape "
                 . " END sape"
-                . " ")            
+                . " ")
             ->get();
+    }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.eninf')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
     }
 }

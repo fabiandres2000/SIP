@@ -86,4 +86,11 @@ class De6a11 extends Model
                 . " ")            
             ->get();
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.de6a11')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }    
 }

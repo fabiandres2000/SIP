@@ -97,4 +97,11 @@ class De12a17 extends Model
                 . " ")            
             ->get();
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.de12a17')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
+    }    
 }

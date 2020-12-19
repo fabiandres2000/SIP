@@ -97,7 +97,7 @@ class Parpost extends Model
                 . " WHEN parpost.sape = '' THEN '' "
                 . " ELSE parpost.sape "
                 . " END sape"
-                . " ")            
+                . " ")
             ->get();
     }
 
@@ -117,6 +117,13 @@ class Parpost extends Model
         // BUSCAR ID
         // dd($respuesta->id);die;
         return DB::connection('mysql')->table($alias . '.parpost')->where('id_integrante', $respuesta->id)->update([
+            'estado' => $estado,
+        ]);
+    }
+
+    public static function editarestado2($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.de10a59')->where('id_hogar', $id)->update([
             'estado' => $estado,
         ]);
     }

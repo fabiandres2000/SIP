@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- CARCARTERIZACION -->
     <div
       class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
       style="margin-top: -4%;"
@@ -26,6 +27,14 @@
                     >
                       <i class="la la-file-text-o"></i>
                     </router-link>&nbsp;
+                    <!-- <a
+                      class="btn btn-outline-primary btn-icon"
+                      href="javascript:;"
+                      title="Nueva Caracterización"
+                      @click="abrir"
+                    >
+                      <i class="la la-file-text-o"></i>
+                    </a>-->
                     <a
                       class="btn btn-outline-warning btn-icon"
                       href="javascript:;"
@@ -444,18 +453,521 @@
         </div>
       </b-modal>
       <!--begin::Modal Exportar2-->
+
+      <!--begin::Modal Exportar2-->
+      <b-modal
+        ref="modalAbrir"
+        hide-footer
+        title="Seleccione una opción"
+        size="sm"
+        centered
+        header-bg-variant="danger"
+        header-text-variant="light"
+        :no-close-on-backdrop="true"
+      >
+        <div class="d-block">
+          <div ref="content">
+            <div
+              class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+            >
+              <div class="kt-portlet__body">
+                <div class="kt-section">
+                  <div class="kt-section__content">
+                    <div class="row justify-content-center">
+                      <div class="col-md-6">
+                        <div
+                          class="kt-portlet kt-portlet--height-fluid"
+                          data-container="body"
+                          data-toggle="kt-popover"
+                          data-placement="left"
+                          data-content
+                          data-html="true"
+                        >
+                          <div
+                            class="kt-widget14"
+                            style="cursor:pointer;width: 200px;"
+                            @click="seleccionarOpcion('ingreso')"
+                          >
+                            <div class="kt-widget14__header">
+                              <h3
+                                class="kt-widget14__title text-center font-weight-bold"
+                                style="font-size: 11px;"
+                              >Vivienda</h3>
+                            </div>
+                            <div class="kt-widget14__content">
+                              <div class="kt-widget14__chart text-center">
+                                <img
+                                  style="height: 100px; width: 140px; float: right;"
+                                  :src="
+                                              `${$store.state.serverPath}assets/iconos/zonas/hogares.png`
+                                          "
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div
+                          class="kt-portlet kt-portlet--height-fluid"
+                          data-container="body"
+                          data-toggle="kt-popover"
+                          data-placement="left"
+                          data-content
+                          data-html="true"
+                        >
+                          <div
+                            class="kt-widget14"
+                            style="cursor:pointer;width: 200px;"
+                            @click="seleccionarOpcion('establecimiento')"
+                          >
+                            <div class="kt-widget14__header">
+                              <h3
+                                class="kt-widget14__title text-center font-weight-bold"
+                                style="font-size: 11px;"
+                              >Establecimiento</h3>
+                            </div>
+                            <div class="kt-widget14__content">
+                              <div class="kt-widget14__chart text-center">
+                                <img
+                                  style="height: 100px; width: 140px; float: right;"
+                                  :src="
+                                              `${$store.state.serverPath}assets/iconos/zonas/viviendas.png`
+                                          "
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="text-right">
+            <button type="button" class="btn btn-warning" @click="cerrarModal">
+              <i class="fa fa-window-close"></i> Cerrar
+            </button>
+          </div>
+        </div>
+      </b-modal>
+      <!--begin::Modal Exportar2-->
     </div>
+    <!-- CARCARTERIZACION -->
+    <br />
+    <div class="kt-separator kt-separator--border-dashed"></div>
+    <!-- ESTABLECIMIENTOS -->
+    <div
+      class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+      style="margin-top: -4%;"
+    >
+      <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+          <h3 class="kt-portlet__head-title">
+            <span class="kt-widget20__number kt-font-danger">GESTIÓN DE ESTABLECIMIENTOS</span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="kt-portlet__body">
+        <div class="kt-section">
+          <div class="kt-section__content">
+            <div class="row">
+              <div class="col-md-6 col-lg-6">
+                <div class="kt-section">
+                  <div class="kt-section__content">
+                    <a
+                      class="btn btn-outline-primary btn-icon"
+                      href="javascript:;"
+                      title="Nuevo Establecimiento"
+                      @click="abrir"
+                    >
+                      <i class="la la-file-text-o"></i>
+                    </a>
+                    <a
+                      class="btn btn-outline-warning btn-icon"
+                      href="javascript:;"
+                      title="Exportar a Pdf"
+                      @click="abrirModal"
+                    >
+                      <i class="la la-file-pdf-o"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <form class="kt-form">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Busqueda"
+                        v-model="txtbusqueda2"
+                      />
+                      <div class="input-group-append">
+                        <button
+                          type="button"
+                          class="btn btn-primary btn-icon"
+                          @click="consultar2(1)"
+                        >
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th>No.</th>
+                        <th>Departamento</th>
+                        <th>Municipio</th>
+                        <th>Corregimiento</th>
+                        <th>Razón Social</th>
+                        <th>Nit</th>
+                        <th>Representante</th>
+                        <td class="text-center">Opciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(item, index) in establecimientos" :key="index">
+                        <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.DPTO.toUpperCase()}}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.MUNI.toUpperCase()}}</td>
+                        <td
+                          v-if="item.CORREGIMIENTO!==null"
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.CORREGIMIENTO.toUpperCase()}}</td>
+                        <td
+                          v-else
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        ></td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.razon.toUpperCase()}}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.nit.toUpperCase()}}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.representante.toUpperCase()}}</td>
+                        <td style="text-align:center;vertical-align: middle;text-align: center;">
+                          <button
+                            type="button"
+                            class="btn btn-outline-success btn-icon btn-sm"
+                            title="Imprimir"
+                            @click="abrirModal2(item)"
+                          >
+                            <i class="fa fa-file-pdf"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-outline-info btn-icon btn-sm"
+                            title="Editar"
+                            @click="editar2(item)"
+                          >
+                            <i class="fa fa-edit"></i>
+                          </button>
+                          <button
+                            class="btn btn-icon btn-sm"
+                            :class="(item.ESTADO=='Activo'?'btn-outline-danger':'btn-outline-success')"
+                            type="button"
+                            :title="(item.ESTADO=='Activo')?'Anular':'Activar'"
+                            @click="eliminar2(item)"
+                          >
+                            <i class="fa" :class="(item.ESTADO=='Activo')?'fa-trash':'fa-check'"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                  <!--begin: Section-->
+                  <div class="kt-section">
+                    <!--begin: Pagination-->
+                    <div class="kt-pagination kt-pagination--danger">
+                      <ul class="kt-pagination__links">
+                        <li class="kt-pagination__link--first" v-if="paginacion2.pagina_actual>1">
+                          <a href="javascript:;" @click.prevent="cambiarPaginas2(1)">
+                            <i class="fa fa-angle-double-left kt-font-danger"></i>
+                          </a>
+                        </li>
+                        <li class="kt-pagination__link--next" v-if="paginacion2.pagina_actual>1">
+                          <a
+                            href="javascript:;"
+                            @click.prevent="cambiarPaginas2(paginacion2.pagina_actual-1)"
+                          >
+                            <i class="fa fa-angle-left kt-font-danger"></i>
+                          </a>
+                        </li>
+                        <li
+                          :class="[pagina==esActivo2 ? 'kt-pagination__link--active': '']"
+                          v-for="(pagina,index) in numeroDePaginas2"
+                          :key="index"
+                        >
+                          <a href="javascript:;" @click.prevent="cambiarPaginas2(pagina)">{{pagina}}</a>
+                        </li>
+                        <li
+                          class="kt-pagination__link--prev"
+                          v-if="paginacion2.pagina_actual<paginacion2.ultima_pagina"
+                        >
+                          <a
+                            href="javascript:;"
+                            @click.prevent="cambiarPaginas2(paginacion2.pagina_actual+1)"
+                          >
+                            <i class="fa fa-angle-right kt-font-danger"></i>
+                          </a>
+                        </li>
+                        <li
+                          class="kt-pagination__link--last"
+                          v-if="paginacion2.pagina_actual<paginacion2.ultima_pagina"
+                        >
+                          <a
+                            href="javascript:;"
+                            @click.prevent="cambiarPaginas2(paginacion2.ultima_pagina)"
+                          >
+                            <i class="fa fa-angle-double-right kt-font-danger"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--end: Pagination-->
+                  </div>
+                  <!--end: Section-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ESTABLECIMIENTOS -->
+    <br />
+    <div class="kt-separator kt-separator--border-dashed"></div>
+
+    <!-- UNIDADES PRODUCTIVAS -->
+    <div
+      class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+      style="margin-top: -4%;"
+    >
+      <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+          <h3 class="kt-portlet__head-title">
+            <span class="kt-widget20__number kt-font-danger">GESTIÓN DE UNIDADES PRODUCTIVAS</span>
+          </h3>
+        </div>
+      </div>
+
+      <div class="kt-portlet__body">
+        <div class="kt-section">
+          <div class="kt-section__content">
+            <div class="row">
+              <div class="col-md-6 col-lg-6">
+                <div class="kt-section">
+                  <div class="kt-section__content">
+                    <a
+                      class="btn btn-outline-primary btn-icon"
+                      href="javascript:;"
+                      title="Nueva Unidad Productiva"
+                      @click="abrir3"
+                    >
+                      <i class="la la-file-text-o"></i>
+                    </a>
+                    <a
+                      class="btn btn-outline-warning btn-icon"
+                      href="javascript:;"
+                      title="Exportar a Pdf"
+                      @click="abrirModal"
+                    >
+                      <i class="la la-file-pdf-o"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <form class="kt-form">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Busqueda"
+                        v-model="txtbusqueda3"
+                      />
+                      <div class="input-group-append">
+                        <button
+                          type="button"
+                          class="btn btn-primary btn-icon"
+                          @click="consultar2(1)"
+                        >
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th>No.</th>
+                        <th>Departamento</th>
+                        <th>Municipio</th>
+                        <th>Corregimiento</th>
+                        <th>Nombre de la Finca</th>
+                        <th>Identificación</th>
+                        <th>Productor</th>
+                        <td class="text-center">Opciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(item, index) in establecimientos" :key="index">
+                        <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.DPTO.toUpperCase()}}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.MUNI.toUpperCase()}}</td>
+                        <td
+                          v-if="item.CORREGIMIENTO!==null"
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.CORREGIMIENTO.toUpperCase()}}</td>
+                        <td
+                          v-else
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        ></td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.razon.toUpperCase()}}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.nit.toUpperCase()}}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >{{item.representante.toUpperCase()}}</td>
+                        <td style="text-align:center;vertical-align: middle;text-align: center;">
+                          <button
+                            type="button"
+                            class="btn btn-outline-success btn-icon btn-sm"
+                            title="Imprimir"
+                            @click="abrirModal2(item)"
+                          >
+                            <i class="fa fa-file-pdf"></i>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-outline-info btn-icon btn-sm"
+                            title="Editar"
+                            @click="editar2(item)"
+                          >
+                            <i class="fa fa-edit"></i>
+                          </button>
+                          <button
+                            class="btn btn-icon btn-sm"
+                            :class="(item.ESTADO=='Activo'?'btn-outline-danger':'btn-outline-success')"
+                            type="button"
+                            :title="(item.ESTADO=='Activo')?'Anular':'Activar'"
+                            @click="eliminar2(item)"
+                          >
+                            <i class="fa" :class="(item.ESTADO=='Activo')?'fa-trash':'fa-check'"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                  <!--begin: Section-->
+                  <div class="kt-section">
+                    <!--begin: Pagination-->
+                    <div class="kt-pagination kt-pagination--danger">
+                      <ul class="kt-pagination__links">
+                        <li class="kt-pagination__link--first" v-if="paginacion2.pagina_actual>1">
+                          <a href="javascript:;" @click.prevent="cambiarPaginas2(1)">
+                            <i class="fa fa-angle-double-left kt-font-danger"></i>
+                          </a>
+                        </li>
+                        <li class="kt-pagination__link--next" v-if="paginacion2.pagina_actual>1">
+                          <a
+                            href="javascript:;"
+                            @click.prevent="cambiarPaginas2(paginacion2.pagina_actual-1)"
+                          >
+                            <i class="fa fa-angle-left kt-font-danger"></i>
+                          </a>
+                        </li>
+                        <li
+                          :class="[pagina==esActivo2 ? 'kt-pagination__link--active': '']"
+                          v-for="(pagina,index) in numeroDePaginas2"
+                          :key="index"
+                        >
+                          <a href="javascript:;" @click.prevent="cambiarPaginas2(pagina)">{{pagina}}</a>
+                        </li>
+                        <li
+                          class="kt-pagination__link--prev"
+                          v-if="paginacion2.pagina_actual<paginacion2.ultima_pagina"
+                        >
+                          <a
+                            href="javascript:;"
+                            @click.prevent="cambiarPaginas2(paginacion2.pagina_actual+1)"
+                          >
+                            <i class="fa fa-angle-right kt-font-danger"></i>
+                          </a>
+                        </li>
+                        <li
+                          class="kt-pagination__link--last"
+                          v-if="paginacion2.pagina_actual<paginacion2.ultima_pagina"
+                        >
+                          <a
+                            href="javascript:;"
+                            @click.prevent="cambiarPaginas2(paginacion2.ultima_pagina)"
+                          >
+                            <i class="fa fa-angle-double-right kt-font-danger"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <!--end: Pagination-->
+                  </div>
+                  <!--end: Section-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- UNIDADES PRODUCTIVAS -->
   </div>
 </template>
 
 <script>
   "use strict";
   import * as caracterizacionServicios from "../../Servicios/caracterizacion_servicios";
+  import * as establecimientosServicios from "../../Servicios/establecimientos_servicios";
   import html2canvas from "html2canvas";
   import jsPDF from "jspdf";
   export default {
     mounted() {
       this.consultar(1);
+      this.consultar2(1);
     },
     data() {
       return {
@@ -464,6 +976,8 @@
         caracterizacion3: [],
         integrantes: [],
         txtbusqueda: "",
+        txtbusqueda2: "",
+        txtbusqueda3: "",
         bandera: false,
         csrf: document
           .querySelector('meta[name="csrf-token"]')
@@ -477,7 +991,25 @@
           desde: 0,
           hasta: 0
         },
-        offset: 4
+        paginacion2: {
+          total: 0,
+          pagina_actual: 0,
+          por_pagina: 0,
+          ultima_pagina: 0,
+          desde: 0,
+          hasta: 0
+        },
+        paginacion3: {
+          total: 0,
+          pagina_actual: 0,
+          por_pagina: 0,
+          ultima_pagina: 0,
+          desde: 0,
+          hasta: 0
+        },        
+        offset: 4,
+        establecimientos: [],
+        unidades: [],
       };
     },
     computed: {
@@ -503,13 +1035,40 @@
           desde++;
         }
         return paginasArray;
+      },
+      esActivo2: function() {
+        return this.paginacion2.pagina_actual;
+      },
+      numeroDePaginas2: function() {
+        if (!this.paginacion2.hasta) {
+          return [];
+        }
+        var desde = this.paginacion2.pagina_actual - this.offset; // TODO offset
+        if (desde < 1) {
+          desde = 1;
+        }
+        var aux = this.offset * 2;
+        var hasta = desde + aux;
+        if (hasta >= this.paginacion2.ultima_pagina) {
+          hasta = this.paginacion2.ultima_pagina;
+        }
+        var paginasArray = [];
+        while (desde <= hasta) {
+          paginasArray.push(desde);
+          desde++;
+        }
+        return paginasArray;
       }
     },
     methods: {
       cambiarPaginas: function(pagina) {
         this.paginacion.pagina_actual = pagina;
         this.consultar(pagina);
-      },      
+      },
+      cambiarPaginas2: function(pagina) {
+        this.paginacion2.pagina_actual = pagina;
+        this.consultar2(pagina);
+      },
       consultar: async function(pagina) {
         const parametros = {
           txtbusqueda: this.txtbusqueda.trim(),
@@ -534,15 +1093,103 @@
           }
         }
       },
+      consultar2: async function(pagina) {
+        const parametros = {
+          txtbusqueda: this.txtbusqueda2.trim(),
+          _token: this.csrf,
+          page: pagina
+        };
+        try {
+          await establecimientosServicios.listar(parametros).then(respuesta => {
+            this.establecimientos = respuesta.data.establecimientos.data;
+            this.paginacion2 = respuesta.data.paginacion;
+          });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
       eliminar: async function(usu) {
         var title = "";
         var titulo = "";
         if (usu.ESTADO == "Activo") {
-          title = "¿Desea anular el usuario " + usu.USUARIO + "?";
-          titulo = "Usuario " + usu.USUARIO + " anulado de manera exitosa";
+          title =
+            "¿Desea anular la caracterización del usuario " + usu.USUARIO + "?";
+          titulo =
+            "Caracterización del usuario " +
+            usu.USUARIO +
+            " anulado de manera exitosa";
         } else {
-          title = "¿Desea activar el usuario " + usu.USUARIO + "?";
-          titulo = "Usuario " + usu.USUARIO + " activado de manera exitosa";
+          title =
+            "¿Desea activar la caracterización del usuario " + usu.USUARIO + "?";
+          titulo =
+            "Caracterización del usuario " +
+            usu.USUARIO +
+            " activado de manera exitosa";
+        }
+        this.$swal({
+          title: title,
+          text: "",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Aceptar",
+          cancelButtonText: "Cancelar"
+        }).then(result => {
+          if (result.value) {
+            const parametros = {
+              _token: this.csrf,
+              id_hogar: usu.IDHOGAR,
+              id: usu.id,
+              estado: usu.ESTADO,
+              opcion: "CARACTERIZACION"
+            };
+
+            try {
+              caracterizacionServicios
+                .eliminarCaracterizacion(parametros)
+                .then(respuesta => {
+                  this.consultar(1);
+                  this.$swal({
+                    position: "top-end",
+                    icon: "success",
+                    title: titulo,
+                    showConfirmButton: false,
+                    timer: 2000
+                  });
+                })
+                .catch(error => {
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                });
+            } catch (error) {
+              switch (error.response.status) {
+                case 422:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                default:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+              }
+            }
+          }
+        });
+      },
+      eliminar2: async function(usu) {
+        var title = "";
+        var titulo = "";
+        if (usu.ESTADO == "Activo") {
+          title = "¿Desea anular el establecimiento " + usu.razon + "?";
+          titulo = "Establecimiento " + usu.razon + " anulado de manera exitosa";
+        } else {
+          title = "¿Desea activar el establecimiento " + usu.razon + "?";
+          titulo = "Establecimiento " + usu.razon + " activado de manera exitosa";
         }
         this.$swal({
           title: title,
@@ -562,10 +1209,10 @@
             };
 
             try {
-              caracterizacionServicios
-                .eliminarCaracterizacion(parametros)
+              establecimientosServicios
+                .eliminar(parametros)
                 .then(respuesta => {
-                  this.consultar(1);
+                  this.consultar2(1);
                   this.$swal({
                     position: "top-end",
                     icon: "success",
@@ -632,6 +1279,7 @@
       cerrarModal() {
         this.$refs.modalExportar.hide();
         this.$refs.modalExportar2.hide();
+        this.$refs.modalAbrir.hide();
       },
       abrirModal: async function() {
         const parametros = {
@@ -686,14 +1334,55 @@
           }
         }
       },
-      editar(item){
+      abrir() {
+        // this.$refs.modalAbrir.show();
         this.$router.push({
-          name: "Editar",
-          params:{
-            IDHOGAR: item.IDHOGAR,
+          name: "Establecimientos",
+          params: {
+            IDHOGAR: 0
           }
         });
-      }
+      },
+      seleccionarOpcion(opcion) {
+        if (opcion === "ingreso") {
+          this.$router.push({
+            name: "Ingreso"
+          });
+        } else {
+          this.$router.push({
+            name: "Establecimientos",
+            params: {
+              IDHOGAR: 0
+            }
+          });
+        }
+      },
+      editar(item) {
+        this.$router.push({
+          name: "Editar",
+          params: {
+            IDHOGAR: item.IDHOGAR
+          }
+        });
+      },
+      editar2(item) {
+        this.$router.push({
+          name: "EditarEstablecimientos",
+          params: {
+            id: item.id,
+            IDHOGAR: item.IDHOGAR
+          }
+        });
+      },
+      abrir3() {
+        // this.$refs.modalAbrir.show();
+        this.$router.push({
+          name: "Unidades",
+          params: {
+            IDHOGAR: 0
+          }
+        });
+      },      
     }
   };
 </script>
@@ -706,5 +1395,8 @@
   }
   .close {
     display: none;
+  }
+  .modal-sm {
+    max-width: 40%;
   }
 </style>

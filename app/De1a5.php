@@ -92,7 +92,14 @@ class De1a5 extends Model
                 . " WHEN de1a5.sape = '' THEN '' "
                 . " ELSE de1a5.sape "
                 . " END sape"
-                . " ")            
+                . " ")
             ->get();
+    }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.de1a5')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
     }
 }

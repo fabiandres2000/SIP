@@ -16,6 +16,7 @@ class Administradora extends Model
     public static function buscarAdministradoras($alias)
     {
         return DB::connection('mysql')->table($alias . '.administradoras')->orderBy('adm_nombre', 'asc')
+            ->where("estado", "Activo")
             ->get();
     }
 }

@@ -76,4 +76,11 @@ class Hogar extends Model
             'usuario_editar' => Auth::user()->id,
         ]);
     }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.hogar')->where('id', $id)->update([
+            'estado' => $estado,
+        ]);
+    }    
 }

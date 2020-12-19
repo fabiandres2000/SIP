@@ -72,7 +72,14 @@ class Migra extends Model
                 . " WHEN migra.sape = '' THEN '' "
                 . " ELSE migra.sape "
                 . " END sape"
-                . " ")            
+                . " ")
             ->get();
+    }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.migra')->where('id_hogar', $id)->update([
+            'estado' => $estado,
+        ]);
     }
 }

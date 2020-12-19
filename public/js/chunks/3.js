@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19,44 +19,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
 /* harmony import */ var vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuejs-datepicker/dist/locale */ "./node_modules/vuejs-datepicker/dist/locale/index.js");
 /* harmony import */ var vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__);
 //
 //
 //
@@ -10944,22 +10912,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-var isPhoneNumber = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("numeric", /^3[0-9]{9}$/);
-var alpha = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alpha", /^[a-zA-Z]*$/);
-var alphaNumAndDotValidator = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alphaNumAndDot", /^[a-z\d.]*$/i);
+var isPhoneNumber = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("numeric", /^3[0-9]{9}$/);
+var alpha = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alpha", /^[a-zA-Z]*$/);
+var alphaNumAndDotValidator = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alphaNumAndDot", /^[a-z\d.]*$/i);
 
 var entero = function entero(value) {
   return /^[0-9]*$/.test(value);
-};
+}; // Import component
+
+
+ // Import stylesheet
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Datepicker: vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"]
+    Datepicker: vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"],
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8___default.a
   },
-  mounted: function mounted() {
-    this.nuevo();
+  beforeMount: function beforeMount() {
     this.hoy = moment();
+    this.IDHOGAR = this.$route.params.IDHOGAR;
+
+    if (this.IDHOGAR == null) {
+      this.$router.push("/gestion");
+    } else {
+      this.nuevo(this.IDHOGAR);
+    }
   },
   filters: {
     moneda: function moneda(val) {
@@ -10982,6 +10961,8 @@ var entero = function entero(value) {
   },
   data: function data() {
     return {
+      isLoading: false,
+      fullPage: true,
       hoy: "",
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
       dpto_options: [],
@@ -11272,11 +11253,11 @@ var entero = function entero(value) {
         malos_olores: "",
         rellenos: "",
         contaminacion_a: "",
-        contaminacion_v: "",
+        contaminacion_v: "NA",
         rio: "",
         otro_cerca: "",
         cual_cerca: "",
-        aereopuertos: "",
+        aereopuertos: "NA",
         avenidas_transitadas: "",
         lotes_abandonados: "",
         servicio_sanitario: "",
@@ -11286,7 +11267,7 @@ var entero = function entero(value) {
         cocina: "",
         dormitorio_a: "",
         sala: "",
-        dormitorio_n: "",
+        dormitorio_n: "NA",
         sanitario: "",
         lavadero: "",
         iluminacion_adecuada: "",
@@ -11310,29 +11291,29 @@ var entero = function entero(value) {
         lava_frutas: "",
         tipo_explotacion: "",
         otro_tipo_explotacion: "",
-        flora_afectados: "",
-        fauna_afectados: "",
-        suelo_afectados: "",
-        aire_afectados: "",
-        agua_afectados: "",
-        residuos_solidos_genera: "",
-        aguas_servidas_genera: "",
-        desechos_cocina_genera: "",
-        heces_animales_genera: "",
-        quimicos_genera: "",
+        flora_afectados: "NA",
+        fauna_afectados: "NA",
+        suelo_afectados: "NA",
+        aire_afectados: "NA",
+        agua_afectados: "NA",
+        residuos_solidos_genera: "NA",
+        aguas_servidas_genera: "NA",
+        desechos_cocina_genera: "NA",
+        heces_animales_genera: "NA",
+        quimicos_genera: "NA",
         otros_genera: "",
         cual_genera: "",
         tipo_combustible: "",
-        mantenimiento_red: "",
+        mantenimiento_red: "NA",
         zona_alto_riesgo: "",
         almacenamiento_residuos: "",
-        fuente_contaminacion: "",
+        fuente_contaminacion: "NA",
         aguas_negras: "",
         zonas_verdes: "",
         desplazamientos: "",
         rotacion_cultivo: "",
         emplea_fertilizantes: "",
-        suministro_energia_ilegal: "",
+        suministro_energia_ilegal: "NA",
         quema_cultivo: "",
         mantenimiento_preventivo: "",
         veces_inundaciones: "",
@@ -11342,7 +11323,10 @@ var entero = function entero(value) {
         acabados_externos: "",
         estado_conservacion_estructuras: "",
         mobiliario_cocina: "",
-        andenes: ""
+        andenes: "",
+        residuos_aprovechables: "",
+        residuos_organicos: "",
+        residuos_no_aprovechables: ""
       },
       estratificacionData: {
         cuenta_internet: "",
@@ -11427,292 +11411,259 @@ var entero = function entero(value) {
       valGAdul: true,
       valGMig: true,
       valGActu: true,
+      valGEst: true,
       bandeGuaEdiJefe: true,
       indiceEditJefe: null,
       bandeGuaEdiInte: true,
-      indiceEditInte: null
+      indiceEditInte: null,
+      idEditar: null,
+      identificacionEditar: null,
+      fechaEditar: null,
+      edadEditar: null,
+      embarazoEditar: null
     };
   },
   validations: {
     viviendaData: {
       tipo_vivienda: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       tipo_estructura: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       numero_cuartos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]
       },
       personas_por_cuartos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],
-        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],
+        numeric: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]
       },
       material_predominante: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       tipo_cubierta: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       // actividad_economica: { required },
       evento_afecta_vivienda: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       familias_accion: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       promedio_ingresos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       promedio_gastos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       fuente_agua: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       energia_electrica: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       gas_natural: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       acueducto: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       alcantarillado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       telefono_fijo: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       aseo: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       internet_subsidiado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       internet_privado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       donde_almacena_agua: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       ubicacion_tanque: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       tipo_tratamiento_agua: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       destino_final_basura: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       porquerizas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       plagas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       industrias: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       malos_olores: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       rellenos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       contaminacion_a: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      contaminacion_v: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       rio: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       otro_cerca: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      aereopuertos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       avenidas_transitadas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       lotes_abandonados: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       servicio_sanitario: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       donde_sanitario: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       excretas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       cocina: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       dormitorio_a: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       sala: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      dormitorio_n: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       sanitario: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       lavadero: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       iluminacion_adecuada: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       techo_adecuado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       ventilacion_adecuada: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       pisos_adecuado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       paredes_adecuadas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       gasolina: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       plaguicidas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       detergentes: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       plaguicidas_insectos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       envases_vacios: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       elementos_protecion: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       metodos_coccion: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       lugares_preparan_alimentos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       lugares_almacenan_alimentos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       lava_frutas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       tipo_explotacion: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      flora_afectados: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      fauna_afectados: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      suelo_afectados: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      aire_afectados: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      agua_afectados: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      residuos_solidos_genera: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      aguas_servidas_genera: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      desechos_cocina_genera: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      heces_animales_genera: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      quimicos_genera: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       otros_genera: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       tipo_combustible: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      mantenimiento_red: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       zona_alto_riesgo: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       almacenamiento_residuos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      fuente_contaminacion: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       aguas_negras: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       zonas_verdes: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       desplazamientos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       rotacion_cultivo: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       emplea_fertilizantes: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      suministro_energia_ilegal: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       quema_cultivo: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       mantenimiento_preventivo: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       veces_inundaciones: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       fachada: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       cuantos_baños: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       estado_conservacion_baños: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       acabados_externos: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       estado_conservacion_estructuras: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       mobiliario_cocina: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
       andenes: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
+      },
+      residuos_aprovechables: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
+      },
+      residuos_organicos: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
+      },
+      residuos_no_aprovechables: {
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       }
     }
   },
@@ -11789,61 +11740,4683 @@ var entero = function entero(value) {
       if (this.valGIden) {
         return {};
       } else {
-        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
     },
     spinGVivi: function spinGVivi() {
       if (this.valGVivi) {
         return {};
       } else {
-        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
     },
     spinGCart: function spinGCart() {
       if (this.valGCart) {
         return {};
       } else {
-        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
     },
     spinGAdole: function spinGAdole() {
       if (this.valGAdole) {
         return {};
       } else {
-        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
     },
     spinGAdul: function spinGAdul() {
       if (this.valGAdul) {
         return {};
       } else {
-        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
     },
     spinGMig: function spinGMig() {
       if (this.valGMig) {
         return {};
       } else {
-        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
     },
     spinGActu: function spinGActu() {
       if (this.valGActu) {
         return {};
       } else {
-        return ['kt-spinner', 'kt-spinner--right', 'kt-spinner--sm', 'kt-spinner--light'];
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
     }
   },
   methods: {
+    onCancel: function onCancel() {// this.isLoading = true;
+      // // simulate AJAX
+      // setTimeout(() => {
+      //   this.isLoading = false
+      // },5000)
+    },
+    nuevo: function () {
+      var _nuevo = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id_hogar) {
+        var _this = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                parametros = {
+                  _token: this.csrf,
+                  id_hogar: id_hogar
+                };
+                this.isLoading = true;
+                _context.prev = 2;
+                _context.next = 5;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["editarCaracterizacion"](parametros).then(function (respuesta) {
+                  _this.dpto_options = respuesta.data.arrayDpto;
+                  _this.muni_options = respuesta.data.arrayMuni;
+                  _this.corregi_options = respuesta.data.arrayCorregi;
+                  _this.vereda_options = respuesta.data.arrayVeredas;
+                  _this.parentesco_options = respuesta.data.arrayParentesco;
+                  _this.estado_options = respuesta.data.arrayEstado;
+                  _this.escolaridad_options = respuesta.data.arrayEscolaridad;
+                  _this.ocupacion_options = respuesta.data.arrayOcupacion;
+                  _this.etnia_options = respuesta.data.arrayEtnia;
+                  _this.admini_options = respuesta.data.arrayAdmini;
+                  _this.clasifi_options = respuesta.data.arrayCLasifi;
+                  _this.grados_option = respuesta.data.arrayGrados;
+                  _this.morbilidadNacer_options = respuesta.data.arrayMorbilidadNacer;
+                  _this.morbilidad_options = respuesta.data.arrayMorbilidad;
+                  _this.metodos_options = respuesta.data.arrayMetodos;
+                  _this.motivos_options = respuesta.data.arrayMotivos;
+                  _this.grupos_options = respuesta.data.arrayGrupos;
+                  _this.enfcro_options = respuesta.data.arrayEnfCro;
+                  _this.enfinf_options = respuesta.data.arrayEnfInf;
+                  _this.religion_options = respuesta.data.arrayReligion;
+                  _this.CODIGOGENE = respuesta.data.codigo;
+                  _this.IDHOGAR = respuesta.data.hogar.id;
+                  _this.hogar.id = respuesta.data.hogar.id;
+                  _this.hogar.id_dpto = respuesta.data.hogar.id_dpto;
+                  _this.hogar.id_mun = respuesta.data.hogar.id_mun.padStart(3, 0);
+
+                  _this.cambiarCombo("muni");
+
+                  _this.hogar.id_corre = "" + respuesta.data.hogar.id_corre;
+
+                  if (_this.hogar.id_corre !== "0") {
+                    _this.cambiarCombo("corregi");
+                  }
+
+                  _this.hogar.id_vereda = "" + respuesta.data.hogar.id_vereda;
+                  _this.hogar.id_barrio = "" + respuesta.data.hogar.id_barrio;
+                  _this.hogar.id_zona = "" + respuesta.data.hogar.id_zona;
+                  _this.hogar.tenencia_vivienda = respuesta.data.hogar.tenencia_vivienda;
+                  _this.hogar.numero_hogares = "" + respuesta.data.hogar.numero_hogares;
+                  _this.hogar.poblacion_especial = respuesta.data.hogar.poblacion_especial;
+                  _this.hogar.vias_acceso = respuesta.data.hogar.vias_acceso;
+                  _this.hogar.servicios_publicos = respuesta.data.hogar.servicios_publicos; // GESTION DE LAS VARIABLES DEL HOGAR
+
+                  _this.hogar.direccion = respuesta.data.hogar.direccion;
+                  _this.datosJefe = respuesta.data.jefes;
+                  _this.datos = respuesta.data.integrantes;
+                  _this.factores = respuesta.data.factores;
+
+                  var _loop = function _loop(i) {
+                    var indice = _this.datosJefe.findIndex(function (identi) {
+                      return identi.identificacion === _this.datosJefe[i].identificacion;
+                    });
+
+                    _this.vectorJefes.push({
+                      index: indice,
+                      identificacion: _this.datosJefe[i].identificacion
+                    });
+                  };
+
+                  for (var i = 0; i < _this.datosJefe.length; i++) {
+                    _loop(i);
+                  }
+
+                  var _loop2 = function _loop2(_i) {
+                    var indice = _this.datos.findIndex(function (identi) {
+                      return identi.identificacion === _this.datos[_i].identificacion;
+                    });
+
+                    _this.vectorIntegrante.push({
+                      index: indice,
+                      identificacion: _this.datos[_i].identificacion
+                    });
+                  };
+
+                  for (var _i = 0; _i < _this.datos.length; _i++) {
+                    _loop2(_i);
+                  } // GESTION DE LAS VARIABLES DEL HOGAR
+
+
+                  _this.viviendaData.id = respuesta.data.vivienda.id;
+                  _this.viviendaData.id_hogar = respuesta.data.vivienda.id_hogar;
+                  _this.viviendaData.tipo_vivienda = respuesta.data.vivienda.tipo_vivienda;
+                  _this.viviendaData.tipo_estructura = respuesta.data.vivienda.tipo_estructura;
+                  _this.viviendaData.otro_tipo_estructura = respuesta.data.vivienda.otro_tipo_estructura;
+                  _this.viviendaData.numero_cuartos = respuesta.data.vivienda.numero_cuartos;
+                  _this.viviendaData.personas_por_cuartos = respuesta.data.vivienda.personas_por_cuartos;
+                  _this.viviendaData.material_predominante = respuesta.data.vivienda.material_predominante;
+                  _this.viviendaData.tipo_cubierta = respuesta.data.vivienda.tipo_cubierta;
+                  _this.viviendaData.otro_tipo_cubierta = respuesta.data.vivienda.otro_tipo_cubierta;
+                  _this.viviendaData.actividad_economica = respuesta.data.vivienda.actividad_economica;
+                  _this.actividadesAuxiliar = respuesta.data.vivienda.actividadesAuxiliar;
+                  _this.viviendaData.cual_actividad_economica = respuesta.data.vivienda.cual_actividad_economica;
+                  _this.viviendaData.evento_afecta_vivienda = respuesta.data.vivienda.evento_afecta_vivienda;
+                  _this.viviendaData.familias_accion = respuesta.data.vivienda.familias_accion;
+                  _this.viviendaData.promedio_ingresos = respuesta.data.vivienda.promedio_ingresos;
+                  _this.viviendaData.promedio_gastos = respuesta.data.vivienda.promedio_gastos;
+                  _this.viviendaData.fuente_agua = respuesta.data.vivienda.fuente_agua;
+                  _this.viviendaData.energia_electrica = respuesta.data.vivienda.energia_electrica;
+                  _this.viviendaData.gas_natural = respuesta.data.vivienda.gas_natural;
+                  _this.viviendaData.acueducto = respuesta.data.vivienda.acueducto;
+                  _this.viviendaData.alcantarillado = respuesta.data.vivienda.alcantarillado;
+                  _this.viviendaData.telefono_fijo = respuesta.data.vivienda.telefono_fijo;
+                  _this.viviendaData.aseo = respuesta.data.vivienda.aseo;
+                  _this.viviendaData.internet_subsidiado = respuesta.data.vivienda.internet_subsidiado;
+                  _this.viviendaData.internet_privado = respuesta.data.vivienda.internet_privado;
+                  _this.viviendaData.cual_fuente = respuesta.data.vivienda.cual_fuente;
+                  _this.viviendaData.donde_almacena_agua = respuesta.data.vivienda.donde_almacena_agua;
+                  _this.viviendaData.otro_almacena_agua = respuesta.data.vivienda.otro_almacena_agua;
+                  _this.viviendaData.ubicacion_tanque = respuesta.data.vivienda.ubicacion_tanque;
+                  _this.viviendaData.tipo_tratamiento_agua = respuesta.data.vivienda.tipo_tratamiento_agua;
+                  _this.viviendaData.destino_final_basura = respuesta.data.vivienda.destino_final_basura;
+                  _this.viviendaData.otro_destino_final_basura = respuesta.data.vivienda.otro_destino_final_basura;
+                  _this.viviendaData.porquerizas = respuesta.data.vivienda.porquerizas;
+                  _this.viviendaData.plagas = respuesta.data.vivienda.plagas;
+                  _this.viviendaData.industrias = respuesta.data.vivienda.industrias;
+                  _this.viviendaData.malos_olores = respuesta.data.vivienda.malos_olores;
+                  _this.viviendaData.rellenos = respuesta.data.vivienda.rellenos;
+                  _this.viviendaData.contaminacion_a = respuesta.data.vivienda.contaminacion_a;
+                  _this.viviendaData.contaminacion_v = respuesta.data.vivienda.contaminacion_v;
+                  _this.viviendaData.rio = respuesta.data.vivienda.rio;
+                  _this.viviendaData.otro_cerca = respuesta.data.vivienda.otro_cerca;
+                  _this.viviendaData.cual_cerca = respuesta.data.vivienda.cual_cerca;
+                  _this.viviendaData.aereopuertos = respuesta.data.vivienda.aereopuertos;
+                  _this.viviendaData.avenidas_transitadas = respuesta.data.vivienda.avenidas_transitadas;
+                  _this.viviendaData.lotes_abandonados = respuesta.data.vivienda.lotes_abandonados;
+                  _this.viviendaData.servicio_sanitario = respuesta.data.vivienda.servicio_sanitario;
+                  _this.viviendaData.donde_sanitario = respuesta.data.vivienda.donde_sanitario;
+                  _this.viviendaData.excretas = respuesta.data.vivienda.excretas;
+                  _this.viviendaData.otro_depositan_excretas = respuesta.data.vivienda.otro_depositan_excretas;
+                  _this.viviendaData.cocina = respuesta.data.vivienda.cocina;
+                  _this.viviendaData.dormitorio_a = respuesta.data.vivienda.dormitorio_a;
+                  _this.viviendaData.sala = respuesta.data.vivienda.sala;
+                  _this.viviendaData.dormitorio_n = respuesta.data.vivienda.dormitorio_n;
+                  _this.viviendaData.sanitario = respuesta.data.vivienda.sanitario;
+                  _this.viviendaData.lavadero = respuesta.data.vivienda.lavadero;
+                  _this.viviendaData.iluminacion_adecuada = respuesta.data.vivienda.iluminacion_adecuada;
+                  _this.viviendaData.techo_adecuado = respuesta.data.vivienda.techo_adecuado;
+                  _this.viviendaData.ventilacion_adecuada = respuesta.data.vivienda.ventilacion_adecuada;
+                  _this.viviendaData.pisos_adecuado = respuesta.data.vivienda.pisos_adecuado;
+                  _this.viviendaData.paredes_adecuadas = respuesta.data.vivienda.paredes_adecuadas;
+                  _this.viviendaData.gasolina = respuesta.data.vivienda.gasolina;
+                  _this.viviendaData.plaguicidas = respuesta.data.vivienda.plaguicidas;
+                  _this.viviendaData.detergentes = respuesta.data.vivienda.detergentes;
+                  _this.viviendaData.plaguicidas_insectos = respuesta.data.vivienda.plaguicidas_insectos;
+                  _this.viviendaData.envases_vacios = respuesta.data.vivienda.envases_vacios;
+                  _this.viviendaData.otro_envases_vacios = respuesta.data.vivienda.otro_envases_vacios;
+                  _this.viviendaData.elementos_protecion = respuesta.data.vivienda.elementos_protecion;
+                  _this.viviendaData.otro_elementos_protecion = respuesta.data.vivienda.otro_elementos_protecion;
+                  _this.viviendaData.metodos_coccion = respuesta.data.vivienda.metodos_coccion;
+                  _this.viviendaData.otro_metodos_coccion = respuesta.data.vivienda.otro_metodos_coccion;
+                  _this.viviendaData.lugares_preparan_alimentos = respuesta.data.vivienda.lugares_preparan_alimentos;
+                  _this.viviendaData.lugares_almacenan_alimentos = respuesta.data.vivienda.lugares_almacenan_alimentos;
+                  _this.viviendaData.otro_lugares_almacenan_alimentos = respuesta.data.vivienda.otro_lugares_almacenan_alimentos;
+                  _this.viviendaData.lava_frutas = respuesta.data.vivienda.lava_frutas;
+                  _this.viviendaData.tipo_explotacion = respuesta.data.vivienda.tipo_explotacion;
+                  _this.viviendaData.otro_tipo_explotacion = respuesta.data.vivienda.otro_tipo_explotacion;
+                  _this.viviendaData.flora_afectados = respuesta.data.vivienda.flora_afectados;
+                  _this.viviendaData.fauna_afectados = respuesta.data.vivienda.fauna_afectados;
+                  _this.viviendaData.suelo_afectados = respuesta.data.vivienda.suelo_afectados;
+                  _this.viviendaData.aire_afectados = respuesta.data.vivienda.aire_afectados;
+                  _this.viviendaData.agua_afectados = respuesta.data.vivienda.agua_afectados;
+                  _this.viviendaData.residuos_solidos_genera = respuesta.data.vivienda.residuos_solidos_genera;
+                  _this.viviendaData.aguas_servidas_genera = respuesta.data.vivienda.aguas_servidas_genera;
+                  _this.viviendaData.desechos_cocina_genera = respuesta.data.vivienda.desechos_cocina_genera;
+                  _this.viviendaData.heces_animales_genera = respuesta.data.vivienda.heces_animales_genera;
+                  _this.viviendaData.quimicos_genera = respuesta.data.vivienda.quimicos_genera;
+                  _this.viviendaData.otros_genera = respuesta.data.vivienda.otros_genera;
+                  _this.viviendaData.cual_genera = respuesta.data.vivienda.cual_genera;
+                  _this.viviendaData.tipo_combustible = respuesta.data.vivienda.tipo_combustible;
+                  _this.viviendaData.mantenimiento_red = respuesta.data.vivienda.mantenimiento_red;
+                  _this.viviendaData.zona_alto_riesgo = respuesta.data.vivienda.zona_alto_riesgo;
+                  _this.viviendaData.almacenamiento_residuos = respuesta.data.vivienda.almacenamiento_residuos;
+                  _this.viviendaData.fuente_contaminacion = respuesta.data.vivienda.fuente_contaminacion;
+                  _this.viviendaData.aguas_negras = respuesta.data.vivienda.aguas_negras;
+                  _this.viviendaData.zonas_verdes = respuesta.data.vivienda.zonas_verdes;
+                  _this.viviendaData.desplazamientos = respuesta.data.vivienda.desplazamientos;
+                  _this.viviendaData.rotacion_cultivo = respuesta.data.vivienda.rotacion_cultivo;
+                  _this.viviendaData.emplea_fertilizantes = respuesta.data.vivienda.emplea_fertilizantes;
+                  _this.viviendaData.suministro_energia_ilegal = respuesta.data.vivienda.suministro_energia_ilegal;
+                  _this.viviendaData.quema_cultivo = respuesta.data.vivienda.quema_cultivo;
+                  _this.viviendaData.mantenimiento_preventivo = respuesta.data.vivienda.mantenimiento_preventivo;
+                  _this.viviendaData.veces_inundaciones = respuesta.data.vivienda.veces_inundaciones;
+                  _this.viviendaData.fachada = respuesta.data.vivienda.fachada;
+                  _this.viviendaData.cuantos_baños = respuesta.data.vivienda.cuantos_baños;
+                  _this.viviendaData.estado_conservacion_baños = respuesta.data.vivienda.estado_conservacion_baños;
+                  _this.viviendaData.acabados_externos = respuesta.data.vivienda.acabados_externos;
+                  _this.viviendaData.estado_conservacion_estructuras = respuesta.data.vivienda.estado_conservacion_estructuras;
+                  _this.viviendaData.mobiliario_cocina = respuesta.data.vivienda.mobiliario_cocina;
+                  _this.viviendaData.andenes = respuesta.data.vivienda.andenes;
+                  _this.viviendaData.residuos_aprovechables = respuesta.data.vivienda.residuos_aprovechables;
+                  _this.viviendaData.residuos_organicos = respuesta.data.vivienda.residuos_organicos;
+                  _this.viviendaData.residuos_no_aprovechables = respuesta.data.vivienda.residuos_no_aprovechables;
+                  _this.animalesData = respuesta.data.animales;
+                  _this.estratificacion = respuesta.data.estratificacion; // GESTION DE LAS VARIABLES DE LA VIVIENDA
+                  // console.log(this.viviendaData);
+                  // GESTION DE LAS VARIABLES DE CART X CICLO
+
+                  _this.Men1A = respuesta.data.Men1A;
+                  _this.De1A5 = respuesta.data.De1A5;
+                  _this.De6A11 = respuesta.data.De6A11;
+                  _this.De10A59 = respuesta.data.De10A59;
+                  _this.ParPost = respuesta.data.ParPost; // GESTION DE LAS VARIABLES DE CART X CICLO
+                  // GESTION DE LAS VARIABLES DE ADOLESCENTES
+
+                  _this.De12A17 = respuesta.data.De12A17;
+                  _this.De18A28 = respuesta.data.De18A28;
+                  _this.De29A59 = respuesta.data.De29A59; // GESTION DE LAS VARIABLES DE ADOLESCENTES
+                  // GESTION DE LAS VARIABLES DE ADULTO MAYOR
+
+                  _this.De60 = respuesta.data.De60;
+                  _this.EnCro = respuesta.data.EnCro;
+                  _this.EnInf = respuesta.data.EnInf; // GESTION DE LAS VARIABLES DE ADULTO MAYOR
+                  // GESTION DE LAS VARIABLES DE MIGRANTES
+
+                  _this.Migra = respuesta.data.Migra; // GESTION DE LAS VARIABLES DE MIGRANTES
+
+                  _this.isLoading = false;
+                });
+
+              case 5:
+                _context.next = 16;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](2);
+                _context.t1 = _context.t0.response.status;
+                _context.next = _context.t1 === 422 ? 12 : 14;
+                break;
+
+              case 12:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 16);
+
+              case 14:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 16);
+
+              case 16:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[2, 7]]);
+      }));
+
+      function nuevo(_x2) {
+        return _nuevo.apply(this, arguments);
+      }
+
+      return nuevo;
+    }(),
+    Actualizar: function Actualizar() {
+      var _this2 = this;
+
+      return _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var id, opcion, parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                id = 0;
+                opcion = "";
+
+                if (_this2.hogar.id_corre != "") {
+                  opcion = "CORRE";
+                  id = _this2.hogar.id_corre;
+                } else {
+                  opcion = "MUN";
+                  id = _this2.hogar.id_mun;
+                }
+
+                parametros = {
+                  _token: _this2.csrf,
+                  id: id,
+                  opcion: opcion
+                };
+                _this2.valGActu = false;
+                _context2.prev = 5;
+                _context2.next = 8;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function (respuesta) {
+                  _this2.corregi_options = respuesta.data.arrayCorregi;
+                  _this2.vereda_options = respuesta.data.arrayVeredas;
+                  _this2.parentesco_options = respuesta.data.arrayParentesco;
+                  _this2.estado_options = respuesta.data.arrayEstado;
+                  _this2.escolaridad_options = respuesta.data.arrayEscolaridad;
+                  _this2.ocupacion_options = respuesta.data.arrayOcupacion;
+                  _this2.etnia_options = respuesta.data.arrayEtnia;
+                  _this2.admini_options = respuesta.data.arrayAdmini;
+                  _this2.clasifi_options = respuesta.data.arrayCLasifi;
+                  _this2.morbilidadNacer_options = respuesta.data.arrayMorbilidadNacer;
+                  _this2.morbilidad_options = respuesta.data.arrayMorbilidad;
+                  _this2.metodos_options = respuesta.data.arrayMetodos;
+                  _this2.motivos_options = respuesta.data.arrayMotivos;
+                  _this2.grupos_options = respuesta.data.arrayGrupos;
+                  _this2.enfcro_options = respuesta.data.arrayEnfCro;
+                  _this2.enfinf_options = respuesta.data.arrayEnfInf;
+                  _this2.religion_options = respuesta.data.arrayReligion;
+                  _this2.colegio_options = respuesta.data.arrayColegios;
+                  _this2.barrio_options = respuesta.data.arrayBarrios;
+                  _this2.valGActu = true;
+                });
+
+              case 8:
+                _context2.next = 19;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](5);
+                _context2.t1 = _context2.t0.response.status;
+                _context2.next = _context2.t1 === 422 ? 15 : 17;
+                break;
+
+              case 15:
+                _this2.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context2.abrupt("break", 19);
+
+              case 17:
+                _this2.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context2.abrupt("break", 19);
+
+              case 19:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[5, 10]]);
+      }))();
+    },
+    cambiarTab1: function cambiarTab1(opcion, actual) {
+      var _this3 = this;
+
+      return _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var bandera, resul, _resul, _resul2, parametros, isInvalid, _parametros, auxi, _resul3, _resul4, _resul5, _resul6, _resul7, _parametros2, _auxi, _resul8, _resul9, _resul10, _parametros3, _auxi2, _resul11, _resul12, _resul13, _parametros4, _auxi3, _resul14, _parametros5;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                bandera = false;
+
+                if (!(actual === "tabIdentificacion")) {
+                  _context3.next = 86;
+                  break;
+                }
+
+                if (!(_this3.GIDEN === false)) {
+                  _context3.next = 85;
+                  break;
+                }
+
+                if (!(_this3.hogar.id_dpto === "")) {
+                  _context3.next = 7;
+                  break;
+                }
+
+                _this3.$refs.id_dpto.focus();
+
+                _this3.$swal("Error...!", "Por favor seleccione el departamento!", "error");
+
+                return _context3.abrupt("return");
+
+              case 7:
+                if (!(_this3.hogar.id_mun === "")) {
+                  _context3.next = 11;
+                  break;
+                }
+
+                _this3.$refs.id_mun.focus();
+
+                _this3.$swal("Error...!", "Por favor seleccione el municipio!", "error");
+
+                return _context3.abrupt("return");
+
+              case 11:
+                if (!(_this3.hogar.tenencia_vivienda === "")) {
+                  _context3.next = 15;
+                  break;
+                }
+
+                _this3.$refs.tenencia_vivienda.focus();
+
+                _this3.$swal("Error...!", "Por favor seleccione la tenencia de vivienda!", "error");
+
+                return _context3.abrupt("return");
+
+              case 15:
+                if (!(_this3.allLetter(_this3.hogar.numero_hogares) === false)) {
+                  _context3.next = 20;
+                  break;
+                }
+
+                _this3.$refs.numero_hogares.focus();
+
+                _this3.hogar.numero_hogares = "";
+
+                _this3.$swal("Error...!", "Por favor digite solo numero en el numero de hogares!", "error");
+
+                return _context3.abrupt("return");
+
+              case 20:
+                if (!(_this3.hogar.numero_hogares === "")) {
+                  _context3.next = 24;
+                  break;
+                }
+
+                _this3.$refs.numero_hogares.focus();
+
+                _this3.$swal("Error...!", "Por favor digite el numero de hogares!", "error");
+
+                return _context3.abrupt("return");
+
+              case 24:
+                if (!(_this3.hogar.poblacion_especial === "")) {
+                  _context3.next = 28;
+                  break;
+                }
+
+                _this3.$refs.poblacion_especial.focus();
+
+                _this3.$swal("Error...!", "Por favor seleccione la población especial!", "error");
+
+                return _context3.abrupt("return");
+
+              case 28:
+                if (!(_this3.hogar.vias_acceso === "")) {
+                  _context3.next = 32;
+                  break;
+                }
+
+                _this3.$refs.vias_acceso.focus();
+
+                _this3.$swal("Error...!", "Por favor seleccione si la comunidad presenta vías de acceso!", "error");
+
+                return _context3.abrupt("return");
+
+              case 32:
+                if (!(_this3.hogar.servicios_publicos === "")) {
+                  _context3.next = 36;
+                  break;
+                }
+
+                _this3.$refs.servicios_publicos.focus();
+
+                _this3.$swal("Error...!", "Por favor seleccione si presenta acceso fácil a los servicios públicos!", "error");
+
+                return _context3.abrupt("return");
+
+              case 36:
+                if (!(_this3.hogar.direccion === "")) {
+                  _context3.next = 40;
+                  break;
+                }
+
+                _this3.$refs.direccion.focus();
+
+                _this3.$swal("Error...!", "Por favor digite la dirección!", "error");
+
+                return _context3.abrupt("return");
+
+              case 40:
+                if (!(_this3.datosJefe.length <= 0)) {
+                  _context3.next = 45;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por favor agregue por lo menos un jefe de hogar", "error");
+
+                return _context3.abrupt("return");
+
+              case 45:
+                resul = _this3.valJef1();
+
+                if (!resul) {
+                  _context3.next = 50;
+                  break;
+                }
+
+                bandera = true;
+                _context3.next = 51;
+                break;
+
+              case 50:
+                return _context3.abrupt("return", false);
+
+              case 51:
+                if (!(_this3.datos.length > 0)) {
+                  _context3.next = 58;
+                  break;
+                }
+
+                _resul = _this3.valInt1();
+
+                if (!_resul) {
+                  _context3.next = 57;
+                  break;
+                }
+
+                bandera = true;
+                _context3.next = 58;
+                break;
+
+              case 57:
+                return _context3.abrupt("return", false);
+
+              case 58:
+                if (!(_this3.factores.length > 0)) {
+                  _context3.next = 65;
+                  break;
+                }
+
+                _resul2 = _this3.valFactores();
+
+                if (!_resul2) {
+                  _context3.next = 64;
+                  break;
+                }
+
+                bandera = true;
+                _context3.next = 65;
+                break;
+
+              case 64:
+                return _context3.abrupt("return", false);
+
+              case 65:
+                //VALIDAR LA TABLA FACTORES
+                //GUARDAR DATOS
+                _this3.valGIden = false;
+                parametros = {
+                  _token: _this3.csrf,
+                  hogar: _this3.hogar,
+                  caracterizacion: _this3.datosJefe,
+                  integrantes: _this3.datos,
+                  factores: _this3.factores,
+                  CODIGOGENE: _this3.CODIGOGENE,
+                  opcion: "MODIFICAR",
+                  opc: "GUAINDEN",
+                  id_hogar: _this3.IDHOGAR
+                };
+                _context3.prev = 67;
+                _context3.next = 70;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC == "SI") {
+                    _this3.GIDEN = true;
+                    _this3.IDHOGAR = respuesta.data.IDHOGAR;
+                    _this3.valGIden = true;
+                  }
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+
+                  _this3.$swal("Error...!", "No se pudo guardar los datos de la pestaña identificación", "error");
+
+                  return;
+                });
+
+              case 70:
+                _context3.next = 83;
+                break;
+
+              case 72:
+                _context3.prev = 72;
+                _context3.t0 = _context3["catch"](67);
+                _context3.t1 = _context3.t0.response.status;
+                _context3.next = _context3.t1 === 419 ? 77 : _context3.t1 === 422 ? 79 : 81;
+                break;
+
+              case 77:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 83);
+
+              case 79:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 83);
+
+              case 81:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 83);
+
+              case 83:
+                _context3.next = 86;
+                break;
+
+              case 85:
+                bandera = true;
+
+              case 86:
+                if (!(actual === "tabVivienda")) {
+                  _context3.next = 123;
+                  break;
+                }
+
+                bandera = true;
+
+                if (!(_this3.GIDEN === false)) {
+                  _context3.next = 91;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 91:
+                _this3.$v.$touch();
+
+                isInvalid = _this3.$v.$invalid;
+
+                if (!isInvalid) {
+                  _context3.next = 98;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 98:
+                if (!(_this3.GVIVI === false && _this3.GIDEN === true && _this3.IDHOGAR !== 0)) {
+                  _context3.next = 122;
+                  break;
+                }
+
+                if (!(_this3.estratificacion.length <= 0)) {
+                  _context3.next = 102;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por favor agregue por lo menos una estratificación", "error");
+
+                return _context3.abrupt("return");
+
+              case 102:
+                //GUARDAR DATOS
+                _this3.valGVivi = false;
+                _parametros = {
+                  _token: _this3.csrf,
+                  vivienda: _this3.viviendaData,
+                  estratificacion: _this3.estratificacion,
+                  Animales: _this3.animalesData,
+                  opcion: "MODIFICAR",
+                  opc: "GUAVIVI",
+                  IDHOGAR: _this3.IDHOGAR
+                };
+                _context3.prev = 104;
+                _context3.next = 107;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC == "SI") {
+                    _this3.GVIVI = true;
+                    bandera = true;
+                    _this3.valGVivi = true;
+                  }
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+
+                  _this3.$swal("Error...!", "No se pudo guardar los datos de la pestaña vivienda", "error");
+
+                  return;
+                });
+
+              case 107:
+                _context3.next = 120;
+                break;
+
+              case 109:
+                _context3.prev = 109;
+                _context3.t2 = _context3["catch"](104);
+                _context3.t3 = _context3.t2.response.status;
+                _context3.next = _context3.t3 === 419 ? 114 : _context3.t3 === 422 ? 116 : 118;
+                break;
+
+              case 114:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 120);
+
+              case 116:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 120);
+
+              case 118:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 120);
+
+              case 120:
+                _context3.next = 123;
+                break;
+
+              case 122:
+                bandera = true;
+
+              case 123:
+                if (!(actual === "cartxciclo")) {
+                  _context3.next = 198;
+                  break;
+                }
+
+                bandera = true;
+
+                if (!(_this3.GIDEN === false)) {
+                  _context3.next = 128;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 128:
+                if (!(_this3.GVIVI === false)) {
+                  _context3.next = 131;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 131:
+                if (!(_this3.GCARXCI === false && _this3.GIDEN === true && _this3.GVIVI === true)) {
+                  _context3.next = 197;
+                  break;
+                }
+
+                auxi = false; //VALIDAR LA TABLA MENORES DE 1 AÑO
+
+                if (!(_this3.Men1A.length > 0)) {
+                  _context3.next = 141;
+                  break;
+                }
+
+                _resul3 = _this3.valMen1();
+
+                if (!_resul3) {
+                  _context3.next = 140;
+                  break;
+                }
+
+                bandera = true;
+                auxi = true;
+                _context3.next = 141;
+                break;
+
+              case 140:
+                return _context3.abrupt("return", false);
+
+              case 141:
+                if (!(_this3.De1A5.length > 0)) {
+                  _context3.next = 149;
+                  break;
+                }
+
+                _resul4 = _this3.valDe1A5();
+
+                if (!_resul4) {
+                  _context3.next = 148;
+                  break;
+                }
+
+                bandera = true;
+                auxi = true;
+                _context3.next = 149;
+                break;
+
+              case 148:
+                return _context3.abrupt("return", false);
+
+              case 149:
+                if (!(_this3.De6A11.length > 0)) {
+                  _context3.next = 157;
+                  break;
+                }
+
+                _resul5 = _this3.valDe6A11();
+
+                if (!_resul5) {
+                  _context3.next = 156;
+                  break;
+                }
+
+                bandera = true;
+                auxi = true;
+                _context3.next = 157;
+                break;
+
+              case 156:
+                return _context3.abrupt("return", false);
+
+              case 157:
+                if (!(_this3.De10A59.length > 0)) {
+                  _context3.next = 165;
+                  break;
+                }
+
+                _resul6 = _this3.valDe10A59();
+
+                if (!_resul6) {
+                  _context3.next = 164;
+                  break;
+                }
+
+                bandera = true;
+                auxi = true;
+                _context3.next = 165;
+                break;
+
+              case 164:
+                return _context3.abrupt("return", false);
+
+              case 165:
+                if (!(_this3.ParPost.length > 0)) {
+                  _context3.next = 173;
+                  break;
+                }
+
+                _resul7 = _this3.valParPost();
+
+                if (!_resul7) {
+                  _context3.next = 172;
+                  break;
+                }
+
+                bandera = true;
+                auxi = true;
+                _context3.next = 173;
+                break;
+
+              case 172:
+                return _context3.abrupt("return", false);
+
+              case 173:
+                if (!auxi) {
+                  _context3.next = 194;
+                  break;
+                }
+
+                //GUARDAR DATOS
+                _parametros2 = {
+                  _token: _this3.csrf,
+                  Men1A: _this3.Men1A,
+                  De1A5: _this3.De1A5,
+                  De6A11: _this3.De6A11,
+                  De10A59: _this3.De10A59,
+                  ParPost: _this3.ParPost,
+                  opcion: "MODIFICAR",
+                  opc: "GUACARCI",
+                  IDHOGAR: _this3.IDHOGAR
+                };
+                _this3.valGCart = false;
+                _context3.prev = 176;
+                _context3.next = 179;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function (respuesta) {
+                  if (respuesta.data.OPC == "SI") {
+                    _this3.GCARXCI = true;
+                    bandera = true;
+                    _this3.valGCart = true;
+                  }
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+
+                  _this3.$swal("Error...!", "No se pudo guardar los datos de la pestaña ciclos", "error");
+
+                  return;
+                });
+
+              case 179:
+                _context3.next = 192;
+                break;
+
+              case 181:
+                _context3.prev = 181;
+                _context3.t4 = _context3["catch"](176);
+                _context3.t5 = _context3.t4.response.status;
+                _context3.next = _context3.t5 === 419 ? 186 : _context3.t5 === 422 ? 188 : 190;
+                break;
+
+              case 186:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 192);
+
+              case 188:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 192);
+
+              case 190:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 192);
+
+              case 192:
+                _context3.next = 195;
+                break;
+
+              case 194:
+                bandera = true;
+
+              case 195:
+                _context3.next = 198;
+                break;
+
+              case 197:
+                bandera = true;
+
+              case 198:
+                if (!(actual === "adolescente")) {
+                  _context3.next = 261;
+                  break;
+                }
+
+                bandera = true;
+                _auxi = false;
+
+                if (!(_this3.GIDEN === false)) {
+                  _context3.next = 204;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 204:
+                if (!(_this3.GVIVI === false)) {
+                  _context3.next = 207;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 207:
+                if (!(_this3.Men1A.length > 0 || _this3.De1A5.length > 0 || _this3.De6A11.length > 0 || _this3.De10A59.length > 0 || _this3.ParPost.length > 0)) {
+                  _context3.next = 211;
+                  break;
+                }
+
+                if (!(_this3.GCARXCI === false)) {
+                  _context3.next = 211;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 211:
+                if (!(_this3.GADOLE === false && _this3.GIDEN === true && _this3.GVIVI === true)) {
+                  _context3.next = 260;
+                  break;
+                }
+
+                if (!(_this3.De12A17.length > 0)) {
+                  _context3.next = 220;
+                  break;
+                }
+
+                _resul8 = _this3.valDe12A17();
+
+                if (!_resul8) {
+                  _context3.next = 219;
+                  break;
+                }
+
+                bandera = true;
+                _auxi = true;
+                _context3.next = 220;
+                break;
+
+              case 219:
+                return _context3.abrupt("return", false);
+
+              case 220:
+                if (!(_this3.De18A28.length > 0)) {
+                  _context3.next = 228;
+                  break;
+                }
+
+                _resul9 = _this3.valDe18A28();
+
+                if (!_resul9) {
+                  _context3.next = 227;
+                  break;
+                }
+
+                bandera = true;
+                _auxi = true;
+                _context3.next = 228;
+                break;
+
+              case 227:
+                return _context3.abrupt("return", false);
+
+              case 228:
+                if (!(_this3.De29A59.length > 0)) {
+                  _context3.next = 236;
+                  break;
+                }
+
+                _resul10 = _this3.valDe29A59();
+
+                if (!_resul10) {
+                  _context3.next = 235;
+                  break;
+                }
+
+                bandera = true;
+                _auxi = true;
+                _context3.next = 236;
+                break;
+
+              case 235:
+                return _context3.abrupt("return", false);
+
+              case 236:
+                if (!_auxi) {
+                  _context3.next = 257;
+                  break;
+                }
+
+                //GUARDAR DATOS
+                _parametros3 = {
+                  _token: _this3.csrf,
+                  De12A17: _this3.De12A17,
+                  De18A28: _this3.De18A28,
+                  De29A59: _this3.De29A59,
+                  opcion: "MODIFICAR",
+                  opc: "GUADOLE",
+                  IDHOGAR: _this3.IDHOGAR
+                };
+                _this3.valGAdole = false;
+                _context3.prev = 239;
+                _context3.next = 242;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros3).then(function (respuesta) {
+                  if (respuesta.data.OPC == "SI") {
+                    _this3.GADOLE = true;
+                    bandera = true;
+                    _this3.valGAdole = true;
+                  }
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+
+                  _this3.$swal("Error...!", "No se pudo guardar los datos de la pestaña adolescentes", "error");
+
+                  return;
+                });
+
+              case 242:
+                _context3.next = 255;
+                break;
+
+              case 244:
+                _context3.prev = 244;
+                _context3.t6 = _context3["catch"](239);
+                _context3.t7 = _context3.t6.response.status;
+                _context3.next = _context3.t7 === 419 ? 249 : _context3.t7 === 422 ? 251 : 253;
+                break;
+
+              case 249:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 255);
+
+              case 251:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 255);
+
+              case 253:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 255);
+
+              case 255:
+                _context3.next = 258;
+                break;
+
+              case 257:
+                bandera = true;
+
+              case 258:
+                _context3.next = 261;
+                break;
+
+              case 260:
+                bandera = true;
+
+              case 261:
+                if (!(actual === "adultomayor")) {
+                  _context3.next = 327;
+                  break;
+                }
+
+                _auxi2 = false;
+
+                if (!(_this3.GIDEN === false)) {
+                  _context3.next = 266;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 266:
+                if (!(_this3.GVIVI === false)) {
+                  _context3.next = 269;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 269:
+                if (!(_this3.Men1A.length > 0 || _this3.De1A5.length > 0 || _this3.De6A11.length > 0 || _this3.De10A59.length > 0 || _this3.ParPost.length > 0)) {
+                  _context3.next = 273;
+                  break;
+                }
+
+                if (!(_this3.GCARXCI === false)) {
+                  _context3.next = 273;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 273:
+                if (!(_this3.De12A17.length > 0 || _this3.De18A28.length > 0 || _this3.De29A59.length > 0)) {
+                  _context3.next = 277;
+                  break;
+                }
+
+                if (!(_this3.GADOLE === false)) {
+                  _context3.next = 277;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 277:
+                if (!(_this3.GADULT === false)) {
+                  _context3.next = 326;
+                  break;
+                }
+
+                if (!(_this3.De60.length > 0)) {
+                  _context3.next = 286;
+                  break;
+                }
+
+                _resul11 = _this3.valDe60();
+
+                if (!_resul11) {
+                  _context3.next = 285;
+                  break;
+                }
+
+                bandera = true;
+                _auxi2 = true;
+                _context3.next = 286;
+                break;
+
+              case 285:
+                return _context3.abrupt("return", false);
+
+              case 286:
+                if (!(_this3.EnCro.length > 0)) {
+                  _context3.next = 294;
+                  break;
+                }
+
+                _resul12 = _this3.valEnCro();
+
+                if (!_resul12) {
+                  _context3.next = 293;
+                  break;
+                }
+
+                bandera = true;
+                _auxi2 = true;
+                _context3.next = 294;
+                break;
+
+              case 293:
+                return _context3.abrupt("return", false);
+
+              case 294:
+                if (!(_this3.EnInf.length > 0)) {
+                  _context3.next = 302;
+                  break;
+                }
+
+                _resul13 = _this3.valEnInf();
+
+                if (!_resul13) {
+                  _context3.next = 301;
+                  break;
+                }
+
+                bandera = true;
+                _auxi2 = true;
+                _context3.next = 302;
+                break;
+
+              case 301:
+                return _context3.abrupt("return", false);
+
+              case 302:
+                if (!_auxi2) {
+                  _context3.next = 323;
+                  break;
+                }
+
+                //GUARDAR DATOS
+                _parametros4 = {
+                  _token: _this3.csrf,
+                  De60: _this3.De60,
+                  EnCro: _this3.EnCro,
+                  EnInf: _this3.EnInf,
+                  opcion: "MODIFICAR",
+                  opc: "GUADULT",
+                  IDHOGAR: _this3.IDHOGAR
+                };
+                _this3.valGAdul = false;
+                _context3.prev = 305;
+                _context3.next = 308;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros4).then(function (respuesta) {
+                  if (respuesta.data.OPC == "SI") {
+                    console.log("SI GUARDE");
+                    _this3.GADULT = true;
+                    bandera = true;
+                    _this3.valGAdul = true;
+                  }
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+
+                  _this3.$swal("Error...!", "No se pudo guardar los datos de la pestaña adultos", "error");
+
+                  return;
+                });
+
+              case 308:
+                _context3.next = 321;
+                break;
+
+              case 310:
+                _context3.prev = 310;
+                _context3.t8 = _context3["catch"](305);
+                _context3.t9 = _context3.t8.response.status;
+                _context3.next = _context3.t9 === 419 ? 315 : _context3.t9 === 422 ? 317 : 319;
+                break;
+
+              case 315:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 321);
+
+              case 317:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 321);
+
+              case 319:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 321);
+
+              case 321:
+                _context3.next = 324;
+                break;
+
+              case 323:
+                bandera = true;
+
+              case 324:
+                _context3.next = 327;
+                break;
+
+              case 326:
+                bandera = true;
+
+              case 327:
+                if (!(actual === "migrante")) {
+                  _context3.next = 385;
+                  break;
+                }
+
+                _auxi3 = false;
+
+                if (!(_this3.GIDEN === false)) {
+                  _context3.next = 332;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 332:
+                if (!(_this3.GVIVI === false)) {
+                  _context3.next = 335;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 335:
+                if (!(_this3.Men1A.length > 0 || _this3.De1A5.length > 0 || _this3.De6A11.length > 0 || _this3.De10A59.length > 0 || _this3.ParPost.length > 0)) {
+                  _context3.next = 339;
+                  break;
+                }
+
+                if (!(_this3.GCARXCI === false)) {
+                  _context3.next = 339;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 339:
+                if (!(_this3.De12A17.length > 0 || _this3.De18A28.length > 0 || _this3.De29A59.length > 0)) {
+                  _context3.next = 343;
+                  break;
+                }
+
+                if (!(_this3.GADOLE === false)) {
+                  _context3.next = 343;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 343:
+                if (!(_this3.De60.length > 0 || _this3.EnCro.length > 0 || _this3.EnInf.length > 0)) {
+                  _context3.next = 347;
+                  break;
+                }
+
+                if (!(_this3.GADULT === false)) {
+                  _context3.next = 347;
+                  break;
+                }
+
+                _this3.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Adulto mayor", "error");
+
+                return _context3.abrupt("return", false);
+
+              case 347:
+                if (!(_this3.GMIGRA === false)) {
+                  _context3.next = 382;
+                  break;
+                }
+
+                if (!(_this3.Migra.length > 0)) {
+                  _context3.next = 356;
+                  break;
+                }
+
+                _resul14 = _this3.valMigra();
+
+                if (!_resul14) {
+                  _context3.next = 355;
+                  break;
+                }
+
+                bandera = true;
+                _auxi3 = true;
+                _context3.next = 356;
+                break;
+
+              case 355:
+                return _context3.abrupt("return", false);
+
+              case 356:
+                if (!_auxi3) {
+                  _context3.next = 377;
+                  break;
+                }
+
+                _parametros5 = {
+                  _token: _this3.csrf,
+                  Migra: _this3.Migra,
+                  opcion: "MODIFICAR",
+                  opc: "GUAMIGRA",
+                  IDHOGAR: _this3.IDHOGAR
+                };
+                _this3.valGMig = false;
+                _context3.prev = 359;
+                _context3.next = 362;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros5).then(function (respuesta) {
+                  if (respuesta.data.OPC == "SI") {
+                    _this3.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                    _this3.valGMig = true;
+
+                    _this3.$router.push("/gestion");
+                  }
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+
+                  _this3.$swal("Error...!", "No se pudo guardar los datos de la pestaña migrantes", "error");
+
+                  return;
+                });
+
+              case 362:
+                _context3.next = 375;
+                break;
+
+              case 364:
+                _context3.prev = 364;
+                _context3.t10 = _context3["catch"](359);
+                _context3.t11 = _context3.t10.response.status;
+                _context3.next = _context3.t11 === 419 ? 369 : _context3.t11 === 422 ? 371 : 373;
+                break;
+
+              case 369:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 375);
+
+              case 371:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 375);
+
+              case 373:
+                _this3.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context3.abrupt("break", 375);
+
+              case 375:
+                _context3.next = 380;
+                break;
+
+              case 377:
+                bandera = true;
+
+                _this3.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                _this3.$router.push("/gestion");
+
+              case 380:
+                _context3.next = 385;
+                break;
+
+              case 382:
+                _this3.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
+
+                _this3.SAPU = false;
+
+                _this3.$router.push("/gestion");
+
+              case 385:
+                if (bandera) {
+                  bandera = false;
+                  $('.nav-tabs a[href="#' + opcion + '"]').tab("show");
+                }
+
+              case 386:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[67, 72], [104, 109], [176, 181], [239, 244], [305, 310], [359, 364]]);
+      }))();
+    },
+    cambiarTab2: function cambiarTab2(opcion) {
+      if (this.GIDEN === false) {
+        // $('.nav-tabs a[href="#' + opcion + '"]').tab('show');
+        $('.nav-tabs a[href="#tabIdentificacion"]').tab("show");
+        return false;
+      } else {}
+    },
+    volver: function volver() {
+      this.$router.push("/gestion");
+    },
+    habilitar_zonas: function habilitar_zonas() {
+      if (this.hogar.id_zona === "") {
+        this.estratificacionData.ingresos_zona_rural = "";
+        this.estratificacionData.ingresos_ciudad = "";
+      }
+
+      if (this.hogar.id_zona === "0") {
+        this.estratificacionData.ingresos_zona_rural = 8;
+        this.estratificacionData.ingresos_ciudad = 8;
+      }
+
+      if (this.hogar.id_zona === "1") {
+        this.estratificacionData.ingresos_zona_rural = 8;
+        this.estratificacionData.ingresos_ciudad = "";
+      }
+
+      if (this.hogar.id_zona === "2" || this.hogar.id_zona === "3") {
+        this.estratificacionData.ingresos_zona_rural = "";
+        this.estratificacionData.ingresos_ciudad = 8;
+      }
+    },
+    allLetter: function allLetter(valor) {
+      var letters = /^([0-9])*$/;
+
+      if (valor === "") {
+        return false;
+      } else {
+        if (valor.match(letters)) {
+          // console.log("no hay letras");
+          return true;
+        } else {
+          // console.log("hay letras");
+          return false;
+        }
+      }
+    },
+    isNumeric: function isNumeric(n) {
+      return !isNaN(parseFloat(n)) && isFinite(n);
+    },
+    validarNumHog: function validarNumHog() {
+      if (this.hogar.numero_hogares <= 0) {
+        this.hogar.numero_hogares = "";
+      }
+    },
+    SoloNumeros: function SoloNumeros(event) {
+      if (event.keyCode < 48 || event.keyCode > 57) {
+        return false; // this.caracData.salario = 0;
+      }
+    },
+    cambiarCombo: function () {
+      var _cambiarCombo = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(caja) {
+        var _this4 = this;
+
+        var parametros, _parametros6;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (caja === "dpto") {
+                  this.hogar.id_mun = "";
+                  this.hogar.id_corre = "";
+                  this.hogar.id_vereda = "";
+                  this.hogar.id_barrio = "";
+                }
+
+                if (!(caja === "muni")) {
+                  _context4.next = 34;
+                  break;
+                }
+
+                this.hogar.id_corre = "";
+                this.hogar.id_vereda = "";
+                this.hogar.id_barrio = "";
+                parametros = {
+                  _token: this.csrf,
+                  id: this.hogar.id_mun,
+                  opcion: "MUN"
+                };
+                _context4.prev = 6;
+                _context4.next = 9;
+                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
+                  _this4.barrio_options = respuesta.data.arrayBarrios;
+                });
+
+              case 9:
+                _context4.next = 20;
+                break;
+
+              case 11:
+                _context4.prev = 11;
+                _context4.t0 = _context4["catch"](6);
+                _context4.t1 = _context4.t0.response.status;
+                _context4.next = _context4.t1 === 422 ? 16 : 18;
+                break;
+
+              case 16:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 20);
+
+              case 18:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 20);
+
+              case 20:
+                _context4.prev = 20;
+                _context4.next = 23;
+                return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](parametros).then(function (respuesta) {
+                  _this4.colegio_options = respuesta.data.arrayColegios;
+                });
+
+              case 23:
+                _context4.next = 34;
+                break;
+
+              case 25:
+                _context4.prev = 25;
+                _context4.t2 = _context4["catch"](20);
+                _context4.t3 = _context4.t2.response.status;
+                _context4.next = _context4.t3 === 422 ? 30 : 32;
+                break;
+
+              case 30:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 34);
+
+              case 32:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 34);
+
+              case 34:
+                if (!(caja === "corregi")) {
+                  _context4.next = 67;
+                  break;
+                }
+
+                this.hogar.id_vereda = "";
+                this.hogar.id_barrio = "";
+
+                if (!(this.hogar.id_corre !== "0")) {
+                  _context4.next = 67;
+                  break;
+                }
+
+                _parametros6 = {
+                  _token: this.csrf,
+                  id: this.hogar.id_corre,
+                  opcion: "CORRE"
+                };
+                _context4.prev = 39;
+                _context4.next = 42;
+                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros6).then(function (respuesta) {
+                  _this4.barrio_options = respuesta.data.arrayBarrios;
+                });
+
+              case 42:
+                _context4.next = 53;
+                break;
+
+              case 44:
+                _context4.prev = 44;
+                _context4.t4 = _context4["catch"](39);
+                _context4.t5 = _context4.t4.response.status;
+                _context4.next = _context4.t5 === 422 ? 49 : 51;
+                break;
+
+              case 49:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 53);
+
+              case 51:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 53);
+
+              case 53:
+                _context4.prev = 53;
+                _context4.next = 56;
+                return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](_parametros6).then(function (respuesta) {
+                  _this4.colegio_options = respuesta.data.arrayColegios;
+                });
+
+              case 56:
+                _context4.next = 67;
+                break;
+
+              case 58:
+                _context4.prev = 58;
+                _context4.t6 = _context4["catch"](53);
+                _context4.t7 = _context4.t6.response.status;
+                _context4.next = _context4.t7 === 422 ? 63 : 65;
+                break;
+
+              case 63:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 67);
+
+              case 65:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 67);
+
+              case 67:
+                if (caja === "etnia") {
+                  this.CA1.clasificacion = "0";
+                }
+
+              case 68:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[6, 11], [20, 25], [39, 44], [53, 58]]);
+      }));
+
+      function cambiarCombo(_x3) {
+        return _cambiarCombo.apply(this, arguments);
+      }
+
+      return cambiarCombo;
+    }(),
+    formato: function formato(caja) {
+      if (caja == "id1") {
+        if (this.caracData.tipo_id == "CC") {
+          this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          var val = (this.caracData.identificacion / 1).toFixed(0).replace(".", ",");
+          this.caracData.identificacion = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+          if (this.caracData.identificacion == "NaN") {
+            this.caracData.identificacion = "";
+          }
+
+          if (this.caracData.identificacion == "0") {
+            this.caracData.identificacion = "";
+          }
+        }
+      }
+
+      if (caja == "salario") {
+        this.caracData.salario = this.caracData.salario.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+        var _val = (this.caracData.salario / 1).toFixed(0).replace(".", ",");
+
+        this.caracData.salario = _val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+        if (this.caracData.salario == "NaN") {
+          this.caracData.salario = "";
+        }
+
+        if (this.caracData.salario == "0") {
+          this.caracData.salario = "";
+        }
+      }
+
+      if (caja == "tipoid") {
+        this.caracData.identificacion = "";
+
+        if (this.caracData.tipo_id != "CC") {
+          if (this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI") {
+            this.caracData.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
+          } else {
+            this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          }
+        } else {
+          if (this.caracData.tipo_id == "CC") {
+            this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+            var _val2 = (this.caracData.identificacion / 1).toFixed(0).replace(".", ",");
+
+            this.caracData.identificacion = _val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+            if (this.caracData.identificacion == "NaN") {
+              this.caracData.identificacion = "";
+            }
+
+            if (this.caracData.identificacion == "0") {
+              this.caracData.identificacion = "";
+            }
+          }
+        }
+      }
+
+      if (caja == "id2") {
+        if (this.CA1.tipo_id == "CC") {
+          this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+          var _val3 = (this.CA1.identificacion / 1).toFixed(0).replace(".", ",");
+
+          this.CA1.identificacion = _val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+          if (this.CA1.identificacion == "NaN") {
+            this.CA1.identificacion = "";
+          }
+
+          if (this.CA1.identificacion == "0") {
+            this.CA1.identificacion = "";
+          }
+        }
+      }
+
+      if (caja == "tipoid2") {
+        this.CA1.identificacion = "";
+
+        if (this.CA1.tipo_id != "CC") {
+          if (this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI") {
+            this.CA1.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
+          } else {
+            this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+          }
+        } else {
+          if (this.CA1.tipo_id == "CC") {
+            this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+            var _val4 = (this.CA1.identificacion / 1).toFixed(0).replace(".", ",");
+
+            this.CA1.identificacion = _val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+            if (this.CA1.identificacion == "NaN") {
+              this.CA1.identificacion = "";
+            }
+
+            if (this.CA1.identificacion == "0") {
+              this.CA1.identificacion = "";
+            }
+          }
+        }
+      }
+
+      if (caja == "telefono1") {
+        this.caracData.telefono = this.caracData.telefono.replace(/[^.\d]/g, "").trim();
+
+        if (this.caracData.telefono == "NaN") {
+          this.caracData.telefono = "";
+        }
+
+        if (this.caracData.telefono == "0") {
+          this.caracData.telefono = "";
+        }
+      }
+
+      if (caja == "telefono2") {
+        this.CA1.telefono = this.CA1.telefono.replace(/[^.\d]/g, "").trim();
+
+        if (this.CA1.telefono == "NaN") {
+          this.CA1.telefono = "";
+        }
+
+        if (this.CA1.telefono == "0") {
+          this.CA1.telefono = "";
+        }
+      }
+
+      if (caja == "puntaje") {}
+
+      if (caja == "puntaje1") {}
+    },
+    mostrarOtro: function mostrarOtro(tipo) {
+      if (tipo === "TE") {
+        if (this.viviendaData.tipo_estructura === "5") {
+          this.mOTE = true;
+        } else {
+          this.mOTE = false;
+        }
+
+        this.viviendaData.otro_tipo_estructura = "";
+      }
+
+      if (tipo === "TC") {
+        if (this.viviendaData.tipo_cubierta === "9") {
+          this.mOTC = true;
+        } else {
+          this.mOTC = false;
+        }
+
+        this.viviendaData.otro_tipo_cubierta = "";
+      }
+
+      if (tipo === "AE") {
+        if (this.viviendaData.actividad_economica === "CUAL") {
+          this.mOAE = true;
+        } else {
+          this.mOAE = false;
+        }
+
+        this.viviendaData.cual_actividad_economica = "";
+      }
+
+      if (tipo === "FA") {
+        if (this.viviendaData.fuente_agua === "9") {
+          this.mOFA = true;
+        } else {
+          this.mOFA = false;
+        }
+
+        this.viviendaData.cual_fuente = "";
+      }
+
+      if (tipo === "DA") {
+        if (this.viviendaData.donde_almacena_agua === "5") {
+          this.mODA = true;
+        } else {
+          this.mODA = false;
+        }
+
+        this.viviendaData.otro_almacena_agua = "";
+      }
+
+      if (tipo === "FB") {
+        if (this.viviendaData.destino_final_basura === "5") {
+          this.mOFB = true;
+        } else {
+          this.mOFB = false;
+        }
+
+        this.viviendaData.otro_destino_final_basura = "";
+      }
+
+      if (tipo === "OC") {
+        if (this.viviendaData.otro_cerca === "SI") {
+          this.mOOC = true;
+        } else {
+          this.mOOC = false;
+        }
+
+        this.viviendaData.cual_cerca = "";
+      }
+
+      if (tipo === "EV") {
+        if (this.viviendaData.envases_vacios === "7") {
+          this.mOEV = true;
+        } else {
+          this.mOEV = false;
+        }
+
+        this.viviendaData.otro_envases_vacios = "";
+      }
+
+      if (tipo === "EP") {
+        if (this.viviendaData.elementos_protecion === "5") {
+          this.mOEP = true;
+        } else {
+          this.mOEP = false;
+        }
+
+        this.viviendaData.otro_elementos_protecion = "";
+      }
+
+      if (tipo === "MC") {
+        if (this.viviendaData.metodos_coccion === "6") {
+          this.mOMC = true;
+        } else {
+          this.mOMC = false;
+        }
+
+        this.viviendaData.otro_metodos_coccion = "";
+      }
+
+      if (tipo === "AA") {
+        if (this.viviendaData.lugares_almacenan_alimentos === "6") {
+          this.mOAA = true;
+        } else {
+          this.mOAA = false;
+        }
+
+        this.viviendaData.otro_lugares_almacenan_alimentos = "";
+      }
+
+      if (tipo === "DH") {
+        if (this.viviendaData.excretas === "7") {
+          this.mODH = true;
+        } else {
+          this.mODH = false;
+        }
+
+        this.viviendaData.otro_depositan_excretas = "";
+      }
+
+      if (tipo === "ES") {
+        if (this.viviendaData.tipo_explotacion === "5") {
+          this.mOES = true;
+        } else {
+          this.mOES = false;
+        }
+
+        this.viviendaData.otro_tipo_explotacion = "";
+      }
+
+      if (tipo === "OG") {
+        if (this.viviendaData.otros_genera === "SI") {
+          this.mOOG = true;
+        } else {
+          this.mOOG = false;
+        }
+
+        this.viviendaData.cual_genera = "";
+      }
+
+      if (tipo === "OEPS1") {
+        if (this.caracData.afiliacion_entidad === "OTRA") {
+          this.mOEPS1 = true;
+        } else {
+          this.mOEPS1 = false;
+        }
+
+        this.caracData.otra_eps = "";
+      }
+
+      if (tipo === "OEPS2") {
+        if (this.CA1.afi_entidad === "OTRA") {
+          this.mOEPS2 = true;
+        } else {
+          this.mOEPS2 = false;
+        }
+
+        this.CA1.otra_eps = "";
+      }
+
+      if (tipo === "mOCOL1") {
+        if (this.caracData.nivel_escolaridad === 3 || this.caracData.nivel_escolaridad === 14 || this.caracData.nivel_escolaridad === 15) {
+          this.mOCOL1 = true;
+        } else {
+          this.mOCOL1 = false;
+        }
+
+        this.caracData.colegio = "";
+        this.caracData.grado = "";
+      }
+
+      if (tipo === "mOCOL2") {
+        if (this.CA1.escolaridad === 3 || this.CA1.escolaridad === 14 || this.CA1.escolaridad === 15) {
+          this.mOCOL2 = true;
+        } else {
+          this.mOCOL2 = false;
+        }
+
+        this.CA1.colegio = "";
+        this.CA1.grado = "0";
+      }
+    },
+    // OPCIONES DE LAS OCUPACIONES
+    abrirModalOcupaciones: function abrirModalOcupaciones(opcion) {
+      this.opcionOcupaciones = opcion;
+      this.txtbusqueda = "";
+      this.consultarOcupaciones(1);
+      this.$refs.modalOcupaciones.show();
+    },
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalOcupaciones.hide();
+      this.$refs.modalActividad.hide();
+    },
+    consultarOcupaciones: function consultarOcupaciones(pagina) {
+      var _this5 = this;
+
+      return _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                parametros = {
+                  txtbusqueda: _this5.txtbusqueda.trim(),
+                  _token: _this5.csrf,
+                  page: pagina
+                };
+                _context5.prev = 1;
+                _context5.next = 4;
+                return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function (respuesta) {
+                  _this5.ocupacionesVector = respuesta.data.ocupaciones.data;
+                  _this5.paginacionVector = respuesta.data.paginacion;
+                });
+
+              case 4:
+                _context5.next = 15;
+                break;
+
+              case 6:
+                _context5.prev = 6;
+                _context5.t0 = _context5["catch"](1);
+                _context5.t1 = _context5.t0.response.status;
+                _context5.next = _context5.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                _this5.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context5.abrupt("break", 15);
+
+              case 13:
+                _this5.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context5.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, null, [[1, 6]]);
+      }))();
+    },
+    seleccionarOcupaciones: function seleccionarOcupaciones(item) {
+      if (this.opcionOcupaciones === "jefe") {
+        this.caracData.ocupacion = item.id;
+        this.ocupacionAuxiliar = item.descripcion;
+      } else {
+        this.CA1.ocupacion = item.id;
+        this.ocupacionAuxiliar2 = item.descripcion;
+      }
+
+      this.$refs.modalOcupaciones.hide();
+    },
+    // OPCIONES DE LAS OCUPACIONES
+    //OPCIONES DEL JEFE DE HOGAR
+    agregarJefe: function () {
+      var _agregarJefe = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var _this6 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                if (!(this.checkForm() === true)) {
+                  _context6.next = 12;
+                  break;
+                }
+
+                // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+                this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+                parametros = {
+                  _token: this.csrf,
+                  identificacion: this.caracData.identificacion
+                };
+                _context6.prev = 3;
+                _context6.next = 6;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC == "EXISTE") {
+                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
+                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                    _this6.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
+
+                    return false;
+                  } else {
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    var resultado = _this6.datosJefe.filter(function (identi) {
+                      return identi.identificacion == _this6.caracData.identificacion;
+                    }); // VERIFICAR SI ESTA EN LA TABLA
+
+
+                    if (resultado.length) {
+                      _this6.$swal("Validar...!", "El Documento <b>" + _this6.caracData.identificacion + "</b> Se Encuentra Agregado", "warning");
+
+                      return false;
+                    } else {
+                      var _nacimiento = moment(_this6.caracData.fecha_nacimiento);
+
+                      var _hoy = moment();
+
+                      var edad = 0;
+
+                      if (_nacimiento < _hoy) {
+                        edad = _hoy.diff(_nacimiento, "years"); //Calculamos la diferencia en años
+                      }
+
+                      if (edad < 14) {
+                        _this6.$swal("Validar...!", "El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años", "warning");
+
+                        return false;
+                      }
+
+                      var textoEps = "";
+
+                      if (_this6.caracData.afiliacion_entidad === "OTRA") {
+                        textoEps = "OTRA";
+                      } else {
+                        if (_this6.caracData.afiliacion_entidad === "NINGUNA") {
+                          textoEps = "NINGUNA";
+                        } else {
+                          textoEps = _this6.showText(_this6.caracData.afiliacion_entidad, _this6.admini_options);
+                        }
+                      }
+
+                      _this6.datosJefe.push({
+                        id: 0,
+                        id_hogar: 0,
+                        telefono: _this6.caracData.telefono,
+                        puntaje_sisben: _this6.caracData.puntaje_sisben,
+                        afiliacion_entidad: _this6.caracData.afiliacion_entidad,
+                        textoEps: textoEps,
+                        otra_eps: _this6.caracData.otra_eps,
+                        tipo_id: _this6.caracData.tipo_id,
+                        identificacion: _this6.caracData.identificacion,
+                        sexo: _this6.caracData.sexo,
+                        parentesco: _this6.caracData.parentesco,
+                        textoParentesco: _this6.showText(_this6.caracData.parentesco, _this6.parentesco_options),
+                        pnom: _this6.caracData.pnom,
+                        snom: _this6.caracData.snom,
+                        pape: _this6.caracData.pape,
+                        sape: _this6.caracData.sape,
+                        salario: _this6.caracData.salario,
+                        estado_civil: _this6.caracData.estado_civil,
+                        textoEstado: _this6.showText(_this6.caracData.estado_civil, _this6.estado_options),
+                        fecha_nacimiento: _this6.caracData.fecha_nacimiento,
+                        tipo_afiliacion: _this6.caracData.tipo_afiliacion,
+                        embarazo: _this6.caracData.embarazo,
+                        embarazo_multiple: _this6.caracData.embarazo_multiple,
+                        discapacidad: _this6.caracData.discapacidad,
+                        nivel_escolaridad: _this6.caracData.nivel_escolaridad,
+                        textoNivel: _this6.showText(_this6.caracData.nivel_escolaridad, _this6.escolaridad_options),
+                        ocupacion: _this6.caracData.ocupacion,
+                        textoOcupacion: _this6.showText(_this6.caracData.ocupacion, _this6.ocupacion_options),
+                        colegio: _this6.caracData.colegio,
+                        textoColegio: _this6.showText(_this6.caracData.colegio, _this6.colegio_options),
+                        grado: _this6.caracData.grado,
+                        entiende: _this6.caracData.entiende,
+                        migrante: _this6.caracData.migrante,
+                        pyp: _this6.caracData.pyp,
+                        etnia: _this6.caracData.etnia,
+                        textoEtnia: _this6.showText(_this6.caracData.etnia, _this6.etnia_options),
+                        clasificacion: _this6.caracData.clasificacion,
+                        textoClasificacion: _this6.showText2(_this6.caracData.clasificacion, _this6.clasifi_options, _this6.caracData.etnia),
+                        edad: _this6.caracData.edad,
+                        orientacion: _this6.caracData.orientacion,
+                        identidad_genero: _this6.caracData.identidad_genero,
+                        perdida_peso: _this6.caracData.perdida_peso,
+                        programa_icbf: _this6.caracData.programa_icbf,
+                        identi_auxi: "",
+                        estado: "Activo"
+                      });
+
+                      if (_this6.caracData.tipo_afiliacion === "CONTRIBUTIVO" || _this6.caracData.tipo_afiliacion === "ESPECIAL") {
+                        _this6.SAPU = true;
+                        _this6.estratificacionData.afiliacion_salud_privada = "SI";
+                      }
+
+                      _this6.ocupacionAuxiliar = "";
+                      _this6.mOCOL1 = false;
+
+                      var indice = _this6.datosJefe.findIndex(function (identi) {
+                        return identi.identificacion === _this6.caracData.identificacion;
+                      });
+
+                      _this6.vectorJefes.push({
+                        index: indice,
+                        identificacion: _this6.caracData.identificacion
+                      }); // AGREGAR FACTORES
+
+
+                      _this6.AFactores(_this6.caracData, edad); // AGREGAR FACTORES
+                      // AGREGAR DE 10 A 59 AÑOS
+
+
+                      if (edad >= 10 && edad <= 59) {
+                        _this6.Ade10a59Anio(_this6.caracData, edad, "JEFE");
+                      } // AGREGAR DE 10 A 59 AÑOS
+                      // AGREGAR PARTO POSTPARTO
+
+
+                      if (_this6.caracData.embarazo === "SI") {
+                        _this6.AParPost(_this6.caracData, edad, "JEFE");
+                      } // AGREGAR PARTO POSTPARTO
+                      // AGREGAR DE 12 A 17 AÑOS
+
+
+                      if (edad >= 12 && edad <= 17) {
+                        _this6.Ade12a17Anio(_this6.caracData, edad, "JEFE");
+                      } // AGREGAR DE 12 A 17 AÑOS
+                      // AGREGAR DE 18 A 28 AÑOS
+
+
+                      if (edad >= 18 && edad <= 28) {
+                        _this6.Ade18a28Anio(_this6.caracData, edad, "JEFE");
+                      } // AGREGAR DE 18 A 28 AÑOS
+                      // AGREGAR DE 29 A 59 AÑOS
+
+
+                      if (edad >= 29 && edad <= 59) {
+                        _this6.Ade29a59Anio(_this6.caracData, edad, "JEFE");
+                      } // AGREGAR DE 29 A 59 AÑOS
+                      // AGREGAR DE 60 ó MAS AÑOS
+
+
+                      if (edad >= 60) {
+                        _this6.Ade60Anio(_this6.caracData, edad, "JEFE");
+                      } // AGREGAR DE 60 ó MAS AÑOS
+                      // AGREGAR MIGRANTES
+
+
+                      if (_this6.caracData.migrante === "SI") {
+                        _this6.AMigra(_this6.caracData, edad, "JEFE");
+                      } // AGREGAR MIGRANTES
+
+
+                      _this6.limpiar2();
+                    }
+                  }
+                })["catch"](function (error) {
+                  _this6.errorDevuelto = error.response.data.errors;
+                  _this6.entrarPorError = true;
+                });
+
+              case 6:
+                _context6.next = 12;
+                break;
+
+              case 8:
+                _context6.prev = 8;
+                _context6.t0 = _context6["catch"](3);
+                this.errorDevuelto = _context6.t0.response.data.errors;
+                this.entrarPorError = true;
+
+              case 12:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this, [[3, 8]]);
+      }));
+
+      function agregarJefe() {
+        return _agregarJefe.apply(this, arguments);
+      }
+
+      return agregarJefe;
+    }(),
+    checkForm: function checkForm(e) {
+      var bande = true;
+
+      if (this.caracData.tipo_id === "") {
+        this.$refs.tipo_id.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
+        return;
+      }
+
+      if (this.caracData.identificacion === "") {
+        this.$refs.identificacion.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite una identificación!", "error");
+        return;
+      }
+
+      if (this.caracData.sexo === "") {
+        this.$refs.sexo.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+        return;
+      }
+
+      if (this.caracData.orientacion === "") {
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+        return;
+      }
+
+      if (this.caracData.identidad_genero === "") {
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+        return;
+      }
+
+      if (this.caracData.parentesco === "") {
+        this.$refs.parentesco.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+        return;
+      }
+
+      if (this.caracData.pnom === "") {
+        this.$refs.pnom.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+        return;
+      }
+
+      if (this.caracData.pape === "") {
+        this.$refs.pape.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
+        return;
+      }
+
+      if (this.caracData.estado_civil === "") {
+        this.$refs.estado_civil.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
+        return;
+      }
+
+      if (this.caracData.fecha_nacimiento === "") {
+        this.$refs.fecha_nacimiento.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
+        return;
+      }
+
+      if (this.caracData.afiliacion_entidad === "") {
+        this.$refs.afiliacion_entidad.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+        return;
+      }
+
+      if (this.caracData.ocupacion === "") {
+        this.$refs.ocupacion.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+        return;
+      }
+
+      if (this.caracData.etnia === "") {
+        this.$refs.etnia.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+        return;
+      }
+
+      if (this.caracData.clasificacion === "") {
+        this.$refs.clasificacion.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
+        return;
+      }
+
+      if (this.caracData.salario === "") {
+        this.$refs.salario.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor digite el salario!", "error");
+        return;
+      }
+
+      if (this.caracData.perdida_peso === "") {
+        this.$refs.perdida_peso.focus();
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+        return;
+      }
+
+      if (this.caracData.programa_icbf === "") {
+        bande = false;
+        this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+        return;
+      }
+
+      return bande;
+      e.preventDefault();
+    },
+    showText: function showText(val, vectorAux) {
+      for (var i = 0; i < vectorAux.length; i++) {
+        if (vectorAux[i].value === val) {
+          return vectorAux[i].texto;
+        }
+      }
+
+      return "";
+    },
+    showText2: function showText2(val, vectorAux, id) {
+      if (id === "") {
+        return "";
+      }
+
+      for (var i = 0; i < vectorAux[id].length; i++) {
+        console.log(vectorAux[id][i].value);
+
+        if (vectorAux[id][i].value === val) {
+          return vectorAux[id][i].texto;
+        }
+      }
+
+      return "";
+    },
+    eliminarItemJefe: function eliminarItemJefe(index, item) {
+      if (item.id === 0) {
+        this.datosJefe.splice(index, 1);
+        this.vectorJefes.splice(index, 1);
+        var identificacion = item.identificacion;
+        this.factores = this.factores.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.Men1A = this.Men1A.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De1A5 = this.De1A5.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De6A11 = this.De6A11.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De10A59 = this.De10A59.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.ParPost = this.ParPost.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De12A17 = this.De12A17.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De18A28 = this.De18A28.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De29A59 = this.De29A59.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De60 = this.De60.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.EnCro = this.EnCro.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.EnInf = this.EnInf.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.Migra = this.Migra.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+      } else {// let identificacion = item.identificacion;
+        // let indice = this.datosJefe.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.datosJefe[indice].estado = "Inactivo";
+        //   this.datosJefe.splice(indice, 1, this.datosJefe[indice]);
+        // }
+        // indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.Men1A[indice].estado = "Inactivo";
+        //   this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        // }        
+        // indice = this.De1A5.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.De1A5[indice].estado = "Inactivo";
+        //   this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        // }        
+        // indice = this.De6A11.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.De6A11[indice].estado = "Inactivo";
+        //   this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        // }        
+        // indice = this.De10A59.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.De10A59[indice].estado = "Inactivo";
+        //   this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        // }        
+        // indice = this.De12A17.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.De12A17[indice].estado = "Inactivo";
+        //   this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        // }        
+        // indice = this.De18A28.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.De18A28[indice].estado = "Inactivo";
+        //   this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        // }        
+        // indice = this.De29A59.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.De29A59[indice].estado = "Inactivo";
+        //   this.De29A59.splice(indice, 1, this.De29A59[indice]);        
+        // }        
+        // indice = this.De60.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.De60[indice].estado = "Inactivo";
+        //   this.De60.splice(indice, 1, this.De60[indice]);
+        // }        
+        // indice = this.EnCro.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.EnCro[indice].estado = "Inactivo";
+        //   this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        // }        
+        // indice = this.EnInf.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.EnInf[indice].estado = "Inactivo";
+        //   this.EnInf.splice(indice, 1, this.EnInf[indice]);        
+        // }        
+        // indice = this.Migra.findIndex(identi => identi.identificacion === identificacion);
+        // if(indice >= 0){
+        //   this.Migra[indice].estado = "Inactivo";
+        //   this.Migra.splice(indice, 1, this.Migra[indice]);                
+        // }
+        // this.$swal(
+        //   "Eliminar...!",
+        //   "Datos En Proceso de Eliminación!",
+        //   "success"
+        // );          
+      }
+    },
+    limpiar2: function limpiar2() {
+      this.caracData.tipo_id = "";
+      this.caracData.identificacion = "";
+      this.caracData.sexo = "";
+      this.caracData.parentesco = "";
+      this.caracData.pnom = "";
+      this.caracData.snom = "";
+      this.caracData.pape = "";
+      this.caracData.sape = "";
+      this.caracData.estado_civil = "";
+      this.caracData.fecha_nacimiento = "";
+      this.caracData.salario = "";
+      this.caracData.telefono = "";
+      this.caracData.edad = 0;
+      this.caracData.afiliacion_entidad = "";
+      this.caracData.otra_eps = "";
+      this.caracData.tipo_afiliacion = "";
+      this.caracData.embarazo = "";
+      this.caracData.embarazo_multiple = "";
+      this.caracData.discapacidad = "";
+      this.caracData.nivel_escolaridad = "";
+      this.caracData.ocupacion = "";
+      this.caracData.colegio = "";
+      this.caracData.grado = "";
+      this.caracData.entiende = "";
+      this.caracData.migrante = "";
+      this.caracData.pyp = "";
+      this.caracData.etnia = "";
+      this.caracData.clasificacion = "";
+      this.caracData.puntaje_sisben = "";
+      this.caracData.orientacion = "";
+      this.caracData.identidad_genero = "";
+      this.caracData.perdida_peso = "";
+      this.caracData.programa_icbf = "";
+      this.bandeGuaEdiJefe = true;
+      this.indiceEditJefe = null;
+      this.ocupacionAuxiliar = "";
+      this.idEditar = null;
+      this.identificacionEditar = null;
+      this.fechaEditar = null;
+      this.edadEditar = null;
+      this.embarazoEditar = null;
+    },
+    updateJefe: function updateJefe(item, valor, opcion, index) {
+      if (opcion === "tipo_id") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var indice = this.factores.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.factores[indice].tipo_id = valor;
+          this.factores.splice(indice, 1, this.factores[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De10A59[indice].tipo_id = valor;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.ParPost[indice].tipo_id = valor;
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De12A17[indice].tipo_id = valor;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De18A28[indice].tipo_id = valor;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De29A59[indice].tipo_id = valor;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De60[indice].tipo_id = valor;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.Migra[indice].tipo_id = valor;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+      }
+
+      if (opcion === "sexo") {
+        if (item.sexo === "") {
+          item.embarazo = "";
+          item.embarazo_multiple = "";
+        }
+
+        if (item.sexo === "MASCULINO") {
+          item.embarazo = "NOAPLICA";
+          item.embarazo_multiple = "NOAPLICA";
+        }
+
+        if (item.sexo === "FEMENINO") {
+          item.embarazo = "";
+          item.embarazo_multiple = "";
+        } //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+
+
+        var _id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.factores[_indice].sexo = valor;
+          this.factores.splice(_indice, 1, this.factores[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De10A59[_indice].sexo = valor;
+          this.De10A59.splice(_indice, 1, this.De10A59[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.ParPost[_indice].sexo = valor;
+          this.ParPost.splice(_indice, 1, this.ParPost[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De12A17[_indice].sexo = valor;
+          this.De12A17.splice(_indice, 1, this.De12A17[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De18A28[_indice].sexo = valor;
+          this.De18A28.splice(_indice, 1, this.De18A28[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De29A59[_indice].sexo = valor;
+          this.De29A59.splice(_indice, 1, this.De29A59[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.De60[_indice].sexo = valor;
+          this.De60.splice(_indice, 1, this.De60[_indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id;
+        });
+
+        if (_indice >= 0) {
+          this.Migra[_indice].sexo = valor;
+          this.Migra.splice(_indice, 1, this.Migra[_indice]);
+        }
+      }
+
+      if (opcion === "embarazo") {
+        if (item.embarazo === "") {
+          item.embarazo_multiple = "";
+        }
+
+        if (item.embarazo === "SI") {
+          item.embarazo_multiple = "";
+        }
+
+        if (item.embarazo === "NO") {
+          item.embarazo_multiple = "NO";
+        }
+      }
+
+      if (opcion === "afiliacion_entidad") {
+        if (item.afiliacion_entidad === "NINGUNA") {
+          item.tipo_afiliacion = "0";
+        } else {
+          if (item.afiliacion_entidad === "OTRA") {
+            item.otra_eps = "";
+          } else {
+            item.tipo_afiliacion = "";
+          }
+        }
+      }
+
+      if (opcion === "nivel_escolaridad") {
+        item.colegio = "";
+        item.grado = "";
+      }
+    },
+    changeupdateJefe: function changeupdateJefe(item, event, opcion, index) {
+      if (opcion == "identificacion") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var indice = this.factores.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[indice].identificacion = item.identificacion;
+          this.factores.splice(indice, 1, this.factores[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[indice].identificacion = item.identificacion;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[indice].identificacion = item.identificacion;
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[indice].identificacion = item.identificacion;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[indice].identificacion = item.identificacion;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[indice].identificacion = item.identificacion;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[indice].identificacion = item.identificacion;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[indice].identificacion = item.identificacion;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        } //CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
+        //DIGITADA EN LA TABLA
+
+
+        this.vectorJefes[index].identificacion = item.identificacion; // Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
+
+        this.vectorJefes.splice(index, 1, this.vectorJefes[index]);
+      }
+
+      if (opcion == "pnom") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id2 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice2 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice2].pnom = item.pnom;
+          this.factores.splice(_indice2, 1, this.factores[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice2].pnom = item.pnom;
+          this.De10A59.splice(_indice2, 1, this.De10A59[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice2].pnom = item.pnom;
+          this.ParPost.splice(_indice2, 1, this.ParPost[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice2].pnom = item.pnom;
+          this.De12A17.splice(_indice2, 1, this.De12A17[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice2].pnom = item.pnom;
+          this.De18A28.splice(_indice2, 1, this.De18A28[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice2].pnom = item.pnom;
+          this.De29A59.splice(_indice2, 1, this.De29A59[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice2].pnom = item.pnom;
+          this.De60.splice(_indice2, 1, this.De60[_indice2]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice2 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id2;
+        });
+
+        if (_indice2 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice2].pnom = item.pnom;
+          this.Migra.splice(_indice2, 1, this.Migra[_indice2]);
+        }
+      }
+
+      if (opcion == "snom") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id3 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice3 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice3].snom = item.snom;
+          this.factores.splice(_indice3, 1, this.factores[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice3].snom = item.snom;
+          this.De10A59.splice(_indice3, 1, this.De10A59[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice3].snom = item.snom;
+          this.ParPost.splice(_indice3, 1, this.ParPost[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice3].snom = item.snom;
+          this.De12A17.splice(_indice3, 1, this.De12A17[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice3].snom = item.snom;
+          this.De18A28.splice(_indice3, 1, this.De18A28[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice3].snom = item.snom;
+          this.De29A59.splice(_indice3, 1, this.De29A59[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice3].snom = item.snom;
+          this.De60.splice(_indice3, 1, this.De60[_indice3]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice3 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id3;
+        });
+
+        if (_indice3 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice3].snom = item.snom;
+          this.Migra.splice(_indice3, 1, this.Migra[_indice3]);
+        }
+      }
+
+      if (opcion == "pape") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id4 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice4 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice4].pape = item.pape;
+          this.factores.splice(_indice4, 1, this.factores[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice4].pape = item.pape;
+          this.De10A59.splice(_indice4, 1, this.De10A59[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice4].pape = item.pape;
+          this.ParPost.splice(_indice4, 1, this.ParPost[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice4].pape = item.pape;
+          this.De12A17.splice(_indice4, 1, this.De12A17[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice4].pape = item.pape;
+          this.De18A28.splice(_indice4, 1, this.De18A28[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice4].pape = item.pape;
+          this.De29A59.splice(_indice4, 1, this.De29A59[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice4].pape = item.pape;
+          this.De60.splice(_indice4, 1, this.De60[_indice4]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice4 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id4;
+        });
+
+        if (_indice4 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice4].pape = item.pape;
+          this.Migra.splice(_indice4, 1, this.Migra[_indice4]);
+        }
+      }
+
+      if (opcion == "sape") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id5 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice5 = this.factores.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.factores[_indice5].sape = item.sape;
+          this.factores.splice(_indice5, 1, this.factores[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice5].sape = item.sape;
+          this.De10A59.splice(_indice5, 1, this.De10A59[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice5].sape = item.sape;
+          this.ParPost.splice(_indice5, 1, this.ParPost[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice5].sape = item.sape;
+          this.De12A17.splice(_indice5, 1, this.De12A17[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice5].sape = item.sape;
+          this.De18A28.splice(_indice5, 1, this.De18A28[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice5].sape = item.sape;
+          this.De29A59.splice(_indice5, 1, this.De29A59[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice5].sape = item.sape;
+          this.De60.splice(_indice5, 1, this.De60[_indice5]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice5 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id5;
+        });
+
+        if (_indice5 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice5].sape = item.sape;
+          this.Migra.splice(_indice5, 1, this.Migra[_indice5]);
+        }
+      }
+
+      if (opcion == "salario") {
+        item.salario = event.target.value.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+        var val = (item.salario / 1).toFixed(0).replace(".", ",");
+        item.salario = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+        if (item.salario == "NaN") {
+          item.salario = "";
+        }
+
+        if (item.salario == "0") {
+          item.salario = "";
+        }
+      }
+    },
+    AFactores: function AFactores(vector, edad) {
+      this.factores.push({
+        id: 0,
+        tipo_id: vector.tipo_id,
+        identificacion: vector.identificacion,
+        pnom: vector.pnom,
+        snom: vector.snom,
+        pape: vector.pape,
+        sape: vector.sape,
+        sexo: vector.sexo,
+        edad: edad,
+        dialogos: "",
+        sancion: "",
+        castigo_verbal: "",
+        castigo_fisico: "",
+        alcohol: "",
+        tabaco: "",
+        sustancias_psico: "",
+        apuestas: "",
+        violencia_fisica: "",
+        violencia_psico: "",
+        violencia_economica: "",
+        abuso_sexual: "",
+        actividad_fisica: "",
+        consumo_frutas: "",
+        religiosos: "",
+        sociales: "",
+        culturales: "",
+        recreativos: "",
+        estado: "Activo"
+      });
+    },
+    datediff: function datediff(date1, date2) {
+      var fecha1 = date1.split("-");
+      var fecha2 = date2.split("-");
+      var y1 = fecha1[0],
+          m1 = fecha1[1],
+          d1 = fecha1[2],
+          y2 = fecha2[0],
+          m2 = fecha2[1],
+          d2 = fecha2[2];
+
+      if (d1 < d2) {
+        m1--;
+        d1 += this.DaysInMonth(y2, m2);
+        console.log(d1);
+      }
+
+      if (m1 < m2) {
+        y1--;
+        m1 += 12;
+      }
+
+      return [y1 - y2, m1 - m2, d1 - d2];
+    },
+    DaysInMonth: function DaysInMonth(Y, M) {
+      return new Date(Y, M, 1, 12).getDate();
+    },
+    validarTablaJefes: function () {
+      var _validarTablaJefes = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var _this7 = this;
+
+        var _loop3, i;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _loop3 =
+                /*#__PURE__*/
+                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i) {
+                  var parametros;
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context7) {
+                    while (1) {
+                      switch (_context7.prev = _context7.next) {
+                        case 0:
+                          parametros = {
+                            _token: _this7.csrf,
+                            identificacion: _this7.datosJefe[i].identificacion
+                          };
+                          _context7.prev = 1;
+                          _context7.next = 4;
+                          return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
+                            if (respuesta.data.OPC == "EXISTE") {
+                              var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
+                              var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                              _this7.$swal("Validar...!", "El Documento <b>" + iden + "</b> De La Fila <b>" + (i + 1) + "</b> Se Encuentra Registrado", "warning"); // item.identificacion="";
+
+
+                              return false;
+                            } else {
+                              // VERIFICAR SI ESTA EN LA TABLA
+                              var resultado = _this7.datosJefe.filter(function (identi) {
+                                return identi.identificacion.includes(_this7.datosJefe[i].identificacion);
+                              }); // VERIFICAR SI ESTA EN LA TABLA
+
+
+                              if (resultado.length > 1) {
+                                _this7.$swal("Validar...!", "El Documento <b>" + _this7.datosJefe[i].identificacion + "</b> De La Fila <b>" + (i + 1) + "</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar", "warning"); // item.identificacion="";
+
+
+                                return false;
+                              } else {
+                                if (_this7.datosJefe[i].tipo_id === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione un <b>tipo de identificación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].identificacion === "") {
+                                  _this7.$swal("Error...!", "Por favor digite una <b>identificación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].pnom === "") {
+                                  _this7.$swal("Error...!", "Por favor digite el <b>primer nombre</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].pape === "") {
+                                  _this7.$swal("Error...!", "Por favor digite el <b>primer apellido</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].sexo === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione el <b>sexo</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].parentesco === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione el <b>parentesco</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].estado_civil === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione el <b>estado civil</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].fecha_nacimiento === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].afiliacion_entidad === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione la <b>eps</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].tipo_afiliacion === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione el <b>tipo de afiliación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].nivel_escolaridad === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].ocupacion === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione la <b>ocupación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].etnia === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione la <b>etnia</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].clasificacion === "") {
+                                  _this7.$swal("Error...!", "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                if (_this7.datosJefe[i].salario === "") {
+                                  _this7.$swal("Error...!", "Por favor digite el <b>salario</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
+
+                                  return false;
+                                }
+
+                                return true;
+                              }
+                            }
+                          })["catch"](function (error) {});
+
+                        case 4:
+                          _context7.next = 8;
+                          break;
+
+                        case 6:
+                          _context7.prev = 6;
+                          _context7.t0 = _context7["catch"](1);
+
+                        case 8:
+                        case "end":
+                          return _context7.stop();
+                      }
+                    }
+                  }, _loop3, null, [[1, 6]]);
+                });
+                i = 0;
+
+              case 2:
+                if (!(i < this.datosJefe.length)) {
+                  _context8.next = 7;
+                  break;
+                }
+
+                return _context8.delegateYield(_loop3(i), "t0", 4);
+
+              case 4:
+                i++;
+                _context8.next = 2;
+                break;
+
+              case 7:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function validarTablaJefes() {
+        return _validarTablaJefes.apply(this, arguments);
+      }
+
+      return validarTablaJefes;
+    }(),
+    editarItemJefe: function editarItemJefe(index, item) {
+      this.bandeGuaEdiJefe = false;
+      this.indiceEditJefe = index;
+      this.caracData.id = item.id;
+      this.caracData.id_hogar = item.id_hogar;
+      this.caracData.telefono = item.telefono;
+      this.caracData.puntaje_sisben = item.puntaje_sisben;
+      this.caracData.afiliacion_entidad = item.afiliacion_entidad;
+      this.caracData.otra_eps = item.otra_eps;
+      this.caracData.tipo_id = item.tipo_id;
+      this.caracData.identificacion = item.identificacion;
+      this.caracData.sexo = item.sexo;
+      this.caracData.parentesco = item.parentesco;
+      this.caracData.pnom = item.pnom;
+      this.caracData.snom = item.snom;
+      this.caracData.pape = item.pape;
+      this.caracData.sape = item.sape;
+      this.caracData.salario = item.salario;
+      this.caracData.id_compania = item.id_compania;
+      this.caracData.estado = item.estado;
+      this.caracData.estado_civil = item.estado_civil;
+      this.caracData.fecha_nacimiento = item.fecha_nacimiento;
+      this.caracData.tipo_afiliacion = item.tipo_afiliacion;
+      this.caracData.embarazo = item.embarazo;
+      this.caracData.embarazo_multiple = item.embarazo_multiple;
+      this.caracData.discapacidad = item.discapacidad;
+      this.caracData.nivel_escolaridad = item.nivel_escolaridad;
+      this.caracData.ocupacion = item.ocupacion;
+      this.caracData.colegio = item.colegio;
+      this.caracData.grado = item.grado;
+      this.caracData.etnia = item.etnia;
+      this.caracData.clasificacion = item.clasificacion;
+      this.caracData.entiende = item.entiende;
+      this.caracData.pyp = item.pyp;
+      this.caracData.migrante = item.migrante;
+      this.caracData.edad = item.edad;
+      this.caracData.orientacion = item.orientacion;
+      this.caracData.identidad_genero = item.identidad_genero;
+      this.caracData.perdida_peso = item.perdida_peso;
+      this.caracData.programa_icbf = item.programa_icbf;
+      this.ocupacionAuxiliar = item.textoOcupacion;
+      this.$refs.identificacionJefe.focus();
+      this.idEditar = item.id;
+      this.identificacionEditar = item.identificacion;
+      this.fechaEditar = item.fecha_nacimiento;
+      this.edadEditar = item.edad;
+      this.embarazoEditar = item.embarazo;
+    },
+    CancelarEditarJefe: function CancelarEditarJefe() {
+      this.limpiar2();
+    },
+    editarJefe: function () {
+      var _editarJefe = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
+        var _this8 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+                if (!(this.identificacionEditar === this.caracData.identificacion)) {
+                  _context9.next = 5;
+                  break;
+                }
+
+                this.ediJe();
+                _context9.next = 16;
+                break;
+
+              case 5:
+                if (!(this.checkForm() === true)) {
+                  _context9.next = 16;
+                  break;
+                }
+
+                // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+                parametros = {
+                  _token: this.csrf,
+                  identificacion: this.caracData.identificacion
+                };
+                _context9.prev = 7;
+                _context9.next = 10;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC == "EXISTE") {
+                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
+                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                    _this8.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
+
+                    return false;
+                  } else {
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    var resultado = _this8.datosJefe.filter(function (identi) {
+                      return identi.identificacion == _this8.caracData.identificacion;
+                    }); // VERIFICAR SI ESTA EN LA TABLA
+
+
+                    if (resultado.length) {
+                      _this8.$swal("Validar...!", "El Documento <b>" + _this8.caracData.identificacion + "</b> Se Encuentra Agregado", "warning");
+
+                      return false;
+                    } else {
+                      _this8.ediJe();
+                    }
+                  }
+                })["catch"](function (error) {
+                  _this8.errorDevuelto = error.response.data.errors;
+                  _this8.entrarPorError = true;
+                });
+
+              case 10:
+                _context9.next = 16;
+                break;
+
+              case 12:
+                _context9.prev = 12;
+                _context9.t0 = _context9["catch"](7);
+                this.errorDevuelto = _context9.t0.response.data.errors;
+                this.entrarPorError = true;
+
+              case 16:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee8, this, [[7, 12]]);
+      }));
+
+      function editarJefe() {
+        return _editarJefe.apply(this, arguments);
+      }
+
+      return editarJefe;
+    }(),
+    ediJe: function ediJe() {
+      var nacimiento = moment(this.caracData.fecha_nacimiento);
+      var hoy = moment();
+      var edad = 0;
+
+      if (nacimiento < hoy) {
+        edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+      }
+
+      if (edad < 14) {
+        this.$swal("Validar...!", "El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años", "warning");
+        return false;
+      }
+
+      var textoEps = "";
+
+      if (this.caracData.afiliacion_entidad === "OTRA") {
+        textoEps = "OTRA";
+      } else {
+        if (this.caracData.afiliacion_entidad === "NINGUNA") {
+          textoEps = "NINGUNA";
+        } else {
+          textoEps = this.showText(this.caracData.afiliacion_entidad, this.admini_options);
+        }
+      }
+
+      if (this.caracData.tipo_afiliacion === "CONTRIBUTIVO" || this.caracData.tipo_afiliacion === "ESPECIAL") {
+        this.SAPU = true;
+        this.estratificacionData.afiliacion_salud_privada = "SI";
+      }
+
+      this.ocupacionAuxiliar = "";
+      this.mOCOL1 = false;
+      var id = this.vectorJefes[this.indiceEditJefe].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+      var indice = this.factores.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.factores[indice].tipo_id = this.caracData.tipo_id;
+        this.factores[indice].sexo = this.caracData.sexo;
+        this.factores[indice].identificacion = this.caracData.identificacion;
+        this.factores[indice].pnom = this.caracData.pnom;
+        this.factores[indice].snom = this.caracData.snom;
+        this.factores[indice].pape = this.caracData.pape;
+        this.factores[indice].sape = this.caracData.sape;
+        this.factores.splice(indice, 1, this.factores[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De10A59.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De10A59[indice].tipo_id = this.caracData.tipo_id;
+        this.De10A59[indice].sexo = this.caracData.sexo;
+        this.De10A59[indice].identificacion = this.caracData.identificacion;
+        this.De10A59[indice].pnom = this.caracData.pnom;
+        this.De10A59[indice].snom = this.caracData.snom;
+        this.De10A59[indice].pape = this.caracData.pape;
+        this.De10A59[indice].sape = this.caracData.sape;
+        this.De10A59.splice(indice, 1, this.De10A59[indice]);
+      }
+
+      if (this.embarazoEditar === "SI") {
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (this.caracData.embarazo === "SI") {
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+          if (indice >= 0) {
+            this.ParPost[indice].tipo_id = this.caracData.tipo_id;
+            this.ParPost[indice].sexo = this.caracData.sexo;
+            this.ParPost[indice].identificacion = this.caracData.identificacion;
+            this.ParPost[indice].pnom = this.caracData.pnom;
+            this.ParPost[indice].snom = this.caracData.snom;
+            this.ParPost[indice].pape = this.caracData.pape;
+            this.ParPost[indice].sape = this.caracData.sape;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+        } else if (this.caracData.embarazo === "NO") {
+          //ELIMINO
+          // let iden = this.identificacionEditar;
+          this.ParPost[indice].estado = "Inactivo";
+          this.ParPost.splice(indice, 1, this.ParPost[indice]); // this.ParPost = this.ParPost.filter(function(men) {
+          //   return men.identificacion != iden;
+          // });                        
+          // this.eliminarParpost(this.caracData.identificacion,"JEFE");
+        }
+      } else {
+        if (this.caracData.embarazo === "SI") {
+          //AGREGO
+          this.AParPost(this.caracData, edad, "JEFE");
+        }
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De12A17.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De12A17[indice].tipo_id = this.caracData.tipo_id;
+        this.De12A17[indice].sexo = this.caracData.sexo;
+        this.De12A17[indice].identificacion = this.caracData.identificacion;
+        this.De12A17[indice].pnom = this.caracData.pnom;
+        this.De12A17[indice].snom = this.caracData.snom;
+        this.De12A17[indice].pape = this.caracData.pape;
+        this.De12A17[indice].sape = this.caracData.sape;
+        this.De12A17.splice(indice, 1, this.De12A17[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De18A28.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De18A28[indice].tipo_id = this.caracData.tipo_id;
+        this.De18A28[indice].sexo = this.caracData.sexo;
+        this.De18A28[indice].identificacion = this.caracData.identificacion;
+        this.De18A28[indice].pnom = this.caracData.pnom;
+        this.De18A28[indice].snom = this.caracData.snom;
+        this.De18A28[indice].pape = this.caracData.pape;
+        this.De18A28[indice].sape = this.caracData.sape;
+        this.De18A28.splice(indice, 1, this.De18A28[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De29A59.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De29A59[indice].tipo_id = this.caracData.tipo_id;
+        this.De29A59[indice].sexo = this.caracData.sexo;
+        this.De29A59[indice].identificacion = this.caracData.identificacion;
+        this.De29A59[indice].pnom = this.caracData.pnom;
+        this.De29A59[indice].snom = this.caracData.snom;
+        this.De29A59[indice].pape = this.caracData.pape;
+        this.De29A59[indice].sape = this.caracData.sape;
+        this.De29A59.splice(indice, 1, this.De29A59[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De60.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De60[indice].tipo_id = this.caracData.tipo_id;
+        this.De60[indice].sexo = this.caracData.sexo;
+        this.De60[indice].identificacion = this.caracData.identificacion;
+        this.De60[indice].pnom = this.caracData.pnom;
+        this.De60[indice].snom = this.caracData.snom;
+        this.De60[indice].pape = this.caracData.pape;
+        this.De60[indice].sape = this.caracData.sape;
+        this.De60.splice(indice, 1, this.De60[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.EnCro.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.EnCro[indice].tipo_id = this.caracData.tipo_id;
+        this.EnCro[indice].sexo = this.caracData.sexo;
+        this.EnCro[indice].identificacion = this.caracData.identificacion;
+        this.EnCro[indice].pnom = this.caracData.pnom;
+        this.EnCro[indice].snom = this.caracData.snom;
+        this.EnCro[indice].pape = this.caracData.pape;
+        this.EnCro[indice].sape = this.caracData.sape;
+        this.EnCro.splice(indice, 1, this.EnCro[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.EnInf.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.EnInf[indice].tipo_id = this.caracData.tipo_id;
+        this.EnInf[indice].sexo = this.caracData.sexo;
+        this.EnInf[indice].identificacion = this.caracData.identificacion;
+        this.EnInf[indice].pnom = this.caracData.pnom;
+        this.EnInf[indice].snom = this.caracData.snom;
+        this.EnInf[indice].pape = this.caracData.pape;
+        this.EnInf[indice].sape = this.caracData.sape;
+        this.EnInf.splice(indice, 1, this.EnInf[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.Migra.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.Migra[indice].tipo_id = this.caracData.tipo_id;
+        this.Migra[indice].sexo = this.caracData.sexo;
+        this.Migra[indice].identificacion = this.caracData.identificacion;
+        this.Migra[indice].pnom = this.caracData.pnom;
+        this.Migra[indice].snom = this.caracData.snom;
+        this.Migra[indice].pape = this.caracData.pape;
+        this.Migra[indice].sape = this.caracData.sape;
+        this.Migra.splice(indice, 1, this.Migra[indice]);
+      }
+
+      if (this.caracData.fecha_nacimiento !== this.fechaEditar) {
+        if (edad !== this.edadEditar) {
+          // ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
+          this.eliEdad(this.identificacionEditar, this.caracData, edad, "JEFE");
+        }
+      }
+
+      this.datosJefe[this.indiceEditJefe].id = this.caracData.id;
+      this.datosJefe[this.indiceEditJefe].id_hogar = this.caracData.id_hogar;
+      this.datosJefe[this.indiceEditJefe].telefono = this.caracData.telefono;
+      this.datosJefe[this.indiceEditJefe].puntaje_sisben = this.caracData.puntaje_sisben;
+      this.datosJefe[this.indiceEditJefe].afiliacion_entidad = this.caracData.afiliacion_entidad;
+      this.datosJefe[this.indiceEditJefe].textoEps = textoEps;
+      this.datosJefe[this.indiceEditJefe].otra_eps = this.caracData.otra_eps;
+      this.datosJefe[this.indiceEditJefe].tipo_id = this.caracData.tipo_id;
+      this.datosJefe[this.indiceEditJefe].identificacion = this.caracData.identificacion;
+      this.datosJefe[this.indiceEditJefe].sexo = this.caracData.sexo;
+      this.datosJefe[this.indiceEditJefe].parentesco = this.caracData.parentesco;
+      this.datosJefe[this.indiceEditJefe].textoParentesco = this.showText(this.caracData.parentesco, this.parentesco_options);
+      this.datosJefe[this.indiceEditJefe].pnom = this.caracData.pnom;
+      this.datosJefe[this.indiceEditJefe].snom = this.caracData.snom;
+      this.datosJefe[this.indiceEditJefe].pape = this.caracData.pape;
+      this.datosJefe[this.indiceEditJefe].sape = this.caracData.sape;
+      this.datosJefe[this.indiceEditJefe].salario = this.caracData.salario;
+      this.datosJefe[this.indiceEditJefe].id_compania = this.caracData.id_compania;
+      this.datosJefe[this.indiceEditJefe].estado = this.caracData.estado;
+      this.datosJefe[this.indiceEditJefe].estado_civil = this.caracData.estado_civil;
+      this.datosJefe[this.indiceEditJefe].textoEstado = this.showText(this.caracData.estado_civil, this.estado_options);
+      this.datosJefe[this.indiceEditJefe].fecha_nacimiento = this.caracData.fecha_nacimiento;
+      this.datosJefe[this.indiceEditJefe].tipo_afiliacion = this.caracData.tipo_afiliacion;
+      this.datosJefe[this.indiceEditJefe].embarazo = this.caracData.embarazo;
+      this.datosJefe[this.indiceEditJefe].embarazo_multiple = this.caracData.embarazo_multiple;
+      this.datosJefe[this.indiceEditJefe].discapacidad = this.caracData.discapacidad;
+      this.datosJefe[this.indiceEditJefe].nivel_escolaridad = this.caracData.nivel_escolaridad;
+      this.datosJefe[this.indiceEditJefe].textoNivel = this.showText(this.caracData.nivel_escolaridad, this.escolaridad_options);
+      this.datosJefe[this.indiceEditJefe].ocupacion = this.caracData.ocupacion;
+      this.datosJefe[this.indiceEditJefe].textoOcupacion = this.showText(this.caracData.ocupacion, this.ocupacion_options);
+      this.datosJefe[this.indiceEditJefe].colegio = this.caracData.colegio;
+      this.datosJefe[this.indiceEditJefe].textoColegio = this.showText(this.caracData.colegio, this.colegio_options);
+      this.datosJefe[this.indiceEditJefe].grado = this.caracData.grado;
+      this.datosJefe[this.indiceEditJefe].etnia = this.caracData.etnia;
+      this.datosJefe[this.indiceEditJefe].textoEtnia = this.showText(this.caracData.etnia, this.etnia_options);
+      this.datosJefe[this.indiceEditJefe].clasificacion = this.caracData.clasificacion;
+      this.datosJefe[this.indiceEditJefe].textoClasificacion = this.showText2(this.caracData.clasificacion, this.clasifi_options, this.caracData.etnia);
+      this.datosJefe[this.indiceEditJefe].entiende = this.caracData.entiende;
+      this.datosJefe[this.indiceEditJefe].pyp = this.caracData.pyp;
+      this.datosJefe[this.indiceEditJefe].migrante = this.caracData.migrante;
+      this.datosJefe[this.indiceEditJefe].edad = this.caracData.edad;
+      this.datosJefe[this.indiceEditJefe].orientacion = this.caracData.orientacion;
+      this.datosJefe[this.indiceEditJefe].identidad_genero = this.caracData.identidad_genero;
+      this.datosJefe[this.indiceEditJefe].perdida_peso = this.caracData.perdida_peso;
+      this.datosJefe[this.indiceEditJefe].programa_icbf = this.caracData.programa_icbf;
+      this.datosJefe[this.indiceEditJefe].ocupacionAuxiliar = this.caracData.textoOcupacion;
+      this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);
+      this.CancelarEditarJefe();
+    },
+    eliEdad: function eliEdad(identificacion, vector, edad, opcion) {
+      var indice = this.Men1A.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.Men1A[indice].estado = "Inactivo";
+        this.Men1A.splice(indice, 1, this.Men1A[indice]);
+      }
+
+      indice = this.De1A5.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.De1A5[indice].estado = "Inactivo";
+        this.De1A5.splice(indice, 1, this.De1A5[indice]);
+      }
+
+      indice = this.De6A11.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.De6A11[indice].estado = "Inactivo";
+        this.De6A11.splice(indice, 1, this.De6A11[indice]);
+      }
+
+      indice = this.De10A59.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.De10A59[indice].estado = "Inactivo";
+        this.De10A59.splice(indice, 1, this.De10A59[indice]);
+      }
+
+      indice = this.De12A17.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.De12A17[indice].estado = "Inactivo";
+        this.De12A17.splice(indice, 1, this.De12A17[indice]);
+      }
+
+      indice = this.De18A28.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.De18A28[indice].estado = "Inactivo";
+        this.De18A28.splice(indice, 1, this.De18A28[indice]);
+      }
+
+      indice = this.De29A59.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.De29A59[indice].estado = "Inactivo";
+        this.De29A59.splice(indice, 1, this.De29A59[indice]);
+      }
+
+      indice = this.De60.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.De60[indice].estado = "Inactivo";
+        this.De60.splice(indice, 1, this.De60[indice]);
+      }
+
+      indice = this.EnCro.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.EnCro[indice].estado = "Inactivo";
+        this.EnCro.splice(indice, 1, this.EnCro[indice]);
+      }
+
+      indice = this.EnInf.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.EnInf[indice].estado = "Inactivo";
+        this.EnInf.splice(indice, 1, this.EnInf[indice]);
+      }
+
+      indice = this.Migra.findIndex(function (identi) {
+        return identi.identificacion === identificacion;
+      });
+
+      if (indice >= 0) {
+        this.Migra[indice].estado = "Inactivo";
+        this.Migra.splice(indice, 1, this.Migra[indice]);
+      } // AGREGAR NIÑOS MENORES DE 1 AÑO
+
+
+      if (edad <= 0) {
+        this.Amenores1Anio(vector, hoy.diff(nacimiento, "months"), opcion);
+      } // AGREGAR NIÑOS MENORES DE 1 AÑO
+      // AGREGAR DE 1 A 5 AÑOS
+
+
+      if (edad >= 1 && edad <= 5) {
+        this.Ade1a5Anio(vector, edad, opcion);
+      } // AGREGAR DE 1 A 5 AÑOS
+      // AGREGAR DE 6 A 11 AÑOS
+
+
+      if (edad >= 6 && edad <= 11) {
+        this.Ade6a11Anio(vector, edad, opcion);
+      } // AGREGAR DE 6 A 11 AÑOS
+      // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+
+
+      if (edad < 10) {
+        if (vector.excepciones === "1") {
+          this.Ade10a59Anio(vector, edad, opcion);
+        }
+      } // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+      // AGREGAR DE 10 A 59 AÑOS
+
+
+      if (edad >= 10 && edad <= 59) {
+        this.Ade10a59Anio(vector, edad, opcion);
+      } // AGREGAR DE 10 A 59 AÑOS
+      // AGREGAR PARTO POSTPARTO
+
+
+      if (vector.embarazo === "SI") {
+        this.AParPost(vector, edad, opcion);
+      } // AGREGAR PARTO POSTPARTO
+      // AGREGAR DE 12 A 17 AÑOS
+
+
+      if (edad >= 12 && edad <= 17) {
+        this.Ade12a17Anio(vector, edad, opcion);
+      } // AGREGAR DE 12 A 17 AÑOS
+      // AGREGAR DE 18 A 28 AÑOS
+
+
+      if (edad >= 18 && edad <= 28) {
+        this.Ade18a28Anio(vector, edad, opcion);
+      } // AGREGAR DE 18 A 28 AÑOS
+      // AGREGAR DE 29 A 59 AÑOS
+
+
+      if (edad >= 29 && edad <= 59) {
+        this.Ade29a59Anio(vector, edad, opcion);
+      } // AGREGAR DE 29 A 59 AÑOS
+      // AGREGAR DE 60 ó MAS AÑOS
+
+
+      if (edad >= 60) {
+        this.Ade60Anio(vector, edad, opcion);
+      } // AGREGAR DE 60 ó MAS AÑOS
+      // AGREGAR MIGRANTES
+
+
+      if (vector.migrante === "SI") {
+        this.AMigra(vector, edad, opcion);
+      } // AGREGAR MIGRANTES               
+
+    },
+    //OPCIONES DEL JEFE DE HOGAR
+    //OPCIONES DE LOS INTEGRANTES
+    agregar: function () {
+      var _agregar = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9() {
+        var _this9 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                if (!(this.CA1.tipo_id == "0")) {
+                  _context10.next = 3;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
+                return _context10.abrupt("return");
+
+              case 3:
+                if (!(this.CA1.identificacion == "")) {
+                  _context10.next = 6;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el documento de identificación!", "error");
+                return _context10.abrupt("return");
+
+              case 6:
+                if (!(this.CA1.sexo == "0")) {
+                  _context10.next = 9;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+                return _context10.abrupt("return");
+
+              case 9:
+                if (!(this.CA1.orientacion === "0")) {
+                  _context10.next = 12;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+                return _context10.abrupt("return");
+
+              case 12:
+                if (!(this.CA1.identidad_genero === "0")) {
+                  _context10.next = 15;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+                return _context10.abrupt("return");
+
+              case 15:
+                if (!(this.CA1.parentesco == "0")) {
+                  _context10.next = 18;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+                return _context10.abrupt("return");
+
+              case 18:
+                if (!(this.CA1.pnom == "0")) {
+                  _context10.next = 21;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+                return _context10.abrupt("return");
+
+              case 21:
+                if (!(this.CA1.pape == "0")) {
+                  _context10.next = 24;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
+                return _context10.abrupt("return");
+
+              case 24:
+                if (!(this.CA1.estado_civil == "0")) {
+                  _context10.next = 27;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
+                return _context10.abrupt("return");
+
+              case 27:
+                if (!(this.CA1.fecha_nac == "")) {
+                  _context10.next = 30;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
+                return _context10.abrupt("return");
+
+              case 30:
+                if (!(this.CA1.escolaridad == "0")) {
+                  _context10.next = 33;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el nivel de escolaridad!", "error");
+                return _context10.abrupt("return");
+
+              case 33:
+                if (!(this.CA1.ocupacion == "0")) {
+                  _context10.next = 36;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+                return _context10.abrupt("return");
+
+              case 36:
+                if (!(this.CA1.etnia == "0")) {
+                  _context10.next = 39;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+                return _context10.abrupt("return");
+
+              case 39:
+                if (!(this.CA1.clasificacion == "0")) {
+                  _context10.next = 42;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
+                return _context10.abrupt("return");
+
+              case 42:
+                if (!(this.CA1.entiende == "0")) {
+                  _context10.next = 45;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción entiende español!", "error");
+                return _context10.abrupt("return");
+
+              case 45:
+                if (!(this.CA1.pyp == "0")) {
+                  _context10.next = 48;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+                return _context10.abrupt("return");
+
+              case 48:
+                if (!(this.CA1.migrante == "0")) {
+                  _context10.next = 51;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción migrante!", "error");
+                return _context10.abrupt("return");
+
+              case 51:
+                if (!(this.CA1.jefe == "0")) {
+                  _context10.next = 54;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el un jefe de hogar!", "error");
+                return _context10.abrupt("return");
+
+              case 54:
+                if (!(this.CA1.perdida_peso === "")) {
+                  _context10.next = 59;
+                  break;
+                }
+
+                this.$refs.perdida_peso.focus();
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+                return _context10.abrupt("return");
+
+              case 59:
+                if (!(this.CA1.programa_icbf === "")) {
+                  _context10.next = 64;
+                  break;
+                }
+
+                this.$refs.programa_icbf.focus();
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+                return _context10.abrupt("return");
+
+              case 64:
+                if (!(this.CA1.excepciones === "0")) {
+                  _context10.next = 68;
+                  break;
+                }
+
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+                return _context10.abrupt("return");
+
+              case 68:
+                // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
+                this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+                parametros = {
+                  _token: this.csrf,
+                  identificacion: this.CA1.identificacion
+                };
+                _context10.prev = 70;
+                _context10.next = 73;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC == "EXISTE") {
+                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
+                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                    _this9.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
+
+                    return false;
+                  } else {
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    var resultado = _this9.datos.filter(function (identi) {
+                      return identi.identificacion == _this9.CA1.identificacion;
+                    }); // VERIFICAR SI ESTA EN LA TABLA
+
+
+                    if (resultado.length > 0) {
+                      _this9.$swal("Validar...!", "El Documento <b>" + _this9.CA1.identificacion + "</b> Se Encuentra Agregado", "warning");
+
+                      return false;
+                    } else {
+                      var _nacimiento2 = moment(_this9.CA1.fecha_nac);
+
+                      var _hoy2 = moment();
+
+                      var edad = 0;
+
+                      if (_nacimiento2 < _hoy2) {
+                        edad = _hoy2.diff(_nacimiento2, "years"); //Calculamos la diferencia en años
+                      }
+
+                      var textoEps = "";
+
+                      if (_this9.CA1.afi_entidad === "OTRA") {
+                        textoEps = "OTRA";
+                      } else {
+                        if (_this9.CA1.afi_entidad === "NINGUNA") {
+                          textoEps = "NINGUNA";
+                        } else {
+                          textoEps = _this9.showText(_this9.CA1.afi_entidad, _this9.admini_options);
+                        }
+                      }
+
+                      _this9.datos.push({
+                        id: 0,
+                        tipo_id: _this9.CA1.tipo_id,
+                        identificacion: _this9.CA1.identificacion,
+                        sexo: _this9.CA1.sexo,
+                        parentesco: _this9.CA1.parentesco,
+                        textoParentesco: _this9.showText(_this9.CA1.parentesco, _this9.parentesco_options),
+                        pnom: _this9.CA1.pnom,
+                        snom: _this9.CA1.snom,
+                        pape: _this9.CA1.pape,
+                        sape: _this9.CA1.sape,
+                        estado_civil: _this9.CA1.estado_civil,
+                        textoEstado: _this9.showText(_this9.CA1.estado_civil, _this9.estado_options),
+                        fecha_nac: _this9.CA1.fecha_nac,
+                        edad: edad,
+                        afi_entidad: _this9.CA1.afi_entidad,
+                        textoEps: textoEps,
+                        otra_eps: _this9.CA1.otra_eps,
+                        tipo_afiliacion: _this9.CA1.tipo_afiliacion,
+                        embarazo: _this9.CA1.embarazo,
+                        embarazo_multiple: _this9.CA1.embarazo_multiple,
+                        discapacidad: _this9.CA1.discapacidad,
+                        escolaridad: _this9.CA1.escolaridad,
+                        textoEscolaridad: _this9.showText(_this9.CA1.escolaridad, _this9.escolaridad_options),
+                        ocupacion: _this9.CA1.ocupacion,
+                        textoOcupacion: _this9.showText(_this9.CA1.ocupacion, _this9.ocupacion_options),
+                        colegio: _this9.CA1.colegio,
+                        textoColegio: _this9.showText(_this9.CA1.colegio, _this9.colegio_options),
+                        grado: _this9.CA1.grado,
+                        entiende: _this9.CA1.entiende,
+                        migrante: _this9.CA1.migrante,
+                        pyp: _this9.CA1.pyp,
+                        etnia: _this9.CA1.etnia,
+                        textoEtnia: _this9.showText(_this9.CA1.etnia, _this9.etnia_options),
+                        clasificacion: _this9.CA1.clasificacion,
+                        textoClasificacion: _this9.showText2(_this9.CA1.clasificacion, _this9.clasifi_options, _this9.CA1.etnia),
+                        puntaje_sisben: _this9.CA1.puntaje_sisben,
+                        jefe: _this9.CA1.jefe,
+                        orientacion: _this9.CA1.orientacion,
+                        identidad_genero: _this9.CA1.identidad_genero,
+                        telefono: _this9.CA1.telefono,
+                        perdida_peso: _this9.CA1.perdida_peso,
+                        programa_icbf: _this9.CA1.programa_icbf,
+                        excepciones: _this9.CA1.excepciones,
+                        textoExcepciones: _this9.showText(_this9.CA1.excepciones, _this9.opciones7),
+                        identi_auxi: "",
+                        estado: "Activo"
+                      });
+
+                      if (_this9.CA1.tipo_afiliacion === "CONTRIBUTIVO" || _this9.CA1.tipo_afiliacion === "ESPECIAL") {
+                        _this9.SAPU = true;
+                        _this9.estratificacionData.afiliacion_salud_privada = "SI";
+                      }
+
+                      _this9.ocupacionAuxiliar2 = "";
+                      _this9.mOCOL2 = false;
+
+                      var indice = _this9.datos.findIndex(function (identi) {
+                        return identi.identificacion === _this9.CA1.identificacion;
+                      });
+
+                      _this9.vectorIntegrante.push({
+                        index: indice,
+                        identificacion: _this9.CA1.identificacion
+                      }); // AGREGAR NIÑOS MENORES DE 1 AÑO
+
+
+                      if (edad <= 0) {
+                        _this9.Amenores1Anio(_this9.CA1, _hoy2.diff(_nacimiento2, "months"), "INTE");
+                      } // AGREGAR NIÑOS MENORES DE 1 AÑO
+                      // AGREGAR DE 1 A 5 AÑOS
+
+
+                      if (edad >= 1 && edad <= 5) {
+                        _this9.Ade1a5Anio(_this9.CA1, edad, "INTE");
+                      } // AGREGAR DE 1 A 5 AÑOS
+                      // AGREGAR DE 6 A 11 AÑOS
+
+
+                      if (edad >= 6 && edad <= 11) {
+                        _this9.Ade6a11Anio(_this9.CA1, edad, "INTE");
+                      } // AGREGAR DE 6 A 11 AÑOS
+                      // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+
+
+                      if (edad < 10) {
+                        if (_this9.CA1.excepciones === "1") {
+                          _this9.Ade10a59Anio(_this9.CA1, edad, "INTE");
+                        }
+                      } // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+                      // AGREGAR DE 10 A 59 AÑOS
+
+
+                      if (edad >= 10 && edad <= 59) {
+                        _this9.Ade10a59Anio(_this9.CA1, edad, "INTE");
+                      } // AGREGAR DE 10 A 59 AÑOS
+                      // AGREGAR PARTO POSTPARTO
+                      // alert(this.CA1.embarazo_multiple);
+
+
+                      if (_this9.CA1.embarazo === "SI") {
+                        _this9.AParPost(_this9.CA1, edad, "INTE");
+                      } // AGREGAR PARTO POSTPARTO
+                      // AGREGAR DE 12 A 17 AÑOS
+
+
+                      if (edad >= 12 && edad <= 17) {
+                        _this9.Ade12a17Anio(_this9.CA1, edad, "INTE");
+                      } // AGREGAR DE 12 A 17 AÑOS
+                      // AGREGAR DE 18 A 28 AÑOS
+
+
+                      if (edad >= 18 && edad <= 28) {
+                        _this9.Ade18a28Anio(_this9.CA1, edad, "INTE");
+                      } // AGREGAR DE 18 A 28 AÑOS
+                      // AGREGAR DE 29 A 59 AÑOS
+
+
+                      if (edad >= 29 && edad <= 59) {
+                        _this9.Ade29a59Anio(_this9.CA1, edad, "INTE");
+                      } // AGREGAR DE 29 A 59 AÑOS
+                      // AGREGAR DE 60 ó MAS AÑOS
+
+
+                      if (edad >= 60) {
+                        _this9.Ade60Anio(_this9.CA1, edad, "INTE");
+                      } // AGREGAR DE 60 ó MAS AÑOS
+                      // AGREGAR MIGRANTES
+
+
+                      if (_this9.CA1.migrante === "SI") {
+                        _this9.AMigra(_this9.CA1, edad, "INTE");
+                      } // AGREGAR MIGRANTES
+
+
+                      _this9.limpiar();
+                    }
+                  }
+                })["catch"](function (error) {
+                  _this9.errorDevuelto = error.response.data.errors;
+                  _this9.entrarPorError = true;
+                });
+
+              case 73:
+                _context10.next = 86;
+                break;
+
+              case 75:
+                _context10.prev = 75;
+                _context10.t0 = _context10["catch"](70);
+                _context10.t1 = _context10.t0.response.status;
+                _context10.next = _context10.t1 === 419 ? 80 : _context10.t1 === 422 ? 82 : 84;
+                break;
+
+              case 80:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context10.abrupt("break", 86);
+
+              case 82:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context10.abrupt("break", 86);
+
+              case 84:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context10.abrupt("break", 86);
+
+              case 86:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee9, this, [[70, 75]]);
+      }));
+
+      function agregar() {
+        return _agregar.apply(this, arguments);
+      }
+
+      return agregar;
+    }(),
     calculaEdad: function calculaEdad() {
       var a = moment();
       var b = moment(this.CA1.fecha_nac);
-      var years = a.diff(b, 'year');
-      b.add(years, 'years');
-      var months = a.diff(b, 'months');
-      b.add(months, 'months');
-      var days = a.diff(b, 'days');
+      var years = a.diff(b, "year");
+      b.add(years, "years");
+      var months = a.diff(b, "months");
+      b.add(months, "months");
+      var days = a.diff(b, "days");
 
       if (years == 0) {
         if (months <= 1) {
@@ -11865,1435 +16438,1874 @@ var entero = function entero(value) {
         }
       }
     },
-    abrirModalOcupaciones: function abrirModalOcupaciones(opcion) {
-      this.opcionOcupaciones = opcion;
-      this.txtbusqueda = "";
-      this.consultarOcupaciones(1);
-      this.$refs.modalOcupaciones.show();
-    },
-    cerrarModal: function cerrarModal() {
-      this.$refs.modalOcupaciones.hide();
-      this.$refs.modalActividad.hide();
-    },
-    consultarOcupaciones: function consultarOcupaciones(pagina) {
-      var _this = this;
+    updateIntegrante: function updateIntegrante(item, valor, opcion, index) {
+      if (opcion === "tipo_id") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var id = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 
-      return _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                parametros = {
-                  txtbusqueda: _this.txtbusqueda.trim(),
-                  _token: _this.csrf,
-                  page: pagina
-                };
-                _context.prev = 1;
-                _context.next = 4;
-                return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function (respuesta) {
-                  _this.ocupacionesVector = respuesta.data.ocupaciones.data;
-                  _this.paginacionVector = respuesta.data.paginacion;
-                });
+        var indice = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
 
-              case 4:
-                _context.next = 15;
-                break;
+        if (indice >= 0) {
+          this.Men1A[indice].tipo_id = valor;
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](1);
-                _context.t1 = _context.t0.response.status;
-                _context.next = _context.t1 === 422 ? 11 : 13;
-                break;
 
-              case 11:
-                _this.$swal("Error...!", "Ocurrio un error!", "error");
+        indice = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
 
-                return _context.abrupt("break", 15);
+        if (indice >= 0) {
+          this.De1A5[indice].tipo_id = valor;
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 
-              case 13:
-                _this.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context.abrupt("break", 15);
+        indice = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
 
-              case 15:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[1, 6]]);
-      }))();
-    },
-    seleccionarOcupaciones: function seleccionarOcupaciones(item) {
-      if (this.opcionOcupaciones === "jefe") {
-        this.caracData.ocupacion = item.id;
-        this.ocupacionAuxiliar = item.descripcion;
-      } else {
-        this.CA1.ocupacion = item.id;
-        this.ocupacionAuxiliar2 = item.descripcion;
+        if (indice >= 0) {
+          this.De6A11[indice].tipo_id = valor;
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De10A59[indice].tipo_id = valor;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.ParPost[indice].tipo_id = valor;
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De12A17[indice].tipo_id = valor;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De18A28[indice].tipo_id = valor;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De29A59[indice].tipo_id = valor;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De60[indice].tipo_id = valor;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.Migra[indice].tipo_id = valor;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
       }
 
-      this.$refs.modalOcupaciones.hide();
-    },
-    abrirModalActividades: function abrirModalActividades() {
-      this.txtbusquedaAct = "";
-      this.consultarActividades(1);
-      this.$refs.modalActividad.show();
-    },
-    consultarActividades: function consultarActividades(pagina) {
-      var _this2 = this;
+      if (opcion === "sexo") {
+        if (item.sexo === "0") {
+          item.embarazo = "0";
+          item.embarazo_multiple = "0";
+        }
 
-      return _asyncToGenerator(
+        if (item.sexo === "MASCULINO") {
+          item.embarazo = "NOAPLICA";
+          item.embarazo_multiple = "NOAPLICA";
+        }
+
+        if (item.sexo === "FEMENINO") {
+          item.embarazo = "0";
+          item.embarazo_multiple = "0";
+        } //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+
+
+        var _id6 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice6 = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.Men1A[_indice6].sexo = valor;
+          this.Men1A.splice(_indice6, 1, this.Men1A[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.De1A5[_indice6].sexo = valor;
+          this.De1A5.splice(_indice6, 1, this.De1A5[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.De6A11[_indice6].sexo = valor;
+          this.De6A11.splice(_indice6, 1, this.De6A11[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.De10A59[_indice6].sexo = valor;
+          this.De10A59.splice(_indice6, 1, this.De10A59[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.ParPost[_indice6].sexo = valor;
+          this.ParPost.splice(_indice6, 1, this.ParPost[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.De12A17[_indice6].sexo = valor;
+          this.De12A17.splice(_indice6, 1, this.De12A17[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.De18A28[_indice6].sexo = valor;
+          this.De18A28.splice(_indice6, 1, this.De18A28[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.De29A59[_indice6].sexo = valor;
+          this.De29A59.splice(_indice6, 1, this.De29A59[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.De60[_indice6].sexo = valor;
+          this.De60.splice(_indice6, 1, this.De60[_indice6]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice6 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id6;
+        });
+
+        if (_indice6 >= 0) {
+          this.Migra[_indice6].sexo = valor;
+          this.Migra.splice(_indice6, 1, this.Migra[_indice6]);
+        }
+      }
+
+      if (opcion === "embarazo") {
+        if (item.embarazo === "0") {
+          item.embarazo_multiple = "0";
+        }
+
+        if (item.embarazo === "SI") {
+          item.embarazo_multiple = "0";
+        }
+
+        if (item.embarazo === "NO") {
+          item.embarazo_multiple = "NO";
+        }
+      }
+
+      if (opcion === "afi_entidad") {
+        if (item.afi_entidad === "NINGUNA") {
+          item.tipo_afiliacion = "0";
+        } else {
+          if (item.afi_entidad === "OTRA") {
+            item.otra_eps = "";
+          } else {
+            item.tipo_afiliacion = "0";
+          }
+        }
+      }
+
+      if (opcion === "escolaridad") {
+        item.colegio = "";
+        item.grado = "0";
+      }
+    },
+    changeupdateIntegrante: function changeupdateIntegrante(item, event, opcion, index) {
+      if (opcion == "identificacion") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var id = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var indice = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.Men1A[indice].identificacion = item.identificacion;
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De1A5[indice].identificacion = item.identificacion;
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          this.De6A11[indice].identificacion = item.identificacion;
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[indice].identificacion = item.identificacion;
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[indice].identificacion = item.identificacion;
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[indice].identificacion = item.identificacion;
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[indice].identificacion = item.identificacion;
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[indice].identificacion = item.identificacion;
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[indice].identificacion = item.identificacion;
+          this.De60.splice(indice, 1, this.De60[indice]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (indice >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[indice].identificacion = item.identificacion;
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        } //CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
+        //DIGITADA EN LA TABLA
+
+
+        this.vectorIntegrante[index].identificacion = item.identificacion; // Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
+
+        this.vectorIntegrante.splice(index, 1, this.vectorIntegrante[index]);
+      }
+
+      if (opcion == "pnom") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id7 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice7 = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          this.Men1A[_indice7].pnom = item.pnom;
+          this.Men1A.splice(_indice7, 1, this.Men1A[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          this.De1A5[_indice7].pnom = item.pnom;
+          this.De1A5.splice(_indice7, 1, this.De1A5[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          this.De6A11[_indice7].pnom = item.pnom;
+          this.De6A11.splice(_indice7, 1, this.De6A11[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice7].pnom = item.pnom;
+          this.De10A59.splice(_indice7, 1, this.De10A59[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice7].pnom = item.pnom;
+          this.ParPost.splice(_indice7, 1, this.ParPost[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice7].pnom = item.pnom;
+          this.De12A17.splice(_indice7, 1, this.De12A17[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice7].pnom = item.pnom;
+          this.De18A28.splice(_indice7, 1, this.De18A28[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice7].pnom = item.pnom;
+          this.De29A59.splice(_indice7, 1, this.De29A59[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice7].pnom = item.pnom;
+          this.De60.splice(_indice7, 1, this.De60[_indice7]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice7 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id7;
+        });
+
+        if (_indice7 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice7].pnom = item.pnom;
+          this.Migra.splice(_indice7, 1, this.Migra[_indice7]);
+        }
+      }
+
+      if (opcion == "snom") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id8 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice8 = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          this.Men1A[_indice8].snom = item.snom;
+          this.Men1A.splice(_indice8, 1, this.Men1A[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          this.De1A5[_indice8].snom = item.snom;
+          this.De1A5.splice(_indice8, 1, this.De1A5[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          this.De6A11[_indice8].snom = item.snom;
+          this.De6A11.splice(_indice8, 1, this.De6A11[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice8].snom = item.snom;
+          this.De10A59.splice(_indice8, 1, this.De10A59[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice8].snom = item.snom;
+          this.ParPost.splice(_indice8, 1, this.ParPost[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice8].snom = item.snom;
+          this.De12A17.splice(_indice8, 1, this.De12A17[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice8].snom = item.snom;
+          this.De18A28.splice(_indice8, 1, this.De18A28[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice8].snom = item.snom;
+          this.De29A59.splice(_indice8, 1, this.De29A59[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice8].snom = item.snom;
+          this.De60.splice(_indice8, 1, this.De60[_indice8]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice8 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id8;
+        });
+
+        if (_indice8 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice8].snom = item.snom;
+          this.Migra.splice(_indice8, 1, this.Migra[_indice8]);
+        }
+      }
+
+      if (opcion == "pape") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id9 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice9 = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          this.Men1A[_indice9].pape = item.pape;
+          this.Men1A.splice(_indice9, 1, this.Men1A[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          this.De1A5[_indice9].pape = item.pape;
+          this.De1A5.splice(_indice9, 1, this.De1A5[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          this.De6A11[_indice9].pape = item.pape;
+          this.De6A11.splice(_indice9, 1, this.De6A11[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice9].pape = item.pape;
+          this.De10A59.splice(_indice9, 1, this.De10A59[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice9].pape = item.pape;
+          this.ParPost.splice(_indice9, 1, this.ParPost[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice9].pape = item.pape;
+          this.De12A17.splice(_indice9, 1, this.De12A17[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice9].pape = item.pape;
+          this.De18A28.splice(_indice9, 1, this.De18A28[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice9].pape = item.pape;
+          this.De29A59.splice(_indice9, 1, this.De29A59[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice9].pape = item.pape;
+          this.De60.splice(_indice9, 1, this.De60[_indice9]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice9 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id9;
+        });
+
+        if (_indice9 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice9].pape = item.pape;
+          this.Migra.splice(_indice9, 1, this.Migra[_indice9]);
+        }
+      }
+
+      if (opcion == "sape") {
+        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+        //VIENE DE LA TABLA
+        var _id10 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+        var _indice10 = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          this.Men1A[_indice10].sape = item.sape;
+          this.Men1A.splice(_indice10, 1, this.Men1A[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          this.De1A5[_indice10].sape = item.sape;
+          this.De1A5.splice(_indice10, 1, this.De1A5[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          this.De6A11[_indice10].sape = item.sape;
+          this.De6A11.splice(_indice10, 1, this.De6A11[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De10A59[_indice10].sape = item.sape;
+          this.De10A59.splice(_indice10, 1, this.De10A59[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.ParPost[_indice10].sape = item.sape;
+          this.ParPost.splice(_indice10, 1, this.ParPost[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De12A17[_indice10].sape = item.sape;
+          this.De12A17.splice(_indice10, 1, this.De12A17[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De18A28[_indice10].sape = item.sape;
+          this.De18A28.splice(_indice10, 1, this.De18A28[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De29A59[_indice10].sape = item.sape;
+          this.De29A59.splice(_indice10, 1, this.De29A59[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.De60[_indice10].sape = item.sape;
+          this.De60.splice(_indice10, 1, this.De60[_indice10]);
+        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+        _indice10 = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _id10;
+        });
+
+        if (_indice10 >= 0) {
+          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+          this.Migra[_indice10].sape = item.sape;
+          this.Migra.splice(_indice10, 1, this.Migra[_indice10]);
+        }
+      }
+    },
+    limpiar: function limpiar() {
+      this.CA1.tipo_id = "0";
+      this.CA1.identificacion = "";
+      this.CA1.sexo = "0";
+      this.CA1.parentesco = "0";
+      this.CA1.pnom = "";
+      this.CA1.snom = "";
+      this.CA1.pape = "";
+      this.CA1.sape = "";
+      this.CA1.estado_civil = "0";
+      this.CA1.fecha_nac = "";
+      this.CA1.edad = 0;
+      this.CA1.afi_entidad = "0";
+      this.CA1.tipo_afiliacion = "0";
+      this.CA1.otra_eps = "";
+      this.CA1.embarazo = "0";
+      this.CA1.embarazo_multiple = "0";
+      this.CA1.discapacidad = "0";
+      this.CA1.escolaridad = "0";
+      this.CA1.ocupacion = "0";
+      this.CA1.colegio = "";
+      this.CA1.grado = "0";
+      this.CA1.entiende = "0";
+      this.CA1.migrante = "0";
+      this.CA1.pyp = "0";
+      this.CA1.etnia = "0";
+      this.CA1.clasificacion = "0";
+      this.CA1.puntaje_sisben = "";
+      this.CA1.jefe = "0";
+      this.CA1.telefono = "";
+      this.CA1.orientacion = "0";
+      this.CA1.identidad_genero = "0";
+      this.CA1.perdida_peso = "0";
+      this.CA1.programa_icbf = "0";
+      this.CA1.excepciones = "0";
+      this.CA1.meses = "";
+      this.CA1.dias = "";
+      this.ocupacionAuxiliar2 = "";
+      this.bandeGuaEdiInte = true;
+      this.indiceEditInte = null;
+      this.idEditar = null;
+      this.identificacionEditar = null;
+      this.fechaEditar = null;
+      this.edadEditar = null;
+      this.embarazoEditar = null;
+    },
+    eliminarItem: function eliminarItem(index, item) {
+      if (item.id === 0) {
+        this.datos.splice(index, 1);
+        this.vectorIntegrante.splice(index, 1);
+        var identificacion = item.identificacion;
+        this.Men1A = this.Men1A.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De1A5 = this.De1A5.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De6A11 = this.De6A11.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De10A59 = this.De10A59.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.ParPost = this.ParPost.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De12A17 = this.De12A17.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De18A28 = this.De18A28.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De29A59 = this.De29A59.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.De60 = this.De60.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.EnCro = this.EnCro.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.EnInf = this.EnInf.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+        this.Migra = this.Migra.filter(function (men) {
+          return men.identificacion != identificacion;
+        });
+      } else {
+        var _identificacion = item.identificacion;
+        var indice = this.datos.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.datos[indice].estado = "Inactivo";
+          this.datos.splice(indice, 1, this.datos[indice]);
+        }
+
+        indice = this.Men1A.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.Men1A[indice].estado = "Inactivo";
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        }
+
+        indice = this.De1A5.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.De1A5[indice].estado = "Inactivo";
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        }
+
+        indice = this.De6A11.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.De6A11[indice].estado = "Inactivo";
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        }
+
+        indice = this.De10A59.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.De10A59[indice].estado = "Inactivo";
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }
+
+        indice = this.De12A17.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.De12A17[indice].estado = "Inactivo";
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }
+
+        indice = this.De18A28.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.De18A28[indice].estado = "Inactivo";
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }
+
+        indice = this.De29A59.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.De29A59[indice].estado = "Inactivo";
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        }
+
+        indice = this.De60.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.De60[indice].estado = "Inactivo";
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }
+
+        indice = this.EnCro.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.EnCro[indice].estado = "Inactivo";
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }
+
+        indice = this.EnInf.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.EnInf[indice].estado = "Inactivo";
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);
+        }
+
+        indice = this.Migra.findIndex(function (identi) {
+          return identi.identificacion === _identificacion;
+        });
+
+        if (indice >= 0) {
+          this.Migra[indice].estado = "Inactivo";
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+
+        this.$swal("Eliminar...!", "Datos En Proceso de Eliminación!", "success");
+        console.log(this.De10A59);
+      }
+    },
+    validarTablaIntegrantes: function () {
+      var _validarTablaIntegrantes = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+        var _this10 = this;
+
+        var _loop4, i;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context12) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context12.prev = _context12.next) {
               case 0:
-                parametros = {
-                  txtbusqueda: _this2.txtbusquedaAct.trim(),
-                  _token: _this2.csrf,
-                  page: pagina
-                };
-                _context2.prev = 1;
-                _context2.next = 4;
-                return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_5__["listar"](parametros).then(function (respuesta) {
-                  _this2.actividadesVector = respuesta.data.actividades.data;
+                _loop4 =
+                /*#__PURE__*/
+                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop4(i) {
+                  var parametros;
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop4$(_context11) {
+                    while (1) {
+                      switch (_context11.prev = _context11.next) {
+                        case 0:
+                          parametros = {
+                            _token: _this10.csrf,
+                            identificacion: _this10.datos[i].identificacion
+                          };
+                          _context11.prev = 1;
+                          _context11.next = 4;
+                          return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
+                            if (respuesta.data.OPC == "EXISTE") {
+                              var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
+                              var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                              _this10.$swal("Validar...!", "El Documento <b>" + iden + "</b> De La Fila <b>" + (i + 1) + "</b> Se Encuentra Registrado", "warning"); // item.identificacion="";
+
+
+                              return false;
+                            } else {
+                              // VERIFICAR SI ESTA EN LA TABLA
+                              var resultado = _this10.datos.filter(function (identi) {
+                                return identi.identificacion.includes(_this10.datos[i].identificacion);
+                              }); // VERIFICAR SI ESTA EN LA TABLA
+
+
+                              if (resultado.length > 1) {
+                                _this10.$swal("Validar...!", "El Documento <b>" + _this10.datos[i].identificacion + "</b> De La Fila <b>" + (i + 1) + "</b>  Se Encuentra Agregado En La Tabla de Integrantes", "warning"); // item.identificacion="";
+
+
+                                return false;
+                              } else {
+                                if (_this10.datos[i].tipo_id === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione un <b>tipo de identificación</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].identificacion === "") {
+                                  _this10.$swal("Error...!", "Por favor digite una <b>identificación</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].pnom === "") {
+                                  _this10.$swal("Error...!", "Por favor digite el <b>primer nombre</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].pape === "") {
+                                  _this10.$swal("Error...!", "Por favor digite el <b>primer apellido</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].sexo === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione el <b>sexo</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].parentesco === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione el <b>parentesco</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].estado_civil === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione el <b>estado civil</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].fecha_nac === "") {
+                                  _this10.$swal("Error...!", "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].afi_entidad === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione la <b>eps</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].tipo_afiliacion === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione el <b>tipo de afiliación</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].escolaridad === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].ocupacion === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione la <b>ocupación</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].etnia === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione la <b>etnia</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].clasificacion === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                if (_this10.datos[i].jefe === "0") {
+                                  _this10.$swal("Error...!", "Por favor seleccione el <b>jefe de hogar</b> en la fila " + (i + 1) + " de los integrantes", "error");
+
+                                  return false;
+                                }
+
+                                return true;
+                              }
+                            }
+                          })["catch"](function (error) {});
+
+                        case 4:
+                          _context11.next = 8;
+                          break;
+
+                        case 6:
+                          _context11.prev = 6;
+                          _context11.t0 = _context11["catch"](1);
+
+                        case 8:
+                        case "end":
+                          return _context11.stop();
+                      }
+                    }
+                  }, _loop4, null, [[1, 6]]);
                 });
+                i = 0;
+
+              case 2:
+                if (!(i < this.datos.length)) {
+                  _context12.next = 7;
+                  break;
+                }
+
+                return _context12.delegateYield(_loop4(i), "t0", 4);
 
               case 4:
-                _context2.next = 15;
+                i++;
+                _context12.next = 2;
                 break;
-
-              case 6:
-                _context2.prev = 6;
-                _context2.t0 = _context2["catch"](1);
-                _context2.t1 = _context2.t0.response.status;
-                _context2.next = _context2.t1 === 422 ? 11 : 13;
-                break;
-
-              case 11:
-                _this2.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context2.abrupt("break", 15);
-
-              case 13:
-                _this2.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context2.abrupt("break", 15);
-
-              case 15:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, null, [[1, 6]]);
-      }))();
-    },
-    seleccionarActividades: function seleccionarActividades(item) {
-      this.viviendaData.actividad_economica = item.id;
-      this.actividadesAuxiliar = item.descripcion;
-      this.$refs.modalActividad.hide();
-    },
-    Actualizar: function Actualizar() {
-      var _this3 = this;
-
-      return _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var id, opcion, parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                id = 0;
-                opcion = "";
-
-                if (_this3.hogar.id_corre != "") {
-                  opcion = "CORRE";
-                  id = _this3.hogar.id_corre;
-                } else {
-                  opcion = "MUN";
-                  id = _this3.hogar.id_mun;
-                }
-
-                parametros = {
-                  _token: _this3.csrf,
-                  id: id,
-                  opcion: opcion
-                };
-                _this3.valGActu = false;
-                _context3.prev = 5;
-                _context3.next = 8;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function (respuesta) {
-                  _this3.corregi_options = respuesta.data.arrayCorregi;
-                  _this3.vereda_options = respuesta.data.arrayVeredas;
-                  _this3.parentesco_options = respuesta.data.arrayParentesco;
-                  _this3.estado_options = respuesta.data.arrayEstado;
-                  _this3.escolaridad_options = respuesta.data.arrayEscolaridad;
-                  _this3.ocupacion_options = respuesta.data.arrayOcupacion;
-                  _this3.etnia_options = respuesta.data.arrayEtnia;
-                  _this3.admini_options = respuesta.data.arrayAdmini;
-                  _this3.clasifi_options = respuesta.data.arrayCLasifi;
-                  _this3.morbilidadNacer_options = respuesta.data.arrayMorbilidadNacer;
-                  _this3.morbilidad_options = respuesta.data.arrayMorbilidad;
-                  _this3.metodos_options = respuesta.data.arrayMetodos;
-                  _this3.motivos_options = respuesta.data.arrayMotivos;
-                  _this3.grupos_options = respuesta.data.arrayGrupos;
-                  _this3.enfcro_options = respuesta.data.arrayEnfCro;
-                  _this3.enfinf_options = respuesta.data.arrayEnfInf;
-                  _this3.religion_options = respuesta.data.arrayReligion;
-                  _this3.colegio_options = respuesta.data.arrayColegios;
-                  _this3.barrio_options = respuesta.data.arrayBarrios;
-                  _this3.valGActu = true;
-                });
-
-              case 8:
-                _context3.next = 19;
-                break;
-
-              case 10:
-                _context3.prev = 10;
-                _context3.t0 = _context3["catch"](5);
-                _context3.t1 = _context3.t0.response.status;
-                _context3.next = _context3.t1 === 422 ? 15 : 17;
-                break;
-
-              case 15:
-                _this3.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context3.abrupt("break", 19);
-
-              case 17:
-                _this3.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context3.abrupt("break", 19);
-
-              case 19:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, null, [[5, 10]]);
-      }))();
-    },
-    cambiarTab2: function cambiarTab2(opcion) {
-      if (this.GIDEN === false) {
-        // $('.nav-tabs a[href="#' + opcion + '"]').tab('show');
-        $('.nav-tabs a[href="#tabIdentificacion"]').tab('show');
-        return false;
-      } else {}
-    },
-    cambiarTab1: function cambiarTab1(opcion, actual) {
-      var _this4 = this;
-
-      return _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var bandera, resul, i, val, iden, _resul, _i, val1, iden1, _resul2, parametros, isInvalid, _parametros, auxi, _resul3, _resul4, _resul5, _resul6, _resul7, _parametros2, _auxi, _resul8, _resul9, _resul10, _parametros3, _auxi2, _resul11, _resul12, _resul13, _parametros4, _auxi3, _resul14, _parametros5;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                bandera = false;
-
-                if (!(actual === "tabIdentificacion")) {
-                  _context4.next = 94;
-                  break;
-                }
-
-                if (!(_this4.GIDEN === false)) {
-                  _context4.next = 93;
-                  break;
-                }
-
-                if (!(_this4.hogar.id_dpto === "")) {
-                  _context4.next = 7;
-                  break;
-                }
-
-                _this4.$refs.id_dpto.focus();
-
-                _this4.$swal("Error...!", "Por favor seleccione el departamento!", "error");
-
-                return _context4.abrupt("return");
 
               case 7:
-                if (!(_this4.hogar.id_mun === "")) {
-                  _context4.next = 11;
-                  break;
-                }
-
-                _this4.$refs.id_mun.focus();
-
-                _this4.$swal("Error...!", "Por favor seleccione el municipio!", "error");
-
-                return _context4.abrupt("return");
-
-              case 11:
-                if (!(_this4.hogar.tenencia_vivienda === "")) {
-                  _context4.next = 15;
-                  break;
-                }
-
-                _this4.$refs.tenencia_vivienda.focus();
-
-                _this4.$swal("Error...!", "Por favor seleccione la tenencia de vivienda!", "error");
-
-                return _context4.abrupt("return");
-
-              case 15:
-                if (!(_this4.allLetter(_this4.hogar.numero_hogares) === false)) {
-                  _context4.next = 20;
-                  break;
-                }
-
-                _this4.$refs.numero_hogares.focus();
-
-                _this4.hogar.numero_hogares = "";
-
-                _this4.$swal("Error...!", "Por favor digite solo numero en el numero de hogares!", "error");
-
-                return _context4.abrupt("return");
-
-              case 20:
-                if (!(_this4.hogar.numero_hogares === "")) {
-                  _context4.next = 24;
-                  break;
-                }
-
-                _this4.$refs.numero_hogares.focus();
-
-                _this4.$swal("Error...!", "Por favor digite el numero de hogares!", "error");
-
-                return _context4.abrupt("return");
-
-              case 24:
-                if (!(_this4.hogar.poblacion_especial === "")) {
-                  _context4.next = 28;
-                  break;
-                }
-
-                _this4.$refs.poblacion_especial.focus();
-
-                _this4.$swal("Error...!", "Por favor seleccione la población especial!", "error");
-
-                return _context4.abrupt("return");
-
-              case 28:
-                if (!(_this4.hogar.vias_acceso === "")) {
-                  _context4.next = 32;
-                  break;
-                }
-
-                _this4.$refs.vias_acceso.focus();
-
-                _this4.$swal("Error...!", "Por favor seleccione si la comunidad presenta vías de acceso!", "error");
-
-                return _context4.abrupt("return");
-
-              case 32:
-                if (!(_this4.hogar.servicios_publicos === "")) {
-                  _context4.next = 36;
-                  break;
-                }
-
-                _this4.$refs.servicios_publicos.focus();
-
-                _this4.$swal("Error...!", "Por favor seleccione si presenta acceso fácil a los servicios públicos!", "error");
-
-                return _context4.abrupt("return");
-
-              case 36:
-                if (!(_this4.hogar.direccion === "")) {
-                  _context4.next = 40;
-                  break;
-                }
-
-                _this4.$refs.direccion.focus();
-
-                _this4.$swal("Error...!", "Por favor digite la dirección!", "error");
-
-                return _context4.abrupt("return");
-
-              case 40:
-                if (!(_this4.datosJefe.length <= 0)) {
-                  _context4.next = 45;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por favor agregue por lo menos un jefe de hogar", "error");
-
-                return _context4.abrupt("return");
-
-              case 45:
-                resul = _this4.valJef1();
-
-                if (!resul) {
-                  _context4.next = 50;
-                  break;
-                }
-
-                bandera = true;
-                _context4.next = 51;
-                break;
-
-              case 50:
-                return _context4.abrupt("return", false);
-
-              case 51:
-                _this4.vectorAyuda = [];
-                _context4.next = 54;
-                return _this4.valJef2();
-
-              case 54:
-                if (_this4.vectorAyuda.length > 0) {
-                  for (i = 0; i < _this4.vectorAyuda.length; i++) {
-                    if (_this4.vectorAyuda[i].error === "ERROR1") {
-                      val = (_this4.vectorAyuda[i].identificacion / 1).toFixed(0).replace(".", ",");
-                      iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                      _this4.$swal("Validar...!", "El Documento <b>" + iden + "</b> De La Fila <b>" + (i + 1) + "</b> Se Encuentra Registrado", "warning");
-
-                      bandera = false;
-                    }
-                  }
-                } else {
-                  bandera = true;
-                }
-
-              case 55:
-                if (!(_this4.datos.length > 0)) {
-                  _context4.next = 66;
-                  break;
-                }
-
-                _resul = _this4.valInt1();
-
-                if (!_resul) {
-                  _context4.next = 61;
-                  break;
-                }
-
-                bandera = true;
-                _context4.next = 62;
-                break;
-
-              case 61:
-                return _context4.abrupt("return", false);
-
-              case 62:
-                _this4.vectorAyuda = [];
-                _context4.next = 65;
-                return _this4.valInt2();
-
-              case 65:
-                if (_this4.vectorAyuda.length > 0) {
-                  for (_i = 0; _i < _this4.vectorAyuda.length; _i++) {
-                    if (_this4.vectorAyuda[_i].error === "ERROR1") {
-                      val1 = (_this4.vectorAyuda[_i].identificacion / 1).toFixed(0).replace(".", ",");
-                      iden1 = val1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                      _this4.$swal("Validar...!", "El Documento <b>" + iden1 + "</b> De La Fila <b>" + (_i + 1) + "</b> Se Encuentra Registrado En Los Integrantes", "warning");
-
-                      bandera = false;
-                    }
-                  }
-                } else {
-                  bandera = true;
-                }
-
-              case 66:
-                if (!(_this4.factores.length > 0)) {
-                  _context4.next = 73;
-                  break;
-                }
-
-                _resul2 = _this4.valFactores();
-
-                if (!_resul2) {
-                  _context4.next = 72;
-                  break;
-                }
-
-                bandera = true;
-                _context4.next = 73;
-                break;
-
-              case 72:
-                return _context4.abrupt("return", false);
-
-              case 73:
-                //VALIDAR LA TABLA FACTORES
-                //GUARDAR DATOS
-                _this4.valGIden = false;
-                parametros = {
-                  _token: _this4.csrf,
-                  hogar: _this4.hogar,
-                  caracterizacion: _this4.datosJefe,
-                  integrantes: _this4.datos,
-                  factores: _this4.factores,
-                  CODIGOGENE: _this4.CODIGOGENE,
-                  opcion: "GUARDAR",
-                  opc: "GUAINDEN"
-                };
-                _context4.prev = 75;
-                _context4.next = 78;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
-                  if (respuesta.data.OPC == "SI") {
-                    _this4.GIDEN = true;
-                    _this4.IDHOGAR = respuesta.data.IDHOGAR;
-                    _this4.valGIden = true;
-                  }
-                })["catch"](function (error) {
-                  _this4.errorDevuelto = error.response.data.errors;
-                  _this4.entrarPorError = true;
-
-                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña identificación", "error");
-
-                  return;
-                });
-
-              case 78:
-                _context4.next = 91;
-                break;
-
-              case 80:
-                _context4.prev = 80;
-                _context4.t0 = _context4["catch"](75);
-                _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 419 ? 85 : _context4.t1 === 422 ? 87 : 89;
-                break;
-
-              case 85:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 91);
-
-              case 87:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 91);
-
-              case 89:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 91);
-
-              case 91:
-                _context4.next = 94;
-                break;
-
-              case 93:
-                bandera = true;
-
-              case 94:
-                if (!(actual === "tabVivienda")) {
-                  _context4.next = 131;
-                  break;
-                }
-
-                bandera = true;
-
-                if (!(_this4.GIDEN === false)) {
-                  _context4.next = 99;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 99:
-                _this4.$v.$touch();
-
-                isInvalid = _this4.$v.$invalid;
-
-                if (!isInvalid) {
-                  _context4.next = 106;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 106:
-                if (!(_this4.GVIVI === false && _this4.GIDEN === true && _this4.IDHOGAR !== 0)) {
-                  _context4.next = 130;
-                  break;
-                }
-
-                if (!(_this4.estratificacion.length <= 0)) {
-                  _context4.next = 110;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por favor agregue por lo menos una estratificación", "error");
-
-                return _context4.abrupt("return");
-
-              case 110:
-                //GUARDAR DATOS
-                _this4.valGVivi = false;
-                _parametros = {
-                  _token: _this4.csrf,
-                  vivienda: _this4.viviendaData,
-                  estratificacion: _this4.estratificacion,
-                  Animales: _this4.animalesData,
-                  opcion: "GUARDAR",
-                  opc: "GUAVIVI",
-                  IDHOGAR: _this4.IDHOGAR
-                };
-                _context4.prev = 112;
-                _context4.next = 115;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function (respuesta) {
-                  if (respuesta.data.OPC == "SI") {
-                    _this4.GVIVI = true;
-                    bandera = true;
-                    _this4.valGVivi = true;
-                  }
-                })["catch"](function (error) {
-                  _this4.errorDevuelto = error.response.data.errors;
-                  _this4.entrarPorError = true;
-
-                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña vivienda", "error");
-
-                  return;
-                });
-
-              case 115:
-                _context4.next = 128;
-                break;
-
-              case 117:
-                _context4.prev = 117;
-                _context4.t2 = _context4["catch"](112);
-                _context4.t3 = _context4.t2.response.status;
-                _context4.next = _context4.t3 === 419 ? 122 : _context4.t3 === 422 ? 124 : 126;
-                break;
-
-              case 122:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 128);
-
-              case 124:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 128);
-
-              case 126:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 128);
-
-              case 128:
-                _context4.next = 131;
-                break;
-
-              case 130:
-                bandera = true;
-
-              case 131:
-                if (!(actual === "cartxciclo")) {
-                  _context4.next = 206;
-                  break;
-                }
-
-                bandera = true;
-
-                if (!(_this4.GIDEN === false)) {
-                  _context4.next = 136;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 136:
-                if (!(_this4.GVIVI === false)) {
-                  _context4.next = 139;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 139:
-                if (!(_this4.GCARXCI === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 205;
-                  break;
-                }
-
-                auxi = false; //VALIDAR LA TABLA MENORES DE 1 AÑO
-
-                if (!(_this4.Men1A.length > 0)) {
-                  _context4.next = 149;
-                  break;
-                }
-
-                _resul3 = _this4.valMen1();
-
-                if (!_resul3) {
-                  _context4.next = 148;
-                  break;
-                }
-
-                bandera = true;
-                auxi = true;
-                _context4.next = 149;
-                break;
-
-              case 148:
-                return _context4.abrupt("return", false);
-
-              case 149:
-                if (!(_this4.De1A5.length > 0)) {
-                  _context4.next = 157;
-                  break;
-                }
-
-                _resul4 = _this4.valDe1A5();
-
-                if (!_resul4) {
-                  _context4.next = 156;
-                  break;
-                }
-
-                bandera = true;
-                auxi = true;
-                _context4.next = 157;
-                break;
-
-              case 156:
-                return _context4.abrupt("return", false);
-
-              case 157:
-                if (!(_this4.De6A11.length > 0)) {
-                  _context4.next = 165;
-                  break;
-                }
-
-                _resul5 = _this4.valDe6A11();
-
-                if (!_resul5) {
-                  _context4.next = 164;
-                  break;
-                }
-
-                bandera = true;
-                auxi = true;
-                _context4.next = 165;
-                break;
-
-              case 164:
-                return _context4.abrupt("return", false);
-
-              case 165:
-                if (!(_this4.De10A59.length > 0)) {
-                  _context4.next = 173;
-                  break;
-                }
-
-                _resul6 = _this4.valDe10A59();
-
-                if (!_resul6) {
-                  _context4.next = 172;
-                  break;
-                }
-
-                bandera = true;
-                auxi = true;
-                _context4.next = 173;
-                break;
-
-              case 172:
-                return _context4.abrupt("return", false);
-
-              case 173:
-                if (!(_this4.ParPost.length > 0)) {
-                  _context4.next = 181;
-                  break;
-                }
-
-                _resul7 = _this4.valParPost();
-
-                if (!_resul7) {
-                  _context4.next = 180;
-                  break;
-                }
-
-                bandera = true;
-                auxi = true;
-                _context4.next = 181;
-                break;
-
-              case 180:
-                return _context4.abrupt("return", false);
-
-              case 181:
-                if (!auxi) {
-                  _context4.next = 202;
-                  break;
-                }
-
-                //GUARDAR DATOS
-                _parametros2 = {
-                  _token: _this4.csrf,
-                  Men1A: _this4.Men1A,
-                  De1A5: _this4.De1A5,
-                  De6A11: _this4.De6A11,
-                  De10A59: _this4.De10A59,
-                  ParPost: _this4.ParPost,
-                  opcion: "GUARDAR",
-                  opc: "GUACARCI",
-                  IDHOGAR: _this4.IDHOGAR
-                };
-                _this4.valGCart = false;
-                _context4.prev = 184;
-                _context4.next = 187;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function (respuesta) {
-                  if (respuesta.data.OPC == "SI") {
-                    _this4.GCARXCI = true;
-                    bandera = true;
-                    _this4.valGCart = true;
-                  }
-                })["catch"](function (error) {
-                  _this4.errorDevuelto = error.response.data.errors;
-                  _this4.entrarPorError = true;
-
-                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña ciclos", "error");
-
-                  return;
-                });
-
-              case 187:
-                _context4.next = 200;
-                break;
-
-              case 189:
-                _context4.prev = 189;
-                _context4.t4 = _context4["catch"](184);
-                _context4.t5 = _context4.t4.response.status;
-                _context4.next = _context4.t5 === 419 ? 194 : _context4.t5 === 422 ? 196 : 198;
-                break;
-
-              case 194:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 200);
-
-              case 196:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 200);
-
-              case 198:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 200);
-
-              case 200:
-                _context4.next = 203;
-                break;
-
-              case 202:
-                bandera = true;
-
-              case 203:
-                _context4.next = 206;
-                break;
-
-              case 205:
-                bandera = true;
-
-              case 206:
-                if (!(actual === "adolescente")) {
-                  _context4.next = 269;
-                  break;
-                }
-
-                bandera = true;
-                _auxi = false;
-
-                if (!(_this4.GIDEN === false)) {
-                  _context4.next = 212;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 212:
-                if (!(_this4.GVIVI === false)) {
-                  _context4.next = 215;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 215:
-                if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 219;
-                  break;
-                }
-
-                if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 219;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 219:
-                if (!(_this4.GADOLE === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 268;
-                  break;
-                }
-
-                if (!(_this4.De12A17.length > 0)) {
-                  _context4.next = 228;
-                  break;
-                }
-
-                _resul8 = _this4.valDe12A17();
-
-                if (!_resul8) {
-                  _context4.next = 227;
-                  break;
-                }
-
-                bandera = true;
-                _auxi = true;
-                _context4.next = 228;
-                break;
-
-              case 227:
-                return _context4.abrupt("return", false);
-
-              case 228:
-                if (!(_this4.De18A28.length > 0)) {
-                  _context4.next = 236;
-                  break;
-                }
-
-                _resul9 = _this4.valDe18A28();
-
-                if (!_resul9) {
-                  _context4.next = 235;
-                  break;
-                }
-
-                bandera = true;
-                _auxi = true;
-                _context4.next = 236;
-                break;
-
-              case 235:
-                return _context4.abrupt("return", false);
-
-              case 236:
-                if (!(_this4.De29A59.length > 0)) {
-                  _context4.next = 244;
-                  break;
-                }
-
-                _resul10 = _this4.valDe29A59();
-
-                if (!_resul10) {
-                  _context4.next = 243;
-                  break;
-                }
-
-                bandera = true;
-                _auxi = true;
-                _context4.next = 244;
-                break;
-
-              case 243:
-                return _context4.abrupt("return", false);
-
-              case 244:
-                if (!_auxi) {
-                  _context4.next = 265;
-                  break;
-                }
-
-                //GUARDAR DATOS
-                _parametros3 = {
-                  _token: _this4.csrf,
-                  De12A17: _this4.De12A17,
-                  De18A28: _this4.De18A28,
-                  De29A59: _this4.De29A59,
-                  opcion: "GUARDAR",
-                  opc: "GUADOLE",
-                  IDHOGAR: _this4.IDHOGAR
-                };
-                _this4.valGAdole = false;
-                _context4.prev = 247;
-                _context4.next = 250;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros3).then(function (respuesta) {
-                  if (respuesta.data.OPC == "SI") {
-                    _this4.GADOLE = true;
-                    bandera = true;
-                    _this4.valGAdole = true;
-                  }
-                })["catch"](function (error) {
-                  _this4.errorDevuelto = error.response.data.errors;
-                  _this4.entrarPorError = true;
-
-                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña adolescentes", "error");
-
-                  return;
-                });
-
-              case 250:
-                _context4.next = 263;
-                break;
-
-              case 252:
-                _context4.prev = 252;
-                _context4.t6 = _context4["catch"](247);
-                _context4.t7 = _context4.t6.response.status;
-                _context4.next = _context4.t7 === 419 ? 257 : _context4.t7 === 422 ? 259 : 261;
-                break;
-
-              case 257:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 263);
-
-              case 259:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 263);
-
-              case 261:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 263);
-
-              case 263:
-                _context4.next = 266;
-                break;
-
-              case 265:
-                bandera = true;
-
-              case 266:
-                _context4.next = 269;
-                break;
-
-              case 268:
-                bandera = true;
-
-              case 269:
-                if (!(actual === "adultomayor")) {
-                  _context4.next = 335;
-                  break;
-                }
-
-                _auxi2 = false;
-
-                if (!(_this4.GIDEN === false)) {
-                  _context4.next = 274;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 274:
-                if (!(_this4.GVIVI === false)) {
-                  _context4.next = 277;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 277:
-                if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 281;
-                  break;
-                }
-
-                if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 281;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 281:
-                if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 285;
-                  break;
-                }
-
-                if (!(_this4.GADOLE === false)) {
-                  _context4.next = 285;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 285:
-                if (!(_this4.GADULT === false)) {
-                  _context4.next = 334;
-                  break;
-                }
-
-                if (!(_this4.De60.length > 0)) {
-                  _context4.next = 294;
-                  break;
-                }
-
-                _resul11 = _this4.valDe60();
-
-                if (!_resul11) {
-                  _context4.next = 293;
-                  break;
-                }
-
-                bandera = true;
-                _auxi2 = true;
-                _context4.next = 294;
-                break;
-
-              case 293:
-                return _context4.abrupt("return", false);
-
-              case 294:
-                if (!(_this4.EnCro.length > 0)) {
-                  _context4.next = 302;
-                  break;
-                }
-
-                _resul12 = _this4.valEnCro();
-
-                if (!_resul12) {
-                  _context4.next = 301;
-                  break;
-                }
-
-                bandera = true;
-                _auxi2 = true;
-                _context4.next = 302;
-                break;
-
-              case 301:
-                return _context4.abrupt("return", false);
-
-              case 302:
-                if (!(_this4.EnInf.length > 0)) {
-                  _context4.next = 310;
-                  break;
-                }
-
-                _resul13 = _this4.valEnInf();
-
-                if (!_resul13) {
-                  _context4.next = 309;
-                  break;
-                }
-
-                bandera = true;
-                _auxi2 = true;
-                _context4.next = 310;
-                break;
-
-              case 309:
-                return _context4.abrupt("return", false);
-
-              case 310:
-                if (!_auxi2) {
-                  _context4.next = 331;
-                  break;
-                }
-
-                //GUARDAR DATOS
-                _parametros4 = {
-                  _token: _this4.csrf,
-                  De60: _this4.De60,
-                  EnCro: _this4.EnCro,
-                  EnInf: _this4.EnInf,
-                  opcion: "GUARDAR",
-                  opc: "GUADULT",
-                  IDHOGAR: _this4.IDHOGAR
-                };
-                _this4.valGAdul = false;
-                _context4.prev = 313;
-                _context4.next = 316;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros4).then(function (respuesta) {
-                  if (respuesta.data.OPC == "SI") {
-                    console.log("SI GUARDE");
-                    _this4.GADULT = true;
-                    bandera = true;
-                    _this4.valGAdul = true;
-                  }
-                })["catch"](function (error) {
-                  _this4.errorDevuelto = error.response.data.errors;
-                  _this4.entrarPorError = true;
-
-                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña adultos", "error");
-
-                  return;
-                });
-
-              case 316:
-                _context4.next = 329;
-                break;
-
-              case 318:
-                _context4.prev = 318;
-                _context4.t8 = _context4["catch"](313);
-                _context4.t9 = _context4.t8.response.status;
-                _context4.next = _context4.t9 === 419 ? 323 : _context4.t9 === 422 ? 325 : 327;
-                break;
-
-              case 323:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 329);
-
-              case 325:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 329);
-
-              case 327:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 329);
-
-              case 329:
-                _context4.next = 332;
-                break;
-
-              case 331:
-                bandera = true;
-
-              case 332:
-                _context4.next = 335;
-                break;
-
-              case 334:
-                bandera = true;
-
-              case 335:
-                if (!(actual === "migrante")) {
-                  _context4.next = 393;
-                  break;
-                }
-
-                _auxi3 = false;
-
-                if (!(_this4.GIDEN === false)) {
-                  _context4.next = 340;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 340:
-                if (!(_this4.GVIVI === false)) {
-                  _context4.next = 343;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 343:
-                if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 347;
-                  break;
-                }
-
-                if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 347;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 347:
-                if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 351;
-                  break;
-                }
-
-                if (!(_this4.GADOLE === false)) {
-                  _context4.next = 351;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 351:
-                if (!(_this4.De60.length > 0 || _this4.EnCro.length > 0 || _this4.EnInf.length > 0)) {
-                  _context4.next = 355;
-                  break;
-                }
-
-                if (!(_this4.GADULT === false)) {
-                  _context4.next = 355;
-                  break;
-                }
-
-                _this4.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios de la Pestaña Adulto mayor", "error");
-
-                return _context4.abrupt("return", false);
-
-              case 355:
-                if (!(_this4.GMIGRA === false)) {
-                  _context4.next = 390;
-                  break;
-                }
-
-                if (!(_this4.Migra.length > 0)) {
-                  _context4.next = 364;
-                  break;
-                }
-
-                _resul14 = _this4.valMigra();
-
-                if (!_resul14) {
-                  _context4.next = 363;
-                  break;
-                }
-
-                bandera = true;
-                _auxi3 = true;
-                _context4.next = 364;
-                break;
-
-              case 363:
-                return _context4.abrupt("return", false);
-
-              case 364:
-                if (!_auxi3) {
-                  _context4.next = 385;
-                  break;
-                }
-
-                _parametros5 = {
-                  _token: _this4.csrf,
-                  Migra: _this4.Migra,
-                  opcion: "GUARDAR",
-                  opc: "GUAMIGRA",
-                  IDHOGAR: _this4.IDHOGAR
-                };
-                _this4.valGMig = false;
-                _context4.prev = 367;
-                _context4.next = 370;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros5).then(function (respuesta) {
-                  if (respuesta.data.OPC == "SI") {
-                    _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
-
-                    _this4.valGMig = true;
-
-                    _this4.$router.push("/gestion");
-                  }
-                })["catch"](function (error) {
-                  _this4.errorDevuelto = error.response.data.errors;
-                  _this4.entrarPorError = true;
-
-                  _this4.$swal("Error...!", "No se pudo guardar los datos de la pestaña migrantes", "error");
-
-                  return;
-                });
-
-              case 370:
-                _context4.next = 383;
-                break;
-
-              case 372:
-                _context4.prev = 372;
-                _context4.t10 = _context4["catch"](367);
-                _context4.t11 = _context4.t10.response.status;
-                _context4.next = _context4.t11 === 419 ? 377 : _context4.t11 === 422 ? 379 : 381;
-                break;
-
-              case 377:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 383);
-
-              case 379:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 383);
-
-              case 381:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 383);
-
-              case 383:
-                _context4.next = 388;
-                break;
-
-              case 385:
-                bandera = true;
-
-                _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
-
-                _this4.$router.push("/gestion");
-
-              case 388:
-                _context4.next = 393;
-                break;
-
-              case 390:
-                _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
-
-                _this4.SAPU = false;
-
-                _this4.$router.push("/gestion");
-
-              case 393:
-                if (bandera) {
-                  bandera = false;
-                  $('.nav-tabs a[href="#' + opcion + '"]').tab("show");
-                }
-
-              case 394:
               case "end":
-                return _context4.stop();
+                return _context12.stop();
             }
           }
-        }, _callee4, null, [[75, 80], [112, 117], [184, 189], [247, 252], [313, 318], [367, 372]]);
-      }))();
+        }, _callee10, this);
+      }));
+
+      function validarTablaIntegrantes() {
+        return _validarTablaIntegrantes.apply(this, arguments);
+      }
+
+      return validarTablaIntegrantes;
+    }(),
+    editarItemInte: function editarItemInte(index, item) {
+      var _this11 = this;
+
+      this.bandeGuaEdiInte = false;
+      this.indiceEditInte = index;
+      this.CA1.id = item.id;
+      this.CA1.tipo_id = item.tipo_id;
+      this.CA1.identificacion = item.identificacion;
+      this.CA1.sexo = item.sexo;
+      this.CA1.parentesco = item.parentesco;
+      this.CA1.pnom = item.pnom;
+      this.CA1.snom = item.snom;
+      this.CA1.pape = item.pape;
+      this.CA1.sape = item.sape;
+      this.CA1.estado_civil = item.estado_civil;
+      this.CA1.fecha_nac = item.fecha_nac;
+      this.CA1.edad = item.edad;
+      this.CA1.puntaje_sisben = item.puntaje_sisben;
+      this.CA1.afi_entidad = item.afi_entidad;
+      this.CA1.otra_eps = item.otra_eps;
+      this.CA1.tipo_afiliacion = item.tipo_afiliacion;
+      this.CA1.embarazo = item.embarazo;
+      setTimeout(function () {
+        _this11.CA1.embarazo_multiple = item.embarazo_multiple;
+      }, 1000);
+      this.CA1.discapacidad = item.discapacidad;
+      this.CA1.escolaridad = item.escolaridad;
+      this.CA1.ocupacion = item.ocupacion;
+      this.CA1.colegio = item.colegio;
+      this.CA1.grado = item.grado;
+      this.CA1.entiende = item.entiende;
+      this.CA1.migrante = item.migrante;
+      this.CA1.pyp = item.pyp;
+      this.CA1.etnia = item.etnia;
+      this.CA1.clasificacion = item.clasificacion;
+      this.CA1.id_hogar = item.id_hogar;
+      this.CA1.jefe = item.jefe;
+      this.CA1.orientacion = item.orientacion;
+      this.CA1.identidad_genero = item.identidad_genero;
+      this.CA1.telefono = item.telefono;
+      this.CA1.perdida_peso = item.perdida_peso;
+      this.CA1.programa_icbf = item.programa_icbf;
+      this.CA1.excepciones = item.excepciones;
+      this.CA1.meses = item.meses;
+      this.CA1.dias = item.dias;
+      this.ocupacionAuxiliar2 = item.textoOcupacion;
+      this.$refs.identificacionInte.focus();
+      this.idEditar = item.id;
+      this.identificacionEditar = item.identificacion;
+      this.fechaEditar = item.fecha_nac;
+      this.edadEditar = item.edad;
+      this.embarazoEditar = item.embarazo;
     },
-    //VALIDACIONES
+    CancelarEditarInte: function CancelarEditarInte() {
+      this.limpiar();
+    },
+    editarInte: function () {
+      var _editarInte = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11() {
+        var _this12 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                if (!(this.CA1.tipo_id == "0")) {
+                  _context13.next = 3;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
+                return _context13.abrupt("return");
+
+              case 3:
+                if (!(this.CA1.identificacion == "")) {
+                  _context13.next = 6;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el documento de identificación!", "error");
+                return _context13.abrupt("return");
+
+              case 6:
+                if (!(this.CA1.sexo == "0")) {
+                  _context13.next = 9;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+                return _context13.abrupt("return");
+
+              case 9:
+                if (!(this.CA1.orientacion === "0")) {
+                  _context13.next = 12;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+                return _context13.abrupt("return");
+
+              case 12:
+                if (!(this.CA1.identidad_genero === "0")) {
+                  _context13.next = 15;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+                return _context13.abrupt("return");
+
+              case 15:
+                if (!(this.CA1.parentesco == "0")) {
+                  _context13.next = 18;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+                return _context13.abrupt("return");
+
+              case 18:
+                if (!(this.CA1.pnom == "0")) {
+                  _context13.next = 21;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+                return _context13.abrupt("return");
+
+              case 21:
+                if (!(this.CA1.pape == "0")) {
+                  _context13.next = 24;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
+                return _context13.abrupt("return");
+
+              case 24:
+                if (!(this.CA1.estado_civil == "0")) {
+                  _context13.next = 27;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
+                return _context13.abrupt("return");
+
+              case 27:
+                if (!(this.CA1.fecha_nac == "")) {
+                  _context13.next = 30;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
+                return _context13.abrupt("return");
+
+              case 30:
+                if (!(this.CA1.escolaridad == "0")) {
+                  _context13.next = 33;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el nivel de escolaridad!", "error");
+                return _context13.abrupt("return");
+
+              case 33:
+                if (!(this.CA1.ocupacion == "0")) {
+                  _context13.next = 36;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+                return _context13.abrupt("return");
+
+              case 36:
+                if (!(this.CA1.etnia == "0")) {
+                  _context13.next = 39;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+                return _context13.abrupt("return");
+
+              case 39:
+                if (!(this.CA1.clasificacion == "0")) {
+                  _context13.next = 42;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
+                return _context13.abrupt("return");
+
+              case 42:
+                if (!(this.CA1.entiende == "0")) {
+                  _context13.next = 45;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción entiende español!", "error");
+                return _context13.abrupt("return");
+
+              case 45:
+                if (!(this.CA1.pyp == "0")) {
+                  _context13.next = 48;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+                return _context13.abrupt("return");
+
+              case 48:
+                if (!(this.CA1.migrante == "0")) {
+                  _context13.next = 51;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione la opción migrante!", "error");
+                return _context13.abrupt("return");
+
+              case 51:
+                if (!(this.CA1.jefe == "0")) {
+                  _context13.next = 54;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor seleccione el un jefe de hogar!", "error");
+                return _context13.abrupt("return");
+
+              case 54:
+                if (!(this.CA1.perdida_peso === "")) {
+                  _context13.next = 59;
+                  break;
+                }
+
+                this.$refs.perdida_peso.focus();
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+                return _context13.abrupt("return");
+
+              case 59:
+                if (!(this.CA1.programa_icbf === "")) {
+                  _context13.next = 64;
+                  break;
+                }
+
+                this.$refs.programa_icbf.focus();
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+                return _context13.abrupt("return");
+
+              case 64:
+                if (!(this.CA1.excepciones === "0")) {
+                  _context13.next = 68;
+                  break;
+                }
+
+                bande = false;
+                this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+                return _context13.abrupt("return");
+
+              case 68:
+                this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+
+                if (!(this.identificacionEditar === this.CA1.identificacion)) {
+                  _context13.next = 73;
+                  break;
+                }
+
+                this.ediIn();
+                _context13.next = 90;
+                break;
+
+              case 73:
+                parametros = {
+                  _token: this.csrf,
+                  identificacion: this.CA1.identificacion
+                };
+                _context13.prev = 74;
+                _context13.next = 77;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC == "EXISTE") {
+                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
+                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+                    _this12.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
+
+                    return false;
+                  } else {
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    var resultado = _this12.datos.filter(function (identi) {
+                      return identi.identificacion == _this12.CA1.identificacion;
+                    }); // VERIFICAR SI ESTA EN LA TABLA
+
+
+                    if (resultado.length > 0) {
+                      _this12.$swal("Validar...!", "El Documento <b>" + _this12.CA1.identificacion + "</b> Se Encuentra Agregado", "warning");
+
+                      return false;
+                    } else {
+                      _this12.ediIn();
+                    }
+                  }
+                })["catch"](function (error) {
+                  _this12.errorDevuelto = error.response.data.errors;
+                  _this12.entrarPorError = true;
+                });
+
+              case 77:
+                _context13.next = 90;
+                break;
+
+              case 79:
+                _context13.prev = 79;
+                _context13.t0 = _context13["catch"](74);
+                _context13.t1 = _context13.t0.response.status;
+                _context13.next = _context13.t1 === 419 ? 84 : _context13.t1 === 422 ? 86 : 88;
+                break;
+
+              case 84:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context13.abrupt("break", 90);
+
+              case 86:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context13.abrupt("break", 90);
+
+              case 88:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context13.abrupt("break", 90);
+
+              case 90:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee11, this, [[74, 79]]);
+      }));
+
+      function editarInte() {
+        return _editarInte.apply(this, arguments);
+      }
+
+      return editarInte;
+    }(),
+    ediIn: function ediIn() {
+      console.log("ID = " + this.idEditar);
+      console.log("ID = " + this.identificacionEditar);
+      console.log("ID = " + this.fechaEditar);
+      console.log("ID = " + this.embarazoEditar);
+      this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
+      var nacimiento = moment(this.CA1.fecha_nac);
+      var hoy = moment();
+      var edad = 0;
+
+      if (nacimiento < hoy) {
+        edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+      }
+
+      var textoEps = "";
+
+      if (this.CA1.afi_entidad === "OTRA") {
+        textoEps = "OTRA";
+      } else {
+        if (this.CA1.afi_entidad === "NINGUNA") {
+          textoEps = "NINGUNA";
+        } else {
+          textoEps = this.showText(this.CA1.afi_entidad, this.admini_options);
+        }
+      }
+
+      if (this.CA1.tipo_afiliacion === "CONTRIBUTIVO" || this.CA1.tipo_afiliacion === "ESPECIAL") {
+        this.SAPU = true;
+        this.estratificacionData.afiliacion_salud_privada = "SI";
+      }
+
+      this.ocupacionAuxiliar2 = "";
+      this.mOCOL2 = false;
+      var id = this.vectorIntegrante[this.indiceEditInte].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+      var indice = this.factores.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.factores[indice].tipo_id = this.CA1.tipo_id;
+        this.factores[indice].sexo = this.CA1.sexo;
+        this.factores[indice].identificacion = this.CA1.identificacion;
+        this.factores[indice].pnom = this.CA1.pnom;
+        this.factores[indice].snom = this.CA1.snom;
+        this.factores[indice].pape = this.CA1.pape;
+        this.factores[indice].sape = this.CA1.sape;
+        this.factores.splice(indice, 1, this.factores[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.Men1A.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.Men1A[indice].tipo_id = this.CA1.tipo_id;
+        this.Men1A[indice].sexo = this.CA1.sexo;
+        this.Men1A[indice].identificacion = this.CA1.identificacion;
+        this.Men1A[indice].pnom = this.CA1.pnom;
+        this.Men1A[indice].snom = this.CA1.snom;
+        this.Men1A[indice].pape = this.CA1.pape;
+        this.Men1A[indice].sape = this.CA1.sape;
+        this.Men1A.splice(indice, 1, this.Men1A[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De1A5.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De1A5[indice].tipo_id = this.CA1.tipo_id;
+        this.De1A5[indice].sexo = this.CA1.sexo;
+        this.De1A5[indice].identificacion = this.CA1.identificacion;
+        this.De1A5[indice].pnom = this.CA1.pnom;
+        this.De1A5[indice].snom = this.CA1.snom;
+        this.De1A5[indice].pape = this.CA1.pape;
+        this.De1A5[indice].sape = this.CA1.sape;
+        this.De1A5.splice(indice, 1, this.De1A5[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De6A11.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De6A11[indice].tipo_id = this.CA1.tipo_id;
+        this.De6A11[indice].sexo = this.CA1.sexo;
+        this.De6A11[indice].identificacion = this.CA1.identificacion;
+        this.De6A11[indice].pnom = this.CA1.pnom;
+        this.De6A11[indice].snom = this.CA1.snom;
+        this.De6A11[indice].pape = this.CA1.pape;
+        this.De6A11[indice].sape = this.CA1.sape;
+        this.De6A11.splice(indice, 1, this.De6A11[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De10A59.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De10A59[indice].tipo_id = this.CA1.tipo_id;
+        this.De10A59[indice].sexo = this.CA1.sexo;
+        this.De10A59[indice].identificacion = this.CA1.identificacion;
+        this.De10A59[indice].pnom = this.CA1.pnom;
+        this.De10A59[indice].snom = this.CA1.snom;
+        this.De10A59[indice].pape = this.CA1.pape;
+        this.De10A59[indice].sape = this.CA1.sape;
+        this.De10A59.splice(indice, 1, this.De10A59[indice]);
+      }
+
+      if (this.embarazoEditar === "SI") {
+        indice = this.ParPost.findIndex(function (identi) {
+          return identi.identificacion === id;
+        });
+
+        if (this.CA1.embarazo === "SI") {
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+          if (indice >= 0) {
+            this.ParPost[indice].tipo_id = this.CA1.tipo_id;
+            this.ParPost[indice].sexo = this.CA1.sexo;
+            this.ParPost[indice].identificacion = this.CA1.identificacion;
+            this.ParPost[indice].pnom = this.CA1.pnom;
+            this.ParPost[indice].snom = this.CA1.snom;
+            this.ParPost[indice].pape = this.CA1.pape;
+            this.ParPost[indice].sape = this.CA1.sape;
+            this.ParPost.splice(indice, 1, this.ParPost[indice]);
+          }
+        } else if (this.CA1.embarazo === "NO") {
+          //ELIMINO
+          // let iden = this.identificacionEditar;            
+          this.ParPost[indice].estado = "Inactivo";
+          this.ParPost.splice(indice, 1, this.ParPost[indice]); // this.ParPost = this.ParPost.filter(function(men) {
+          //   return men.identificacion != iden;
+          // });            
+          // this.eliminarParpost(this.identificacionEditar,"INTE");
+        }
+      } else {
+        if (this.CA1.embarazo === "SI") {
+          //AGREGO
+          this.AParPost(this.CA1, edad, "INTE");
+        }
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De12A17.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De12A17[indice].tipo_id = this.CA1.tipo_id;
+        this.De12A17[indice].sexo = this.CA1.sexo;
+        this.De12A17[indice].identificacion = this.CA1.identificacion;
+        this.De12A17[indice].pnom = this.CA1.pnom;
+        this.De12A17[indice].snom = this.CA1.snom;
+        this.De12A17[indice].pape = this.CA1.pape;
+        this.De12A17[indice].sape = this.CA1.sape;
+        this.De12A17.splice(indice, 1, this.De12A17[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De18A28.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De18A28[indice].tipo_id = this.CA1.tipo_id;
+        this.De18A28[indice].sexo = this.CA1.sexo;
+        this.De18A28[indice].identificacion = this.CA1.identificacion;
+        this.De18A28[indice].pnom = this.CA1.pnom;
+        this.De18A28[indice].snom = this.CA1.snom;
+        this.De18A28[indice].pape = this.CA1.pape;
+        this.De18A28[indice].sape = this.CA1.sape;
+        this.De18A28.splice(indice, 1, this.De18A28[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De29A59.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De29A59[indice].tipo_id = this.CA1.tipo_id;
+        this.De29A59[indice].sexo = this.CA1.sexo;
+        this.De29A59[indice].identificacion = this.CA1.identificacion;
+        this.De29A59[indice].pnom = this.CA1.pnom;
+        this.De29A59[indice].snom = this.CA1.snom;
+        this.De29A59[indice].pape = this.CA1.pape;
+        this.De29A59[indice].sape = this.CA1.sape;
+        this.De29A59.splice(indice, 1, this.De29A59[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.De60.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.De60[indice].tipo_id = this.CA1.tipo_id;
+        this.De60[indice].sexo = this.CA1.sexo;
+        this.De60[indice].identificacion = this.CA1.identificacion;
+        this.De60[indice].pnom = this.CA1.pnom;
+        this.De60[indice].snom = this.CA1.snom;
+        this.De60[indice].pape = this.CA1.pape;
+        this.De60[indice].sape = this.CA1.sape;
+        this.De60.splice(indice, 1, this.De60[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.EnCro.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.EnCro[indice].tipo_id = this.CA1.tipo_id;
+        this.EnCro[indice].sexo = this.CA1.sexo;
+        this.EnCro[indice].identificacion = this.CA1.identificacion;
+        this.EnCro[indice].pnom = this.CA1.pnom;
+        this.EnCro[indice].snom = this.CA1.snom;
+        this.EnCro[indice].pape = this.CA1.pape;
+        this.EnCro[indice].sape = this.CA1.sape;
+        this.EnCro.splice(indice, 1, this.EnCro[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.EnInf.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.EnInf[indice].tipo_id = this.CA1.tipo_id;
+        this.EnInf[indice].sexo = this.CA1.sexo;
+        this.EnInf[indice].identificacion = this.CA1.identificacion;
+        this.EnInf[indice].pnom = this.CA1.pnom;
+        this.EnInf[indice].snom = this.CA1.snom;
+        this.EnInf[indice].pape = this.CA1.pape;
+        this.EnInf[indice].sape = this.CA1.sape;
+        this.EnInf.splice(indice, 1, this.EnInf[indice]);
+      } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+
+
+      indice = this.Migra.findIndex(function (identi) {
+        return identi.identificacion === id;
+      });
+
+      if (indice >= 0) {
+        this.Migra[indice].tipo_id = this.CA1.tipo_id;
+        this.Migra[indice].sexo = this.CA1.sexo;
+        this.Migra[indice].identificacion = this.CA1.identificacion;
+        this.Migra[indice].pnom = this.CA1.pnom;
+        this.Migra[indice].snom = this.CA1.snom;
+        this.Migra[indice].pape = this.CA1.pape;
+        this.Migra[indice].sape = this.CA1.sape;
+        this.Migra.splice(indice, 1, this.Migra[indice]);
+      }
+
+      this.datos[this.indiceEditInte].id = this.CA1.id;
+      this.datos[this.indiceEditInte].tipo_id = this.CA1.tipo_id;
+      this.datos[this.indiceEditInte].identificacion = this.CA1.identificacion;
+      this.datos[this.indiceEditInte].sexo = this.CA1.sexo;
+      this.datos[this.indiceEditInte].parentesco = this.CA1.parentesco;
+      this.datos[this.indiceEditInte].textoParentesco = this.showText(this.CA1.parentesco, this.parentesco_options);
+      this.datos[this.indiceEditInte].pnom = this.CA1.pnom;
+      this.datos[this.indiceEditInte].snom = this.CA1.snom;
+      this.datos[this.indiceEditInte].pape = this.CA1.pape;
+      this.datos[this.indiceEditInte].sape = this.CA1.sape;
+      this.datos[this.indiceEditInte].estado_civil = this.CA1.estado_civil;
+      this.datos[this.indiceEditInte].textoEstado = this.showText(this.CA1.estado_civil, this.estado_options);
+      this.datos[this.indiceEditInte].fecha_nac = this.CA1.fecha_nac;
+      this.datos[this.indiceEditInte].edad = this.CA1.edad;
+      this.datos[this.indiceEditInte].puntaje_sisben = this.CA1.puntaje_sisben;
+      this.datos[this.indiceEditInte].afi_entidad = this.CA1.afi_entidad;
+      this.datos[this.indiceEditInte].textoEps = textoEps;
+      this.datos[this.indiceEditInte].otra_eps = this.CA1.otra_eps;
+      this.datos[this.indiceEditInte].tipo_afiliacion = this.CA1.tipo_afiliacion;
+      this.datos[this.indiceEditInte].embarazo = this.CA1.embarazo;
+      this.datos[this.indiceEditInte].embarazo_multiple = this.CA1.embarazo_multiple;
+      this.datos[this.indiceEditInte].discapacidad = this.CA1.discapacidad;
+      this.datos[this.indiceEditInte].escolaridad = this.CA1.escolaridad;
+      this.datos[this.indiceEditInte].textoEscolaridad = this.showText(this.CA1.escolaridad, this.escolaridad_options);
+      this.datos[this.indiceEditInte].ocupacion = this.CA1.ocupacion;
+      this.datos[this.indiceEditInte].textoOcupacion = this.showText(this.CA1.ocupacion, this.ocupacion_options);
+      this.datos[this.indiceEditInte].colegio = this.CA1.colegio;
+      this.datos[this.indiceEditInte].textoColegio = this.showText(this.CA1.colegio, this.colegio_options);
+      this.datos[this.indiceEditInte].grado = this.CA1.grado;
+      this.datos[this.indiceEditInte].entiende = this.CA1.entiende;
+      this.datos[this.indiceEditInte].migrante = this.CA1.migrante;
+      this.datos[this.indiceEditInte].pyp = this.CA1.pyp;
+      this.datos[this.indiceEditInte].etnia = this.CA1.etnia;
+      this.datos[this.indiceEditInte].textoEtnia = this.showText(this.CA1.etnia, this.etnia_options);
+      this.datos[this.indiceEditInte].clasificacion = this.CA1.clasificacion;
+      this.datos[this.indiceEditInte].textoClasificacion = this.showText2(this.CA1.clasificacion, this.clasifi_options, this.CA1.etnia);
+      this.datos[this.indiceEditInte].id_hogar = this.CA1.id_hogar;
+      this.datos[this.indiceEditInte].jefe = this.CA1.jefe;
+      this.datos[this.indiceEditInte].orientacion = this.CA1.orientacion;
+      this.datos[this.indiceEditInte].identidad_genero = this.CA1.identidad_genero;
+      this.datos[this.indiceEditInte].telefono = this.CA1.telefono;
+      this.datos[this.indiceEditInte].perdida_peso = this.CA1.perdida_peso;
+      this.datos[this.indiceEditInte].programa_icbf = this.CA1.programa_icbf;
+      this.datos[this.indiceEditInte].excepciones = this.CA1.excepciones;
+      this.datos[this.indiceEditInte].textoExcepciones = this.showText(this.CA1.excepciones, this.opciones7);
+      this.datos[this.indiceEditInte].meses = this.CA1.meses;
+      this.datos[this.indiceEditInte].dias = this.CA1.dias;
+      this.datos[this.indiceEditInte].ocupacionAuxiliar = this.CA1.textoOcupacion2;
+      this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
+      this.CancelarEditarInte();
+    },
+    //OPCIONES DE LOS INTEGRANTES
+    //VALIDACIONES DE IDENTIFICACION
     valJef1: function valJef1() {
       for (var i = 0; i < this.datosJefe.length; i++) {
         if (this.datosJefe[i].tipo_id === "") {
@@ -13416,32 +18428,32 @@ var entero = function entero(value) {
     valJef2: function () {
       var _valJef = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
-        var _this5 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12() {
+        var _this13 = this;
 
-        var _loop, i;
+        var _loop5, i;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context6) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context15) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context15.prev = _context15.next) {
               case 0:
-                _loop =
+                _loop5 =
                 /*#__PURE__*/
-                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop(i) {
+                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop5(i) {
                   var parametros;
-                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop$(_context5) {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop5$(_context14) {
                     while (1) {
-                      switch (_context5.prev = _context5.next) {
+                      switch (_context14.prev = _context14.next) {
                         case 0:
                           parametros = {
-                            _token: _this5.csrf,
-                            identificacion: _this5.datosJefe[i].identificacion
+                            _token: _this13.csrf,
+                            identificacion: _this13.datosJefe[i].identificacion
                           };
-                          _context5.prev = 1;
-                          _context5.next = 4;
+                          _context14.prev = 1;
+                          _context14.next = 4;
                           return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
                             if (respuesta.data.OPC == "EXISTE") {
-                              _this5.vectorAyuda.push({
+                              _this13.vectorAyuda.push({
                                 identificacion: respuesta.data.identificacion,
                                 fila: i + 1,
                                 error: "ERROR1"
@@ -13452,41 +18464,41 @@ var entero = function entero(value) {
                           })["catch"](function (error) {});
 
                         case 4:
-                          _context5.next = 8;
+                          _context14.next = 8;
                           break;
 
                         case 6:
-                          _context5.prev = 6;
-                          _context5.t0 = _context5["catch"](1);
+                          _context14.prev = 6;
+                          _context14.t0 = _context14["catch"](1);
 
                         case 8:
                         case "end":
-                          return _context5.stop();
+                          return _context14.stop();
                       }
                     }
-                  }, _loop, null, [[1, 6]]);
+                  }, _loop5, null, [[1, 6]]);
                 });
                 i = 0;
 
               case 2:
                 if (!(i < this.datosJefe.length)) {
-                  _context6.next = 7;
+                  _context15.next = 7;
                   break;
                 }
 
-                return _context6.delegateYield(_loop(i), "t0", 4);
+                return _context15.delegateYield(_loop5(i), "t0", 4);
 
               case 4:
                 i++;
-                _context6.next = 2;
+                _context15.next = 2;
                 break;
 
               case 7:
               case "end":
-                return _context6.stop();
+                return _context15.stop();
             }
           }
-        }, _callee5, this);
+        }, _callee12, this);
       }));
 
       function valJef2() {
@@ -13612,32 +18624,32 @@ var entero = function entero(value) {
     valInt2: function () {
       var _valInt = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
-        var _this6 = this;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13() {
+        var _this14 = this;
 
-        var _loop2, i;
+        var _loop6, i;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context8) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context17) {
           while (1) {
-            switch (_context8.prev = _context8.next) {
+            switch (_context17.prev = _context17.next) {
               case 0:
-                _loop2 =
+                _loop6 =
                 /*#__PURE__*/
-                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop2(i) {
+                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop6(i) {
                   var parametros;
-                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop2$(_context7) {
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop6$(_context16) {
                     while (1) {
-                      switch (_context7.prev = _context7.next) {
+                      switch (_context16.prev = _context16.next) {
                         case 0:
                           parametros = {
-                            _token: _this6.csrf,
-                            identificacion: _this6.datos[i].identificacion
+                            _token: _this14.csrf,
+                            identificacion: _this14.datos[i].identificacion
                           };
-                          _context7.prev = 1;
-                          _context7.next = 4;
+                          _context16.prev = 1;
+                          _context16.next = 4;
                           return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function (respuesta) {
                             if (respuesta.data.OPC == "EXISTE") {
-                              _this6.vectorAyuda.push({
+                              _this14.vectorAyuda.push({
                                 identificacion: respuesta.data.identificacion,
                                 fila: i + 1,
                                 error: "ERROR1"
@@ -13648,41 +18660,41 @@ var entero = function entero(value) {
                           })["catch"](function (error) {});
 
                         case 4:
-                          _context7.next = 8;
+                          _context16.next = 8;
                           break;
 
                         case 6:
-                          _context7.prev = 6;
-                          _context7.t0 = _context7["catch"](1);
+                          _context16.prev = 6;
+                          _context16.t0 = _context16["catch"](1);
 
                         case 8:
                         case "end":
-                          return _context7.stop();
+                          return _context16.stop();
                       }
                     }
-                  }, _loop2, null, [[1, 6]]);
+                  }, _loop6, null, [[1, 6]]);
                 });
                 i = 0;
 
               case 2:
                 if (!(i < this.datos.length)) {
-                  _context8.next = 7;
+                  _context17.next = 7;
                   break;
                 }
 
-                return _context8.delegateYield(_loop2(i), "t0", 4);
+                return _context17.delegateYield(_loop6(i), "t0", 4);
 
               case 4:
                 i++;
-                _context8.next = 2;
+                _context17.next = 2;
                 break;
 
               case 7:
               case "end":
-                return _context8.stop();
+                return _context17.stop();
             }
           }
-        }, _callee6, this);
+        }, _callee13, this);
       }));
 
       function valInt2() {
@@ -13786,6 +18798,7 @@ var entero = function entero(value) {
 
       return true;
     },
+    //VALIDACIONES DE IDENTIFICACION
     //VALIDACIONES DE LOS CICLOS
     valMen1: function valMen1() {
       for (var i = 0; i < this.Men1A.length; i++) {
@@ -15087,2393 +20100,178 @@ var entero = function entero(value) {
 
       return true;
     },
-    //VALIDACIONES DE LOS CICLOS
-    //VALIDACIONES
-    allLetter: function allLetter(valor) {
-      var letters = /^([0-9])*$/;
-
-      if (valor === "") {
-        return false;
-      } else {
-        if (valor.match(letters)) {
-          // console.log("no hay letras");
-          return true;
-        } else {
-          // console.log("hay letras");
-          return false;
-        }
-      }
+    //VALIDACIONES DE LOS CICLOS      
+    //OPCIONES DE LA VIVIENDA
+    abrirModalActividades: function abrirModalActividades() {
+      this.txtbusquedaAct = "";
+      this.consultarActividades(1);
+      this.$refs.modalActividad.show();
     },
-    isNumeric: function isNumeric(n) {
-      return !isNaN(parseFloat(n)) && isFinite(n);
-    },
-    nuevo: function () {
-      var _nuevo = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
-        var _this7 = this;
+    consultarActividades: function consultarActividades(pagina) {
+      var _this15 = this;
 
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context9) {
-          while (1) {
-            switch (_context9.prev = _context9.next) {
-              case 0:
-                parametros = {
-                  _token: this.csrf
-                };
-                _context9.prev = 1;
-                _context9.next = 4;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["nuevaCaracterizacion"](parametros).then(function (respuesta) {
-                  _this7.dpto_options = respuesta.data.arrayDpto;
-                  _this7.muni_options = respuesta.data.arrayMuni;
-                  _this7.corregi_options = respuesta.data.arrayCorregi;
-                  _this7.vereda_options = respuesta.data.arrayVeredas; // this.barrio_options = respuesta.data.arrayBarrios;
-
-                  _this7.parentesco_options = respuesta.data.arrayParentesco;
-                  _this7.estado_options = respuesta.data.arrayEstado;
-                  _this7.escolaridad_options = respuesta.data.arrayEscolaridad;
-                  _this7.ocupacion_options = respuesta.data.arrayOcupacion;
-                  _this7.etnia_options = respuesta.data.arrayEtnia;
-                  _this7.admini_options = respuesta.data.arrayAdmini;
-                  _this7.clasifi_options = respuesta.data.arrayCLasifi;
-                  _this7.grados_option = respuesta.data.arrayGrados;
-                  _this7.morbilidadNacer_options = respuesta.data.arrayMorbilidadNacer;
-                  _this7.morbilidad_options = respuesta.data.arrayMorbilidad;
-                  _this7.metodos_options = respuesta.data.arrayMetodos;
-                  _this7.motivos_options = respuesta.data.arrayMotivos;
-                  _this7.grupos_options = respuesta.data.arrayGrupos;
-                  _this7.enfcro_options = respuesta.data.arrayEnfCro;
-                  _this7.enfinf_options = respuesta.data.arrayEnfInf;
-                  _this7.religion_options = respuesta.data.arrayReligion;
-                  _this7.CODIGOGENE = respuesta.data.codigo;
-                });
-
-              case 4:
-                _context9.next = 15;
-                break;
-
-              case 6:
-                _context9.prev = 6;
-                _context9.t0 = _context9["catch"](1);
-                _context9.t1 = _context9.t0.response.status;
-                _context9.next = _context9.t1 === 422 ? 11 : 13;
-                break;
-
-              case 11:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context9.abrupt("break", 15);
-
-              case 13:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context9.abrupt("break", 15);
-
-              case 15:
-              case "end":
-                return _context9.stop();
-            }
-          }
-        }, _callee7, this, [[1, 6]]);
-      }));
-
-      function nuevo() {
-        return _nuevo.apply(this, arguments);
-      }
-
-      return nuevo;
-    }(),
-    agregar: function () {
-      var _agregar = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
-        var _this8 = this;
-
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context10) {
-          while (1) {
-            switch (_context10.prev = _context10.next) {
-              case 0:
-                if (!(this.CA1.tipo_id == "0")) {
-                  _context10.next = 3;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
-                return _context10.abrupt("return");
-
-              case 3:
-                if (!(this.CA1.identificacion == "")) {
-                  _context10.next = 6;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor digite el documento de identificación!", "error");
-                return _context10.abrupt("return");
-
-              case 6:
-                if (!(this.CA1.sexo == "0")) {
-                  _context10.next = 9;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-                return _context10.abrupt("return");
-
-              case 9:
-                if (!(this.CA1.orientacion === "0")) {
-                  _context10.next = 12;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-                return _context10.abrupt("return");
-
-              case 12:
-                if (!(this.CA1.identidad_genero === "0")) {
-                  _context10.next = 15;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-                return _context10.abrupt("return");
-
-              case 15:
-                if (!(this.CA1.parentesco == "0")) {
-                  _context10.next = 18;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-                return _context10.abrupt("return");
-
-              case 18:
-                if (!(this.CA1.pnom == "0")) {
-                  _context10.next = 21;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-                return _context10.abrupt("return");
-
-              case 21:
-                if (!(this.CA1.pape == "0")) {
-                  _context10.next = 24;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
-                return _context10.abrupt("return");
-
-              case 24:
-                if (!(this.CA1.estado_civil == "0")) {
-                  _context10.next = 27;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
-                return _context10.abrupt("return");
-
-              case 27:
-                if (!(this.CA1.fecha_nac == "")) {
-                  _context10.next = 30;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
-                return _context10.abrupt("return");
-
-              case 30:
-                if (!(this.CA1.escolaridad == "0")) {
-                  _context10.next = 33;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el nivel de escolaridad!", "error");
-                return _context10.abrupt("return");
-
-              case 33:
-                if (!(this.CA1.ocupacion == "0")) {
-                  _context10.next = 36;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-                return _context10.abrupt("return");
-
-              case 36:
-                if (!(this.CA1.etnia == "0")) {
-                  _context10.next = 39;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-                return _context10.abrupt("return");
-
-              case 39:
-                if (!(this.CA1.clasificacion == "0")) {
-                  _context10.next = 42;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
-                return _context10.abrupt("return");
-
-              case 42:
-                if (!(this.CA1.entiende == "0")) {
-                  _context10.next = 45;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la opción entiende español!", "error");
-                return _context10.abrupt("return");
-
-              case 45:
-                if (!(this.CA1.pyp == "0")) {
-                  _context10.next = 48;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-                return _context10.abrupt("return");
-
-              case 48:
-                if (!(this.CA1.migrante == "0")) {
-                  _context10.next = 51;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione la opción migrante!", "error");
-                return _context10.abrupt("return");
-
-              case 51:
-                if (!(this.CA1.jefe == "0")) {
-                  _context10.next = 54;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor seleccione el un jefe de hogar!", "error");
-                return _context10.abrupt("return");
-
-              case 54:
-                if (!(this.CA1.perdida_peso === "")) {
-                  _context10.next = 59;
-                  break;
-                }
-
-                this.$refs.perdida_peso.focus();
-                bande = false;
-                this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-                return _context10.abrupt("return");
-
-              case 59:
-                if (!(this.CA1.programa_icbf === "")) {
-                  _context10.next = 64;
-                  break;
-                }
-
-                this.$refs.programa_icbf.focus();
-                bande = false;
-                this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-                return _context10.abrupt("return");
-
-              case 64:
-                if (!(this.CA1.excepciones === "0")) {
-                  _context10.next = 68;
-                  break;
-                }
-
-                bande = false;
-                this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
-                return _context10.abrupt("return");
-
-              case 68:
-                // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
-                this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-                parametros = {
-                  _token: this.csrf,
-                  identificacion: this.CA1.identificacion
-                };
-                _context10.prev = 70;
-                _context10.next = 73;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function (respuesta) {
-                  if (respuesta.data.OPC == "EXISTE") {
-                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
-                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                    _this8.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
-
-                    return false;
-                  } else {
-                    // VERIFICAR SI ESTA EN LA TABLA
-                    var resultado = _this8.datos.filter(function (identi) {
-                      return identi.identificacion == _this8.CA1.identificacion;
-                    }); // VERIFICAR SI ESTA EN LA TABLA
-
-
-                    if (resultado.length > 0) {
-                      _this8.$swal("Validar...!", "El Documento <b>" + _this8.CA1.identificacion + "</b> Se Encuentra Agregado", "warning");
-
-                      return false;
-                    } else {
-                      var nacimiento = moment(_this8.CA1.fecha_nac);
-                      var hoy = moment();
-                      var edad = 0;
-
-                      if (nacimiento < hoy) {
-                        edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
-                      }
-
-                      var textoEps = "";
-
-                      if (_this8.CA1.afi_entidad === "OTRA") {
-                        textoEps = "OTRA";
-                      } else {
-                        if (_this8.CA1.afi_entidad === "NINGUNA") {
-                          textoEps = "NINGUNA";
-                        } else {
-                          textoEps = _this8.showText(_this8.CA1.afi_entidad, _this8.admini_options);
-                        }
-                      }
-
-                      _this8.datos.push({
-                        id: 0,
-                        tipo_id: _this8.CA1.tipo_id,
-                        identificacion: _this8.CA1.identificacion,
-                        sexo: _this8.CA1.sexo,
-                        parentesco: _this8.CA1.parentesco,
-                        textoParentesco: _this8.showText(_this8.CA1.parentesco, _this8.parentesco_options),
-                        pnom: _this8.CA1.pnom,
-                        snom: _this8.CA1.snom,
-                        pape: _this8.CA1.pape,
-                        sape: _this8.CA1.sape,
-                        estado_civil: _this8.CA1.estado_civil,
-                        textoEstado: _this8.showText(_this8.CA1.estado_civil, _this8.estado_options),
-                        fecha_nac: _this8.CA1.fecha_nac,
-                        edad: edad,
-                        afi_entidad: _this8.CA1.afi_entidad,
-                        textoEps: textoEps,
-                        otra_eps: _this8.CA1.otra_eps,
-                        tipo_afiliacion: _this8.CA1.tipo_afiliacion,
-                        embarazo: _this8.CA1.embarazo,
-                        embarazo_multiple: _this8.CA1.embarazo_multiple,
-                        discapacidad: _this8.CA1.discapacidad,
-                        escolaridad: _this8.CA1.escolaridad,
-                        textoEscolaridad: _this8.showText(_this8.CA1.escolaridad, _this8.escolaridad_options),
-                        ocupacion: _this8.CA1.ocupacion,
-                        textoOcupacion: _this8.showText(_this8.CA1.ocupacion, _this8.ocupacion_options),
-                        colegio: _this8.CA1.colegio,
-                        textoColegio: _this8.showText(_this8.CA1.colegio, _this8.colegio_options),
-                        grado: _this8.CA1.grado,
-                        entiende: _this8.CA1.entiende,
-                        migrante: _this8.CA1.migrante,
-                        pyp: _this8.CA1.pyp,
-                        etnia: _this8.CA1.etnia,
-                        textoEtnia: _this8.showText(_this8.CA1.etnia, _this8.etnia_options),
-                        clasificacion: _this8.CA1.clasificacion,
-                        textoClasificacion: _this8.showText2(_this8.CA1.clasificacion, _this8.clasifi_options, _this8.CA1.etnia),
-                        puntaje_sisben: _this8.CA1.puntaje_sisben,
-                        jefe: _this8.CA1.jefe,
-                        orientacion: _this8.CA1.orientacion,
-                        identidad_genero: _this8.CA1.identidad_genero,
-                        telefono: _this8.CA1.telefono,
-                        perdida_peso: _this8.CA1.perdida_peso,
-                        programa_icbf: _this8.CA1.programa_icbf,
-                        excepciones: _this8.CA1.excepciones,
-                        textoExcepciones: _this8.showText(_this8.CA1.excepciones, _this8.opciones7),
-                        identi_auxi: "",
-                        estado: "Activo"
-                      });
-
-                      if (_this8.CA1.tipo_afiliacion === "CONTRIBUTIVO" || _this8.CA1.tipo_afiliacion === "ESPECIAL") {
-                        _this8.SAPU = true;
-                        _this8.estratificacionData.afiliacion_salud_privada = "SI";
-                      }
-
-                      _this8.ocupacionAuxiliar2 = "";
-                      _this8.mOCOL2 = false;
-
-                      var indice = _this8.datos.findIndex(function (identi) {
-                        return identi.identificacion === _this8.CA1.identificacion;
-                      });
-
-                      _this8.vectorIntegrante.push({
-                        index: indice,
-                        identificacion: _this8.CA1.identificacion
-                      }); // AGREGAR NIÑOS MENORES DE 1 AÑO
-
-
-                      if (edad <= 0) {
-                        _this8.Amenores1Anio(_this8.CA1, hoy.diff(nacimiento, "months"), "INTE");
-                      } // AGREGAR NIÑOS MENORES DE 1 AÑO
-                      // AGREGAR DE 1 A 5 AÑOS
-
-
-                      if (edad >= 1 && edad <= 5) {
-                        _this8.Ade1a5Anio(_this8.CA1, edad, "INTE");
-                      } // AGREGAR DE 1 A 5 AÑOS
-                      // AGREGAR DE 6 A 11 AÑOS
-
-
-                      if (edad >= 6 && edad <= 11) {
-                        _this8.Ade6a11Anio(_this8.CA1, edad, "INTE");
-                      } // AGREGAR DE 6 A 11 AÑOS
-                      // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
-
-
-                      if (edad < 10) {
-                        if (_this8.CA1.excepciones === "1") {
-                          _this8.Ade10a59Anio(_this8.CA1, edad, "INTE");
-                        }
-                      } // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
-                      // AGREGAR DE 10 A 59 AÑOS
-
-
-                      if (edad >= 10 && edad <= 59) {
-                        _this8.Ade10a59Anio(_this8.CA1, edad, "INTE");
-                      } // AGREGAR DE 10 A 59 AÑOS
-                      // AGREGAR PARTO POSTPARTO
-                      // alert(this.CA1.embarazo_multiple);
-
-
-                      if (_this8.CA1.embarazo === "SI") {
-                        _this8.AParPost(_this8.CA1, edad, "INTE");
-                      } // AGREGAR PARTO POSTPARTO
-                      // AGREGAR DE 12 A 17 AÑOS
-
-
-                      if (edad >= 12 && edad <= 17) {
-                        _this8.Ade12a17Anio(_this8.CA1, edad, "INTE");
-                      } // AGREGAR DE 12 A 17 AÑOS
-                      // AGREGAR DE 18 A 28 AÑOS
-
-
-                      if (edad >= 18 && edad <= 28) {
-                        _this8.Ade18a28Anio(_this8.CA1, edad, "INTE");
-                      } // AGREGAR DE 18 A 28 AÑOS
-                      // AGREGAR DE 29 A 59 AÑOS
-
-
-                      if (edad >= 29 && edad <= 59) {
-                        _this8.Ade29a59Anio(_this8.CA1, edad, "INTE");
-                      } // AGREGAR DE 29 A 59 AÑOS
-                      // AGREGAR DE 60 ó MAS AÑOS
-
-
-                      if (edad >= 60) {
-                        _this8.Ade60Anio(_this8.CA1, edad, "INTE");
-                      } // AGREGAR DE 60 ó MAS AÑOS
-                      // AGREGAR MIGRANTES
-
-
-                      if (_this8.CA1.migrante === "SI") {
-                        _this8.AMigra(_this8.CA1, edad, "INTE");
-                      } // AGREGAR MIGRANTES
-
-
-                      _this8.limpiar();
-                    }
-                  }
-                })["catch"](function (error) {
-                  _this8.errorDevuelto = error.response.data.errors;
-                  _this8.entrarPorError = true;
-                });
-
-              case 73:
-                _context10.next = 86;
-                break;
-
-              case 75:
-                _context10.prev = 75;
-                _context10.t0 = _context10["catch"](70);
-                _context10.t1 = _context10.t0.response.status;
-                _context10.next = _context10.t1 === 419 ? 80 : _context10.t1 === 422 ? 82 : 84;
-                break;
-
-              case 80:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 86);
-
-              case 82:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 86);
-
-              case 84:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context10.abrupt("break", 86);
-
-              case 86:
-              case "end":
-                return _context10.stop();
-            }
-          }
-        }, _callee8, this, [[70, 75]]);
-      }));
-
-      function agregar() {
-        return _agregar.apply(this, arguments);
-      }
-
-      return agregar;
-    }(),
-    agregarJefe: function () {
-      var _agregarJefe = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9() {
-        var _this9 = this;
-
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context11) {
-          while (1) {
-            switch (_context11.prev = _context11.next) {
-              case 0:
-                if (!(this.checkForm() === true)) {
-                  _context11.next = 12;
-                  break;
-                }
-
-                // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
-                this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-                parametros = {
-                  _token: this.csrf,
-                  identificacion: this.caracData.identificacion
-                };
-                _context11.prev = 3;
-                _context11.next = 6;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
-                  if (respuesta.data.OPC == "EXISTE") {
-                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
-                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                    _this9.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
-
-                    return false;
-                  } else {
-                    // VERIFICAR SI ESTA EN LA TABLA
-                    var resultado = _this9.datosJefe.filter(function (identi) {
-                      return identi.identificacion == _this9.caracData.identificacion;
-                    }); // VERIFICAR SI ESTA EN LA TABLA
-
-
-                    if (resultado.length > 0) {
-                      _this9.$swal("Validar...!", "El Documento <b>" + _this9.caracData.identificacion + "</b> Se Encuentra Agregado", "warning");
-
-                      return false;
-                    } else {
-                      var nacimiento = moment(_this9.caracData.fecha_nacimiento);
-                      var hoy = moment();
-                      var edad = 0;
-
-                      if (nacimiento < hoy) {
-                        edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
-                      }
-
-                      if (edad < 14) {
-                        _this9.$swal("Validar...!", "El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años", "warning");
-
-                        return false;
-                      }
-
-                      var textoEps = "";
-
-                      if (_this9.caracData.afiliacion_entidad === "OTRA") {
-                        textoEps = "OTRA";
-                      } else {
-                        if (_this9.caracData.afiliacion_entidad === "NINGUNA") {
-                          textoEps = "NINGUNA";
-                        } else {
-                          textoEps = _this9.showText(_this9.caracData.afiliacion_entidad, _this9.admini_options);
-                        }
-                      }
-
-                      _this9.datosJefe.push({
-                        id: 0,
-                        id_hogar: 0,
-                        telefono: _this9.caracData.telefono,
-                        puntaje_sisben: _this9.caracData.puntaje_sisben,
-                        afiliacion_entidad: _this9.caracData.afiliacion_entidad,
-                        textoEps: textoEps,
-                        otra_eps: _this9.caracData.otra_eps,
-                        tipo_id: _this9.caracData.tipo_id,
-                        identificacion: _this9.caracData.identificacion,
-                        sexo: _this9.caracData.sexo,
-                        parentesco: _this9.caracData.parentesco,
-                        textoParentesco: _this9.showText(_this9.caracData.parentesco, _this9.parentesco_options),
-                        pnom: _this9.caracData.pnom,
-                        snom: _this9.caracData.snom,
-                        pape: _this9.caracData.pape,
-                        sape: _this9.caracData.sape,
-                        salario: _this9.caracData.salario,
-                        estado_civil: _this9.caracData.estado_civil,
-                        textoEstado: _this9.showText(_this9.caracData.estado_civil, _this9.estado_options),
-                        fecha_nacimiento: _this9.caracData.fecha_nacimiento,
-                        tipo_afiliacion: _this9.caracData.tipo_afiliacion,
-                        embarazo: _this9.caracData.embarazo,
-                        embarazo_multiple: _this9.caracData.embarazo_multiple,
-                        discapacidad: _this9.caracData.discapacidad,
-                        nivel_escolaridad: _this9.caracData.nivel_escolaridad,
-                        textoNivel: _this9.showText(_this9.caracData.nivel_escolaridad, _this9.escolaridad_options),
-                        ocupacion: _this9.caracData.ocupacion,
-                        textoOcupacion: _this9.showText(_this9.caracData.ocupacion, _this9.ocupacion_options),
-                        colegio: _this9.caracData.colegio,
-                        textoColegio: _this9.showText(_this9.caracData.colegio, _this9.colegio_options),
-                        grado: _this9.caracData.grado,
-                        entiende: _this9.caracData.entiende,
-                        migrante: _this9.caracData.migrante,
-                        pyp: _this9.caracData.pyp,
-                        etnia: _this9.caracData.etnia,
-                        textoEtnia: _this9.showText(_this9.caracData.etnia, _this9.etnia_options),
-                        clasificacion: _this9.caracData.clasificacion,
-                        textoClasificacion: _this9.showText2(_this9.caracData.clasificacion, _this9.clasifi_options, _this9.caracData.etnia),
-                        edad: _this9.caracData.edad,
-                        orientacion: _this9.caracData.orientacion,
-                        identidad_genero: _this9.caracData.identidad_genero,
-                        perdida_peso: _this9.caracData.perdida_peso,
-                        programa_icbf: _this9.caracData.programa_icbf,
-                        identi_auxi: "",
-                        estado: "Activo"
-                      });
-
-                      if (_this9.caracData.tipo_afiliacion === "CONTRIBUTIVO" || _this9.caracData.tipo_afiliacion === "ESPECIAL") {
-                        _this9.SAPU = true;
-                        _this9.estratificacionData.afiliacion_salud_privada = "SI";
-                      }
-
-                      _this9.ocupacionAuxiliar = "";
-                      _this9.mOCOL1 = false;
-
-                      var indice = _this9.datosJefe.findIndex(function (identi) {
-                        return identi.identificacion === _this9.caracData.identificacion;
-                      });
-
-                      _this9.vectorJefes.push({
-                        index: indice,
-                        identificacion: _this9.caracData.identificacion
-                      }); // AGREGAR FACTORES
-
-
-                      _this9.AFactores(_this9.caracData, edad); // AGREGAR FACTORES
-                      // AGREGAR DE 10 A 59 AÑOS
-
-
-                      if (edad >= 10 && edad <= 59) {
-                        _this9.Ade10a59Anio(_this9.caracData, edad, "JEFE");
-                      } // AGREGAR DE 10 A 59 AÑOS
-                      // AGREGAR PARTO POSTPARTO
-                      // alert(this.CA1.embarazo_multiple);
-
-
-                      if (_this9.caracData.embarazo === "SI") {
-                        _this9.AParPost(_this9.caracData, edad, "JEFE");
-                      } // AGREGAR PARTO POSTPARTO
-                      // AGREGAR DE 12 A 17 AÑOS
-
-
-                      if (edad >= 12 && edad <= 17) {
-                        _this9.Ade12a17Anio(_this9.caracData, edad, "JEFE");
-                      } // AGREGAR DE 12 A 17 AÑOS
-                      // AGREGAR DE 18 A 28 AÑOS
-
-
-                      if (edad >= 18 && edad <= 28) {
-                        _this9.Ade18a28Anio(_this9.caracData, edad, "JEFE");
-                      } // AGREGAR DE 18 A 28 AÑOS
-                      // AGREGAR DE 29 A 59 AÑOS
-
-
-                      if (edad >= 29 && edad <= 59) {
-                        _this9.Ade29a59Anio(_this9.caracData, edad, "JEFE");
-                      } // AGREGAR DE 29 A 59 AÑOS
-                      // AGREGAR DE 60 ó MAS AÑOS
-
-
-                      if (edad >= 60) {
-                        _this9.Ade60Anio(_this9.caracData, edad, "JEFE");
-                      } // AGREGAR DE 60 ó MAS AÑOS
-                      // AGREGAR MIGRANTES
-
-
-                      if (_this9.caracData.migrante === "SI") {
-                        _this9.AMigra(_this9.caracData, edad, "JEFE");
-                      } // AGREGAR MIGRANTES
-
-
-                      _this9.limpiar2();
-                    }
-                  }
-                })["catch"](function (error) {
-                  _this9.errorDevuelto = error.response.data.errors;
-                  _this9.entrarPorError = true;
-                });
-
-              case 6:
-                _context11.next = 12;
-                break;
-
-              case 8:
-                _context11.prev = 8;
-                _context11.t0 = _context11["catch"](3);
-                this.errorDevuelto = _context11.t0.response.data.errors;
-                this.entrarPorError = true;
-
-              case 12:
-              case "end":
-                return _context11.stop();
-            }
-          }
-        }, _callee9, this, [[3, 8]]);
-      }));
-
-      function agregarJefe() {
-        return _agregarJefe.apply(this, arguments);
-      }
-
-      return agregarJefe;
-    }(),
-    checkForm: function checkForm(e) {
-      var bande = true;
-
-      if (this.caracData.tipo_id === "") {
-        this.$refs.tipo_id.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione un tipo de identificación!", "error");
-        return;
-      }
-
-      if (this.caracData.identificacion === "") {
-        this.$refs.identificacion.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor digite una identificación!", "error");
-        return;
-      }
-
-      if (this.caracData.sexo === "") {
-        this.$refs.sexo.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-        return;
-      }
-
-      if (this.caracData.orientacion === "") {
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-        return;
-      }
-
-      if (this.caracData.identidad_genero === "") {
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-        return;
-      }
-
-      if (this.caracData.parentesco === "") {
-        this.$refs.parentesco.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-        return;
-      }
-
-      if (this.caracData.pnom === "") {
-        this.$refs.pnom.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-        return;
-      }
-
-      if (this.caracData.pape === "") {
-        this.$refs.pape.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor digite el primer apellido!", "error");
-        return;
-      }
-
-      if (this.caracData.estado_civil === "") {
-        this.$refs.estado_civil.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione el estado civil!", "error");
-        return;
-      }
-
-      if (this.caracData.fecha_nacimiento === "") {
-        this.$refs.fecha_nacimiento.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la fecha de nacimiento!", "error");
-        return;
-      }
-
-      if (this.caracData.afiliacion_entidad === "") {
-        this.$refs.afiliacion_entidad.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la eps!", "error");
-        return;
-      }
-
-      if (this.caracData.ocupacion === "") {
-        this.$refs.ocupacion.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-        return;
-      }
-
-      if (this.caracData.etnia === "") {
-        this.$refs.etnia.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-        return;
-      }
-
-      if (this.caracData.clasificacion === "") {
-        this.$refs.clasificacion.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la clasificacion de la etnia!", "error");
-        return;
-      }
-
-      if (this.caracData.salario === "") {
-        this.$refs.salario.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor digite el salario!", "error");
-        return;
-      }
-
-      if (this.caracData.perdida_peso === "") {
-        this.$refs.perdida_peso.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-        return;
-      }
-
-      if (this.caracData.programa_icbf === "") {
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-        return;
-      }
-
-      return bande;
-      e.preventDefault();
-    },
-    showText: function showText(val, vectorAux) {
-      for (var i = 0; i < vectorAux.length; i++) {
-        if (vectorAux[i].value === val) {
-          return vectorAux[i].texto;
-        }
-      }
-
-      return "";
-    },
-    showText2: function showText2(val, vectorAux, id) {
-      if (id === "") {
-        return "";
-      }
-
-      for (var i = 0; i < vectorAux[id].length; i++) {
-        console.log(vectorAux[id][i].value);
-
-        if (vectorAux[id][i].value === val) {
-          return vectorAux[id][i].texto;
-        }
-      }
-
-      return "";
-    },
-    eliminarItem: function eliminarItem(index, item) {
-      this.datos.splice(index, 1);
-      this.vectorIntegrante.splice(index, 1);
-      var identificacion = item.identificacion;
-      this.Men1A = this.Men1A.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De1A5 = this.De1A5.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De6A11 = this.De6A11.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De10A59 = this.De10A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.ParPost = this.ParPost.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De12A17 = this.De12A17.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De18A28 = this.De18A28.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De29A59 = this.De29A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De60 = this.De60.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.EnCro = this.EnCro.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.EnInf = this.EnInf.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.Migra = this.Migra.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-    },
-    eliminarItemJefe: function eliminarItemJefe(index, item) {
-      this.datosJefe.splice(index, 1);
-      this.vectorJefes.splice(index, 1);
-      var identificacion = item.identificacion;
-      this.factores = this.factores.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.Men1A = this.Men1A.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De1A5 = this.De1A5.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De6A11 = this.De6A11.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De10A59 = this.De10A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.ParPost = this.ParPost.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De12A17 = this.De12A17.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De18A28 = this.De18A28.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De29A59 = this.De29A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De60 = this.De60.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.EnCro = this.EnCro.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.EnInf = this.EnInf.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.Migra = this.Migra.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-    },
-    editarItemJefe: function editarItemJefe(index, item) {
-      this.bandeGuaEdiJefe = false;
-      this.indiceEditJefe = index;
-      this.caracData.id = item.id;
-      this.caracData.id_hogar = item.id_hogar;
-      this.caracData.telefono = item.telefono;
-      this.caracData.puntaje_sisben = item.puntaje_sisben;
-      this.caracData.afiliacion_entidad = item.afiliacion_entidad;
-      this.caracData.otra_eps = item.otra_eps;
-      this.caracData.tipo_id = item.tipo_id;
-      this.caracData.identificacion = item.identificacion;
-      this.caracData.sexo = item.sexo;
-      this.caracData.parentesco = item.parentesco;
-      this.caracData.pnom = item.pnom;
-      this.caracData.snom = item.snom;
-      this.caracData.pape = item.pape;
-      this.caracData.sape = item.sape;
-      this.caracData.salario = item.salario;
-      this.caracData.id_compania = item.id_compania;
-      this.caracData.estado = item.estado;
-      this.caracData.estado_civil = item.estado_civil;
-      this.caracData.fecha_nacimiento = item.fecha_nacimiento;
-      this.caracData.tipo_afiliacion = item.tipo_afiliacion;
-      this.caracData.embarazo = item.embarazo;
-      this.caracData.embarazo_multiple = item.embarazo_multiple;
-      this.caracData.discapacidad = item.discapacidad;
-      this.caracData.nivel_escolaridad = item.nivel_escolaridad;
-      this.caracData.ocupacion = item.ocupacion;
-      this.caracData.colegio = item.colegio;
-      this.caracData.grado = item.grado;
-      this.caracData.etnia = item.etnia;
-      this.caracData.clasificacion = item.clasificacion;
-      this.caracData.entiende = item.entiende;
-      this.caracData.pyp = item.pyp;
-      this.caracData.migrante = item.migrante;
-      this.caracData.edad = item.edad;
-      this.caracData.orientacion = item.orientacion;
-      this.caracData.identidad_genero = item.identidad_genero;
-      this.caracData.perdida_peso = item.perdida_peso;
-      this.caracData.programa_icbf = item.programa_icbf;
-      this.ocupacionAuxiliar = item.textoOcupacion;
-      this.$refs.identificacionJefe.focus(); // ELIMINAR LOS DATOS DE LAS TABLAS
-
-      var identificacion = this.vectorJefes[this.indiceEditJefe].identificacion;
-      this.datosJefe.splice(this.indiceEditJefe, 1);
-      this.vectorJefes.splice(this.indiceEditJefe, 1);
-      console.log(this.datosJefe);
-      this.factores = this.factores.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.Men1A = this.Men1A.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De1A5 = this.De1A5.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De6A11 = this.De6A11.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De10A59 = this.De10A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.ParPost = this.ParPost.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De12A17 = this.De12A17.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De18A28 = this.De18A28.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De29A59 = this.De29A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De60 = this.De60.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.EnCro = this.EnCro.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.EnInf = this.EnInf.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.Migra = this.Migra.filter(function (men) {
-        return men.identificacion != identificacion;
-      }); // ELIMINAR LOS DATOS DE LAS TABLAS        
-    },
-    CancelarEditarJefe: function CancelarEditarJefe() {
-      // AGREGAR LOS DATOS
-      this.agregarJefe(); // AGREGAR LOS DATOS
-    },
-    editarJefe: function () {
-      var _editarJefe = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
-        var _this10 = this;
-
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context12) {
-          while (1) {
-            switch (_context12.prev = _context12.next) {
-              case 0:
-                this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-                parametros = {
-                  _token: this.csrf,
-                  identificacion: this.caracData.identificacion
-                };
-                _context12.prev = 2;
-                _context12.next = 5;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
-                  if (respuesta.data.OPC == "EXISTE") {
-                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
-                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                    _this10.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
-
-                    return false;
-                  } else {
-                    // VERIFICAR SI ESTA EN LA TABLA
-                    var resultado = _this10.datosJefe.filter(function (identi) {
-                      return identi.identificacion == _this10.caracData.identificacion;
-                    });
-
-                    if (resultado.length >= 1) {
-                      _this10.$swal("Validar...!", "El Documento <b>" + _this10.caracData.identificacion + "</b> Se Encuentra Agregado", "warning");
-
-                      return false;
-                    } else {
-                      // AGREGAR LOS DATOS
-                      _this10.agregarJefe(); // AGREGAR LOS DATOS                  
-
-                    }
-                  }
-                });
-
-              case 5:
-                _context12.next = 9;
-                break;
-
-              case 7:
-                _context12.prev = 7;
-                _context12.t0 = _context12["catch"](2);
-
-              case 9:
-              case "end":
-                return _context12.stop();
-            }
-          }
-        }, _callee10, this, [[2, 7]]);
-      }));
-
-      function editarJefe() {
-        return _editarJefe.apply(this, arguments);
-      }
-
-      return editarJefe;
-    }(),
-    editarItemInte: function editarItemInte(index, item) {
-      this.bandeGuaEdiInte = false;
-      this.indiceEditInte = index;
-      this.CA1.id = item.id;
-      this.CA1.tipo_id = item.tipo_id;
-      this.CA1.identificacion = item.identificacion;
-      this.CA1.sexo = item.sexo;
-      this.CA1.parentesco = item.parentesco;
-      this.CA1.pnom = item.pnom;
-      this.CA1.snom = item.snom;
-      this.CA1.pape = item.pape;
-      this.CA1.sape = item.sape;
-      this.CA1.estado_civil = item.estado_civil;
-      this.CA1.fecha_nac = item.fecha_nac;
-      this.CA1.edad = item.edad;
-      this.CA1.puntaje_sisben = item.puntaje_sisben;
-      this.CA1.afi_entidad = item.afi_entidad;
-      this.CA1.otra_eps = item.otra_eps;
-      this.CA1.tipo_afiliacion = item.tipo_afiliacion;
-      this.CA1.embarazo = item.embarazo;
-      this.CA1.embarazo_multiple = item.embarazo_multiple;
-      this.CA1.discapacidad = item.discapacidad;
-      this.CA1.escolaridad = item.escolaridad;
-      this.CA1.ocupacion = item.ocupacion;
-      this.CA1.colegio = item.colegio;
-      this.CA1.grado = item.grado;
-      this.CA1.entiende = item.entiende;
-      this.CA1.migrante = item.migrante;
-      this.CA1.pyp = item.pyp;
-      this.CA1.etnia = item.etnia;
-      this.CA1.clasificacion = item.clasificacion;
-      this.CA1.id_hogar = item.id_hogar;
-      this.CA1.jefe = item.jefe;
-      this.CA1.orientacion = item.orientacion;
-      this.CA1.identidad_genero = item.identidad_genero;
-      this.CA1.telefono = item.telefono;
-      this.CA1.perdida_peso = item.perdida_peso;
-      this.CA1.programa_icbf = item.programa_icbf;
-      this.CA1.excepciones = item.excepciones;
-      this.CA1.meses = item.meses;
-      this.CA1.dias = item.dias;
-      this.ocupacionAuxiliar2 = item.textoOcupacion;
-      this.$refs.identificacionInte.focus();
-      this.datos.splice(this.indiceEditInte, 1);
-      this.vectorIntegrante.splice(this.indiceEditInte, 1);
-      var identificacion = item.identificacion;
-      this.Men1A = this.Men1A.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De1A5 = this.De1A5.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De6A11 = this.De6A11.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De10A59 = this.De10A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.ParPost = this.ParPost.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De12A17 = this.De12A17.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De18A28 = this.De18A28.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De29A59 = this.De29A59.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.De60 = this.De60.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-      this.Migra = this.Migra.filter(function (men) {
-        return men.identificacion != identificacion;
-      });
-    },
-    CancelarEditarInte: function CancelarEditarInte() {
-      // AGREGAR LOS DATOS
-      this.agregar(); // AGREGAR LOS DATOS
-    },
-    editarInte: function () {
-      var _editarInte = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11() {
-        var _this11 = this;
-
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context13) {
-          while (1) {
-            switch (_context13.prev = _context13.next) {
-              case 0:
-                this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-                parametros = {
-                  _token: this.csrf,
-                  identificacion: this.CA1.identificacion
-                };
-                _context13.prev = 2;
-                _context13.next = 5;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function (respuesta) {
-                  if (respuesta.data.OPC == "EXISTE") {
-                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
-                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                    _this11.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "warning");
-
-                    return false;
-                  } else {
-                    // VERIFICAR SI ESTA EN LA TABLA
-                    var resultado = _this11.datos.filter(function (identi) {
-                      return identi.identificacion.includes(_this11.CA1.identificacion);
-                    }); // VERIFICAR SI ESTA EN LA TABLA
-
-
-                    if (resultado.length > 0) {
-                      _this11.$swal("Validar...!", "El Documento <b>" + _this11.CA1.identificacion + "</b> Se Encuentra Agregado", "warning");
-
-                      return false;
-                    } else {
-                      // AGREGAR LOS DATOS
-                      _this11.agregar(); // AGREGAR LOS DATOS                  
-
-                    }
-                  }
-                });
-
-              case 5:
-                _context13.next = 9;
-                break;
-
-              case 7:
-                _context13.prev = 7;
-                _context13.t0 = _context13["catch"](2);
-
-              case 9:
-              case "end":
-                return _context13.stop();
-            }
-          }
-        }, _callee11, this, [[2, 7]]);
-      }));
-
-      function editarInte() {
-        return _editarInte.apply(this, arguments);
-      }
-
-      return editarInte;
-    }(),
-    validarTablaIntegrantes: function () {
-      var _validarTablaIntegrantes = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12() {
-        var _this12 = this;
-
-        var _loop3, i;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context15) {
-          while (1) {
-            switch (_context15.prev = _context15.next) {
-              case 0:
-                _loop3 =
-                /*#__PURE__*/
-                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i) {
-                  var parametros;
-                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context14) {
-                    while (1) {
-                      switch (_context14.prev = _context14.next) {
-                        case 0:
-                          parametros = {
-                            _token: _this12.csrf,
-                            identificacion: _this12.datos[i].identificacion
-                          };
-                          _context14.prev = 1;
-                          _context14.next = 4;
-                          return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
-                            if (respuesta.data.OPC == "EXISTE") {
-                              var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
-                              var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                              _this12.$swal("Validar...!", "El Documento <b>" + iden + "</b> De La Fila <b>" + (i + 1) + "</b> Se Encuentra Registrado", "warning"); // item.identificacion="";
-
-
-                              return false;
-                            } else {
-                              // VERIFICAR SI ESTA EN LA TABLA
-                              var resultado = _this12.datos.filter(function (identi) {
-                                return identi.identificacion.includes(_this12.datos[i].identificacion);
-                              }); // VERIFICAR SI ESTA EN LA TABLA
-
-
-                              if (resultado.length > 1) {
-                                _this12.$swal("Validar...!", "El Documento <b>" + _this12.datos[i].identificacion + "</b> De La Fila <b>" + (i + 1) + "</b>  Se Encuentra Agregado En La Tabla de Integrantes", "warning"); // item.identificacion="";
-
-
-                                return false;
-                              } else {
-                                if (_this12.datos[i].tipo_id === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione un <b>tipo de identificación</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].identificacion === "") {
-                                  _this12.$swal("Error...!", "Por favor digite una <b>identificación</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].pnom === "") {
-                                  _this12.$swal("Error...!", "Por favor digite el <b>primer nombre</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].pape === "") {
-                                  _this12.$swal("Error...!", "Por favor digite el <b>primer apellido</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].sexo === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione el <b>sexo</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].parentesco === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione el <b>parentesco</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].estado_civil === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione el <b>estado civil</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].fecha_nac === "") {
-                                  _this12.$swal("Error...!", "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].afi_entidad === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione la <b>eps</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].tipo_afiliacion === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione el <b>tipo de afiliación</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].escolaridad === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].ocupacion === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione la <b>ocupación</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].etnia === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione la <b>etnia</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].clasificacion === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                if (_this12.datos[i].jefe === "0") {
-                                  _this12.$swal("Error...!", "Por favor seleccione el <b>jefe de hogar</b> en la fila " + (i + 1) + " de los integrantes", "error");
-
-                                  return false;
-                                }
-
-                                return true;
-                              }
-                            }
-                          })["catch"](function (error) {});
-
-                        case 4:
-                          _context14.next = 8;
-                          break;
-
-                        case 6:
-                          _context14.prev = 6;
-                          _context14.t0 = _context14["catch"](1);
-
-                        case 8:
-                        case "end":
-                          return _context14.stop();
-                      }
-                    }
-                  }, _loop3, null, [[1, 6]]);
-                });
-                i = 0;
-
-              case 2:
-                if (!(i < this.datos.length)) {
-                  _context15.next = 7;
-                  break;
-                }
-
-                return _context15.delegateYield(_loop3(i), "t0", 4);
-
-              case 4:
-                i++;
-                _context15.next = 2;
-                break;
-
-              case 7:
-              case "end":
-                return _context15.stop();
-            }
-          }
-        }, _callee12, this);
-      }));
-
-      function validarTablaIntegrantes() {
-        return _validarTablaIntegrantes.apply(this, arguments);
-      }
-
-      return validarTablaIntegrantes;
-    }(),
-    validarTablaJefes: function () {
-      var _validarTablaJefes = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13() {
-        var _this13 = this;
-
-        var _loop4, i;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context17) {
-          while (1) {
-            switch (_context17.prev = _context17.next) {
-              case 0:
-                _loop4 =
-                /*#__PURE__*/
-                _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop4(i) {
-                  var parametros;
-                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop4$(_context16) {
-                    while (1) {
-                      switch (_context16.prev = _context16.next) {
-                        case 0:
-                          parametros = {
-                            _token: _this13.csrf,
-                            identificacion: _this13.datosJefe[i].identificacion
-                          };
-                          _context16.prev = 1;
-                          _context16.next = 4;
-                          return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function (respuesta) {
-                            if (respuesta.data.OPC == "EXISTE") {
-                              var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
-                              var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                              _this13.$swal("Validar...!", "El Documento <b>" + iden + "</b> De La Fila <b>" + (i + 1) + "</b> Se Encuentra Registrado", "warning"); // item.identificacion="";
-
-
-                              return false;
-                            } else {
-                              // VERIFICAR SI ESTA EN LA TABLA
-                              var resultado = _this13.datosJefe.filter(function (identi) {
-                                return identi.identificacion.includes(_this13.datosJefe[i].identificacion);
-                              }); // VERIFICAR SI ESTA EN LA TABLA
-
-
-                              if (resultado.length > 1) {
-                                _this13.$swal("Validar...!", "El Documento <b>" + _this13.datosJefe[i].identificacion + "</b> De La Fila <b>" + (i + 1) + "</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar", "warning"); // item.identificacion="";
-
-
-                                return false;
-                              } else {
-                                if (_this13.datosJefe[i].tipo_id === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione un <b>tipo de identificación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].identificacion === "") {
-                                  _this13.$swal("Error...!", "Por favor digite una <b>identificación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].pnom === "") {
-                                  _this13.$swal("Error...!", "Por favor digite el <b>primer nombre</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].pape === "") {
-                                  _this13.$swal("Error...!", "Por favor digite el <b>primer apellido</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].sexo === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione el <b>sexo</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].parentesco === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione el <b>parentesco</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].estado_civil === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione el <b>estado civil</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].fecha_nacimiento === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione la <b>fecha de nacimiento</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].afiliacion_entidad === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione la <b>eps</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].tipo_afiliacion === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione el <b>tipo de afiliación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].nivel_escolaridad === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione el <b>nivel de escolaridad</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].ocupacion === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione la <b>ocupación</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].etnia === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione la <b>etnia</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].clasificacion === "") {
-                                  _this13.$swal("Error...!", "Por favor seleccione la <b>clasificacion de la etnia</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                if (_this13.datosJefe[i].salario === "") {
-                                  _this13.$swal("Error...!", "Por favor digite el <b>salario</b> en la fila " + (i + 1) + " de los jefes de hogar", "error");
-
-                                  return false;
-                                }
-
-                                return true;
-                              }
-                            }
-                          })["catch"](function (error) {});
-
-                        case 4:
-                          _context16.next = 8;
-                          break;
-
-                        case 6:
-                          _context16.prev = 6;
-                          _context16.t0 = _context16["catch"](1);
-
-                        case 8:
-                        case "end":
-                          return _context16.stop();
-                      }
-                    }
-                  }, _loop4, null, [[1, 6]]);
-                });
-                i = 0;
-
-              case 2:
-                if (!(i < this.datosJefe.length)) {
-                  _context17.next = 7;
-                  break;
-                }
-
-                return _context17.delegateYield(_loop4(i), "t0", 4);
-
-              case 4:
-                i++;
-                _context17.next = 2;
-                break;
-
-              case 7:
-              case "end":
-                return _context17.stop();
-            }
-          }
-        }, _callee13, this);
-      }));
-
-      function validarTablaJefes() {
-        return _validarTablaJefes.apply(this, arguments);
-      }
-
-      return validarTablaJefes;
-    }(),
-    Guardar: function () {
-      var _Guardar = _asyncToGenerator(
+      return _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14() {
-        var _this14 = this;
-
-        var isInvalid, parametros;
+        var parametros;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context18) {
           while (1) {
             switch (_context18.prev = _context18.next) {
               case 0:
-                this.$v.$touch();
-                isInvalid = this.$v.$invalid;
+                parametros = {
+                  txtbusqueda: _this15.txtbusquedaAct.trim(),
+                  _token: _this15.csrf,
+                  page: pagina
+                };
+                _context18.prev = 1;
+                _context18.next = 4;
+                return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_5__["listar"](parametros).then(function (respuesta) {
+                  _this15.actividadesVector = respuesta.data.actividades.data;
+                });
 
-                if (!isInvalid) {
-                  _context18.next = 6;
-                  break;
-                }
-
-                // display error message
-                this.$swal("Error...!", "Por Favor Complete Los Campos Obligatorios", "error");
-                _context18.next = 33;
+              case 4:
+                _context18.next = 15;
                 break;
 
               case 6:
-                // console.log("Form is correct");
-                // submit to server
-                this.entrarPorError = false;
-                this.errores = [];
-
-                if (!(this.datosJefe.length <= 0)) {
-                  _context18.next = 11;
-                  break;
-                }
-
-                this.$swal("Error...!", "Por favor agregue por lo menos un jefe de hogar", "error");
-                return _context18.abrupt("return");
+                _context18.prev = 6;
+                _context18.t0 = _context18["catch"](1);
+                _context18.t1 = _context18.t0.response.status;
+                _context18.next = _context18.t1 === 422 ? 11 : 13;
+                break;
 
               case 11:
-                if (!(this.estratificacion.length <= 0)) {
-                  _context18.next = 14;
-                  break;
-                }
+                _this15.$swal("Error...!", "Ocurrio un error!", "error");
 
-                this.$swal("Error...!", "Por favor agregue por lo menos una estratificación", "error");
-                return _context18.abrupt("return");
+                return _context18.abrupt("break", 15);
 
-              case 14:
-                //VALIDAR LOS CAMPOS DEL VECTOR JEFES DE HOGAR
-                this.validarTablaJefes(); //VALIDAR LOS CAMPOS DEL VECTOR JEFES DE HOGAR
-                //VALIDAR LOS CAMPOS DEL VECTOR INTEGRANTES
+              case 13:
+                _this15.$swal("Error...!", "Ocurrio un error!", "error");
 
-                this.validarTablaIntegrantes(); //VALIDAR LOS CAMPOS DEL VECTOR INTEGRANTES
+                return _context18.abrupt("break", 15);
 
-                parametros = {
-                  _token: this.csrf,
-                  hogar: this.hogar,
-                  caracterizacion: this.datosJefe,
-                  integrantes: this.datos,
-                  vivienda: this.viviendaData,
-                  estratificacion: this.estratificacion,
-                  Men1A: this.Men1A,
-                  De1A5: this.De1A5,
-                  De6A11: this.De6A11,
-                  De10A59: this.De10A59,
-                  ParPost: this.ParPost,
-                  De12A17: this.De12A17,
-                  De18A28: this.De18A28,
-                  De29A59: this.De29A59,
-                  De60: this.De60,
-                  EnCro: this.EnCro,
-                  EnInf: this.EnInf,
-                  Migra: this.Migra,
-                  Animales: this.animalesData,
-                  opcion: "GUARDAR"
-                };
-                _context18.prev = 17;
-                _context18.next = 20;
-                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
-                  console.info(respuesta.data);
-
-                  if (respuesta.data.OPC == "SI") {
-                    _this14.datos = [];
-
-                    _this14.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
-
-                    _this14.$router.push("/gestion");
-                  }
-
-                  if (respuesta.data.OPC == "VALIDAR") {
-                    var val = (respuesta.data.identificacion / 1).toFixed(0).replace(".", ",");
-                    var iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-                    _this14.$swal("Validar...!", "El Documento <b>" + iden + "</b> Se Encuentra Registrado", "success");
-                  }
-                })["catch"](function (error) {
-                  _this14.errorDevuelto = error.response.data.errors;
-                  _this14.entrarPorError = true;
-                });
-
-              case 20:
-                _context18.next = 33;
-                break;
-
-              case 22:
-                _context18.prev = 22;
-                _context18.t0 = _context18["catch"](17);
-                _context18.t1 = _context18.t0.response.status;
-                _context18.next = _context18.t1 === 419 ? 27 : _context18.t1 === 422 ? 29 : 31;
-                break;
-
-              case 27:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context18.abrupt("break", 33);
-
-              case 29:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context18.abrupt("break", 33);
-
-              case 31:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context18.abrupt("break", 33);
-
-              case 33:
+              case 15:
               case "end":
                 return _context18.stop();
             }
           }
-        }, _callee14, this, [[17, 22]]);
-      }));
-
-      function Guardar() {
-        return _Guardar.apply(this, arguments);
-      }
-
-      return Guardar;
-    }(),
-    SoloNumeros: function SoloNumeros(event) {
-      if (event.keyCode < 48 || event.keyCode > 57) {
-        return false; // this.caracData.salario = 0;
-      }
+        }, _callee14, null, [[1, 6]]);
+      }))();
     },
-    cambiarCombo: function () {
-      var _cambiarCombo = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee15(caja) {
-        var _this15 = this;
-
-        var parametros, _parametros6;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee15$(_context19) {
-          while (1) {
-            switch (_context19.prev = _context19.next) {
-              case 0:
-                if (caja === "dpto") {
-                  this.hogar.id_mun = "";
-                  this.hogar.id_corre = "";
-                  this.hogar.id_vereda = "";
-                  this.hogar.id_barrio = "";
-                }
-
-                if (!(caja === "muni")) {
-                  _context19.next = 34;
-                  break;
-                }
-
-                this.hogar.id_corre = "";
-                this.hogar.id_vereda = "";
-                this.hogar.id_barrio = "";
-                parametros = {
-                  _token: this.csrf,
-                  id: this.hogar.id_mun,
-                  opcion: "MUN"
-                };
-                _context19.prev = 6;
-                _context19.next = 9;
-                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function (respuesta) {
-                  _this15.barrio_options = respuesta.data.arrayBarrios;
-                });
-
-              case 9:
-                _context19.next = 20;
-                break;
-
-              case 11:
-                _context19.prev = 11;
-                _context19.t0 = _context19["catch"](6);
-                _context19.t1 = _context19.t0.response.status;
-                _context19.next = _context19.t1 === 422 ? 16 : 18;
-                break;
-
-              case 16:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 20);
-
-              case 18:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 20);
-
-              case 20:
-                _context19.prev = 20;
-                _context19.next = 23;
-                return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](parametros).then(function (respuesta) {
-                  _this15.colegio_options = respuesta.data.arrayColegios;
-                });
-
-              case 23:
-                _context19.next = 34;
-                break;
-
-              case 25:
-                _context19.prev = 25;
-                _context19.t2 = _context19["catch"](20);
-                _context19.t3 = _context19.t2.response.status;
-                _context19.next = _context19.t3 === 422 ? 30 : 32;
-                break;
-
-              case 30:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 34);
-
-              case 32:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 34);
-
-              case 34:
-                if (!(caja === "corregi")) {
-                  _context19.next = 67;
-                  break;
-                }
-
-                this.hogar.id_vereda = "";
-                this.hogar.id_barrio = "";
-
-                if (!(this.hogar.id_corre !== "0")) {
-                  _context19.next = 67;
-                  break;
-                }
-
-                _parametros6 = {
-                  _token: this.csrf,
-                  id: this.hogar.id_corre,
-                  opcion: "CORRE"
-                };
-                _context19.prev = 39;
-                _context19.next = 42;
-                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros6).then(function (respuesta) {
-                  _this15.barrio_options = respuesta.data.arrayBarrios;
-                });
-
-              case 42:
-                _context19.next = 53;
-                break;
-
-              case 44:
-                _context19.prev = 44;
-                _context19.t4 = _context19["catch"](39);
-                _context19.t5 = _context19.t4.response.status;
-                _context19.next = _context19.t5 === 422 ? 49 : 51;
-                break;
-
-              case 49:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 53);
-
-              case 51:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 53);
-
-              case 53:
-                _context19.prev = 53;
-                _context19.next = 56;
-                return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](_parametros6).then(function (respuesta) {
-                  _this15.colegio_options = respuesta.data.arrayColegios;
-                });
-
-              case 56:
-                _context19.next = 67;
-                break;
-
-              case 58:
-                _context19.prev = 58;
-                _context19.t6 = _context19["catch"](53);
-                _context19.t7 = _context19.t6.response.status;
-                _context19.next = _context19.t7 === 422 ? 63 : 65;
-                break;
-
-              case 63:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 67);
-
-              case 65:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context19.abrupt("break", 67);
-
-              case 67:
-                if (caja === "etnia") {
-                  this.CA1.clasificacion = "0";
-                }
-
-              case 68:
-              case "end":
-                return _context19.stop();
-            }
-          }
-        }, _callee15, this, [[6, 11], [20, 25], [39, 44], [53, 58]]);
-      }));
-
-      function cambiarCombo(_x2) {
-        return _cambiarCombo.apply(this, arguments);
-      }
-
-      return cambiarCombo;
-    }(),
-    validarNumHog: function validarNumHog() {
-      if (this.hogar.numero_hogares <= 0) {
-        this.hogar.numero_hogares = "";
-      }
+    seleccionarActividades: function seleccionarActividades(item) {
+      this.viviendaData.actividad_economica = item.id;
+      this.actividadesAuxiliar = item.descripcion;
+      this.$refs.modalActividad.hide();
     },
-    formato: function formato(caja) {
-      if (caja == "id1") {
-        if (this.caracData.tipo_id == "CC") {
-          this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-          var val = (this.caracData.identificacion / 1).toFixed(0).replace(".", ",");
-          this.caracData.identificacion = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-          if (this.caracData.identificacion == "NaN") {
-            this.caracData.identificacion = "";
-          }
-
-          if (this.caracData.identificacion == "0") {
-            this.caracData.identificacion = "";
-          }
-        }
-      }
-
-      if (caja == "salario") {
-        this.caracData.salario = this.caracData.salario.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-
-        var _val = (this.caracData.salario / 1).toFixed(0).replace(".", ",");
-
-        this.caracData.salario = _val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-        if (this.caracData.salario == "NaN") {
-          this.caracData.salario = "";
-        }
-
-        if (this.caracData.salario == "0") {
-          this.caracData.salario = "";
-        }
-      }
-
-      if (caja == "tipoid") {
-        this.caracData.identificacion = "";
-
-        if (this.caracData.tipo_id != "CC") {
-          if (this.caracData.tipo_id === "ASI" || this.caracData.tipo_id === "MSI") {
-            this.caracData.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
-          } else {
-            this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-          }
-        } else {
-          if (this.caracData.tipo_id == "CC") {
-            this.caracData.identificacion = this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-
-            var _val2 = (this.caracData.identificacion / 1).toFixed(0).replace(".", ",");
-
-            this.caracData.identificacion = _val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-            if (this.caracData.identificacion == "NaN") {
-              this.caracData.identificacion = "";
-            }
-
-            if (this.caracData.identificacion == "0") {
-              this.caracData.identificacion = "";
-            }
-          }
-        }
-      }
-
-      if (caja == "id2") {
-        if (this.CA1.tipo_id == "CC") {
-          this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-
-          var _val3 = (this.CA1.identificacion / 1).toFixed(0).replace(".", ",");
-
-          this.CA1.identificacion = _val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-          if (this.CA1.identificacion == "NaN") {
-            this.CA1.identificacion = "";
-          }
-
-          if (this.CA1.identificacion == "0") {
-            this.CA1.identificacion = "";
-          }
-        }
-      }
-
-      if (caja == "tipoid2") {
-        this.CA1.identificacion = "";
-
-        if (this.CA1.tipo_id != "CC") {
-          if (this.CA1.tipo_id === "ASI" || this.CA1.tipo_id === "MSI") {
-            this.CA1.identificacion = this.CODIGOGENE + Math.floor(Math.random() * 100 + 1);
-          } else {
-            this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-          }
-        } else {
-          if (this.CA1.tipo_id == "CC") {
-            this.CA1.identificacion = this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-
-            var _val4 = (this.CA1.identificacion / 1).toFixed(0).replace(".", ",");
-
-            this.CA1.identificacion = _val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-            if (this.CA1.identificacion == "NaN") {
-              this.CA1.identificacion = "";
-            }
-
-            if (this.CA1.identificacion == "0") {
-              this.CA1.identificacion = "";
-            }
-          }
-        }
-      }
-
-      if (caja == "telefono1") {
-        this.caracData.telefono = this.caracData.telefono.replace(/[^.\d]/g, "").trim();
-
-        if (this.caracData.telefono == "NaN") {
-          this.caracData.telefono = "";
-        }
-
-        if (this.caracData.telefono == "0") {
-          this.caracData.telefono = "";
-        }
-      }
-
-      if (caja == "telefono2") {
-        this.CA1.telefono = this.CA1.telefono.replace(/[^.\d]/g, "").trim();
-
-        if (this.CA1.telefono == "NaN") {
-          this.CA1.telefono = "";
-        }
-
-        if (this.CA1.telefono == "0") {
-          this.CA1.telefono = "";
-        }
-      }
-
-      if (caja == "puntaje") {// this.CA1.puntaje_sisben = this.CA1.puntaje_sisben
-        //   .replace(/[^.\d]/g, "")
-        //   .trim();
-        // if (this.CA1.puntaje_sisben == "NaN") {
-        //   this.CA1.puntaje_sisben = "";
-        // }
-        // if (this.CA1.puntaje_sisben == "0") {
-        //   this.CA1.puntaje_sisben = "";
-        // }
-      }
-
-      if (caja == "puntaje1") {// this.caracData.puntaje_sisben = this.caracData.puntaje_sisben
-        //   .replace(/[^.\d]/g, "")
-        //   .trim();
-        // if (this.caracData.puntaje_sisben == "NaN") {
-        //   this.caracData.puntaje_sisben = "";
-        // }
-        // if (this.caracData.puntaje_sisben == "0") {
-        //   this.caracData.puntaje_sisben = "";
-        // }
-      }
-    },
-    volver: function volver() {
-      this.$router.push("/gestion");
-    },
-    limpiar: function limpiar() {
-      this.CA1.tipo_id = "0";
-      this.CA1.identificacion = "";
-      this.CA1.sexo = "0";
-      this.CA1.parentesco = "0";
-      this.CA1.pnom = "";
-      this.CA1.snom = "";
-      this.CA1.pape = "";
-      this.CA1.sape = "";
-      this.CA1.estado_civil = "0";
-      this.CA1.fecha_nac = "";
-      this.CA1.edad = 0;
-      this.CA1.afi_entidad = "0";
-      this.CA1.tipo_afiliacion = "0";
-      this.CA1.otra_eps = "";
-      this.CA1.embarazo = "0";
-      this.CA1.embarazo_multiple = "0";
-      this.CA1.discapacidad = "0";
-      this.CA1.escolaridad = "0";
-      this.CA1.ocupacion = "0";
-      this.CA1.colegio = "";
-      this.CA1.grado = "0";
-      this.CA1.entiende = "0";
-      this.CA1.migrante = "0";
-      this.CA1.pyp = "0";
-      this.CA1.etnia = "0";
-      this.CA1.clasificacion = "0";
-      this.CA1.puntaje_sisben = "";
-      this.CA1.jefe = "0";
-      this.CA1.telefono = "";
-      this.CA1.orientacion = "0";
-      this.CA1.identidad_genero = "0";
-      this.CA1.perdida_peso = "0";
-      this.CA1.programa_icbf = "0";
-      this.CA1.excepciones = "0";
-      this.CA1.meses = "";
-      this.CA1.dias = "";
-      this.bandeGuaEdiInte = true;
-      this.indiceEditInte = null;
-      this.ocupacionAuxiliar2 = "";
-    },
-    limpiar2: function limpiar2() {
-      this.caracData.tipo_id = "";
-      this.caracData.identificacion = "";
-      this.caracData.sexo = "";
-      this.caracData.parentesco = "";
-      this.caracData.pnom = "";
-      this.caracData.snom = "";
-      this.caracData.pape = "";
-      this.caracData.sape = "";
-      this.caracData.estado_civil = "";
-      this.caracData.fecha_nacimiento = "";
-      this.caracData.salario = "";
-      this.caracData.telefono = "";
-      this.caracData.edad = 0;
-      this.caracData.afiliacion_entidad = "";
-      this.caracData.otra_eps = "";
-      this.caracData.tipo_afiliacion = "";
-      this.caracData.embarazo = "";
-      this.caracData.embarazo_multiple = "";
-      this.caracData.discapacidad = "";
-      this.caracData.nivel_escolaridad = "";
-      this.caracData.ocupacion = "";
-      this.caracData.colegio = "";
-      this.caracData.grado = "";
-      this.caracData.entiende = "";
-      this.caracData.migrante = "";
-      this.caracData.pyp = "";
-      this.caracData.etnia = "";
-      this.caracData.clasificacion = "";
-      this.caracData.puntaje_sisben = "";
-      this.caracData.orientacion = "";
-      this.caracData.identidad_genero = "";
-      this.caracData.perdida_peso = "";
-      this.caracData.programa_icbf = "";
-      this.bandeGuaEdiJefe = true;
-      this.indiceEditJefe = null;
-      this.ocupacionAuxiliar = "";
-    },
-    mostrarOtro: function mostrarOtro(tipo) {
-      if (tipo === "TE") {
-        if (this.viviendaData.tipo_estructura === "5") {
-          this.mOTE = true;
-        } else {
-          this.mOTE = false;
-        }
-
-        this.viviendaData.otro_tipo_estructura = "";
-      }
-
-      if (tipo === "TC") {
-        if (this.viviendaData.tipo_cubierta === "9") {
-          this.mOTC = true;
-        } else {
-          this.mOTC = false;
-        }
-
-        this.viviendaData.otro_tipo_cubierta = "";
-      }
-
-      if (tipo === "AE") {
-        if (this.viviendaData.actividad_economica === "CUAL") {
-          this.mOAE = true;
-        } else {
-          this.mOAE = false;
-        }
-
-        this.viviendaData.cual_actividad_economica = "";
-      }
-
-      if (tipo === "FA") {
-        if (this.viviendaData.fuente_agua === "9") {
-          this.mOFA = true;
-        } else {
-          this.mOFA = false;
-        }
-
-        this.viviendaData.cual_fuente = "";
-      }
-
-      if (tipo === "DA") {
-        if (this.viviendaData.donde_almacena_agua === "5") {
-          this.mODA = true;
-        } else {
-          this.mODA = false;
-        }
-
-        this.viviendaData.otro_almacena_agua = "";
-      }
-
-      if (tipo === "FB") {
-        if (this.viviendaData.destino_final_basura === "5") {
-          this.mOFB = true;
-        } else {
-          this.mOFB = false;
-        }
-
-        this.viviendaData.otro_destino_final_basura = "";
-      }
-
-      if (tipo === "OC") {
-        if (this.viviendaData.otro_cerca === "SI") {
-          this.mOOC = true;
-        } else {
-          this.mOOC = false;
-        }
-
-        this.viviendaData.cual_cerca = "";
-      }
-
-      if (tipo === "EV") {
-        if (this.viviendaData.envases_vacios === "7") {
-          this.mOEV = true;
-        } else {
-          this.mOEV = false;
-        }
-
-        this.viviendaData.otro_envases_vacios = "";
-      }
-
-      if (tipo === "EP") {
-        if (this.viviendaData.elementos_protecion === "5") {
-          this.mOEP = true;
-        } else {
-          this.mOEP = false;
-        }
-
-        this.viviendaData.otro_elementos_protecion = "";
-      }
-
-      if (tipo === "MC") {
-        if (this.viviendaData.metodos_coccion === "6") {
-          this.mOMC = true;
-        } else {
-          this.mOMC = false;
-        }
-
-        this.viviendaData.otro_metodos_coccion = "";
-      }
-
-      if (tipo === "AA") {
-        if (this.viviendaData.lugares_almacenan_alimentos === "6") {
-          this.mOAA = true;
-        } else {
-          this.mOAA = false;
-        }
-
-        this.viviendaData.otro_lugares_almacenan_alimentos = "";
-      }
-
-      if (tipo === "DH") {
-        if (this.viviendaData.excretas === "7") {
-          this.mODH = true;
-        } else {
-          this.mODH = false;
-        }
-
-        this.viviendaData.otro_depositan_excretas = "";
-      }
-
-      if (tipo === "ES") {
-        if (this.viviendaData.tipo_explotacion === "5") {
-          this.mOES = true;
-        } else {
-          this.mOES = false;
-        }
-
-        this.viviendaData.otro_tipo_explotacion = "";
-      }
-
-      if (tipo === "OG") {
-        if (this.viviendaData.otros_genera === "SI") {
-          this.mOOG = true;
-        } else {
-          this.mOOG = false;
-        }
-
-        this.viviendaData.cual_genera = "";
-      }
-
-      if (tipo === "OEPS1") {
-        if (this.caracData.afiliacion_entidad === "OTRA") {
-          this.mOEPS1 = true;
-        } else {
-          this.mOEPS1 = false;
-        }
-
-        this.caracData.otra_eps = "";
-      }
-
-      if (tipo === "OEPS2") {
-        if (this.CA1.afi_entidad === "OTRA") {
-          this.mOEPS2 = true;
-        } else {
-          this.mOEPS2 = false;
-        }
-
-        this.CA1.otra_eps = "";
-      }
-
-      if (tipo === "mOCOL1") {
-        if (this.caracData.nivel_escolaridad === 3 || this.caracData.nivel_escolaridad === 14 || this.caracData.nivel_escolaridad === 15) {
-          this.mOCOL1 = true;
-        } else {
-          this.mOCOL1 = false;
-        }
-
-        this.caracData.colegio = "";
-        this.caracData.grado = "";
-      }
-
-      if (tipo === "mOCOL2") {
-        if (this.CA1.escolaridad === 3 || this.CA1.escolaridad === 14 || this.CA1.escolaridad === 15) {
-          this.mOCOL2 = true;
-        } else {
-          this.mOCOL2 = false;
-        }
-
-        this.CA1.colegio = "";
-        this.CA1.grado = "0";
-      }
+    llenarVivienda: function llenarVivienda(data) {// this.viviendaData.id = data.vivienda[0].id;
+      // this.viviendaData.id_hogar = data.vivienda[0].id_hogar;
+      // this.viviendaData.tipo_vivienda = data.vivienda[0].tipo_vivienda;
+      // this.viviendaData.tipo_estructura = data.vivienda[0].tipo_estructura;
+      // this.viviendaData.otro_tipo_estructura = data.vivienda[0].otro_tipo_estructura;
+      // this.viviendaData.numero_cuartos = data.vivienda[0].numero_cuartos;
+      // this.viviendaData.personas_por_cuartos = data.vivienda[0].personas_por_cuartos;
+      // this.viviendaData.material_predominante = data.vivienda[0].material_predominante;
+      // this.viviendaData.tipo_cubierta = data.vivienda[0].tipo_cubierta;
+      // this.viviendaData.otro_tipo_cubierta = data.vivienda[0].otro_tipo_cubierta;
+      // this.viviendaData.actividad_economica = data.vivienda[0].actividad_economica;
+      // this.viviendaData.cual_actividad_economica = data.vivienda[0].cual_actividad_economica;
+      // this.viviendaData.evento_afecta_vivienda = data.vivienda[0].evento_afecta_vivienda;
+      // this.viviendaData.familias_accion = data.vivienda[0].familias_accion;
+      // this.viviendaData.promedio_ingresos = data.vivienda[0].promedio_ingresos;
+      // this.viviendaData.promedio_gastos = data.vivienda[0].promedio_gastos;
+      // this.viviendaData.fuente_agua = data.vivienda[0].fuente_agua;
+      // this.viviendaData.energia_electrica = data.vivienda[0].energia_electrica;
+      // this.viviendaData.gas_natural = data.vivienda[0].gas_natural;
+      // this.viviendaData.acueducto = data.vivienda[0].acueducto;
+      // this.viviendaData.alcantarillado = data.vivienda[0].alcantarillado;
+      // this.viviendaData.telefono_fijo = data.vivienda[0].telefono_fijo;
+      // this.viviendaData.aseo = data.vivienda[0].aseo;
+      // this.viviendaData.internet_subsidiado = data.vivienda[0].internet_subsidiado;
+      // this.viviendaData.internet_privado = data.vivienda[0].internet_privado;
+      // this.viviendaData.cual_fuente = data.vivienda[0].cual_fuente;
+      // this.viviendaData.donde_almacena_agua = data.vivienda[0].donde_almacena_agua;
+      // this.viviendaData.otro_almacena_agua = data.vivienda[0].otro_almacena_agua;
+      // this.viviendaData.ubicacion_tanque = data.vivienda[0].ubicacion_tanque;
+      // this.viviendaData.tipo_tratamiento_agua = data.vivienda[0].tipo_tratamiento_agua;
+      // this.viviendaData.destino_final_basura = data.vivienda[0].destino_final_basura;
+      // this.viviendaData.otro_destino_final_basura = data.vivienda[0].otro_destino_final_basura;
+      // this.viviendaData.porquerizas = data.vivienda[0].porquerizas;
+      // this.viviendaData.plagas = data.vivienda[0].plagas;
+      // this.viviendaData.industrias = data.vivienda[0].industrias;
+      // this.viviendaData.malos_olores = data.vivienda[0].malos_olores;
+      // this.viviendaData.rellenos = data.vivienda[0].rellenos;
+      // this.viviendaData.contaminacion_a = data.vivienda[0].contaminacion_a;
+      // this.viviendaData.contaminacion_v = data.vivienda[0].contaminacion_v;
+      // this.viviendaData.rio = data.vivienda[0].rio;
+      // this.viviendaData.otro_cerca = data.vivienda[0].otro_cerca;
+      // this.viviendaData.cual_cerca = data.vivienda[0].cual_cerca;
+      // this.viviendaData.aereopuertos = data.vivienda[0].aereopuertos;
+      // this.viviendaData.avenidas_transitadas = data.vivienda[0].avenidas_transitadas;
+      // this.viviendaData.lotes_abandonados = data.vivienda[0].lotes_abandonados;
+      // this.viviendaData.servicio_sanitario = data.vivienda[0].servicio_sanitario;
+      // this.viviendaData.donde_sanitario = data.vivienda[0].donde_sanitario;
+      // this.viviendaData.excretas = data.vivienda[0].excretas;
+      // this.viviendaData.otro_depositan_excretas = data.vivienda[0].otro_depositan_excretas;
+      // this.viviendaData.cocina = data.vivienda[0].cocina;
+      // this.viviendaData.dormitorio_a = data.vivienda[0].dormitorio_a;
+      // this.viviendaData.sala = data.vivienda[0].sala;
+      // this.viviendaData.dormitorio_n = data.vivienda[0].dormitorio_n;
+      // this.viviendaData.sanitario = data.vivienda[0].sanitario;
+      // this.viviendaData.lavadero = data.vivienda[0].lavadero;
+      // this.viviendaData.iluminacion_adecuada = data.vivienda[0].iluminacion_adecuada;
+      // this.viviendaData.techo_adecuado = data.vivienda[0].techo_adecuado;
+      // this.viviendaData.ventilacion_adecuada = data.vivienda[0].ventilacion_adecuada;
+      // this.viviendaData.pisos_adecuado = data.vivienda[0].pisos_adecuado;
+      // this.viviendaData.paredes_adecuadas = data.vivienda[0].paredes_adecuadas;
+      // this.viviendaData.gasolina = data.vivienda[0].gasolina;
+      // this.viviendaData.plaguicidas = data.vivienda[0].plaguicidas;
+      // this.viviendaData.detergentes = data.vivienda[0].detergentes;
+      // this.viviendaData.plaguicidas_insectos = data.vivienda[0].plaguicidas_insectos;
+      // this.viviendaData.envases_vacios = data.vivienda[0].envases_vacios;
+      // this.viviendaData.otro_envases_vacios = data.vivienda[0].otro_envases_vacios;
+      // this.viviendaData.elementos_protecion = data.vivienda[0].elementos_protecion;
+      // this.viviendaData.otro_elementos_protecion = data.vivienda[0].otro_elementos_protecion;
+      // this.viviendaData.metodos_coccion = data.vivienda[0].metodos_coccion;
+      // this.viviendaData.otro_metodos_coccion = data.vivienda[0].otro_metodos_coccion;
+      // this.viviendaData.lugares_preparan_alimentos = data.vivienda[0].lugares_preparan_alimentos;
+      // this.viviendaData.lugares_almacenan_alimentos = data.vivienda[0].lugares_almacenan_alimentos;
+      // this.viviendaData.otro_lugares_almacenan_alimentos = data.vivienda[0].otro_lugares_almacenan_alimentos;
+      // this.viviendaData.lava_frutas = data.vivienda[0].lava_frutas;
+      // this.viviendaData.tipo_explotacion = data.vivienda[0].tipo_explotacion;
+      // this.viviendaData.otro_tipo_explotacion = data.vivienda[0].otro_tipo_explotacion;
+      // this.viviendaData.flora_afectados = data.vivienda[0].flora_afectados;
+      // this.viviendaData.fauna_afectados = data.vivienda[0].fauna_afectados;
+      // this.viviendaData.suelo_afectados = data.vivienda[0].suelo_afectados;
+      // this.viviendaData.aire_afectados = data.vivienda[0].aire_afectados;
+      // this.viviendaData.agua_afectados = data.vivienda[0].agua_afectados;
+      // this.viviendaData.residuos_solidos_genera = data.vivienda[0].residuos_solidos_genera;
+      // this.viviendaData.aguas_servidas_genera = data.vivienda[0].aguas_servidas_genera;
+      // this.viviendaData.desechos_cocina_genera = data.vivienda[0].desechos_cocina_genera;
+      // this.viviendaData.heces_animales_genera = data.vivienda[0].heces_animales_genera;
+      // this.viviendaData.quimicos_genera = data.vivienda[0].quimicos_genera;
+      // this.viviendaData.otros_genera = data.vivienda[0].otros_genera;
+      // this.viviendaData.cual_genera = data.vivienda[0].cual_genera;
+      // this.viviendaData.tipo_combustible = data.vivienda[0].tipo_combustible;
+      // this.viviendaData.mantenimiento_red = data.vivienda[0].mantenimiento_red;
+      // this.viviendaData.zona_alto_riesgo = data.vivienda[0].zona_alto_riesgo;
+      // this.viviendaData.almacenamiento_residuos = data.vivienda[0].almacenamiento_residuos;
+      // this.viviendaData.fuente_contaminacion = data.vivienda[0].fuente_contaminacion;
+      // this.viviendaData.aguas_negras = data.vivienda[0].aguas_negras;
+      // this.viviendaData.zonas_verdes = data.vivienda[0].zonas_verdes;
+      // this.viviendaData.desplazamientos = data.vivienda[0].desplazamientos;
+      // this.viviendaData.rotacion_cultivo = data.vivienda[0].rotacion_cultivo;
+      // this.viviendaData.emplea_fertilizantes = data.vivienda[0].emplea_fertilizantes;
+      // this.viviendaData.suministro_energia_ilegal = data.vivienda[0].suministro_energia_ilegal;
+      // this.viviendaData.quema_cultivo = data.vivienda[0].quema_cultivo;
+      // this.viviendaData.mantenimiento_preventivo = data.vivienda[0].mantenimiento_preventivo;
+      // this.viviendaData.veces_inundaciones = data.vivienda[0].veces_inundaciones;
+      // this.viviendaData.fachada = data.vivienda[0].fachada;
+      // this.viviendaData.cuantos_baños = data.vivienda[0].cuantos_baños;
+      // this.viviendaData.estado_conservacion_baños = data.vivienda[0].estado_conservacion_baños;
+      // this.viviendaData.acabados_externos = data.vivienda[0].acabados_externos;
+      // this.viviendaData.estado_conservacion_estructuras = data.vivienda[0].estado_conservacion_estructuras;
+      // this.viviendaData.mobiliario_cocina = data.vivienda[0].mobiliario_cocina;
+      // this.viviendaData.andenes = data.vivienda[0].andenes;
     },
     eliminarItemAnimales: function eliminarItemAnimales(index) {
       this.animalesData.splice(index, 1);
@@ -17614,6 +20412,8 @@ var entero = function entero(value) {
 
       this.estratificacionData.id_jefe = "0";
     },
+    //OPCIONES DE LA VIVIENDA
+    //OPCIONES DE LOS CICLOS DE VIDA
     Amenores1Anio: function Amenores1Anio(vector, meses, opcion) {
       var pb = "";
 
@@ -18329,10 +21129,12 @@ var entero = function entero(value) {
         var suma = fecha.add(9, "months");
         suma = suma.add(7, "days");
         item.fecha_probable = suma.format("YYYY-MM-DD");
-        var hoy = moment();
+
+        var _hoy3 = moment();
+
         var hoyFormato = moment().format("YYYY-MM-DD");
         var edad = 0;
-        edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
+        edad = _hoy3.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
 
         var dife = this.datediff(hoyFormato, item.fecha_ultima);
         var diaSemanas = 0;
@@ -18469,6 +21271,69 @@ var entero = function entero(value) {
         item.morposparto = valor;
       }
     },
+    eliminarParpost: function () {
+      var _eliminarParpost = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee15(identificacion, tabla) {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee15$(_context19) {
+          while (1) {
+            switch (_context19.prev = _context19.next) {
+              case 0:
+                parametros = {
+                  _token: this.csrf,
+                  identificacion: identificacion,
+                  id_hogar: this.IDHOGAR,
+                  opcion: "PARPOST",
+                  tabla: tabla
+                };
+                _context19.prev = 1;
+                _context19.next = 4;
+                return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function (respuesta) {
+                  if (respuesta.OPC === "SI") {
+                    return true;
+                  } else {
+                    return false;
+                  }
+                })["catch"](function (error) {});
+
+              case 4:
+                _context19.next = 17;
+                break;
+
+              case 6:
+                _context19.prev = 6;
+                _context19.t0 = _context19["catch"](1);
+                _context19.t1 = _context19.t0.response.status;
+                _context19.next = _context19.t1 === 419 ? 11 : _context19.t1 === 422 ? 13 : 15;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context19.abrupt("break", 17);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context19.abrupt("break", 17);
+
+              case 15:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context19.abrupt("break", 17);
+
+              case 17:
+              case "end":
+                return _context19.stop();
+            }
+          }
+        }, _callee15, this, [[1, 6]]);
+      }));
+
+      function eliminarParpost(_x4, _x5) {
+        return _eliminarParpost.apply(this, arguments);
+      }
+
+      return eliminarParpost;
+    }(),
     Ade12a17Anio: function Ade12a17Anio(vector, edad, opcion) {
       this.De12A17.push({
         id: 0,
@@ -19191,1703 +22056,17 @@ var entero = function entero(value) {
       talla = talla / 100;
       var imc = peso / (talla * talla);
       return imc.toFixed(2);
-    },
-    habilitar_zonas: function habilitar_zonas() {
-      if (this.hogar.id_zona === "") {
-        this.estratificacionData.ingresos_zona_rural = "";
-        this.estratificacionData.ingresos_ciudad = "";
-      }
+    } //OPCIONES DE LOS CICLOS DE VIDA
 
-      if (this.hogar.id_zona === "0") {
-        this.estratificacionData.ingresos_zona_rural = 8;
-        this.estratificacionData.ingresos_ciudad = 8;
-      }
-
-      if (this.hogar.id_zona === "1") {
-        this.estratificacionData.ingresos_zona_rural = 8;
-        this.estratificacionData.ingresos_ciudad = "";
-      }
-
-      if (this.hogar.id_zona === "2" || this.hogar.id_zona === "3") {
-        this.estratificacionData.ingresos_zona_rural = "";
-        this.estratificacionData.ingresos_ciudad = 8;
-      }
-    },
-    updateJefe: function updateJefe(item, valor, opcion, index) {
-      if (opcion === "tipo_id") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var indice = this.factores.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.factores[indice].tipo_id = valor;
-          this.factores.splice(indice, 1, this.factores[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De10A59[indice].tipo_id = valor;
-          this.De10A59.splice(indice, 1, this.De10A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.ParPost[indice].tipo_id = valor;
-          this.ParPost.splice(indice, 1, this.ParPost[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De12A17[indice].tipo_id = valor;
-          this.De12A17.splice(indice, 1, this.De12A17[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De18A28[indice].tipo_id = valor;
-          this.De18A28.splice(indice, 1, this.De18A28[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De29A59[indice].tipo_id = valor;
-          this.De29A59.splice(indice, 1, this.De29A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De60.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De60[indice].tipo_id = valor;
-          this.De60.splice(indice, 1, this.De60[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.Migra[indice].tipo_id = valor;
-          this.Migra.splice(indice, 1, this.Migra[indice]);
-        }
-      }
-
-      if (opcion === "sexo") {
-        if (item.sexo === "") {
-          item.embarazo = "";
-          item.embarazo_multiple = "";
-        }
-
-        if (item.sexo === "MASCULINO") {
-          item.embarazo = "NOAPLICA";
-          item.embarazo_multiple = "NOAPLICA";
-        }
-
-        if (item.sexo === "FEMENINO") {
-          item.embarazo = "";
-          item.embarazo_multiple = "";
-        } //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-
-
-        var _id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice = this.factores.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.factores[_indice].sexo = valor;
-          this.factores.splice(_indice, 1, this.factores[_indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.De10A59[_indice].sexo = valor;
-          this.De10A59.splice(_indice, 1, this.De10A59[_indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.ParPost[_indice].sexo = valor;
-          this.ParPost.splice(_indice, 1, this.ParPost[_indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.De12A17[_indice].sexo = valor;
-          this.De12A17.splice(_indice, 1, this.De12A17[_indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.De18A28[_indice].sexo = valor;
-          this.De18A28.splice(_indice, 1, this.De18A28[_indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.De29A59[_indice].sexo = valor;
-          this.De29A59.splice(_indice, 1, this.De29A59[_indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.De60[_indice].sexo = valor;
-          this.De60.splice(_indice, 1, this.De60[_indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id;
-        });
-
-        if (_indice >= 0) {
-          this.Migra[_indice].sexo = valor;
-          this.Migra.splice(_indice, 1, this.Migra[_indice]);
-        }
-      }
-
-      if (opcion === "embarazo") {
-        if (item.embarazo === "") {
-          item.embarazo_multiple = "";
-        }
-
-        if (item.embarazo === "SI") {
-          item.embarazo_multiple = "";
-        }
-
-        if (item.embarazo === "NO") {
-          item.embarazo_multiple = "NO";
-        }
-      }
-
-      if (opcion === "afiliacion_entidad") {
-        if (item.afiliacion_entidad === "NINGUNA") {
-          item.tipo_afiliacion = "0";
-        } else {
-          if (item.afiliacion_entidad === "OTRA") {
-            item.otra_eps = "";
-          } else {
-            item.tipo_afiliacion = "";
-          }
-        }
-      }
-
-      if (opcion === "nivel_escolaridad") {
-        item.colegio = "";
-        item.grado = "";
-      }
-    },
-    changeupdateJefe: function changeupdateJefe(item, event, opcion, index) {
-      if (opcion == "identificacion") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var id = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var indice = this.factores.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.factores[indice].identificacion = item.identificacion;
-          this.factores.splice(indice, 1, this.factores[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[indice].identificacion = item.identificacion;
-          this.De10A59.splice(indice, 1, this.De10A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[indice].identificacion = item.identificacion;
-          this.ParPost.splice(indice, 1, this.ParPost[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[indice].identificacion = item.identificacion;
-          this.De12A17.splice(indice, 1, this.De12A17[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[indice].identificacion = item.identificacion;
-          this.De18A28.splice(indice, 1, this.De18A28[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[indice].identificacion = item.identificacion;
-          this.De29A59.splice(indice, 1, this.De29A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De60.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[indice].identificacion = item.identificacion;
-          this.De60.splice(indice, 1, this.De60[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[indice].identificacion = item.identificacion;
-          this.Migra.splice(indice, 1, this.Migra[indice]);
-        } //CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
-        //DIGITADA EN LA TABLA
-
-
-        this.vectorJefes[index].identificacion = item.identificacion; // Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
-
-        this.vectorJefes.splice(index, 1, this.vectorJefes[index]);
-      }
-
-      if (opcion == "pnom") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id2 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice2 = this.factores.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.factores[_indice2].pnom = item.pnom;
-          this.factores.splice(_indice2, 1, this.factores[_indice2]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice2 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice2].pnom = item.pnom;
-          this.De10A59.splice(_indice2, 1, this.De10A59[_indice2]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice2 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice2].pnom = item.pnom;
-          this.ParPost.splice(_indice2, 1, this.ParPost[_indice2]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice2 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice2].pnom = item.pnom;
-          this.De12A17.splice(_indice2, 1, this.De12A17[_indice2]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice2 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice2].pnom = item.pnom;
-          this.De18A28.splice(_indice2, 1, this.De18A28[_indice2]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice2 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice2].pnom = item.pnom;
-          this.De29A59.splice(_indice2, 1, this.De29A59[_indice2]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice2 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice2].pnom = item.pnom;
-          this.De60.splice(_indice2, 1, this.De60[_indice2]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice2 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id2;
-        });
-
-        if (_indice2 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice2].pnom = item.pnom;
-          this.Migra.splice(_indice2, 1, this.Migra[_indice2]);
-        }
-      }
-
-      if (opcion == "snom") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id3 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice3 = this.factores.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.factores[_indice3].snom = item.snom;
-          this.factores.splice(_indice3, 1, this.factores[_indice3]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice3 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice3].snom = item.snom;
-          this.De10A59.splice(_indice3, 1, this.De10A59[_indice3]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice3 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice3].snom = item.snom;
-          this.ParPost.splice(_indice3, 1, this.ParPost[_indice3]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice3 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice3].snom = item.snom;
-          this.De12A17.splice(_indice3, 1, this.De12A17[_indice3]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice3 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice3].snom = item.snom;
-          this.De18A28.splice(_indice3, 1, this.De18A28[_indice3]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice3 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice3].snom = item.snom;
-          this.De29A59.splice(_indice3, 1, this.De29A59[_indice3]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice3 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice3].snom = item.snom;
-          this.De60.splice(_indice3, 1, this.De60[_indice3]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice3 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id3;
-        });
-
-        if (_indice3 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice3].snom = item.snom;
-          this.Migra.splice(_indice3, 1, this.Migra[_indice3]);
-        }
-      }
-
-      if (opcion == "pape") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id4 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice4 = this.factores.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.factores[_indice4].pape = item.pape;
-          this.factores.splice(_indice4, 1, this.factores[_indice4]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice4 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice4].pape = item.pape;
-          this.De10A59.splice(_indice4, 1, this.De10A59[_indice4]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice4 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice4].pape = item.pape;
-          this.ParPost.splice(_indice4, 1, this.ParPost[_indice4]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice4 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice4].pape = item.pape;
-          this.De12A17.splice(_indice4, 1, this.De12A17[_indice4]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice4 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice4].pape = item.pape;
-          this.De18A28.splice(_indice4, 1, this.De18A28[_indice4]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice4 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice4].pape = item.pape;
-          this.De29A59.splice(_indice4, 1, this.De29A59[_indice4]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice4 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice4].pape = item.pape;
-          this.De60.splice(_indice4, 1, this.De60[_indice4]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice4 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id4;
-        });
-
-        if (_indice4 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice4].pape = item.pape;
-          this.Migra.splice(_indice4, 1, this.Migra[_indice4]);
-        }
-      }
-
-      if (opcion == "sape") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id5 = this.vectorJefes[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice5 = this.factores.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.factores[_indice5].sape = item.sape;
-          this.factores.splice(_indice5, 1, this.factores[_indice5]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice5 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice5].sape = item.sape;
-          this.De10A59.splice(_indice5, 1, this.De10A59[_indice5]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice5 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice5].sape = item.sape;
-          this.ParPost.splice(_indice5, 1, this.ParPost[_indice5]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice5 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice5].sape = item.sape;
-          this.De12A17.splice(_indice5, 1, this.De12A17[_indice5]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice5 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice5].sape = item.sape;
-          this.De18A28.splice(_indice5, 1, this.De18A28[_indice5]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice5 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice5].sape = item.sape;
-          this.De29A59.splice(_indice5, 1, this.De29A59[_indice5]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice5 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice5].sape = item.sape;
-          this.De60.splice(_indice5, 1, this.De60[_indice5]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice5 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id5;
-        });
-
-        if (_indice5 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice5].sape = item.sape;
-          this.Migra.splice(_indice5, 1, this.Migra[_indice5]);
-        }
-      }
-
-      if (opcion == "salario") {
-        item.salario = event.target.value.replace(/[.*+\-?^${}()|[\]\\]/g, "");
-        var val = (item.salario / 1).toFixed(0).replace(".", ",");
-        item.salario = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-        if (item.salario == "NaN") {
-          item.salario = "";
-        }
-
-        if (item.salario == "0") {
-          item.salario = "";
-        }
-      }
-    },
-    updateIntegrante: function updateIntegrante(item, valor, opcion, index) {
-      if (opcion === "tipo_id") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var id = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var indice = this.Men1A.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.Men1A[indice].tipo_id = valor;
-          this.Men1A.splice(indice, 1, this.Men1A[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De1A5.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De1A5[indice].tipo_id = valor;
-          this.De1A5.splice(indice, 1, this.De1A5[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De6A11.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De6A11[indice].tipo_id = valor;
-          this.De6A11.splice(indice, 1, this.De6A11[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De10A59[indice].tipo_id = valor;
-          this.De10A59.splice(indice, 1, this.De10A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.ParPost[indice].tipo_id = valor;
-          this.ParPost.splice(indice, 1, this.ParPost[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De12A17[indice].tipo_id = valor;
-          this.De12A17.splice(indice, 1, this.De12A17[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De18A28[indice].tipo_id = valor;
-          this.De18A28.splice(indice, 1, this.De18A28[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De29A59[indice].tipo_id = valor;
-          this.De29A59.splice(indice, 1, this.De29A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De60.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De60[indice].tipo_id = valor;
-          this.De60.splice(indice, 1, this.De60[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.Migra[indice].tipo_id = valor;
-          this.Migra.splice(indice, 1, this.Migra[indice]);
-        }
-      }
-
-      if (opcion === "sexo") {
-        if (item.sexo === "0") {
-          item.embarazo = "0";
-          item.embarazo_multiple = "0";
-        }
-
-        if (item.sexo === "MASCULINO") {
-          item.embarazo = "NOAPLICA";
-          item.embarazo_multiple = "NOAPLICA";
-        }
-
-        if (item.sexo === "FEMENINO") {
-          item.embarazo = "0";
-          item.embarazo_multiple = "0";
-        } //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-
-
-        var _id6 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice6 = this.Men1A.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.Men1A[_indice6].sexo = valor;
-          this.Men1A.splice(_indice6, 1, this.Men1A[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.De1A5.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.De1A5[_indice6].sexo = valor;
-          this.De1A5.splice(_indice6, 1, this.De1A5[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.De6A11.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.De6A11[_indice6].sexo = valor;
-          this.De6A11.splice(_indice6, 1, this.De6A11[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.De10A59[_indice6].sexo = valor;
-          this.De10A59.splice(_indice6, 1, this.De10A59[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.ParPost[_indice6].sexo = valor;
-          this.ParPost.splice(_indice6, 1, this.ParPost[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.De12A17[_indice6].sexo = valor;
-          this.De12A17.splice(_indice6, 1, this.De12A17[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.De18A28[_indice6].sexo = valor;
-          this.De18A28.splice(_indice6, 1, this.De18A28[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.De29A59[_indice6].sexo = valor;
-          this.De29A59.splice(_indice6, 1, this.De29A59[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.De60[_indice6].sexo = valor;
-          this.De60.splice(_indice6, 1, this.De60[_indice6]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice6 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id6;
-        });
-
-        if (_indice6 >= 0) {
-          this.Migra[_indice6].sexo = valor;
-          this.Migra.splice(_indice6, 1, this.Migra[_indice6]);
-        }
-      }
-
-      if (opcion === "embarazo") {
-        if (item.embarazo === "0") {
-          item.embarazo_multiple = "0";
-        }
-
-        if (item.embarazo === "SI") {
-          item.embarazo_multiple = "0";
-        }
-
-        if (item.embarazo === "NO") {
-          item.embarazo_multiple = "NO";
-        }
-      }
-
-      if (opcion === "afi_entidad") {
-        if (item.afi_entidad === "NINGUNA") {
-          item.tipo_afiliacion = "0";
-        } else {
-          if (item.afi_entidad === "OTRA") {
-            item.otra_eps = "";
-          } else {
-            item.tipo_afiliacion = "0";
-          }
-        }
-      }
-
-      if (opcion === "escolaridad") {
-        item.colegio = "";
-        item.grado = "0";
-      }
-    },
-    changeupdateIntegrante: function changeupdateIntegrante(item, event, opcion, index) {
-      // if (opcion === "fecha_nac") {
-      //   let nacimiento = moment(event.target.value);
-      //   let hoy = moment();
-      //   let edad = 0;
-      //   if (nacimiento < hoy) {
-      //     edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
-      //   }
-      //   item.edad = edad;
-      //   //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-      //   //VIENE DE LA TABLA
-      //   let id = this.vectorIntegrante[index].identificacion;
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   let indice = this.Men1A.findIndex(
-      //     identi => identi.identificacion === id
-      //   );
-      //   if (indice >= 0) {
-      //     this.Men1A[indice].edad = item.edad;
-      //     this.Men1A.splice(indice, 1, this.Men1A[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.De1A5.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     this.De1A5[indice].edad = item.edad;
-      //     this.De1A5.splice(indice, 1, this.De1A5[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.De6A11.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     this.De6A11[indice].edad = item.edad;
-      //     this.De6A11.splice(indice, 1, this.De6A11[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.De10A59.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-      //     this.De10A59[indice].edad = item.edad;
-      //     this.De10A59.splice(indice, 1, this.De10A59[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.ParPost.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-      //     this.ParPost[indice].edad = item.edad;
-      //     this.ParPost.splice(indice, 1, this.ParPost[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.De12A17.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-      //     this.De12A17[indice].edad = item.edad;
-      //     this.De12A17.splice(indice, 1, this.De12A17[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.De18A28.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-      //     this.De18A28[indice].edad = item.edad;
-      //     this.De18A28.splice(indice, 1, this.De18A28[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.De29A59.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-      //     this.De29A59[indice].edad = item.edad;
-      //     this.De29A59.splice(indice, 1, this.De29A59[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.De60.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-      //     this.De60[indice].edad = item.edad;
-      //     this.De60.splice(indice, 1, this.De60[indice]);
-      //   }
-      //   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-      //   indice = this.Migra.findIndex(identi => identi.identificacion === id);
-      //   if (indice >= 0) {
-      //     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-      //     this.Migra[indice].edad = item.edad;
-      //     this.Migra.splice(indice, 1, this.Migra[indice]);
-      //   }
-      // }
-      if (opcion == "identificacion") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var id = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var indice = this.Men1A.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.Men1A[indice].identificacion = item.identificacion;
-          this.Men1A.splice(indice, 1, this.Men1A[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De1A5.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De1A5[indice].identificacion = item.identificacion;
-          this.De1A5.splice(indice, 1, this.De1A5[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De6A11.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          this.De6A11[indice].identificacion = item.identificacion;
-          this.De6A11.splice(indice, 1, this.De6A11[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[indice].identificacion = item.identificacion;
-          this.De10A59.splice(indice, 1, this.De10A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[indice].identificacion = item.identificacion;
-          this.ParPost.splice(indice, 1, this.ParPost[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[indice].identificacion = item.identificacion;
-          this.De12A17.splice(indice, 1, this.De12A17[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[indice].identificacion = item.identificacion;
-          this.De18A28.splice(indice, 1, this.De18A28[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[indice].identificacion = item.identificacion;
-          this.De29A59.splice(indice, 1, this.De29A59[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.De60.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[indice].identificacion = item.identificacion;
-          this.De60.splice(indice, 1, this.De60[indice]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        indice = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === id;
-        });
-
-        if (indice >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[indice].identificacion = item.identificacion;
-          this.Migra.splice(indice, 1, this.Migra[indice]);
-        } //CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
-        //DIGITADA EN LA TABLA
-
-
-        this.vectorIntegrante[index].identificacion = item.identificacion; // Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
-
-        this.vectorIntegrante.splice(index, 1, this.vectorIntegrante[index]);
-      }
-
-      if (opcion == "pnom") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id7 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice7 = this.Men1A.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          this.Men1A[_indice7].pnom = item.pnom;
-          this.Men1A.splice(_indice7, 1, this.Men1A[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.De1A5.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          this.De1A5[_indice7].pnom = item.pnom;
-          this.De1A5.splice(_indice7, 1, this.De1A5[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.De6A11.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          this.De6A11[_indice7].pnom = item.pnom;
-          this.De6A11.splice(_indice7, 1, this.De6A11[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice7].pnom = item.pnom;
-          this.De10A59.splice(_indice7, 1, this.De10A59[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice7].pnom = item.pnom;
-          this.ParPost.splice(_indice7, 1, this.ParPost[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice7].pnom = item.pnom;
-          this.De12A17.splice(_indice7, 1, this.De12A17[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice7].pnom = item.pnom;
-          this.De18A28.splice(_indice7, 1, this.De18A28[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice7].pnom = item.pnom;
-          this.De29A59.splice(_indice7, 1, this.De29A59[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice7].pnom = item.pnom;
-          this.De60.splice(_indice7, 1, this.De60[_indice7]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice7 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id7;
-        });
-
-        if (_indice7 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice7].pnom = item.pnom;
-          this.Migra.splice(_indice7, 1, this.Migra[_indice7]);
-        }
-      }
-
-      if (opcion == "snom") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id8 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice8 = this.Men1A.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          this.Men1A[_indice8].snom = item.snom;
-          this.Men1A.splice(_indice8, 1, this.Men1A[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.De1A5.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          this.De1A5[_indice8].snom = item.snom;
-          this.De1A5.splice(_indice8, 1, this.De1A5[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.De6A11.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          this.De6A11[_indice8].snom = item.snom;
-          this.De6A11.splice(_indice8, 1, this.De6A11[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice8].snom = item.snom;
-          this.De10A59.splice(_indice8, 1, this.De10A59[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice8].snom = item.snom;
-          this.ParPost.splice(_indice8, 1, this.ParPost[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice8].snom = item.snom;
-          this.De12A17.splice(_indice8, 1, this.De12A17[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice8].snom = item.snom;
-          this.De18A28.splice(_indice8, 1, this.De18A28[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice8].snom = item.snom;
-          this.De29A59.splice(_indice8, 1, this.De29A59[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice8].snom = item.snom;
-          this.De60.splice(_indice8, 1, this.De60[_indice8]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice8 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id8;
-        });
-
-        if (_indice8 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice8].snom = item.snom;
-          this.Migra.splice(_indice8, 1, this.Migra[_indice8]);
-        }
-      }
-
-      if (opcion == "pape") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id9 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice9 = this.Men1A.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          this.Men1A[_indice9].pape = item.pape;
-          this.Men1A.splice(_indice9, 1, this.Men1A[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.De1A5.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          this.De1A5[_indice9].pape = item.pape;
-          this.De1A5.splice(_indice9, 1, this.De1A5[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.De6A11.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          this.De6A11[_indice9].pape = item.pape;
-          this.De6A11.splice(_indice9, 1, this.De6A11[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice9].pape = item.pape;
-          this.De10A59.splice(_indice9, 1, this.De10A59[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice9].pape = item.pape;
-          this.ParPost.splice(_indice9, 1, this.ParPost[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice9].pape = item.pape;
-          this.De12A17.splice(_indice9, 1, this.De12A17[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice9].pape = item.pape;
-          this.De18A28.splice(_indice9, 1, this.De18A28[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice9].pape = item.pape;
-          this.De29A59.splice(_indice9, 1, this.De29A59[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice9].pape = item.pape;
-          this.De60.splice(_indice9, 1, this.De60[_indice9]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice9 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id9;
-        });
-
-        if (_indice9 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice9].pape = item.pape;
-          this.Migra.splice(_indice9, 1, this.Migra[_indice9]);
-        }
-      }
-
-      if (opcion == "sape") {
-        //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-        //VIENE DE LA TABLA
-        var _id10 = this.vectorIntegrante[index].identificacion; //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-        var _indice10 = this.Men1A.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          this.Men1A[_indice10].sape = item.sape;
-          this.Men1A.splice(_indice10, 1, this.Men1A[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.De1A5.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          this.De1A5[_indice10].sape = item.sape;
-          this.De1A5.splice(_indice10, 1, this.De1A5[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.De6A11.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          this.De6A11[_indice10].sape = item.sape;
-          this.De6A11.splice(_indice10, 1, this.De6A11[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.De10A59.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De10A59[_indice10].sape = item.sape;
-          this.De10A59.splice(_indice10, 1, this.De10A59[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.ParPost.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.ParPost[_indice10].sape = item.sape;
-          this.ParPost.splice(_indice10, 1, this.ParPost[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.De12A17.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De12A17[_indice10].sape = item.sape;
-          this.De12A17.splice(_indice10, 1, this.De12A17[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.De18A28.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De18A28[_indice10].sape = item.sape;
-          this.De18A28.splice(_indice10, 1, this.De18A28[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.De29A59.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De29A59[_indice10].sape = item.sape;
-          this.De29A59.splice(_indice10, 1, this.De29A59[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.De60.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.De60[_indice10].sape = item.sape;
-          this.De60.splice(_indice10, 1, this.De60[_indice10]);
-        } //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-
-
-        _indice10 = this.Migra.findIndex(function (identi) {
-          return identi.identificacion === _id10;
-        });
-
-        if (_indice10 >= 0) {
-          //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-          this.Migra[_indice10].sape = item.sape;
-          this.Migra.splice(_indice10, 1, this.Migra[_indice10]);
-        }
-      }
-    },
-    AFactores: function AFactores(vector, edad) {
-      this.factores.push({
-        id: 0,
-        tipo_id: vector.tipo_id,
-        identificacion: vector.identificacion,
-        pnom: vector.pnom,
-        snom: vector.snom,
-        pape: vector.pape,
-        sape: vector.sape,
-        sexo: vector.sexo,
-        edad: edad,
-        dialogos: "",
-        sancion: "",
-        castigo_verbal: "",
-        castigo_fisico: "",
-        alcohol: "",
-        tabaco: "",
-        sustancias_psico: "",
-        apuestas: "",
-        violencia_fisica: "",
-        violencia_psico: "",
-        violencia_economica: "",
-        abuso_sexual: "",
-        actividad_fisica: "",
-        consumo_frutas: "",
-        religiosos: "",
-        sociales: "",
-        culturales: "",
-        recreativos: "",
-        estado: "Activo"
-      });
-    },
-    datediff: function datediff(date1, date2) {
-      var fecha1 = date1.split("-");
-      var fecha2 = date2.split("-");
-      var y1 = fecha1[0],
-          m1 = fecha1[1],
-          d1 = fecha1[2],
-          y2 = fecha2[0],
-          m2 = fecha2[1],
-          d2 = fecha2[2];
-
-      if (d1 < d2) {
-        m1--;
-        d1 += this.DaysInMonth(y2, m2);
-        console.log(d1);
-      }
-
-      if (m1 < m2) {
-        y1--;
-        m1 += 12;
-      }
-
-      return [y1 - y2, m1 - m2, d1 - d2];
-    },
-    DaysInMonth: function DaysInMonth(Y, M) {
-      return new Date(Y, M, 1, 12).getDate();
-    }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20903,15 +22082,15 @@ exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -20933,10 +22112,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1& ***!
-  \**********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a& ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21142,31 +22321,55 @@ var render = function() {
                     },
                     [_vm._v("Migrante")]
                   )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: {
-                        "data-toggle": "tab",
-                        href: "#establecimientos",
-                        role: "tab"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.cambiarTab2("establecimientos")
-                        }
-                      }
-                    },
-                    [_vm._v("Establecimientos")]
-                  )
                 ])
               ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "tab-content" }, [
+              _c(
+                "div",
+                { staticClass: "vld-parent" },
+                [
+                  _c(
+                    "loading",
+                    {
+                      attrs: {
+                        active: _vm.isLoading,
+                        "can-cancel": true,
+                        "on-cancel": _vm.onCancel,
+                        "is-full-page": true
+                      },
+                      on: {
+                        "update:active": function($event) {
+                          _vm.isLoading = $event
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "alert alert-success",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _c("div", { staticClass: "alert-icon" }, [
+                            _c("i", { staticClass: "fa fa-spinner" })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "alert-text" }, [
+                            _c("h3", [
+                              _vm._v("Cargando... Por Favor Espere!!!")
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c(
                 "div",
                 {
@@ -21355,7 +22558,10 @@ var render = function() {
                         _c(
                           "b-form-select",
                           {
-                            class: { "is-valid": _vm.hogar.id_corre },
+                            class:
+                              _vm.hogar.id_corre == ""
+                                ? "is-invalid"
+                                : "is-valid",
                             on: {
                               change: function($event) {
                                 return _vm.cambiarCombo("corregi")
@@ -21425,7 +22631,10 @@ var render = function() {
                         _c(
                           "b-form-select",
                           {
-                            class: { "is-valid": _vm.hogar.id_vereda },
+                            class:
+                              _vm.hogar.id_vereda == ""
+                                ? "is-invalid"
+                                : "is-valid",
                             on: {
                               change: function($event) {
                                 return _vm.cambiarCombo("vereda")
@@ -21485,7 +22694,10 @@ var render = function() {
                         _c(
                           "b-form-select",
                           {
-                            class: { "is-valid": _vm.hogar.id_barrio },
+                            class:
+                              _vm.hogar.id_barrio == ""
+                                ? "is-invalid"
+                                : "is-valid",
                             model: {
                               value: _vm.hogar.id_barrio,
                               callback: function($$v) {
@@ -22983,7 +24195,7 @@ var render = function() {
                               _vm._v("SENSORIAL")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "PSIQUICA" } }, [
+                            _c("option", { attrs: { value: "PSÍQUICA" } }, [
                               _vm._v("PSÍQUICA")
                             ]),
                             _vm._v(" "),
@@ -25411,30 +26623,35 @@ var render = function() {
                                             "div",
                                             { staticStyle: { width: "70px" } },
                                             [
-                                              _c(
-                                                "button",
-                                                {
-                                                  staticClass:
-                                                    "btn btn-icon btn-sm btn-outline-danger",
-                                                  attrs: {
-                                                    type: "button",
-                                                    title: "Eliminar"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.eliminarItemJefe(
-                                                        index,
-                                                        item
-                                                      )
-                                                    }
-                                                  }
-                                                },
-                                                [
-                                                  _c("i", {
-                                                    staticClass: "fa fa-trash"
-                                                  })
-                                                ]
-                                              ),
+                                              item.id == 0
+                                                ? _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-outline-danger",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Eliminar"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.eliminarItemJefe(
+                                                            index,
+                                                            item
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-trash"
+                                                      })
+                                                    ]
+                                                  )
+                                                : _vm._e(),
                                               _vm._v(" "),
                                               _c(
                                                 "button",
@@ -26203,7 +27420,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "col-lg-4" },
+                      { staticClass: "col-lg-2" },
                       [
                         _c("label", [_vm._v("Tipo Afiliación:")]),
                         _vm._v(" "),
@@ -29042,6 +30259,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("br"),
+                  _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
                   _c("div", {
@@ -30953,7 +32171,7 @@ var render = function() {
                         class: _vm.actividadesAuxiliar == "" ? "" : "is-valid",
                         attrs: {
                           type: "text",
-                          placeholder: "Ocupaciones",
+                          placeholder: "Actividad Económica",
                           readonly: true
                         },
                         domProps: { value: _vm.actividadesAuxiliar },
@@ -31380,11 +32598,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("Acueducto publico")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("Acueducto veredal comunal")
+                              _vm._v("Acueducto")
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "3" } }, [
@@ -32339,7 +33553,9 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("Aseo municipal")
+                              _vm._v(
+                                "Recolección y dispocisión en el aseo municipal"
+                              )
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "2" } }, [
@@ -32753,7 +33969,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-3" },
                       [
-                        _c("label", [_vm._v("Contaminación Auditiva:")]),
+                        _c("label", [_vm._v("Ruido:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
@@ -32799,14 +34015,12 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Contaminación Auditiva Valida")
+                          _vm._v("Ruido Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
                           !_vm.$v.viviendaData.contaminacion_a.required
-                            ? _c("span", [
-                                _vm._v("Contaminación Auditiva es obligatoria")
-                              ])
+                            ? _c("span", [_vm._v("Ruido es obligatorio")])
                             : _vm._e()
                         ])
                       ],
@@ -32817,71 +34031,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-3" },
                       [
-                        _c("label", [_vm._v("Contaminación Visual:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.contaminacion_v.$error,
-                              "is-valid": !_vm.$v.viviendaData.contaminacion_v
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.contaminacion_v.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.contaminacion_v,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.contaminacion_v.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Contaminación Visual Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.contaminacion_v.required
-                            ? _c("span", [
-                                _vm._v("Contaminación Visual es obligatoria")
-                              ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-3" },
-                      [
-                        _c("label", [_vm._v("Rio ó Quebrada:")]),
+                        _c("label", [_vm._v("Cuerpos de agua:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
@@ -32924,13 +34074,13 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Rio ó Quebrada Valido")
+                          _vm._v("Cuerpos de agua Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
                           !_vm.$v.viviendaData.rio.required
                             ? _c("span", [
-                                _vm._v("Rio ó Quebrada es obligatorio")
+                                _vm._v("Cuerpos de agua es obligatorio")
                               ])
                             : _vm._e()
                         ])
@@ -32944,70 +34094,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-3" },
                       [
-                        _c("label", [_vm._v("Aereopuertos:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.aereopuertos.$error,
-                              "is-valid": !_vm.$v.viviendaData.aereopuertos
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.aereopuertos.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.aereopuertos,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression: "$v.viviendaData.aereopuertos.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Aereopuertos Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.aereopuertos.required
-                            ? _c("span", [
-                                _vm._v("Aereopuertos es obligatorio")
-                              ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-3" },
-                      [
-                        _c("label", [_vm._v("Avenidas transitadas:")]),
+                        _c("label", [_vm._v("Avenidas:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
@@ -33054,14 +34141,12 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Avenidas transitadas Valida")
+                          _vm._v("Avenidas Valida")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
                           !_vm.$v.viviendaData.avenidas_transitadas.required
-                            ? _c("span", [
-                                _vm._v("Avenidas transitadas es obligatoria")
-                              ])
+                            ? _c("span", [_vm._v("Avenidas es obligatoria")])
                             : _vm._e()
                         ])
                       ],
@@ -33708,10 +34793,6 @@ var render = function() {
                               _vm._v("Letrina")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("Inodoro con descarga al aire libre")
-                            ]),
-                            _vm._v(" "),
                             _c("option", { attrs: { value: "3" } }, [
                               _vm._v(
                                 "Inodoro conectado a red de alcantarillado"
@@ -33719,11 +34800,11 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "4" } }, [
-                              _vm._v("En agua corriente")
+                              _vm._v("Cuerpos de aguas")
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "5" } }, [
-                              _vm._v("Pozo séptico")
+                              _vm._v("Inododoro conectado a pozo séptico")
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "6" } }, [
@@ -33877,7 +34958,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Dormitorio Adultos:")]),
+                        _c("label", [_vm._v("Dormitorio:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
@@ -33922,13 +35003,13 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Dormitorio Adultos Valido")
+                          _vm._v("Dormitorio Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
                           !_vm.$v.viviendaData.dormitorio_a.required
                             ? _c("span", [
-                                _vm._v("El Dormitorio Adultos es obligatorio")
+                                _vm._v("El Dormitorio es obligatorio")
                               ])
                             : _vm._e()
                         ])
@@ -33999,69 +35080,6 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Dormitorio Niño:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.dormitorio_n.$error,
-                              "is-valid": !_vm.$v.viviendaData.dormitorio_n
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.dormitorio_n.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.dormitorio_n,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression: "$v.viviendaData.dormitorio_n.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("NO APLICA")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Dormitorio Niño Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.dormitorio_n.required
-                            ? _c("span", [
-                                _vm._v("El Dormitorio Niño es obligatorio")
-                              ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "col-lg-4" },
@@ -35691,347 +36709,31 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Flora:")]),
+                        _c("label", [_vm._v("Residuos Aprovechables:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
                           {
                             class: {
                               "is-invalid":
-                                _vm.$v.viviendaData.flora_afectados.$error,
-                              "is-valid": !_vm.$v.viviendaData.flora_afectados
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.flora_afectados.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.flora_afectados,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.flora_afectados.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Flora Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.flora_afectados.required
-                            ? _c("span", [_vm._v("Flora es obligatoria")])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Fauna:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.fauna_afectados.$error,
-                              "is-valid": !_vm.$v.viviendaData.fauna_afectados
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.fauna_afectados.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.fauna_afectados,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.fauna_afectados.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Fauna Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.fauna_afectados.required
-                            ? _c("span", [_vm._v("Fauna es obligatoria")])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Suelo:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.suelo_afectados.$error,
-                              "is-valid": !_vm.$v.viviendaData.suelo_afectados
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.suelo_afectados.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.suelo_afectados,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.suelo_afectados.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Suelo Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.suelo_afectados.required
-                            ? _c("span", [_vm._v("Suelo es obligatorio")])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Aire:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.aire_afectados.$error,
-                              "is-valid": !_vm.$v.viviendaData.aire_afectados
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.aire_afectados.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.aire_afectados,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.aire_afectados.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Aire Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.aire_afectados.required
-                            ? _c("span", [_vm._v("Aire es obligatorio")])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Agua:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.agua_afectados.$error,
-                              "is-valid": !_vm.$v.viviendaData.agua_afectados
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.agua_afectados.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.agua_afectados,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.agua_afectados.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Agua Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.agua_afectados.required
-                            ? _c("span", [_vm._v("Agua es obligatoria")])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(17),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Residuos sólidos:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.residuos_solidos_genera
+                                _vm.$v.viviendaData.residuos_aprovechables
                                   .$error,
                               "is-valid": !_vm.$v.viviendaData
-                                .residuos_solidos_genera.$invalid
+                                .residuos_aprovechables.$invalid
                             },
                             model: {
                               value:
-                                _vm.$v.viviendaData.residuos_solidos_genera
+                                _vm.$v.viviendaData.residuos_aprovechables
                                   .$model,
                               callback: function($$v) {
                                 _vm.$set(
-                                  _vm.$v.viviendaData.residuos_solidos_genera,
+                                  _vm.$v.viviendaData.residuos_aprovechables,
                                   "$model",
                                   typeof $$v === "string" ? $$v.trim() : $$v
                                 )
                               },
                               expression:
-                                "$v.viviendaData.residuos_solidos_genera.$model"
+                                "$v.viviendaData.residuos_aprovechables.$model"
                             }
                           },
                           [
@@ -36056,13 +36758,13 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Residuos sólidos Valido")
+                          _vm._v("Residuos Aprovechables Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.residuos_solidos_genera.required
+                          !_vm.$v.viviendaData.residuos_aprovechables.required
                             ? _c("span", [
-                                _vm._v("Residuos sólidos es obligatorio")
+                                _vm._v("Residuos Aprovechables es obligatorio")
                               ])
                             : _vm._e()
                         ])
@@ -36074,31 +36776,29 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Aguas servidas:")]),
+                        _c("label", [_vm._v("Residuos Organicos:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
                           {
                             class: {
                               "is-invalid":
-                                _vm.$v.viviendaData.aguas_servidas_genera
-                                  .$error,
+                                _vm.$v.viviendaData.residuos_organicos.$error,
                               "is-valid": !_vm.$v.viviendaData
-                                .aguas_servidas_genera.$invalid
+                                .residuos_organicos.$invalid
                             },
                             model: {
                               value:
-                                _vm.$v.viviendaData.aguas_servidas_genera
-                                  .$model,
+                                _vm.$v.viviendaData.residuos_organicos.$model,
                               callback: function($$v) {
                                 _vm.$set(
-                                  _vm.$v.viviendaData.aguas_servidas_genera,
+                                  _vm.$v.viviendaData.residuos_organicos,
                                   "$model",
                                   typeof $$v === "string" ? $$v.trim() : $$v
                                 )
                               },
                               expression:
-                                "$v.viviendaData.aguas_servidas_genera.$model"
+                                "$v.viviendaData.residuos_organicos.$model"
                             }
                           },
                           [
@@ -36123,13 +36823,13 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Aguas servidas Valida")
+                          _vm._v("Residuos Organicos Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.aguas_servidas_genera.required
+                          !_vm.$v.viviendaData.residuos_organicos.required
                             ? _c("span", [
-                                _vm._v("Aguas servidas es obligatoria")
+                                _vm._v("Residuos Organicos es obligatorio")
                               ])
                             : _vm._e()
                         ])
@@ -36141,31 +36841,31 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Desechos de cocinas:")]),
+                        _c("label", [_vm._v("Residuos Aprovechables:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
                           {
                             class: {
                               "is-invalid":
-                                _vm.$v.viviendaData.desechos_cocina_genera
+                                _vm.$v.viviendaData.residuos_no_aprovechables
                                   .$error,
                               "is-valid": !_vm.$v.viviendaData
-                                .desechos_cocina_genera.$invalid
+                                .residuos_no_aprovechables.$invalid
                             },
                             model: {
                               value:
-                                _vm.$v.viviendaData.desechos_cocina_genera
+                                _vm.$v.viviendaData.residuos_no_aprovechables
                                   .$model,
                               callback: function($$v) {
                                 _vm.$set(
-                                  _vm.$v.viviendaData.desechos_cocina_genera,
+                                  _vm.$v.viviendaData.residuos_no_aprovechables,
                                   "$model",
                                   typeof $$v === "string" ? $$v.trim() : $$v
                                 )
                               },
                               expression:
-                                "$v.viviendaData.desechos_cocina_genera.$model"
+                                "$v.viviendaData.residuos_no_aprovechables.$model"
                             }
                           },
                           [
@@ -36190,13 +36890,14 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Desechos de cocinas Valido")
+                          _vm._v("Residuos Aprovechables Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.desechos_cocina_genera.required
+                          !_vm.$v.viviendaData.residuos_no_aprovechables
+                            .required
                             ? _c("span", [
-                                _vm._v("Desechos de cocinas es obligatorio")
+                                _vm._v("Residuos Aprovechables es obligatorio")
                               ])
                             : _vm._e()
                         ])
@@ -36206,135 +36907,6 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Heces de animales:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.heces_animales_genera
-                                  .$error,
-                              "is-valid": !_vm.$v.viviendaData
-                                .heces_animales_genera.$invalid
-                            },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.heces_animales_genera
-                                  .$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.heces_animales_genera,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.heces_animales_genera.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Heces de animales Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.heces_animales_genera.required
-                            ? _c("span", [
-                                _vm._v("Heces de animales es obligatorio")
-                              ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Químicos:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.quimicos_genera.$error,
-                              "is-valid": !_vm.$v.viviendaData.quimicos_genera
-                                .$invalid
-                            },
-                            model: {
-                              value: _vm.$v.viviendaData.quimicos_genera.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.quimicos_genera,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.quimicos_genera.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Químicos Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.quimicos_genera.required
-                            ? _c("span", [_vm._v("Químicos es obligatorio")])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "col-lg-4" },
@@ -36544,83 +37116,6 @@ var render = function() {
                         ])
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6" },
-                      [
-                        _c("label", [
-                          _vm._v(
-                            "¿Realizan mantenimiento de la red de suministros de gas natural?:"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.mantenimiento_red.$error,
-                              "is-valid": !_vm.$v.viviendaData.mantenimiento_red
-                                .$invalid
-                            },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.mantenimiento_red.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.mantenimiento_red,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.mantenimiento_red.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("Nunca")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("Periódico")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "3" } }, [
-                              _vm._v("Ocasional")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "4" } }, [
-                              _vm._v("Permanente")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Aguas servidas Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.mantenimiento_red.required
-                            ? _c("span", [
-                                _vm._v("Aguas servidas es obligatoria")
-                              ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
                     )
                   ]),
                   _vm._v(" "),
@@ -36674,7 +37169,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("Rio")
+                              _vm._v("Cuerpos de agua")
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "3" } }, [
@@ -36785,79 +37280,6 @@ var render = function() {
                       [
                         _c("label", [
                           _vm._v(
-                            "Existe una fuente de contaminación cerca del lugar de la vivienda:"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.fuente_contaminacion.$error,
-                              "is-valid": !_vm.$v.viviendaData
-                                .fuente_contaminacion.$invalid
-                            },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.fuente_contaminacion.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.fuente_contaminacion,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.fuente_contaminacion.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v(
-                            "Existe una fuente de contaminación cerca del lugar de la vivienda Valida"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.fuente_contaminacion.required
-                            ? _c("span", [
-                                _vm._v(
-                                  "Existe una fuente de contaminación cerca del lugar de la vivienda es obligatoria"
-                                )
-                              ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6" },
-                      [
-                        _c("label", [
-                          _vm._v(
                             "¿Se presenta en tu barrio problemáticas de aguas negras?:"
                           )
                         ]),
@@ -36890,16 +37312,16 @@ var render = function() {
                               [_vm._v("Seleccione")]
                             ),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
+                            _c("option", { attrs: { value: "FRECUENTE" } }, [
+                              _vm._v("FRECUENTE")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
+                            _c("option", { attrs: { value: "NUNCA" } }, [
+                              _vm._v("NUNCA")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
+                            _c("option", { attrs: { value: "OCASIONAL" } }, [
+                              _vm._v("OCASIONAL")
                             ])
                           ]
                         ),
@@ -37242,76 +37664,6 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6" },
-                      [
-                        _c("label", [_vm._v("Suministro de energía ilegal :")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.suministro_energia_ilegal
-                                  .$error,
-                              "is-valid": !_vm.$v.viviendaData
-                                .suministro_energia_ilegal.$invalid
-                            },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.suministro_energia_ilegal
-                                  .$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.suministro_energia_ilegal,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.suministro_energia_ilegal.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Suministro de energía ilegal Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.suministro_energia_ilegal
-                            .required
-                            ? _c("span", [
-                                _vm._v(
-                                  "Suministro de energía ilegal es obligatoria"
-                                )
-                              ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "col-lg-6" },
@@ -38094,7 +38446,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(18),
+                  _vm._m(17),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -38809,7 +39161,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(19),
+                            _vm._m(18),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -39183,9 +39535,9 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(20),
+                  _vm._m(19),
                   _vm._v(" "),
-                  _vm._m(21),
+                  _vm._m(20),
                   _vm._v(" "),
                   _c("div", {
                     staticClass: "kt-separator kt-separator--border-dashed"
@@ -39201,7 +39553,7 @@ var render = function() {
                             staticStyle: { width: "100%" }
                           },
                           [
-                            _vm._m(22),
+                            _vm._m(21),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -41383,7 +41735,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(23),
+                  _vm._m(22),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -41392,7 +41744,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(24),
+                            _vm._m(23),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -43723,7 +44075,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(25),
+                  _vm._m(24),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -43732,7 +44084,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(26),
+                            _vm._m(25),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -45317,7 +45669,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(27),
+                  _vm._m(26),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -45326,7 +45678,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(28),
+                            _vm._m(27),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -47225,7 +47577,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(29),
+                  _vm._m(28),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -47234,7 +47586,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(30),
+                            _vm._m(29),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -49297,7 +49649,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(31),
+                  _vm._m(30),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -49306,7 +49658,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(32),
+                            _vm._m(31),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -51084,7 +51436,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(33),
+                  _vm._m(32),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -51093,7 +51445,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(34),
+                            _vm._m(33),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -52539,7 +52891,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(35),
+                  _vm._m(34),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -52548,7 +52900,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(36),
+                            _vm._m(35),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -54024,7 +54376,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(37),
+                  _vm._m(36),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -54033,7 +54385,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(38),
+                            _vm._m(37),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -55445,9 +55797,9 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(39),
+                  _vm._m(38),
                   _vm._v(" "),
-                  _vm._m(40),
+                  _vm._m(39),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -55456,7 +55808,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(41),
+                            _vm._m(40),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -55783,7 +56135,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(42),
+                  _vm._m(41),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -55792,7 +56144,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(43),
+                            _vm._m(42),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -56153,7 +56505,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(44),
+                  _vm._m(43),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -56162,7 +56514,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(45),
+                            _vm._m(44),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -57808,21 +58160,6 @@ var staticRenderFns = [
             "Almacena Junto A Los Alimentos Y/O Agua De Consumo Alguno De Los Siguientes Productos"
           )
         ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "span",
-        {
-          staticClass: "kt-font-boldest",
-          staticStyle: { "font-size": "18px" }
-        },
-        [_vm._v("¿Qué tipo de recursos naturales son afectados?")]
       )
     ])
   },
@@ -60463,18 +60800,18 @@ function eliminarOcupaciones($data) {
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue":
-/*!*********************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue ***!
-  \*********************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=template&id=45771cc1& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&");
-/* harmony import */ var _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Editar.vue?vue&type=template&id=8bf6b44a& */ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&");
+/* harmony import */ var _Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Editar.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Editar.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -60485,9 +60822,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -60497,54 +60834,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Caracterizacion/Ingreso.vue"
+component.options.__file = "resources/js/Vistas/Caracterizacion/Editar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css& ***!
-  \******************************************************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a& ***!
+  \***************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=template&id=45771cc1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=template&id=8bf6b44a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
