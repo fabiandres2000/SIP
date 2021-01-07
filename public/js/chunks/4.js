@@ -10891,6 +10891,260 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -11368,6 +11622,7 @@ var entero = function entero(value) {
       vectorIntegrante: [],
       vectorAyuda: [],
       factores: [],
+      afectacion: [],
       GIDEN: false,
       GVIVI: false,
       GCARXCI: false,
@@ -12020,7 +12275,7 @@ var entero = function entero(value) {
       return _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var bandera, resul, i, val, iden, _resul, _i, val1, iden1, _resul2, parametros, isInvalid, _parametros, auxi, _resul3, _resul4, _resul5, _resul6, _resul7, _parametros2, _auxi, _resul8, _resul9, _resul10, _parametros3, _auxi2, _resul11, _resul12, _resul13, _parametros4, _auxi3, _resul14, _parametros5;
+        var bandera, resul, i, val, iden, _resul, _i, val1, iden1, _resul2, _resul3, parametros, isInvalid, _parametros, auxi, _resul4, _resul5, _resul6, _resul7, _resul8, _parametros2, _auxi, _resul9, _resul10, _resul11, _parametros3, _auxi2, _resul12, _resul13, _resul14, _parametros4, _auxi3, _resul15, _parametros5;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
@@ -12029,12 +12284,12 @@ var entero = function entero(value) {
                 bandera = false;
 
                 if (!(actual === "tabIdentificacion")) {
-                  _context4.next = 94;
+                  _context4.next = 101;
                   break;
                 }
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 93;
+                  _context4.next = 100;
                   break;
                 }
 
@@ -12255,7 +12510,27 @@ var entero = function entero(value) {
                 return _context4.abrupt("return", false);
 
               case 73:
-                //VALIDAR LA TABLA FACTORES
+                if (!(_this4.afectacion.length > 0)) {
+                  _context4.next = 80;
+                  break;
+                }
+
+                _resul3 = _this4.valAfectacion();
+
+                if (!_resul3) {
+                  _context4.next = 79;
+                  break;
+                }
+
+                bandera = true;
+                _context4.next = 80;
+                break;
+
+              case 79:
+                return _context4.abrupt("return", false);
+
+              case 80:
+                //VALIDAR LA TABLA AFECTACION
                 //GUARDAR DATOS
                 _this4.valGIden = false;
                 parametros = {
@@ -12265,11 +12540,12 @@ var entero = function entero(value) {
                   integrantes: _this4.datos,
                   factores: _this4.factores,
                   CODIGOGENE: _this4.CODIGOGENE,
+                  afectacion: _this4.afectacion,
                   opcion: "GUARDAR",
                   opc: "GUAINDEN"
                 };
-                _context4.prev = 75;
-                _context4.next = 78;
+                _context4.prev = 82;
+                _context4.next = 85;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GIDEN = true;
@@ -12285,49 +12561,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 78:
-                _context4.next = 91;
-                break;
-
-              case 80:
-                _context4.prev = 80;
-                _context4.t0 = _context4["catch"](75);
-                _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 419 ? 85 : _context4.t1 === 422 ? 87 : 89;
-                break;
-
               case 85:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 91);
+                _context4.next = 98;
+                break;
 
               case 87:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 91);
-
-              case 89:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 91);
-
-              case 91:
-                _context4.next = 94;
+                _context4.prev = 87;
+                _context4.t0 = _context4["catch"](82);
+                _context4.t1 = _context4.t0.response.status;
+                _context4.next = _context4.t1 === 419 ? 92 : _context4.t1 === 422 ? 94 : 96;
                 break;
 
-              case 93:
-                bandera = true;
+              case 92:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 98);
 
               case 94:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 98);
+
+              case 96:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 98);
+
+              case 98:
+                _context4.next = 101;
+                break;
+
+              case 100:
+                bandera = true;
+
+              case 101:
                 if (!(actual === "tabVivienda")) {
-                  _context4.next = 131;
+                  _context4.next = 138;
                   break;
                 }
 
                 bandera = true;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 99;
+                  _context4.next = 106;
                   break;
                 }
 
@@ -12335,13 +12611,13 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 99:
+              case 106:
                 _this4.$v.$touch();
 
                 isInvalid = _this4.$v.$invalid;
 
                 if (!isInvalid) {
-                  _context4.next = 106;
+                  _context4.next = 113;
                   break;
                 }
 
@@ -12349,14 +12625,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 106:
+              case 113:
                 if (!(_this4.GVIVI === false && _this4.GIDEN === true && _this4.IDHOGAR !== 0)) {
-                  _context4.next = 130;
+                  _context4.next = 137;
                   break;
                 }
 
                 if (!(_this4.estratificacion.length <= 0)) {
-                  _context4.next = 110;
+                  _context4.next = 117;
                   break;
                 }
 
@@ -12364,7 +12640,7 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 110:
+              case 117:
                 //GUARDAR DATOS
                 _this4.valGVivi = false;
                 _parametros = {
@@ -12376,8 +12652,8 @@ var entero = function entero(value) {
                   opc: "GUAVIVI",
                   IDHOGAR: _this4.IDHOGAR
                 };
-                _context4.prev = 112;
-                _context4.next = 115;
+                _context4.prev = 119;
+                _context4.next = 122;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GVIVI = true;
@@ -12393,49 +12669,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 115:
-                _context4.next = 128;
-                break;
-
-              case 117:
-                _context4.prev = 117;
-                _context4.t2 = _context4["catch"](112);
-                _context4.t3 = _context4.t2.response.status;
-                _context4.next = _context4.t3 === 419 ? 122 : _context4.t3 === 422 ? 124 : 126;
-                break;
-
               case 122:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 128);
+                _context4.next = 135;
+                break;
 
               case 124:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 128);
-
-              case 126:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 128);
-
-              case 128:
-                _context4.next = 131;
+                _context4.prev = 124;
+                _context4.t2 = _context4["catch"](119);
+                _context4.t3 = _context4.t2.response.status;
+                _context4.next = _context4.t3 === 419 ? 129 : _context4.t3 === 422 ? 131 : 133;
                 break;
 
-              case 130:
-                bandera = true;
+              case 129:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 135);
 
               case 131:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 135);
+
+              case 133:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 135);
+
+              case 135:
+                _context4.next = 138;
+                break;
+
+              case 137:
+                bandera = true;
+
+              case 138:
                 if (!(actual === "cartxciclo")) {
-                  _context4.next = 206;
+                  _context4.next = 213;
                   break;
                 }
 
                 bandera = true;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 136;
+                  _context4.next = 143;
                   break;
                 }
 
@@ -12443,9 +12719,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 136:
+              case 143:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 139;
+                  _context4.next = 146;
                   break;
                 }
 
@@ -12453,121 +12729,121 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 139:
+              case 146:
                 if (!(_this4.GCARXCI === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 205;
+                  _context4.next = 212;
                   break;
                 }
 
                 auxi = false; //VALIDAR LA TABLA MENORES DE 1 AÑO
 
                 if (!(_this4.Men1A.length > 0)) {
-                  _context4.next = 149;
-                  break;
-                }
-
-                _resul3 = _this4.valMen1();
-
-                if (!_resul3) {
-                  _context4.next = 148;
-                  break;
-                }
-
-                bandera = true;
-                auxi = true;
-                _context4.next = 149;
-                break;
-
-              case 148:
-                return _context4.abrupt("return", false);
-
-              case 149:
-                if (!(_this4.De1A5.length > 0)) {
-                  _context4.next = 157;
-                  break;
-                }
-
-                _resul4 = _this4.valDe1A5();
-
-                if (!_resul4) {
                   _context4.next = 156;
                   break;
                 }
 
-                bandera = true;
-                auxi = true;
-                _context4.next = 157;
-                break;
+                _resul4 = _this4.valMen1();
 
-              case 156:
-                return _context4.abrupt("return", false);
-
-              case 157:
-                if (!(_this4.De6A11.length > 0)) {
-                  _context4.next = 165;
+                if (!_resul4) {
+                  _context4.next = 155;
                   break;
                 }
 
-                _resul5 = _this4.valDe6A11();
+                bandera = true;
+                auxi = true;
+                _context4.next = 156;
+                break;
 
-                if (!_resul5) {
+              case 155:
+                return _context4.abrupt("return", false);
+
+              case 156:
+                if (!(_this4.De1A5.length > 0)) {
                   _context4.next = 164;
                   break;
                 }
 
-                bandera = true;
-                auxi = true;
-                _context4.next = 165;
-                break;
+                _resul5 = _this4.valDe1A5();
 
-              case 164:
-                return _context4.abrupt("return", false);
-
-              case 165:
-                if (!(_this4.De10A59.length > 0)) {
-                  _context4.next = 173;
+                if (!_resul5) {
+                  _context4.next = 163;
                   break;
                 }
 
-                _resul6 = _this4.valDe10A59();
+                bandera = true;
+                auxi = true;
+                _context4.next = 164;
+                break;
 
-                if (!_resul6) {
+              case 163:
+                return _context4.abrupt("return", false);
+
+              case 164:
+                if (!(_this4.De6A11.length > 0)) {
                   _context4.next = 172;
                   break;
                 }
 
-                bandera = true;
-                auxi = true;
-                _context4.next = 173;
-                break;
+                _resul6 = _this4.valDe6A11();
 
-              case 172:
-                return _context4.abrupt("return", false);
-
-              case 173:
-                if (!(_this4.ParPost.length > 0)) {
-                  _context4.next = 181;
+                if (!_resul6) {
+                  _context4.next = 171;
                   break;
                 }
 
-                _resul7 = _this4.valParPost();
+                bandera = true;
+                auxi = true;
+                _context4.next = 172;
+                break;
 
-                if (!_resul7) {
+              case 171:
+                return _context4.abrupt("return", false);
+
+              case 172:
+                if (!(_this4.De10A59.length > 0)) {
                   _context4.next = 180;
                   break;
                 }
 
+                _resul7 = _this4.valDe10A59();
+
+                if (!_resul7) {
+                  _context4.next = 179;
+                  break;
+                }
+
                 bandera = true;
                 auxi = true;
-                _context4.next = 181;
+                _context4.next = 180;
                 break;
 
-              case 180:
+              case 179:
                 return _context4.abrupt("return", false);
 
-              case 181:
+              case 180:
+                if (!(_this4.ParPost.length > 0)) {
+                  _context4.next = 188;
+                  break;
+                }
+
+                _resul8 = _this4.valParPost();
+
+                if (!_resul8) {
+                  _context4.next = 187;
+                  break;
+                }
+
+                bandera = true;
+                auxi = true;
+                _context4.next = 188;
+                break;
+
+              case 187:
+                return _context4.abrupt("return", false);
+
+              case 188:
                 if (!auxi) {
-                  _context4.next = 202;
+                  _context4.next = 209;
                   break;
                 }
 
@@ -12584,8 +12860,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGCart = false;
-                _context4.prev = 184;
-                _context4.next = 187;
+                _context4.prev = 191;
+                _context4.next = 194;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GCARXCI = true;
@@ -12601,49 +12877,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 187:
-                _context4.next = 200;
-                break;
-
-              case 189:
-                _context4.prev = 189;
-                _context4.t4 = _context4["catch"](184);
-                _context4.t5 = _context4.t4.response.status;
-                _context4.next = _context4.t5 === 419 ? 194 : _context4.t5 === 422 ? 196 : 198;
-                break;
-
               case 194:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 200);
+                _context4.next = 207;
+                break;
 
               case 196:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 200);
-
-              case 198:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 200);
-
-              case 200:
-                _context4.next = 203;
+                _context4.prev = 196;
+                _context4.t4 = _context4["catch"](191);
+                _context4.t5 = _context4.t4.response.status;
+                _context4.next = _context4.t5 === 419 ? 201 : _context4.t5 === 422 ? 203 : 205;
                 break;
 
-              case 202:
-                bandera = true;
+              case 201:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 207);
 
               case 203:
-                _context4.next = 206;
-                break;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 207);
 
               case 205:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 207);
+
+              case 207:
+                _context4.next = 210;
+                break;
+
+              case 209:
                 bandera = true;
 
-              case 206:
+              case 210:
+                _context4.next = 213;
+                break;
+
+              case 212:
+                bandera = true;
+
+              case 213:
                 if (!(actual === "adolescente")) {
-                  _context4.next = 269;
+                  _context4.next = 276;
                   break;
                 }
 
@@ -12651,7 +12927,7 @@ var entero = function entero(value) {
                 _auxi = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 212;
+                  _context4.next = 219;
                   break;
                 }
 
@@ -12659,9 +12935,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 212:
+              case 219:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 215;
+                  _context4.next = 222;
                   break;
                 }
 
@@ -12669,14 +12945,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 215:
+              case 222:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 219;
+                  _context4.next = 226;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 219;
+                  _context4.next = 226;
                   break;
                 }
 
@@ -12684,77 +12960,77 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 219:
+              case 226:
                 if (!(_this4.GADOLE === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 268;
+                  _context4.next = 275;
                   break;
                 }
 
                 if (!(_this4.De12A17.length > 0)) {
-                  _context4.next = 228;
-                  break;
-                }
-
-                _resul8 = _this4.valDe12A17();
-
-                if (!_resul8) {
-                  _context4.next = 227;
-                  break;
-                }
-
-                bandera = true;
-                _auxi = true;
-                _context4.next = 228;
-                break;
-
-              case 227:
-                return _context4.abrupt("return", false);
-
-              case 228:
-                if (!(_this4.De18A28.length > 0)) {
-                  _context4.next = 236;
-                  break;
-                }
-
-                _resul9 = _this4.valDe18A28();
-
-                if (!_resul9) {
                   _context4.next = 235;
                   break;
                 }
 
-                bandera = true;
-                _auxi = true;
-                _context4.next = 236;
-                break;
+                _resul9 = _this4.valDe12A17();
 
-              case 235:
-                return _context4.abrupt("return", false);
-
-              case 236:
-                if (!(_this4.De29A59.length > 0)) {
-                  _context4.next = 244;
+                if (!_resul9) {
+                  _context4.next = 234;
                   break;
                 }
 
-                _resul10 = _this4.valDe29A59();
+                bandera = true;
+                _auxi = true;
+                _context4.next = 235;
+                break;
 
-                if (!_resul10) {
+              case 234:
+                return _context4.abrupt("return", false);
+
+              case 235:
+                if (!(_this4.De18A28.length > 0)) {
                   _context4.next = 243;
                   break;
                 }
 
+                _resul10 = _this4.valDe18A28();
+
+                if (!_resul10) {
+                  _context4.next = 242;
+                  break;
+                }
+
                 bandera = true;
                 _auxi = true;
-                _context4.next = 244;
+                _context4.next = 243;
                 break;
 
-              case 243:
+              case 242:
                 return _context4.abrupt("return", false);
 
-              case 244:
+              case 243:
+                if (!(_this4.De29A59.length > 0)) {
+                  _context4.next = 251;
+                  break;
+                }
+
+                _resul11 = _this4.valDe29A59();
+
+                if (!_resul11) {
+                  _context4.next = 250;
+                  break;
+                }
+
+                bandera = true;
+                _auxi = true;
+                _context4.next = 251;
+                break;
+
+              case 250:
+                return _context4.abrupt("return", false);
+
+              case 251:
                 if (!_auxi) {
-                  _context4.next = 265;
+                  _context4.next = 272;
                   break;
                 }
 
@@ -12769,8 +13045,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGAdole = false;
-                _context4.prev = 247;
-                _context4.next = 250;
+                _context4.prev = 254;
+                _context4.next = 257;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros3).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GADOLE = true;
@@ -12786,56 +13062,56 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 250:
-                _context4.next = 263;
-                break;
-
-              case 252:
-                _context4.prev = 252;
-                _context4.t6 = _context4["catch"](247);
-                _context4.t7 = _context4.t6.response.status;
-                _context4.next = _context4.t7 === 419 ? 257 : _context4.t7 === 422 ? 259 : 261;
-                break;
-
               case 257:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 263);
+                _context4.next = 270;
+                break;
 
               case 259:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 263);
-
-              case 261:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 263);
-
-              case 263:
-                _context4.next = 266;
+                _context4.prev = 259;
+                _context4.t6 = _context4["catch"](254);
+                _context4.t7 = _context4.t6.response.status;
+                _context4.next = _context4.t7 === 419 ? 264 : _context4.t7 === 422 ? 266 : 268;
                 break;
 
-              case 265:
-                bandera = true;
+              case 264:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 270);
 
               case 266:
-                _context4.next = 269;
-                break;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 270);
 
               case 268:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 270);
+
+              case 270:
+                _context4.next = 273;
+                break;
+
+              case 272:
                 bandera = true;
 
-              case 269:
+              case 273:
+                _context4.next = 276;
+                break;
+
+              case 275:
+                bandera = true;
+
+              case 276:
                 if (!(actual === "adultomayor")) {
-                  _context4.next = 335;
+                  _context4.next = 342;
                   break;
                 }
 
                 _auxi2 = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 274;
+                  _context4.next = 281;
                   break;
                 }
 
@@ -12843,9 +13119,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 274:
+              case 281:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 277;
+                  _context4.next = 284;
                   break;
                 }
 
@@ -12853,14 +13129,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 277:
+              case 284:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 281;
+                  _context4.next = 288;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 281;
+                  _context4.next = 288;
                   break;
                 }
 
@@ -12868,14 +13144,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 281:
+              case 288:
                 if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 285;
+                  _context4.next = 292;
                   break;
                 }
 
                 if (!(_this4.GADOLE === false)) {
-                  _context4.next = 285;
+                  _context4.next = 292;
                   break;
                 }
 
@@ -12883,77 +13159,77 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 285:
+              case 292:
                 if (!(_this4.GADULT === false)) {
-                  _context4.next = 334;
+                  _context4.next = 341;
                   break;
                 }
 
                 if (!(_this4.De60.length > 0)) {
-                  _context4.next = 294;
-                  break;
-                }
-
-                _resul11 = _this4.valDe60();
-
-                if (!_resul11) {
-                  _context4.next = 293;
-                  break;
-                }
-
-                bandera = true;
-                _auxi2 = true;
-                _context4.next = 294;
-                break;
-
-              case 293:
-                return _context4.abrupt("return", false);
-
-              case 294:
-                if (!(_this4.EnCro.length > 0)) {
-                  _context4.next = 302;
-                  break;
-                }
-
-                _resul12 = _this4.valEnCro();
-
-                if (!_resul12) {
                   _context4.next = 301;
                   break;
                 }
 
-                bandera = true;
-                _auxi2 = true;
-                _context4.next = 302;
-                break;
+                _resul12 = _this4.valDe60();
 
-              case 301:
-                return _context4.abrupt("return", false);
-
-              case 302:
-                if (!(_this4.EnInf.length > 0)) {
-                  _context4.next = 310;
+                if (!_resul12) {
+                  _context4.next = 300;
                   break;
                 }
 
-                _resul13 = _this4.valEnInf();
+                bandera = true;
+                _auxi2 = true;
+                _context4.next = 301;
+                break;
 
-                if (!_resul13) {
+              case 300:
+                return _context4.abrupt("return", false);
+
+              case 301:
+                if (!(_this4.EnCro.length > 0)) {
                   _context4.next = 309;
                   break;
                 }
 
+                _resul13 = _this4.valEnCro();
+
+                if (!_resul13) {
+                  _context4.next = 308;
+                  break;
+                }
+
                 bandera = true;
                 _auxi2 = true;
-                _context4.next = 310;
+                _context4.next = 309;
                 break;
 
-              case 309:
+              case 308:
                 return _context4.abrupt("return", false);
 
-              case 310:
+              case 309:
+                if (!(_this4.EnInf.length > 0)) {
+                  _context4.next = 317;
+                  break;
+                }
+
+                _resul14 = _this4.valEnInf();
+
+                if (!_resul14) {
+                  _context4.next = 316;
+                  break;
+                }
+
+                bandera = true;
+                _auxi2 = true;
+                _context4.next = 317;
+                break;
+
+              case 316:
+                return _context4.abrupt("return", false);
+
+              case 317:
                 if (!_auxi2) {
-                  _context4.next = 331;
+                  _context4.next = 338;
                   break;
                 }
 
@@ -12968,8 +13244,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGAdul = false;
-                _context4.prev = 313;
-                _context4.next = 316;
+                _context4.prev = 320;
+                _context4.next = 323;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros4).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     console.log("SI GUARDE");
@@ -12986,56 +13262,56 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 316:
-                _context4.next = 329;
-                break;
-
-              case 318:
-                _context4.prev = 318;
-                _context4.t8 = _context4["catch"](313);
-                _context4.t9 = _context4.t8.response.status;
-                _context4.next = _context4.t9 === 419 ? 323 : _context4.t9 === 422 ? 325 : 327;
-                break;
-
               case 323:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 329);
+                _context4.next = 336;
+                break;
 
               case 325:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 329);
-
-              case 327:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 329);
-
-              case 329:
-                _context4.next = 332;
+                _context4.prev = 325;
+                _context4.t8 = _context4["catch"](320);
+                _context4.t9 = _context4.t8.response.status;
+                _context4.next = _context4.t9 === 419 ? 330 : _context4.t9 === 422 ? 332 : 334;
                 break;
 
-              case 331:
-                bandera = true;
+              case 330:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 336);
 
               case 332:
-                _context4.next = 335;
-                break;
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 336);
 
               case 334:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 336);
+
+              case 336:
+                _context4.next = 339;
+                break;
+
+              case 338:
                 bandera = true;
 
-              case 335:
+              case 339:
+                _context4.next = 342;
+                break;
+
+              case 341:
+                bandera = true;
+
+              case 342:
                 if (!(actual === "migrante")) {
-                  _context4.next = 393;
+                  _context4.next = 400;
                   break;
                 }
 
                 _auxi3 = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 340;
+                  _context4.next = 347;
                   break;
                 }
 
@@ -13043,9 +13319,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 340:
+              case 347:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 343;
+                  _context4.next = 350;
                   break;
                 }
 
@@ -13053,14 +13329,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 343:
+              case 350:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 347;
+                  _context4.next = 354;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 347;
+                  _context4.next = 354;
                   break;
                 }
 
@@ -13068,14 +13344,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 347:
+              case 354:
                 if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 351;
+                  _context4.next = 358;
                   break;
                 }
 
                 if (!(_this4.GADOLE === false)) {
-                  _context4.next = 351;
+                  _context4.next = 358;
                   break;
                 }
 
@@ -13083,14 +13359,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 351:
+              case 358:
                 if (!(_this4.De60.length > 0 || _this4.EnCro.length > 0 || _this4.EnInf.length > 0)) {
-                  _context4.next = 355;
+                  _context4.next = 362;
                   break;
                 }
 
                 if (!(_this4.GADULT === false)) {
-                  _context4.next = 355;
+                  _context4.next = 362;
                   break;
                 }
 
@@ -13098,35 +13374,35 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 355:
+              case 362:
                 if (!(_this4.GMIGRA === false)) {
-                  _context4.next = 390;
+                  _context4.next = 397;
                   break;
                 }
 
                 if (!(_this4.Migra.length > 0)) {
-                  _context4.next = 364;
+                  _context4.next = 371;
                   break;
                 }
 
-                _resul14 = _this4.valMigra();
+                _resul15 = _this4.valMigra();
 
-                if (!_resul14) {
-                  _context4.next = 363;
+                if (!_resul15) {
+                  _context4.next = 370;
                   break;
                 }
 
                 bandera = true;
                 _auxi3 = true;
-                _context4.next = 364;
+                _context4.next = 371;
                 break;
 
-              case 363:
+              case 370:
                 return _context4.abrupt("return", false);
 
-              case 364:
+              case 371:
                 if (!_auxi3) {
-                  _context4.next = 385;
+                  _context4.next = 392;
                   break;
                 }
 
@@ -13138,8 +13414,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGMig = false;
-                _context4.prev = 367;
-                _context4.next = 370;
+                _context4.prev = 374;
+                _context4.next = 377;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros5).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
@@ -13157,66 +13433,66 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 370:
-                _context4.next = 383;
-                break;
-
-              case 372:
-                _context4.prev = 372;
-                _context4.t10 = _context4["catch"](367);
-                _context4.t11 = _context4.t10.response.status;
-                _context4.next = _context4.t11 === 419 ? 377 : _context4.t11 === 422 ? 379 : 381;
-                break;
-
               case 377:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 383);
+                _context4.next = 390;
+                break;
 
               case 379:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 383);
-
-              case 381:
-                _this4.$swal("Error...!", "Ocurrio un error!", "error");
-
-                return _context4.abrupt("break", 383);
-
-              case 383:
-                _context4.next = 388;
+                _context4.prev = 379;
+                _context4.t10 = _context4["catch"](374);
+                _context4.t11 = _context4.t10.response.status;
+                _context4.next = _context4.t11 === 419 ? 384 : _context4.t11 === 422 ? 386 : 388;
                 break;
 
-              case 385:
+              case 384:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 390);
+
+              case 386:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 390);
+
+              case 388:
+                _this4.$swal("Error...!", "Ocurrio un error!", "error");
+
+                return _context4.abrupt("break", 390);
+
+              case 390:
+                _context4.next = 395;
+                break;
+
+              case 392:
                 bandera = true;
 
                 _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
 
                 _this4.$router.push("/gestion");
 
-              case 388:
-                _context4.next = 393;
+              case 395:
+                _context4.next = 400;
                 break;
 
-              case 390:
+              case 397:
                 _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
 
                 _this4.SAPU = false;
 
                 _this4.$router.push("/gestion");
 
-              case 393:
+              case 400:
                 if (bandera) {
                   bandera = false;
                   $('.nav-tabs a[href="#' + opcion + '"]').tab("show");
                 }
 
-              case 394:
+              case 401:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[75, 80], [112, 117], [184, 189], [247, 252], [313, 318], [367, 372]]);
+        }, _callee4, null, [[82, 87], [119, 124], [191, 196], [254, 259], [320, 325], [374, 379]]);
       }))();
     },
     //VALIDACIONES
@@ -13706,6 +13982,61 @@ var entero = function entero(value) {
 
         if (this.factores[i].recreativos === "") {
           this.$swal("Error...!", "Por favor seleccione la opción <b>Recreativos</b> en la fila " + (i + 1) + " de la tabla factores de riesgo y protectores de la familia", "error");
+          return false;
+        }
+      }
+
+      return true;
+    },
+    valAfectacion: function valAfectacion() {
+      for (var i = 0; i < this.afectacion.length; i++) {
+        if (this.afectacion[i].presentado === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Ha presentado sintomas de Covid-19</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].prueba === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Se realizó alguna vez la prueba de covid-19</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].afectado === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Se ha sentido afectado por el cofinanciamiento</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].nivel === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Nivel de afectación</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].porcentaje === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Porcentaje de reducción de ingresos</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].perdida === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Perdida de familiares</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].sobrelleva === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Como sobrelleva la situación económica</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].percibe === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Como percibe la calidad de la educación virtual</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].principal === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>Principal carga economica</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
+          return false;
+        }
+
+        if (this.afectacion[i].tiempo === "") {
+          this.$swal("Error...!", "Por favor seleccione la opción <b>En cuanto tiempo se puede recuperar</b> en la fila " + (i + 1) + " de la tabla afectación contingencia covid-19", "error");
           return false;
         }
       }
@@ -15677,6 +16008,10 @@ var entero = function entero(value) {
 
 
                       _this9.AFactores(_this9.caracData, edad); // AGREGAR FACTORES
+                      // AGREGAR AFECTACION
+
+
+                      _this9.AAFECTACION(_this9.caracData, edad); // AGREGAR AFECTACION                    
                       // AGREGAR DE 10 A 59 AÑOS
 
 
@@ -15946,6 +16281,9 @@ var entero = function entero(value) {
       this.vectorJefes.splice(index, 1);
       var identificacion = item.identificacion;
       this.factores = this.factores.filter(function (men) {
+        return men.identificacion != identificacion;
+      });
+      this.afectacion = this.afectacion.filter(function (men) {
         return men.identificacion != identificacion;
       });
       this.Men1A = this.Men1A.filter(function (men) {
@@ -20776,6 +21114,30 @@ var entero = function entero(value) {
         sociales: "",
         culturales: "",
         recreativos: "",
+        estado: "Activo"
+      });
+    },
+    AAFECTACION: function AAFECTACION(vector, edad) {
+      this.afectacion.push({
+        id: 0,
+        tipo_id: vector.tipo_id,
+        identificacion: vector.identificacion,
+        pnom: vector.pnom,
+        snom: vector.snom,
+        pape: vector.pape,
+        sape: vector.sape,
+        sexo: vector.sexo,
+        edad: edad,
+        presentado: "",
+        prueba: "",
+        afectado: "",
+        nivel: "",
+        porcentaje: "",
+        perdida: "",
+        sobrelleva: "",
+        percibe: "",
+        principal: "",
+        tiempo: "",
         estado: "Activo"
       });
     },
@@ -30211,6 +30573,898 @@ var render = function() {
                         staticClass: "kt-separator kt-separator--border-dashed"
                       })
                     ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(8),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("div", { staticClass: "table-responsive" }, [
+                        _c(
+                          "table",
+                          { staticClass: "table table-sm table-hover" },
+                          [
+                            _vm._m(9),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.afectacion, function(item, index) {
+                                return _c("tr", { key: index }, [
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "form-control text-capitalize is-valid",
+                                        staticStyle: {
+                                          width: "100px",
+                                          "background-color": "white"
+                                        },
+                                        attrs: { type: "text", readonly: "" },
+                                        domProps: { value: index + 1 }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "form-control text-capitalize is-valid",
+                                        staticStyle: {
+                                          width: "200px",
+                                          "background-color": "white"
+                                        },
+                                        attrs: { type: "text", readonly: "" },
+                                        domProps: {
+                                          value:
+                                            item.tipo_id +
+                                            " : " +
+                                            item.identificacion
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "form-control text-capitalize is-valid",
+                                        staticStyle: {
+                                          width: "300px",
+                                          "background-color": "white"
+                                        },
+                                        attrs: { type: "text", readonly: "" },
+                                        domProps: {
+                                          value:
+                                            item.pnom +
+                                            " " +
+                                            item.snom +
+                                            " " +
+                                            item.pape +
+                                            " " +
+                                            item.sape
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "form-control text-capitalize is-valid",
+                                        staticStyle: {
+                                          width: "150px",
+                                          "background-color": "white"
+                                        },
+                                        attrs: { type: "text", readonly: "" },
+                                        domProps: { value: item.sexo }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "form-control text-capitalize is-valid",
+                                        staticStyle: {
+                                          width: "100px",
+                                          "background-color": "white"
+                                        },
+                                        attrs: { type: "text", readonly: "" },
+                                        domProps: { value: item.edad }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.presentado == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.presentado,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "presentado", $$v)
+                                            },
+                                            expression: "item.presentado"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.prueba == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.prueba,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "prueba", $$v)
+                                            },
+                                            expression: "item.prueba"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("NO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("SI, POSITIVO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("SI, NEGATIVO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.afectado == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.afectado,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "afectado", $$v)
+                                            },
+                                            expression: "item.afectado"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Si, pérdida económica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("Si. Pérdida de empleo")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("Si, emocionalmente")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("Si, en mi salud")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "5" } },
+                                            [_vm._v("Si, en mis estudios")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "6" } },
+                                            [_vm._v("Aumento de los ingresos.")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "7" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.nivel == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.nivel,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "nivel", $$v)
+                                            },
+                                            expression: "item.nivel"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Poco afectado")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("Medianamente afectado")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("Muy afectado")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.porcentaje == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.porcentaje,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "porcentaje", $$v)
+                                            },
+                                            expression: "item.porcentaje"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Ninguno")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("10%")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("50%")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("Más del 50%")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.perdida == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.perdida,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "perdida", $$v)
+                                            },
+                                            expression: "item.perdida"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "SI" } },
+                                            [_vm._v("SI")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.sobrelleva == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.sobrelleva,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "sobrelleva", $$v)
+                                            },
+                                            expression: "item.sobrelleva"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Con prestamos familiares")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("Ahorros")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("Prestamos de amigos")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("Tarjeta de crédito")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "5" } },
+                                            [
+                                              _vm._v(
+                                                "Ayudas de gobiernos nacional"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "6" } },
+                                            [
+                                              _vm._v(
+                                                "Ayudas de gobiernos Municipal"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "7" } },
+                                            [_vm._v("Otros")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.percibe == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.percibe,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "percibe", $$v)
+                                            },
+                                            expression: "item.percibe"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Muy buena")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("Buena")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("Por mejorar")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("Mala")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.principal == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.principal,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "principal", $$v)
+                                            },
+                                            expression: "item.principal"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [
+                                              _vm._v(
+                                                "Sostenimiento servicios públicos"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [
+                                              _vm._v(
+                                                "Sostenimiento alimentación"
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("Sostenimiento arriendos")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("Servicio Salud")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "5" } },
+                                            [_vm._v("Educación")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    {
+                                      staticStyle: {
+                                        "font-weight": "normal",
+                                        "vertical-align": "middle",
+                                        "text-align": "left",
+                                        "text-transform": "capitalize"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            item.tiempo == ""
+                                              ? "is-invalid"
+                                              : "is-valid",
+                                          staticStyle: { width: "150px" },
+                                          model: {
+                                            value: item.tiempo,
+                                            callback: function($$v) {
+                                              _vm.$set(item, "tiempo", $$v)
+                                            },
+                                            expression: "item.tiempo"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NA" } },
+                                            [_vm._v("No Aplica")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "1" } },
+                                            [_vm._v("Menos de 6 meses")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "2" } },
+                                            [_vm._v("Más de 6 meses")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "3" } },
+                                            [_vm._v("Más de 1 años")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "4" } },
+                                            [_vm._v("Aun no lo calcula")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ])
+                              }),
+                              0
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "kt-separator kt-separator--border-dashed"
+                      })
+                    ])
                   ])
                 ]
               ),
@@ -30250,7 +31504,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(8),
+                  _vm._m(10),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -31391,7 +32645,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(9),
+                  _vm._m(11),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -32339,7 +33593,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(10),
+                  _vm._m(12),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -33025,7 +34279,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(11),
+                  _vm._m(13),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c("div", { staticClass: "col-lg-4" }, [
@@ -33157,7 +34411,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(12),
+                            _vm._m(14),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -33580,7 +34834,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(13),
+                  _vm._m(15),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -33891,7 +35145,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(14),
+                  _vm._m(16),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -34220,7 +35474,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(15),
+                  _vm._m(17),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -35390,7 +36644,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(16),
+                  _vm._m(18),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -37138,7 +38392,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(17),
+                  _vm._m(19),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -37853,7 +39107,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(18),
+                            _vm._m(20),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -38227,9 +39481,9 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(19),
+                  _vm._m(21),
                   _vm._v(" "),
-                  _vm._m(20),
+                  _vm._m(22),
                   _vm._v(" "),
                   _c("div", {
                     staticClass: "kt-separator kt-separator--border-dashed"
@@ -38245,7 +39499,7 @@ var render = function() {
                             staticStyle: { width: "100%" }
                           },
                           [
-                            _vm._m(21),
+                            _vm._m(23),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -40427,7 +41681,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(22),
+                  _vm._m(24),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -40436,7 +41690,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(23),
+                            _vm._m(25),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -42767,7 +44021,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(24),
+                  _vm._m(26),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -42776,7 +44030,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(25),
+                            _vm._m(27),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -44361,7 +45615,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(26),
+                  _vm._m(28),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -44370,7 +45624,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(27),
+                            _vm._m(29),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -46269,7 +47523,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(28),
+                  _vm._m(30),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -46278,7 +47532,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(29),
+                            _vm._m(31),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -48341,7 +49595,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(30),
+                  _vm._m(32),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -48350,7 +49604,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(31),
+                            _vm._m(33),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -50128,7 +51382,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(32),
+                  _vm._m(34),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -50137,7 +51391,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(33),
+                            _vm._m(35),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -51583,7 +52837,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(34),
+                  _vm._m(36),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -51592,7 +52846,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(35),
+                            _vm._m(37),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -53068,7 +54322,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(36),
+                  _vm._m(38),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -53077,7 +54331,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(37),
+                            _vm._m(39),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -54489,9 +55743,9 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(38),
+                  _vm._m(40),
                   _vm._v(" "),
-                  _vm._m(39),
+                  _vm._m(41),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -54500,7 +55754,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(40),
+                            _vm._m(42),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -54827,7 +56081,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(41),
+                  _vm._m(43),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -54836,7 +56090,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(42),
+                            _vm._m(44),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -55197,7 +56451,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(43),
+                  _vm._m(45),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -55206,7 +56460,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(44),
+                            _vm._m(46),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -56725,6 +57979,79 @@ var staticRenderFns = [
         _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("Culturales")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("Recreativos")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c(
+        "span",
+        {
+          staticClass: "kt-font-boldest",
+          staticStyle: { "font-size": "14px" }
+        },
+        [_vm._v("AFECTACIÓN CONTINGENCIA COVID-19")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "kt-bg-fill-warning" }, [
+        _c("td", { staticClass: "kt-bg-fill-success" }, [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-success" }, [_vm._v("Documento")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-success" }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-success" }, [_vm._v("Sexo")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-success" }, [_vm._v("Edad")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Ha presentado sintomas de Covid-19")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Se realizó alguna vez la prueba de covid-19")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Se ha sentido afectado por el cofinanciamiento")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Nivel de afectación")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Porcentaje de reducción de ingresos")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Perdida de familiares")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Como sobrelleva la situación economica")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Como percibe la calidad de la educación virtual")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("Principal carga economica")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [
+          _vm._v("En cuanto tiempo se puede recuperar")
+        ])
       ])
     ])
   },

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Auth;
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class UnidadesProductivas extends Model
@@ -24,13 +26,13 @@ class UnidadesProductivas extends Model
         'nombre_programa_forestales', 'entidad_forestales', 'pertenece_organizacion_forestales', 'tipo_pertenece_forestales', 'nombre_organizacion_forestales', 'beneficios_forestales', 'no_pertenece_forestales',
         'trabaja_asociacion_forestales', 'fecha', 'usuario_crear', 'fecha_editar', 'usuario_editar', 'estado', 'id_compania',
         'id_dpto', 'id_mun', 'id_corre', 'id_vereda', 'id_barrio', 'direccion', 'unidad_area', 'unidad_distancia',
+        'otro_tipo_problema', 'producto_comercial', 'produccion_destinada_pecuaria', 'otros_problematica_productos_forestales',
     ];
 
     public static function guardar($data, $alias)
     {
-        return DB::connection('mysql')->table($alias . '.unidades_productivas')->updateOrInsert([
+        return DB::connection('mysql')->table($alias . '.unidades_productivas')->insertGetId([
             'id' => $data['id'],
-        ], [
             'id_hogar' => $data['id_hogar'],
 
             'nom_productor' => $data['nom_productor'],
@@ -160,6 +162,10 @@ class UnidadesProductivas extends Model
 
             'unidad_area' => $data['unidad_area'],
             'unidad_distancia' => $data['unidad_distancia'],
+            'otro_tipo_problema' => $data['otro_tipo_problema'],
+            'producto_comercial' => $data['producto_comercial'],
+            'produccion_destinada_pecuaria' => $data['produccion_destinada_pecuaria'],
+            'otros_problematica_productos_forestales' => $data['otros_problematica_productos_forestales'],
         ]);
     }
 
@@ -293,7 +299,81 @@ class UnidadesProductivas extends Model
             'direccion' => $data['direccion'],
 
             'unidad_area' => $data['unidad_area'],
-            'unidad_distancia' => $data['unidad_distancia'],            
+            'unidad_distancia' => $data['unidad_distancia'],
+            'otro_tipo_problema' => $data['otro_tipo_problema'],
+            'producto_comercial' => $data['producto_comercial'],
+            'produccion_destinada_pecuaria' => $data['produccion_destinada_pecuaria'],
+            'otros_problematica_productos_forestales' => $data['otros_problematica_productos_forestales'],
         ]);
+    }
+
+    public static function listar($busqueda, $alias)
+    {
+        if (!empty($busqueda)) {
+            $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
+                ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
+                ->where(function ($query) use ($busqueda) {
+                    $query->where('unidades_productivas.nom_productor', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('unidades_productivas.identificacion', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('unidades_productivas.nom_finca', 'LIKE', '%' . $busqueda . '%');
+                })
+                ->where("unidades_productivas.estado", "Activo")
+                ->select("dptos.descripcion AS DPTO",
+                    "muni.descripcion AS MUNI",
+                    "corregimientos.descripcion AS CORREGIMIENTO",
+                    "unidades_productivas.estado AS ESTADO",
+                    "unidades_productivas.nom_finca",
+                    "unidades_productivas.id",
+                    "unidades_productivas.identificacion",
+                    "unidades_productivas.nom_productor",
+                    "unidades_productivas.id_hogar AS IDHOGAR"
+                )
+                ->orderBy('unidades_productivas.id', 'DESC')
+                ->paginate(10);
+        } else {
+            $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
+                ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
+                ->where("unidades_productivas.estado", "Activo")
+                ->select("dptos.descripcion AS DPTO",
+                    "muni.descripcion AS MUNI",
+                    "corregimientos.descripcion AS CORREGIMIENTO",
+                    "unidades_productivas.estado AS ESTADO",
+                    "unidades_productivas.nom_finca",
+                    "unidades_productivas.id",
+                    "unidades_productivas.identificacion",
+                    "unidades_productivas.nom_productor",
+                    "unidades_productivas.id_hogar AS IDHOGAR"
+                )
+                ->orderBy('unidades_productivas.id', 'DESC')
+                ->paginate(10);
+        }
+
+        return $respuesta;
+    }
+
+    public static function editarestado($estado, $id, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.unidades_productivas')->where('id', $id)->update([
+            'estado' => $estado,
+        ]);
+    }
+
+    public static function buscar($alias, $id)
+    {
+        return DB::connection('mysql')->table($alias . '.unidades_productivas')
+            ->select("unidades_productivas.*")
+            ->where('unidades_productivas.id', $id)
+            ->where('unidades_productivas.estado', 'Activo')
+            ->first();
     }
 }

@@ -2395,7 +2395,6 @@
                           </td>
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <div style="width:70px;" v-if="GIDEN==false">
-
                               <button
                                 class="btn btn-icon btn-sm btn-outline-danger"
                                 type="button"
@@ -2810,6 +2809,260 @@
                   <div class="kt-separator kt-separator--border-dashed"></div>
                 </div>
               </div>
+
+              <p>
+                <span
+                  class="kt-font-boldest"
+                  style="font-size: 14px;"
+                >AFECTACIÓN CONTINGENCIA COVID-19</span>
+              </p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr class="kt-bg-fill-warning">
+                          <td class="kt-bg-fill-success">No.</td>
+                          <td class="kt-bg-fill-success">Documento</td>
+                          <td class="kt-bg-fill-success">Nombre</td>
+                          <td class="kt-bg-fill-success">Sexo</td>
+                          <td class="kt-bg-fill-success">Edad</td>
+                          <td class="kt-bg-fill-danger">Ha presentado sintomas de Covid-19</td>
+                          <td class="kt-bg-fill-danger">Se realizó alguna vez la prueba de covid-19</td>                          
+                          <td class="kt-bg-fill-danger">Se ha sentido afectado por el cofinanciamiento</td>
+                          <td class="kt-bg-fill-danger">Nivel de afectación</td>
+                          <td class="kt-bg-fill-danger">Porcentaje de reducción de ingresos</td>
+                          <td class="kt-bg-fill-danger">Perdida de familiares</td>
+                          <td class="kt-bg-fill-danger">Como sobrelleva la situación economica</td>
+                          <td class="kt-bg-fill-danger">Como percibe la calidad de la educación virtual</td>
+                          <td class="kt-bg-fill-danger">Principal carga economica</td>
+                          <td class="kt-bg-fill-danger">En cuanto tiempo se puede recuperar</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in afectacion" :key="index">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1) "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              :value="item.tipo_id+' : '+item.identificacion"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              :value="item.pnom+' '+item.snom+' '+item.pape+' '+item.sape "
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:150px;background-color:white;"
+                              :value="item.sexo"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="item.edad"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.presentado"
+                              :class="item.presentado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.prueba"
+                              :class="item.prueba==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">NO</option>
+                              <option value="2">SI, POSITIVO</option>
+                              <option value="3">SI, NEGATIVO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.afectado"
+                              :class="item.afectado==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Si, pérdida económica</option>
+                              <option value="2">Si. Pérdida de empleo</option>
+                              <option value="3">Si, emocionalmente</option>
+                              <option value="4">Si, en mi salud</option>
+                              <option value="5">Si, en mis estudios</option>
+                              <option value="6">Aumento de los ingresos.</option>
+                              <option value="7">NO</option>
+                            </b-form-select>
+                          </td>
+
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.nivel"
+                              :class="item.nivel==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Poco afectado</option>
+                              <option value="2">Medianamente afectado</option>
+                              <option value="3">Muy afectado</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.porcentaje"
+                              :class="item.porcentaje==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Ninguno</option>
+                              <option value="2">10%</option>
+                              <option value="3">50%</option>
+                              <option value="4">Más del 50%</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.perdida"
+                              :class="item.perdida==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.sobrelleva"
+                              :class="item.sobrelleva==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Con prestamos familiares</option>
+                              <option value="2">Ahorros</option>
+                              <option value="3">Prestamos de amigos</option>
+                              <option value="4">Tarjeta de crédito</option>
+                              <option value="5">Ayudas de gobiernos nacional</option>
+                              <option value="6">Ayudas de gobiernos Municipal</option>
+                              <option value="7">Otros</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.percibe"
+                              :class="item.percibe==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Muy buena</option>
+                              <option value="2">Buena</option>
+                              <option value="3">Por mejorar</option>
+                              <option value="4">Mala</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.principal"
+                              :class="item.principal==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Sostenimiento servicios públicos</option>
+                              <option value="2">Sostenimiento alimentación</option>
+                              <option value="3">Sostenimiento arriendos</option>
+                              <option value="4">Servicio Salud</option>
+                              <option value="5">Educación</option>
+                            </b-form-select>
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tiempo"
+                              :class="item.tiempo==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="NA">No Aplica</option>
+                              <option value="1">Menos de 6 meses</option>
+                              <option value="2">Más de 6 meses</option>
+                              <option value="3">Más de 1 años</option>
+                              <option value="4">Aun no lo calcula</option>                              
+                            </b-form-select>
+                          </td>                                                
+                        </tr>
+                      </tbody>                      
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>              
             </div>
             <!-- Identificación -->
 
@@ -11276,6 +11529,7 @@
         vectorIntegrante: [],
         vectorAyuda: [],
         factores: [],
+        afectacion: [],
         GIDEN: false,
         GVIVI: false,
         GCARXCI: false,
@@ -11613,7 +11867,8 @@
               this.hogar.direccion = respuesta.data.hogar.direccion;
               this.datosJefe = respuesta.data.jefes;
               this.datos = respuesta.data.integrantes;
-              this.factores = respuesta.data.factores;              
+              this.factores = respuesta.data.factores;
+              this.afectacion = respuesta.data.afectacion;                          
               for (let i = 0; i < this.datosJefe.length; i++) {
                 let indice = this.datosJefe.findIndex(
                   identi =>
@@ -11968,6 +12223,16 @@
               }
             }
             //VALIDAR LA TABLA FACTORES
+            //VALIDAR LA TABLA AFECTACION
+            if (this.afectacion.length > 0) {
+              let resul = this.valAfectacion();
+              if (resul) {
+                bandera = true;     
+              } else {
+                return false;
+              }
+            }
+            //VALIDAR LA TABLA AFECTACION            
 
             //GUARDAR DATOS
             this.valGIden = false;
@@ -11978,6 +12243,7 @@
               integrantes: this.datos,
               factores: this.factores,
               CODIGOGENE: this.CODIGOGENE,
+              afectacion: this.afectacion,
               opcion: "MODIFICAR",
               opc: "GUAINDEN",
               id_hogar: this.IDHOGAR
@@ -13305,6 +13571,10 @@
                     this.AFactores(this.caracData, edad);
                     // AGREGAR FACTORES
 
+                    // AGREGAR AFECTACION
+                    this.AAFECTACION(this.caracData, edad);
+                    // AGREGAR AFECTACION                    
+
                     // AGREGAR DE 10 A 59 AÑOS
                     if (edad >= 10 && edad <= 59) {
                       this.Ade10a59Anio(this.caracData, edad, "JEFE");
@@ -13533,7 +13803,9 @@
           this.factores = this.factores.filter(function(men) {
             return men.identificacion != identificacion;
           });
-
+          this.afectacion = this.afectacion.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
           this.Men1A = this.Men1A.filter(function(men) {
             return men.identificacion != identificacion;
           });
@@ -14268,6 +14540,30 @@
           estado: "Activo"
         });
       },
+      AAFECTACION(vector, edad){
+        this.afectacion.push({
+          id: 0,
+          tipo_id: vector.tipo_id,
+          identificacion: vector.identificacion,
+          pnom: vector.pnom,
+          snom: vector.snom,
+          pape: vector.pape,
+          sape: vector.sape,
+          sexo: vector.sexo,
+          edad: edad,
+          presentado: "",
+          prueba: "",
+          afectado: "",
+          nivel: "",
+          porcentaje: "",
+          perdida: "",
+          sobrelleva: "",
+          percibe: "",
+          principal: "",
+          tiempo: "",
+          estado: "Activo"
+        });        
+      },      
       datediff(date1, date2){
         var fecha1 =date1.split("-");
         var fecha2 =date2.split("-");
@@ -17588,6 +17884,111 @@
         }
         return true;
       },
+      valAfectacion(){
+        for (let i = 0; i < this.afectacion.length; i++) {
+          if (this.afectacion[i].presentado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Ha presentado sintomas de Covid-19</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].prueba === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Se realizó alguna vez la prueba de covid-19</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].afectado === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Se ha sentido afectado por el cofinanciamiento</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].nivel === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Nivel de afectación</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].porcentaje === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Porcentaje de reducción de ingresos</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].perdida === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Perdida de familiares</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].sobrelleva === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Como sobrelleva la situación económica</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].percibe === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Como percibe la calidad de la educación virtual</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].principal === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>Principal carga economica</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }
+          if (this.afectacion[i].tiempo === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción <b>En cuanto tiempo se puede recuperar</b> en la fila " +
+                (i + 1) +
+                " de la tabla afectación contingencia covid-19",
+              "error"
+            );
+            return false;
+          }                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+        }
+        return true;        
+      },      
       //VALIDACIONES DE IDENTIFICACION
 
       //VALIDACIONES DE LOS CICLOS

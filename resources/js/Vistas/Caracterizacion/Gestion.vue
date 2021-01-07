@@ -812,7 +812,7 @@
                         <button
                           type="button"
                           class="btn btn-primary btn-icon"
-                          @click="consultar2(1)"
+                          @click="consultar3(1)"
                         >
                           <i class="fa fa-search"></i>
                         </button>
@@ -839,7 +839,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(item, index) in establecimientos" :key="index">
+                      <tr v-for="(item, index) in unidades" :key="index">
                         <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -857,13 +857,13 @@
                         ></td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                        >{{item.razon.toUpperCase()}}</td>
+                        >{{item.nom_finca.toUpperCase()}}</td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                        >{{item.nit.toUpperCase()}}</td>
+                        >{{item.identificacion.toUpperCase()}}</td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                        >{{item.representante.toUpperCase()}}</td>
+                        >{{item.nom_productor.toUpperCase()}}</td>
                         <td style="text-align:center;vertical-align: middle;text-align: center;">
                           <button
                             type="button"
@@ -877,7 +877,7 @@
                             type="button"
                             class="btn btn-outline-info btn-icon btn-sm"
                             title="Editar"
-                            @click="editar2(item)"
+                            @click="editar3(item)"
                           >
                             <i class="fa fa-edit"></i>
                           </button>
@@ -886,7 +886,7 @@
                             :class="(item.ESTADO=='Activo'?'btn-outline-danger':'btn-outline-success')"
                             type="button"
                             :title="(item.ESTADO=='Activo')?'Anular':'Activar'"
-                            @click="eliminar2(item)"
+                            @click="eliminar3(item)"
                           >
                             <i class="fa" :class="(item.ESTADO=='Activo')?'fa-trash':'fa-check'"></i>
                           </button>
@@ -900,44 +900,44 @@
                     <!--begin: Pagination-->
                     <div class="kt-pagination kt-pagination--danger">
                       <ul class="kt-pagination__links">
-                        <li class="kt-pagination__link--first" v-if="paginacion2.pagina_actual>1">
-                          <a href="javascript:;" @click.prevent="cambiarPaginas2(1)">
+                        <li class="kt-pagination__link--first" v-if="paginacion3.pagina_actual>1">
+                          <a href="javascript:;" @click.prevent="cambiarPaginas3(1)">
                             <i class="fa fa-angle-double-left kt-font-danger"></i>
                           </a>
                         </li>
-                        <li class="kt-pagination__link--next" v-if="paginacion2.pagina_actual>1">
+                        <li class="kt-pagination__link--next" v-if="paginacion3.pagina_actual>1">
                           <a
                             href="javascript:;"
-                            @click.prevent="cambiarPaginas2(paginacion2.pagina_actual-1)"
+                            @click.prevent="cambiarPaginas3(paginacion3.pagina_actual-1)"
                           >
                             <i class="fa fa-angle-left kt-font-danger"></i>
                           </a>
                         </li>
                         <li
-                          :class="[pagina==esActivo2 ? 'kt-pagination__link--active': '']"
-                          v-for="(pagina,index) in numeroDePaginas2"
+                          :class="[pagina==esActivo3 ? 'kt-pagination__link--active': '']"
+                          v-for="(pagina,index) in numeroDePaginas3"
                           :key="index"
                         >
-                          <a href="javascript:;" @click.prevent="cambiarPaginas2(pagina)">{{pagina}}</a>
+                          <a href="javascript:;" @click.prevent="cambiarPaginas3(pagina)">{{pagina}}</a>
                         </li>
                         <li
                           class="kt-pagination__link--prev"
-                          v-if="paginacion2.pagina_actual<paginacion2.ultima_pagina"
+                          v-if="paginacion3.pagina_actual<paginacion3.ultima_pagina"
                         >
                           <a
                             href="javascript:;"
-                            @click.prevent="cambiarPaginas2(paginacion2.pagina_actual+1)"
+                            @click.prevent="cambiarPaginas3(paginacion3.pagina_actual+1)"
                           >
                             <i class="fa fa-angle-right kt-font-danger"></i>
                           </a>
                         </li>
                         <li
                           class="kt-pagination__link--last"
-                          v-if="paginacion2.pagina_actual<paginacion2.ultima_pagina"
+                          v-if="paginacion3.pagina_actual<paginacion3.ultima_pagina"
                         >
                           <a
                             href="javascript:;"
-                            @click.prevent="cambiarPaginas2(paginacion2.ultima_pagina)"
+                            @click.prevent="cambiarPaginas3(paginacion3.ultima_pagina)"
                           >
                             <i class="fa fa-angle-double-right kt-font-danger"></i>
                           </a>
@@ -962,12 +962,14 @@
   "use strict";
   import * as caracterizacionServicios from "../../Servicios/caracterizacion_servicios";
   import * as establecimientosServicios from "../../Servicios/establecimientos_servicios";
+  import * as unidadesServicios from "../../Servicios/unidades_servicios";
   import html2canvas from "html2canvas";
   import jsPDF from "jspdf";
   export default {
     mounted() {
       this.consultar(1);
       this.consultar2(1);
+      this.consultar3(1);
     },
     data() {
       return {
@@ -1006,10 +1008,10 @@
           ultima_pagina: 0,
           desde: 0,
           hasta: 0
-        },        
+        },
         offset: 4,
         establecimientos: [],
-        unidades: [],
+        unidades: []
       };
     },
     computed: {
@@ -1058,6 +1060,29 @@
           desde++;
         }
         return paginasArray;
+      },
+      esActivo3: function() {
+        return this.paginacion3.pagina_actual;
+      },
+      numeroDePaginas3: function() {
+        if (!this.paginacion3.hasta) {
+          return [];
+        }
+        var desde = this.paginacion3.pagina_actual - this.offset; // TODO offset
+        if (desde < 1) {
+          desde = 1;
+        }
+        var aux = this.offset * 2;
+        var hasta = desde + aux;
+        if (hasta >= this.paginacion3.ultima_pagina) {
+          hasta = this.paginacion3.ultima_pagina;
+        }
+        var paginasArray = [];
+        while (desde <= hasta) {
+          paginasArray.push(desde);
+          desde++;
+        }
+        return paginasArray;
       }
     },
     methods: {
@@ -1068,6 +1093,10 @@
       cambiarPaginas2: function(pagina) {
         this.paginacion2.pagina_actual = pagina;
         this.consultar2(pagina);
+      },
+      cambiarPaginas3: function(pagina) {
+        this.paginacion3.pagina_actual = pagina;
+        this.consultar3(pagina);
       },
       consultar: async function(pagina) {
         const parametros = {
@@ -1103,6 +1132,28 @@
           await establecimientosServicios.listar(parametros).then(respuesta => {
             this.establecimientos = respuesta.data.establecimientos.data;
             this.paginacion2 = respuesta.data.paginacion;
+          });
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      },
+      consultar3: async function(pagina) {
+        const parametros = {
+          txtbusqueda: this.txtbusqueda3.trim(),
+          _token: this.csrf,
+          page: pagina
+        };
+        try {
+          await unidadesServicios.listar(parametros).then(respuesta => {
+            this.unidades = respuesta.data.unidades.data;
+            this.paginacion3 = respuesta.data.paginacion;
           });
         } catch (error) {
           switch (error.response.status) {
@@ -1237,6 +1288,62 @@
           }
         });
       },
+      eliminar3: async function(usu) {
+        var title = "";
+        var titulo = "";
+        if (usu.ESTADO == "Activo") {
+          title = "¿Desea anular la unidad productiva del productor " + usu.nom_productor + "?";
+          titulo = "Unidad productiva del productor " + usu.nom_productor + " anulada de manera exitosa";
+        } else {
+          title = "¿Desea activar la unidad productiva del productor " + usu.nom_productor + "?";
+          titulo = "Unidad productiva del productor " + usu.nom_productor + " activada de manera exitosa";
+        }
+        this.$swal({
+          title: title,
+          text: "",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Aceptar",
+          cancelButtonText: "Cancelar"
+        }).then(result => {
+          if (result.value) {
+            const parametros = {
+              _token: this.csrf,
+              id: usu.id,
+              estado: usu.ESTADO
+            };
+
+            try {
+              unidadesServicios
+                .eliminar(parametros)
+                .then(respuesta => {
+                  this.consultar3(1);
+                  this.$swal({
+                    position: "top-end",
+                    icon: "success",
+                    title: titulo,
+                    showConfirmButton: false,
+                    timer: 2000
+                  });
+                })
+                .catch(error => {
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                });
+            } catch (error) {
+              switch (error.response.status) {
+                case 422:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                default:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+              }
+            }
+          }
+        });
+      },      
       ExportarTodo: async function() {
         const doc = new jsPDF({
           // orientation: "landscape"
@@ -1374,6 +1481,15 @@
           }
         });
       },
+      editar3(item) {
+        this.$router.push({
+          name: "EditarUnidades",
+          params: {
+            id: item.id,
+            IDHOGAR: item.IDHOGAR
+          }
+        });
+      },      
       abrir3() {
         // this.$refs.modalAbrir.show();
         this.$router.push({
@@ -1382,7 +1498,7 @@
             IDHOGAR: 0
           }
         });
-      },      
+      }
     }
   };
 </script>

@@ -20,14 +20,14 @@ class Instalacion extends Model
             'instalacion' => $data['instalacion'],
             'cuantos' => $data['cuantos'],
             'id_compania' => 1,
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
         ]);
     }
 
     public static function buscar($alias, $id_unidad)
     {
         return DB::connection('mysql')->table($alias . '.instalaciones')
-            ->where('instalaciones.id_unidad', $id_hogar)
+            ->where('instalaciones.id_unidad', $id_unidad)
             ->where('instalaciones.estado', 'Activo')
             ->get();
     }

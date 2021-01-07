@@ -80736,7 +80736,7 @@ var routes = [{
   path: '/gestion',
   name: 'Gestion',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Gestion.vue */ "./resources/js/Vistas/Caracterizacion/Gestion.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Gestion.vue */ "./resources/js/Vistas/Caracterizacion/Gestion.vue"));
   }
 }, {
   path: '/ingreso',
@@ -80748,7 +80748,7 @@ var routes = [{
   path: '/editarIngreso',
   name: 'Editar',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(30), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Editar.vue */ "./resources/js/Vistas/Caracterizacion/Editar.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/Editar.vue */ "./resources/js/Vistas/Caracterizacion/Editar.vue"));
   }
 }, {
   path: '/morbilidad_nacer',
@@ -80808,7 +80808,7 @@ var routes = [{
   path: '/ayu',
   name: 'Ayu',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/ayu.vue */ "./resources/js/Vistas/Caracterizacion/ayu.vue"));
+    return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./Vistas/Caracterizacion/ayu.vue */ "./resources/js/Vistas/Caracterizacion/ayu.vue"));
   }
 }, {
   path: '/actividad',
@@ -80820,25 +80820,25 @@ var routes = [{
   path: '/establecimientos',
   name: 'Establecimientos',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(30), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Establecimientos.vue */ "./resources/js/Vistas/Establecimientos/Establecimientos.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Establecimientos.vue */ "./resources/js/Vistas/Establecimientos/Establecimientos.vue"));
   }
 }, {
   path: '/establecimientos/editar',
   name: 'EditarEstablecimientos',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(30), __webpack_require__.e(25)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Editar.vue */ "./resources/js/Vistas/Establecimientos/Editar.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(25)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Editar.vue */ "./resources/js/Vistas/Establecimientos/Editar.vue"));
   }
 }, {
   path: '/unidades',
   name: 'Unidades',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(30), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Unidades.vue */ "./resources/js/Vistas/Unidades/Unidades.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(28)]).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Unidades.vue */ "./resources/js/Vistas/Unidades/Unidades.vue"));
   }
 }, {
   path: '/unidades/editar',
   name: 'EditarUnidades',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Editar.vue */ "./resources/js/Vistas/Unidades/Editar.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Editar.vue */ "./resources/js/Vistas/Unidades/Editar.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

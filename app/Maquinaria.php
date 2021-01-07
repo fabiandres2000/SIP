@@ -21,14 +21,14 @@ class Maquinaria extends Model
             'maquina' => $data['maquina'],
             'cuantos' => $data['cuantos'],
             'id_compania' => 1,
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
         ]);
     }
 
     public static function buscar($alias, $id_unidad)
     {
         return DB::connection('mysql')->table($alias . '.maquinaria')
-            ->where('maquinaria.id_unidad', $id_hogar)
+            ->where('maquinaria.id_unidad', $id_unidad)
             ->where('maquinaria.estado', 'Activo')
             ->get();
     }

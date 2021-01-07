@@ -561,6 +561,10 @@ class CaracterizacionController extends Controller
             $factores = \App\Factores::buscar(Session::get('alias'), $id_hogar);
             //TABLA FACTORES
 
+            //TABLA AFECTACION
+            $afectacion = \App\Afectacion::buscar(Session::get('alias'), $id_hogar);
+            //TABLA AFECTACION
+
             //TABLA VIVIENDA
             $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $id_hogar);
             $vivienda = [];
@@ -770,6 +774,7 @@ class CaracterizacionController extends Controller
                 'jefes' => $jefes,
                 'integrantes' => $integrantes,
                 'factores' => $factores,
+                'afectacion' => $afectacion,
                 'vivienda' => $vivienda,
                 'animales' => $animales,
                 'estratificacion' => $estratificacion,
@@ -801,6 +806,7 @@ class CaracterizacionController extends Controller
                     $datacaracterizacion = request()->get("caracterizacion");
                     $dataintegrantes = request()->get("integrantes");
                     $datafactores = request()->get("factores");
+                    $dataafectacion = request()->get("afectacion");
                     // GUARDAR DATOS DEL HOGAR
                     $hogarrespuesta = \App\Hogar::guardar($datahogar, Session::get('alias'));
                     // GUARDAR DATOS DEL HOGAR
@@ -821,6 +827,11 @@ class CaracterizacionController extends Controller
                             $datafactores[$i]['id_hogar'] = $hogarrespuesta;
                             $factoresrespuesta = \App\Factores::guardar($datafactores[$i], Session::get('alias'));
                         }
+
+                        for ($i = 0; $i < count($dataafectacion); $i++) {
+                            $dataafectacion[$i]['id_hogar'] = $hogarrespuesta;
+                            $afectacionrespuesta = \App\Afectacion::guardar($dataafectacion[$i], Session::get('alias'));
+                        }                        
 
                         $codigo = \App\Codigo::editar(Session::get('alias'), request()->get("CODIGOGENE"), $hogarrespuesta, Session::get('sigla'));
                         $respuesta = [
@@ -1012,6 +1023,7 @@ class CaracterizacionController extends Controller
                     $datacaracterizacion = request()->get("caracterizacion");
                     $dataintegrantes = request()->get("integrantes");
                     $datafactores = request()->get("factores");
+                    $dataafectacion = request()->get("afectacion");
                     $id_hogar = request()->get("id_hogar");
                     // GUARDAR DATOS DEL HOGAR
                     $hogarrespuesta = \App\Hogar::modificar($datahogar, Session::get('alias'), $id_hogar);
@@ -1034,6 +1046,10 @@ class CaracterizacionController extends Controller
                             $factoresrespuesta = \App\Factores::guardar($datafactores[$i], Session::get('alias'));
                         }
 
+                        for ($i = 0; $i < count($dataafectacion); $i++) {
+                            $dataafectacion[$i]['id_hogar'] = $id_hogar;
+                            $afectacionrespuesta = \App\Afectacion::guardar($dataafectacion[$i], Session::get('alias'));
+                        }                        
                         // $codigo = \App\Codigo::editar(Session::get('alias'), request()->get("CODIGOGENE"), $hogarrespuesta, Session::get('sigla'));
                         $respuesta = [
                             'OPC' => 'SI',
@@ -1545,6 +1561,7 @@ class CaracterizacionController extends Controller
                 $respuesta = \App\Caracterizacion::editarestado("Inactivo", $id_hogar, Session::get('alias'));
                 $respuesta = \App\Integrante::editarestado("Inactivo", $id_hogar, Session::get('alias'));
                 $respuesta = \App\Factores::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+                $respuesta = \App\Afectacion::editarestado("Inactivo", $id_hogar, Session::get('alias'));
                 $respuesta = \App\Vivienda::editarestado("Inactivo", $id_hogar, Session::get('alias'));
                 $respuesta = \App\Men1a::editarestado("Inactivo", $id_hogar, Session::get('alias'));
                 $respuesta = \App\De1a5::editarestado("Inactivo", $id_hogar, Session::get('alias'));

@@ -21,14 +21,14 @@ class Herramienta extends Model
             'herramienta' => $data['herramienta'],
             'cuantos' => $data['cuantos'],
             'id_compania' => 1,
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
         ]);
     }
 
     public static function buscar($alias, $id_unidad)
     {
         return DB::connection('mysql')->table($alias . '.herramientas')
-            ->where('herramientas.id_unidad', $id_hogar)
+            ->where('herramientas.id_unidad', $id_unidad)
             ->where('herramientas.estado', 'Activo')
             ->get();
     }

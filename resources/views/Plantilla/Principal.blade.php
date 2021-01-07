@@ -32,8 +32,7 @@
 <!-- end::Head -->
 <!-- begin::Body -->
 
-<body
-    class="
+<body class="
         kt-quick-panel--right 
         kt-demo-panel--right 
         kt-offcanvas-panel--right 
@@ -43,18 +42,18 @@
         kt-subheader--enabled 
         kt-subheader--transparent
         kt-aside--enabled 
-        kt-aside--fixed 
-        kt-page--loading "
-        >
-        
-    <div id="app">
+        kt-aside--fixed
+        kt-aside--minimize 
+        kt-page--loading ">
 
-    </div>
-    @include('Plantilla.Footer')
-    <script src="{{asset('js/app.js')}}"></script>
+        <div id="app">
+
+        </div>
+        @include('Plantilla.Footer')
+        <script src="{{asset('js/app.js')}}"></script>
 
 
-</body>
-<!-- end::Body -->
+    </body>
+    <!-- end::Body -->
 
 </html>

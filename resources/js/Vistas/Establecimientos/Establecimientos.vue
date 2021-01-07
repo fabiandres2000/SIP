@@ -1022,36 +1022,7 @@
           );
           return;
         }
-        if (this.datos.id_corre === "") {
-          this.$refs.id_corre.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción corregimiento!",
-            "error"
-          );
-          return;
-        }
-        if (this.datos.id_vereda === "") {
-          this.$refs.id_vereda.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción vereda!",
-            "error"
-          );
-          return;
-        }
-        if (this.datos.id_barrio === "") {
-          this.$refs.id_barrio.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción barrio!",
-            "error"
-          );
-          return;
-        }
+
         if (this.datos.razon === "") {
           this.$refs.razon.focus();
           bande = false;

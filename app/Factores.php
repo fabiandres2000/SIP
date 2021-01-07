@@ -63,11 +63,21 @@ class Factores extends Model
                 , "caracterizacion.tipo_id AS tipo_id"
                 , "caracterizacion.identificacion AS identificacion"
                 , "caracterizacion.pnom AS pnom"
-                , "caracterizacion.snom AS snom"
                 , "caracterizacion.pape AS pape"
-                , "caracterizacion.sape AS sape"
                 , "caracterizacion.sexo AS sexo"
             )
+            ->selectRaw("CASE "
+                . " WHEN caracterizacion.snom IS NULL THEN '' "
+                . " WHEN caracterizacion.snom = '' THEN '' "
+                . " ELSE caracterizacion.snom "
+                . " END snom"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN caracterizacion.sape IS NULL THEN '' "
+                . " WHEN caracterizacion.sape = '' THEN '' "
+                . " ELSE caracterizacion.sape "
+                . " END sape"
+                . " ")            
             ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
             ->get();
     }

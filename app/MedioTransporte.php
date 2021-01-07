@@ -5,20 +5,20 @@ namespace App;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class Utensilio extends Model
+class MedioTransporte extends Model
 {
-    protected $table = 'utensilios';
+    protected $table = 'medios_transporte';
     protected $fillable = [
-        'id_unidad', 'utensilio', 'cuantos', 'estado', 'id_compania',
+        'id_unidad', 'medio', 'cuantos', 'estado', 'id_compania',
     ];
 
     public static function guardar($data, $alias)
     {
-        return DB::connection('mysql')->table($alias . '.utensilios')->updateOrInsert([
+        return DB::connection('mysql')->table($alias . '.medios_transporte')->updateOrInsert([
             'id' => $data['id'],
         ], [
             'id_unidad' => $data['id_unidad'],
-            'utensilio' => $data['utensilio'],
+            'medio' => $data['medio'],
             'cuantos' => $data['cuantos'],
             'id_compania' => 1,
             'estado' => $data['estado'],
@@ -27,9 +27,9 @@ class Utensilio extends Model
 
     public static function buscar($alias, $id_unidad)
     {
-        return DB::connection('mysql')->table($alias . '.utensilios')
-            ->where('utensilios.id_unidad', $id_unidad)
-            ->where('utensilios.estado', 'Activo')
+        return DB::connection('mysql')->table($alias . '.medios_transporte')
+            ->where('medios_transporte.id_unidad', $id_unidad)
+            ->where('medios_transporte.estado', 'Activo')
             ->get();
     }
 }
