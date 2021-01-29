@@ -358,7 +358,7 @@
                 >
                   <option value selected>Seleccione</option>
                   <option value="1">Pariente.</option>
-                  <option value="2">Producto.</option>
+                  <option value="2">Productor.</option>
                   <option value="3">Trabajador.</option>
                 </b-form-select>
               </div>
@@ -381,6 +381,7 @@
                   v-model="datos.fuentes_prestamo"
                   :class="datos.fuentes_prestamo==''?'':'is-valid'"
                   ref="fuentes_prestamo"
+                  @change="mostrarOtro('FP')"
                 >
                   <option value selected>Seleccione</option>
                   <option value="1">Bancos</option>
@@ -394,6 +395,43 @@
                 </b-form-select>
               </div>
             </div>
+            <div class="form-group row" >
+              <div class="col-lg-4" v-show="mOFP">
+                <label>Otra fuente de préstamo:</label>
+                <input
+                  type="text"
+                  class="form-control text-capitalize"
+                  placeholder="Otra fuente de préstamo"
+                  v-model="datos.cual_fuente"
+                />
+              </div>              
+              <div class="col-lg-4">
+                <label>¿El predio dispone de Vías de acceso?:</label>
+                <b-form-select
+                  v-model="datos.vias_acceso"
+                  :class="datos.vias_acceso==''?'':'is-valid'"
+                  ref="vias_acceso"
+                >
+                  <option value selected>Seleccione</option>
+                  <option value="SI">SI</option>
+                  <option value="NO">NO</option>
+                </b-form-select>
+              </div>
+              <div class="col-lg-4">
+                <label>Tipo de vías de acceso:</label>
+                <b-form-select
+                  v-model="datos.tipos_vias_acceso"
+                  :class="datos.tipos_vias_acceso==''?'':'is-valid'"
+                  ref="tipos_vias_acceso"
+                >
+                  <option value selected>Seleccione</option>
+                  <option value="1">Pavimentadas.</option>
+                  <option value="2">No pavimentadas.</option>
+                  <option value="3">Fluviales.</option>
+                  <option value="4">Aéreas.</option>
+                </b-form-select>
+              </div>
+            </div>            
             <p style="text-align: center;">
               <span class="kt-font-boldest" style="font-size: 20px;">MAQUINARIA Y EQUIPOS</span>
             </p>
@@ -407,8 +445,28 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Herramienta"
-                  v-model="herramienta"
+                  v-model="herramienta1"
+                  v-show="herramienta=='Otras'"
                 />
+                <b-form-select
+                  v-model="herramienta"
+                  ref="herramienta"
+                  v-show="herramienta!='Otras'"
+                >
+                  <option value selected>Seleccione</option>
+                  <option value="Ahoyador">Ahoyador</option>
+                  <option value="Carretilla">Carretilla</option>
+                  <option value="Hacha">Hacha</option>
+                  <option value="Palas">Palas</option>
+                  <option value="Picas">Picas</option>
+                  <option value="Trinche">Trinche</option>
+                  <option value="Azadone">Azadone</option>
+                  <option value="Guadañadora">Guadañadora</option>
+                  <option value="Machete">Machete</option>
+                  <option value="Palín">Palín</option>
+                  <option value="Rastrillo">Rastrillo</option>
+                  <option value="Otras">Otras</option>
+                </b-form-select>
               </div>
               <div class="col-lg-2">
                 <label>Cuantas:</label>
@@ -492,8 +550,17 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Utensilio"
-                  v-model="utensilio"
+                  v-model="utensilio1"
+                  v-show="utensilio=='Otras'"
                 />
+                <b-form-select v-model="utensilio" ref="utensilio" v-show="utensilio!='Otras'">
+                  <option value selected>Seleccione</option>
+                  <option value="Arado">Arado</option>
+                  <option value="Aspersores">Aspersores</option>
+                  <option value="Fumigadora">Fumigadora</option>
+                  <option value="Motosierra">Motosierra</option>
+                  <option value="Otras">Otros</option>
+                </b-form-select>
               </div>
               <div class="col-lg-2">
                 <label>Cuantos:</label>
@@ -577,8 +644,19 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Maquina"
-                  v-model="maquina"
+                  v-model="maquina1"
+                  v-show="maquina=='Otras'"
                 />
+                <b-form-select v-model="maquina" ref="maquina" v-show="maquina!='Otras'">
+                  <option value selected>Seleccione</option>
+                  <option value="Compresor">Compresor</option>
+                  <option value="Picapasto">Picapasto</option>
+                  <option value="Planta Eléctrica">Planta Eléctrica</option>
+                  <option value="Taladro">Taladro</option>
+                  <option value="Combinada">Combinada</option>
+                  <option value="Tractor">Tractor</option>
+                  <option value="Otras">Otros</option>
+                </b-form-select>
               </div>
               <div class="col-lg-2">
                 <label>Cuantas:</label>
@@ -665,8 +743,23 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Instalación"
-                  v-model="instalacion"
+                  v-model="instalacion1"
+                  v-show="instalacion=='Otras'"
                 />
+                <b-form-select
+                  v-model="instalacion"
+                  ref="instalacion"
+                  v-show="instalacion!='Otras'"
+                >
+                  <option value selected>Seleccione</option>
+                  <option value="Corrales">Corrales</option>
+                  <option value="Galpones">Galpones</option>
+                  <option value="Porquerizas">Porquerizas</option>
+                  <option value="Establos">Establos</option>
+                  <option value="Invernaderos">Invernaderos</option>
+                  <option value="Trapiche">Trapiche</option>
+                  <option value="Otras">Otros</option>
+                </b-form-select>
               </div>
               <div class="col-lg-2">
                 <label>Cuantas:</label>
@@ -741,35 +834,6 @@
             </div>
 
             <div class="kt-separator kt-separator--border-dashed"></div>
-            <div class="form-group row">
-              <div class="col-lg-4">
-                <label>¿El predio dispone de Vías de acceso?:</label>
-                <b-form-select
-                  v-model="datos.vias_acceso"
-                  :class="datos.vias_acceso==''?'':'is-valid'"
-                  ref="vias_acceso"
-                >
-                  <option value selected>Seleccione</option>
-                  <option value="SI">SI</option>
-                  <option value="NO">NO</option>
-                </b-form-select>
-              </div>
-              <div class="col-lg-4">
-                <label>Tipo de vías de acceso:</label>
-                <b-form-select
-                  v-model="datos.tipos_vias_acceso"
-                  :class="datos.tipos_vias_acceso==''?'':'is-valid'"
-                  ref="tipos_vias_acceso"
-                >
-                  <option value selected>Seleccione</option>
-                  <option value="1">Pavimentadas.</option>
-                  <option value="2">No pavimentadas.</option>
-                  <option value="3">Fluviales.</option>
-                  <option value="4">Aéreas.</option>
-                </b-form-select>
-              </div>
-            </div>
-
             <p>
               <span
                 class="kt-font-boldest"
@@ -783,8 +847,29 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Medio de Transporte"
-                  v-model="medio"
+                  v-model="medio1"
+                  v-show="medio=='Otras'"
                 />
+                <b-form-select v-model="medio" ref="medio" v-show="medio!='Otras'">
+                  <option value selected>Seleccione</option>
+                  <option value="Tracción animal">Tracción animal</option>
+                  <option value="Animal">Animal</option>
+                  <option value="Automóvil">Automóvil</option>
+                  <option value="Bicicleta">Bicicleta</option>
+                  <option value="Caminata">Caminata</option>
+                  <option value="Camión">Camión</option>
+
+                  <option value="Motocicleta">Motocicleta</option>
+                  <option value="Tractor">Tractor</option>
+                  <option value="Barco">Barco</option>
+                  <option value="Canoa">Canoa</option>
+                  <option value="Kayak y/o Planchón">Kayak y/o Planchón</option>
+                  <option value="Avión">Avión</option>
+                  <option value="Avioneta">Avioneta</option>
+                  <option value="Helicóptero">Helicóptero</option>
+                  <option value="Planeador">Planeador</option>
+                  <option value="Otras">Otros</option>
+                </b-form-select>
               </div>
               <div class="col-lg-2">
                 <label>Cuantos:</label>
@@ -863,118 +948,123 @@
             </p>
 
             <div class="form-group row">
-              <div class="col-lg-3">
+              <div class="col-lg-4">
                 <label>Importancia del 1 al 10:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Importancia del 1 al 10"
-                  v-model.trim="datos.importancias_agricolas"
-                  :class="datos.importancias_agricolas==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.importancias_agricolas"
+                  :class="datosCulAgri.importancias_agricolas==''?'':'is-valid'"
                   ref="importancias_agricolas"
                   @change="formato('importancias_agricolas')"
                 />
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-4">
                 <label>Area de Producción:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Area de Producción"
-                  v-model.trim="datos.area_produccion"
-                  :class="datos.area_produccion==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.area_produccion"
+                  :class="datosCulAgri.area_produccion==''?'':'is-valid'"
                   ref="area_produccion"
                   @change="formato('area_produccion')"
                 />
               </div>
-              <div class="col-lg-3">
+              <div class="col-lg-4">
                 <label>Unidad de Medida:</label>
                 <b-form-select
-                  v-model="datos.unidad_area_produccion"
-                  :class="datos.unidad_area_produccion==''?'':'is-valid'"
+                  v-model="datosCulAgri.unidad_area_produccion"
+                  :class="datosCulAgri.unidad_area_produccion==''?'':'is-valid'"
                   ref="unidad_area_produccion"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Kilómetro cuadrado.</option>
-                  <option value="2">Metro cuadrado.</option>
-                  <option value="3">Milla cuadrada.</option>
-                  <option value="4">Yarda cuadrada.</option>
-                  <option value="5">Pie cuadrado.</option>
-                  <option value="6">Pulgada cuadrada.</option>
-                  <option value="7">Hectárea.</option>
-                  <option value="8">Acre.</option>
+                  <option
+                    v-for="item in unidades1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
             </div>
             <div class="form-group row">
               <div class="col-lg-6">
-                <label>Producto:</label>
-                <input
-                  type="text"
-                  class="form-control text-capitalize"
-                  placeholder="Producto"
-                  v-model.trim="datos.producto"
-                  :class="datos.producto==''?'':'is-valid'"
+                <label>Tipo de Cultivo:</label>
+                <b-form-select
+                  v-model="datosCulAgri.producto"
+                  :class="datosCulAgri.producto==''?'':'is-valid'"
                   ref="producto"
-                />
+                >
+                  <option value selected>Seleccione</option>
+                  <option
+                    v-for="item in tipocultivo"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
+                </b-form-select>                
               </div>
               <div class="col-lg-6">
-                <label>Variedad:</label>
-                <input
-                  type="text"
-                  class="form-control text-capitalize"
-                  placeholder="Variedad"
-                  v-model.trim="datos.variedad"
-                  :class="datos.variedad==''?'':'is-valid'"
+                <label>Especie:</label>
+                <b-form-select
+                  v-model="datosCulAgri.variedad"
+                  :class="datosCulAgri.variedad==''?'':'is-valid'"
                   ref="variedad"
-                />
+                >
+                  <option value selected>Seleccione</option>
+                  <option
+                    v-for="item in especie2[datosCulAgri.producto]"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
+                </b-form-select>                
               </div>
             </div>
             <div class="form-group row">
               <div class="col-lg-4">
                 <label>Semilla:</label>
                 <b-form-select
-                  v-model="datos.semilla"
-                  :class="datos.semilla==''?'':'is-valid'"
+                  v-model="datosCulAgri.semilla"
+                  :class="datosCulAgri.semilla==''?'':'is-valid'"
                   ref="semilla"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Certificada.</option>
-                  <option value="2">No Certificada.</option>
+                  <option value="Certificada">Certificada.</option>
+                  <option value="No Certificada">No Certificada.</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4">
                 <label>¿Pertenece a alguna organización? :</label>
                 <b-form-select
-                  v-model="datos.pertenece"
-                  :class="datos.pertenece==''?'':'is-valid'"
+                  v-model="datosCulAgri.pertenece"
+                  :class="datosCulAgri.pertenece==''?'':'is-valid'"
                   ref="pertenece"
                   @change="mostrarOtro('P')"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Asociaciones.</option>
-                  <option value="2">Cooperativas.</option>
-                  <option value="3">Agremiaciones.</option>
+                  <option value="Asociaciones">Asociaciones.</option>
+                  <option value="Cooperativas">Cooperativas.</option>
+                  <option value="Agremiaciones">Agremiaciones.</option>
                   <option value="NA">No Aplica.</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4" v-show="mOP">
                 <label>¿De qué tipo? :</label>
                 <b-form-select
-                  v-model="datos.tipo_pertenece"
-                  :class="datos.tipo_pertenece==''?'':'is-valid'"
+                  v-model="datosCulAgri.tipo_pertenece"
+                  :class="datosCulAgri.tipo_pertenece==''?'':'is-valid'"
                   ref="tipo_pertenece"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Político.</option>
-                  <option value="2">Social.</option>
-                  <option value="3">Tecnológico.</option>
-                  <option value="4">Asistencial.</option>
-                  <option value="5">Salud.</option>
-                  <option value="6">Comercial.</option>
-                  <option value="7">Etnia.</option>
-                  <option value="8">Cultural.</option>
-                  <option value="9">Deportiva.</option>
+                  <option value="Politico">Político.</option>
+                  <option value="Social">Social.</option>
+                  <option value="Tecnologico">Tecnológico.</option>
+                  <option value="Asistencial">Asistencial.</option>
+                  <option value="Salud">Salud.</option>
+                  <option value="Comercial">Comercial.</option>
+                  <option value="Etnia">Etnia.</option>
+                  <option value="Cultural">Cultural.</option>
+                  <option value="Deportiva">Deportiva.</option>
                   <option value="NA">No Aplica.</option>
                 </b-form-select>
               </div>
@@ -986,41 +1076,39 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Nombre de la organización"
-                  v-model.trim="datos.nombre_organizacion"
-                  :class="datos.nombre_organizacion==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.nombre_organizacion"
+                  :class="datosCulAgri.nombre_organizacion==''?'':'is-valid'"
                   ref="nombre_organizacion"
                 />
               </div>
               <div class="col-lg-5" v-show="mOP==false">
                 <label>Razón por la cual no pertenece a ninguna organización:</label>
                 <b-form-select
-                  v-model="datos.no_pertenece"
-                  :class="datos.no_pertenece==''?'':'is-valid'"
+                  v-model="datosCulAgri.no_pertenece"
+                  :class="datosCulAgri.no_pertenece==''?'':'is-valid'"
                   ref="no_pertenece"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Desconocimiento.</option>
-                  <option value="2">Falta de interés.</option>
-                  <option value="3">Falta de tiempo.</option>
-                  <option value="4">Falta de oportunidad.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option
+                    v-for="item in razon1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4">
                 <label>Beneficios :</label>
                 <b-form-select
-                  v-model="datos.beneficios"
-                  :class="datos.beneficios==''?'':'is-valid'"
+                  v-model="datosCulAgri.beneficios"
+                  :class="datosCulAgri.beneficios==''?'':'is-valid'"
                   ref="beneficios"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Económico.</option>
-                  <option value="2">En especies.</option>
-                  <option value="3">Capacitación.</option>
-                  <option value="4">Recreación y deporte.</option>
-                  <option value="5">Reconocimiento de la comunidad.</option>
-                  <option value="6">Participación en la toma de decisiones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option
+                    v-for="item in razon1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
             </div>
@@ -1028,8 +1116,8 @@
               <div class="col-lg-6">
                 <label>Trabaja en asociación para realizar las actividades productivas :</label>
                 <b-form-select
-                  v-model="datos.trabaja_asociacion"
-                  :class="datos.trabaja_asociacion==''?'':'is-valid'"
+                  v-model="datosCulAgri.trabaja_asociacion"
+                  :class="datosCulAgri.trabaja_asociacion==''?'':'is-valid'"
                   ref="trabaja_asociacion"
                 >
                   <option value selected>Seleccione</option>
@@ -1043,8 +1131,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Para cada uno de los productos que tan frecuente se hace la cosecha"
-                  v-model.trim="datos.frecuente_cosecha"
-                  :class="datos.frecuente_cosecha==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.frecuente_cosecha"
+                  :class="datosCulAgri.frecuente_cosecha==''?'':'is-valid'"
                   ref="frecuente_cosecha"
                 />
               </div>
@@ -1056,8 +1144,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Área de Cosecha de cada uno de los productos"
-                  v-model.trim="datos.area_cosecha"
-                  :class="datos.area_cosecha==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.area_cosecha"
+                  :class="datosCulAgri.area_cosecha==''?'':'is-valid'"
                   ref="area_cosecha"
                   @change="formato('area_cosecha')"
                 />
@@ -1065,19 +1153,16 @@
               <div class="col-lg-2">
                 <label>Unidad de Medida:</label>
                 <b-form-select
-                  v-model="datos.unidad_area_cosecha"
-                  :class="datos.unidad_area_cosecha==''?'':'is-valid'"
+                  v-model="datosCulAgri.unidad_area_cosecha"
+                  :class="datosCulAgri.unidad_area_cosecha==''?'':'is-valid'"
                   ref="unidad_area_cosecha"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Kilómetro cuadrado.</option>
-                  <option value="2">Metro cuadrado.</option>
-                  <option value="3">Milla cuadrada.</option>
-                  <option value="4">Yarda cuadrada.</option>
-                  <option value="5">Pie cuadrado.</option>
-                  <option value="6">Pulgada cuadrada.</option>
-                  <option value="7">Hectárea.</option>
-                  <option value="8">Acre.</option>
+                  <option
+                    v-for="item in unidades1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
               <div class="col-lg-6">
@@ -1086,8 +1171,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo total de la producción en pesos."
-                  v-model.trim="datos.costo_produccion"
-                  :class="datos.costo_produccion==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.costo_produccion"
+                  :class="datosCulAgri.costo_produccion==''?'':'is-valid'"
                   ref="costo_produccion"
                   @change="formato('costo_produccion')"
                 />
@@ -1100,8 +1185,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo de establecimiento de la producción"
-                  v-model.trim="datos.costo_establecimiento"
-                  :class="datos.costo_establecimiento==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.costo_establecimiento"
+                  :class="datosCulAgri.costo_establecimiento==''?'':'is-valid'"
                   ref="costo_establecimiento"
                   @change="formato('costo_establecimiento')"
                 />
@@ -1112,8 +1197,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo de sostenimiento"
-                  v-model.trim="datos.costo_sostenimiento"
-                  :class="datos.costo_sostenimiento==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.costo_sostenimiento"
+                  :class="datosCulAgri.costo_sostenimiento==''?'':'is-valid'"
                   ref="costo_sostenimiento"
                   @change="formato('costo_sostenimiento')"
                 />
@@ -1126,8 +1211,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Producción destinada al mercado"
-                  v-model.trim="datos.produccion_destinada"
-                  :class="datos.produccion_destinada==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.produccion_destinada"
+                  :class="datosCulAgri.produccion_destinada==''?'':'is-valid'"
                   ref="produccion_destinada"
                 />
               </div>
@@ -1136,17 +1221,17 @@
               <div class="col-lg-4">
                 <label>Tipo de problema que enfrenta en su producción:</label>
                 <b-form-select
-                  v-model="datos.tipo_problema"
-                  :class="datos.tipo_problema==''?'':'is-valid'"
+                  v-model="datosCulAgri.tipo_problema"
+                  :class="datosCulAgri.tipo_problema==''?'':'is-valid'"
                   ref="tipo_problema"
                   @change="mostrarOtro('TPP')"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Sanitario.</option>
-                  <option value="2">Rendimiento.</option>
-                  <option value="3">Comercialización.</option>
-                  <option value="4">Ambiental.</option>
-                  <option value="5">Otras.</option>
+                  <option value="Sanitario">Sanitario.</option>
+                  <option value="Rendimiento">Rendimiento.</option>
+                  <option value="Comercialización">Comercialización.</option>
+                  <option value="Ambiental">Ambiental.</option>
+                  <option value="Otras">Otras.</option>
                 </b-form-select>
               </div>
               <div class="col-lg-8" v-show="mOTPP">
@@ -1155,8 +1240,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Otros tipos de problemas"
-                  v-model.trim="datos.otro_tipo_problema"
-                  :class="datos.otro_tipo_problema==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.otro_tipo_problema"
+                  :class="datosCulAgri.otro_tipo_problema==''?'':'is-valid'"
                   ref="otro_tipo_problema"
                 />
               </div>
@@ -1165,27 +1250,27 @@
               <div class="col-lg-4">
                 <label>Compradores:</label>
                 <b-form-select
-                  v-model="datos.compradores"
-                  :class="datos.compradores==''?'':'is-valid'"
+                  v-model="datosCulAgri.compradores"
+                  :class="datosCulAgri.compradores==''?'':'is-valid'"
                   ref="compradores"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Acopiador.</option>
-                  <option value="2">Transportador.</option>
-                  <option value="3">Detallista.</option>
-                  <option value="4">Transformador.</option>
-                  <option value="5">Cooperativa.</option>
-                  <option value="6">Consumidor final.</option>
+                  <option value="Acopiador">Acopiador.</option>
+                  <option value="Transportador">Transportador.</option>
+                  <option value="Detallista">Detallista.</option>
+                  <option value="Transformador">Transformador.</option>
+                  <option value="Cooperativa">Cooperativa.</option>
+                  <option value="Consumidor final">Consumidor final.</option>
                 </b-form-select>
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-4" style="display: none;">
                 <label>Precio promedio de venta:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Precio promedio de venta"
-                  v-model.trim="datos.precio_promedio_venta"
-                  :class="datos.precio_promedio_venta==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.precio_promedio_venta"
+                  :class="datosCulAgri.precio_promedio_venta==''?'':'is-valid'"
                   ref="precio_promedio_venta"
                   @change="formato('precio_promedio_venta')"
                 />
@@ -1193,15 +1278,15 @@
               <div class="col-lg-4">
                 <label>Método de pago.:</label>
                 <b-form-select
-                  v-model="datos.metodo_pago"
-                  :class="datos.metodo_pago==''?'':'is-valid'"
+                  v-model="datosCulAgri.metodo_pago"
+                  :class="datosCulAgri.metodo_pago==''?'':'is-valid'"
                   ref="metodo_pago"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Efectivo.</option>
-                  <option value="2">Trasferencia.</option>
-                  <option value="3">Cheque.</option>
-                  <option value="4">Trueque.</option>
+                  <option value="Efectivo">Efectivo.</option>
+                  <option value="Trasferencia">Trasferencia.</option>
+                  <option value="Cheque">Cheque.</option>
+                  <option value="Trueque">Trueque.</option>
                 </b-form-select>
               </div>
             </div>
@@ -1212,8 +1297,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Precio promedio de venta kg"
-                  v-model.trim="datos.precio_promedio_venta_kg"
-                  :class="datos.precio_promedio_venta_kg==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.precio_promedio_venta_kg"
+                  :class="datosCulAgri.precio_promedio_venta_kg==''?'':'is-valid'"
                   ref="precio_promedio_venta_kg"
                   @change="formato('precio_promedio_venta_kg')"
                 />
@@ -1224,8 +1309,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Subproductos de la producción"
-                  v-model.trim="datos.subproductos_produccion"
-                  :class="datos.subproductos_produccion==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.subproductos_produccion"
+                  :class="datosCulAgri.subproductos_produccion==''?'':'is-valid'"
                   ref="subproductos_produccion"
                 />
               </div>
@@ -1234,8 +1319,8 @@
               <div class="col-lg-4">
                 <label>Pertenencia a Programas de Asistencia Técnica:</label>
                 <b-form-select
-                  v-model="datos.programa_asistencia_tecnica"
-                  :class="datos.programa_asistencia_tecnica==''?'':'is-valid'"
+                  v-model="datosCulAgri.programa_asistencia_tecnica"
+                  :class="datosCulAgri.programa_asistencia_tecnica==''?'':'is-valid'"
                   ref="programa_asistencia_tecnica"
                   @change="mostrarOtro('PAT')"
                 >
@@ -1250,8 +1335,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Nombre del programa"
-                  v-model.trim="datos.nombre_programa"
-                  :class="datos.nombre_programa==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.nombre_programa"
+                  :class="datosCulAgri.nombre_programa==''?'':'is-valid'"
                   ref="nombre_programa"
                 />
               </div>
@@ -1261,18 +1346,18 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Entidad"
-                  v-model.trim="datos.entidad"
-                  :class="datos.entidad==''?'':'is-valid'"
+                  v-model.trim="datosCulAgri.entidad"
+                  :class="datosCulAgri.entidad==''?'':'is-valid'"
                   ref="entidad"
                 />
               </div>
             </div>
             <div class="form-group row">
               <div class="col-lg-7">
-                <label>¿Durante el último año, ha usted realizados cambios en su producción en temas de innovación?:</label>
+                <label>¿Durante el último año, ha realizado usted cambios en su producción en temas de innovación?:</label>
                 <b-form-select
-                  v-model="datos.cambios_produccion_anio"
-                  :class="datos.cambios_produccion_anio==''?'':'is-valid'"
+                  v-model="datosCulAgri.cambios_produccion_anio"
+                  :class="datosCulAgri.cambios_produccion_anio==''?'':'is-valid'"
                   ref="cambios_produccion_anio"
                   @change="mostrarOtro('CTI')"
                 >
@@ -1281,21 +1366,496 @@
                   <option value="NO">NO</option>
                 </b-form-select>
               </div>
-              <div class="col-lg-5" v-show="mOCTI">
+              <div class="col-lg-3" v-show="mOCTI">
                 <label>¿En qué actividad realizó el cambio?:</label>
                 <b-form-select
-                  v-model="datos.actividad_cambio"
-                  :class="datos.actividad_cambio==''?'':'is-valid'"
+                  v-model="datosCulAgri.actividad_cambio"
+                  :class="datosCulAgri.actividad_cambio==''?'':'is-valid'"
                   ref="actividad_cambio"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Producción</option>
-                  <option value="2">Transformación</option>
-                  <option value="3">Comercialización</option>
-                  <option value="4">Organizacional</option>
+                  <option value="Produccion">Producción</option>
+                  <option value="Transformacion">Transformación</option>
+                  <option value="Comercializacion">Comercialización</option>
+                  <option value="Organizacional">Organizacional</option>
                 </b-form-select>
               </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiCA==true">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Agregar"
+                  @click.prevent="agregarCA"
+                >
+                  <i class="fa fa-plus"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiCA==false">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Editar"
+                  @click.prevent="editarCA"
+                >
+                  <i class="fa fa-edit"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiCA==false">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-danger btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Cancelar"
+                  @click.prevent="CancelarEditarCA"
+                >
+                  <i class="fa fa-external-link-alt"></i>
+                </a>&nbsp;
+              </div>                            
             </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th class="text-center">No.</th>
+                        <th class="text-center">Importancia del 1 al 10</th>
+                        <th class="text-center">Area de Producción</th>
+                        <th class="text-center">Unidad de Medida</th>
+                        <th class="text-center">Producto</th>
+                        <th class="text-center">Variedad</th>
+                        <th class="text-center">Semilla</th>
+                        <th class="text-center">Organización</th>
+                        <th class="text-center">De qué tipo</th>                        
+                        <th class="text-center">Nombre de la organización</th>
+                        <th class="text-center">Beneficios</th>
+                        <th class="text-center">Razón por la cual no pertenece a ninguna organización</th>                        
+                        <th class="text-center">Trabaja en asociación para realizar las actividades productivas</th>
+                        <th class="text-center">Para cada uno de los productos que tan frecuente se hace la cosecha</th>
+                        <th class="text-center">Área de Cosecha de cada uno de los productos</th>
+                        <th class="text-center">Unidad de Medida</th>
+                        <th class="text-center">Costo total de la producción en pesos</th>
+                        <th class="text-center">Costo de establecimiento de la producción</th>
+                        <th class="text-center">Costo de sostenimiento</th>
+                        <th class="text-center">Producción destinada al mercado</th>
+                        <th class="text-center">Tipo de problema que enfrenta en su producción</th>
+                        <th class="text-center">Otros tipos de problemas</th>
+                        <th class="text-center">Compradores</th>
+                        <th class="text-center">Método de pago</th>
+                        <th class="text-center">Precio promedio de venta kg</th>
+                        <th class="text-center">Subproductos de la producción</th>
+                        <th class="text-center">Pertenencia a Programas de Asistencia Técnica</th>
+                        <th class="text-center">Nombre del programa</th>
+                        <th class="text-center">Entidad</th>
+                        <th class="text-center">Durante el último año, ha realizado usted cambios en su producción en temas de innovación</th>
+                        <th class="text-center">En qué actividad realizó el cambio</th>
+                        <td class="text-center">Opciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(item,index) in cultivos_agricolas" :key="index">
+                        <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.importancias_agricolas"
+                            :class="item.importancias_agricolas==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.area_produccion"
+                            :class="item.area_produccion==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_unidad_area_produccion"
+                            :class="item.texto_unidad_area_produccion==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_producto"
+                            :class="item.texto_producto==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_variedad"
+                            :class="item.texto_variedad==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.semilla"
+                            :class="item.semilla==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.pertenece"
+                            :class="item.pertenece==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.tipo_pertenece"
+                            :class="item.tipo_pertenece==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.nombre_organizacion"
+                            :class="item.nombre_organizacion==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_beneficios"
+                            :class="item.texto_beneficios==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_no_pertenece"
+                            :class="item.texto_no_pertenece==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.trabaja_asociacion"
+                            :class="item.trabaja_asociacion==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.frecuente_cosecha"
+                            :class="item.frecuente_cosecha==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.area_cosecha"
+                            :class="item.area_cosecha==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_unidad_area_cosecha"
+                            :class="item.texto_unidad_area_cosecha==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_produccion"
+                            :class="item.costo_produccion==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_establecimiento"
+                            :class="item.costo_establecimiento==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_sostenimiento"
+                            :class="item.costo_sostenimiento==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.produccion_destinada"
+                            :class="item.produccion_destinada==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.tipo_problema"
+                            :class="item.tipo_problema==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.otro_tipo_problema"
+                            :class="item.otro_tipo_problema==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.compradores"
+                            :class="item.compradores==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.metodo_pago"
+                            :class="item.metodo_pago==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.precio_promedio_venta_kg"
+                            :class="item.precio_promedio_venta_kg==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.subproductos_produccion"
+                            :class="item.subproductos_produccion==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.programa_asistencia_tecnica"
+                            :class="item.programa_asistencia_tecnica==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.nombre_programa"
+                            :class="item.nombre_programa==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.entidad"
+                            :class="item.entidad==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.cambios_produccion_anio"
+                            :class="item.cambios_produccion_anio==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.actividad_cambio"
+                            :class="item.actividad_cambio==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                        <td style="text-align:center;vertical-align: middle;text-align: center;">
+                          <div style="width:70px;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-danger"
+                              type="button"
+                              title="Eliminar"
+                              @click="eliminarItemCA(index)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-warning"
+                              type="button"
+                              title="Editar"
+                              @click="editarItemCA(index,item)"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>                          
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>            
             <div class="kt-separator kt-separator--border-dashed"></div>
             <p style="text-align: center;">
               <span
@@ -1310,8 +1870,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Importancia del 1 al 10"
-                  v-model.trim="datos.importancia_comercial"
-                  :class="datos.importancia_comercial==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.importancia_comercial"
+                  :class="datosExpPec.importancia_comercial==''?'':'is-valid'"
                   ref="importancia_comercial"
                   @change="formato('importancia_comercial')"
                 />
@@ -1322,23 +1882,24 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Producto"
-                  v-model.trim="datos.producto_comercial"
-                  :class="datos.producto_comercial==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.producto_comercial"
+                  :class="datosExpPec.producto_comercial==''?'':'is-valid'"
                   ref="producto_comercial"
                 />
               </div>
               <div class="col-lg-3">
                 <label>Raza ó Tipo:</label>
                 <b-form-select
-                  v-model="datos.raza"
-                  :class="datos.raza==''?'':'is-valid'"
+                  v-model="datosExpPec.raza"
+                  :class="datosExpPec.raza==''?'':'is-valid'"
                   ref="raza"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Producción</option>
-                  <option value="2">Transformación</option>
-                  <option value="3">Comercialización</option>
-                  <option value="4">Organizacional</option>
+                  <option
+                    v-for="item in raza"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
             </div>
@@ -1349,8 +1910,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo total"
-                  v-model.trim="datos.costo_total"
-                  :class="datos.costo_total==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.costo_total"
+                  :class="datosExpPec.costo_total==''?'':'is-valid'"
                   ref="costo_total"
                   @change="formato('costo_total')"
                 />
@@ -1361,8 +1922,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo de Establecer"
-                  v-model.trim="datos.costo_establecer"
-                  :class="datos.costo_establecer==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.costo_establecer"
+                  :class="datosExpPec.costo_establecer==''?'':'is-valid'"
                   ref="costo_establecer"
                   @change="formato('costo_establecer')"
                 />
@@ -1373,8 +1934,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo Sostenimiento Explotación Pecuaria"
-                  v-model.trim="datos.costo_pecuaria"
-                  :class="datos.costo_pecuaria==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.costo_pecuaria"
+                  :class="datosExpPec.costo_pecuaria==''?'':'is-valid'"
                   ref="costo_pecuaria"
                   @change="formato('costo_pecuaria')"
                 />
@@ -1384,17 +1945,17 @@
               <div class="col-lg-5">
                 <label>Problemática de los productos con perspectiva comercial:</label>
                 <b-form-select
-                  v-model="datos.problematica_productos"
-                  :class="datos.problematica_productos==''?'':'is-valid'"
+                  v-model="datosExpPec.problematica_productos"
+                  :class="datosExpPec.problematica_productos==''?'':'is-valid'"
                   ref="problematica_productos"
                   @change="mostrarOtro('PPP')"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Sanitario</option>
-                  <option value="2">Rendimiento</option>
-                  <option value="3">Comercialización</option>
-                  <option value="4">Ambiental</option>
-                  <option value="5">Otras</option>
+                  <option value="Sanitario">Sanitario</option>
+                  <option value="Rendimiento">Rendimiento</option>
+                  <option value="Comercialización">Comercialización</option>
+                  <option value="Ambiental">Ambiental</option>
+                  <option value="Otras">Otras</option>
                 </b-form-select>
               </div>
               <div class="col-lg-7" v-show="mOPPP">
@@ -1403,8 +1964,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Otra Problematica de los productos con perspectiva comercial"
-                  v-model.trim="datos.otra_problematica"
-                  :class="datos.otra_problematica==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.otra_problematica"
+                  :class="datosExpPec.otra_problematica==''?'':'is-valid'"
                   ref="otra_problematica"
                 />
               </div>
@@ -1416,8 +1977,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Producción"
-                  v-model.trim="datos.produccion"
-                  :class="datos.produccion==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.produccion"
+                  :class="datosExpPec.produccion==''?'':'is-valid'"
                   ref="produccion"
                 />
               </div>
@@ -1429,8 +1990,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Producción destinada al mercado"
-                  v-model.trim="datos.produccion_destinada_pecuaria"
-                  :class="datos.produccion_destinada_pecuaria==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.produccion_destinada_pecuaria"
+                  :class="datosExpPec.produccion_destinada_pecuaria==''?'':'is-valid'"
                   ref="produccion_destinada_pecuaria"
                 />
               </div>
@@ -1442,8 +2003,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Número de animales"
-                  v-model.trim="datos.numero_animales"
-                  :class="datos.numero_animales==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.numero_animales"
+                  :class="datosExpPec.numero_animales==''?'':'is-valid'"
                   ref="numero_animales"
                   @change="formato('numero_animales')"
                 />
@@ -1454,8 +2015,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Área destinada a esta producción"
-                  v-model.trim="datos.area_destinada_produccion"
-                  :class="datos.area_destinada_produccion==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.area_destinada_produccion"
+                  :class="datosExpPec.area_destinada_produccion==''?'':'is-valid'"
                   ref="area_destinada_produccion"
                   @change="formato('area_destinada_produccion')"
                 />
@@ -1463,19 +2024,16 @@
               <div class="col-lg-2">
                 <label>Unidad de Medida:</label>
                 <b-form-select
-                  v-model="datos.unidad_area_destinada"
-                  :class="datos.unidad_area_destinada==''?'':'is-valid'"
+                  v-model="datosExpPec.unidad_area_destinada"
+                  :class="datosExpPec.unidad_area_destinada==''?'':'is-valid'"
                   ref="unidad_area_destinada"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Kilómetro cuadrado.</option>
-                  <option value="2">Metro cuadrado.</option>
-                  <option value="3">Milla cuadrada.</option>
-                  <option value="4">Yarda cuadrada.</option>
-                  <option value="5">Pie cuadrado.</option>
-                  <option value="6">Pulgada cuadrada.</option>
-                  <option value="7">Hectárea.</option>
-                  <option value="8">Acre.</option>
+                  <option
+                    v-for="item in unidades1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
             </div>
@@ -1483,17 +2041,17 @@
               <div class="col-lg-4">
                 <label>Compradores:</label>
                 <b-form-select
-                  v-model="datos.compradores_pecuaria"
-                  :class="datos.compradores_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.compradores_pecuaria"
+                  :class="datosExpPec.compradores_pecuaria==''?'':'is-valid'"
                   ref="compradores_pecuaria"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Acopiador.</option>
-                  <option value="2">Transportador.</option>
-                  <option value="3">Detallista.</option>
-                  <option value="4">Transformador.</option>
-                  <option value="5">Cooperativa.</option>
-                  <option value="6">Consumidor final.</option>
+                  <option value="Acopiador">Acopiador.</option>
+                  <option value="Transportador">Transportador.</option>
+                  <option value="Detallista">Detallista.</option>
+                  <option value="Transformador">Transformador.</option>
+                  <option value="Cooperativa">Cooperativa.</option>
+                  <option value="Consumidor final">Consumidor final.</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4">
@@ -1502,8 +2060,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Precio promedio de venta"
-                  v-model.trim="datos.precio_promedio_venta_pecuaria"
-                  :class="datos.precio_promedio_venta_pecuaria==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.precio_promedio_venta_pecuaria"
+                  :class="datosExpPec.precio_promedio_venta_pecuaria==''?'':'is-valid'"
                   ref="precio_promedio_venta_pecuaria"
                   @change="formato('precio_promedio_venta_pecuaria')"
                 />
@@ -1511,15 +2069,15 @@
               <div class="col-lg-4">
                 <label>Método de pago.:</label>
                 <b-form-select
-                  v-model="datos.metodo_pago_pecuaria"
-                  :class="datos.metodo_pago_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.metodo_pago_pecuaria"
+                  :class="datosExpPec.metodo_pago_pecuaria==''?'':'is-valid'"
                   ref="metodo_pago_pecuaria"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Efectivo.</option>
-                  <option value="2">Trasferencia.</option>
-                  <option value="3">Cheque.</option>
-                  <option value="4">Trueque.</option>
+                  <option value="Efectivo">Efectivo.</option>
+                  <option value="Trasferencia">Trasferencia.</option>
+                  <option value="Cheque">Cheque.</option>
+                  <option value="Trueque">Trueque.</option>
                 </b-form-select>
               </div>
             </div>
@@ -1530,16 +2088,16 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Subproductos de la producción"
-                  v-model.trim="datos.subproductos_produccion_pecuaria"
-                  :class="datos.subproductos_produccion_pecuaria==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.subproductos_produccion_pecuaria"
+                  :class="datosExpPec.subproductos_produccion_pecuaria==''?'':'is-valid'"
                   ref="subproductos_produccion_pecuaria"
                 />
               </div>
               <div class="col-lg-4">
                 <label>Pertenencia a Programas de Asistencia Técnica:</label>
                 <b-form-select
-                  v-model="datos.pertenece_pecuaria"
-                  :class="datos.pertenece_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.pertenece_pecuaria"
+                  :class="datosExpPec.pertenece_pecuaria==''?'':'is-valid'"
                   ref="pertenece_pecuaria"
                   @change="mostrarOtro('PATP')"
                 >
@@ -1556,8 +2114,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Nombre del programa"
-                  v-model.trim="datos.nombre_programa_pecuaria"
-                  :class="datos.nombre_programa_pecuaria==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.nombre_programa_pecuaria"
+                  :class="datosExpPec.nombre_programa_pecuaria==''?'':'is-valid'"
                   ref="nombre_programa_pecuaria"
                 />
               </div>
@@ -1567,98 +2125,96 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Entidad"
-                  v-model.trim="datos.entidad_pecuaria"
-                  :class="datos.entidad_pecuaria==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.entidad_pecuaria"
+                  :class="datosExpPec.entidad_pecuaria==''?'':'is-valid'"
                   ref="entidad_pecuaria"
                 />
               </div>
-              <div class="col-lg-4">
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-3">
                 <label>¿Pertenece a alguna organización? :</label>
                 <b-form-select
-                  v-model="datos.pertenece_organizacion_pecuaria"
-                  :class="datos.pertenece_organizacion_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.pertenece_organizacion_pecuaria"
+                  :class="datosExpPec.pertenece_organizacion_pecuaria==''?'':'is-valid'"
                   ref="pertenece_organizacion_pecuaria"
                   @change="mostrarOtro('POPECU')"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Asociaciones.</option>
-                  <option value="2">Cooperativas.</option>
-                  <option value="3">Agremiaciones.</option>
+                  <option value="Asociaciones">Asociaciones.</option>
+                  <option value="Cooperativas">Cooperativas.</option>
+                  <option value="Agremiaciones">Agremiaciones.</option>
                   <option value="NA">No Aplica.</option>
                 </b-form-select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-lg-4" v-show="mOPECU">
+              </div>              
+              <div class="col-lg-2" v-show="mOPECU">
                 <label>¿De qué tipo? :</label>
                 <b-form-select
-                  v-model="datos.tipo_organizacion_pecuaria"
-                  :class="datos.tipo_organizacion_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.tipo_organizacion_pecuaria"
+                  :class="datosExpPec.tipo_organizacion_pecuaria==''?'':'is-valid'"
                   ref="tipo_organizacion_pecuaria"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Político.</option>
-                  <option value="2">Social.</option>
-                  <option value="3">Tecnológico.</option>
-                  <option value="4">Asistencial.</option>
-                  <option value="5">Salud.</option>
-                  <option value="6">Comercial.</option>
-                  <option value="7">Etnia.</option>
-                  <option value="8">Cultural.</option>
-                  <option value="9">Deportiva.</option>
+                  <option value="Politico">Político.</option>
+                  <option value="Social">Social.</option>
+                  <option value="Tecnologico">Tecnológico.</option>
+                  <option value="Asistencial">Asistencial.</option>
+                  <option value="Salud">Salud.</option>
+                  <option value="Comercial">Comercial.</option>
+                  <option value="Etnia">Etnia.</option>
+                  <option value="Cultural">Cultural.</option>
+                  <option value="Deportiva">Deportiva.</option>
                   <option value="NA">No Aplica.</option>
                 </b-form-select>
               </div>
-              <div class="col-lg-8" v-show="mOPECU">
+              <div class="col-lg-7" v-show="mOPECU">
                 <label>Nombre de la organización:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Nombre de la organización"
-                  v-model.trim="datos.nombre_organizacion_pecuaria"
-                  :class="datos.nombre_organizacion_pecuaria==''?'':'is-valid'"
+                  v-model.trim="datosExpPec.nombre_organizacion_pecuaria"
+                  :class="datosExpPec.nombre_organizacion_pecuaria==''?'':'is-valid'"
                   ref="nombre_organizacion_pecuaria"
                 />
               </div>
-            </div>
-            <div class="form-group row">
               <div class="col-lg-4" v-show="mOPECU==false">
                 <label>Razón por la cual no pertenece a ninguna organización:</label>
                 <b-form-select
-                  v-model="datos.no_pertenece_pecuaria"
-                  :class="datos.no_pertenece_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.no_pertenece_pecuaria"
+                  :class="datosExpPec.no_pertenece_pecuaria==''?'':'is-valid'"
                   ref="no_pertenece_pecuaria"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Desconocimiento.</option>
-                  <option value="2">Falta de interés.</option>
-                  <option value="3">Falta de tiempo.</option>
-                  <option value="4">Falta de oportunidad.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option
+                    v-for="item in razon1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
-              </div>
+              </div>              
+            </div>
+            <div class="form-group row">
               <div class="col-lg-2">
                 <label>Beneficios :</label>
                 <b-form-select
-                  v-model="datos.beneficios_pecuaria"
-                  :class="datos.beneficios_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.beneficios_pecuaria"
+                  :class="datosExpPec.beneficios_pecuaria==''?'':'is-valid'"
                   ref="beneficios_pecuaria"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Económico.</option>
-                  <option value="2">En especies.</option>
-                  <option value="3">Capacitación.</option>
-                  <option value="4">Recreación y deporte.</option>
-                  <option value="5">Reconocimiento de la comunidad.</option>
-                  <option value="6">Participación en la toma de decisiones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option
+                    v-for="item in beneficios"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
               <div class="col-lg-6">
                 <label>Trabaja en asociación para realizar las actividades productivas :</label>
                 <b-form-select
-                  v-model="datos.trabaja_asociacion_pecuaria"
-                  :class="datos.trabaja_asociacion_pecuaria==''?'':'is-valid'"
+                  v-model="datosExpPec.trabaja_asociacion_pecuaria"
+                  :class="datosExpPec.trabaja_asociacion_pecuaria==''?'':'is-valid'"
                   ref="trabaja_asociacion_pecuaria"
                 >
                   <option value selected>Seleccione</option>
@@ -1666,7 +2222,431 @@
                   <option value="NO">NO</option>
                 </b-form-select>
               </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiEP==true">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Agregar"
+                  @click.prevent="agregarEP"
+                >
+                  <i class="fa fa-plus"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiEP==false">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Editar"
+                  @click.prevent="editarEP"
+                >
+                  <i class="fa fa-edit"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiEP==false">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-danger btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Cancelar"
+                  @click.prevent="CancelarEditarEP"
+                >
+                  <i class="fa fa-external-link-alt"></i>
+                </a>&nbsp;
+              </div>              
             </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th class="text-center">No.</th>
+                        <th class="text-center">Importancia del 1 al 10</th>
+                        <th class="text-center">Producto</th>
+                        <th class="text-center">Raza ó Tipo</th>
+                        <th class="text-center">Costo Total</th>
+                        <th class="text-center">Costo de Establecer</th>
+                        <th class="text-center">Costo Sostenimiento Explotación Pecuaria</th>
+                        <th class="text-center">Problemática de los productos con perspectiva comercial</th>
+                        <th class="text-center">Otra Problematica de los productos con perspectiva comercial</th>                        
+                        <th class="text-center">Producción</th>
+                        <th class="text-center">Producción destinada al mercado</th>
+                        <th class="text-center">Número de animales</th>                        
+                        <th class="text-center">Área destinada a esta producción</th>
+                        <th class="text-center">Unidad de Medida</th>
+                        <th class="text-center">Compradores</th>
+                        <th class="text-center">Precio promedio de venta</th>
+                        <th class="text-center">Método de pago</th>
+                        <th class="text-center">Subproductos de la producción</th>
+                        <th class="text-center">Pertenencia a Programas de Asistencia Técnica</th>
+                        <th class="text-center">Nombre del programa</th>
+                        <th class="text-center">Entidad</th>
+                        <th class="text-center">¿Pertenece a alguna organización?</th>
+                        <th class="text-center">¿De qué tipo?</th>
+                        <th class="text-center">Nombre de la organización</th>
+                        <th class="text-center">Razón por la cual no pertenece a ninguna organización</th>
+                        <th class="text-center">Beneficios</th>
+                        <th class="text-center">Trabaja en asociación para realizar las actividades productivas</th>
+                        <td class="text-center">Opciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(item,index) in explotaciones_pecuarias" :key="index">
+                        <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.importancia_comercial"
+                            :class="item.importancia_comercial==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.producto_comercial"
+                            :class="item.producto_comercial==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>                        
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_raza"
+                            :class="item.texto_raza==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_total"
+                            :class="item.costo_total==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_establecer"
+                            :class="item.costo_establecer==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_pecuaria"
+                            :class="item.costo_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.problematica_productos"
+                            :class="item.problematica_productos==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.otra_problematica"
+                            :class="item.otra_problematica==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.produccion"
+                            :class="item.produccion==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.produccion_destinada_pecuaria"
+                            :class="item.produccion_destinada_pecuaria==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.numero_animales"
+                            :class="item.numero_animales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.area_destinada_produccion"
+                            :class="item.area_destinada_produccion==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_unidad_area_destinada"
+                            :class="item.texto_unidad_area_destinada==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.compradores_pecuaria"
+                            :class="item.compradores_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.precio_promedio_venta_pecuaria"
+                            :class="item.precio_promedio_venta_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.metodo_pago_pecuaria"
+                            :class="item.metodo_pago_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.subproductos_produccion_pecuaria"
+                            :class="item.subproductos_produccion_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.pertenece_pecuaria"
+                            :class="item.pertenece_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.nombre_programa_pecuaria"
+                            :class="item.nombre_programa_pecuaria==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.entidad_pecuaria"
+                            :class="item.entidad_pecuaria==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.pertenece_organizacion_pecuaria"
+                            :class="item.pertenece_organizacion_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.tipo_organizacion_pecuaria"
+                            :class="item.tipo_organizacion_pecuaria==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.nombre_organizacion_pecuaria"
+                            :class="item.nombre_organizacion_pecuaria==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_no_pertenece_pecuaria"
+                            :class="item.texto_no_pertenece_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_beneficios_pecuaria"
+                            :class="item.texto_beneficios_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.trabaja_asociacion_pecuaria"
+                            :class="item.trabaja_asociacion_pecuaria==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                        <td style="text-align:center;vertical-align: middle;text-align: center;">
+                          <div style="width:70px;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-danger"
+                              type="button"
+                              title="Eliminar"
+                              @click="eliminarItemEP(index)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-warning"
+                              type="button"
+                              title="Editar"
+                              @click="editarItemEP(index,item)"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>                          
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>            
             <div class="kt-separator kt-separator--border-dashed"></div>
             <p style="text-align: center;">
               <span
@@ -1681,33 +2661,37 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Importancia del 1 al 10"
-                  v-model.trim="datos.importancia_forestales"
-                  :class="datos.importancia_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.importancia_forestales"
+                  :class="datosCulFor.importancia_forestales==''?'':'is-valid'"
                   ref="importancia_forestales"
                   @change="formato('importancia_forestales')"
                 />
               </div>
               <div class="col-lg-5">
                 <label>Producto:</label>
-                <input
-                  type="text"
-                  class="form-control text-capitalize"
-                  placeholder="Producto, nombre de la especia a forestar"
-                  v-model.trim="datos.producto_forestales"
-                  :class="datos.producto_forestales==''?'':'is-valid'"
+                <b-form-select
+                  v-model="datosCulFor.producto_forestales"
+                  :class="datosCulFor.producto_forestales==''?'':'is-valid'"
                   ref="producto_forestales"
-                />
+                >
+                  <option value selected>Seleccione</option>
+                  <option value="Maderables">Maderables</option>
+                </b-form-select>                
               </div>
               <div class="col-lg-4">
-                <label>Variedad:</label>
-                <input
-                  type="text"
-                  class="form-control text-capitalize"
-                  placeholder="Variedad"
-                  v-model.trim="datos.variedad_forestales"
-                  :class="datos.variedad_forestales==''?'':'is-valid'"
+                <label>Especie:</label>
+                <b-form-select
+                  v-model="datosCulFor.variedad_forestales"
+                  :class="datosCulFor.variedad_forestales==''?'':'is-valid'"
                   ref="variedad_forestales"
-                />
+                >
+                  <option value selected>Seleccione</option>
+                  <option
+                    v-for="item in especie1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
+                </b-form-select>                                
               </div>
             </div>
             <div class="form-group row">
@@ -1717,8 +2701,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Edad de la plantación"
-                  v-model.trim="datos.edad_plantacion"
-                  :class="datos.edad_plantacion==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.edad_plantacion"
+                  :class="datosCulFor.edad_plantacion==''?'':'is-valid'"
                   ref="edad_plantacion"
                   @change="formato('edad_plantacion')"
                 />
@@ -1726,13 +2710,13 @@
               <div class="col-lg-2">
                 <label>Unidad de Medida :</label>
                 <b-form-select
-                  v-model="datos.tipo_edad"
-                  :class="datos.tipo_edad==''?'':'is-valid'"
+                  v-model="datosCulFor.tipo_edad"
+                  :class="datosCulFor.tipo_edad==''?'':'is-valid'"
                   ref="tipo_edad"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Años.</option>
-                  <option value="2">Meses</option>
+                  <option value="Años">Años.</option>
+                  <option value="Meses">Meses</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4">
@@ -1741,8 +2725,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Área sembrada"
-                  v-model.trim="datos.area_sembrada_forestales"
-                  :class="datos.area_sembrada_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.area_sembrada_forestales"
+                  :class="datosCulFor.area_sembrada_forestales==''?'':'is-valid'"
                   ref="area_sembrada_forestales"
                   @change="formato('area_sembrada_forestales')"
                 />
@@ -1750,19 +2734,16 @@
               <div class="col-lg-2">
                 <label>Unidad de Medida:</label>
                 <b-form-select
-                  v-model="datos.unidad_area_forestales"
-                  :class="datos.unidad_area_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.unidad_area_forestales"
+                  :class="datosCulFor.unidad_area_forestales==''?'':'is-valid'"
                   ref="unidad_area_forestales"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Kilómetro cuadrado.</option>
-                  <option value="2">Metro cuadrado.</option>
-                  <option value="3">Milla cuadrada.</option>
-                  <option value="4">Yarda cuadrada.</option>
-                  <option value="5">Pie cuadrado.</option>
-                  <option value="6">Pulgada cuadrada.</option>
-                  <option value="7">Hectárea.</option>
-                  <option value="8">Acre.</option>
+                  <option
+                    v-for="item in unidades1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
             </div>
@@ -1773,8 +2754,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Rendimiento por árbol en m3"
-                  v-model.trim="datos.rendimiento_arbol"
-                  :class="datos.rendimiento_arbol==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.rendimiento_arbol"
+                  :class="datosCulFor.rendimiento_arbol==''?'':'is-valid'"
                   ref="rendimiento_arbol"
                   @change="formato('rendimiento_arbol')"
                 />
@@ -1785,8 +2766,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo total"
-                  v-model.trim="datos.costo_total_forestales"
-                  :class="datos.costo_total_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.costo_total_forestales"
+                  :class="datosCulFor.costo_total_forestales==''?'':'is-valid'"
                   ref="costo_total_forestales"
                   @change="formato('costo_total_forestales')"
                 />
@@ -1797,8 +2778,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo de Establecimiento"
-                  v-model.trim="datos.costo_establecimiento_forestales"
-                  :class="datos.costo_establecimiento_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.costo_establecimiento_forestales"
+                  :class="datosCulFor.costo_establecimiento_forestales==''?'':'is-valid'"
                   ref="costo_establecimiento_forestales"
                   @change="formato('costo_establecimiento_forestales')"
                 />
@@ -1809,8 +2790,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Costo Sostenimiento"
-                  v-model.trim="datos.costo_sostenimiento_forestales"
-                  :class="datos.costo_sostenimiento_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.costo_sostenimiento_forestales"
+                  :class="datosCulFor.costo_sostenimiento_forestales==''?'':'is-valid'"
                   ref="costo_sostenimiento_forestales"
                   @change="formato('costo_sostenimiento_forestales')"
                 />
@@ -1820,17 +2801,17 @@
               <div class="col-lg-5">
                 <label>Problemática de los productos con perspectiva comercial:</label>
                 <b-form-select
-                  v-model="datos.problematica_productos_forestales"
-                  :class="datos.problematica_productos_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.problematica_productos_forestales"
+                  :class="datosCulFor.problematica_productos_forestales==''?'':'is-valid'"
                   ref="problematica_productos_forestales"
                   @change="mostrarOtro('PPPF')"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Sanitario</option>
-                  <option value="2">Rendimiento</option>
-                  <option value="3">Comercialización</option>
-                  <option value="4">Ambiental</option>
-                  <option value="5">Otras</option>
+                  <option value="Sanitario">Sanitario</option>
+                  <option value="Rendimiento">Rendimiento</option>
+                  <option value="Comercializacion">Comercialización</option>
+                  <option value="Ambiental">Ambiental</option>
+                  <option value="Otras">Otras</option>
                 </b-form-select>
               </div>
               <div class="col-lg-7" v-show="mOPPPF">
@@ -1839,8 +2820,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Otra Problematica de los productos con perspectiva comercial"
-                  v-model.trim="datos.otros_problematica_productos_forestales"
-                  :class="datos.otros_problematica_productos_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.otros_problematica_productos_forestales"
+                  :class="datosCulFor.otros_problematica_productos_forestales==''?'':'is-valid'"
                   ref="otros_problematica_productos_forestales"
                 />
               </div>
@@ -1852,8 +2833,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Producción destinada al mercado"
-                  v-model.trim="datos.produccion_destinada_forestales"
-                  :class="datos.produccion_destinada_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.produccion_destinada_forestales"
+                  :class="datosCulFor.produccion_destinada_forestales==''?'':'is-valid'"
                   ref="produccion_destinada_forestales"
                 />
               </div>
@@ -1865,8 +2846,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Número de Arboles"
-                  v-model.trim="datos.numero_arboles"
-                  :class="datos.numero_arboles==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.numero_arboles"
+                  :class="datosCulFor.numero_arboles==''?'':'is-valid'"
                   ref="numero_arboles"
                   @change="formato('numero_arboles')"
                 />
@@ -1874,17 +2855,17 @@
               <div class="col-lg-3">
                 <label>Compradores:</label>
                 <b-form-select
-                  v-model="datos.compradores_forestales"
-                  :class="datos.compradores_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.compradores_forestales"
+                  :class="datosCulFor.compradores_forestales==''?'':'is-valid'"
                   ref="compradores_forestales"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Acopiador.</option>
-                  <option value="2">Transportador.</option>
-                  <option value="3">Detallista.</option>
-                  <option value="4">Transformador.</option>
-                  <option value="5">Cooperativa.</option>
-                  <option value="6">Consumidor final.</option>
+                  <option value="Acopiador">Acopiador.</option>
+                  <option value="Transportador">Transportador.</option>
+                  <option value="Detallista">Detallista.</option>
+                  <option value="Transformador">Transformador.</option>
+                  <option value="Cooperativa">Cooperativa.</option>
+                  <option value="Consumidor final">Consumidor final.</option>
                 </b-form-select>
               </div>
               <div class="col-lg-3">
@@ -1893,8 +2874,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Precio promedio de venta"
-                  v-model.trim="datos.precio_promedio_venta_forestales"
-                  :class="datos.precio_promedio_venta_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.precio_promedio_venta_forestales"
+                  :class="datosCulFor.precio_promedio_venta_forestales==''?'':'is-valid'"
                   ref="precio_promedio_venta_forestales"
                   @change="formato('precio_promedio_venta_forestales')"
                 />
@@ -1902,15 +2883,15 @@
               <div class="col-lg-3">
                 <label>Método de pago.:</label>
                 <b-form-select
-                  v-model="datos.metodo_pago_forestales"
-                  :class="datos.metodo_pago_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.metodo_pago_forestales"
+                  :class="datosCulFor.metodo_pago_forestales==''?'':'is-valid'"
                   ref="metodo_pago_forestales"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Efectivo.</option>
-                  <option value="2">Trasferencia.</option>
-                  <option value="3">Cheque.</option>
-                  <option value="4">Trueque.</option>
+                  <option value="Efectivo">Efectivo.</option>
+                  <option value="Trasferencia">Trasferencia.</option>
+                  <option value="Cheque">Cheque.</option>
+                  <option value="Trueque">Trueque.</option>
                 </b-form-select>
               </div>
             </div>
@@ -1921,16 +2902,16 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Subproductos de la producción"
-                  v-model.trim="datos.subproductos_produccion_forestales"
-                  :class="datos.subproductos_produccion_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.subproductos_produccion_forestales"
+                  :class="datosCulFor.subproductos_produccion_forestales==''?'':'is-valid'"
                   ref="subproductos_produccion_forestales"
                 />
               </div>
               <div class="col-lg-4">
                 <label>Pertenencia a Programas de Asistencia Técnica:</label>
                 <b-form-select
-                  v-model="datos.pertenece_forestales"
-                  :class="datos.pertenece_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.pertenece_forestales"
+                  :class="datosCulFor.pertenece_forestales==''?'':'is-valid'"
                   ref="pertenece_forestales"
                   @change="mostrarOtro('PATF')"
                 >
@@ -1947,8 +2928,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Nombre del programa"
-                  v-model.trim="datos.nombre_programa_forestales"
-                  :class="datos.nombre_programa_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.nombre_programa_forestales"
+                  :class="datosCulFor.nombre_programa_forestales==''?'':'is-valid'"
                   ref="nombre_programa_forestales"
                 />
               </div>
@@ -1958,23 +2939,23 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Entidad"
-                  v-model.trim="datos.entidad_forestales"
-                  :class="datos.entidad_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.entidad_forestales"
+                  :class="datosCulFor.entidad_forestales==''?'':'is-valid'"
                   ref="entidad_forestales"
                 />
               </div>
               <div class="col-lg-4">
                 <label>¿Pertenece a alguna organización? :</label>
                 <b-form-select
-                  v-model="datos.pertenece_organizacion_forestales"
-                  :class="datos.pertenece_organizacion_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.pertenece_organizacion_forestales"
+                  :class="datosCulFor.pertenece_organizacion_forestales==''?'':'is-valid'"
                   ref="pertenece_organizacion_forestales"
                   @change="mostrarOtro('PF')"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Asociaciones.</option>
-                  <option value="2">Cooperativas.</option>
-                  <option value="3">Agremiaciones.</option>
+                  <option value="Asociaciones">Asociaciones.</option>
+                  <option value="Cooperativas">Cooperativas.</option>
+                  <option value="Agremiaciones">Agremiaciones.</option>
                   <option value="NA">No Aplica.</option>
                 </b-form-select>
               </div>
@@ -1983,20 +2964,20 @@
               <div class="col-lg-4" v-show="mOPF">
                 <label>¿De qué tipo? :</label>
                 <b-form-select
-                  v-model="datos.tipo_pertenece_forestales"
-                  :class="datos.tipo_pertenece_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.tipo_pertenece_forestales"
+                  :class="datosCulFor.tipo_pertenece_forestales==''?'':'is-valid'"
                   ref="tipo_pertenece_forestales"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Político.</option>
-                  <option value="2">Social.</option>
-                  <option value="3">Tecnológico.</option>
-                  <option value="4">Asistencial.</option>
-                  <option value="5">Salud.</option>
-                  <option value="6">Comercial.</option>
-                  <option value="7">Etnia.</option>
-                  <option value="8">Cultural.</option>
-                  <option value="9">Deportiva.</option>
+                  <option value="Politico">Político.</option>
+                  <option value="Social">Social.</option>
+                  <option value="Tecnologico">Tecnológico.</option>
+                  <option value="Asistencial">Asistencial.</option>
+                  <option value="Salud">Salud.</option>
+                  <option value="Comercial">Comercial.</option>
+                  <option value="Etnia">Etnia.</option>
+                  <option value="Cultural">Cultural.</option>
+                  <option value="Deportiva">Deportiva.</option>
                   <option value="NA">No Aplica.</option>
                 </b-form-select>
               </div>
@@ -2006,8 +2987,8 @@
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Nombre de la organización"
-                  v-model.trim="datos.nombre_organizacion_forestales"
-                  :class="datos.nombre_organizacion_forestales==''?'':'is-valid'"
+                  v-model.trim="datosCulFor.nombre_organizacion_forestales"
+                  :class="datosCulFor.nombre_organizacion_forestales==''?'':'is-valid'"
                   ref="nombre_organizacion_forestales"
                 />
               </div>
@@ -2016,33 +2997,31 @@
               <div class="col-lg-5" v-show="mOPF==false">
                 <label>Razón por la cual no pertenece a ninguna organización:</label>
                 <b-form-select
-                  v-model="datos.no_pertenece_forestales"
-                  :class="datos.no_pertenece_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.no_pertenece_forestales"
+                  :class="datosCulFor.no_pertenece_forestales==''?'':'is-valid'"
                   ref="no_pertenece_forestales"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Desconocimiento.</option>
-                  <option value="2">Falta de interés.</option>
-                  <option value="3">Falta de tiempo.</option>
-                  <option value="4">Falta de oportunidad.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option
+                    v-for="item in razon1"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4">
                 <label>Beneficios :</label>
                 <b-form-select
-                  v-model="datos.beneficios_forestales"
-                  :class="datos.beneficios_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.beneficios_forestales"
+                  :class="datosCulFor.beneficios_forestales==''?'':'is-valid'"
                   ref="beneficios_forestales"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Económico.</option>
-                  <option value="2">En especies.</option>
-                  <option value="3">Capacitación.</option>
-                  <option value="4">Recreación y deporte.</option>
-                  <option value="5">Reconocimiento de la comunidad.</option>
-                  <option value="6">Participación en la toma de decisiones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option
+                    v-for="item in beneficios"
+                    :value="item.value"
+                    :key="item.value"
+                  >{{item.texto}}</option>
                 </b-form-select>
               </div>
             </div>
@@ -2050,8 +3029,8 @@
               <div class="col-lg-6">
                 <label>Trabaja en asociación para realizar las actividades productivas :</label>
                 <b-form-select
-                  v-model="datos.trabaja_asociacion_forestales"
-                  :class="datos.trabaja_asociacion_forestales==''?'':'is-valid'"
+                  v-model="datosCulFor.trabaja_asociacion_forestales"
+                  :class="datosCulFor.trabaja_asociacion_forestales==''?'':'is-valid'"
                   ref="trabaja_asociacion_forestales"
                 >
                   <option value selected>Seleccione</option>
@@ -2059,7 +3038,456 @@
                   <option value="NO">NO</option>
                 </b-form-select>
               </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiCF==true">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Agregar"
+                  @click.prevent="agregarCF"
+                >
+                  <i class="fa fa-plus"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiCF==false">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Editar"
+                  @click.prevent="editarCF"
+                >
+                  <i class="fa fa-edit"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1" v-if="bandeGuaEdiCF==false">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-danger btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Cancelar"
+                  @click.prevent="CancelarEditarCF"
+                >
+                  <i class="fa fa-external-link-alt"></i>
+                </a>&nbsp;
+              </div>              
             </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th class="text-center">No.</th>
+                        <th class="text-center">Importancia del 1 al 10</th>
+                        <th class="text-center">Producto</th>
+                        <th class="text-center">Variedad</th>
+                        <th class="text-center">Edad de la plantación</th>
+                        <th class="text-center">Unidad de Medida</th>
+                        <th class="text-center">Área sembrada</th>
+                        <th class="text-center">Unidad de Medida</th>
+                        <th class="text-center">Rendimiento por árbol en m3</th>                        
+                        <th class="text-center">Costo Total</th>
+                        <th class="text-center">Costo de Establecimiento</th>
+                        <th class="text-center">Costo Sostenimiento</th>                        
+                        <th class="text-center">Problemática de los productos con perspectiva comercial</th>
+                        <th class="text-center">Otra Problematica de los productos con perspectiva comercial</th>
+                        <th class="text-center">Producción destinada al mercado</th>
+                        <th class="text-center">Número de Arboles</th>
+                        <th class="text-center">Compradores</th>
+                        <th class="text-center">Precio promedio de venta</th>
+                        <th class="text-center">Método de pago</th>
+                        <th class="text-center">Subproductos de la producción</th>
+                        <th class="text-center">Pertenencia a Programas de Asistencia Técnica</th>
+                        <th class="text-center">Nombre del programa</th>
+                        <th class="text-center">Entidad</th>
+                        <th class="text-center">¿Pertenece a alguna organización?</th>                        
+                        <th class="text-center">¿De qué tipo?</th>
+                        <th class="text-center">Nombre de la organización</th>
+                        <th class="text-center">Razón por la cual no pertenece a ninguna organización</th>
+                        <th class="text-center">Beneficios</th>
+                        <th class="text-center">Trabaja en asociación para realizar las actividades productivas</th>
+                        <td class="text-center">Opciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(item,index) in cultivos_forestales" :key="index">
+                        <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.importancia_forestales"
+                            :class="item.importancia_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.producto_forestales"
+                            :class="item.producto_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>                        
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_variedad_forestales"
+                            :class="item.texto_variedad_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.edad_plantacion"
+                            :class="item.edad_plantacion==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.tipo_edad"
+                            :class="item.tipo_edad==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.area_sembrada_forestales"
+                            :class="item.area_sembrada_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_unidad_area_forestales"
+                            :class="item.texto_unidad_area_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.rendimiento_arbol"
+                            :class="item.rendimiento_arbol==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_total_forestales"
+                            :class="item.costo_total_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_establecimiento_forestales"
+                            :class="item.costo_establecimiento_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.costo_sostenimiento_forestales"
+                            :class="item.costo_sostenimiento_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.problematica_productos_forestales"
+                            :class="item.problematica_productos_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.otros_problematica_productos_forestales"
+                            :class="item.otros_problematica_productos_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>                        
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.produccion_destinada_forestales"
+                            :class="item.produccion_destinada_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.numero_arboles"
+                            :class="item.numero_arboles==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.compradores_forestales"
+                            :class="item.compradores_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.metodo_pago_forestales"
+                            :class="item.metodo_pago_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:250px;"
+                            class="form-control text-capitalize"
+                            v-model="item.precio_promedio_venta_forestales"
+                            :class="item.precio_promedio_venta_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.subproductos_produccion_forestales"
+                            :class="item.subproductos_produccion_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.pertenece_forestales"
+                            :class="item.pertenece_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.nombre_programa_forestales"
+                            :class="item.nombre_programa_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.entidad_forestales"
+                            :class="item.entidad_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.pertenece_organizacion_forestales"
+                            :class="item.pertenece_organizacion_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.tipo_pertenece_forestales"
+                            :class="item.tipo_pertenece_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.nombre_organizacion_forestales"
+                            :class="item.nombre_organizacion_forestales==''?'':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_no_pertenece_forestales"
+                            :class="item.texto_no_pertenece_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.texto_beneficios_forestales"
+                            :class="item.texto_beneficios_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <input
+                            type="text"
+                            style="width:200px;"
+                            class="form-control text-capitalize"
+                            v-model="item.trabaja_asociacion_forestales"
+                            :class="item.trabaja_asociacion_forestales==''?'is-invalid':'is-valid'"
+                            readonly
+                          />
+                        </td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                        <td style="text-align:center;vertical-align: middle;text-align: center;">
+                          <div style="width:70px;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-danger"
+                              type="button"
+                              title="Eliminar"
+                              @click="eliminarItemCF(index)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-warning"
+                              type="button"
+                              title="Editar"
+                              @click="editarItemCF(index,item)"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>                          
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>            
           </div>
         </div>
       </div>
@@ -2101,20 +3529,8 @@
         hoy: "",
         datos: {
           id: 0,
-          id_hogar: 0,
-          id_dpto: "",
-          id_mun: "",
-          id_corre: "",
-          id_vereda: "",
-          id_barrio: "",
-          direccion: "",
-          estado: "Activo",
-          id_compania: 1,
-          fecha: "",
-          usuario_crear: "",
-          fecha_editar: "",
-          usuario_editar: "",
 
+          id_hogar: 0,
           nom_productor: "",
           nivel_educativo: "",
           tipo_id: "",
@@ -2124,75 +3540,115 @@
           linea_productiva: "",
           area_total_finca: "",
           distancia_finca: "",
+          
           tenencia_propiedad: "",
-
           atiende_entrevista: "",
           credito_produccion: "",
           fuentes_prestamo: "",
           cual_fuente: "",
-          herramientas_produccion: "",
-          vias_acceso: "",
+          vias_acceso: "",          
           tipos_vias_acceso: "",
+          fecha: "",        
+          usuario_crear: "",
+          fecha_editar: "",
+
+          usuario_editar: "",
+          estado: "Activo",
+          id_compania: 1,          
+          id_dpto: "",
+          id_mun: "",
+          id_corre: "",
+          id_vereda: "",
+          id_barrio: "",
+          direccion: "",
+          unidad_area: "",
+
+          unidad_distancia: "",                  
+        },
+        datosCulAgri: {
+          id: 0,
+
+          id_unidad: 0,
           importancias_agricolas: "",
           area_produccion: "",
           unidad_area_produccion: "",
-
           producto: "",
           variedad: "",
           semilla: "",
           pertenece: "",
           tipo_pertenece: "",
           nombre_organizacion: "",
+
           beneficios: "",
           no_pertenece: "",
           trabaja_asociacion: "",
           frecuente_cosecha: "",
-
           area_cosecha: "",
           unidad_area_cosecha: "",
           costo_produccion: "",
           costo_establecimiento: "",
           costo_sostenimiento: "",
           produccion_destinada: "",
+
           tipo_problema: "",
           compradores: "",
           precio_promedio_venta: "",
           metodo_pago: "",
-
           precio_promedio_venta_kg: "",
           subproductos_produccion: "",
           programa_asistencia_tecnica: "",
           nombre_programa: "",
           entidad: "",
           cambios_produccion_anio: "",
+
           actividad_cambio: "",
+          estado: "Activo",
+          id_compania: 1,
+          otro_tipo_problema: ""
+        },
+        cultivos_agricolas: [],
+        bandeGuaEdiCA: true,
+        datosExpPec: {
+          id: 0,
+
+          id_unidad: 0,          
           importancia_comercial: "",
           raza: "",
           costo_total: "",
-
           costo_establecer: "",
           costo_pecuaria: "",
           problematica_productos: "",
           otra_problematica: "",
           produccion: "",
           numero_animales: "",
+
           area_destinada_produccion: "",
           unidad_area_destinada: "",
           compradores_pecuaria: "",
           precio_promedio_venta_pecuaria: "",
-
           metodo_pago_pecuaria: "",
           subproductos_produccion_pecuaria: "",
           pertenece_pecuaria: "",
           nombre_programa_pecuaria: "",
           entidad_pecuaria: "",
           pertenece_organizacion_pecuaria: "",
+
           tipo_organizacion_pecuaria: "",
           nombre_organizacion_pecuaria: "",
           beneficios_pecuaria: "",
           no_pertenece_pecuaria: "",
-
           trabaja_asociacion_pecuaria: "",
+          estado: "Activo",
+          id_compania: 1,
+          producto_comercial: "",
+          produccion_destinada_pecuaria: ""               
+        },
+        explotaciones_pecuarias: [],
+        bandeGuaEdiEP: true,
+        datosCulFor: {
+          id: 0,
+
+          id_unidad: 0,
           importancia_forestales: "",
           producto_forestales: "",
           variedad_forestales: "",
@@ -2222,27 +3678,32 @@
           beneficios_forestales: "",
           no_pertenece_forestales: "",
           trabaja_asociacion_forestales: "",
-          unidad_area: "",
-          unidad_distancia: "",
-          otro_tipo_problema: "",
-          producto_comercial: "",
-          produccion_destinada_pecuaria: "",
-          otros_problematica_productos_forestales: ""
+          estado: "Activo",
+          id_compania: 1,
+          otros_problematica_productos_forestales: ""                     
         },
+        cultivos_forestales: [],
+        bandeGuaEdiCF: true,
+
         herramienta: "",
+        herramienta1: "",
         cuantasHerramienta: "",
         herramientasData: [],
         utensilio: "",
+        utensilio1: "",
         cuantasUtensilio: "",
         utensiliosData: [],
         maquina: "",
+        maquina1: "",
         cuantasMaquina: "",
         maquinasData: [],
         instalacion: "",
+        instalacion1: "",
         cuantasInstalacion: "",
         instalacionesData: [],
 
         medio: "",
+        medio1: "",
         cuantasMedio: "",
         mediosData: [],
         mOCP: false,
@@ -2256,8 +3717,244 @@
         mOPPPF: false,
         mOPATF: false,
         mOPF: false,
+        mOFP: false,
         valG: true,
-        CODIGOGENE: ""
+        CODIGOGENE: "",
+
+        unidades1: [
+          { value: 1, texto: "Kilómetro cuadrado" },
+          { value: 2, texto: "Metro cuadrado" },
+          { value: 3, texto: "Milla cuadrada" },
+          { value: 4, texto: "Yarda cuadrada" },
+          { value: 5, texto: "Pie cuadrado" },
+          { value: 6, texto: "Pulgada cuadrada" },
+          { value: 7, texto: "Hectárea" },
+          { value: 8, texto: "Acre" }
+        ],
+        razon1: [
+          { value: 1, texto: "Desconocimiento" },
+          { value: 2, texto: "Falta de interés" },
+          { value: 3, texto: "Falta de tiempo" },
+          { value: 4, texto: "Falta de oportunidad" },
+          { value: "NA", texto: "No Aplica" }
+        ],
+        beneficios: [
+          { value: 1, texto: "Económico" },
+          { value: 2, texto: "En especies" },
+          { value: 3, texto: "Capacitación" },
+          { value: 4, texto: "Recreación y deporte" },
+          { value: 5, texto: "Reconocimiento de la comunidad" },
+          { value: 6, texto: "Participación en la toma de decisiones" },
+          { value: "NA", texto: "No Aplica" }
+        ],
+        raza: [
+          { value: 1, texto: "Ganado vacuno o bovino" },
+          { value: 2, texto: "Ganado ovino" },
+          { value: 3, texto: "Ganado porcino" },
+          { value: 4, texto: "Ganado caprino" },
+          { value: 5, texto: "Ganado equino" },
+          { value: 6, texto: "Avicultura" },
+          { value: 7, texto: "Apicultura" },
+          { value: 8, texto: "Acuicultura" },
+          { value: 9, texto: "Helicicultura" },
+          { value: 10, texto: "Cunicultura" },
+          { value: 11, texto: "Sericicultura" },
+          { value: 12, texto: "Otros" },
+        ],
+        especie1: [
+          {value: 1,texto: "Chiche"},
+          {value: 2,texto: "Palo Maria"},
+          {value: 3,texto: "Guayabo Volador"},
+          {value: 4,texto: "Roble"},
+          {value: 5,texto: "Caoba"},
+          {value: 6,texto: "Pino"},
+          {value: 7,texto: "Cedro"},
+          {value: 8,texto: "Árbol de Caucho"},
+          {value: 9,texto: "Álamo"},
+          {value: 10,texto: "Primavera"},
+          {value: 11,texto: "Hormiguillo colorado"},
+          {value: 12,texto: "Palo mulato"},
+          {value: 13,texto: "Bambú"},
+          {value: 14,texto: "Eucalipto"},
+          {value: 15,texto: "Canela"},
+          {value: 16,texto: "Neem"},
+          {value: 17,texto: "Ciprés"},
+          {value: 18,texto: "Paulownia"},
+          {value: 19,texto: "Ceiba"},
+          {value: 20,texto: "Guariuba"},
+          {value: 21,texto: "Figueira"},
+          {value: 22,texto: "Pashaco"},
+          {value: 23,texto: "Chicalá"},
+          {value: 24,texto: "Nogal"},
+          {value: 25,texto: "Abarco"},
+          {value: 26,texto: "Palo rosa"},
+          {value: 27,texto: "Campanos"},
+          {value: 28,texto: "Melina"},
+          {value: 29,texto: "Igua"},
+          {value: 30,texto: "Caracolí"},
+          {value: 31,texto: "Chanul"},
+          {value: 32,texto: "Dinde"},          
+        ],
+        tipocultivo: [
+          {value: 1,texto: "Cereales"},
+          {value: 2,texto: "Leguminosas"},
+          {value: 3,texto: "Oleaginosas"},
+          {value: 4,texto: "Hortalizas"},
+          {value: 5,texto: "Frutales"},          
+          {value: 6,texto: "Raíces y tubérculos"},
+          {value: 7,texto: "Ornamentales"},
+          {value: 8,texto: "Cultivos para bebidas medicinales y aromáticas"},
+          {value: 9,texto: "Otros cultivos tradicionles"}    
+        ],
+        especie2 : {
+          "" : [
+            {value: "",texto: "Seleccione"},
+          ],
+          "1" : [
+            {value: 1,texto: "Maíz"},
+            {value: 2,texto: "Trigo"},
+            {value: 3,texto: "Arroz"},
+            {value: 4,texto: "Cebada"},
+            {value: 5,texto: "Centeno"},
+            {value: 6,texto: "Alpiste"},
+            {value: 7,texto: "Sorgo"},
+            {value: 8,texto: "Mijo"},
+            {value: 9,texto: "Avena"},
+            {value: 10,texto: "Trigo Espelta"},
+            {value: 11,texto: "Trigo kamut"}
+          ],
+          "2" : [
+            {value: 1,texto: "Frijoles rojo"},
+            {value: 2,texto: "Frijol negro"},
+            {value: 3,texto: "Frijol cabecita negra"},
+            {value: 4,texto: "Frijol"},
+            {value: 5,texto: "Arvejas"},
+            {value: 6,texto: "Habas"},
+            {value: 7,texto: "Lenteja"},
+            {value: 8,texto: "Garbanzo"},
+            {value: 9,texto: "Gandul"},
+            {value: 10,texto: "Alfalfa"},
+            {value: 11,texto: "Almorta"},
+          ],
+          "3" : [
+            {value: 1,texto: "Soya"},
+            {value: 2,texto: "Canola"},
+            {value: 3,texto: "Girasol"},
+            {value: 4,texto: "Olivo"},
+            {value: 5,texto: "Maíz"},
+            {value: 6,texto: "Ajonjolí"},
+            {value: 7,texto: "Palma de aceite"},
+          ],
+          "4" : [
+            {value: 1,texto: "Acelga"},
+            {value: 2,texto: "Ajo"},
+            {value: 3,texto: "Albahaca"},
+            {value: 4,texto: "Apio"},
+            {value: 5,texto: "Alcachofa"},
+            {value: 6,texto: "Berenjena"},
+            {value: 7,texto: "Brócoli"},
+            {value: 8,texto: "Calabacín"},
+            {value: 9,texto: "Calabaza"},
+            {value: 10,texto: "Cebolla"},
+            {value: 11,texto: "Col"},
+            {value: 12,texto: "Coliflor"},
+            {value: 13,texto: "Espinacas"},
+            {value: 14,texto: "Pepino"},
+            {value: 15,texto: "Perejil"},
+            {value: 16,texto: "Pimiento"},
+            {value: 17,texto: "Puerro"},
+            {value: 18,texto: "Rábano"},
+            {value: 19,texto: "Remolacha"},
+            {value: 20,texto: "Tomate"},
+            {value: 21,texto: "Zanahoria"},
+            {value: 22,texto: "Auyama"},
+          ],
+          "5" : [
+            {value: 1,texto: "Plátano"},
+            {value: 2,texto: "Cana"},
+            {value: 3,texto: "coco"},
+            {value: 4,texto: "Aguacate"},
+            {value: 5,texto: "Naranja"},
+            {value: 6,texto: "Mango"},
+            {value: 7,texto: "Limón"},
+            {value: 8,texto: "Banano"},
+            {value: 9,texto: "Mandarina"},
+            {value: 10,texto: "Sandia"},
+            {value: 11,texto: "Papaya"},
+            {value: 12,texto: "Marañón"},
+            {value: 13,texto: "Guanábana"},
+            {value: 14,texto: "Guayaba"},
+            {value: 15,texto: "Piña"},
+            {value: 16,texto: "Lulo"},
+            {value: 17,texto: "Maracuyá"},
+            {value: 18,texto: "Granadilla"},
+            {value: 19,texto: "Curuba"},
+            {value: 20,texto: "Níspero"},
+            {value: 21,texto: "Borojó"},
+            {value: 22,texto: "Zapote"},
+            {value: 23,texto: "Carambola"},
+            {value: 24,texto: "Tomate de árbol"},
+            {value: 25,texto: "Melón"},
+            {value: 26,texto: "Nueces"},
+          ],
+          "6" : [
+            {value: 1,texto: "Arracacha"},
+            {value: 2,texto: "Papa amarilla"},
+            {value: 3,texto: "Batata"},
+            {value: 4,texto: "Yuca"},
+            {value: 5,texto: "Papa criolla"},
+            {value: 6,texto: "Ñame"},
+            {value: 7,texto: "Papa sabanera"},
+            {value: 8,texto: "Papa"},
+            {value: 9,texto: "Jengibre"},
+            {value: 10,texto: "Malanga"},
+            {value: 11,texto: "Yacón"},
+            {value: 12,texto: "Otro"},
+          ],
+          "7" : [
+            {value: 1,texto: "Ornamentales de exteriores"},
+            {value: 2,texto: "Ornamentales de Interiores"},
+            {value: 3,texto: "Otros floricultivos"},
+            {value: 4,texto: "Rosas"},
+            {value: 5,texto: "Girasoles"},
+            {value: 6,texto: "Crisantemo"},
+            {value: 7,texto: "Tulipan"},
+            {value: 8,texto: "Clavel"},
+            {value: 9,texto: "Gerbera"},
+            {value: 10,texto: "Gladiolo"},
+            {value: 11,texto: "Acroclinio"},
+            {value: 12,texto: "Aster"},
+            {value: 13,texto: "Caléndula"},
+          ],
+          "8" : [
+            {value: 1,texto: "Lavanda"},
+            {value: 2,texto: "Aloe vera"},
+            {value: 3,texto: "Romero"},
+            {value: 4,texto: "Manzanilla"},
+            {value: 5,texto: "Menta"},
+            {value: 6,texto: "Calendula"},
+            {value: 7,texto: "Diente de leon"},
+            {value: 8,texto: "Albahaca"},
+            {value: 9,texto: "Algarrobo"},
+            {value: 10,texto: "Boldo"},
+            {value: 11,texto: "Acacia"},
+            {value: 12,texto: "Toronjil"},
+            {value: 13,texto: "Paja limón"},
+            {value: 14,texto: "Cidrón"},
+            {value: 15,texto: "Achiote"},
+            {value: 16,texto: "Arnica"},
+            {value: 17,texto: "Canela"},
+            {value: 18,texto: "Tomillo"},
+            {value: 19,texto: "Otro"},
+          ],
+          "9" : [
+            {value: 1,texto: "Caña de azucar"},
+            {value: 2,texto: "Tabaco"},
+            {value: 3,texto: "Pasto"},
+            {value: 4,texto: "Café"},
+            {value: 5,texto: "Cacao"},
+          ]                     
+        },                
       };
     },
     computed: {
@@ -2402,128 +4099,137 @@
             this.datos.fuentes_prestamo = "";
           } else {
             this.mOCP = false;
+            this.mOFP = false;
             this.datos.fuentes_prestamo = "NA";
           }
         }
         if (tipo === "P") {
-          if (this.datos.pertenece === "NA") {
+          if (this.datosCulAgri.pertenece === "NA") {
             this.mOP = false;
-            this.datos.tipo_pertenece = "NA";
-            this.datos.nombre_organizacion = "NA";
-            this.datos.no_pertenece = "NA";
+            this.datosCulAgri.tipo_pertenece = "NA";
+            this.datosCulAgri.nombre_organizacion = "NA";
+            this.datosCulAgri.no_pertenece = "NA";
           } else {
-            if (this.datos.pertenece === "") {
+            if (this.datosCulAgri.pertenece === "") {
               this.mOP = false;
-              this.datos.tipo_pertenece = "";
-              this.datos.nombre_organizacion = "";
-              this.datos.no_pertenece = "";
+              this.datosCulAgri.tipo_pertenece = "";
+              this.datosCulAgri.nombre_organizacion = "";
+              this.datosCulAgri.no_pertenece = "";
             } else {
               this.mOP = true;
-              this.datos.tipo_pertenece = "";
-              this.datos.nombre_organizacion = "";
-              this.datos.no_pertenece = "NA";
+              this.datosCulAgri.tipo_pertenece = "";
+              this.datosCulAgri.nombre_organizacion = "";
+              this.datosCulAgri.no_pertenece = "NA";
             }
           }
         }
         if (tipo === "TPP") {
-          if (this.datos.tipo_problema === "5") {
+          if (this.datosCulAgri.tipo_problema === "Otras") {
             this.mOTPP = true;
           } else {
             this.mOTPP = false;
           }
-          this.datos.otro_tipo_problema = "";
+          this.datosCulAgri.otro_tipo_problema = "";
         }
         if (tipo === "PAT") {
-          if (this.datos.programa_asistencia_tecnica === "SI") {
+          if (this.datosCulAgri.programa_asistencia_tecnica === "SI") {
             this.mOPAT = true;
           } else {
             this.mOPAT = false;
           }
-          this.datos.nombre_programa = "";
-          this.datos.entidad = "";
+          this.datosCulAgri.nombre_programa = "";
+          this.datosCulAgri.entidad = "";
         }
         if (tipo === "CTI") {
-          if (this.datos.cambios_produccion_anio === "SI") {
+          if (this.datosCulAgri.cambios_produccion_anio === "SI") {
             this.mOCTI = true;
           } else {
             this.mOCTI = false;
           }
-          this.datos.actividad_cambio = "";
+          this.datosCulAgri.actividad_cambio = "";
         }
         if (tipo === "PPP") {
-          if (this.datos.problematica_productos === "5") {
+          if (this.datosExpPec.problematica_productos === "Otras") {
             this.mOPPP = true;
           } else {
             this.mOPPP = false;
           }
-          this.datos.otra_problematica = "";
+          this.datosExpPec.otra_problematica = "";
         }
         if (tipo === "PATP") {
-          if (this.datos.pertenece_pecuaria === "SI") {
+          if (this.datosExpPec.pertenece_pecuaria === "SI") {
             this.mOPATP = true;
           } else {
             this.mOPATP = false;
           }
-          this.datos.nombre_programa_pecuaria = "";
-          this.datos.entidad_pecuaria = "";
+          this.datosExpPec.nombre_programa_pecuaria = "";
+          this.datosExpPec.entidad_pecuaria = "";
         }
         if (tipo === "POPECU") {
-          if (this.datos.pertenece_organizacion_pecuaria === "NA") {
+          if (this.datosExpPec.pertenece_organizacion_pecuaria === "NA") {
             this.mOPECU = false;
-            this.datos.tipo_organizacion_pecuaria = "NA";
-            this.datos.nombre_organizacion_pecuaria = "NA";
-            this.datos.no_pertenece_pecuaria = "NA";
+            this.datosExpPec.tipo_organizacion_pecuaria = "NA";
+            this.datosExpPec.nombre_organizacion_pecuaria = "NA";
+            this.datosExpPec.no_pertenece_pecuaria = "NA";
           } else {
-            if (this.datos.pertenece_organizacion_pecuaria === "") {
+            if (this.datosExpPec.pertenece_organizacion_pecuaria === "") {
               this.mOPECU = false;
-              this.datos.tipo_organizacion_pecuaria = "";
-              this.datos.nombre_organizacion_pecuaria = "";
-              this.datos.no_pertenece_pecuaria = "";
+              this.datosExpPec.tipo_organizacion_pecuaria = "";
+              this.datosExpPec.nombre_organizacion_pecuaria = "";
+              this.datosExpPec.no_pertenece_pecuaria = "";
             } else {
               this.mOPECU = true;
-              this.datos.tipo_organizacion_pecuaria = "";
-              this.datos.nombre_organizacion_pecuaria = "";
-              this.datos.no_pertenece_pecuaria = "NA";
+              this.datosExpPec.tipo_organizacion_pecuaria = "";
+              this.datosExpPec.nombre_organizacion_pecuaria = "";
+              this.datosExpPec.no_pertenece_pecuaria = "NA";
             }
           }
         }
         if (tipo === "PPPF") {
-          if (this.datos.problematica_productos_forestales === "5") {
+          if (this.datosCulFor.problematica_productos_forestales === "Otras") {
             this.mOPPPF = true;
           } else {
             this.mOPPPF = false;
           }
-          this.datos.otros_problematica_productos_forestales = "";
+          this.datosCulFor.otros_problematica_productos_forestales = "";
         }
         if (tipo === "PATF") {
-          if (this.datos.pertenece_forestales === "SI") {
+          if (this.datosCulFor.pertenece_forestales === "SI") {
             this.mOPATF = true;
           } else {
             this.mOPATF = false;
           }
-          this.datos.nombre_programa_forestales = "";
-          this.datos.entidad_forestales = "";
+          this.datosCulFor.nombre_programa_forestales = "";
+          this.datosCulFor.entidad_forestales = "";
         }
         if (tipo === "PF") {
-          if (this.datos.pertenece_organizacion_forestales === "NA") {
+          if (this.datosCulFor.pertenece_organizacion_forestales === "NA") {
             this.mOPF = false;
-            this.datos.tipo_pertenece_forestales = "NA";
-            this.datos.nombre_organizacion_forestales = "NA";
-            this.datos.no_pertenece = "NA";
+            this.datosCulFor.tipo_pertenece_forestales = "NA";
+            this.datosCulFor.nombre_organizacion_forestales = "NA";
+            this.datosCulFor.no_pertenece = "NA";
           } else {
-            if (this.datos.pertenece_organizacion_forestales === "") {
+            if (this.datosCulFor.pertenece_organizacion_forestales === "") {
               this.mOPF = false;
-              this.datos.tipo_pertenece_forestales = "";
-              this.datos.nombre_organizacion_forestales = "";
-              this.datos.no_pertenece_forestales = "";
+              this.datosCulFor.tipo_pertenece_forestales = "";
+              this.datosCulFor.nombre_organizacion_forestales = "";
+              this.datosCulFor.no_pertenece_forestales = "";
             } else {
               this.mOPF = true;
-              this.datos.tipo_pertenece_forestales = "";
-              this.datos.nombre_organizacion_forestales = "";
-              this.datos.no_pertenece_forestales = "NA";
+              this.datosCulFor.tipo_pertenece_forestales = "";
+              this.datosCulFor.nombre_organizacion_forestales = "";
+              this.datosCulFor.no_pertenece_forestales = "NA";
             }
           }
         }
+        if (tipo === "FP") {
+          this.datosCulFor.cual_fuente = "";                   
+          if (this.datosCulFor.fuentes_prestamo === "7") {
+            this.mOFP = true;            
+          } else {
+            this.mOFP = false;
+          }          
+        }        
       },
       guardar: async function() {
         if (!this.checkForm()) {
@@ -2537,6 +4243,9 @@
             instalaciones: this.instalacionesData,
             medios: this.mediosData,
             CODIGOGENE: this.CODIGOGENE,
+            cultivos_agricolas: this.cultivos_agricolas,
+            explotaciones_pecuarias: this.explotaciones_pecuarias,
+            cultivos_forestales: this.cultivos_forestales,
             opcion: "guardar"
           };
           this.valG = false;
@@ -2837,325 +4546,325 @@
           }
         }
         if (caja == "importancias_agricolas") {
-          this.datos.importancias_agricolas = this.datos.importancias_agricolas
+          this.datosCulAgri.importancias_agricolas = this.datosCulAgri.importancias_agricolas
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.importancias_agricolas == "NaN") {
-            this.datos.importancias_agricolas = "";
+          if (this.datosCulAgri.importancias_agricolas == "NaN") {
+            this.datosCulAgri.importancias_agricolas = "";
           }
-          if (this.datos.importancias_agricolas == "0") {
-            this.datos.importancias_agricolas = "";
+          if (this.datosCulAgri.importancias_agricolas == "0") {
+            this.datosCulAgri.importancias_agricolas = "";
           }
 
           if (
-            Number(this.datos.importancias_agricolas) < 1 ||
-            Number(this.datos.importancias_agricolas) > 10
+            Number(this.datosCulAgri.importancias_agricolas) < 1 ||
+            Number(this.datosCulAgri.importancias_agricolas) > 10
           ) {
-            this.datos.importancias_agricolas = "";
+            this.datosCulAgri.importancias_agricolas = "";
           }
         }
         if (caja == "area_produccion") {
-          this.datos.area_produccion = this.datos.area_produccion
+          this.datosCulAgri.area_produccion = this.datosCulAgri.area_produccion
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.area_produccion == "NaN") {
-            this.datos.area_produccion = "";
+          if (this.datosCulAgri.area_produccion == "NaN") {
+            this.datosCulAgri.area_produccion = "";
           }
-          if (this.datos.area_produccion == "0") {
-            this.datos.area_produccion = "";
+          if (this.datosCulAgri.area_produccion == "0") {
+            this.datosCulAgri.area_produccion = "";
           }
         }
         if (caja == "area_cosecha") {
-          this.datos.area_cosecha = this.datos.area_cosecha
+          this.datosCulAgri.area_cosecha = this.datosCulAgri.area_cosecha
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.area_cosecha == "NaN") {
-            this.datos.area_cosecha = "";
+          if (this.datosCulAgri.area_cosecha == "NaN") {
+            this.datosCulAgri.area_cosecha = "";
           }
-          if (this.datos.area_cosecha == "0") {
-            this.datos.area_cosecha = "";
+          if (this.datosCulAgri.area_cosecha == "0") {
+            this.datosCulAgri.area_cosecha = "";
           }
         }
         if (caja == "costo_produccion") {
-          this.datos.costo_produccion = this.datos.costo_produccion.replace(
+          this.datosCulAgri.costo_produccion = this.datosCulAgri.costo_produccion.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.costo_produccion / 1)
+          let val = (this.datosCulAgri.costo_produccion / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.costo_produccion = val
+          this.datosCulAgri.costo_produccion = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.costo_produccion == "NaN") {
-            this.datos.costo_produccion = "";
+          if (this.datosCulAgri.costo_produccion == "NaN") {
+            this.datosCulAgri.costo_produccion = "";
           }
-          if (this.datos.costo_produccion == "0") {
-            this.datos.costo_produccion = "";
+          if (this.datosCulAgri.costo_produccion == "0") {
+            this.datosCulAgri.costo_produccion = "";
           }
         }
         if (caja == "costo_establecimiento") {
-          this.datos.costo_establecimiento = this.datos.costo_establecimiento.replace(
+          this.datosCulAgri.costo_establecimiento = this.datosCulAgri.costo_establecimiento.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.costo_establecimiento / 1)
+          let val = (this.datosCulAgri.costo_establecimiento / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.costo_establecimiento = val
+          this.datosCulAgri.costo_establecimiento = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.costo_establecimiento == "NaN") {
-            this.datos.costo_establecimiento = "";
+          if (this.datosCulAgri.costo_establecimiento == "NaN") {
+            this.datosCulAgri.costo_establecimiento = "";
           }
-          if (this.datos.costo_establecimiento == "0") {
-            this.datos.costo_establecimiento = "";
+          if (this.datosCulAgri.costo_establecimiento == "0") {
+            this.datosCulAgri.costo_establecimiento = "";
           }
         }
         if (caja == "costo_sostenimiento") {
-          this.datos.costo_sostenimiento = this.datos.costo_sostenimiento.replace(
+          this.datosCulAgri.costo_sostenimiento = this.datosCulAgri.costo_sostenimiento.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.costo_sostenimiento / 1)
+          let val = (this.datosCulAgri.costo_sostenimiento / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.costo_sostenimiento = val
+          this.datosCulAgri.costo_sostenimiento = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.costo_sostenimiento == "NaN") {
-            this.datos.costo_sostenimiento = "";
+          if (this.datosCulAgri.costo_sostenimiento == "NaN") {
+            this.datosCulAgri.costo_sostenimiento = "";
           }
-          if (this.datos.costo_sostenimiento == "0") {
-            this.datos.costo_sostenimiento = "";
+          if (this.datosCulAgri.costo_sostenimiento == "0") {
+            this.datosCulAgri.costo_sostenimiento = "";
           }
         }
         if (caja == "precio_promedio_venta") {
-          this.datos.precio_promedio_venta = this.datos.precio_promedio_venta.replace(
+          this.datosCulAgri.precio_promedio_venta = this.datosCulAgri.precio_promedio_venta.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.precio_promedio_venta / 1)
+          let val = (this.datosCulAgri.precio_promedio_venta / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.precio_promedio_venta = val
+          this.datosCulAgri.precio_promedio_venta = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.precio_promedio_venta == "NaN") {
-            this.datos.precio_promedio_venta = "";
+          if (this.datosCulAgri.precio_promedio_venta == "NaN") {
+            this.datosCulAgri.precio_promedio_venta = "";
           }
-          if (this.datos.precio_promedio_venta == "0") {
-            this.datos.precio_promedio_venta = "";
+          if (this.datosCulAgri.precio_promedio_venta == "0") {
+            this.datosCulAgri.precio_promedio_venta = "";
           }
         }
         if (caja == "precio_promedio_venta_kg") {
-          this.datos.precio_promedio_venta_kg = this.datos.precio_promedio_venta_kg.replace(
+          this.datosCulAgri.precio_promedio_venta_kg = this.datosCulAgri.precio_promedio_venta_kg.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.precio_promedio_venta_kg / 1)
+          let val = (this.datosCulAgri.precio_promedio_venta_kg / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.precio_promedio_venta_kg = val
+          this.datosCulAgri.precio_promedio_venta_kg = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.precio_promedio_venta_kg == "NaN") {
-            this.datos.precio_promedio_venta_kg = "";
+          if (this.datosCulAgri.precio_promedio_venta_kg == "NaN") {
+            this.datosCulAgri.precio_promedio_venta_kg = "";
           }
-          if (this.datos.precio_promedio_venta_kg == "0") {
-            this.datos.precio_promedio_venta_kg = "";
+          if (this.datosCulAgri.precio_promedio_venta_kg == "0") {
+            this.datosCulAgri.precio_promedio_venta_kg = "";
           }
         }
         if (caja == "importancia_comercial") {
-          this.datos.importancia_comercial = this.datos.importancia_comercial
+          this.datosExpPec.importancia_comercial = this.datosExpPec.importancia_comercial
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.importancia_comercial == "NaN") {
-            this.datos.importancia_comercial = "";
+          if (this.datosExpPec.importancia_comercial == "NaN") {
+            this.datosExpPec.importancia_comercial = "";
           }
-          if (this.datos.importancia_comercial == "0") {
-            this.datos.importancia_comercial = "";
+          if (this.datosExpPec.importancia_comercial == "0") {
+            this.datosExpPec.importancia_comercial = "";
           }
 
           if (
-            Number(this.datos.importancia_comercial) < 1 ||
-            Number(this.datos.importancia_comercial) > 10
+            Number(this.datosExpPec.importancia_comercial) < 1 ||
+            Number(this.datosExpPec.importancia_comercial) > 10
           ) {
-            this.datos.importancia_comercial = "";
+            this.datosExpPec.importancia_comercial = "";
           }
         }
         if (caja == "numero_animales") {
-          this.datos.numero_animales = this.datos.numero_animales
+          this.datosExpPec.numero_animales = this.datosExpPec.numero_animales
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.numero_animales == "NaN") {
-            this.datos.numero_animales = "";
+          if (this.datosExpPec.numero_animales == "NaN") {
+            this.datosExpPec.numero_animales = "";
           }
-          if (this.datos.numero_animales == "0") {
-            this.datos.numero_animales = "";
+          if (this.datosExpPec.numero_animales == "0") {
+            this.datosExpPec.numero_animales = "";
           }
         }
         if (caja == "area_destinada_produccion") {
-          this.datos.area_destinada_produccion = this.datos.area_destinada_produccion
+          this.datosExpPec.area_destinada_produccion = this.datosExpPec.area_destinada_produccion
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.area_destinada_produccion == "NaN") {
-            this.datos.area_destinada_produccion = "";
+          if (this.datosExpPec.area_destinada_produccion == "NaN") {
+            this.datosExpPec.area_destinada_produccion = "";
           }
-          if (this.datos.area_destinada_produccion == "0") {
-            this.datos.area_destinada_produccion = "";
+          if (this.datosExpPec.area_destinada_produccion == "0") {
+            this.datosExpPec.area_destinada_produccion = "";
           }
         }
         if (caja == "precio_promedio_venta_pecuaria") {
-          this.datos.precio_promedio_venta_pecuaria = this.datos.precio_promedio_venta_pecuaria.replace(
+          this.datosExpPec.precio_promedio_venta_pecuaria = this.datosExpPec.precio_promedio_venta_pecuaria.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.precio_promedio_venta_pecuaria / 1)
+          let val = (this.datosExpPec.precio_promedio_venta_pecuaria / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.precio_promedio_venta_pecuaria = val
+          this.datosExpPec.precio_promedio_venta_pecuaria = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.precio_promedio_venta_pecuaria == "NaN") {
-            this.datos.precio_promedio_venta_pecuaria = "";
+          if (this.datosExpPec.precio_promedio_venta_pecuaria == "NaN") {
+            this.datosExpPec.precio_promedio_venta_pecuaria = "";
           }
-          if (this.datos.precio_promedio_venta_pecuaria == "0") {
-            this.datos.precio_promedio_venta_pecuaria = "";
+          if (this.datosExpPec.precio_promedio_venta_pecuaria == "0") {
+            this.datosExpPec.precio_promedio_venta_pecuaria = "";
           }
         }
         if (caja == "importancia_forestales") {
-          this.datos.importancia_forestales = this.datos.importancia_forestales
+          this.datosCulFor.importancia_forestales = this.datosCulFor.importancia_forestales
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.importancia_forestales == "NaN") {
-            this.datos.importancia_forestales = "";
+          if (this.datosCulFor.importancia_forestales == "NaN") {
+            this.datosCulFor.importancia_forestales = "";
           }
-          if (this.datos.importancia_forestales == "0") {
-            this.datos.importancia_forestales = "";
+          if (this.datosCulFor.importancia_forestales == "0") {
+            this.datosCulFor.importancia_forestales = "";
           }
 
           if (
-            Number(this.datos.importancia_forestales) < 1 ||
-            Number(this.datos.importancia_forestales) > 10
+            Number(this.datosCulFor.importancia_forestales) < 1 ||
+            Number(this.datosCulFor.importancia_forestales) > 10
           ) {
-            this.datos.importancia_forestales = "";
+            this.datosCulFor.importancia_forestales = "";
           }
         }
         if (caja == "area_sembrada_forestales") {
-          this.datos.area_sembrada_forestales = this.datos.area_sembrada_forestales
+          this.datosCulFor.area_sembrada_forestales = this.datosCulFor.area_sembrada_forestales
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.area_sembrada_forestales == "NaN") {
-            this.datos.area_sembrada_forestales = "";
+          if (this.datosCulFor.area_sembrada_forestales == "NaN") {
+            this.datosCulFor.area_sembrada_forestales = "";
           }
-          if (this.datos.area_sembrada_forestales == "0") {
-            this.datos.area_sembrada_forestales = "";
+          if (this.datosCulFor.area_sembrada_forestales == "0") {
+            this.datosCulFor.area_sembrada_forestales = "";
           }
         }
         if (caja == "edad_plantacion") {
-          this.datos.edad_plantacion = this.datos.edad_plantacion
+          this.datosCulFor.edad_plantacion = this.datosCulFor.edad_plantacion
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.edad_plantacion == "NaN") {
-            this.datos.edad_plantacion = "";
+          if (this.datosCulFor.edad_plantacion == "NaN") {
+            this.datosCulFor.edad_plantacion = "";
           }
-          if (this.datos.edad_plantacion == "0") {
-            this.datos.edad_plantacion = "";
+          if (this.datosCulFor.edad_plantacion == "0") {
+            this.datosCulFor.edad_plantacion = "";
           }
         }
         if (caja == "rendimiento_arbol") {
-          this.datos.rendimiento_arbol = this.datos.rendimiento_arbol
+          this.datosCulFor.rendimiento_arbol = this.datosCulFor.rendimiento_arbol
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.rendimiento_arbol == "NaN") {
-            this.datos.rendimiento_arbol = "";
+          if (this.datosCulFor.rendimiento_arbol == "NaN") {
+            this.datosCulFor.rendimiento_arbol = "";
           }
-          if (this.datos.rendimiento_arbol == "0") {
-            this.datos.rendimiento_arbol = "";
+          if (this.datosCulFor.rendimiento_arbol == "0") {
+            this.datosCulFor.rendimiento_arbol = "";
           }
         }
         if (caja == "costo_total_forestales") {
-          this.datos.costo_total_forestales = this.datos.costo_total_forestales.replace(
+          this.datosCulFor.costo_total_forestales = this.datosCulFor.costo_total_forestales.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.costo_total_forestales / 1)
+          let val = (this.datosCulFor.costo_total_forestales / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.costo_total_forestales = val
+          this.datosCulFor.costo_total_forestales = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.costo_total_forestales == "NaN") {
-            this.datos.costo_total_forestales = "";
+          if (this.datosCulFor.costo_total_forestales == "NaN") {
+            this.datosCulFor.costo_total_forestales = "";
           }
-          if (this.datos.costo_total_forestales == "0") {
-            this.datos.costo_total_forestales = "";
+          if (this.datosCulFor.costo_total_forestales == "0") {
+            this.datosCulFor.costo_total_forestales = "";
           }
         }
         if (caja == "costo_establecimiento_forestales") {
-          this.datos.costo_establecimiento_forestales = this.datos.costo_establecimiento_forestales.replace(
+          this.datosCulFor.costo_establecimiento_forestales = this.datosCulFor.costo_establecimiento_forestales.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.costo_establecimiento_forestales / 1)
+          let val = (this.datosCulFor.costo_establecimiento_forestales / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.costo_establecimiento_forestales = val
+          this.datosCulFor.costo_establecimiento_forestales = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.costo_establecimiento_forestales == "NaN") {
-            this.datos.costo_establecimiento_forestales = "";
+          if (this.datosCulFor.costo_establecimiento_forestales == "NaN") {
+            this.datosCulFor.costo_establecimiento_forestales = "";
           }
-          if (this.datos.costo_establecimiento_forestales == "0") {
-            this.datos.costo_establecimiento_forestales = "";
+          if (this.datosCulFor.costo_establecimiento_forestales == "0") {
+            this.datosCulFor.costo_establecimiento_forestales = "";
           }
         }
         if (caja == "costo_sostenimiento_forestales") {
-          this.datos.costo_sostenimiento_forestales = this.datos.costo_sostenimiento_forestales.replace(
+          this.datosCulFor.costo_sostenimiento_forestales = this.datosCulFor.costo_sostenimiento_forestales.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.costo_sostenimiento_forestales / 1)
+          let val = (this.datosCulFor.costo_sostenimiento_forestales / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.costo_sostenimiento_forestales = val
+          this.datosCulFor.costo_sostenimiento_forestales = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.costo_sostenimiento_forestales == "NaN") {
-            this.datos.costo_sostenimiento_forestales = "";
+          if (this.datosCulFor.costo_sostenimiento_forestales == "NaN") {
+            this.datosCulFor.costo_sostenimiento_forestales = "";
           }
-          if (this.datos.costo_sostenimiento_forestales == "0") {
-            this.datos.costo_sostenimiento_forestales = "";
+          if (this.datosCulFor.costo_sostenimiento_forestales == "0") {
+            this.datosCulFor.costo_sostenimiento_forestales = "";
           }
         }
         if (caja == "numero_arboles") {
-          this.datos.numero_arboles = this.datos.numero_arboles
+          this.datosCulFor.numero_arboles = this.datosCulFor.numero_arboles
             .replace(/[^.\d]/g, "")
             .trim();
-          if (this.datos.numero_arboles == "NaN") {
-            this.datos.numero_arboles = "";
+          if (this.datosCulFor.numero_arboles == "NaN") {
+            this.datosCulFor.numero_arboles = "";
           }
-          if (this.datos.numero_arboles == "0") {
-            this.datos.numero_arboles = "";
+          if (this.datosCulFor.numero_arboles == "0") {
+            this.datosCulFor.numero_arboles = "";
           }
         }
         if (caja == "precio_promedio_venta_forestales") {
-          this.datos.precio_promedio_venta_forestales = this.datos.precio_promedio_venta_forestales.replace(
+          this.datosCulFor.precio_promedio_venta_forestales = this.datosCulFor.precio_promedio_venta_forestales.replace(
             /[.*+\-?^${}()|[\]\\]/g,
             ""
           );
-          let val = (this.datos.precio_promedio_venta_forestales / 1)
+          let val = (this.datosCulFor.precio_promedio_venta_forestales / 1)
             .toFixed(0)
             .replace(".", ",");
-          this.datos.precio_promedio_venta_forestales = val
+          this.datosCulFor.precio_promedio_venta_forestales = val
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-          if (this.datos.precio_promedio_venta_forestales == "NaN") {
-            this.datos.precio_promedio_venta_forestales = "";
+          if (this.datosCulFor.precio_promedio_venta_forestales == "NaN") {
+            this.datosCulFor.precio_promedio_venta_forestales = "";
           }
-          if (this.datos.precio_promedio_venta_forestales == "0") {
-            this.datos.precio_promedio_venta_forestales = "";
+          if (this.datosCulFor.precio_promedio_venta_forestales == "0") {
+            this.datosCulFor.precio_promedio_venta_forestales = "";
           }
         }
       },
@@ -3175,6 +4884,14 @@
           );
           return;
         }
+        if (this.herramienta === "Otras") {
+          if (this.herramienta1 === "") {
+            this.$swal("Error...!", "Por favor Digite Una Herramienta!", "error");
+            return;
+          } else {
+            this.herramienta = this.herramienta1;
+          }
+        }
         if (!this.isNumeric(this.cuantasHerramienta)) {
           this.$swal(
             "Error...!",
@@ -3187,9 +4904,10 @@
           id: 0,
           herramienta: this.herramienta,
           cuantos: this.cuantasHerramienta,
-          estado: 'Activo'
+          estado: "Activo"
         });
         this.herramienta = "";
+        this.herramienta1 = "";
         this.cuantasHerramienta = "";
       },
       eliminarItemUtensilios: function(index) {
@@ -3208,6 +4926,14 @@
           );
           return;
         }
+        if (this.utensilio === "Otras") {
+          if (this.utensilio1 === "") {
+            this.$swal("Error...!", "Por favor Digite Un Utensilio!", "error");
+            return;
+          } else {
+            this.utensilio = this.utensilio1;
+          }
+        }
         if (!this.isNumeric(this.cuantasUtensilio)) {
           this.$swal(
             "Error...!",
@@ -3220,9 +4946,10 @@
           id: 0,
           utensilio: this.utensilio,
           cuantos: this.cuantasUtensilio,
-          estado: 'Activo'
+          estado: "Activo"
         });
         this.utensilio = "";
+        this.utensilio1 = "";
         this.cuantasUtensilio = "";
       },
       isNumeric: function(n) {
@@ -3244,6 +4971,14 @@
           );
           return;
         }
+        if (this.maquina === "Otras") {
+          if (this.maquina1 === "") {
+            this.$swal("Error...!", "Por favor Digite Una Maquina!", "error");
+            return;
+          } else {
+            this.maquina = this.maquina1;
+          }
+        }
         if (!this.isNumeric(this.cuantasMaquina)) {
           this.$swal(
             "Error...!",
@@ -3256,9 +4991,10 @@
           id: 0,
           maquina: this.maquina,
           cuantos: this.cuantasMaquina,
-          estado: 'Activo'
+          estado: "Activo"
         });
         this.maquina = "";
+        this.maquina1 = "";
         this.cuantasMaquina = "";
       },
       eliminarItemInstalacion: function(index) {
@@ -3277,6 +5013,14 @@
           );
           return;
         }
+        if (this.instalacion === "Otras") {
+          if (this.instalacion1 === "") {
+            this.$swal("Error...!", "Por favor Digite Una Instalación!", "error");
+            return;
+          } else {
+            this.instalacion = this.instalacion1;
+          }
+        }
         if (!this.isNumeric(this.cuantasInstalacion)) {
           this.$swal(
             "Error...!",
@@ -3289,9 +5033,10 @@
           id: 0,
           instalacion: this.instalacion,
           cuantos: this.cuantasInstalacion,
-          estado: 'Activo'
+          estado: "Activo"
         });
         this.instalacion = "";
+        this.instalacion1 = "";
         this.cuantasInstalacion = "";
       },
       eliminarItemMedio: function(index) {
@@ -3314,6 +5059,18 @@
           );
           return;
         }
+        if (this.medio === "Otras") {
+          if (this.medio1 === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor Digite Un Medio de Transporte!",
+              "error"
+            );
+            return;
+          } else {
+            this.medio = this.medio1;
+          }
+        }
         if (!this.isNumeric(this.cuantasMedio)) {
           this.$swal(
             "Error...!",
@@ -3326,11 +5083,979 @@
           id: 0,
           medio: this.medio,
           cuantos: this.cuantasMedio,
-          estado: 'Activo'
+          estado: "Activo"
         });
         this.medio = "";
+        this.medio1 = "";
         this.cuantasMedio = "";
-      }
+      },
+      agregarCA: function(){
+        if (this.datosCulAgri.importancias_agricolas === "") {
+          this.$refs.importancias_agricolas.focus();
+          this.$swal("Error...!", "Por favor digite la importancia del 1 al 10 de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.area_produccion === "") {
+          this.$refs.area_produccion.focus();
+          this.$swal("Error...!", "Por favor digite el area de producción de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.unidad_area_produccion === "") {
+          this.$refs.unidad_area_produccion.focus();
+          this.$swal("Error...!", "Por favor seleccione la unidad de medida del area de producción de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.producto === "") {
+          this.$refs.producto.focus();
+          this.$swal("Error...!", "Por favor digite el tipo de cultivo de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.variedad === "") {
+          this.$refs.variedad.focus();
+          this.$swal("Error...!", "Por favor digite la especie de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.semilla === "") {
+          this.$refs.semilla.focus();
+          this.$swal("Error...!", "Por favor seleccione la semilla de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.pertenece === "") {
+          this.$refs.pertenece.focus();
+          this.$swal("Error...!", "Por favor seleccione si pertenece a alguna organización de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.pertenece !== "" && this.datosCulAgri.pertenece !== "NA") {
+          if (this.datosCulAgri.tipo_pertenece === ""){
+            this.$refs.tipo_pertenece.focus();
+            this.$swal("Error...!", "Por favor seleccione de qué tipo es la  organización de los cultivos agrícolas", "error");
+            return;
+          }
+          if (this.datosCulAgri.nombre_organizacion === ""){
+            this.$refs.nombre_organizacion.focus();
+            this.$swal("Error...!", "Por favor digite el nombre de la organización de los cultivos agrícolas", "error");
+            return;
+          }                    
+        }
+        if (this.datosCulAgri.pertenece === "NA") {
+          if (this.datosCulAgri.no_pertenece === ""){
+            this.$refs.no_pertenece.focus();
+            this.$swal("Error...!", "Por favor seleccione la razón por la cual no pertenece a ninguna organización de los cultivos agrícolas", "error");
+            return;
+          }
+        }
+        if (this.datosCulAgri.beneficios === "") {
+          this.$refs.beneficios.focus();
+          this.$swal("Error...!", "Por favor seleccione los beneficios de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.trabaja_asociacion === "") {
+          this.$refs.trabaja_asociacion.focus();
+          this.$swal("Error...!", "Por favor seleccione si trabaja en asociación para realizar las actividades productivas de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.frecuente_cosecha === "") {
+          this.$refs.frecuente_cosecha.focus();
+          this.$swal("Error...!", "Por favor digite para cada uno de los productos que tan frecuente se hace la cosecha de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.area_cosecha === "") {
+          this.$refs.area_cosecha.focus();
+          this.$swal("Error...!", "Por favor digite el área de cosecha de cada uno de los productos de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.unidad_area_cosecha === "") {
+          this.$refs.unidad_area_cosecha.focus();
+          this.$swal("Error...!", "Por favor seleccione la unidad de medida del área de cosecha de cada uno de los productos de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.costo_produccion === "") {
+          this.$refs.costo_produccion.focus();
+          this.$swal("Error...!", "Por favor digite el costo total de la producción en pesos de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.costo_establecimiento === "") {
+          this.$refs.costo_establecimiento.focus();
+          this.$swal("Error...!", "Por favor digite el costo de establecimiento de la producción de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.costo_sostenimiento === "") {
+          this.$refs.costo_sostenimiento.focus();
+          this.$swal("Error...!", "Por favor digite el costo de sostenimiento de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.produccion_destinada === "") {
+          this.$refs.produccion_destinada.focus();
+          this.$swal("Error...!", "Por favor digite la producción destinada al mercado de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.tipo_problema === "") {
+          this.$refs.tipo_problema.focus();
+          this.$swal("Error...!", "Por favor seleccione el tipo de problema que enfrenta en su producción de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.tipo_problema === "5") {
+          if (this.datosCulAgri.otro_tipo_problema === "") {
+            this.$refs.otro_tipo_problema.focus();
+            this.$swal("Error...!", "Por favor digite otros tipos de problemas de los cultivos agrícolas", "error");
+            return;
+          }
+        }
+        if (this.datosCulAgri.compradores === "") {
+          this.$refs.compradores.focus();
+          this.$swal("Error...!", "Por favor seleccione los compradores de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.metodo_pago === "") {
+          this.$refs.metodo_pago.focus();
+          this.$swal("Error...!", "Por favor seleccione el método de pago de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.precio_promedio_venta_kg === "") {
+          this.$refs.precio_promedio_venta_kg.focus();
+          this.$swal("Error...!", "Por favor digite el precio promedio de venta kg de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.programa_asistencia_tecnica === "") {
+          this.$refs.programa_asistencia_tecnica.focus();
+          this.$swal("Error...!", "Por favor seleccione si pertenence a programas de asistencia técnica de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.programa_asistencia_tecnica === "SI") {
+          if (this.datosCulAgri.nombre_programa === "") {
+            this.$refs.nombre_programa.focus();
+            this.$swal("Error...!", "Por favor digite el nombre del programa de asistencia técnica de los cultivos agrícolas", "error");
+            return;
+          }
+          if (this.datosCulAgri.entidad === "") {
+            this.$refs.entidad.focus();
+            this.$swal("Error...!", "Por favor digite el nombre de la entidad de asistencia técnica de los cultivos agrícolas", "error");
+            return;
+          }          
+        }
+        if (this.datosCulAgri.cambios_produccion_anio === "") {
+          this.$refs.cambios_produccion_anio.focus();
+          this.$swal("Error...!", "Por favor seleccione si durante el último año, ha realizado usted cambios en su producción en temas de innovación de los cultivos agrícolas", "error");
+          return;
+        }
+        if (this.datosCulAgri.cambios_produccion_anio === "SI") {
+          if (this.datosCulAgri.actividad_cambio === "") {
+            this.$refs.actividad_cambio.focus();
+            this.$swal("Error...!", "Por favor seleccione en qué actividad realizó el cambio de los cultivos agrícolas", "error");
+            return;            
+          }
+        }
+        this.cultivos_agricolas.push({
+          id: 0,
+          id_unidad: 0,
+          importancias_agricolas: this.datosCulAgri.importancias_agricolas,
+          unidad_area_produccion: this.datosCulAgri.unidad_area_produccion,
+          texto_unidad_area_produccion: this.showText(
+            this.datosCulAgri.unidad_area_produccion,
+            this.unidades1
+          ),          
+          producto: this.datosCulAgri.producto,
+          texto_producto: this.showText(
+            this.datosCulAgri.producto,
+            this.tipocultivo
+          ),          
+          variedad: this.datosCulAgri.variedad,
+          texto_variedad: this.showText2(
+            this.datosCulAgri.variedad,
+            this.especie2,
+            this.datosCulAgri.producto
+          ),          
+          semilla: this.datosCulAgri.semilla,
+          pertenece: this.datosCulAgri.pertenece,
+          tipo_pertenece: this.datosCulAgri.tipo_pertenece,
+          nombre_organizacion: this.datosCulAgri.nombre_organizacion,
+          area_produccion: this.datosCulAgri.area_produccion,
+
+          beneficios: this.datosCulAgri.beneficios,
+          texto_beneficios: this.showText(
+            this.datosCulAgri.beneficios,
+            this.beneficios
+          ),          
+          no_pertenece: this.datosCulAgri.no_pertenece,
+          texto_no_pertenece: this.showText(
+            this.datosCulAgri.no_pertenece,
+            this.razon1
+          ),
+          trabaja_asociacion: this.datosCulAgri.trabaja_asociacion,
+          frecuente_cosecha: this.datosCulAgri.frecuente_cosecha,
+          area_cosecha: this.datosCulAgri.area_cosecha,
+          unidad_area_cosecha: this.datosCulAgri.unidad_area_cosecha,
+          texto_unidad_area_cosecha: this.showText(
+            this.datosCulAgri.unidad_area_cosecha,
+            this.unidades1
+          ),         
+          costo_produccion: this.datosCulAgri.costo_produccion,
+          costo_establecimiento: this.datosCulAgri.costo_establecimiento,
+          costo_sostenimiento: this.datosCulAgri.costo_sostenimiento,
+          produccion_destinada: this.datosCulAgri.produccion_destinada,
+
+          tipo_problema: this.datosCulAgri.tipo_problema,
+          compradores: this.datosCulAgri.compradores,
+          precio_promedio_venta: this.datosCulAgri.precio_promedio_venta,
+          metodo_pago: this.datosCulAgri.metodo_pago,
+          precio_promedio_venta_kg: this.datosCulAgri.precio_promedio_venta_kg,
+          subproductos_produccion: this.datosCulAgri.subproductos_produccion,
+          programa_asistencia_tecnica: this.datosCulAgri.programa_asistencia_tecnica,
+          nombre_programa: this.datosCulAgri.nombre_programa,
+          entidad: this.datosCulAgri.entidad,
+          cambios_produccion_anio: this.datosCulAgri.cambios_produccion_anio,
+
+          actividad_cambio: this.datosCulAgri.actividad_cambio,
+          estado: "Activo",
+          id_compania: 1,
+          otro_tipo_problema: this.datosCulAgri.otro_tipo_problema
+        });
+        
+        this.datosCulAgri.importancias_agricolas = "";
+        this.datosCulAgri.unidad_area_produccion = "";
+        this.datosCulAgri.producto = "";
+        this.datosCulAgri.variedad = "";
+        this.datosCulAgri.semilla = "";
+        this.datosCulAgri.pertenece = "";
+        this.datosCulAgri.tipo_pertenece = "";
+        this.datosCulAgri.nombre_organizacion = "";
+        this.datosCulAgri.area_produccion = "";
+
+        this.datosCulAgri.beneficios = "";
+        this.datosCulAgri.no_pertenece = "";
+        this.datosCulAgri.trabaja_asociacion = "";
+        this.datosCulAgri.frecuente_cosecha = "";
+        this.datosCulAgri.area_cosecha = "";
+        this.datosCulAgri.unidad_area_cosecha = "";
+        this.datosCulAgri.costo_produccion = "";
+        this.datosCulAgri.costo_establecimiento = "";
+        this.datosCulAgri.costo_sostenimiento = "";
+        this.datosCulAgri.produccion_destinada = "";
+
+        this.datosCulAgri.tipo_problema = "";
+        this.datosCulAgri.compradores = "";
+        this.datosCulAgri.precio_promedio_venta = "";
+        this.datosCulAgri.metodo_pago = "";
+        this.datosCulAgri.precio_promedio_venta_kg = "";
+        this.datosCulAgri.subproductos_produccion = "";
+        this.datosCulAgri.programa_asistencia_tecnica = "";
+        this.datosCulAgri.nombre_programa = "";
+        this.datosCulAgri.entidad = "";
+        this.datosCulAgri.cambios_produccion_anio = "";
+
+        this.datosCulAgri.actividad_cambio = "";
+        this.datosCulAgri.otro_tipo_problema = "";
+        
+        this.mOPAT = false;
+        this.mOTPP = false;
+        this.mOP = false;
+        this.mOCTI = false;
+      },
+      eliminarItemCA: function(index) {
+        this.cultivos_agricolas.splice(index, 1);
+      },
+      editarItemCA: function(index, item) {
+        this.bandeGuaEdiCA = false;
+        this.datosCulAgri.id = item.id;
+
+        this.datosCulAgri.id_unidad = item.id_unidad;
+        this.datosCulAgri.importancias_agricolas = item.importancias_agricolas;
+        this.datosCulAgri.area_produccion = item.area_produccion;
+        this.datosCulAgri.unidad_area_produccion = item.unidad_area_produccion;
+        this.datosCulAgri.producto = item.producto;
+        this.datosCulAgri.variedad = item.variedad;
+        this.datosCulAgri.semilla = item.semilla;
+        this.datosCulAgri.pertenece = item.pertenece;
+        this.datosCulAgri.tipo_pertenece = item.tipo_pertenece;
+        this.datosCulAgri.nombre_organizacion = item.nombre_organizacion;
+
+        this.datosCulAgri.beneficios = item.beneficios;
+        this.datosCulAgri.no_pertenece = item.no_pertenece;
+        this.datosCulAgri.trabaja_asociacion = item.trabaja_asociacion;
+        this.datosCulAgri.frecuente_cosecha = item.frecuente_cosecha;
+        this.datosCulAgri.area_cosecha = item.area_cosecha;
+        this.datosCulAgri.unidad_area_cosecha = item.unidad_area_cosecha;
+        this.datosCulAgri.costo_produccion = item.costo_produccion;
+        this.datosCulAgri.costo_establecimiento = item.costo_establecimiento;
+        this.datosCulAgri.costo_sostenimiento = item.costo_sostenimiento;
+        this.datosCulAgri.produccion_destinada = item.produccion_destinada;
+
+        this.datosCulAgri.tipo_problema = item.tipo_problema;
+        this.datosCulAgri.compradores = item.compradores;
+        this.datosCulAgri.precio_promedio_venta = item.precio_promedio_venta;
+        this.datosCulAgri.metodo_pago = item.metodo_pago;
+        this.datosCulAgri.precio_promedio_venta_kg = item.precio_promedio_venta_kg;
+        this.datosCulAgri.subproductos_produccion = item.subproductos_produccion;
+        this.datosCulAgri.programa_asistencia_tecnica = item.programa_asistencia_tecnica;
+        this.datosCulAgri.nombre_programa = item.nombre_programa;
+        this.datosCulAgri.entidad = item.entidad;
+        this.datosCulAgri.cambios_produccion_anio = item.cambios_produccion_anio;
+
+        this.datosCulAgri.actividad_cambio = item.actividad_cambio;
+        this.datosCulAgri.estado = item.estado;
+        this.datosCulAgri.id_compania = item.id_compania;
+        this.datosCulAgri.otro_tipo_problema = item.otro_tipo_problema;
+
+        if (this.datosCulAgri.pertenece === "NA") {
+          this.mOP = false;
+        } else {
+          if (this.datosCulAgri.pertenece === "") {
+            this.mOP = false;
+          } else {
+            this.mOP = true;
+          }
+        }
+        if (this.datosCulAgri.tipo_problema === "Otras") {
+          this.mOTPP = true;
+        } else {
+          this.mOTPP = false;
+        }
+        if (this.datosCulAgri.programa_asistencia_tecnica === "SI") {
+          this.mOPAT = true;
+        } else {
+          this.mOPAT = false;
+        }
+        if (this.datosCulAgri.cambios_produccion_anio === "SI") {
+          this.mOCTI = true;
+        } else {
+          this.mOCTI = false;
+        }
+        this.cultivos_agricolas.splice(index, 1);
+      },
+      editarCA: function(){
+        // AGREGAR LOS DATOS
+        this.agregarCA();
+        this.bandeGuaEdiCA = true;
+        // AGREGAR LOS DATOS
+      },
+      CancelarEditarCA(){
+        // AGREGAR LOS DATOS
+        this.agregarCA();
+        this.bandeGuaEdiCA = true;
+        // AGREGAR LOS DATOS        
+      },
+
+      agregarEP: function(){
+        if (this.datosExpPec.importancia_comercial === "") {
+          this.$refs.importancia_comercial.focus();
+          this.$swal("Error...!", "Por favor digite la importancia del 1 al 10 de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.producto_comercial === "") {
+          this.$refs.producto_comercial.focus();
+          this.$swal("Error...!", "Por favor digite el producto de las explotaciones pecuarias", "error");
+          return;
+        }        
+        if (this.datosExpPec.raza === "") {
+          this.$refs.raza.focus();
+          this.$swal("Error...!", "Por favor seleccione la raza ó tipo de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.costo_total === "") {
+          this.$refs.costo_total.focus();
+          this.$swal("Error...!", "Por favor digite el costo total de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.costo_establecer === "") {
+          this.$refs.costo_establecer.focus();
+          this.$swal("Error...!", "Por favor digite el costo de establecer de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.costo_pecuaria === "") {
+          this.$refs.costo_pecuaria.focus();
+          this.$swal("Error...!", "Por favor digite el costo sostenimiento de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.problematica_productos === "") {
+          this.$refs.problematica_productos.focus();
+          this.$swal("Error...!", "Por favor seleccione la problemática de los productos con perspectiva comercial de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.problematica_productos === "Otras") {
+          if (this.datosExpPec.otra_problematica === ""){
+            this.$refs.otra_problematica.focus();
+            this.$swal("Error...!", "Por favor digite otra problematica de los productos con perspectiva comercial de las explotaciones pecuarias", "error");
+            return;
+          }
+        }
+        if (this.datosExpPec.produccion === "") {
+          this.$refs.produccion.focus();
+          this.$swal("Error...!", "Por favor digite la producción de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.produccion_destinada_pecuaria === "") {
+          this.$refs.produccion_destinada_pecuaria.focus();
+          this.$swal("Error...!", "Por favor digite la producción destinada al mercado de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.numero_animales === "") {
+          this.$refs.numero_animales.focus();
+          this.$swal("Error...!", "Por favor digite el número de animales de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.area_destinada_produccion === "") {
+          this.$refs.area_destinada_produccion.focus();
+          this.$swal("Error...!", "Por favor digite el área destinada a esta producción de animales de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.unidad_area_destinada === "") {
+          this.$refs.unidad_area_destinada.focus();
+          this.$swal("Error...!", "Por favor seleccione la unidad de medida del area destinada a esta producciṕon de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.compradores_pecuaria === "") {
+          this.$refs.compradores_pecuaria.focus();
+          this.$swal("Error...!", "Por favor seleccione los compradores de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.precio_promedio_venta_pecuaria === "") {
+          this.$refs.precio_promedio_venta_pecuaria.focus();
+          this.$swal("Error...!", "Por favor digite el precio promedio de venta de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.metodo_pago_pecuaria === "") {
+          this.$refs.metodo_pago_pecuaria.focus();
+          this.$swal("Error...!", "Por favor seleccione el método de pago de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.subproductos_produccion_pecuaria === "") {
+          this.$refs.subproductos_produccion_pecuaria.focus();
+          this.$swal("Error...!", "Por favor digite el subproductos de la producción de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.pertenece_pecuaria === "") {
+          this.$refs.pertenece_pecuaria.focus();
+          this.$swal("Error...!", "Por favor seleccione pertenencia a programas de asistencia técnica de las explotaciones pecuarias", "error");
+          return;
+        }                                                                                                                      
+        if (this.datosCulAgri.pertenece_pecuaria === "SI") {
+          if (this.datosCulAgri.nombre_programa_pecuaria === ""){
+            this.$refs.nombre_programa_pecuaria.focus();
+            this.$swal("Error...!", "Por favor digite el nombre del programa de las explotaciones pecuarias", "error");
+            return;
+          }
+          if (this.datosCulAgri.entidad_pecuaria === ""){
+            this.$refs.entidad_pecuaria.focus();
+            this.$swal("Error...!", "Por favor digite la entidad de las explotaciones pecuarias", "error");
+            return;
+          }                    
+        }
+        if (this.datosExpPec.pertenece_organizacion_pecuaria === "") {
+          this.$refs.pertenece_organizacion_pecuaria.focus();
+          this.$swal("Error...!", "Por favor seleccione si ¿pertenece a alguna organización? de las explotaciones pecuarias", "error");
+          return;
+        }                
+        if (this.datosCulAgri.pertenece_organizacion_pecuaria !== "" && this.datosCulAgri.pertenece_organizacion_pecuaria !== "NA") {
+          if (this.datosCulAgri.tipo_organizacion_pecuaria === ""){
+            this.$refs.tipo_organizacion_pecuaria.focus();
+            this.$swal("Error...!", "Por favor seleccione ¿De qué tipo? es la organización de las explotaciones pecuarias", "error");
+            return;
+          }
+          if (this.datosCulAgri.nombre_organizacion_pecuaria === ""){
+            this.$refs.nombre_organizacion_pecuaria.focus();
+            this.$swal("Error...!", "Por favor se el nombre de la organización de las explotaciones pecuarias", "error");
+            return;
+          }                    
+        }
+        if (this.datosCulAgri.pertenece_organizacion_pecuaria === "NA") {
+          if (this.datosCulAgri.no_pertenece_pecuaria === ""){
+            this.$refs.no_pertenece_pecuaria.focus();
+            this.$swal("Error...!", "Por favor seleccione la razón por la cual no pertenece a ninguna organización de las explotaciones pecuarias", "error");
+            return;
+          }
+        }
+        if (this.datosExpPec.beneficios_pecuaria === "") {
+          this.$refs.beneficios_pecuaria.focus();
+          this.$swal("Error...!", "Por favor seleccione los beneficios de las explotaciones pecuarias", "error");
+          return;
+        }
+        if (this.datosExpPec.trabaja_asociacion_pecuaria === "") {
+          this.$refs.trabaja_asociacion_pecuaria.focus();
+          this.$swal("Error...!", "Por favor seleccione si trabaja en asociación para realizar las actividades productivas de las explotaciones pecuarias", "error");
+          return;
+        }        
+        this.explotaciones_pecuarias.push({
+          id: 0,
+          id_unidad: 0,
+          importancia_comercial: this.datosExpPec.importancia_comercial,
+          raza: this.datosExpPec.raza,
+          texto_raza: this.showText(
+            this.datosExpPec.raza,
+            this.raza
+          ),
+          costo_total: this.datosExpPec.costo_total,
+          costo_establecer: this.datosExpPec.costo_establecer,
+          costo_pecuaria: this.datosExpPec.costo_pecuaria,
+          problematica_productos: this.datosExpPec.problematica_productos,
+          otra_problematica: this.datosExpPec.otra_problematica,
+          produccion: this.datosExpPec.produccion,
+          numero_animales: this.datosExpPec.numero_animales,
+
+          area_destinada_produccion: this.datosExpPec.area_destinada_produccion,
+          unidad_area_destinada: this.datosExpPec.unidad_area_destinada,
+          texto_unidad_area_destinada: this.showText(
+            this.datosExpPec.unidad_area_destinada,
+            this.unidades1
+          ),
+          compradores_pecuaria: this.datosExpPec.compradores_pecuaria,
+          precio_promedio_venta_pecuaria: this.datosExpPec.precio_promedio_venta_pecuaria,
+          metodo_pago_pecuaria: this.datosExpPec.metodo_pago_pecuaria,
+          subproductos_produccion_pecuaria: this.datosExpPec.subproductos_produccion_pecuaria,
+          pertenece_pecuaria: this.datosExpPec.pertenece_pecuaria,
+          nombre_programa_pecuaria: this.datosExpPec.nombre_programa_pecuaria,
+          entidad_pecuaria: this.datosExpPec.entidad_pecuaria,
+          pertenece_organizacion_pecuaria: this.datosExpPec.pertenece_organizacion_pecuaria,
+          
+          tipo_organizacion_pecuaria: this.datosExpPec.tipo_organizacion_pecuaria,
+          nombre_organizacion_pecuaria: this.datosExpPec.nombre_organizacion_pecuaria,
+          beneficios_pecuaria: this.datosExpPec.beneficios_pecuaria,
+          texto_beneficios_pecuaria: this.showText(
+            this.datosExpPec.beneficios_pecuaria,
+            this.beneficios
+          ),          
+          no_pertenece_pecuaria: this.datosExpPec.no_pertenece_pecuaria,
+          texto_no_pertenece_pecuaria: this.showText(
+            this.datosExpPec.no_pertenece_pecuaria,
+            this.razon1
+          ),          
+          trabaja_asociacion_pecuaria: this.datosExpPec.trabaja_asociacion_pecuaria,
+          producto_comercial: this.datosExpPec.producto_comercial,
+          produccion_destinada_pecuaria: this.datosExpPec.produccion_destinada_pecuaria,
+          estado: "Activo",
+          id_compania: 1,
+        });
+        
+        this.datosExpPec.importancia_comercial = "";
+        this.datosExpPec.raza = "";
+        this.datosExpPec.costo_total = "";
+        this.datosExpPec.costo_establecer = "";
+        this.datosExpPec.costo_pecuaria = "";
+        this.datosExpPec.problematica_productos = "";
+        this.datosExpPec.otra_problematica = "";
+        this.datosExpPec.produccion = "";
+        this.datosExpPec.numero_animales = "";
+
+        this.datosExpPec.area_destinada_produccion = "";
+        this.datosExpPec.unidad_area_destinada = "";
+        this.datosExpPec.compradores_pecuaria = "";
+        this.datosExpPec.precio_promedio_venta_pecuaria = "";
+        this.datosExpPec.metodo_pago_pecuaria = "";
+        this.datosExpPec.subproductos_produccion_pecuaria = "";
+        this.datosExpPec.pertenece_pecuaria = "";
+        this.datosExpPec.nombre_programa_pecuaria = "";
+        this.datosExpPec.entidad_pecuaria = "";
+        this.datosExpPec.pertenece_organizacion_pecuaria = "";
+
+        this.datosExpPec.tipo_organizacion_pecuaria = "";
+        this.datosExpPec.nombre_organizacion_pecuaria = "";
+        this.datosExpPec.beneficios_pecuaria = "";
+        this.datosExpPec.no_pertenece_pecuaria = "";
+        this.datosExpPec.trabaja_asociacion_pecuaria = "";
+        this.datosExpPec.producto_comercial = "";
+        this.datosExpPec.produccion_destinada_pecuaria = "";
+        
+        this.mOPPP = false;
+        this.mOPATP = false;
+        this.mOPECU = false;
+      },
+      eliminarItemEP: function(index) {
+        this.explotaciones_pecuarias.splice(index, 1);
+      },
+      editarItemEP: function(index, item) {
+        this.bandeGuaEdiEP = false;
+        this.datosExpPec.id = item.id;
+
+        this.datosExpPec.id_unidad = item.id_unidad;
+        this.datosExpPec.importancia_comercial = item.importancia_comercial;
+        this.datosExpPec.raza = item.raza;
+        this.datosExpPec.costo_total = item.costo_total;
+        this.datosExpPec.costo_establecer = item.costo_establecer;
+        this.datosExpPec.costo_pecuaria = item.costo_pecuaria;
+        this.datosExpPec.problematica_productos = item.problematica_productos;
+        this.datosExpPec.otra_problematica = item.otra_problematica;
+        this.datosExpPec.produccion = item.produccion;
+        this.datosExpPec.numero_animales = item.numero_animales;
+
+        this.datosExpPec.area_destinada_produccion = item.area_destinada_produccion;
+        this.datosExpPec.unidad_area_destinada = item.unidad_area_destinada;
+        this.datosExpPec.compradores_pecuaria = item.compradores_pecuaria;
+        this.datosExpPec.precio_promedio_venta_pecuaria = item.precio_promedio_venta_pecuaria;
+        this.datosExpPec.metodo_pago_pecuaria = item.metodo_pago_pecuaria;
+        this.datosExpPec.subproductos_produccion_pecuaria = item.subproductos_produccion_pecuaria;
+        this.datosExpPec.pertenece_pecuaria = item.pertenece_pecuaria;
+        this.datosExpPec.nombre_programa_pecuaria = item.nombre_programa_pecuaria;
+        this.datosExpPec.entidad_pecuaria = item.entidad_pecuaria;
+        this.datosExpPec.pertenece_organizacion_pecuaria = item.pertenece_organizacion_pecuaria;
+
+        this.datosExpPec.tipo_organizacion_pecuaria = item.tipo_organizacion_pecuaria;
+        this.datosExpPec.nombre_organizacion_pecuaria = item.nombre_organizacion_pecuaria;
+        this.datosExpPec.beneficios_pecuaria = item.beneficios_pecuaria;
+        this.datosExpPec.no_pertenece_pecuaria = item.no_pertenece_pecuaria;
+        this.datosExpPec.trabaja_asociacion_pecuaria = item.trabaja_asociacion_pecuaria;
+        this.datosExpPec.producto_comercial = item.producto_comercial;
+        this.datosExpPec.produccion_destinada_pecuaria = item.produccion_destinada_pecuaria;
+
+        if (this.datosExpPec.problematica_productos === "Otras") {
+          this.mOPPP = true;
+        } else {
+          this.mOPPP = false;
+        }
+
+        if (this.datosExpPec.pertenece_pecuaria === "SI") {
+          this.mOPATP = true;
+        } else {
+          this.mOPATP = false;
+        }
+
+        if (this.datosExpPec.pertenece_organizacion_pecuaria === "NA") {
+          this.mOPECU = false;
+        } else {
+          if (this.datosExpPec.pertenece_organizacion_pecuaria === "") {
+            this.mOPECU = false;
+          } else {
+            this.mOPECU = true;
+          }
+        }        
+        this.explotaciones_pecuarias.splice(index, 1);
+      },
+      editarEP: function(){
+        // AGREGAR LOS DATOS
+        this.agregarEP();
+        this.bandeGuaEdiEP = true;
+        // AGREGAR LOS DATOS
+      },
+      CancelarEditarEP(){
+        // AGREGAR LOS DATOS
+        this.agregarEP();
+        this.bandeGuaEdiEP = true;
+        // AGREGAR LOS DATOS        
+      },
+      
+      agregarCF: function(){
+        if (this.datosCulFor.importancia_forestales === "") {
+          this.$refs.importancia_forestales.focus();
+          this.$swal("Error...!", "Por favor digite la importancia del 1 al 10 de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.producto_forestales === "") {
+          this.$refs.producto_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione el producto de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.variedad_forestales === "") {
+          this.$refs.variedad_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione la especie de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.edad_plantacion === "") {
+          this.$refs.edad_plantacion.focus();
+          this.$swal("Error...!", "Por favor digite la edad de la plantación de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.tipo_edad === "") {
+          this.$refs.tipo_edad.focus();
+          this.$swal("Error...!", "Por favor seleccione la unidad de medida de la edad de la plantación de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.area_sembrada_forestales === "") {
+          this.$refs.area_sembrada_forestales.focus();
+          this.$swal("Error...!", "Por favor digite el área sembrada de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.unidad_area_forestales === "") {
+          this.$refs.unidad_area_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione la unidad de medida del área sembrada de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.rendimiento_arbol === "") {
+          this.$refs.rendimiento_arbol.focus();
+          this.$swal("Error...!", "Por favor digite el rendimiento por árbol de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.costo_total_forestales === "") {
+          this.$refs.costo_total_forestales.focus();
+          this.$swal("Error...!", "Por favor digite el costo total de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.costo_establecimiento_forestales === "") {
+          this.$refs.costo_establecimiento_forestales.focus();
+          this.$swal("Error...!", "Por favor digite el costo de establecimiento de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.costo_sostenimiento_forestales === "") {
+          this.$refs.costo_sostenimiento_forestales.focus();
+          this.$swal("Error...!", "Por favor digite el costo de sostenimiento de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.problematica_productos_forestales === "") {
+          this.$refs.problematica_productos_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione la problemática de los productos con perspectiva comercial de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.problematica_productos_forestales === "Otras") {
+          if (this.datosCulFor.otros_problematica_productos_forestales === ""){
+            this.$refs.otros_problematica_productos_forestales.focus();
+            this.$swal("Error...!", "Por favor digite otra problematica de los productos con perspectiva comercial de los cultivos forestales", "error");
+            return;
+          }
+        }
+        if (this.datosCulFor.produccion_destinada_forestales === "") {
+          this.$refs.produccion_destinada_forestales.focus();
+          this.$swal("Error...!", "Por favor digite la producción destinada al mercado de los cultivos forestales", "error");
+          return;
+        }        
+        if (this.datosCulFor.numero_arboles === "") {
+          this.$refs.numero_arboles.focus();
+          this.$swal("Error...!", "Por favor digite el número de arboles de los cultivos forestales", "error");
+          return;
+        }        
+        if (this.datosCulFor.compradores_forestales === "") {
+          this.$refs.compradores_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione los compradores de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.precio_promedio_venta_forestales === "") {
+          this.$refs.precio_promedio_venta_forestales.focus();
+          this.$swal("Error...!", "Por favor digite el precio promedio de venta de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.metodo_pago_forestales === "") {
+          this.$refs.metodo_pago_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione el metodo de pago de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.pertenece_forestales === "") {
+          this.$refs.pertenece_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione pertenencia a programas de asistencia técnica de los cultivos forestales", "error");
+          return;
+        }        
+        if (this.datosCulFor.pertenece_pecuaria === "SI") {
+          if (this.datosCulFor.nombre_programa_forestales === "") {
+            this.$refs.nombre_programa_forestales.focus();
+            this.$swal("Error...!", "Por favor digite el nombre del programa de los cultivos forestales", "error");
+            return;
+          }
+          if (this.datosCulFor.entidad_forestales === "") {
+            this.$refs.entidad_forestales.focus();
+            this.$swal("Error...!", "Por favor digite la entidad de los cultivos forestales", "error");
+            return;
+          }                    
+        }
+        if (this.datosCulFor.pertenece_organizacion_forestales === "") {
+          this.$refs.pertenece_organizacion_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione ¿Pertenece a alguna organización?  de los cultivos forestales", "error");
+          return;
+        }                
+        if (this.datosCulFor.pertenece_organizacion_forestales !== "" && this.datosCulFor.pertenece_organizacion_forestales !== "NA") {
+          if (this.datosCulFor.tipo_pertenece_forestales === ""){
+            this.$refs.tipo_pertenece_forestales.focus();
+            this.$swal("Error...!", "Por favor seleccione ¿De qué tipo? es la organización de los cultivos forestales", "error");
+            return;
+          }
+          if (this.datosCulFor.nombre_organizacion_forestales === ""){
+            this.$refs.nombre_organizacion_forestales.focus();
+            this.$swal("Error...!", "Por favor se el nombre de la organización de los cultivos forestales", "error");
+            return;
+          }                    
+        }
+        if (this.datosCulAgri.pertenece_organizacion_forestales === "NA") {
+          if (this.datosCulAgri.no_pertenece_forestales === ""){
+            this.$refs.no_pertenece_forestales.focus();
+            this.$swal("Error...!", "Por favor seleccione la razón por la cual no pertenece a ninguna organización de los cultivos forestales", "error");
+            return;
+          }
+        }      
+        if (this.datosCulFor.beneficios_forestales === "") {
+          this.$refs.beneficios_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione los beneficios de los cultivos forestales", "error");
+          return;
+        }
+        if (this.datosCulFor.trabaja_asociacion_forestales === "") {
+          this.$refs.trabaja_asociacion_forestales.focus();
+          this.$swal("Error...!", "Por favor seleccione trabaja en asociación para realizar las actividades productivas de los cultivos forestales", "error");
+          return;
+        }
+
+        this.cultivos_forestales.push({
+          id: 0,
+          id_unidad: 0,
+          importancia_forestales: this.datosCulFor.importancia_forestales,
+          producto_forestales: this.datosCulFor.producto_forestales,
+          variedad_forestales: this.datosCulFor.variedad_forestales,          
+          texto_variedad_forestales: this.showText(
+            this.datosCulFor.variedad_forestales,
+            this.especie1
+          ),          
+          edad_plantacion: this.datosCulFor.edad_plantacion,
+          tipo_edad: this.datosCulFor.tipo_edad,
+          area_sembrada_forestales: this.datosCulFor.area_sembrada_forestales,
+          unidad_area_forestales: this.datosCulFor.unidad_area_forestales,
+          texto_unidad_area_forestales: this.showText(
+            this.datosCulFor.unidad_area_forestales,
+            this.unidades1
+          ),          
+          rendimiento_arbol: this.datosCulFor.rendimiento_arbol,
+          costo_total_forestales: this.datosCulFor.costo_total_forestales,
+
+          costo_establecimiento_forestales: this.datosCulFor.costo_establecimiento_forestales,
+          costo_sostenimiento_forestales: this.datosCulFor.costo_sostenimiento_forestales,
+          problematica_productos_forestales: this.datosCulFor.problematica_productos_forestales,
+          produccion_destinada_forestales: this.datosCulFor.produccion_destinada_forestales,
+          numero_arboles: this.datosCulFor.numero_arboles,
+          compradores_forestales: this.datosCulFor.compradores_forestales,
+          metodo_pago_forestales: this.datosCulFor.metodo_pago_forestales,
+          precio_promedio_venta_forestales: this.datosCulFor.precio_promedio_venta_forestales,
+          subproductos_produccion_forestales: this.datosCulFor.subproductos_produccion_forestales,
+          pertenece_forestales: this.datosCulFor.pertenece_forestales,
+
+          nombre_programa_forestales: this.datosCulFor.nombre_programa_forestales,
+          entidad_forestales: this.datosCulFor.entidad_forestales,
+          pertenece_organizacion_forestales: this.datosCulFor.pertenece_organizacion_forestales,
+          tipo_pertenece_forestales: this.datosCulFor.tipo_pertenece_forestales,
+          nombre_organizacion_forestales: this.datosCulFor.nombre_organizacion_forestales,
+          beneficios_forestales: this.datosCulFor.beneficios_forestales,
+          texto_beneficios_forestales: this.showText(
+            this.datosCulFor.beneficios_forestales,
+            this.beneficios
+          ),          
+          no_pertenece_forestales: this.datosCulFor.no_pertenece_forestales,
+          texto_no_pertenece_forestales: this.showText(
+            this.datosCulFor.no_pertenece_forestales,
+            this.razon1
+          ),          
+          trabaja_asociacion_forestales: this.datosCulFor.trabaja_asociacion_forestales,
+          otros_problematica_productos_forestales: this.datosCulFor.otros_problematica_productos_forestales,
+          estado: "Activo",
+          id_compania: 1,
+        });
+        
+        this.datosCulFor.importancia_forestales = "";
+        this.datosCulFor.producto_forestales = "";
+        this.datosCulFor.variedad_forestales = "";
+        this.datosCulFor.edad_plantacion = "";
+        this.datosCulFor.tipo_edad = "";
+        this.datosCulFor.area_sembrada_forestales = "";
+        this.datosCulFor.unidad_area_forestales = "";
+        this.datosCulFor.rendimiento_arbol = "";
+        this.datosCulFor.costo_total_forestales = "";
+
+        this.datosCulFor.costo_establecimiento_forestales = "";
+        this.datosCulFor.costo_sostenimiento_forestales = "";
+        this.datosCulFor.problematica_productos_forestales = "";
+        this.datosCulFor.produccion_destinada_forestales = "";
+        this.datosCulFor.numero_arboles = "";
+        this.datosCulFor.compradores_forestales = "";
+        this.datosCulFor.metodo_pago_forestales = "";
+        this.datosCulFor.precio_promedio_venta_forestales = "";
+        this.datosCulFor.subproductos_produccion_forestales = "";
+        this.datosCulFor.pertenece_forestales = "";
+
+        this.datosCulFor.nombre_programa_forestales = "";
+        this.datosCulFor.entidad_forestales = "";
+        this.datosCulFor.pertenece_organizacion_forestales = "";
+        this.datosCulFor.tipo_pertenece_forestales = "";
+        this.datosCulFor.nombre_organizacion_forestales = "";
+        this.datosCulFor.beneficios_forestales = "";
+        this.datosCulFor.no_pertenece_forestales = "";
+        this.datosCulFor.trabaja_asociacion_forestales = "";
+        this.datosCulFor.otros_problematica_productos_forestales = "";
+        
+        this.mOPPPF = false;
+        this.mOPATF = false;
+        this.mOPF = false;
+      },
+      eliminarItemCF: function(index) {
+        this.cultivos_forestales.splice(index, 1);
+      },
+      editarItemCF: function(index, item) {
+        this.bandeGuaEdiCF = false;
+        this.datosCulFor.id = item.id;
+
+        this.datosCulFor.id_unidad = item.id_unidad;
+        this.datosCulFor.importancia_forestales = item.importancia_forestales;
+        this.datosCulFor.producto_forestales = item.producto_forestales;
+        this.datosCulFor.variedad_forestales = item.variedad_forestales;
+        this.datosCulFor.edad_plantacion = item.edad_plantacion;
+        this.datosCulFor.tipo_edad = item.tipo_edad;
+        this.datosCulFor.area_sembrada_forestales = item.area_sembrada_forestales;
+        this.datosCulFor.unidad_area_forestales = item.unidad_area_forestales;
+        this.datosCulFor.rendimiento_arbol = item.rendimiento_arbol;
+        this.datosCulFor.costo_total_forestales = item.costo_total_forestales;
+
+        this.datosCulFor.costo_establecimiento_forestales = item.costo_establecimiento_forestales;
+        this.datosCulFor.costo_sostenimiento_forestales = item.costo_sostenimiento_forestales;
+        this.datosCulFor.problematica_productos_forestales = item.problematica_productos_forestales;
+        this.datosCulFor.produccion_destinada_forestales = item.produccion_destinada_forestales;
+        this.datosCulFor.numero_arboles = item.numero_arboles;
+        this.datosCulFor.compradores_forestales = item.compradores_forestales;
+        this.datosCulFor.metodo_pago_forestales = item.metodo_pago_forestales;
+        this.datosCulFor.precio_promedio_venta_forestales = item.precio_promedio_venta_forestales;
+        this.datosCulFor.subproductos_produccion_forestales = item.subproductos_produccion_forestales;
+        this.datosCulFor.pertenece_forestales = item.pertenece_forestales;
+
+        this.datosCulFor.nombre_programa_forestales = item.nombre_programa_forestales;
+        this.datosCulFor.entidad_forestales = item.entidad_forestales;
+        this.datosCulFor.pertenece_organizacion_forestales = item.pertenece_organizacion_forestales;
+        this.datosCulFor.tipo_pertenece_forestales = item.tipo_pertenece_forestales;
+        this.datosCulFor.nombre_organizacion_forestales = item.nombre_organizacion_forestales;
+        this.datosCulFor.beneficios_forestales = item.beneficios_forestales;
+        this.datosCulFor.no_pertenece_forestales = item.no_pertenece_forestales;
+        this.datosCulFor.trabaja_asociacion_forestales = item.trabaja_asociacion_forestales;
+        this.datosCulFor.otros_problematica_productos_forestales = item.otros_problematica_productos_forestales;
+
+        if (this.datosCulFor.problematica_productos_forestales === "Otras") {
+          this.mOPPPF = true;
+        } else {
+          this.mOPPPF = false;
+        }
+        if (this.datosCulFor.pertenece_forestales === "SI") {
+          this.mOPATF = true;
+        } else {
+          this.mOPATF = false;
+        }
+        if (this.datosCulFor.pertenece_organizacion_forestales === "NA") {
+          this.mOPF = false;
+        } else {
+          if (this.datosCulFor.pertenece_organizacion_forestales === "") {
+            this.mOPF = false;
+          } else {
+            this.mOPF = true;
+          }
+        }                        
+        this.cultivos_forestales.splice(index, 1);
+      },
+      editarCF: function(){
+        // AGREGAR LOS DATOS
+        this.agregarCF();
+        this.bandeGuaEdiCF = true;
+        // AGREGAR LOS DATOS
+      },
+      CancelarEditarCF(){
+        // AGREGAR LOS DATOS
+        this.agregarCF();
+        this.bandeGuaEdiCF = true;
+        // AGREGAR LOS DATOS        
+      },                        
+      showText: function(val, vectorAux) {
+        for (var i = 0; i < vectorAux.length; i++) {
+          if (vectorAux[i].value === val) {
+            return vectorAux[i].texto;
+          }
+        }
+        return "";
+      },
+      showText2: function(val, vectorAux,id) {
+        if(id === ""){
+          return "";
+        }
+        for (var i = 0; i < vectorAux[id].length; i++) {
+          console.log(vectorAux[id][i].value);
+          if (vectorAux[id][i].value === val) {
+            return vectorAux[id][i].texto;
+          }
+        }
+        return "";
+      },                     
     }
   };
 </script>

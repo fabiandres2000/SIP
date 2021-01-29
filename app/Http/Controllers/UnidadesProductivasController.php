@@ -111,7 +111,11 @@ class UnidadesProductivasController extends Controller
             $maquinas = request()->get("maquinas");
             $instalaciones = request()->get("instalaciones");
             $medios = request()->get("medios");
-            // dd($medios);die;
+
+            $cultivos_agricolas = request()->get("cultivos_agricolas");
+            $explotaciones_pecuarias = request()->get("explotaciones_pecuarias");
+            $cultivos_forestales = request()->get("cultivos_forestales");
+            // dd($explotaciones_pecuarias);die;
             if ($opcion == "guardar") {
                 // dd($data);die;
                 $unidades = \App\UnidadesProductivas::guardar($data, Session::get('alias'));
@@ -136,7 +140,18 @@ class UnidadesProductivasController extends Controller
                         $medios[$i]['id_unidad'] = $unidades;
                         $res = \App\MedioTransporte::guardar($medios[$i], Session::get('alias'));
                     }
-
+                    for ($i = 0; $i < count($cultivos_agricolas); $i++) {
+                        $cultivos_agricolas[$i]['id_unidad'] = $unidades;
+                        $res = \App\CultivosAgricolas::guardar($cultivos_agricolas[$i], Session::get('alias'));
+                    }
+                    for ($i = 0; $i < count($explotaciones_pecuarias); $i++) {
+                        $explotaciones_pecuarias[$i]['id_unidad'] = $unidades;
+                        $res = \App\ExplotacionesPecuarias::guardar($explotaciones_pecuarias[$i], Session::get('alias'));
+                    }
+                    for ($i = 0; $i < count($cultivos_forestales); $i++) {
+                        $cultivos_forestales[$i]['id_unidad'] = $unidades;
+                        $res = \App\CultivosForestales::guardar($cultivos_forestales[$i], Session::get('alias'));
+                    }
                     $codigo = \App\Codigo::editar2(Session::get('alias'), request()->get("CODIGOGENE"), $unidades, Session::get('sigla'));
                     $respuesta = [
                         'OPC' => 'SI',
@@ -172,6 +187,18 @@ class UnidadesProductivasController extends Controller
                 for ($i = 0; $i < count($medios); $i++) {
                     $medios[$i]['id_unidad'] = $id;
                     $res = \App\MedioTransporte::guardar($medios[$i], Session::get('alias'));
+                }
+                for ($i = 0; $i < count($cultivos_agricolas); $i++) {
+                    $cultivos_agricolas[$i]['id_unidad'] = $id;
+                    $res = \App\CultivosAgricolas::guardar($cultivos_agricolas[$i], Session::get('alias'));
+                }
+                for ($i = 0; $i < count($explotaciones_pecuarias); $i++) {
+                    $explotaciones_pecuarias[$i]['id_unidad'] = $id;
+                    $res = \App\ExplotacionesPecuarias::guardar($explotaciones_pecuarias[$i], Session::get('alias'));
+                }
+                for ($i = 0; $i < count($cultivos_forestales); $i++) {
+                    $cultivos_forestales[$i]['id_unidad'] = $id;
+                    $res = \App\CultivosForestales::guardar($cultivos_forestales[$i], Session::get('alias'));
                 }                
             }
             $respuesta = [
@@ -234,11 +261,16 @@ class UnidadesProductivasController extends Controller
             $id_hogar = request()->get("id_hogar");
             $unidades = \App\UnidadesProductivas::buscar(Session::get('alias'), $id);
             $codigo = \App\Codigo::buscar2(Session::get('alias'), Session::get('sigla'), $id);
+            // $codigo = 1;
             $herramientas = \App\Herramienta::buscar(Session::get('alias'), $id);
             $utensilios = \App\Utensilio::buscar(Session::get('alias'), $id);
             $maquinas = \App\Maquinaria::buscar(Session::get('alias'), $id);
             $instalaciones = \App\Instalacion::buscar(Session::get('alias'), $id);
             $medios = \App\MedioTransporte::buscar(Session::get('alias'), $id);
+
+            $cultivos_agricolas = \App\CultivosAgricolas::buscar(Session::get('alias'), $id);
+            $explotaciones_pecuarias = \App\ExplotacionesPecuarias::buscar(Session::get('alias'), $id);
+            $cultivos_forestales = \App\CultivosForestales::buscar(Session::get('alias'), $id);
 
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
@@ -252,6 +284,9 @@ class UnidadesProductivasController extends Controller
                 'utensilios' => $utensilios,
                 'maquinas' => $maquinas,
                 'instalaciones' => $instalaciones,
+                'cultivos_agricolas' => $cultivos_agricolas,
+                'explotaciones_pecuarias' => $explotaciones_pecuarias,
+                'cultivos_forestales' => $cultivos_forestales,
                 'medios' => $medios,
             ];
             return response()->json($respuesta, 200);

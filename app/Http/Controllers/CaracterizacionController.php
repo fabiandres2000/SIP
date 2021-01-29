@@ -692,6 +692,10 @@ class CaracterizacionController extends Controller
                     'mobiliario_cocina' => $respuvivi->mobiliario_cocina,
                     'andenes' => $respuvivi->andenes,
                     'actividadesAuxiliar' => $respuvivi->actividadesAuxiliar,
+
+                    'residuos_aprovechables' => $respuvivi->residuos_aprovechables,
+                    'residuos_organicos' => $respuvivi->residuos_organicos,
+                    'residuos_no_aprovechables' => $respuvivi->residuos_no_aprovechables,
                 ];
                 $animales = \App\Animal::buscar(Session::get('alias'), $id_hogar);
                 $estratificacion = \App\Estratificacion::buscar(Session::get('alias'), $id_hogar);

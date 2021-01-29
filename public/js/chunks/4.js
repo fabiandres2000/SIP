@@ -11145,6 +11145,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -11505,11 +11602,11 @@ var entero = function entero(value) {
         dormitorio_n: "NA",
         sanitario: "",
         lavadero: "",
-        iluminacion_adecuada: "",
-        techo_adecuado: "",
-        ventilacion_adecuada: "",
-        pisos_adecuado: "",
-        paredes_adecuadas: "",
+        iluminacion_adecuada: "NA",
+        techo_adecuado: "NA",
+        ventilacion_adecuada: "NA",
+        pisos_adecuado: "NA",
+        paredes_adecuadas: "NA",
         gasolina: "",
         plaguicidas: "",
         detergentes: "",
@@ -11781,21 +11878,11 @@ var entero = function entero(value) {
       lavadero: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
       },
-      iluminacion_adecuada: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      techo_adecuado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      ventilacion_adecuada: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      pisos_adecuado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
-      paredes_adecuadas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
-      },
+      // iluminacion_adecuada: { required },
+      // techo_adecuado: { required },
+      // ventilacion_adecuada: { required },
+      // pisos_adecuado: { required },
+      // paredes_adecuadas: { required },
       gasolina: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]
       },
@@ -12281,20 +12368,22 @@ var entero = function entero(value) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
+                _this4.$refs.modalAbrir.show();
+
                 bandera = false;
 
                 if (!(actual === "tabIdentificacion")) {
-                  _context4.next = 101;
+                  _context4.next = 102;
                   break;
                 }
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 100;
+                  _context4.next = 101;
                   break;
                 }
 
                 if (!(_this4.hogar.id_dpto === "")) {
-                  _context4.next = 7;
+                  _context4.next = 8;
                   break;
                 }
 
@@ -12304,9 +12393,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 7:
+              case 8:
                 if (!(_this4.hogar.id_mun === "")) {
-                  _context4.next = 11;
+                  _context4.next = 12;
                   break;
                 }
 
@@ -12316,9 +12405,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 11:
+              case 12:
                 if (!(_this4.hogar.tenencia_vivienda === "")) {
-                  _context4.next = 15;
+                  _context4.next = 16;
                   break;
                 }
 
@@ -12328,9 +12417,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 15:
+              case 16:
                 if (!(_this4.allLetter(_this4.hogar.numero_hogares) === false)) {
-                  _context4.next = 20;
+                  _context4.next = 21;
                   break;
                 }
 
@@ -12342,9 +12431,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 20:
+              case 21:
                 if (!(_this4.hogar.numero_hogares === "")) {
-                  _context4.next = 24;
+                  _context4.next = 25;
                   break;
                 }
 
@@ -12354,9 +12443,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 24:
+              case 25:
                 if (!(_this4.hogar.poblacion_especial === "")) {
-                  _context4.next = 28;
+                  _context4.next = 29;
                   break;
                 }
 
@@ -12366,9 +12455,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 28:
+              case 29:
                 if (!(_this4.hogar.vias_acceso === "")) {
-                  _context4.next = 32;
+                  _context4.next = 33;
                   break;
                 }
 
@@ -12378,9 +12467,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 32:
+              case 33:
                 if (!(_this4.hogar.servicios_publicos === "")) {
-                  _context4.next = 36;
+                  _context4.next = 37;
                   break;
                 }
 
@@ -12390,9 +12479,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 36:
+              case 37:
                 if (!(_this4.hogar.direccion === "")) {
-                  _context4.next = 40;
+                  _context4.next = 41;
                   break;
                 }
 
@@ -12402,9 +12491,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 40:
+              case 41:
                 if (!(_this4.datosJefe.length <= 0)) {
-                  _context4.next = 45;
+                  _context4.next = 46;
                   break;
                 }
 
@@ -12412,27 +12501,27 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 45:
+              case 46:
                 resul = _this4.valJef1();
 
                 if (!resul) {
-                  _context4.next = 50;
+                  _context4.next = 51;
                   break;
                 }
 
                 bandera = true;
-                _context4.next = 51;
+                _context4.next = 52;
                 break;
 
-              case 50:
+              case 51:
                 return _context4.abrupt("return", false);
 
-              case 51:
+              case 52:
                 _this4.vectorAyuda = [];
-                _context4.next = 54;
+                _context4.next = 55;
                 return _this4.valJef2();
 
-              case 54:
+              case 55:
                 if (_this4.vectorAyuda.length > 0) {
                   for (i = 0; i < _this4.vectorAyuda.length; i++) {
                     if (_this4.vectorAyuda[i].error === "ERROR1") {
@@ -12448,32 +12537,32 @@ var entero = function entero(value) {
                   bandera = true;
                 }
 
-              case 55:
+              case 56:
                 if (!(_this4.datos.length > 0)) {
-                  _context4.next = 66;
+                  _context4.next = 67;
                   break;
                 }
 
                 _resul = _this4.valInt1();
 
                 if (!_resul) {
-                  _context4.next = 61;
+                  _context4.next = 62;
                   break;
                 }
 
                 bandera = true;
-                _context4.next = 62;
+                _context4.next = 63;
                 break;
 
-              case 61:
+              case 62:
                 return _context4.abrupt("return", false);
 
-              case 62:
+              case 63:
                 _this4.vectorAyuda = [];
-                _context4.next = 65;
+                _context4.next = 66;
                 return _this4.valInt2();
 
-              case 65:
+              case 66:
                 if (_this4.vectorAyuda.length > 0) {
                   for (_i = 0; _i < _this4.vectorAyuda.length; _i++) {
                     if (_this4.vectorAyuda[_i].error === "ERROR1") {
@@ -12489,47 +12578,47 @@ var entero = function entero(value) {
                   bandera = true;
                 }
 
-              case 66:
+              case 67:
                 if (!(_this4.factores.length > 0)) {
-                  _context4.next = 73;
+                  _context4.next = 74;
                   break;
                 }
 
                 _resul2 = _this4.valFactores();
 
                 if (!_resul2) {
-                  _context4.next = 72;
+                  _context4.next = 73;
                   break;
                 }
 
                 bandera = true;
-                _context4.next = 73;
+                _context4.next = 74;
                 break;
 
-              case 72:
+              case 73:
                 return _context4.abrupt("return", false);
 
-              case 73:
+              case 74:
                 if (!(_this4.afectacion.length > 0)) {
-                  _context4.next = 80;
+                  _context4.next = 81;
                   break;
                 }
 
                 _resul3 = _this4.valAfectacion();
 
                 if (!_resul3) {
-                  _context4.next = 79;
+                  _context4.next = 80;
                   break;
                 }
 
                 bandera = true;
-                _context4.next = 80;
+                _context4.next = 81;
                 break;
 
-              case 79:
+              case 80:
                 return _context4.abrupt("return", false);
 
-              case 80:
+              case 81:
                 //VALIDAR LA TABLA AFECTACION
                 //GUARDAR DATOS
                 _this4.valGIden = false;
@@ -12544,8 +12633,8 @@ var entero = function entero(value) {
                   opcion: "GUARDAR",
                   opc: "GUAINDEN"
                 };
-                _context4.prev = 82;
-                _context4.next = 85;
+                _context4.prev = 83;
+                _context4.next = 86;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GIDEN = true;
@@ -12561,49 +12650,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 85:
-                _context4.next = 98;
+              case 86:
+                _context4.next = 99;
                 break;
 
-              case 87:
-                _context4.prev = 87;
-                _context4.t0 = _context4["catch"](82);
+              case 88:
+                _context4.prev = 88;
+                _context4.t0 = _context4["catch"](83);
                 _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 419 ? 92 : _context4.t1 === 422 ? 94 : 96;
+                _context4.next = _context4.t1 === 419 ? 93 : _context4.t1 === 422 ? 95 : 97;
                 break;
 
-              case 92:
+              case 93:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 98);
+                return _context4.abrupt("break", 99);
 
-              case 94:
+              case 95:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 98);
+                return _context4.abrupt("break", 99);
 
-              case 96:
+              case 97:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 98);
+                return _context4.abrupt("break", 99);
 
-              case 98:
-                _context4.next = 101;
+              case 99:
+                _context4.next = 102;
                 break;
-
-              case 100:
-                bandera = true;
 
               case 101:
+                bandera = true;
+
+              case 102:
                 if (!(actual === "tabVivienda")) {
-                  _context4.next = 138;
+                  _context4.next = 139;
                   break;
                 }
 
                 bandera = true;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 106;
+                  _context4.next = 107;
                   break;
                 }
 
@@ -12611,13 +12700,13 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 106:
+              case 107:
                 _this4.$v.$touch();
 
                 isInvalid = _this4.$v.$invalid;
 
                 if (!isInvalid) {
-                  _context4.next = 113;
+                  _context4.next = 114;
                   break;
                 }
 
@@ -12625,14 +12714,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 113:
+              case 114:
                 if (!(_this4.GVIVI === false && _this4.GIDEN === true && _this4.IDHOGAR !== 0)) {
-                  _context4.next = 137;
+                  _context4.next = 138;
                   break;
                 }
 
                 if (!(_this4.estratificacion.length <= 0)) {
-                  _context4.next = 117;
+                  _context4.next = 118;
                   break;
                 }
 
@@ -12640,7 +12729,7 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return");
 
-              case 117:
+              case 118:
                 //GUARDAR DATOS
                 _this4.valGVivi = false;
                 _parametros = {
@@ -12652,8 +12741,8 @@ var entero = function entero(value) {
                   opc: "GUAVIVI",
                   IDHOGAR: _this4.IDHOGAR
                 };
-                _context4.prev = 119;
-                _context4.next = 122;
+                _context4.prev = 120;
+                _context4.next = 123;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GVIVI = true;
@@ -12669,49 +12758,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 122:
-                _context4.next = 135;
+              case 123:
+                _context4.next = 136;
                 break;
 
-              case 124:
-                _context4.prev = 124;
-                _context4.t2 = _context4["catch"](119);
+              case 125:
+                _context4.prev = 125;
+                _context4.t2 = _context4["catch"](120);
                 _context4.t3 = _context4.t2.response.status;
-                _context4.next = _context4.t3 === 419 ? 129 : _context4.t3 === 422 ? 131 : 133;
+                _context4.next = _context4.t3 === 419 ? 130 : _context4.t3 === 422 ? 132 : 134;
                 break;
 
-              case 129:
+              case 130:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 135);
+                return _context4.abrupt("break", 136);
 
-              case 131:
+              case 132:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 135);
+                return _context4.abrupt("break", 136);
 
-              case 133:
+              case 134:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 135);
+                return _context4.abrupt("break", 136);
 
-              case 135:
-                _context4.next = 138;
+              case 136:
+                _context4.next = 139;
                 break;
-
-              case 137:
-                bandera = true;
 
               case 138:
+                bandera = true;
+
+              case 139:
                 if (!(actual === "cartxciclo")) {
-                  _context4.next = 213;
+                  _context4.next = 214;
                   break;
                 }
 
                 bandera = true;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 143;
+                  _context4.next = 144;
                   break;
                 }
 
@@ -12719,9 +12808,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 143:
+              case 144:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 146;
+                  _context4.next = 147;
                   break;
                 }
 
@@ -12729,121 +12818,121 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 146:
+              case 147:
                 if (!(_this4.GCARXCI === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 212;
+                  _context4.next = 213;
                   break;
                 }
 
                 auxi = false; //VALIDAR LA TABLA MENORES DE 1 AÑO
 
                 if (!(_this4.Men1A.length > 0)) {
-                  _context4.next = 156;
+                  _context4.next = 157;
                   break;
                 }
 
                 _resul4 = _this4.valMen1();
 
                 if (!_resul4) {
-                  _context4.next = 155;
+                  _context4.next = 156;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 156;
+                _context4.next = 157;
                 break;
 
-              case 155:
+              case 156:
                 return _context4.abrupt("return", false);
 
-              case 156:
+              case 157:
                 if (!(_this4.De1A5.length > 0)) {
-                  _context4.next = 164;
+                  _context4.next = 165;
                   break;
                 }
 
                 _resul5 = _this4.valDe1A5();
 
                 if (!_resul5) {
-                  _context4.next = 163;
+                  _context4.next = 164;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 164;
+                _context4.next = 165;
                 break;
 
-              case 163:
+              case 164:
                 return _context4.abrupt("return", false);
 
-              case 164:
+              case 165:
                 if (!(_this4.De6A11.length > 0)) {
-                  _context4.next = 172;
+                  _context4.next = 173;
                   break;
                 }
 
                 _resul6 = _this4.valDe6A11();
 
                 if (!_resul6) {
-                  _context4.next = 171;
+                  _context4.next = 172;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 172;
+                _context4.next = 173;
                 break;
 
-              case 171:
+              case 172:
                 return _context4.abrupt("return", false);
 
-              case 172:
+              case 173:
                 if (!(_this4.De10A59.length > 0)) {
-                  _context4.next = 180;
+                  _context4.next = 181;
                   break;
                 }
 
                 _resul7 = _this4.valDe10A59();
 
                 if (!_resul7) {
-                  _context4.next = 179;
+                  _context4.next = 180;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 180;
+                _context4.next = 181;
                 break;
 
-              case 179:
+              case 180:
                 return _context4.abrupt("return", false);
 
-              case 180:
+              case 181:
                 if (!(_this4.ParPost.length > 0)) {
-                  _context4.next = 188;
+                  _context4.next = 189;
                   break;
                 }
 
                 _resul8 = _this4.valParPost();
 
                 if (!_resul8) {
-                  _context4.next = 187;
+                  _context4.next = 188;
                   break;
                 }
 
                 bandera = true;
                 auxi = true;
-                _context4.next = 188;
+                _context4.next = 189;
                 break;
 
-              case 187:
+              case 188:
                 return _context4.abrupt("return", false);
 
-              case 188:
+              case 189:
                 if (!auxi) {
-                  _context4.next = 209;
+                  _context4.next = 210;
                   break;
                 }
 
@@ -12860,8 +12949,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGCart = false;
-                _context4.prev = 191;
-                _context4.next = 194;
+                _context4.prev = 192;
+                _context4.next = 195;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GCARXCI = true;
@@ -12877,49 +12966,49 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 194:
-                _context4.next = 207;
+              case 195:
+                _context4.next = 208;
                 break;
 
-              case 196:
-                _context4.prev = 196;
-                _context4.t4 = _context4["catch"](191);
+              case 197:
+                _context4.prev = 197;
+                _context4.t4 = _context4["catch"](192);
                 _context4.t5 = _context4.t4.response.status;
-                _context4.next = _context4.t5 === 419 ? 201 : _context4.t5 === 422 ? 203 : 205;
+                _context4.next = _context4.t5 === 419 ? 202 : _context4.t5 === 422 ? 204 : 206;
                 break;
 
-              case 201:
+              case 202:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 207);
+                return _context4.abrupt("break", 208);
 
-              case 203:
+              case 204:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 207);
+                return _context4.abrupt("break", 208);
 
-              case 205:
+              case 206:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 207);
+                return _context4.abrupt("break", 208);
 
-              case 207:
-                _context4.next = 210;
+              case 208:
+                _context4.next = 211;
                 break;
-
-              case 209:
-                bandera = true;
 
               case 210:
-                _context4.next = 213;
-                break;
-
-              case 212:
                 bandera = true;
 
+              case 211:
+                _context4.next = 214;
+                break;
+
               case 213:
+                bandera = true;
+
+              case 214:
                 if (!(actual === "adolescente")) {
-                  _context4.next = 276;
+                  _context4.next = 277;
                   break;
                 }
 
@@ -12927,7 +13016,7 @@ var entero = function entero(value) {
                 _auxi = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 219;
+                  _context4.next = 220;
                   break;
                 }
 
@@ -12935,9 +13024,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 219:
+              case 220:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 222;
+                  _context4.next = 223;
                   break;
                 }
 
@@ -12945,14 +13034,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 222:
+              case 223:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 226;
+                  _context4.next = 227;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 226;
+                  _context4.next = 227;
                   break;
                 }
 
@@ -12960,77 +13049,77 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 226:
+              case 227:
                 if (!(_this4.GADOLE === false && _this4.GIDEN === true && _this4.GVIVI === true)) {
-                  _context4.next = 275;
+                  _context4.next = 276;
                   break;
                 }
 
                 if (!(_this4.De12A17.length > 0)) {
-                  _context4.next = 235;
+                  _context4.next = 236;
                   break;
                 }
 
                 _resul9 = _this4.valDe12A17();
 
                 if (!_resul9) {
-                  _context4.next = 234;
+                  _context4.next = 235;
                   break;
                 }
 
                 bandera = true;
                 _auxi = true;
-                _context4.next = 235;
+                _context4.next = 236;
                 break;
 
-              case 234:
+              case 235:
                 return _context4.abrupt("return", false);
 
-              case 235:
+              case 236:
                 if (!(_this4.De18A28.length > 0)) {
-                  _context4.next = 243;
+                  _context4.next = 244;
                   break;
                 }
 
                 _resul10 = _this4.valDe18A28();
 
                 if (!_resul10) {
-                  _context4.next = 242;
+                  _context4.next = 243;
                   break;
                 }
 
                 bandera = true;
                 _auxi = true;
-                _context4.next = 243;
+                _context4.next = 244;
                 break;
 
-              case 242:
+              case 243:
                 return _context4.abrupt("return", false);
 
-              case 243:
+              case 244:
                 if (!(_this4.De29A59.length > 0)) {
-                  _context4.next = 251;
+                  _context4.next = 252;
                   break;
                 }
 
                 _resul11 = _this4.valDe29A59();
 
                 if (!_resul11) {
-                  _context4.next = 250;
+                  _context4.next = 251;
                   break;
                 }
 
                 bandera = true;
                 _auxi = true;
-                _context4.next = 251;
+                _context4.next = 252;
                 break;
 
-              case 250:
+              case 251:
                 return _context4.abrupt("return", false);
 
-              case 251:
+              case 252:
                 if (!_auxi) {
-                  _context4.next = 272;
+                  _context4.next = 273;
                   break;
                 }
 
@@ -13045,8 +13134,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGAdole = false;
-                _context4.prev = 254;
-                _context4.next = 257;
+                _context4.prev = 255;
+                _context4.next = 258;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros3).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.GADOLE = true;
@@ -13062,56 +13151,56 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 257:
-                _context4.next = 270;
+              case 258:
+                _context4.next = 271;
                 break;
 
-              case 259:
-                _context4.prev = 259;
-                _context4.t6 = _context4["catch"](254);
+              case 260:
+                _context4.prev = 260;
+                _context4.t6 = _context4["catch"](255);
                 _context4.t7 = _context4.t6.response.status;
-                _context4.next = _context4.t7 === 419 ? 264 : _context4.t7 === 422 ? 266 : 268;
+                _context4.next = _context4.t7 === 419 ? 265 : _context4.t7 === 422 ? 267 : 269;
                 break;
 
-              case 264:
+              case 265:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 270);
+                return _context4.abrupt("break", 271);
 
-              case 266:
+              case 267:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 270);
+                return _context4.abrupt("break", 271);
 
-              case 268:
+              case 269:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 270);
+                return _context4.abrupt("break", 271);
 
-              case 270:
-                _context4.next = 273;
+              case 271:
+                _context4.next = 274;
                 break;
-
-              case 272:
-                bandera = true;
 
               case 273:
-                _context4.next = 276;
-                break;
-
-              case 275:
                 bandera = true;
 
+              case 274:
+                _context4.next = 277;
+                break;
+
               case 276:
+                bandera = true;
+
+              case 277:
                 if (!(actual === "adultomayor")) {
-                  _context4.next = 342;
+                  _context4.next = 343;
                   break;
                 }
 
                 _auxi2 = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 281;
+                  _context4.next = 282;
                   break;
                 }
 
@@ -13119,9 +13208,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 281:
+              case 282:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 284;
+                  _context4.next = 285;
                   break;
                 }
 
@@ -13129,14 +13218,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 284:
+              case 285:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 288;
+                  _context4.next = 289;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 288;
+                  _context4.next = 289;
                   break;
                 }
 
@@ -13144,14 +13233,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 288:
+              case 289:
                 if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 292;
+                  _context4.next = 293;
                   break;
                 }
 
                 if (!(_this4.GADOLE === false)) {
-                  _context4.next = 292;
+                  _context4.next = 293;
                   break;
                 }
 
@@ -13159,77 +13248,77 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 292:
+              case 293:
                 if (!(_this4.GADULT === false)) {
-                  _context4.next = 341;
+                  _context4.next = 342;
                   break;
                 }
 
                 if (!(_this4.De60.length > 0)) {
-                  _context4.next = 301;
+                  _context4.next = 302;
                   break;
                 }
 
                 _resul12 = _this4.valDe60();
 
                 if (!_resul12) {
-                  _context4.next = 300;
+                  _context4.next = 301;
                   break;
                 }
 
                 bandera = true;
                 _auxi2 = true;
-                _context4.next = 301;
+                _context4.next = 302;
                 break;
 
-              case 300:
+              case 301:
                 return _context4.abrupt("return", false);
 
-              case 301:
+              case 302:
                 if (!(_this4.EnCro.length > 0)) {
-                  _context4.next = 309;
+                  _context4.next = 310;
                   break;
                 }
 
                 _resul13 = _this4.valEnCro();
 
                 if (!_resul13) {
-                  _context4.next = 308;
+                  _context4.next = 309;
                   break;
                 }
 
                 bandera = true;
                 _auxi2 = true;
-                _context4.next = 309;
+                _context4.next = 310;
                 break;
 
-              case 308:
+              case 309:
                 return _context4.abrupt("return", false);
 
-              case 309:
+              case 310:
                 if (!(_this4.EnInf.length > 0)) {
-                  _context4.next = 317;
+                  _context4.next = 318;
                   break;
                 }
 
                 _resul14 = _this4.valEnInf();
 
                 if (!_resul14) {
-                  _context4.next = 316;
+                  _context4.next = 317;
                   break;
                 }
 
                 bandera = true;
                 _auxi2 = true;
-                _context4.next = 317;
+                _context4.next = 318;
                 break;
 
-              case 316:
+              case 317:
                 return _context4.abrupt("return", false);
 
-              case 317:
+              case 318:
                 if (!_auxi2) {
-                  _context4.next = 338;
+                  _context4.next = 339;
                   break;
                 }
 
@@ -13244,8 +13333,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGAdul = false;
-                _context4.prev = 320;
-                _context4.next = 323;
+                _context4.prev = 321;
+                _context4.next = 324;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros4).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     console.log("SI GUARDE");
@@ -13262,47 +13351,47 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 323:
-                _context4.next = 336;
+              case 324:
+                _context4.next = 337;
                 break;
 
-              case 325:
-                _context4.prev = 325;
-                _context4.t8 = _context4["catch"](320);
+              case 326:
+                _context4.prev = 326;
+                _context4.t8 = _context4["catch"](321);
                 _context4.t9 = _context4.t8.response.status;
-                _context4.next = _context4.t9 === 419 ? 330 : _context4.t9 === 422 ? 332 : 334;
+                _context4.next = _context4.t9 === 419 ? 331 : _context4.t9 === 422 ? 333 : 335;
                 break;
 
-              case 330:
+              case 331:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 336);
+                return _context4.abrupt("break", 337);
 
-              case 332:
+              case 333:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 336);
+                return _context4.abrupt("break", 337);
 
-              case 334:
+              case 335:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 336);
+                return _context4.abrupt("break", 337);
 
-              case 336:
-                _context4.next = 339;
+              case 337:
+                _context4.next = 340;
                 break;
-
-              case 338:
-                bandera = true;
 
               case 339:
-                _context4.next = 342;
-                break;
-
-              case 341:
                 bandera = true;
 
+              case 340:
+                _context4.next = 343;
+                break;
+
               case 342:
+                bandera = true;
+
+              case 343:
                 if (!(actual === "migrante")) {
                   _context4.next = 400;
                   break;
@@ -13311,7 +13400,7 @@ var entero = function entero(value) {
                 _auxi3 = false;
 
                 if (!(_this4.GIDEN === false)) {
-                  _context4.next = 347;
+                  _context4.next = 348;
                   break;
                 }
 
@@ -13319,9 +13408,9 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 347:
+              case 348:
                 if (!(_this4.GVIVI === false)) {
-                  _context4.next = 350;
+                  _context4.next = 351;
                   break;
                 }
 
@@ -13329,14 +13418,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 350:
+              case 351:
                 if (!(_this4.Men1A.length > 0 || _this4.De1A5.length > 0 || _this4.De6A11.length > 0 || _this4.De10A59.length > 0 || _this4.ParPost.length > 0)) {
-                  _context4.next = 354;
+                  _context4.next = 355;
                   break;
                 }
 
                 if (!(_this4.GCARXCI === false)) {
-                  _context4.next = 354;
+                  _context4.next = 355;
                   break;
                 }
 
@@ -13344,14 +13433,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 354:
+              case 355:
                 if (!(_this4.De12A17.length > 0 || _this4.De18A28.length > 0 || _this4.De29A59.length > 0)) {
-                  _context4.next = 358;
+                  _context4.next = 359;
                   break;
                 }
 
                 if (!(_this4.GADOLE === false)) {
-                  _context4.next = 358;
+                  _context4.next = 359;
                   break;
                 }
 
@@ -13359,14 +13448,14 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 358:
+              case 359:
                 if (!(_this4.De60.length > 0 || _this4.EnCro.length > 0 || _this4.EnInf.length > 0)) {
-                  _context4.next = 362;
+                  _context4.next = 363;
                   break;
                 }
 
                 if (!(_this4.GADULT === false)) {
-                  _context4.next = 362;
+                  _context4.next = 363;
                   break;
                 }
 
@@ -13374,35 +13463,35 @@ var entero = function entero(value) {
 
                 return _context4.abrupt("return", false);
 
-              case 362:
+              case 363:
                 if (!(_this4.GMIGRA === false)) {
-                  _context4.next = 397;
+                  _context4.next = 398;
                   break;
                 }
 
                 if (!(_this4.Migra.length > 0)) {
-                  _context4.next = 371;
+                  _context4.next = 372;
                   break;
                 }
 
                 _resul15 = _this4.valMigra();
 
                 if (!_resul15) {
-                  _context4.next = 370;
+                  _context4.next = 371;
                   break;
                 }
 
                 bandera = true;
                 _auxi3 = true;
-                _context4.next = 371;
+                _context4.next = 372;
                 break;
 
-              case 370:
+              case 371:
                 return _context4.abrupt("return", false);
 
-              case 371:
+              case 372:
                 if (!_auxi3) {
-                  _context4.next = 392;
+                  _context4.next = 393;
                   break;
                 }
 
@@ -13414,8 +13503,8 @@ var entero = function entero(value) {
                   IDHOGAR: _this4.IDHOGAR
                 };
                 _this4.valGMig = false;
-                _context4.prev = 374;
-                _context4.next = 377;
+                _context4.prev = 375;
+                _context4.next = 378;
                 return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros5).then(function (respuesta) {
                   if (respuesta.data.OPC == "SI") {
                     _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
@@ -13433,53 +13522,51 @@ var entero = function entero(value) {
                   return;
                 });
 
-              case 377:
-                _context4.next = 390;
+              case 378:
+                _context4.next = 391;
                 break;
 
-              case 379:
-                _context4.prev = 379;
-                _context4.t10 = _context4["catch"](374);
+              case 380:
+                _context4.prev = 380;
+                _context4.t10 = _context4["catch"](375);
                 _context4.t11 = _context4.t10.response.status;
-                _context4.next = _context4.t11 === 419 ? 384 : _context4.t11 === 422 ? 386 : 388;
+                _context4.next = _context4.t11 === 419 ? 385 : _context4.t11 === 422 ? 387 : 389;
                 break;
 
-              case 384:
+              case 385:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 390);
+                return _context4.abrupt("break", 391);
 
-              case 386:
+              case 387:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 390);
+                return _context4.abrupt("break", 391);
 
-              case 388:
+              case 389:
                 _this4.$swal("Error...!", "Ocurrio un error!", "error");
 
-                return _context4.abrupt("break", 390);
+                return _context4.abrupt("break", 391);
 
-              case 390:
-                _context4.next = 395;
+              case 391:
+                _context4.next = 396;
                 break;
 
-              case 392:
+              case 393:
                 bandera = true;
 
                 _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
 
                 _this4.$router.push("/gestion");
 
-              case 395:
+              case 396:
                 _context4.next = 400;
                 break;
 
-              case 397:
+              case 398:
                 _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
 
-                _this4.SAPU = false;
-
-                _this4.$router.push("/gestion");
+                _this4.SAPU = false; // this.$router.push("/gestion");          
 
               case 400:
                 if (bandera) {
@@ -13492,8 +13579,31 @@ var entero = function entero(value) {
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[82, 87], [119, 124], [191, 196], [254, 259], [320, 325], [374, 379]]);
+        }, _callee4, null, [[83, 88], [120, 125], [192, 197], [255, 260], [321, 326], [375, 380]]);
       }))();
+    },
+    seleccionarOpcion: function seleccionarOpcion(opcion) {
+      if (opcion === "unidades") {
+        this.$router.push({
+          name: "Unidades",
+          params: {
+            IDHOGAR: this.IDHOGAR
+          }
+        });
+      }
+
+      if (opcion === "establecimiento") {
+        this.$router.push({
+          name: "Establecimientos",
+          params: {
+            IDHOGAR: this.IDHOGAR
+          }
+        });
+      }
+
+      if (opcion === "salir") {
+        this.$router.push("/gestion");
+      }
     },
     //VALIDACIONES
     valJef1: function valJef1() {
@@ -17855,7 +17965,7 @@ var entero = function entero(value) {
         texto_cuantos_celulares: this.showText(this.estratificacionData.cuantos_celulares, this.opciones1),
         texto_cuantos_tv_color: this.showText(this.estratificacionData.cuantos_tv_color, this.opciones2),
         texto_cuantos_vehiculos: this.showText(this.estratificacionData.cuantos_vehiculos, this.opciones3),
-        texto_nivel_instruccion: this.showText(this.estratificacionData.nivel_instruccion, this.opciones4),
+        texto_nivel_instruccion: this.showText(this.estratificacionData.nivel_instruccion, this.escolaridad_options),
         texto_ingresos_zona_rural: this.showText(this.estratificacionData.ingresos_zona_rural, this.opciones5),
         texto_ingresos_ciudad: this.showText(this.estratificacionData.ingresos_ciudad, this.opciones6)
       });
@@ -18592,24 +18702,39 @@ var entero = function entero(value) {
         var fecha = moment.utc(item.fecha_ultima, "YYYY-MM-DD");
         var suma = fecha.add(9, "months");
         suma = suma.add(7, "days");
-        item.fecha_probable = suma.format("YYYY-MM-DD");
-        var hoy = moment();
-        var hoyFormato = moment().format("YYYY-MM-DD");
-        var edad = 0;
-        edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
+        item.fecha_probable = suma.format("YYYY-MM-DD"); // let hoy = moment();
+        // let hoyFormato = moment().format("YYYY-MM-DD");
+        // let edad = 0;
+        // edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
+        // let dife = this.datediff(hoyFormato,item.fecha_ultima);
+        // let diaSemanas=0;
+        // if(dife[1]!=0){
+        //   diaSemanas=Math.ceil(dife[2]/7);            
+        // }
+        // let mesTrimestre = Math.floor(dife[1]/3);
+        // let valor = dife[1] * 4; 
+        // item.semanas_ges = valor+diaSemanas+mesTrimestre;          
 
-        var dife = this.datediff(hoyFormato, item.fecha_ultima);
-        var diaSemanas = 0;
+        var fecha2 = item.fecha_ultima.split("-");
+        var y2 = Number(fecha2[0]);
+        var m2 = Number(fecha2[1]);
+        var d2 = Number(fecha2[2]);
+        var fecha_inicio = new Date();
+        var lleva = new Date();
+        var hoy = new Date();
+        var dia_parto = new Date();
+        var falta = new Date();
+        var fecha_dada = new Date(y2, m2 - 1, d2);
+        fecha_inicio.setTime(fecha_dada.getTime());
+        dia_parto.setTime(fecha_inicio.getTime() + 280 * 86400000); //Calculamos el tiempo que lleva
 
-        if (dife[1] != 0) {
-          diaSemanas = Math.ceil(dife[2] / 7);
-        }
-
-        var mesTrimestre = Math.floor(dife[1] / 3);
-        var valor = dife[1] * 4;
-        item.semanas_ges = valor + diaSemanas + mesTrimestre;
-        console.log(diaSemanas);
-        console.log(dife);
+        lleva.setTime(hoy.getTime() - fecha_inicio.getTime());
+        var llevasemanas = parseInt(lleva.getTime() / 86400000 / 7);
+        var llevadias = Math.floor(lleva.getTime() / 86400000 % 7);
+        falta.setTime(dia_parto.getTime() - hoy.getTime());
+        var faltasemanas = parseInt(falta.getTime() / 86400000 / 7);
+        var faltadias = parseInt(falta.getTime() / 86400000 % 7);
+        item.semanas_ges = llevasemanas + " semanas y " + llevadias + " dias";
       }
 
       if (opcion === "fecha_probable") {
@@ -21144,28 +21269,54 @@ var entero = function entero(value) {
     datediff: function datediff(date1, date2) {
       var fecha1 = date1.split("-");
       var fecha2 = date2.split("-");
-      var y1 = fecha1[0],
-          m1 = fecha1[1],
-          d1 = fecha1[2],
-          y2 = fecha2[0],
-          m2 = fecha2[1],
-          d2 = fecha2[2];
+      var y1 = Number(fecha1[0]),
+          m1 = Number(fecha1[1]),
+          d1 = Number(fecha1[2]),
+          y2 = Number(fecha2[0]),
+          m2 = Number(fecha2[1]),
+          d2 = Number(fecha2[2]);
 
       if (d1 < d2) {
         m1--;
-        d1 += this.DaysInMonth(y2, m2);
-        console.log(d1);
+        console.log("daysenmonth: " + this.DaysInMonth(y2, m2));
+        d1 = d1 + this.DaysInMonth(y2, m2);
       }
 
       if (m1 < m2) {
         y1--;
-        m1 += 12;
+        m1 = m1 + 12;
       }
 
-      return [y1 - y2, m1 - m2, d1 - d2];
+      var ano = y1 - y2;
+      var mes = m1 - m2;
+      var dia = d1 - d2;
+
+      if (ano < 0) {
+        ano = ano * -1;
+      }
+
+      if (mes < 0) {
+        mes = mes * -1;
+      }
+
+      if (dia < 0) {
+        dia = dia * -1;
+      }
+
+      return [ano, mes, dia];
     },
     DaysInMonth: function DaysInMonth(Y, M) {
       return new Date(Y, M, 1, 12).getDate();
+    },
+    cambiarNivel: function cambiarNivel(identi) {
+      for (var i = 0; i < this.datosJefe.length; i++) {
+        if (this.datosJefe[i].identificacion === identi) {
+          this.estratificacionData.nivel_instruccion = this.datosJefe[i].nivel_escolaridad;
+          return;
+        }
+      }
+
+      return "";
     }
   }
 });
@@ -21184,7 +21335,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n.color-datepicker {\n  background: #f2f2f2;\n  border: 1px solid #ddd;\n  padding: 0em 1em 1em;\n  margin-bottom: 2em;\n}\n", ""]);
+exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n.color-datepicker {\n  background: #f2f2f2;\n  border: 1px solid #ddd;\n  padding: 0em 1em 1em;\n  margin-bottom: 2em;\n}\n.modal-sm {\n  max-width: 60%;\n}  \n", ""]);
 
 // exports
 
@@ -35147,332 +35298,248 @@ var render = function() {
                   _vm._v(" "),
                   _vm._m(16),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Iluminación Adecuada:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.iluminacion_adecuada.$error,
-                              "is-valid": !_vm.$v.viviendaData
-                                .iluminacion_adecuada.$invalid
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group row",
+                      staticStyle: { display: "none" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Iluminación Adecuada:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.iluminacion_adecuada,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "iluminacion_adecuada",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.iluminacion_adecuada"
+                              }
                             },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.iluminacion_adecuada.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.iluminacion_adecuada,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.iluminacion_adecuada.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Iluminación Adecuada Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.iluminacion_adecuada.required
-                            ? _c("span", [
-                                _vm._v("La Iluminación Adecuada es obligatoria")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Techo Adecuado:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.techo_adecuado.$error,
-                              "is-valid": !_vm.$v.viviendaData.techo_adecuado
-                                .$invalid
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Techo Adecuado:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.techo_adecuado,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "techo_adecuado",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.techo_adecuado"
+                              }
                             },
-                            model: {
-                              value: _vm.$v.viviendaData.techo_adecuado.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.techo_adecuado,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.techo_adecuado.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Techo Adecuado Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.techo_adecuado.required
-                            ? _c("span", [
-                                _vm._v("El Techo Adecuado es obligatorio")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Ventilación Adecuada:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.ventilacion_adecuada.$error,
-                              "is-valid": !_vm.$v.viviendaData
-                                .ventilacion_adecuada.$invalid
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Ventilación Adecuada:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.ventilacion_adecuada,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "ventilacion_adecuada",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.ventilacion_adecuada"
+                              }
                             },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.ventilacion_adecuada.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.ventilacion_adecuada,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.ventilacion_adecuada.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Ventilación Adecuada Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.ventilacion_adecuada.required
-                            ? _c("span", [
-                                _vm._v("La Ventilación Adecuada es obligatoria")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Pisos Adecuados:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.pisos_adecuado.$error,
-                              "is-valid": !_vm.$v.viviendaData.pisos_adecuado
-                                .$invalid
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group row",
+                      staticStyle: { display: "none" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Pisos Adecuados:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.pisos_adecuado,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "pisos_adecuado",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.pisos_adecuado"
+                              }
                             },
-                            model: {
-                              value: _vm.$v.viviendaData.pisos_adecuado.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.pisos_adecuado,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.pisos_adecuado.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Pisos Adecuados Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.pisos_adecuado.required
-                            ? _c("span", [
-                                _vm._v("El Pisos Adecuados es obligatorio")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Paredes Adecuadas:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.paredes_adecuadas.$error,
-                              "is-valid": !_vm.$v.viviendaData.paredes_adecuadas
-                                .$invalid
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Paredes Adecuadas:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.paredes_adecuadas,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "paredes_adecuadas",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.paredes_adecuadas"
+                              }
                             },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.paredes_adecuadas.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.paredes_adecuadas,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.paredes_adecuadas.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Paredes Adecuadas Validas")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.paredes_adecuadas.required
-                            ? _c("span", [
-                                _vm._v("Las Paredes Adecuadas es obligatoria")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _vm._m(17),
                   _vm._v(" "),
@@ -36783,7 +36850,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Residuos Aprovechables:")]),
+                        _c("label", [_vm._v("Residuos No Aprovechables:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
@@ -36832,14 +36899,16 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Residuos Aprovechables Valido")
+                          _vm._v("Residuos No Aprovechables Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
                           !_vm.$v.viviendaData.residuos_no_aprovechables
                             .required
                             ? _c("span", [
-                                _vm._v("Residuos Aprovechables es obligatorio")
+                                _vm._v(
+                                  "Residuos No Aprovechables es obligatorio"
+                                )
                               ])
                             : _vm._e()
                         ])
@@ -38397,6 +38466,128 @@ var render = function() {
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
                       "div",
+                      { staticClass: "col-lg-6" },
+                      [
+                        _c("label", [_vm._v("Jefe del hogar:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.estratificacionData.id_jefe == "0"
+                                ? ""
+                                : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.cambiarNivel(
+                                  _vm.estratificacionData.id_jefe
+                                )
+                              }
+                            },
+                            model: {
+                              value: _vm.estratificacionData.id_jefe,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.estratificacionData,
+                                  "id_jefe",
+                                  $$v
+                                )
+                              },
+                              expression: "estratificacionData.id_jefe"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.datosJefe, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.identificacion }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(item.pnom.toUpperCase()) +
+                                      " " +
+                                      _vm._s(item.snom.toUpperCase()) +
+                                      " " +
+                                      _vm._s(item.pape.toUpperCase()) +
+                                      " " +
+                                      _vm._s(item.sape.toUpperCase())
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-6" },
+                      [
+                        _c("label", [
+                          _vm._v(
+                            "¿Cual es el nivel de Instrucción del jefe del Hogar?:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.estratificacionData.nivel_instruccion == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.estratificacionData.nivel_instruccion,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.estratificacionData,
+                                  "nivel_instruccion",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression:
+                                "estratificacionData.nivel_instruccion"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.escolaridad_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
                       { staticClass: "col-lg-4" },
                       [
                         _c("label", [
@@ -38757,60 +38948,6 @@ var render = function() {
                         )
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6" },
-                      [
-                        _c("label", [
-                          _vm._v(
-                            "¿Cual es el nivel de Instrucción del jefe del Hogar?:"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class:
-                              _vm.estratificacionData.nivel_instruccion == ""
-                                ? ""
-                                : "is-valid",
-                            model: {
-                              value: _vm.estratificacionData.nivel_instruccion,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.estratificacionData,
-                                  "nivel_instruccion",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "estratificacionData.nivel_instruccion"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.opciones4, function(item) {
-                              return _c(
-                                "option",
-                                {
-                                  key: item.value,
-                                  domProps: { value: item.value }
-                                },
-                                [_vm._v(_vm._s(item.texto))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
                     )
                   ]),
                   _vm._v(" "),
@@ -39003,65 +39140,6 @@ var render = function() {
                                   domProps: { value: item.value }
                                 },
                                 [_vm._v(_vm._s(item.texto))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-5" },
-                      [
-                        _c("label", [_vm._v("Jefe del hogar:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class:
-                              _vm.estratificacionData.id_jefe == "0"
-                                ? ""
-                                : "is-valid",
-                            model: {
-                              value: _vm.estratificacionData.id_jefe,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.estratificacionData,
-                                  "id_jefe",
-                                  $$v
-                                )
-                              },
-                              expression: "estratificacionData.id_jefe"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "0", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.datosJefe, function(item) {
-                              return _c(
-                                "option",
-                                {
-                                  key: item.value,
-                                  domProps: { value: item.identificacion }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(item.pnom.toUpperCase()) +
-                                      " " +
-                                      _vm._s(item.snom.toUpperCase()) +
-                                      " " +
-                                      _vm._s(item.pape.toUpperCase()) +
-                                      " " +
-                                      _vm._s(item.sape.toUpperCase())
-                                  )
-                                ]
                               )
                             })
                           ],
@@ -48232,7 +48310,7 @@ var render = function() {
                                           item.semanas_ges == ""
                                             ? "is-invalid"
                                             : "is-valid",
-                                        staticStyle: { width: "150px" },
+                                        staticStyle: { width: "250px" },
                                         attrs: { type: "text", readonly: "" },
                                         domProps: { value: item.semanas_ges },
                                         on: {
@@ -57584,6 +57662,315 @@ var render = function() {
                 ])
               ])
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              ref: "modalAbrir",
+              attrs: {
+                "hide-footer": "",
+                title: "Seleccione una opción",
+                size: "sm",
+                centered: "",
+                "header-bg-variant": "danger",
+                "header-text-variant": "light",
+                "no-close-on-backdrop": true
+              }
+            },
+            [
+              _c("div", { staticClass: "d-block" }, [
+                _c("div", { ref: "content" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+                    },
+                    [
+                      _c("div", { staticClass: "kt-portlet__body" }, [
+                        _c("div", { staticClass: "kt-section" }, [
+                          _c("div", { staticClass: "kt-section__content" }, [
+                            _c(
+                              "div",
+                              { staticClass: "row justify-content-center" },
+                              [
+                                _c("div", { staticClass: "col-md-4" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "kt-portlet kt-portlet--height-fluid",
+                                      attrs: {
+                                        "data-container": "body",
+                                        "data-toggle": "kt-popover",
+                                        "data-placement": "left",
+                                        "data-content": "",
+                                        "data-html": "true"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "kt-widget14",
+                                          staticStyle: {
+                                            cursor: "pointer",
+                                            width: "200px"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.seleccionarOpcion(
+                                                "establecimiento"
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__header"
+                                            },
+                                            [
+                                              _c(
+                                                "h3",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__title text-center font-weight-bold",
+                                                  staticStyle: {
+                                                    "font-size": "11px"
+                                                  }
+                                                },
+                                                [_vm._v("Establecimientos")]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "kt-widget14__content"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__chart text-center"
+                                                },
+                                                [
+                                                  _c("img", {
+                                                    staticStyle: {
+                                                      height: "100px",
+                                                      width: "140px",
+                                                      float: "right"
+                                                    },
+                                                    attrs: {
+                                                      src:
+                                                        _vm.$store.state
+                                                          .serverPath +
+                                                        "assets/iconos/zonas/viviendas.png"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-4" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "kt-portlet kt-portlet--height-fluid",
+                                      attrs: {
+                                        "data-container": "body",
+                                        "data-toggle": "kt-popover",
+                                        "data-placement": "left",
+                                        "data-content": "",
+                                        "data-html": "true"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "kt-widget14",
+                                          staticStyle: {
+                                            cursor: "pointer",
+                                            width: "200px"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.seleccionarOpcion(
+                                                "unidades"
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__header"
+                                            },
+                                            [
+                                              _c(
+                                                "h3",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__title text-center font-weight-bold",
+                                                  staticStyle: {
+                                                    "font-size": "11px"
+                                                  }
+                                                },
+                                                [_vm._v("Unidades Productivas")]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "kt-widget14__content"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__chart text-center"
+                                                },
+                                                [
+                                                  _c("img", {
+                                                    staticStyle: {
+                                                      height: "100px",
+                                                      width: "140px",
+                                                      float: "right"
+                                                    },
+                                                    attrs: {
+                                                      src:
+                                                        _vm.$store.state
+                                                          .serverPath +
+                                                        "assets/iconos/zonas/hogares.png"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-4" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "kt-portlet kt-portlet--height-fluid",
+                                      attrs: {
+                                        "data-container": "body",
+                                        "data-toggle": "kt-popover",
+                                        "data-placement": "left",
+                                        "data-content": "",
+                                        "data-html": "true"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass: "kt-widget14",
+                                          staticStyle: {
+                                            cursor: "pointer",
+                                            width: "200px"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.seleccionarOpcion(
+                                                "salir"
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "kt-widget14__header"
+                                            },
+                                            [
+                                              _c(
+                                                "h3",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__title text-center font-weight-bold",
+                                                  staticStyle: {
+                                                    "font-size": "11px"
+                                                  }
+                                                },
+                                                [_vm._v("Salir")]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "kt-widget14__content"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "kt-widget14__chart text-center"
+                                                },
+                                                [
+                                                  _c("img", {
+                                                    staticStyle: {
+                                                      height: "100px",
+                                                      width: "140px",
+                                                      float: "right"
+                                                    },
+                                                    attrs: {
+                                                      src:
+                                                        _vm.$store.state
+                                                          .serverPath +
+                                                        "assets/iconos/zonas/hogares.png"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]
           )
         ],
         1
@@ -58157,7 +58544,7 @@ var staticRenderFns = [
         "span",
         {
           staticClass: "kt-font-boldest",
-          staticStyle: { "font-size": "18px" }
+          staticStyle: { "font-size": "18px", display: "none" }
         },
         [_vm._v("Observe Si Hay")]
       )
@@ -58747,7 +59134,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Otras")]),
         _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-dark" }, [_vm._v("Desparacitado")]),
+        _c("td", { staticClass: "kt-bg-fill-dark" }, [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-dark" }, [
           _vm._v("Señales de Maltrato")
@@ -58972,7 +59359,7 @@ var staticRenderFns = [
           _vm._v("Sustancias Psicoactivas")
         ]),
         _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Desparacitado")]),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Enfermedad")]),
         _vm._v(" "),
@@ -59659,7 +60046,7 @@ var staticRenderFns = [
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("SPA")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [
-          _vm._v("Desparacitado")
+          _vm._v("Desparasitado")
         ]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("Empleo")]),
@@ -59931,7 +60318,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("SPA")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Desparacitado")]),
+        _c("td", [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", [_vm._v("Empleo")]),
         _vm._v(" "),
@@ -60219,7 +60606,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("SPA")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Desparacitado")]),
+        _c("td", [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", [_vm._v("Empleo")]),
         _vm._v(" "),

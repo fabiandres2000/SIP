@@ -253,11 +253,39 @@
                   ref="tipo"
                 >
                   <option value selected>Seleccione</option>
-                  <option value="1">Almacén</option>
-                  <option value="2">Mercados Municipales o comunales.</option>
-                  <option value="3">Tienda especializada.</option>
-                  <option value="4">Supermercados</option>
-                  <option value="5">Galería y centros comerciales.</option>
+                  <option value="1">Tienda de Ropa</option>
+                  <option value="2">Almacen</option>
+                  <option value="3">Centros de Belleza</option>
+                  <option value="4">Restaurantes</option>
+                  <option value="5">Talleres mecánicos</option>
+                  <option value="6">Café Internet</option>
+                  <option value="7">Comidas Rapidas</option>
+                  <option value="8">Panaderia/ pasteliría</option>
+                  <option value="9">Ferretería</option>
+                  <option value="10">Miscelania</option>
+                  <option value="11">Papelería  y Librerías</option>
+                  <option value="12">Cafetería</option>
+                  <option value="13">Frutería</option>
+                  <option value="14">Venta de loterías o juegos de azar</option>
+                  <option value="15">Carnicería</option>
+                  <option value="16">Asaderos</option>
+                  <option value="17">Lavaderos de Vehículos</option>
+                  <option value="18">Licorería</option>
+                  <option value="19">Parqueaderos</option>
+                  <option value="20">Colegios o centros de estudios</option>
+                  <option value="21">Consultorios medicos</option>
+                  <option value="22">Consultorios Juridicos</option>
+                  <option value="23">Micelania y Cacharrerias</option>
+                  <option value="24">Agencias de Viajes</option>
+                  <option value="25">Discotecas y Bares</option>
+                  <option value="26">Estaciones de servicios</option>
+                  <option value="27">Hoteles</option>
+                  <option value="28">Joyerias</option>
+                  <option value="29">Puesto de Mercado</option>
+                  <option value="30">Sex Shop</option>
+                  <option value="31">Supermercados</option>
+                  <option value="32">Otras Tienda especializada</option>
+                  <option value="33">Otros Establecimiento de servicios</option>
                 </b-form-select>
               </div>
             </div>
@@ -364,6 +392,7 @@
                   v-model="datos.tipo_tiempo"
                   :class="datos.tipo_tiempo==''?'':'is-valid'"
                   ref="tipo_tiempo"
+                  :disabled="datos.tiempo_sin_operacion>0? false:true"
                 >
                   <option value selected>Seleccione</option>
                   <option value="DIAS">DIAS</option>
@@ -382,7 +411,18 @@
                   class="form-control text-capitalize"
                   ref="fecha_retorno"
                   :max="hoy | moment"
+                  :readonly="datos.tiempo_sin_operacion>0? false:true"
+                  v-show="datos.tiempo_sin_operacion!=0"
                 />
+                <input
+                  id="date"
+                  type="text"
+                  placeholder="Fecha de Retorno a Labores"
+                  class="form-control text-capitalize"
+                  ref="fecha_retorno"
+                  :readonly="datos.tiempo_sin_operacion>0? false:true"
+                  v-show="datos.tiempo_sin_operacion==0"
+                />                
               </div>
             </div>
             <div class="form-group row">
@@ -1285,26 +1325,28 @@
           );
           return;
         }
-        if (this.datos.tipo_tiempo === "") {
-          this.$refs.tipo_tiempo.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción tiempo en!",
-            "error"
-          );
-          return;
-        }
-        if (this.datos.fecha_retorno === "") {
-          this.$refs.fecha_retorno.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la fecha de retorno a labores!",
-            "error"
-          );
-          return;
-        }
+        if(this.datos.tiempo_sin_operacion < "0"){
+          if (this.datos.tipo_tiempo === "") {
+            this.$refs.tipo_tiempo.focus();
+            bande = false;
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la opción tiempo en!",
+              "error"
+            );
+            return;
+          }
+          if (this.datos.fecha_retorno === "") {
+            this.$refs.fecha_retorno.focus();
+            bande = false;
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la fecha de retorno a labores!",
+              "error"
+            );
+            return;
+          }
+        }        
         if (this.datos.promedio_ingresos_anterior === "") {
           this.$refs.promedio_ingresos_anterior.focus();
           bande = false;
@@ -1436,9 +1478,13 @@
           if (this.datos.tiempo_sin_operacion == "NaN") {
             this.datos.tiempo_sin_operacion = "";
           }
-          if (this.datos.tiempo_sin_operacion == "0") {
-            this.datos.tiempo_sin_operacion = "";
+          if (this.datos.tiempo_sin_operacion < "0") {
+            this.datos.tiempo_sin_operacion = "";            
           }
+          if (this.datos.tiempo_sin_operacion === "0") {
+            this.datos.tipo_tiempo = "";
+            this.datos.fecha_retorno = "";
+          }          
         }
         if (caja == "promedio_ingresos_anterior") {
           this.datos.promedio_ingresos_anterior = this.datos.promedio_ingresos_anterior.replace(

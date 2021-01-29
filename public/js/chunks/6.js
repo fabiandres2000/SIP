@@ -680,6 +680,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -721,6 +761,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       actividadesVector: [],
       actividadesAuxiliar: "",
       hoy: "",
+      auxNit: "Identificación",
       datos: {
         id: 0,
         id_hogar: 0,
@@ -1023,8 +1064,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (tipo === "MM") {
         if (this.datos.registrado === "SI") {
           this.mOMM = true;
+          this.auxNit = "Nit";
         } else {
           this.mOMM = false;
+          this.auxNit = "Identificación";
         }
 
         this.datos.num_matricula = "";
@@ -1323,18 +1366,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
-      if (this.datos.tipo_tiempo === "") {
-        this.$refs.tipo_tiempo.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la opción tiempo en!", "error");
-        return;
-      }
+      if (this.datos.tiempo_sin_operacion < "0") {
+        if (this.datos.tipo_tiempo === "") {
+          this.$refs.tipo_tiempo.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la opción tiempo en!", "error");
+          return;
+        }
 
-      if (this.datos.fecha_retorno === "") {
-        this.$refs.fecha_retorno.focus();
-        bande = false;
-        this.$swal("Error...!", "Por favor seleccione la fecha de retorno a labores!", "error");
-        return;
+        if (this.datos.fecha_retorno === "") {
+          this.$refs.fecha_retorno.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la fecha de retorno a labores!", "error");
+          return;
+        }
       }
 
       if (this.datos.promedio_ingresos_anterior === "") {
@@ -1442,8 +1487,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           this.datos.tiempo_sin_operacion = "";
         }
 
-        if (this.datos.tiempo_sin_operacion == "0") {
+        if (this.datos.tiempo_sin_operacion < "0") {
           this.datos.tiempo_sin_operacion = "";
+        }
+
+        if (this.datos.tiempo_sin_operacion === "0") {
+          this.datos.tipo_tiempo = "";
+          this.datos.fecha_retorno = "";
         }
       }
 
@@ -2029,76 +2079,6 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
-                _c("div", { staticClass: "col-lg-4" }, [
-                  _c("label", [_vm._v("Nit:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.datos.nit,
-                        expression: "datos.nit",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    ref: "nit",
-                    staticClass: "form-control text-capitalize",
-                    class: _vm.datos.nit == "" ? "" : "is-valid",
-                    attrs: { type: "text", placeholder: "Nit" },
-                    domProps: { value: _vm.datos.nit },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.datos, "nit", $event.target.value.trim())
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-8" }, [
-                  _c("label", [_vm._v("Representante Legal:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model.trim",
-                        value: _vm.datos.representante,
-                        expression: "datos.representante",
-                        modifiers: { trim: true }
-                      }
-                    ],
-                    ref: "representante",
-                    staticClass: "form-control text-capitalize",
-                    class: _vm.datos.representante == "" ? "" : "is-valid",
-                    attrs: { type: "text", placeholder: "Representante Legal" },
-                    domProps: { value: _vm.datos.representante },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.datos,
-                          "representante",
-                          $event.target.value.trim()
-                        )
-                      },
-                      blur: function($event) {
-                        return _vm.$forceUpdate()
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
                 _c(
                   "div",
                   { staticClass: "col-lg-4" },
@@ -2258,6 +2238,76 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
+                _c("div", { staticClass: "col-lg-4" }, [
+                  _c("label", [_vm._v(_vm._s(_vm.auxNit) + ":")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.datos.nit,
+                        expression: "datos.nit",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    ref: "nit",
+                    staticClass: "form-control text-capitalize",
+                    class: _vm.datos.nit == "" ? "" : "is-valid",
+                    attrs: { type: "text", placeholder: _vm.auxNit },
+                    domProps: { value: _vm.datos.nit },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.datos, "nit", $event.target.value.trim())
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-8" }, [
+                  _c("label", [_vm._v("Representante Legal:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.datos.representante,
+                        expression: "datos.representante",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    ref: "representante",
+                    staticClass: "form-control text-capitalize",
+                    class: _vm.datos.representante == "" ? "" : "is-valid",
+                    attrs: { type: "text", placeholder: "Representante Legal" },
+                    domProps: { value: _vm.datos.representante },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.datos,
+                          "representante",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
                 _c(
                   "div",
                   {
@@ -2337,23 +2387,135 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "1" } }, [
-                          _vm._v("Almacén")
+                          _vm._v("Tienda de Ropa")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "2" } }, [
-                          _vm._v("Mercados Municipales o comunales.")
+                          _vm._v("Almacen")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "3" } }, [
-                          _vm._v("Tienda especializada.")
+                          _vm._v("Centros de Belleza")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "4" } }, [
-                          _vm._v("Supermercados")
+                          _vm._v("Restaurantes")
                         ]),
                         _vm._v(" "),
                         _c("option", { attrs: { value: "5" } }, [
-                          _vm._v("Galería y centros comerciales.")
+                          _vm._v("Talleres mecánicos")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "6" } }, [
+                          _vm._v("Café Internet")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "7" } }, [
+                          _vm._v("Comidas Rapidas")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "8" } }, [
+                          _vm._v("Panaderia/ pasteliría")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "9" } }, [
+                          _vm._v("Ferretería")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "10" } }, [
+                          _vm._v("Miscelania")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "11" } }, [
+                          _vm._v("Papelería  y Librerías")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "12" } }, [
+                          _vm._v("Cafetería")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "13" } }, [
+                          _vm._v("Frutería")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "14" } }, [
+                          _vm._v("Venta de loterías o juegos de azar")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "15" } }, [
+                          _vm._v("Carnicería")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "16" } }, [
+                          _vm._v("Asaderos")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "17" } }, [
+                          _vm._v("Lavaderos de Vehículos")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "18" } }, [
+                          _vm._v("Licorería")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "19" } }, [
+                          _vm._v("Parqueaderos")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "20" } }, [
+                          _vm._v("Colegios o centros de estudios")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "21" } }, [
+                          _vm._v("Consultorios medicos")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "22" } }, [
+                          _vm._v("Consultorios Juridicos")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "23" } }, [
+                          _vm._v("Micelania y Cacharrerias")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "24" } }, [
+                          _vm._v("Agencias de Viajes")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "25" } }, [
+                          _vm._v("Discotecas y Bares")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "26" } }, [
+                          _vm._v("Estaciones de servicios")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "27" } }, [
+                          _vm._v("Hoteles")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "28" } }, [
+                          _vm._v("Joyerias")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "29" } }, [
+                          _vm._v("Puesto de Mercado")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "30" } }, [
+                          _vm._v("Sex Shop")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "31" } }, [
+                          _vm._v("Supermercados")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "32" } }, [
+                          _vm._v("Otras Tienda especializada")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "33" } }, [
+                          _vm._v("Otros Establecimiento de servicios")
                         ])
                       ]
                     )
@@ -2686,6 +2848,10 @@ var render = function() {
                       {
                         ref: "tipo_tiempo",
                         class: _vm.datos.tipo_tiempo == "" ? "" : "is-valid",
+                        attrs: {
+                          disabled:
+                            _vm.datos.tiempo_sin_operacion > 0 ? false : true
+                        },
                         model: {
                           value: _vm.datos.tipo_tiempo,
                           callback: function($$v) {
@@ -2726,6 +2892,12 @@ var render = function() {
                         rawName: "v-model",
                         value: _vm.datos.fecha_retorno,
                         expression: "datos.fecha_retorno"
+                      },
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.datos.tiempo_sin_operacion != 0,
+                        expression: "datos.tiempo_sin_operacion!=0"
                       }
                     ],
                     ref: "fecha_retorno",
@@ -2735,7 +2907,9 @@ var render = function() {
                       id: "date",
                       type: "date",
                       placeholder: "Fecha de Retorno a Labores",
-                      max: _vm._f("moment")(_vm.hoy)
+                      max: _vm._f("moment")(_vm.hoy),
+                      readonly:
+                        _vm.datos.tiempo_sin_operacion > 0 ? false : true
                     },
                     domProps: { value: _vm.datos.fecha_retorno },
                     on: {
@@ -2749,6 +2923,26 @@ var render = function() {
                           $event.target.value
                         )
                       }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.datos.tiempo_sin_operacion == 0,
+                        expression: "datos.tiempo_sin_operacion==0"
+                      }
+                    ],
+                    ref: "fecha_retorno",
+                    staticClass: "form-control text-capitalize",
+                    attrs: {
+                      id: "date",
+                      type: "text",
+                      placeholder: "Fecha de Retorno a Labores",
+                      readonly:
+                        _vm.datos.tiempo_sin_operacion > 0 ? false : true
                     }
                   })
                 ])

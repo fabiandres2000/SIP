@@ -11118,38 +11118,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -11523,11 +11491,11 @@ var entero = function entero(value) {
         dormitorio_n: "NA",
         sanitario: "",
         lavadero: "",
-        iluminacion_adecuada: "",
-        techo_adecuado: "",
-        ventilacion_adecuada: "",
-        pisos_adecuado: "",
-        paredes_adecuadas: "",
+        iluminacion_adecuada: "NA",
+        techo_adecuado: "NA",
+        ventilacion_adecuada: "NA",
+        pisos_adecuado: "NA",
+        paredes_adecuadas: "NA",
         gasolina: "",
         plaguicidas: "",
         detergentes: "",
@@ -11805,21 +11773,11 @@ var entero = function entero(value) {
       lavadero: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
-      iluminacion_adecuada: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
-      },
-      techo_adecuado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
-      },
-      ventilacion_adecuada: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
-      },
-      pisos_adecuado: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
-      },
-      paredes_adecuadas: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
-      },
+      // iluminacion_adecuada: { required },
+      // techo_adecuado: { required },
+      // ventilacion_adecuada: { required },
+      // pisos_adecuado: { required },
+      // paredes_adecuadas: { required },
       gasolina: {
         required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]
       },
@@ -12201,12 +12159,12 @@ var entero = function entero(value) {
                   _this.viviendaData.sala = respuesta.data.vivienda.sala;
                   _this.viviendaData.dormitorio_n = respuesta.data.vivienda.dormitorio_n;
                   _this.viviendaData.sanitario = respuesta.data.vivienda.sanitario;
-                  _this.viviendaData.lavadero = respuesta.data.vivienda.lavadero;
-                  _this.viviendaData.iluminacion_adecuada = respuesta.data.vivienda.iluminacion_adecuada;
-                  _this.viviendaData.techo_adecuado = respuesta.data.vivienda.techo_adecuado;
-                  _this.viviendaData.ventilacion_adecuada = respuesta.data.vivienda.ventilacion_adecuada;
-                  _this.viviendaData.pisos_adecuado = respuesta.data.vivienda.pisos_adecuado;
-                  _this.viviendaData.paredes_adecuadas = respuesta.data.vivienda.paredes_adecuadas;
+                  _this.viviendaData.lavadero = respuesta.data.vivienda.lavadero; // this.viviendaData.iluminacion_adecuada = respuesta.data.vivienda.iluminacion_adecuada;
+                  // this.viviendaData.techo_adecuado = respuesta.data.vivienda.techo_adecuado;
+                  // this.viviendaData.ventilacion_adecuada = respuesta.data.vivienda.ventilacion_adecuada;
+                  // this.viviendaData.pisos_adecuado = respuesta.data.vivienda.pisos_adecuado;
+                  // this.viviendaData.paredes_adecuadas = respuesta.data.vivienda.paredes_adecuadas;
+
                   _this.viviendaData.gasolina = respuesta.data.vivienda.gasolina;
                   _this.viviendaData.plaguicidas = respuesta.data.vivienda.plaguicidas;
                   _this.viviendaData.detergentes = respuesta.data.vivienda.detergentes;
@@ -20751,7 +20709,7 @@ var entero = function entero(value) {
         texto_cuantos_celulares: this.showText(this.estratificacionData.cuantos_celulares, this.opciones1),
         texto_cuantos_tv_color: this.showText(this.estratificacionData.cuantos_tv_color, this.opciones2),
         texto_cuantos_vehiculos: this.showText(this.estratificacionData.cuantos_vehiculos, this.opciones3),
-        texto_nivel_instruccion: this.showText(this.estratificacionData.nivel_instruccion, this.opciones4),
+        texto_nivel_instruccion: this.showText(this.estratificacionData.nivel_instruccion, this.escolaridad_options),
         texto_ingresos_zona_rural: this.showText(this.estratificacionData.ingresos_zona_rural, this.opciones5),
         texto_ingresos_ciudad: this.showText(this.estratificacionData.ingresos_ciudad, this.opciones6)
       });
@@ -21490,26 +21448,39 @@ var entero = function entero(value) {
         var fecha = moment.utc(item.fecha_ultima, "YYYY-MM-DD");
         var suma = fecha.add(9, "months");
         suma = suma.add(7, "days");
-        item.fecha_probable = suma.format("YYYY-MM-DD");
+        item.fecha_probable = suma.format("YYYY-MM-DD"); // let hoy = moment();
+        // let hoyFormato = moment().format("YYYY-MM-DD");
+        // let edad = 0;
+        // edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
+        // let dife = this.datediff(hoyFormato,item.fecha_ultima);
+        // let diaSemanas=0;
+        // if(dife[1]!=0){
+        //   diaSemanas=Math.ceil(dife[2]/7);            
+        // }
+        // let mesTrimestre = Math.floor(dife[1]/3);
+        // let valor = dife[1] * 4; 
+        // item.semanas_ges = valor+diaSemanas+mesTrimestre;   
 
-        var _hoy3 = moment();
+        var fecha2 = item.fecha_ultima.split("-");
+        var y2 = Number(fecha2[0]);
+        var m2 = Number(fecha2[1]);
+        var d2 = Number(fecha2[2]);
+        var fecha_inicio = new Date();
+        var lleva = new Date();
+        var hoy = new Date();
+        var dia_parto = new Date();
+        var falta = new Date();
+        var fecha_dada = new Date(y2, m2 - 1, d2);
+        fecha_inicio.setTime(fecha_dada.getTime());
+        dia_parto.setTime(fecha_inicio.getTime() + 280 * 86400000); //Calculamos el tiempo que lleva
 
-        var hoyFormato = moment().format("YYYY-MM-DD");
-        var edad = 0;
-        edad = _hoy3.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
-
-        var dife = this.datediff(hoyFormato, item.fecha_ultima);
-        var diaSemanas = 0;
-
-        if (dife[1] != 0) {
-          diaSemanas = Math.ceil(dife[2] / 7);
-        }
-
-        var mesTrimestre = Math.floor(dife[1] / 3);
-        var valor = dife[1] * 4;
-        item.semanas_ges = valor + diaSemanas + mesTrimestre;
-        console.log(diaSemanas);
-        console.log(dife);
+        lleva.setTime(hoy.getTime() - fecha_inicio.getTime());
+        var llevasemanas = parseInt(lleva.getTime() / 86400000 / 7);
+        var llevadias = Math.floor(lleva.getTime() / 86400000 % 7);
+        falta.setTime(dia_parto.getTime() - hoy.getTime());
+        var faltasemanas = parseInt(falta.getTime() / 86400000 / 7);
+        var faltadias = parseInt(falta.getTime() / 86400000 % 7);
+        item.semanas_ges = llevasemanas + " semanas y " + llevadias + " dias";
       }
 
       if (opcion === "fecha_probable") {
@@ -22418,8 +22389,18 @@ var entero = function entero(value) {
       talla = talla / 100;
       var imc = peso / (talla * talla);
       return imc.toFixed(2);
-    } //OPCIONES DE LOS CICLOS DE VIDA
+    },
+    //OPCIONES DE LOS CICLOS DE VIDA
+    cambiarNivel: function cambiarNivel(identi) {
+      for (var i = 0; i < this.datosJefe.length; i++) {
+        if (this.datosJefe[i].identificacion === identi) {
+          this.estratificacionData.nivel_instruccion = this.datosJefe[i].nivel_escolaridad;
+          return;
+        }
+      }
 
+      return "";
+    }
   }
 });
 
@@ -36459,332 +36440,248 @@ var render = function() {
                   _vm._v(" "),
                   _vm._m(16),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Iluminación Adecuada:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.iluminacion_adecuada.$error,
-                              "is-valid": !_vm.$v.viviendaData
-                                .iluminacion_adecuada.$invalid
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group row",
+                      staticStyle: { display: "none" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Iluminación Adecuada:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.iluminacion_adecuada,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "iluminacion_adecuada",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.iluminacion_adecuada"
+                              }
                             },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.iluminacion_adecuada.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.iluminacion_adecuada,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.iluminacion_adecuada.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Iluminación Adecuada Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.iluminacion_adecuada.required
-                            ? _c("span", [
-                                _vm._v("La Iluminación Adecuada es obligatoria")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Techo Adecuado:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.techo_adecuado.$error,
-                              "is-valid": !_vm.$v.viviendaData.techo_adecuado
-                                .$invalid
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Techo Adecuado:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.techo_adecuado,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "techo_adecuado",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.techo_adecuado"
+                              }
                             },
-                            model: {
-                              value: _vm.$v.viviendaData.techo_adecuado.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.techo_adecuado,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.techo_adecuado.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Techo Adecuado Valido")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.techo_adecuado.required
-                            ? _c("span", [
-                                _vm._v("El Techo Adecuado es obligatorio")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Ventilación Adecuada:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.ventilacion_adecuada.$error,
-                              "is-valid": !_vm.$v.viviendaData
-                                .ventilacion_adecuada.$invalid
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Ventilación Adecuada:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.ventilacion_adecuada,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "ventilacion_adecuada",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.ventilacion_adecuada"
+                              }
                             },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.ventilacion_adecuada.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.ventilacion_adecuada,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.ventilacion_adecuada.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Ventilación Adecuada Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.ventilacion_adecuada.required
-                            ? _c("span", [
-                                _vm._v("La Ventilación Adecuada es obligatoria")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Pisos Adecuados:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.pisos_adecuado.$error,
-                              "is-valid": !_vm.$v.viviendaData.pisos_adecuado
-                                .$invalid
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-group row",
+                      staticStyle: { display: "none" }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Pisos Adecuados:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.pisos_adecuado,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "pisos_adecuado",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.pisos_adecuado"
+                              }
                             },
-                            model: {
-                              value: _vm.$v.viviendaData.pisos_adecuado.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.pisos_adecuado,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.pisos_adecuado.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Pisos Adecuados Valida")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.pisos_adecuado.required
-                            ? _c("span", [
-                                _vm._v("El Pisos Adecuados es obligatorio")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
-                        _c("label", [_vm._v("Paredes Adecuadas:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: {
-                              "is-invalid":
-                                _vm.$v.viviendaData.paredes_adecuadas.$error,
-                              "is-valid": !_vm.$v.viviendaData.paredes_adecuadas
-                                .$invalid
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-lg-4" },
+                        [
+                          _c("label", [_vm._v("Paredes Adecuadas:")]),
+                          _vm._v(" "),
+                          _c(
+                            "b-form-select",
+                            {
+                              model: {
+                                value: _vm.viviendaData.paredes_adecuadas,
+                                callback: function($$v) {
+                                  _vm.$set(
+                                    _vm.viviendaData,
+                                    "paredes_adecuadas",
+                                    typeof $$v === "string" ? $$v.trim() : $$v
+                                  )
+                                },
+                                expression: "viviendaData.paredes_adecuadas"
+                              }
                             },
-                            model: {
-                              value:
-                                _vm.$v.viviendaData.paredes_adecuadas.$model,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.$v.viviendaData.paredes_adecuadas,
-                                  "$model",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "$v.viviendaData.paredes_adecuadas.$model"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Paredes Adecuadas Validas")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "invalid-feedback" }, [
-                          !_vm.$v.viviendaData.paredes_adecuadas.required
-                            ? _c("span", [
-                                _vm._v("Las Paredes Adecuadas es obligatoria")
+                            [
+                              _c(
+                                "option",
+                                { attrs: { value: "", selected: "" } },
+                                [_vm._v("Seleccione")]
+                              ),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NA" } }, [
+                                _vm._v("No Aplica")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "SI" } }, [
+                                _vm._v("SI")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "NO" } }, [
+                                _vm._v("NO")
                               ])
-                            : _vm._e()
-                        ])
-                      ],
-                      1
-                    )
-                  ]),
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
                   _vm._m(17),
                   _vm._v(" "),
@@ -38095,7 +37992,7 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Residuos Aprovechables:")]),
+                        _c("label", [_vm._v("Residuos No Aprovechables:")]),
                         _vm._v(" "),
                         _c(
                           "b-form-select",
@@ -38144,14 +38041,16 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "valid-feedback" }, [
-                          _vm._v("Residuos Aprovechables Valido")
+                          _vm._v("Residuos No Aprovechables Valido")
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "invalid-feedback" }, [
                           !_vm.$v.viviendaData.residuos_no_aprovechables
                             .required
                             ? _c("span", [
-                                _vm._v("Residuos Aprovechables es obligatorio")
+                                _vm._v(
+                                  "Residuos No Aprovechables es obligatorio"
+                                )
                               ])
                             : _vm._e()
                         ])
@@ -39705,6 +39604,128 @@ var render = function() {
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
                       "div",
+                      { staticClass: "col-lg-6" },
+                      [
+                        _c("label", [_vm._v("Jefe del hogar:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.estratificacionData.id_jefe == "0"
+                                ? ""
+                                : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.cambiarNivel(
+                                  _vm.estratificacionData.id_jefe
+                                )
+                              }
+                            },
+                            model: {
+                              value: _vm.estratificacionData.id_jefe,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.estratificacionData,
+                                  "id_jefe",
+                                  $$v
+                                )
+                              },
+                              expression: "estratificacionData.id_jefe"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.datosJefe, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.identificacion }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(item.pnom.toUpperCase()) +
+                                      " " +
+                                      _vm._s(item.snom.toUpperCase()) +
+                                      " " +
+                                      _vm._s(item.pape.toUpperCase()) +
+                                      " " +
+                                      _vm._s(item.sape.toUpperCase())
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-6" },
+                      [
+                        _c("label", [
+                          _vm._v(
+                            "¿Cual es el nivel de Instrucción del jefe del Hogar?:"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.estratificacionData.nivel_instruccion == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.estratificacionData.nivel_instruccion,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.estratificacionData,
+                                  "nivel_instruccion",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression:
+                                "estratificacionData.nivel_instruccion"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.escolaridad_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
                       { staticClass: "col-lg-4" },
                       [
                         _c("label", [
@@ -40065,60 +40086,6 @@ var render = function() {
                         )
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-6" },
-                      [
-                        _c("label", [
-                          _vm._v(
-                            "¿Cual es el nivel de Instrucción del jefe del Hogar?:"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class:
-                              _vm.estratificacionData.nivel_instruccion == ""
-                                ? ""
-                                : "is-valid",
-                            model: {
-                              value: _vm.estratificacionData.nivel_instruccion,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.estratificacionData,
-                                  "nivel_instruccion",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression:
-                                "estratificacionData.nivel_instruccion"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.opciones4, function(item) {
-                              return _c(
-                                "option",
-                                {
-                                  key: item.value,
-                                  domProps: { value: item.value }
-                                },
-                                [_vm._v(_vm._s(item.texto))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
                     )
                   ]),
                   _vm._v(" "),
@@ -40311,65 +40278,6 @@ var render = function() {
                                   domProps: { value: item.value }
                                 },
                                 [_vm._v(_vm._s(item.texto))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-5" },
-                      [
-                        _c("label", [_vm._v("Jefe del hogar:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class:
-                              _vm.estratificacionData.id_jefe == "0"
-                                ? ""
-                                : "is-valid",
-                            model: {
-                              value: _vm.estratificacionData.id_jefe,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.estratificacionData,
-                                  "id_jefe",
-                                  $$v
-                                )
-                              },
-                              expression: "estratificacionData.id_jefe"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "0", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.datosJefe, function(item) {
-                              return _c(
-                                "option",
-                                {
-                                  key: item.value,
-                                  domProps: { value: item.identificacion }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(item.pnom.toUpperCase()) +
-                                      " " +
-                                      _vm._s(item.snom.toUpperCase()) +
-                                      " " +
-                                      _vm._s(item.pape.toUpperCase()) +
-                                      " " +
-                                      _vm._s(item.sape.toUpperCase())
-                                  )
-                                ]
                               )
                             })
                           ],
@@ -49540,7 +49448,7 @@ var render = function() {
                                           item.semanas_ges == ""
                                             ? "is-invalid"
                                             : "is-valid",
-                                        staticStyle: { width: "150px" },
+                                        staticStyle: { width: "250px" },
                                         attrs: { type: "text", readonly: "" },
                                         domProps: { value: item.semanas_ges },
                                         on: {
@@ -59465,7 +59373,7 @@ var staticRenderFns = [
         "span",
         {
           staticClass: "kt-font-boldest",
-          staticStyle: { "font-size": "18px" }
+          staticStyle: { "font-size": "18px", display: "none" }
         },
         [_vm._v("Observe Si Hay")]
       )
@@ -60055,7 +59963,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Otras")]),
         _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-dark" }, [_vm._v("Desparacitado")]),
+        _c("td", { staticClass: "kt-bg-fill-dark" }, [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-dark" }, [
           _vm._v("Señales de Maltrato")
@@ -60280,7 +60188,7 @@ var staticRenderFns = [
           _vm._v("Sustancias Psicoactivas")
         ]),
         _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Desparacitado")]),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Enfermedad")]),
         _vm._v(" "),
@@ -60967,7 +60875,7 @@ var staticRenderFns = [
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("SPA")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [
-          _vm._v("Desparacitado")
+          _vm._v("Desparasitado")
         ]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("Empleo")]),
@@ -61239,7 +61147,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("SPA")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Desparacitado")]),
+        _c("td", [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", [_vm._v("Empleo")]),
         _vm._v(" "),
@@ -61527,7 +61435,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("SPA")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Desparacitado")]),
+        _c("td", [_vm._v("Desparasitado")]),
         _vm._v(" "),
         _c("td", [_vm._v("Empleo")]),
         _vm._v(" "),

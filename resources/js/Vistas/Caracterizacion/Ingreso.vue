@@ -4187,100 +4187,65 @@
                 </div>
               </div>
               <p>
-                <span class="kt-font-boldest" style="font-size: 18px;">Observe Si Hay</span>
+                <span class="kt-font-boldest" style="font-size: 18px;display: none;">Observe Si Hay</span>
               </p>
-              <div class="form-group row">
+              <div class="form-group row" style="display: none;">
                 <div class="col-lg-4">
                   <label>Iluminación Adecuada:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.iluminacion_adecuada.$model"
-                    :class="{'is-invalid': $v.viviendaData.iluminacion_adecuada.$error,'is-valid':!$v.viviendaData.iluminacion_adecuada.$invalid}"
+                    v-model.trim="viviendaData.iluminacion_adecuada"                    
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Iluminación Adecuada Valida</div>
-                  <div class="invalid-feedback">
-                    <span
-                      v-if="!$v.viviendaData.iluminacion_adecuada.required"
-                    >La Iluminación Adecuada es obligatoria</span>
-                  </div>
                 </div>
                 <div class="col-lg-4">
                   <label>Techo Adecuado:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.techo_adecuado.$model"
-                    :class="{'is-invalid': $v.viviendaData.techo_adecuado.$error,'is-valid':!$v.viviendaData.techo_adecuado.$invalid}"
+                    v-model.trim="viviendaData.techo_adecuado"
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Techo Adecuado Valido</div>
-                  <div class="invalid-feedback">
-                    <span
-                      v-if="!$v.viviendaData.techo_adecuado.required"
-                    >El Techo Adecuado es obligatorio</span>
-                  </div>
                 </div>
                 <div class="col-lg-4">
                   <label>Ventilación Adecuada:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.ventilacion_adecuada.$model"
-                    :class="{'is-invalid': $v.viviendaData.ventilacion_adecuada.$error,'is-valid':!$v.viviendaData.ventilacion_adecuada.$invalid}"
+                    v-model.trim="viviendaData.ventilacion_adecuada"
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Ventilación Adecuada Valida</div>
-                  <div class="invalid-feedback">
-                    <span
-                      v-if="!$v.viviendaData.ventilacion_adecuada.required"
-                    >La Ventilación Adecuada es obligatoria</span>
-                  </div>
                 </div>
               </div>
-              <div class="form-group row">
+              <div class="form-group row" style="display: none;">
                 <div class="col-lg-4">
                   <label>Pisos Adecuados:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.pisos_adecuado.$model"
-                    :class="{'is-invalid': $v.viviendaData.pisos_adecuado.$error,'is-valid':!$v.viviendaData.pisos_adecuado.$invalid}"
+                    v-model.trim="viviendaData.pisos_adecuado"
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Pisos Adecuados Valida</div>
-                  <div class="invalid-feedback">
-                    <span
-                      v-if="!$v.viviendaData.pisos_adecuado.required"
-                    >El Pisos Adecuados es obligatorio</span>
-                  </div>
                 </div>
                 <div class="col-lg-4">
                   <label>Paredes Adecuadas:</label>
                   <b-form-select
-                    v-model.trim="$v.viviendaData.paredes_adecuadas.$model"
-                    :class="{'is-invalid': $v.viviendaData.paredes_adecuadas.$error,'is-valid':!$v.viviendaData.paredes_adecuadas.$invalid}"
+                    v-model.trim="viviendaData.paredes_adecuadas"
                   >
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Paredes Adecuadas Validas</div>
-                  <div class="invalid-feedback">
-                    <span
-                      v-if="!$v.viviendaData.paredes_adecuadas.required"
-                    >Las Paredes Adecuadas es obligatoria</span>
-                  </div>
                 </div>
               </div>
               <p>
@@ -4719,7 +4684,7 @@
                   </div>
                 </div>
                 <div class="col-lg-4">
-                  <label>Residuos Aprovechables:</label>
+                  <label>Residuos No Aprovechables:</label>
                   <b-form-select
                     v-model.trim="$v.viviendaData.residuos_no_aprovechables.$model"
                     :class="{'is-invalid': $v.viviendaData.residuos_no_aprovechables.$error,'is-valid':!$v.viviendaData.residuos_no_aprovechables.$invalid}"
@@ -4729,11 +4694,11 @@
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
                   </b-form-select>
-                  <div class="valid-feedback">Residuos Aprovechables Valido</div>
+                  <div class="valid-feedback">Residuos No Aprovechables Valido</div>
                   <div class="invalid-feedback">
                     <span
                       v-if="!$v.viviendaData.residuos_no_aprovechables.required"
-                    >Residuos Aprovechables es obligatorio</span>
+                    >Residuos No Aprovechables es obligatorio</span>
                   </div>
                 </div>
               </div>
@@ -5227,6 +5192,37 @@
                 <span class="kt-font-boldest" style="font-size: 18px;">Estratificación</span>
               </p>
               <div class="form-group row">
+                <div class="col-lg-6">
+                  <label>Jefe del hogar:</label>
+                  <b-form-select
+                    v-model="estratificacionData.id_jefe"
+                    :class="estratificacionData.id_jefe=='0'?'':'is-valid'"
+                    @change="cambiarNivel(estratificacionData.id_jefe)"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in datosJefe"
+                      :value="item.identificacion"
+                      :key="item.value"
+                    >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
+                  </b-form-select>
+                </div>
+                <div class="col-lg-6">
+                  <label>¿Cual es el nivel de Instrucción del jefe del Hogar?:</label>
+                  <b-form-select
+                    v-model.trim="estratificacionData.nivel_instruccion"
+                    :class="estratificacionData.nivel_instruccion==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in escolaridad_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>                
+              </div>
+              <div class="form-group row">
                 <div class="col-lg-4">
                   <label>¿Cuenta ese Hogar con Internet?:</label>
                   <b-form-select
@@ -5321,20 +5317,6 @@
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
-                <div class="col-lg-6">
-                  <label>¿Cual es el nivel de Instrucción del jefe del Hogar?:</label>
-                  <b-form-select
-                    v-model.trim="estratificacionData.nivel_instruccion"
-                    :class="estratificacionData.nivel_instruccion==''?'':'is-valid'"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option
-                      v-for="item in opciones4"
-                      :value="item.value"
-                      :key="item.value"
-                    >{{item.texto}}</option>
-                  </b-form-select>
-                </div>
               </div>
               <div class="form-group row">
                 <div class="col-lg-7">
@@ -5387,20 +5369,6 @@
                       :key="item.value"
                       :disabled="hogar.id_zona=='' || hogar.id_zona==0 || hogar.id_zona==2 || hogar.id_zona==3"
                     >{{item.texto}}</option>
-                  </b-form-select>
-                </div>
-                <div class="col-lg-5">
-                  <label>Jefe del hogar:</label>
-                  <b-form-select
-                    v-model="estratificacionData.id_jefe"
-                    :class="estratificacionData.id_jefe=='0'?'':'is-valid'"
-                  >
-                    <option value="0" selected>Seleccione</option>
-                    <option
-                      v-for="item in datosJefe"
-                      :value="item.identificacion"
-                      :key="item.value"
-                    >{{item.pnom.toUpperCase()}} {{item.snom.toUpperCase()}} {{item.pape.toUpperCase()}} {{item.sape.toUpperCase()}}</option>
                   </b-form-select>
                 </div>
                 <div class="col-lg-2">
@@ -6254,7 +6222,7 @@
                           <td class="kt-bg-fill-info">Triple Viral</td>
                           <td class="kt-bg-fill-info">Pentavalente</td>
                           <td class="kt-bg-fill-info">Otras</td>
-                          <td class="kt-bg-fill-dark">Desparacitado</td>
+                          <td class="kt-bg-fill-dark">Desparasitado</td>
                           <td class="kt-bg-fill-dark">Señales de Maltrato</td>
                           <td class="kt-bg-fill-dark">Enfermedad</td>
                           <td class="kt-bg-fill-dark">Medicamento</td>
@@ -6878,7 +6846,7 @@
                           <td class="kt-bg-fill-danger">No. Cepillado Dia</td>
                           <td class="kt-bg-fill-info">Señales Maltrato ó Abuso</td>
                           <td class="kt-bg-fill-info">Sustancias Psicoactivas</td>
-                          <td class="kt-bg-fill-info">Desparacitado</td>
+                          <td class="kt-bg-fill-info">Desparasitado</td>
                           <td class="kt-bg-fill-info">Enfermedad</td>
                           <td class="kt-bg-fill-info">Medicamento</td>
                           <td class="kt-bg-fill-dark">Padre</td>
@@ -8117,7 +8085,7 @@
                           >
                             <input
                               type="text"
-                              style="width:150px;"
+                              style="width:250px;"
                               class="form-control text-capitalize"
                               v-model="item.semanas_ges"
                               @input="changeupdatePosparto(item,$event,'semanas_ges')"
@@ -8504,7 +8472,7 @@
                           <td class="kt-bg-fill-warning">Alcohol</td>
                           <td class="kt-bg-fill-warning">Fuma</td>
                           <td class="kt-bg-fill-warning">SPA</td>
-                          <td class="kt-bg-fill-warning">Desparacitado</td>
+                          <td class="kt-bg-fill-warning">Desparasitado</td>
                           <td class="kt-bg-fill-warning">Empleo</td>
                           <td class="kt-bg-fill-warning">Religión</td>
                           <td class="kt-bg-fill-warning">Sabe que es VIH</td>
@@ -9056,7 +9024,7 @@
                           <td class="kt-bg-fill-warning">Alcohol</td>
                           <td class="kt-bg-fill-warning">Fuma</td>
                           <td class="kt-bg-fill-warning">SPA</td>
-                          <td>Desparacitado</td>
+                          <td>Desparasitado</td>
                           <td>Empleo</td>
                           <td>Religión</td>
                           <td>Sabe que es VIH</td>
@@ -9551,7 +9519,7 @@
                           <td class="kt-bg-fill-warning">Alcohol</td>
                           <td class="kt-bg-fill-warning">Fuma</td>
                           <td class="kt-bg-fill-warning">SPA</td>
-                          <td>Desparacitado</td>
+                          <td>Desparasitado</td>
                           <td>Empleo</td>
                           <!-- <td class="kt-bg-fill-dark">Examen de Prostata</td>
                           <td class="kt-bg-fill-dark">Citologias</td>
@@ -11116,7 +11084,136 @@
             </form>
           </div>
         </b-modal>
-        <!--end::Modal-->      
+        <!--end::Modal-->
+
+      <!--begin::Modal Exportar2-->
+      <b-modal
+        ref="modalAbrir"
+        hide-footer
+        title="Seleccione una opción"
+        size="sm"
+        centered
+        header-bg-variant="danger"
+        header-text-variant="light"
+        :no-close-on-backdrop="true"
+      >
+        <div class="d-block">
+          <div ref="content">
+            <div
+              class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+            >
+              <div class="kt-portlet__body">
+                <div class="kt-section">
+                  <div class="kt-section__content">
+                    <div class="row justify-content-center">
+                      <div class="col-md-4">
+                        <div
+                          class="kt-portlet kt-portlet--height-fluid"
+                          data-container="body"
+                          data-toggle="kt-popover"
+                          data-placement="left"
+                          data-content
+                          data-html="true"
+                        >
+                          <div
+                            class="kt-widget14"
+                            style="cursor:pointer;width: 200px;"
+                            @click="seleccionarOpcion('establecimiento')"
+                          >
+                            <div class="kt-widget14__header">
+                              <h3
+                                class="kt-widget14__title text-center font-weight-bold"
+                                style="font-size: 11px;"
+                              >Establecimientos</h3>
+                            </div>
+                            <div class="kt-widget14__content">
+                              <div class="kt-widget14__chart text-center">
+                                <img
+                                  style="height: 100px; width: 140px; float: right;"
+                                  :src="
+                                              `${$store.state.serverPath}assets/iconos/zonas/viviendas.png`
+                                          "
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>                      
+                      <div class="col-md-4">
+                        <div
+                          class="kt-portlet kt-portlet--height-fluid"
+                          data-container="body"
+                          data-toggle="kt-popover"
+                          data-placement="left"
+                          data-content
+                          data-html="true"
+                        >
+                          <div
+                            class="kt-widget14"
+                            style="cursor:pointer;width: 200px;"
+                            @click="seleccionarOpcion('unidades')"
+                          >
+                            <div class="kt-widget14__header">
+                              <h3
+                                class="kt-widget14__title text-center font-weight-bold"
+                                style="font-size: 11px;"
+                              >Unidades Productivas</h3>
+                            </div>
+                            <div class="kt-widget14__content">
+                              <div class="kt-widget14__chart text-center">
+                                <img
+                                  style="height: 100px; width: 140px; float: right;"
+                                  :src="
+                                              `${$store.state.serverPath}assets/iconos/zonas/hogares.png`
+                                          "
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div
+                          class="kt-portlet kt-portlet--height-fluid"
+                          data-container="body"
+                          data-toggle="kt-popover"
+                          data-placement="left"
+                          data-content
+                          data-html="true"
+                        >
+                          <div
+                            class="kt-widget14"
+                            style="cursor:pointer;width: 200px;"
+                            @click="seleccionarOpcion('salir')"
+                          >
+                            <div class="kt-widget14__header">
+                              <h3
+                                class="kt-widget14__title text-center font-weight-bold"
+                                style="font-size: 11px;"
+                              >Salir</h3>
+                            </div>
+                            <div class="kt-widget14__content">
+                              <div class="kt-widget14__chart text-center">
+                                <img
+                                  style="height: 100px; width: 140px; float: right;"
+                                  :src="
+                                              `${$store.state.serverPath}assets/iconos/zonas/hogares.png`
+                                          "
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </b-modal>
+      <!--begin::Modal Exportar2-->         
       </div>
     </div>
   </div>
@@ -11400,11 +11497,11 @@
           dormitorio_n: "NA",
           sanitario: "",
           lavadero: "",
-          iluminacion_adecuada: "",
-          techo_adecuado: "",
-          ventilacion_adecuada: "",
-          pisos_adecuado: "",
-          paredes_adecuadas: "",
+          iluminacion_adecuada: "NA",
+          techo_adecuado: "NA",
+          ventilacion_adecuada: "NA",
+          pisos_adecuado: "NA",
+          paredes_adecuadas: "NA",
           gasolina: "",
           plaguicidas: "",
           detergentes: "",
@@ -11592,11 +11689,11 @@
         sala: { required },
         sanitario: { required },
         lavadero: { required },
-        iluminacion_adecuada: { required },
-        techo_adecuado: { required },
-        ventilacion_adecuada: { required },
-        pisos_adecuado: { required },
-        paredes_adecuadas: { required },
+        // iluminacion_adecuada: { required },
+        // techo_adecuado: { required },
+        // ventilacion_adecuada: { required },
+        // pisos_adecuado: { required },
+        // paredes_adecuadas: { required },
         gasolina: { required },
         plaguicidas: { required },
         detergentes: { required },
@@ -11921,6 +12018,7 @@
         }                
       },      
       async cambiarTab1(opcion, actual) {
+        this.$refs.modalAbrir.show();
         let bandera = false;
         if (actual === "tabIdentificacion") {
           if (this.GIDEN === false) {
@@ -12743,7 +12841,8 @@
               "success"
             );
             this.SAPU=false;
-            this.$router.push("/gestion");          
+
+            // this.$router.push("/gestion");          
           }
         }
         if (bandera) {
@@ -12751,6 +12850,27 @@
           $('.nav-tabs a[href="#' + opcion + '"]').tab("show");
         }
       },
+      seleccionarOpcion(opcion) {
+        if (opcion === "unidades") {
+          this.$router.push({
+            name: "Unidades",
+            params: {
+              IDHOGAR: this.IDHOGAR
+            }            
+          });
+        } 
+        if (opcion === "establecimiento") {
+          this.$router.push({
+            name: "Establecimientos",
+            params: {
+              IDHOGAR: this.IDHOGAR
+            }
+          });
+        }
+        if (opcion === "salir") {
+          this.$router.push("/gestion");
+        }        
+      },      
       //VALIDACIONES
       valJef1() {
         for (let i = 0; i < this.datosJefe.length; i++) {
@@ -18396,7 +18516,7 @@
           ),
           texto_nivel_instruccion: this.showText(
             this.estratificacionData.nivel_instruccion,
-            this.opciones4
+            this.escolaridad_options
           ),
           texto_ingresos_zona_rural: this.showText(
             this.estratificacionData.ingresos_zona_rural,
@@ -19038,24 +19158,51 @@
         if (opcion === "fecha_ultima") {
           let fecha = moment.utc(item.fecha_ultima, "YYYY-MM-DD");
           let suma = fecha.add(9, "months");
-          suma = suma.add(7, "days");
+          suma = suma.add(7, "days");          
           item.fecha_probable=suma.format("YYYY-MM-DD");
-
           
-          let hoy = moment();
-          let hoyFormato = moment().format("YYYY-MM-DD");
-          let edad = 0;
-          edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
-          let dife = this.datediff(hoyFormato,item.fecha_ultima);
-          let diaSemanas=0;
-          if(dife[1]!=0){
-            diaSemanas=Math.ceil(dife[2]/7);            
-          }
-          let mesTrimestre = Math.floor(dife[1]/3);
-          let valor = dife[1] * 4; 
-          item.semanas_ges = valor+diaSemanas+mesTrimestre;          
-          console.log(diaSemanas);
-          console.log(dife);
+          // let hoy = moment();
+          // let hoyFormato = moment().format("YYYY-MM-DD");
+          // let edad = 0;
+          // edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
+          // let dife = this.datediff(hoyFormato,item.fecha_ultima);
+          // let diaSemanas=0;
+          // if(dife[1]!=0){
+          //   diaSemanas=Math.ceil(dife[2]/7);            
+          // }
+          // let mesTrimestre = Math.floor(dife[1]/3);
+          // let valor = dife[1] * 4; 
+          // item.semanas_ges = valor+diaSemanas+mesTrimestre;          
+
+          var fecha2 =item.fecha_ultima.split("-");
+          var y2 = Number(fecha2[0]);
+          var m2 = Number(fecha2[1]); 
+          var d2 = Number(fecha2[2]);
+
+
+          var fecha_inicio = new Date();
+          var lleva = new Date();
+          var hoy = new Date();
+          var dia_parto = new Date();
+          var falta = new Date();
+          var fecha_dada = new Date(y2, (m2-1), d2);
+
+          fecha_inicio.setTime(fecha_dada.getTime());
+          dia_parto.setTime(fecha_inicio.getTime() + (280 * 86400000));
+          
+          //Calculamos el tiempo que lleva
+          lleva.setTime(hoy.getTime() - fecha_inicio.getTime());			
+          var llevasemanas = parseInt(((lleva.getTime()/86400000)/7));
+          var llevadias = Math.floor(((lleva.getTime()/86400000)%7));
+          
+          falta.setTime(dia_parto.getTime() - hoy.getTime());
+    
+          var faltasemanas = parseInt(((falta.getTime()/86400000)/7));
+          var faltadias = parseInt(((falta.getTime()/86400000)%7)); 
+          
+          item.semanas_ges = llevasemanas + " semanas y " + llevadias +" dias";
+
+
         }
         if (opcion === "fecha_probable") {
           let fecha = moment.utc(item.fecha_probable, "YYYY-MM-DD");
@@ -21124,27 +21271,52 @@
         });        
       },
       datediff(date1, date2){
+
         var fecha1 =date1.split("-");
         var fecha2 =date2.split("-");
 
-        var y1 = fecha1[0], m1 = fecha1[1], d1 = fecha1[2],        
-        y2 = fecha2[0], m2 = fecha2[1], d2 = fecha2[2];     
+        var y1 = Number(fecha1[0]), m1 = Number(fecha1[1]), d1 = Number(fecha1[2]),        
+        y2 = Number(fecha2[0]), m2 = Number(fecha2[1]), d2 = Number(fecha2[2]);     
         
         if (d1 < d2) {
           m1--;
-          d1 += this.DaysInMonth(y2, m2);
-          console.log(d1); 
+          console.log("daysenmonth: "+this.DaysInMonth(y2, m2));
+          d1 = d1 + this.DaysInMonth(y2, m2);
         }
         if (m1 < m2) {
             y1--;
-            m1 += 12;
+            m1 = m1 + 12;
         }
-        return [y1 - y2, m1 - m2, d1 - d2];        
+
+        var ano= y1-y2;
+        var mes= m1-m2;
+        var dia= d1-d2;
+
+        if(ano < 0){
+          ano = ano * -1;
+        }
+        if(mes < 0){
+          mes = mes * -1;
+        }
+        if(dia < 0){
+          dia = dia * -1;
+        }
+
+        return [ano, mes, dia];        
       },
       DaysInMonth(Y, M) {
         return new Date(Y, M, 1,12).getDate();
       },
-   
+
+      cambiarNivel(identi){
+        for (var i = 0; i < this.datosJefe.length; i++) {
+          if (this.datosJefe[i].identificacion === identi) {
+            this.estratificacionData.nivel_instruccion = this.datosJefe[i].nivel_escolaridad;
+            return;
+          }
+        }
+        return "";
+      }
     }
   };
 </script>
@@ -21165,4 +21337,7 @@
     padding: 0em 1em 1em;
     margin-bottom: 2em;
   }
+  .modal-sm {
+    max-width: 60%;
+  }  
 </style>
