@@ -75,7 +75,7 @@
                 href="#adolescente"
                 role="tab"
                 @click="cambiarTab2('adolescente')"
-              >Adolecentes/Jovenes</a>
+              >Adolescentes/Jovenes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#adultomayor" role="tab" @click="cambiarTab2('adultomayor')">Adulto mayor</a>
@@ -97,7 +97,7 @@
                     :class="spinGIden"                    
                   >
                     <i class="la la-arrow-right"></i>
-                    <span class="kt-hidden-mobile">Siguiente</span>
+                    <span class="kt-hidden-mobile">Guardar</span>
                   </button>
                 </div>
               </div>
@@ -385,12 +385,15 @@
                     v-model.trim="caracData.parentesco"
                     :class="caracData.parentesco==''?'':'is-valid'"
                     ref="parentesco"
+                    :disabled="true"
+                    style='background-color: white;'
                   >
-                    <option value selected>Seleccione</option>
+                    <option value >Seleccione</option>
                     <option
                       v-for="item in parentesco_options"
                       :value="item.value"
                       :key="item.value"
+                      :selected = "caracData.parentesco=='33'"
                     >{{item.texto}}</option>
                   </b-form-select>
                 </div>
@@ -576,6 +579,8 @@
                     <option value="CONTRIBUTIVO">CONTRIBUTIVO</option>
                     <option value="ESPECIAL">ESPECIAL</option>
                     <option value="PPNA">POBLACIÓN POBRE NO ASEGURADA</option>
+                    <option value="BENEFICIARIO">BENEFICIARIO</option>
+                    <option value="ND">NO DECLARA</option>
                   </b-form-select>
                 </div>
               </div>
@@ -817,6 +822,58 @@
                     <option value="NA">NO APLICA</option>
                   </b-form-select>
                 </div>
+                <div class="col-lg-4">
+                  <label>Enfermedad Infecciosa:</label>
+                  <b-form-select
+                    v-model="caracData.enfermedad_infecciosa"
+                    :class="caracData.enfermedad_infecciosa==''?'':'is-valid'"
+                  > 
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in enfinf_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>                  
+                </div>
+                <div class="col-lg-4">
+                  <label>Enfermedad Cronica:</label>
+                  <b-form-select
+                    v-model="caracData.enfermedad_cronica"
+                    :class="caracData.enfermedad_cronica==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in enfcro_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>                  
+                </div>                                                              
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-2">
+                  <label>Peso:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Peso"
+                    v-model.trim="caracData.peso"
+                    :class="caracData.peso==''?'':'is-valid'"
+                    @change="formato('peso1')"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label>Talla:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Talla"
+                    v-model.trim="caracData.talla"
+                    :class="caracData.talla==''?'':'is-valid'"
+                    @change="formato('talla1')"
+                  />
+                </div>
                 <div class="col-lg-1" v-if="bandeGuaEdiJefe==true">
                   <br />
                   <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -861,8 +918,8 @@
                   >
                     <i class="fa fa-external-link-alt"></i>
                   </a>&nbsp;
-                </div>                                                              
-              </div>
+                </div>                                
+              </div>  
               <div class="kt-separator kt-separator--border-dashed"></div>
               <div class="row">
                 <div class="col-md-12">
@@ -904,11 +961,15 @@
                           <th>Migrante</th>
                           <th>Salario</th>
                           <th>Programa ICBF</th>
+                          <th>Enfermedad Infecciosa</th>
+                          <th>Enfermedad Cronica</th>
+                          <th>Peso</th>
+                          <th>Talla</th>
                           <th class="text-center">Opciones</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in datosJefe" :key="index">
+                        <tr v-for="(item,index) in datosJefe" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1343,7 +1404,59 @@
                               style="width:200px;"
                               readonly
                             />                            
-                          </td>                          
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Enfermedad Infecciosa"
+                              v-model="item.textoEnfermedad_infecciosa"
+                              :class="item.textoEnfermedad_infecciosa==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Enfermedad Cronica"
+                              v-model="item.textoEnfermedad_cronica"
+                              :class="item.textoEnfermedad_cronica==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Peso"
+                              v-model="item.peso"
+                              :class="item.peso==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Talla"
+                              v-model="item.talla"
+                              :class="item.talla==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>                                                                                                       
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <div style="width:70px;" v-if="GIDEN==false">
                               <button
@@ -1618,6 +1731,7 @@
                     <option value="ESPECIAL">ESPECIAL</option>
                     <option value="PPNA">POBLACIÓN POBRE NO ASEGURADA</option>
                     <option value="BENEFICIARIO">BENEFICIARIO</option>
+                    <option value="ND">NO DECLARA</option>
                   </b-form-select>
                 </div>
               </div>
@@ -1858,7 +1972,59 @@
                       :key="item.value"
                     >{{item.texto}}</option>
                   </b-form-select>
-                </div>                
+                </div>
+                <div class="col-lg-4">
+                  <label>Enfermedad Infecciosa:</label>
+                  <b-form-select                  
+                    v-model="CA1.enfermedad_infecciosa"
+                    :class="CA1.enfermedad_infecciosa=='0'?'':'is-valid'"
+                  > 
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in enfinf_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>                  
+                </div>
+                <div class="col-lg-4">
+                  <label>Enfermedad Cronica:</label>
+                  <b-form-select
+                    v-model="CA1.enfermedad_cronica"
+                    :class="CA1.enfermedad_cronica=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in enfcro_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>                  
+                </div>                                
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-2">
+                  <label>Peso:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Peso"
+                    v-model.trim="CA1.peso"
+                    :class="CA1.peso==''?'':'is-valid'"
+                    @change="formato('peso2')"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label>Talla:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Talla"
+                    v-model.trim="CA1.talla"
+                    :class="CA1.talla==''?'':'is-valid'"
+                    @change="formato('talla2')"
+                  />
+                </div>
                 <div class="col-lg-1" v-if="bandeGuaEdiInte==true">
                   <br />
                   <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -1903,8 +2069,8 @@
                   >
                     <i class="fa fa-external-link-alt"></i>
                   </a>&nbsp;
-                </div>                                
-              </div>  
+                </div>                                                
+              </div>                
               <div class="kt-separator kt-separator--border-dashed"></div>
               <div class="row">
                 <div class="col-md-12">
@@ -1947,11 +2113,15 @@
                           <th>Programa ICBF</th>
                           <th>Jefe de Hogar</th>
                           <th>Excepciones</th>
+                          <th>Enfermedad Infecciosa</th>
+                          <th>Enfermedad Cronica</th>
+                          <th>Peso</th>
+                          <th>Talla</th>                                                 
                           <th class="text-center">Opciones</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in datos" :key="index">
+                        <tr v-for="(item,index) in datos" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2400,6 +2570,58 @@
                               readonly
                             />                            
                           </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Enfermedad Infecciosa"
+                              v-model="item.textoEnfermedad_infecciosa"
+                              :class="item.textoEnfermedad_infecciosa==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Enfermedad Cronica"
+                              v-model="item.textoEnfermedad_cronica"
+                              :class="item.textoEnfermedad_cronica==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Peso"
+                              v-model="item.peso"
+                              :class="item.peso==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize"
+                              placeholder="Talla"
+                              v-model="item.talla"
+                              :class="item.talla==''?'':'is-valid'"
+                              style="width:200px;"
+                              readonly
+                            />                            
+                          </td>                                                    
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <div style="width:70px;" v-if="GIDEN==false">
 
@@ -2500,7 +2722,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in factores" :key="index">
+                        <tr v-for="(item,index) in factores" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -2847,7 +3069,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in afectacion" :key="index">
+                        <tr v-for="(item,index) in afectacion" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -3085,7 +3307,7 @@
                     :class="spinGVivi"                    
                   >
                     <i class="la la-arrow-right"></i>
-                    <span class="kt-hidden-mobile">Siguiente</span>
+                    <span class="kt-hidden-mobile">Guardar</span>
                   </button>
                 </div>
               </div>
@@ -5410,7 +5632,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in estratificacion" :key="index">
+                        <tr v-for="(item,index) in estratificacion" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -5507,7 +5729,7 @@
                     :class="spinGCart"                    
                   >
                     <i class="la la-arrow-right"></i>
-                    <span class="kt-hidden-mobile">Siguiente</span>
+                    <span class="kt-hidden-mobile">Guardar</span>
                   </button>
                 </div>
               </div>
@@ -5607,7 +5829,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in Men1A" :key="index">
+                        <tr v-for="(item,index) in Men1A" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -5810,6 +6032,7 @@
                               v-model="item.peso_actual"
                               @input="changeupdateMenA1(item,$event,'peso_actual')"
                               :class="item.peso_actual==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -5834,6 +6057,7 @@
                               v-model="item.longitud_actual"
                               @input="changeupdateMenA1(item,$event,'longitud_actual')"
                               :class="item.longitud_actual==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -6229,7 +6453,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in De1A5" :key="index">
+                        <tr v-for="(item,index) in De1A5" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -6371,6 +6595,7 @@
                               v-model="item.peso"
                               @input="changeupdateDe1A5(item,$event,'peso')"
                               :class="item.peso==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -6383,6 +6608,7 @@
                               v-model="item.talla"
                               @input="changeupdateDe1A5(item,$event,'talla')"
                               :class="item.talla==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -6856,7 +7082,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in De6A11" :key="index">
+                        <tr v-for="(item,index) in De6A11" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -6948,6 +7174,7 @@
                               v-model="item.peso"
                               @input="changeupdateDe6A11(item,$event,'peso')"
                               :class="item.peso==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -6960,6 +7187,7 @@
                               v-model="item.talla"
                               @input="changeupdateDe6A11(item,$event,'talla')"
                               :class="item.talla==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -7351,7 +7579,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in De10A59" :key="index">
+                        <tr v-for="(item,index) in De10A59" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -7907,7 +8135,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in ParPost" :key="index">
+                        <tr v-for="(item,index) in ParPost" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -8053,6 +8281,7 @@
                               v-model="item.peso"
                               @input="changeupdatePosparto(item,$event,'peso')"
                               :class="item.peso==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -8065,6 +8294,7 @@
                               v-model="item.talla"
                               @input="changeupdatePosparto(item,$event,'talla')"
                               :class="item.talla==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -8412,7 +8642,7 @@
                     :class="spinGAdole"                    
                   >
                     <i class="la la-arrow-right"></i>
-                    <span class="kt-hidden-mobile">Siguiente</span>
+                    <span class="kt-hidden-mobile">Guardar</span>
                   </button>
                 </div>
               </div>
@@ -8486,7 +8716,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in De12A17" :key="index">
+                        <tr v-for="(item,index) in De12A17" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -8550,6 +8780,7 @@
                               v-model="item.peso"
                               @input="changeupdateDe12A17(item,$event,'peso')"
                               :class="item.peso==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -8562,6 +8793,7 @@
                               v-model="item.talla"
                               @input="changeupdateDe12A17(item,$event,'talla')"
                               :class="item.talla==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -9033,7 +9265,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in De18A28" :key="index">
+                        <tr v-for="(item,index) in De18A28" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -9097,6 +9329,7 @@
                               v-model="item.peso"
                               @input="changeupdateDe18A28(item,$event,'peso')"
                               :class="item.peso==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -9109,6 +9342,7 @@
                               v-model="item.talla"
                               @input="changeupdateDe18A28(item,$event,'talla')"
                               :class="item.talla==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -9531,7 +9765,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in De29A59" :key="index">
+                        <tr v-for="(item,index) in De29A59" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -9595,6 +9829,7 @@
                               v-model="item.peso"
                               @input="changeupdateDe29A59(item,$event,'peso')"
                               :class="item.peso==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -9607,6 +9842,7 @@
                               v-model="item.talla"
                               @input="changeupdateDe29A59(item,$event,'talla')"
                               :class="item.talla==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -9964,7 +10200,7 @@
                     :class="spinGAdul"                    
                   >
                     <i class="la la-arrow-right"></i>
-                    <span class="kt-hidden-mobile">Siguiente</span>
+                    <span class="kt-hidden-mobile">Guardar</span>
                   </button>
                 </div>
               </div>
@@ -10025,7 +10261,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in De60" :key="index">
+                        <tr v-for="(item,index) in De60" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -10107,6 +10343,7 @@
                               v-model="item.peso"
                               @input="changeupdateDe60(item,$event,'peso')"
                               :class="item.peso==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -10119,6 +10356,7 @@
                               v-model="item.talla"
                               @input="changeupdateDe60(item,$event,'talla')"
                               :class="item.talla==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -10412,7 +10650,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in EnCro" :key="index">
+                        <tr v-for="(item,index) in EnCro" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -10553,7 +10791,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in EnInf" :key="index">
+                        <tr v-for="(item,index) in EnInf" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -10725,7 +10963,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(item,index) in Migra" :key="index">
+                        <tr v-for="(item,index) in Migra" :key="index" v-show="item.estado=='Activo'">
                           <td style="font-weight: normal;vertical-align: middle;">
                             <input
                               type="text"
@@ -11086,134 +11324,134 @@
         </b-modal>
         <!--end::Modal-->
 
-      <!--begin::Modal Exportar2-->
-      <b-modal
-        ref="modalAbrir"
-        hide-footer
-        title="Seleccione una opción"
-        size="sm"
-        centered
-        header-bg-variant="danger"
-        header-text-variant="light"
-        :no-close-on-backdrop="true"
-      >
-        <div class="d-block">
-          <div ref="content">
-            <div
-              class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-            >
-              <div class="kt-portlet__body">
-                <div class="kt-section">
-                  <div class="kt-section__content">
-                    <div class="row justify-content-center">
-                      <div class="col-md-4">
-                        <div
-                          class="kt-portlet kt-portlet--height-fluid"
-                          data-container="body"
-                          data-toggle="kt-popover"
-                          data-placement="left"
-                          data-content
-                          data-html="true"
-                        >
+        <!--begin::Modal Exportar2-->
+        <b-modal
+          ref="modalAbrir"
+          hide-footer
+          title="Seleccione una opción"
+          size="sm"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block">
+            <div ref="content">
+              <div
+                class="kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
+              >
+                <div class="kt-portlet__body">
+                  <div class="kt-section">
+                    <div class="kt-section__content">
+                      <div class="row justify-content-center">
+                        <div class="col-md-4">
                           <div
-                            class="kt-widget14"
-                            style="cursor:pointer;width: 200px;"
-                            @click="seleccionarOpcion('establecimiento')"
+                            class="kt-portlet kt-portlet--height-fluid"
+                            data-container="body"
+                            data-toggle="kt-popover"
+                            data-placement="left"
+                            data-content
+                            data-html="true"
                           >
-                            <div class="kt-widget14__header">
-                              <h3
-                                class="kt-widget14__title text-center font-weight-bold"
-                                style="font-size: 11px;"
-                              >Establecimientos</h3>
+                            <div
+                              class="kt-widget14"
+                              style="cursor:pointer;width: 200px;"
+                              @click="seleccionarOpcion('establecimiento')"
+                            >
+                              <div class="kt-widget14__header">
+                                <h3
+                                  class="kt-widget14__title text-center font-weight-bold"
+                                  style="font-size: 11px;"
+                                >Establecimientos</h3>
+                              </div>
+                              <div class="kt-widget14__content">
+                                <div class="kt-widget14__chart text-center">
+                                  <img
+                                    style="height: 100px; width: 140px; float: right;"
+                                    :src="
+                                                `${$store.state.serverPath}assets/iconos/zonas/viviendas.png`
+                                            "
+                                  />
+                                </div>
+                              </div>
                             </div>
-                            <div class="kt-widget14__content">
-                              <div class="kt-widget14__chart text-center">
-                                <img
-                                  style="height: 100px; width: 140px; float: right;"
-                                  :src="
-                                              `${$store.state.serverPath}assets/iconos/zonas/viviendas.png`
-                                          "
-                                />
+                          </div>
+                        </div>                      
+                        <div class="col-md-4">
+                          <div
+                            class="kt-portlet kt-portlet--height-fluid"
+                            data-container="body"
+                            data-toggle="kt-popover"
+                            data-placement="left"
+                            data-content
+                            data-html="true"
+                          >
+                            <div
+                              class="kt-widget14"
+                              style="cursor:pointer;width: 200px;"
+                              @click="seleccionarOpcion('unidades')"
+                            >
+                              <div class="kt-widget14__header">
+                                <h3
+                                  class="kt-widget14__title text-center font-weight-bold"
+                                  style="font-size: 11px;"
+                                >Unidades Productivas</h3>
+                              </div>
+                              <div class="kt-widget14__content">
+                                <div class="kt-widget14__chart text-center">
+                                  <img
+                                    style="height: 100px; width: 140px; float: right;"
+                                    :src="
+                                                `${$store.state.serverPath}assets/iconos/zonas/hogares.png`
+                                            "
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>                      
-                      <div class="col-md-4">
-                        <div
-                          class="kt-portlet kt-portlet--height-fluid"
-                          data-container="body"
-                          data-toggle="kt-popover"
-                          data-placement="left"
-                          data-content
-                          data-html="true"
-                        >
+                        <div class="col-md-4">
                           <div
-                            class="kt-widget14"
-                            style="cursor:pointer;width: 200px;"
-                            @click="seleccionarOpcion('unidades')"
+                            class="kt-portlet kt-portlet--height-fluid"
+                            data-container="body"
+                            data-toggle="kt-popover"
+                            data-placement="left"
+                            data-content
+                            data-html="true"
                           >
-                            <div class="kt-widget14__header">
-                              <h3
-                                class="kt-widget14__title text-center font-weight-bold"
-                                style="font-size: 11px;"
-                              >Unidades Productivas</h3>
-                            </div>
-                            <div class="kt-widget14__content">
-                              <div class="kt-widget14__chart text-center">
-                                <img
-                                  style="height: 100px; width: 140px; float: right;"
-                                  :src="
-                                              `${$store.state.serverPath}assets/iconos/zonas/hogares.png`
-                                          "
-                                />
+                            <div
+                              class="kt-widget14"
+                              style="cursor:pointer;width: 200px;"
+                              @click="seleccionarOpcion('salir')"
+                            >
+                              <div class="kt-widget14__header">
+                                <h3
+                                  class="kt-widget14__title text-center font-weight-bold"
+                                  style="font-size: 11px;"
+                                >Salir</h3>
+                              </div>
+                              <div class="kt-widget14__content">
+                                <div class="kt-widget14__chart text-center">
+                                  <img
+                                    style="height: 100px; width: 140px; float: right;"
+                                    :src="
+                                                `${$store.state.serverPath}assets/iconos/zonas/hogares.png`
+                                            "
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div>                      
                       </div>
-                      <div class="col-md-4">
-                        <div
-                          class="kt-portlet kt-portlet--height-fluid"
-                          data-container="body"
-                          data-toggle="kt-popover"
-                          data-placement="left"
-                          data-content
-                          data-html="true"
-                        >
-                          <div
-                            class="kt-widget14"
-                            style="cursor:pointer;width: 200px;"
-                            @click="seleccionarOpcion('salir')"
-                          >
-                            <div class="kt-widget14__header">
-                              <h3
-                                class="kt-widget14__title text-center font-weight-bold"
-                                style="font-size: 11px;"
-                              >Salir</h3>
-                            </div>
-                            <div class="kt-widget14__content">
-                              <div class="kt-widget14__chart text-center">
-                                <img
-                                  style="height: 100px; width: 140px; float: right;"
-                                  :src="
-                                              `${$store.state.serverPath}assets/iconos/zonas/hogares.png`
-                                          "
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>                      
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </b-modal>
-      <!--begin::Modal Exportar2-->         
+        </b-modal>
+        <!--begin::Modal Exportar2-->         
       </div>
     </div>
   </div>
@@ -11372,7 +11610,7 @@
           tipo_id: "",
           identificacion: "",
           sexo: "",
-          parentesco: "",
+          parentesco: "33",
           pnom: "",
           snom: "",
           pape: "",
@@ -11399,7 +11637,11 @@
           orientacion: "",
           identidad_genero: "",
           perdida_peso: "",
-          programa_icbf: ""
+          programa_icbf: "",
+          enfermedad_infecciosa: "",
+          enfermedad_cronica: "",
+          peso: 0,
+          talla: 0
         },
         CA1: {
           id: 0,
@@ -11439,7 +11681,11 @@
           programa_icbf: "0",
           excepciones: "0",
           meses: 0,
-          dias: 0
+          dias: 0,
+          enfermedad_infecciosa: "0",
+          enfermedad_cronica: "0",
+          peso: 0,
+          talla: 0                  
         },
         viviendaData: {
           id: 0,
@@ -11642,7 +11888,13 @@
         bandeGuaEdiJefe: true,
         indiceEditJefe: null,
         bandeGuaEdiInte: true,
-        indiceEditInte: null        
+        indiceEditInte: null,
+        idEditar: null,
+        identificacionEditar: null,
+        fechaEditar: null,
+        edadEditar: null,
+        embarazoEditar: null, 
+        identificacionJefe: null      
       };
     },
     validations: {
@@ -12018,7 +12270,6 @@
         }                
       },      
       async cambiarTab1(opcion, actual) {
-        this.$refs.modalAbrir.show();
         let bandera = false;
         if (actual === "tabIdentificacion") {
           if (this.GIDEN === false) {
@@ -12799,7 +13050,8 @@
                         "success"
                       );
                       this.valGMig = true;
-                      this.$router.push("/gestion");
+                      // this.$router.push("/gestion");
+                      this.$refs.modalAbrir.show();
                     }
                   })
                   .catch(error => {
@@ -12832,7 +13084,8 @@
                 "Datos Guardados Exitosamente!",
                 "success"
               );
-              this.$router.push("/gestion");              
+              // this.$router.push("/gestion");
+              this.$refs.modalAbrir.show();              
             }
           }else{
             this.$swal(
@@ -12841,7 +13094,6 @@
               "success"
             );
             this.SAPU=false;
-
             // this.$router.push("/gestion");          
           }
         }
@@ -13063,7 +13315,48 @@
               "error"
             );
             return false;
-          }                                  
+          }
+          
+          if (this.datosJefe[i].enfermedad_infecciosa === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si tiene alguna <b>enfermedad infecciosa</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }          
+          if (this.datosJefe[i].enfermedad_cronica === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si tiene alguna <b>enfermedad cronica</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>peso</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }
+          if (this.datosJefe[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>talla</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }                             
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datosJefe,
@@ -13310,17 +13603,56 @@
             );
             return false;
           }
-          if (this.datos[i].excepciones === "") {
+          // if (this.datos[i].excepciones === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor seleccione la opción <b>excepciones</b> en la fila " +
+          //       (i + 1) +
+          //       " de los integrantes",
+          //     "error"
+          //   );
+          //   return false;
+          // }         
+          if (this.datos[i].enfermedad_infecciosa === "") {
             this.$swal(
               "Error...!",
-              "Por favor seleccione la opción <b>excepciones</b> en la fila " +
+              "Por favor seleccione si tiene alguna <b>enfermedad infecciosa</b> en la fila " +
                 (i + 1) +
                 " de los integrantes",
               "error"
             );
             return false;
           }          
-                                            
+          if (this.datos[i].enfermedad_cronica === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si tiene alguna <b>enfermedad cronica</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].peso === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite el <b>peso</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }
+          if (this.datos[i].talla === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor digite la <b>talla</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }                                                      
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datos,
@@ -16232,136 +16564,167 @@
         }
       },
       agregar: async function() {
-        if (this.CA1.tipo_id == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione un tipo de identificación!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.identificacion == "") {
-          this.$swal(
-            "Error...!",
-            "Por favor digite el documento de identificación!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.sexo == "0") {
-          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-          return;
-        }
-        if (this.CA1.orientacion === "0") {
-          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-          return;
-        }
-        if (this.CA1.identidad_genero === "0") {
-          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-          return;
-        }        
-        if (this.CA1.parentesco == "0") {
-          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-          return;
-        }
-        if (this.CA1.pnom == "0") {
-          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-          return;
-        }
-        if (this.CA1.pape == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor digite el primer apellido!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.estado_civil == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione el estado civil!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.fecha_nac == "") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la fecha de nacimiento!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.escolaridad == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione el nivel de escolaridad!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.ocupacion == "0") {
-          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-          return;
-        }
-        if (this.CA1.etnia == "0") {
-          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-          return;
-        }
-        if (this.CA1.clasificacion == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la clasificacion de la etnia!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.entiende == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción entiende español!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.pyp == "0") {
-          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-          return;
-        }
-        if (this.CA1.migrante == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción migrante!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.jefe == "0") {
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione el un jefe de hogar!",
-            "error"
-          );
-          return;
-        }
-        if (this.CA1.perdida_peso === "") {
-          this.$refs.perdida_peso.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-          return;
-        }
-        if (this.CA1.programa_icbf === "") {
-          this.$refs.programa_icbf.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-          return;
-        }
-        if (this.CA1.excepciones === "0") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
-          return;
-        }        
-                       
+        // if (this.CA1.tipo_id == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione un tipo de identificación!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.identificacion == "") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor digite el documento de identificación!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.sexo == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+        //   return;
+        // }
+        // if (this.CA1.orientacion === "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+        //   return;
+        // }
+        // if (this.CA1.identidad_genero === "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+        //   return;
+        // }        
+        // if (this.CA1.parentesco == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+        //   return;
+        // }
+        // if (this.CA1.pnom == "0") {
+        //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+        //   return;
+        // }
+        // if (this.CA1.pape == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor digite el primer apellido!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.estado_civil == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione el estado civil!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.fecha_nac == "") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la fecha de nacimiento!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.afi_entidad === "") {
+        //   this.$refs.afi_entidad.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+        //   return;
+        // }        
+        // if (this.CA1.tipo_afiliacion === "") {
+        //   this.$refs.tipo_afiliacion.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
+        //   return;
+        // }        
+        // if (this.CA1.escolaridad == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione el nivel de escolaridad!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.ocupacion == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+        //   return;
+        // }
+        // if (this.CA1.etnia == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+        //   return;
+        // }
+        // if (this.CA1.clasificacion == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la clasificacion de la etnia!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.entiende == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la opción entiende español!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.pyp == "0") {
+        //   this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+        //   return;
+        // }
+        // if (this.CA1.migrante == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la opción migrante!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.jefe == "0") {
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione el un jefe de hogar!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.CA1.perdida_peso === "") {
+        //   this.$refs.perdida_peso.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+        //   return;
+        // }
+        // if (this.CA1.programa_icbf === "") {
+        //   this.$refs.programa_icbf.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+        //   return;
+        // }
+        // // if (this.CA1.excepciones === "0") {
+        // //   bande = false;
+        // //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+        // //   return;
+        // // }        
+        // if (this.CA1.enfermedad_infecciosa === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
+        //   return;
+        // }
+        // if (this.CA1.enfermedad_cronica === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+        //   return;
+        // }
+        // if (this.CA1.peso === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor digite el peso!", "error");
+        //   return;
+        // }
+        // if (this.CA1.talla === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor digite la talla!", "error");
+        //   return;
+        // }                              
         // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
@@ -16484,7 +16847,19 @@
                     excepciones: this.CA1.excepciones,
                     textoExcepciones: this.showText(this.CA1.excepciones, this.opciones7),
                     identi_auxi: "",
-                    estado: "Activo"
+                    estado: "Activo",
+                    enfermedad_infecciosa: this.CA1.enfermedad_infecciosa,
+                    textoEnfermedad_infecciosa: this.showText(
+                      this.CA1.enfermedad_infecciosa,
+                      this.enfinf_options
+                    ),
+                    enfermedad_cronica: this.CA1.enfermedad_cronica,
+                    textoEnfermedad_cronica: this.showText(
+                      this.CA1.enfermedad_cronica,
+                      this.enfcro_options
+                    ),
+                    peso: this.CA1.peso,
+                    talla: this.CA1.talla,                                        
                   });
 
                   if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
@@ -16727,7 +17102,19 @@
                       perdida_peso: this.caracData.perdida_peso,
                       programa_icbf: this.caracData.programa_icbf,
                       identi_auxi: "",
-                      estado: "Activo"                    
+                      estado: "Activo",
+                      enfermedad_infecciosa: this.caracData.enfermedad_infecciosa,
+                      textoEnfermedad_infecciosa: this.showText(
+                        this.caracData.enfermedad_infecciosa,
+                        this.enfinf_options
+                      ),
+                      enfermedad_cronica: this.caracData.enfermedad_cronica,
+                      textoEnfermedad_cronica: this.showText(
+                        this.caracData.enfermedad_cronica,
+                        this.enfcro_options
+                      ),
+                      peso: this.caracData.peso,
+                      talla: this.caracData.talla,
                     });
                     if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
                       this.SAPU=true;
@@ -16810,129 +17197,155 @@
       },
       checkForm(e) {
         let bande = true;
-        if (this.caracData.tipo_id === "") {
-          this.$refs.tipo_id.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione un tipo de identificación!",
-            "error"
-          );
-          return;
-        }
-        if (this.caracData.identificacion === "") {
-          this.$refs.identificacion.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor digite una identificación!",
-            "error"
-          );
-          return;
-        }
-        if (this.caracData.sexo === "") {
-          this.$refs.sexo.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-          return;
-        }
-        if (this.caracData.orientacion === "") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-          return;
-        }
-        if (this.caracData.identidad_genero === "") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-          return;
-        }                
-        if (this.caracData.parentesco === "") {
-          this.$refs.parentesco.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-          return;
-        }
-        if (this.caracData.pnom === "") {
-          this.$refs.pnom.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-          return;
-        }
-        if (this.caracData.pape === "") {
-          this.$refs.pape.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor digite el primer apellido!",
-            "error"
-          );
-          return;
-        }
-        if (this.caracData.estado_civil === "") {
-          this.$refs.estado_civil.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione el estado civil!",
-            "error"
-          );
-          return;
-        }
-        if (this.caracData.fecha_nacimiento === "") {
-          this.$refs.fecha_nacimiento.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la fecha de nacimiento!",
-            "error"
-          );
-          return;
-        }
-        if (this.caracData.afiliacion_entidad === "") {
-          this.$refs.afiliacion_entidad.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la eps!", "error");
-          return;
-        }
-        if (this.caracData.ocupacion === "") {
-          this.$refs.ocupacion.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-          return;
-        }
-        if (this.caracData.etnia === "") {
-          this.$refs.etnia.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-          return;
-        }
-        if (this.caracData.clasificacion === "") {
-          this.$refs.clasificacion.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la clasificacion de la etnia!",
-            "error"
-          );
-          return;
-        }
-        if (this.caracData.salario === "") {
-          this.$refs.salario.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor digite el salario!", "error");
-          return;
-        }
-        if (this.caracData.perdida_peso === "") {
-          this.$refs.perdida_peso.focus();
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-          return;
-        }
-        if (this.caracData.programa_icbf === "") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-          return;
-        }                
+        // if (this.caracData.tipo_id === "") {
+        //   this.$refs.tipo_id.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione un tipo de identificación!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.caracData.identificacion === "") {
+        //   this.$refs.identificacion.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor digite una identificación!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.caracData.sexo === "") {
+        //   this.$refs.sexo.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+        //   return;
+        // }
+        // if (this.caracData.orientacion === "") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+        //   return;
+        // }
+        // if (this.caracData.identidad_genero === "") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+        //   return;
+        // }                
+        // if (this.caracData.parentesco === "") {
+        //   this.$refs.parentesco.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+        //   return;
+        // }
+        // if (this.caracData.pnom === "") {
+        //   this.$refs.pnom.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+        //   return;
+        // }
+        // if (this.caracData.pape === "") {
+        //   this.$refs.pape.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor digite el primer apellido!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.caracData.estado_civil === "") {
+        //   this.$refs.estado_civil.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione el estado civil!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.caracData.fecha_nacimiento === "") {
+        //   this.$refs.fecha_nacimiento.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la fecha de nacimiento!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.caracData.afiliacion_entidad === "") {
+        //   this.$refs.afiliacion_entidad.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+        //   return;
+        // }
+        // if (this.caracData.tipo_afiliacion === "") {
+        //   this.$refs.tipo_afiliacion.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
+        //   return;
+        // }        
+        // if (this.caracData.ocupacion === "") {
+        //   this.$refs.ocupacion.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+        //   return;
+        // }
+        // if (this.caracData.etnia === "") {
+        //   this.$refs.etnia.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+        //   return;
+        // }
+        // if (this.caracData.clasificacion === "") {
+        //   this.$refs.clasificacion.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la clasificacion de la etnia!",
+        //     "error"
+        //   );
+        //   return;
+        // }
+        // if (this.caracData.salario === "") {
+        //   this.$refs.salario.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor digite el salario!", "error");
+        //   return;
+        // }
+        // if (this.caracData.perdida_peso === "") {
+        //   this.$refs.perdida_peso.focus();
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+        //   return;
+        // }
+        // if (this.caracData.programa_icbf === "") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+        //   return;
+        // }
+        // if (this.caracData.enfermedad_infecciosa === "") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
+        //   return;
+        // }
+        // if (this.caracData.enfermedad_cronica === "") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+        //   return;
+        // }
+        // if (this.caracData.peso === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor digite el peso!", "error");
+        //   return;
+        // }
+        // if (this.caracData.talla === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor digite la talla!", "error");
+        //   return;
+        // }                                               
         return bande;
         e.preventDefault();
       },
@@ -17008,6 +17421,9 @@
         this.afectacion = this.afectacion.filter(function(men) {
           return men.identificacion != identificacion;
         });
+        this.estratificacion = this.estratificacion.filter(function(men) {
+          return men.id_jefe != identificacion;
+        });        
         this.Men1A = this.Men1A.filter(function(men) {
           return men.identificacion != identificacion;
         });
@@ -17086,107 +17502,976 @@
         this.caracData.perdida_peso = item.perdida_peso;
         this.caracData.programa_icbf = item.programa_icbf;
         this.ocupacionAuxiliar = item.textoOcupacion;
+
+        this.caracData.enfermedad_infecciosa = item.enfermedad_infecciosa;
+        this.caracData.enfermedad_cronica = item.enfermedad_cronica;
+        this.caracData.peso = item.peso;
+        this.caracData.talla = item.talla;        
         this.$refs.identificacionJefe.focus();
+
+        this.idEditar = item.id;
+        this.identificacionEditar = item.identificacion;
+        this.fechaEditar = item.fecha_nacimiento;
+        this.edadEditar = item.edad;
+        this.embarazoEditar = item.embarazo;        
         // ELIMINAR LOS DATOS DE LAS TABLAS
         let identificacion = this.vectorJefes[this.indiceEditJefe].identificacion;
-        this.datosJefe.splice(this.indiceEditJefe, 1);
-        this.vectorJefes.splice(this.indiceEditJefe, 1);
-        console.log(this.datosJefe);   
-        this.factores = this.factores.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.Men1A = this.Men1A.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De1A5 = this.De1A5.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De6A11 = this.De6A11.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De10A59 = this.De10A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.ParPost = this.ParPost.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De12A17 = this.De12A17.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De18A28 = this.De18A28.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De29A59 = this.De29A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De60 = this.De60.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.EnCro = this.EnCro.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.EnInf = this.EnInf.filter(function(men) {
-          return men.identificacion != identificacion;
-        });        
-        this.Migra = this.Migra.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        // ELIMINAR LOS DATOS DE LAS TABLAS        
+
+        // this.datosJefe.splice(this.indiceEditJefe, 1);
+        // this.vectorJefes.splice(this.indiceEditJefe, 1);
+   
+        // this.factores = this.factores.filter(function(men) {
+        //   return men.identificacion != identificacion;
+        // });
+
+        // this.afectacion = this.afectacion.filter(function(men) {
+        //   return men.identificacion != identificacion;
+        // });
+
+        let id = item.identificacion;
+
+        //INACTIVAR LA FILA DE JEFES
+        this.datosJefe[this.indiceEditJefe].estado = "Inactivo";
+        this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);
+        //INACTIVAR LA FILA DE JEFES
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        let indice = this.De10A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De10A59[indice].estado = "Inactivo";
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        indice = this.ParPost.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.ParPost[indice].estado = "Inactivo";
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        indice = this.De12A17.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De12A17[indice].estado = "Inactivo";
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        indice = this.De18A28.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De18A28[indice].estado = "Inactivo";
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        indice = this.De29A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De29A59[indice].estado = "Inactivo";
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        indice = this.De60.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De60[indice].estado = "Inactivo";
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+        indice = this.EnCro.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnCro[indice].estado = "Inactivo";
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+        indice = this.EnInf.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnInf[indice].estado = "Inactivo";
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra
+        indice = this.Migra.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.Migra[indice].estado = "Inactivo";
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra        
       },
       CancelarEditarJefe: function(){
-        // AGREGAR LOS DATOS
-        this.agregarJefe();
-        // AGREGAR LOS DATOS
+        this.datosJefe[this.indiceEditJefe].estado = "Activo";
+        this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);
+        
+        let id = this.identificacionEditar;
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        let indice = this.De10A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De10A59[indice].estado = "Activo";
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        indice = this.ParPost.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.ParPost[indice].estado = "Activo";
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        indice = this.De12A17.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De12A17[indice].estado = "Activo";
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        indice = this.De18A28.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De18A28[indice].estado = "Activo";
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        indice = this.De29A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De29A59[indice].estado = "Activo";
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        indice = this.De60.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De60[indice].estado = "Activo";
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+        indice = this.EnCro.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnCro[indice].estado = "Activo";
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+        indice = this.EnInf.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnInf[indice].estado = "Activo";
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra
+        indice = this.Migra.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.Migra[indice].estado = "Activo";
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra        
+        this.limpiar2();        
+        // // AGREGAR LOS DATOS
+        // this.agregarJefe();
+        // // AGREGAR LOS DATOS
       },
       editarJefe: async function(){
         this.caracData.identificacion = this.caracData.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
           ""
-        );          
-        const parametros = {
-          _token: this.csrf,
-          identificacion: this.caracData.identificacion
-        };
-        try {
-          await caracterizacionServicios
-            .validarJefe(parametros)
-            .then(respuesta => {
-              if (respuesta.data.OPC == "EXISTE") {
-                let val = (respuesta.data.identificacion / 1)
-                  .toFixed(0)
-                  .replace(".", ",");
-                let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                this.$swal(
-                  "Validar...!",
-                  "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
-                  "warning"
-                );
-                return false;
-              }else{                
-                // VERIFICAR SI ESTA EN LA TABLA
-                var resultado = this.datosJefe.filter(identi =>
-                  identi.identificacion==this.caracData.identificacion
-                );    
-                if (resultado.length >= 1) {
-                  this.$swal(
-                    "Validar...!",
-                    "El Documento <b>" +
-                      this.caracData.identificacion +
-                      "</b> Se Encuentra Agregado",
-                    "warning"
-                  );
-                  return false;
-                }else{
-                  // AGREGAR LOS DATOS
-                  this.agregarJefe();
-                  // AGREGAR LOS DATOS                  
-                }                                                
-              }              
-            });      
-        } catch (error) {
-          
-        }
+        );        
+        if(this.identificacionEditar===this.caracData.identificacion){
+          this.ediJe();
+        }else{
+          if (this.checkForm() === true) {
+            // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+  
+            const parametros = {
+              _token: this.csrf,
+              identificacion: this.caracData.identificacion
+            };
+            try {
+              await caracterizacionServicios
+                .validarJefe(parametros)
+                .then(respuesta => {
+                  if (respuesta.data.OPC == "EXISTE") {
+                    let val = (respuesta.data.identificacion / 1)
+                      .toFixed(0)
+                      .replace(".", ",");
+                    let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                    this.$swal(
+                      "Validar...!",
+                      "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
+                      "warning"
+                    );
+                    return false;
+                  } else {
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    let resultado = this.datosJefe.filter(identi =>
+                      identi.identificacion==this.caracData.identificacion
+                    );
+                    // VERIFICAR SI ESTA EN LA TABLA
+                    if (resultado.length) {
+                      this.$swal(
+                        "Validar...!",
+                        "El Documento <b>" +
+                          this.caracData.identificacion +
+                          "</b> Se Encuentra Agregado",
+                        "warning"
+                      );
+                      return false;
+                    } else {
+                      this.ediJe();
+                    }
+                  }
+                })
+                .catch(error => {
+                  this.errorDevuelto = error.response.data.errors;
+                  this.entrarPorError = true;
+                });
+            } catch (error) {
+              this.errorDevuelto = error.response.data.errors;
+              this.entrarPorError = true;
+            }
+          }        
+        }        
       },
+      ediJe(){
+        let nacimiento = moment(this.caracData.fecha_nacimiento);
+        let hoy = moment();
+        let edad = 0;
+        if (nacimiento < hoy) {
+          edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+        }
+
+        if (edad < 14) {
+          this.$swal(
+            "Validar...!",
+            "El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años",
+            "warning"
+          );
+          return false;
+        }
+
+        let textoEps = "";
+        if(this.caracData.afiliacion_entidad === "OTRA"){
+          textoEps = "OTRA";
+        }else{
+          if(this.caracData.afiliacion_entidad === "NINGUNA"){
+            textoEps = "NINGUNA";
+          }else{
+            textoEps = this.showText(this.caracData.afiliacion_entidad,this.admini_options);
+          }
+        }
+
+        if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
+          this.SAPU=true;
+          this.estratificacionData.afiliacion_salud_privada="SI";        
+        }                    
+        this.ocupacionAuxiliar="";
+        this.mOCOL1 = false;
+
+        for (let i = 0; i < this.datos.length; i++) {
+          if(this.datos[i].jefe === this.identificacionJefe){
+            this.datos[i].jefe = this.caracData.identificacion;
+            this.datos.splice(i, 1, this.datos[i]);
+          }
+        }
+
+        let id = this.vectorJefes[this.indiceEditJefe].identificacion;
+
+        if(this.caracData.fecha_nacimiento !== this.fechaEditar){
+          if(edad !== this.edadEditar){
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            let indice = this.factores.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.factores[indice].tipo_id = this.caracData.tipo_id;
+              this.factores[indice].sexo = this.caracData.sexo;
+              this.factores[indice].identificacion = this.caracData.identificacion;
+              this.factores[indice].pnom = this.caracData.pnom;
+              this.factores[indice].snom = this.caracData.snom;
+              this.factores[indice].pape = this.caracData.pape;
+              this.factores[indice].sape = this.caracData.sape;
+              this.factores[indice].estado = "Activo";
+              this.factores.splice(indice, 1, this.factores[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.afectacion.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.afectacion[indice].tipo_id = this.caracData.tipo_id;
+              this.afectacion[indice].sexo = this.caracData.sexo;
+              this.afectacion[indice].identificacion = this.caracData.identificacion;
+              this.afectacion[indice].pnom = this.caracData.pnom;
+              this.afectacion[indice].snom = this.caracData.snom;
+              this.afectacion[indice].pape = this.caracData.pape;
+              this.afectacion[indice].sape = this.caracData.sape;
+              this.afectacion[indice].estado = "Activo";
+              this.afectacion.splice(indice, 1, this.afectacion[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.estratificacion.findIndex(
+              identi => identi.id_jefe === id
+            );
+            
+            if (indice >= 0) {
+              this.estratificacion[indice].id_jefe = this.caracData.identificacion;
+              this.estratificacion[indice].estado = "Activo";
+              this.estratificacion.splice(indice, 1, this.estratificacion[indice]);
+            }            
+            // ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
+            this.eliEdad(this.identificacionEditar,this.caracData,edad,"JEFE");
+          }else{
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            let indice = this.factores.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.factores[indice].tipo_id = this.caracData.tipo_id;
+              this.factores[indice].sexo = this.caracData.sexo;
+              this.factores[indice].identificacion = this.caracData.identificacion;
+              this.factores[indice].pnom = this.caracData.pnom;
+              this.factores[indice].snom = this.caracData.snom;
+              this.factores[indice].pape = this.caracData.pape;
+              this.factores[indice].sape = this.caracData.sape;
+              this.factores[indice].estado = "Activo";
+              this.factores.splice(indice, 1, this.factores[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.afectacion.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.afectacion[indice].tipo_id = this.caracData.tipo_id;
+              this.afectacion[indice].sexo = this.caracData.sexo;
+              this.afectacion[indice].identificacion = this.caracData.identificacion;
+              this.afectacion[indice].pnom = this.caracData.pnom;
+              this.afectacion[indice].snom = this.caracData.snom;
+              this.afectacion[indice].pape = this.caracData.pape;
+              this.afectacion[indice].sape = this.caracData.sape;
+              this.afectacion[indice].estado = "Activo";
+              this.afectacion.splice(indice, 1, this.afectacion[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.estratificacion.findIndex(
+              identi => identi.id_jefe === id
+            );            
+            if (indice >= 0) {
+              this.estratificacion[indice].id_jefe = this.caracData.identificacion;
+              this.estratificacion[indice].estado = "Activo";
+              this.estratificacion.splice(indice, 1, this.estratificacion[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De10A59.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.De10A59[indice].tipo_id = this.caracData.tipo_id;
+              this.De10A59[indice].sexo = this.caracData.sexo;
+              this.De10A59[indice].identificacion = this.caracData.identificacion;
+              this.De10A59[indice].pnom = this.caracData.pnom;
+              this.De10A59[indice].snom = this.caracData.snom;
+              this.De10A59[indice].pape = this.caracData.pape;
+              this.De10A59[indice].sape = this.caracData.sape;
+              this.De10A59[indice].estado = "Activo";
+              this.De10A59.splice(indice, 1, this.De10A59[indice]);
+            }
+
+            if(this.embarazoEditar==="SI"){
+              indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+              if(this.caracData.embarazo==="SI"){
+                //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+                if (indice >= 0) {
+                  this.ParPost[indice].tipo_id = this.caracData.tipo_id;
+                  this.ParPost[indice].sexo = this.caracData.sexo;
+                  this.ParPost[indice].identificacion = this.caracData.identificacion;
+                  this.ParPost[indice].pnom = this.caracData.pnom;
+                  this.ParPost[indice].snom = this.caracData.snom;
+                  this.ParPost[indice].pape = this.caracData.pape;
+                  this.ParPost[indice].sape = this.caracData.sape;
+                  this.ParPost[indice].peso = this.caracData.peso;
+                  this.ParPost[indice].talla = this.caracData.talla;
+                  this.ParPost[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+                  this.ParPost[indice].estado = "Activo";
+                  this.ParPost.splice(indice, 1, this.ParPost[indice]);
+                }
+              }else if(this.caracData.embarazo==="NO"){
+                //ELIMINO
+                this.ParPost[indice].estado = "Inactivo";
+                this.ParPost.splice(indice, 1, this.ParPost[indice]);            
+              }
+            }else{
+              if(this.caracData.embarazo==="SI"){
+                //AGREGO
+                this.AParPost(this.caracData, edad, "JEFE");
+              }
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De12A17[indice].tipo_id = this.caracData.tipo_id;
+              this.De12A17[indice].sexo = this.caracData.sexo;
+              this.De12A17[indice].identificacion = this.caracData.identificacion;
+              this.De12A17[indice].pnom = this.caracData.pnom;
+              this.De12A17[indice].snom = this.caracData.snom;
+              this.De12A17[indice].pape = this.caracData.pape;
+              this.De12A17[indice].sape = this.caracData.sape;
+              this.De12A17[indice].peso = this.caracData.peso;
+              this.De12A17[indice].talla = this.caracData.talla;
+              this.De12A17[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+              this.De12A17[indice].estado = "Activo";
+              this.De12A17.splice(indice, 1, this.De12A17[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De18A28[indice].tipo_id = this.caracData.tipo_id;
+              this.De18A28[indice].sexo = this.caracData.sexo;
+              this.De18A28[indice].identificacion = this.caracData.identificacion;
+              this.De18A28[indice].pnom = this.caracData.pnom;
+              this.De18A28[indice].snom = this.caracData.snom;
+              this.De18A28[indice].pape = this.caracData.pape;
+              this.De18A28[indice].sape = this.caracData.sape;
+              this.De18A28[indice].peso = this.caracData.peso;
+              this.De18A28[indice].talla = this.caracData.talla;
+              this.De18A28[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+              this.De18A28[indice].estado = "Activo";
+              this.De18A28.splice(indice, 1, this.De18A28[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De29A59[indice].tipo_id = this.caracData.tipo_id;
+              this.De29A59[indice].sexo = this.caracData.sexo;
+              this.De29A59[indice].identificacion = this.caracData.identificacion;
+              this.De29A59[indice].pnom = this.caracData.pnom;
+              this.De29A59[indice].snom = this.caracData.snom;
+              this.De29A59[indice].pape = this.caracData.pape;
+              this.De29A59[indice].sape = this.caracData.sape;
+              this.De29A59[indice].peso = this.caracData.peso;
+              this.De29A59[indice].talla = this.caracData.talla;
+              this.De29A59[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+              this.De29A59[indice].estado = "Activo";
+              this.De29A59.splice(indice, 1, this.De29A59[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De60.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De60[indice].tipo_id = this.caracData.tipo_id;
+              this.De60[indice].sexo = this.caracData.sexo;
+              this.De60[indice].identificacion = this.caracData.identificacion;
+              this.De60[indice].pnom = this.caracData.pnom;
+              this.De60[indice].snom = this.caracData.snom;
+              this.De60[indice].pape = this.caracData.pape;
+              this.De60[indice].sape = this.caracData.sape;
+              this.De60[indice].peso = this.caracData.peso;
+              this.De60[indice].talla = this.caracData.talla;
+              this.De60[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+              this.De60[indice].estado = "Activo";
+              this.De60.splice(indice, 1, this.De60[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.EnCro.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.EnCro[indice].tipo_id = this.caracData.tipo_id;
+              this.EnCro[indice].sexo = this.caracData.sexo;
+              this.EnCro[indice].identificacion = this.caracData.identificacion;
+              this.EnCro[indice].pnom = this.caracData.pnom;
+              this.EnCro[indice].snom = this.caracData.snom;
+              this.EnCro[indice].pape = this.caracData.pape;
+              this.EnCro[indice].sape = this.caracData.sape;
+              this.EnCro[indice].estado = "Activo";
+              this.EnCro.splice(indice, 1, this.EnCro[indice]);
+            }        
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.EnInf.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.EnInf[indice].tipo_id = this.caracData.tipo_id;
+              this.EnInf[indice].sexo = this.caracData.sexo;
+              this.EnInf[indice].identificacion = this.caracData.identificacion;
+              this.EnInf[indice].pnom = this.caracData.pnom;
+              this.EnInf[indice].snom = this.caracData.snom;
+              this.EnInf[indice].pape = this.caracData.pape;
+              this.EnInf[indice].sape = this.caracData.sape;
+              this.EnInf[indice].estado = "Activo";
+              this.EnInf.splice(indice, 1, this.EnInf[indice]);
+            }
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.Migra.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.Migra[indice].tipo_id = this.caracData.tipo_id;
+              this.Migra[indice].sexo = this.caracData.sexo;
+              this.Migra[indice].identificacion = this.caracData.identificacion;
+              this.Migra[indice].pnom = this.caracData.pnom;
+              this.Migra[indice].snom = this.caracData.snom;
+              this.Migra[indice].pape = this.caracData.pape;
+              this.Migra[indice].sape = this.caracData.sape;
+              this.Migra[indice].estado = "Activo";
+              this.Migra.splice(indice, 1, this.Migra[indice]);
+            }            
+          }
+        }else{
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.factores.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.factores[indice].tipo_id = this.caracData.tipo_id;
+            this.factores[indice].sexo = this.caracData.sexo;
+            this.factores[indice].identificacion = this.caracData.identificacion;
+            this.factores[indice].pnom = this.caracData.pnom;
+            this.factores[indice].snom = this.caracData.snom;
+            this.factores[indice].pape = this.caracData.pape;
+            this.factores[indice].sape = this.caracData.sape;
+            this.factores[indice].estado = "Activo";
+            this.factores.splice(indice, 1, this.factores[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.afectacion.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.afectacion[indice].tipo_id = this.caracData.tipo_id;
+            this.afectacion[indice].sexo = this.caracData.sexo;
+            this.afectacion[indice].identificacion = this.caracData.identificacion;
+            this.afectacion[indice].pnom = this.caracData.pnom;
+            this.afectacion[indice].snom = this.caracData.snom;
+            this.afectacion[indice].pape = this.caracData.pape;
+            this.afectacion[indice].sape = this.caracData.sape;
+            this.afectacion[indice].estado = "Activo";
+            this.afectacion.splice(indice, 1, this.afectacion[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.estratificacion.findIndex(
+            identi => identi.id_jefe === id
+          );
+          
+          if (indice >= 0) {
+            this.estratificacion[indice].id_jefe = this.caracData.identificacion;
+            this.estratificacion[indice].estado = "Activo";
+            this.estratificacion.splice(indice, 1, this.estratificacion[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.De10A59[indice].tipo_id = this.caracData.tipo_id;
+            this.De10A59[indice].sexo = this.caracData.sexo;
+            this.De10A59[indice].identificacion = this.caracData.identificacion;
+            this.De10A59[indice].pnom = this.caracData.pnom;
+            this.De10A59[indice].snom = this.caracData.snom;
+            this.De10A59[indice].pape = this.caracData.pape;
+            this.De10A59[indice].sape = this.caracData.sape;
+            this.De10A59[indice].estado = "Activo";
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }
+
+          if(this.embarazoEditar==="SI"){
+            indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+            if(this.caracData.embarazo==="SI"){
+              //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+              if (indice >= 0) {
+                this.ParPost[indice].tipo_id = this.caracData.tipo_id;
+                this.ParPost[indice].sexo = this.caracData.sexo;
+                this.ParPost[indice].identificacion = this.caracData.identificacion;
+                this.ParPost[indice].pnom = this.caracData.pnom;
+                this.ParPost[indice].snom = this.caracData.snom;
+                this.ParPost[indice].pape = this.caracData.pape;
+                this.ParPost[indice].sape = this.caracData.sape;
+                this.ParPost[indice].peso = this.caracData.peso;
+                this.ParPost[indice].talla = this.caracData.talla;
+                this.ParPost[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+                this.ParPost[indice].estado = "Activo";
+                this.ParPost.splice(indice, 1, this.ParPost[indice]);
+              }
+            }else if(this.caracData.embarazo==="NO"){
+              //ELIMINO
+              this.ParPost[indice].estado = "Inactivo";
+              this.ParPost.splice(indice, 1, this.ParPost[indice]);            
+            }
+          }else{
+            if(this.caracData.embarazo==="SI"){
+              //AGREGO
+              this.AParPost(this.caracData, edad, "JEFE");
+            }
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De12A17[indice].tipo_id = this.caracData.tipo_id;
+            this.De12A17[indice].sexo = this.caracData.sexo;
+            this.De12A17[indice].identificacion = this.caracData.identificacion;
+            this.De12A17[indice].pnom = this.caracData.pnom;
+            this.De12A17[indice].snom = this.caracData.snom;
+            this.De12A17[indice].pape = this.caracData.pape;
+            this.De12A17[indice].sape = this.caracData.sape;
+            this.De12A17[indice].peso = this.caracData.peso;
+            this.De12A17[indice].talla = this.caracData.talla;
+            this.De12A17[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+            this.De12A17[indice].estado = "Activo";
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De18A28[indice].tipo_id = this.caracData.tipo_id;
+            this.De18A28[indice].sexo = this.caracData.sexo;
+            this.De18A28[indice].identificacion = this.caracData.identificacion;
+            this.De18A28[indice].pnom = this.caracData.pnom;
+            this.De18A28[indice].snom = this.caracData.snom;
+            this.De18A28[indice].pape = this.caracData.pape;
+            this.De18A28[indice].sape = this.caracData.sape;
+            this.De18A28[indice].peso = this.caracData.peso;
+            this.De18A28[indice].talla = this.caracData.talla;
+            this.De18A28[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+            this.De18A28[indice].estado = "Activo";
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De29A59[indice].tipo_id = this.caracData.tipo_id;
+            this.De29A59[indice].sexo = this.caracData.sexo;
+            this.De29A59[indice].identificacion = this.caracData.identificacion;
+            this.De29A59[indice].pnom = this.caracData.pnom;
+            this.De29A59[indice].snom = this.caracData.snom;
+            this.De29A59[indice].pape = this.caracData.pape;
+            this.De29A59[indice].sape = this.caracData.sape;
+            this.De29A59[indice].peso = this.caracData.peso;
+            this.De29A59[indice].talla = this.caracData.talla;
+            this.De29A59[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+            this.De29A59[indice].estado = "Activo";
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De60[indice].tipo_id = this.caracData.tipo_id;
+            this.De60[indice].sexo = this.caracData.sexo;
+            this.De60[indice].identificacion = this.caracData.identificacion;
+            this.De60[indice].pnom = this.caracData.pnom;
+            this.De60[indice].snom = this.caracData.snom;
+            this.De60[indice].pape = this.caracData.pape;
+            this.De60[indice].sape = this.caracData.sape;
+            this.De60[indice].peso = this.caracData.peso;
+            this.De60[indice].talla = this.caracData.talla;
+            this.De60[indice].imc = this.calcularImc(this.caracData.peso,this.caracData.talla);
+            this.De60[indice].estado = "Activo";
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.EnCro.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.EnCro[indice].tipo_id = this.caracData.tipo_id;
+            this.EnCro[indice].sexo = this.caracData.sexo;
+            this.EnCro[indice].identificacion = this.caracData.identificacion;
+            this.EnCro[indice].pnom = this.caracData.pnom;
+            this.EnCro[indice].snom = this.caracData.snom;
+            this.EnCro[indice].pape = this.caracData.pape;
+            this.EnCro[indice].sape = this.caracData.sape;
+            this.EnCro[indice].estado = "Activo";
+            this.EnCro.splice(indice, 1, this.EnCro[indice]);
+          }        
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.EnInf.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.EnInf[indice].tipo_id = this.caracData.tipo_id;
+            this.EnInf[indice].sexo = this.caracData.sexo;
+            this.EnInf[indice].identificacion = this.caracData.identificacion;
+            this.EnInf[indice].pnom = this.caracData.pnom;
+            this.EnInf[indice].snom = this.caracData.snom;
+            this.EnInf[indice].pape = this.caracData.pape;
+            this.EnInf[indice].sape = this.caracData.sape;
+            this.EnInf[indice].estado = "Activo";
+            this.EnInf.splice(indice, 1, this.EnInf[indice]);
+          }
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.Migra[indice].tipo_id = this.caracData.tipo_id;
+            this.Migra[indice].sexo = this.caracData.sexo;
+            this.Migra[indice].identificacion = this.caracData.identificacion;
+            this.Migra[indice].pnom = this.caracData.pnom;
+            this.Migra[indice].snom = this.caracData.snom;
+            this.Migra[indice].pape = this.caracData.pape;
+            this.Migra[indice].sape = this.caracData.sape;
+            this.Migra[indice].estado = "Activo";
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }
+
+        this.datosJefe[this.indiceEditJefe].id = this.caracData.id;
+        this.datosJefe[this.indiceEditJefe].id_hogar = this.caracData.id_hogar;
+        this.datosJefe[this.indiceEditJefe].telefono = this.caracData.telefono;
+        this.datosJefe[this.indiceEditJefe].puntaje_sisben = this.caracData.puntaje_sisben;
+        this.datosJefe[this.indiceEditJefe].afiliacion_entidad = this.caracData.afiliacion_entidad;
+        this.datosJefe[this.indiceEditJefe].textoEps = this.showText(Number(this.caracData.afiliacion_entidad),this.admini_options);        
+        this.datosJefe[this.indiceEditJefe].otra_eps = this.caracData.otra_eps;
+        this.datosJefe[this.indiceEditJefe].tipo_id = this.caracData.tipo_id;
+        this.datosJefe[this.indiceEditJefe].identificacion = this.caracData.identificacion;
+        this.datosJefe[this.indiceEditJefe].sexo = this.caracData.sexo;
+        this.datosJefe[this.indiceEditJefe].parentesco = this.caracData.parentesco;        
+        this.datosJefe[this.indiceEditJefe].textoParentesco = this.showText(Number(this.caracData.parentesco),this.parentesco_options);
+        this.datosJefe[this.indiceEditJefe].pnom = this.caracData.pnom;
+        this.datosJefe[this.indiceEditJefe].snom = this.caracData.snom;
+        this.datosJefe[this.indiceEditJefe].pape = this.caracData.pape;
+        this.datosJefe[this.indiceEditJefe].sape = this.caracData.sape;
+        this.datosJefe[this.indiceEditJefe].salario = this.caracData.salario;
+        this.datosJefe[this.indiceEditJefe].id_compania = this.caracData.id_compania;
+        // this.datosJefe[this.indiceEditJefe].estado = this.caracData.estado;
+        this.datosJefe[this.indiceEditJefe].estado = "Activo";
+        this.datosJefe[this.indiceEditJefe].estado_civil = this.caracData.estado_civil;
+        this.datosJefe[this.indiceEditJefe].textoEstado = this.showText(Number(this.caracData.estado_civil),this.estado_options);
+        this.datosJefe[this.indiceEditJefe].fecha_nacimiento = this.caracData.fecha_nacimiento;
+        this.datosJefe[this.indiceEditJefe].tipo_afiliacion = this.caracData.tipo_afiliacion;
+        this.datosJefe[this.indiceEditJefe].embarazo = this.caracData.embarazo;
+        this.datosJefe[this.indiceEditJefe].embarazo_multiple = this.caracData.embarazo_multiple;
+        this.datosJefe[this.indiceEditJefe].discapacidad = this.caracData.discapacidad;
+        this.datosJefe[this.indiceEditJefe].nivel_escolaridad = this.caracData.nivel_escolaridad;
+        this.datosJefe[this.indiceEditJefe].textoNivel = this.showText(Number(this.caracData.nivel_escolaridad),this.escolaridad_options);
+        this.datosJefe[this.indiceEditJefe].ocupacion = this.caracData.ocupacion;
+        this.datosJefe[this.indiceEditJefe].textoOcupacion = this.showText(Number(this.caracData.ocupacion),this.ocupacion_options);
+        this.datosJefe[this.indiceEditJefe].colegio = this.caracData.colegio;
+        this.datosJefe[this.indiceEditJefe].textoColegio = this.showText(Number(this.caracData.colegio),this.colegio_options);
+        this.datosJefe[this.indiceEditJefe].grado = this.caracData.grado;
+        this.datosJefe[this.indiceEditJefe].etnia = this.caracData.etnia;
+        this.datosJefe[this.indiceEditJefe].textoEtnia = this.showText(Number(this.caracData.etnia),this.etnia_options);
+        this.datosJefe[this.indiceEditJefe].clasificacion = this.caracData.clasificacion;
+        this.datosJefe[this.indiceEditJefe].textoClasificacion = this.showText2(Number(this.caracData.clasificacion),this.clasifi_options,this.caracData.etnia);
+        this.datosJefe[this.indiceEditJefe].entiende = this.caracData.entiende;
+        this.datosJefe[this.indiceEditJefe].pyp = this.caracData.pyp;
+        this.datosJefe[this.indiceEditJefe].migrante = this.caracData.migrante;
+        this.datosJefe[this.indiceEditJefe].edad = this.caracData.edad;
+        this.datosJefe[this.indiceEditJefe].orientacion = this.caracData.orientacion;
+        this.datosJefe[this.indiceEditJefe].identidad_genero = this.caracData.identidad_genero;
+        this.datosJefe[this.indiceEditJefe].perdida_peso = this.caracData.perdida_peso;
+        this.datosJefe[this.indiceEditJefe].programa_icbf = this.caracData.programa_icbf;
+        // this.datosJefe[this.indiceEditJefe].textoOcupacion = this.ocupacionAuxiliar;
+        
+        this.datosJefe[this.indiceEditJefe].enfermedad_infecciosa = this.caracData.enfermedad_infecciosa;
+        this.datosJefe[this.indiceEditJefe].enfermedad_cronica = this.caracData.enfermedad_cronica;
+        
+        this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa = this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);
+        this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica = this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);      
+        
+        this.datosJefe[this.indiceEditJefe].peso = this.caracData.peso;
+        this.datosJefe[this.indiceEditJefe].talla = this.caracData.talla;        
+        this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
+        
+        this.limpiar2();
+               
+      },
+      eliEdad(identificacion,vector,edad,opcion){
+        console.log("me meti");
+        let indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.Men1A[indice].estado = "Inactivo";
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        }        
+
+        indice = this.De1A5.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De1A5[indice].estado = "Inactivo";
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        }        
+
+        indice = this.De6A11.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De6A11[indice].estado = "Inactivo";
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        }        
+
+        indice = this.De10A59.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De10A59[indice].estado = "Inactivo";
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }        
+
+        indice = this.De12A17.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De12A17[indice].estado = "Inactivo";
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }        
+        
+        indice = this.De18A28.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De18A28[indice].estado = "Inactivo";
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }        
+        
+        indice = this.De29A59.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De29A59[indice].estado = "Inactivo";
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);        
+        }        
+
+        indice = this.De60.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.De60[indice].estado = "Inactivo";
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }        
+
+        indice = this.EnCro.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.EnCro[indice].estado = "Inactivo";
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }        
+
+        indice = this.EnInf.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.EnInf[indice].estado = "Inactivo";
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);        
+        }        
+
+        indice = this.Migra.findIndex(identi => identi.identificacion === identificacion);
+        if(indice >= 0){
+          this.Migra[indice].estado = "Inactivo";
+          this.Migra.splice(indice, 1, this.Migra[indice]);                
+        }        
+                
+        // AGREGAR NIÑOS MENORES DE 1 AÑO
+        if (edad <= 0) {
+          this.Amenores1Anio(vector,hoy.diff(nacimiento, "months"), opcion);
+        }
+        // AGREGAR NIÑOS MENORES DE 1 AÑO
+        // AGREGAR DE 1 A 5 AÑOS
+        if (edad >= 1 && edad <= 5) {
+          this.Ade1a5Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 1 A 5 AÑOS
+
+        // AGREGAR DE 6 A 11 AÑOS
+        if (edad >= 6 && edad <= 11) {
+          this.Ade6a11Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 6 A 11 AÑOS
+
+        // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+        if(edad<10){
+          if(vector.excepciones==="1"){
+            this.Ade10a59Anio(vector, edad, opcion);
+          }
+        }  
+        // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+
+        // AGREGAR DE 10 A 59 AÑOS
+        if (edad >= 10 && edad <= 59) {
+          this.Ade10a59Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 10 A 59 AÑOS
+
+        // AGREGAR PARTO POSTPARTO
+        if (vector.embarazo === "SI") {
+          this.AParPost(vector, edad, opcion);
+        }
+        // AGREGAR PARTO POSTPARTO
+
+        // AGREGAR DE 12 A 17 AÑOS
+        if (edad >= 12 && edad <= 17) {
+          this.Ade12a17Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 12 A 17 AÑOS
+
+        // AGREGAR DE 18 A 28 AÑOS
+        if (edad >= 18 && edad <= 28) {
+          this.Ade18a28Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 18 A 28 AÑOS
+
+        // AGREGAR DE 29 A 59 AÑOS
+        if (edad >= 29 && edad <= 59) {
+          this.Ade29a59Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 29 A 59 AÑOS
+
+        // AGREGAR DE 60 ó MAS AÑOS
+        if (edad >= 60) {
+          this.Ade60Anio(vector, edad, opcion);
+        }
+        // AGREGAR DE 60 ó MAS AÑOS
+
+        // AGREGAR MIGRANTES
+        if (vector.migrante === "SI") {
+          this.AMigra(vector, edad, opcion);
+        }
+        // AGREGAR MIGRANTES               
+      },            
       editarItemInte: function(index, item) {
         this.bandeGuaEdiInte = false;        
         this.indiceEditInte = index;
@@ -17229,97 +18514,995 @@
         this.CA1.meses = item.meses;
         this.CA1.dias = item.dias
         this.ocupacionAuxiliar2 = item.textoOcupacion;
+
+        this.CA1.enfermedad_infecciosa = item.enfermedad_infecciosa;
+        this.CA1.enfermedad_cronica = item.enfermedad_cronica;
+        this.CA1.peso = item.peso;
+        this.CA1.talla = item.talla;               
         this.$refs.identificacionInte.focus();
 
-        this.datos.splice(this.indiceEditInte, 1);
-        this.vectorIntegrante.splice(this.indiceEditInte, 1);
-        let identificacion = item.identificacion;
-        this.Men1A = this.Men1A.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De1A5 = this.De1A5.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De6A11 = this.De6A11.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De10A59 = this.De10A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.ParPost = this.ParPost.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De12A17 = this.De12A17.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De18A28 = this.De18A28.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De29A59 = this.De29A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De60 = this.De60.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.Migra = this.Migra.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
+        this.idEditar = item.id;
+        this.identificacionEditar = item.identificacion;
+        this.fechaEditar = item.fecha_nac;
+        this.edadEditar = item.edad;
+        this.embarazoEditar = item.embarazo;
+
+        // this.datos.splice(this.indiceEditInte, 1);
+        // this.vectorIntegrante.splice(this.indiceEditInte, 1);
+
+        //INACTIVAR LA FILA DE INTEGRANTES
+        this.datos[this.indiceEditInte].estado = "Inactivo";
+        this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
+        //INACTIVAR LA FILA DE INTEGRANTES        
+
+        let id = item.identificacion;
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+        let indice = this.Men1A.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.Men1A[indice].estado = "Inactivo";
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+        indice = this.De1A5.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De1A5[indice].estado = "Inactivo";
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+        indice = this.De6A11.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De6A11[indice].estado = "Inactivo";
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        indice = this.De10A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De10A59[indice].estado = "Inactivo";
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        indice = this.ParPost.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.ParPost[indice].estado = "Inactivo";
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        indice = this.De12A17.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De12A17[indice].estado = "Inactivo";
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        indice = this.De18A28.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De18A28[indice].estado = "Inactivo";
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        indice = this.De29A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De29A59[indice].estado = "Inactivo";
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        indice = this.De60.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De60[indice].estado = "Inactivo";
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+        indice = this.EnCro.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnCro[indice].estado = "Inactivo";
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+        indice = this.EnInf.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnInf[indice].estado = "Inactivo";
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra
+        indice = this.Migra.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.Migra[indice].estado = "Inactivo";
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra
        
       },
       CancelarEditarInte: function(){
-        // AGREGAR LOS DATOS
-        this.agregar();
-        // AGREGAR LOS DATOS
+        this.datos[this.indiceEditInte].estado = "Activo";
+        this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
+        
+        let id = this.identificacionEditar;
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+        let indice = this.Men1A.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.Men1A[indice].estado = "Activo";
+          this.Men1A.splice(indice, 1, this.Men1A[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+        indice = this.De1A5.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De1A5[indice].estado = "Activo";
+          this.De1A5.splice(indice, 1, this.De1A5[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+        indice = this.De6A11.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De6A11[indice].estado = "Activo";
+          this.De6A11.splice(indice, 1, this.De6A11[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        indice = this.De10A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De10A59[indice].estado = "Activo";
+          this.De10A59.splice(indice, 1, this.De10A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        indice = this.ParPost.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.ParPost[indice].estado = "Activo";
+          this.ParPost.splice(indice, 1, this.ParPost[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        indice = this.De12A17.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De12A17[indice].estado = "Activo";
+          this.De12A17.splice(indice, 1, this.De12A17[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        indice = this.De18A28.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De18A28[indice].estado = "Activo";
+          this.De18A28.splice(indice, 1, this.De18A28[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        indice = this.De29A59.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De29A59[indice].estado = "Activo";
+          this.De29A59.splice(indice, 1, this.De29A59[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        indice = this.De60.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.De60[indice].estado = "Activo";
+          this.De60.splice(indice, 1, this.De60[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE De60
+        
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+        indice = this.EnCro.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnCro[indice].estado = "Activo";
+          this.EnCro.splice(indice, 1, this.EnCro[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+        indice = this.EnInf.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.EnInf[indice].estado = "Activo";
+          this.EnInf.splice(indice, 1, this.EnInf[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra
+        indice = this.Migra.findIndex(
+          identi => identi.identificacion === id
+        );
+        if (indice >= 0) {
+          this.Migra[indice].estado = "Activo";
+          this.Migra.splice(indice, 1, this.Migra[indice]);
+        }
+        //SABER EL INDICE DE LA IDENTIFICACION DE Migra        
+        this.limpiar();        
+        // // AGREGAR LOS DATOS
+        // this.agregar();
+        // // AGREGAR LOS DATOS
       },
       editarInte: async function(){
+        if (this.CA1.tipo_id == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.identificacion == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el documento de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.sexo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.CA1.orientacion === "0") {
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.CA1.identidad_genero === "0") {
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }        
+        if (this.CA1.parentesco == "0") {
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.CA1.pnom == "0") {
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.CA1.pape == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.estado_civil == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.fecha_nac == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.escolaridad == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el nivel de escolaridad!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.ocupacion == "0") {
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.CA1.etnia == "0") {
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.CA1.clasificacion == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.entiende == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción entiende español!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.pyp == "0") {
+          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+          return;
+        }
+        if (this.CA1.migrante == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción migrante!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.jefe == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el un jefe de hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.CA1.programa_icbf === "") {
+          this.$refs.programa_icbf.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }
+        if (this.CA1.excepciones === "0") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+          return;
+        }        
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
           ""
-        );
-        const parametros = {
-          _token: this.csrf,
-          identificacion: this.CA1.identificacion
-        };
-        try {
-          await caracterizacionServicios
-            .validar(parametros)
-            .then(respuesta => {
-              if (respuesta.data.OPC == "EXISTE") {
-                let val = (respuesta.data.identificacion / 1)
-                  .toFixed(0)
-                  .replace(".", ",");
-                let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                this.$swal(
-                  "Validar...!",
-                  "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
-                  "warning"
-                );
-                return false;
-              }else{                
-                // VERIFICAR SI ESTA EN LA TABLA
-                let resultado = this.datos.filter(identi =>
-                  identi.identificacion.includes(this.CA1.identificacion)
-                );
-                // VERIFICAR SI ESTA EN LA TABLA
-                if (resultado.length > 0) {
+        );        
+        if(this.identificacionEditar===this.CA1.identificacion){
+          this.ediIn();
+        }else{
+          const parametros = {
+            _token: this.csrf,
+            identificacion: this.CA1.identificacion
+          };
+          try {
+            await caracterizacionServicios
+              .validar(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "EXISTE") {
+                  let val = (respuesta.data.identificacion / 1)
+                    .toFixed(0)
+                    .replace(".", ",");
+                  let iden = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                   this.$swal(
                     "Validar...!",
-                    "El Documento <b>" +
-                      this.CA1.identificacion +
-                      "</b> Se Encuentra Agregado",
+                    "El Documento <b>" + iden + "</b> Se Encuentra Registrado",
                     "warning"
                   );
                   return false;
-                }else{
-                  // AGREGAR LOS DATOS
-                  this.agregar();
-                  // AGREGAR LOS DATOS                  
-                }                                                
-              }              
-            });      
-        } catch (error) {
-          
+                } else {
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  let resultado = this.datos.filter(identi =>
+                    identi.identificacion==this.CA1.identificacion
+                  );
+                  // VERIFICAR SI ESTA EN LA TABLA
+                  if (resultado.length > 0) {
+                    this.$swal(
+                      "Validar...!",
+                      "El Documento <b>" +
+                        this.CA1.identificacion +
+                        "</b> Se Encuentra Agregado",
+                      "warning"
+                    );
+                    return false;
+                  } else {
+                    this.ediIn();
+                  }
+                }
+              })
+              .catch(error => {
+                this.errorDevuelto = error.response.data.errors;
+                this.entrarPorError = true;
+              });
+          } catch (error) {
+            switch (error.response.status) {
+              case 419:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              case 422:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              default:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+            }
+          }
         }
+      },
+      ediIn(){
+        this.CA1.identificacion = this.CA1.identificacion.replace(
+          /[.*+\-?^${}()|[\]\\]/g,
+          ""
+        );        
+        let nacimiento = moment(this.CA1.fecha_nac);
+        let hoy = moment();
+        let edad = 0;
+        if (nacimiento < hoy) {
+          edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
+        }
+
+        let textoEps = "";
+        if(this.CA1.afi_entidad === "OTRA"){
+          textoEps = "OTRA";
+        }else{
+          if(this.CA1.afi_entidad === "NINGUNA"){
+            textoEps = "NINGUNA";
+          }else{
+            textoEps = this.showText(this.CA1.afi_entidad,this.admini_options);
+          }
+        }
+        if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
+          this.SAPU=true;
+          this.estratificacionData.afiliacion_salud_privada="SI";        
+        }
+        this.ocupacionAuxiliar2="";
+        this.mOCOL2 = false;        
+
+        if(this.CA1.fecha_nac !== this.fechaEditar){
+          if(edad !== this.edadEditar){
+            // ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
+            this.eliEdad(this.identificacionEditar,this.CA1,edad,"INTE");
+          }else{
+
+            let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            let indice = this.Men1A.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.Men1A[indice].tipo_id = this.CA1.tipo_id;
+              this.Men1A[indice].sexo = this.CA1.sexo;
+              this.Men1A[indice].identificacion = this.CA1.identificacion;
+              this.Men1A[indice].pnom = this.CA1.pnom;
+              this.Men1A[indice].snom = this.CA1.snom;
+              this.Men1A[indice].pape = this.CA1.pape;
+              this.Men1A[indice].sape = this.CA1.sape;
+              this.Men1A[indice].peso_actual = this.CA1.peso;
+              this.Men1A[indice].longitud_actual = this.CA1.talla;
+              this.Men1A[indice].estado = "Activo";          
+              this.Men1A.splice(indice, 1, this.Men1A[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De1A5.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.De1A5[indice].tipo_id = this.CA1.tipo_id;
+              this.De1A5[indice].sexo = this.CA1.sexo;
+              this.De1A5[indice].identificacion = this.CA1.identificacion;
+              this.De1A5[indice].pnom = this.CA1.pnom;
+              this.De1A5[indice].snom = this.CA1.snom;
+              this.De1A5[indice].pape = this.CA1.pape;
+              this.De1A5[indice].sape = this.CA1.sape;
+              this.De1A5[indice].peso = this.CA1.peso;
+              this.De1A5[indice].talla = this.CA1.talla;
+              this.De1A5[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+              this.De1A5[indice].estado = "Activo";          
+              this.De1A5.splice(indice, 1, this.De1A5[indice]);
+            }   
+            
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De6A11.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.De6A11[indice].tipo_id = this.CA1.tipo_id;
+              this.De6A11[indice].sexo = this.CA1.sexo;
+              this.De6A11[indice].identificacion = this.CA1.identificacion;
+              this.De6A11[indice].pnom = this.CA1.pnom;
+              this.De6A11[indice].snom = this.CA1.snom;
+              this.De6A11[indice].pape = this.CA1.pape;
+              this.De6A11[indice].sape = this.CA1.sape;
+              this.De6A11[indice].peso = this.CA1.peso;
+              this.De6A11[indice].talla = this.CA1.talla;
+              this.De6A11[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+              this.De6A11[indice].estado = "Activo";         
+              this.De6A11.splice(indice, 1, this.De6A11[indice]);
+            }        
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De10A59.findIndex(
+              identi => identi.identificacion === id
+            );
+            if (indice >= 0) {
+              this.De10A59[indice].tipo_id = this.CA1.tipo_id;
+              this.De10A59[indice].sexo = this.CA1.sexo;
+              this.De10A59[indice].identificacion = this.CA1.identificacion;
+              this.De10A59[indice].pnom = this.CA1.pnom;
+              this.De10A59[indice].snom = this.CA1.snom;
+              this.De10A59[indice].pape = this.CA1.pape;
+              this.De10A59[indice].sape = this.CA1.sape;
+              this.De10A59[indice].estado = "Activo";          
+              this.De10A59.splice(indice, 1, this.De10A59[indice]);
+            }        
+            if(this.embarazoEditar==="SI"){
+              indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+              if(this.CA1.embarazo==="SI"){
+                //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+                if (indice >= 0) {
+                  this.ParPost[indice].tipo_id = this.CA1.tipo_id;
+                  this.ParPost[indice].sexo = this.CA1.sexo;
+                  this.ParPost[indice].identificacion = this.CA1.identificacion;
+                  this.ParPost[indice].pnom = this.CA1.pnom;
+                  this.ParPost[indice].snom = this.CA1.snom;
+                  this.ParPost[indice].pape = this.CA1.pape;
+                  this.ParPost[indice].sape = this.CA1.sape;
+                  this.ParPost[indice].peso = this.CA1.peso;
+                  this.ParPost[indice].talla = this.CA1.talla;
+                  this.ParPost[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+                  this.ParPost[indice].estado = "Activo";              
+                  this.ParPost.splice(indice, 1, this.ParPost[indice]);
+                }
+              }else if(this.CA1.embarazo==="NO"){
+                //ELIMINO
+                this.ParPost[indice].estado = "Inactivo";
+                this.ParPost.splice(indice, 1, this.ParPost[indice]);
+              }
+            }else{
+              if(this.CA1.embarazo==="SI"){
+                //AGREGO
+                this.AParPost(this.CA1, edad, "INTE");
+              }
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De12A17[indice].tipo_id = this.CA1.tipo_id;
+              this.De12A17[indice].sexo = this.CA1.sexo;
+              this.De12A17[indice].identificacion = this.CA1.identificacion;
+              this.De12A17[indice].pnom = this.CA1.pnom;
+              this.De12A17[indice].snom = this.CA1.snom;
+              this.De12A17[indice].pape = this.CA1.pape;
+              this.De12A17[indice].sape = this.CA1.sape;
+              this.De12A17[indice].peso = this.CA1.peso;
+              this.De12A17[indice].talla = this.CA1.talla;
+              this.De12A17[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+              this.De12A17[indice].estado = "Activo";          
+              this.De12A17.splice(indice, 1, this.De12A17[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De18A28[indice].tipo_id = this.CA1.tipo_id;
+              this.De18A28[indice].sexo = this.CA1.sexo;
+              this.De18A28[indice].identificacion = this.CA1.identificacion;
+              this.De18A28[indice].pnom = this.CA1.pnom;
+              this.De18A28[indice].snom = this.CA1.snom;
+              this.De18A28[indice].pape = this.CA1.pape;
+              this.De18A28[indice].sape = this.CA1.sape;
+              this.De18A28[indice].peso = this.CA1.peso;
+              this.De18A28[indice].talla = this.CA1.talla;
+              this.De18A28[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+              this.De18A28[indice].estado = "Activo";         
+              this.De18A28.splice(indice, 1, this.De18A28[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De29A59[indice].tipo_id = this.CA1.tipo_id;
+              this.De29A59[indice].sexo = this.CA1.sexo;
+              this.De29A59[indice].identificacion = this.CA1.identificacion;
+              this.De29A59[indice].pnom = this.CA1.pnom;
+              this.De29A59[indice].snom = this.CA1.snom;
+              this.De29A59[indice].pape = this.CA1.pape;
+              this.De29A59[indice].sape = this.CA1.sape;
+              this.De29A59[indice].peso = this.CA1.peso;
+              this.De29A59[indice].talla = this.CA1.talla;
+              this.De29A59[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+              this.De29A59[indice].estado = "Activo";          
+              this.De29A59.splice(indice, 1, this.De29A59[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.De60.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.De60[indice].tipo_id = this.CA1.tipo_id;
+              this.De60[indice].sexo = this.CA1.sexo;
+              this.De60[indice].identificacion = this.CA1.identificacion;
+              this.De60[indice].pnom = this.CA1.pnom;
+              this.De60[indice].snom = this.CA1.snom;
+              this.De60[indice].pape = this.CA1.pape;
+              this.De60[indice].sape = this.CA1.sape;
+              this.De60[indice].peso = this.CA1.peso;
+              this.De60[indice].talla = this.CA1.talla;
+              this.De60[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+              this.De60[indice].estado = "Activo";          
+              this.De60.splice(indice, 1, this.De60[indice]);
+            }
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.EnCro.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.EnCro[indice].tipo_id = this.CA1.tipo_id;
+              this.EnCro[indice].sexo = this.CA1.sexo;
+              this.EnCro[indice].identificacion = this.CA1.identificacion;
+              this.EnCro[indice].pnom = this.CA1.pnom;
+              this.EnCro[indice].snom = this.CA1.snom;
+              this.EnCro[indice].pape = this.CA1.pape;
+              this.EnCro[indice].sape = this.CA1.sape;
+              this.EnCro[indice].estado = "Activo";          
+              this.EnCro.splice(indice, 1, this.EnCro[indice]);
+            }        
+
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.EnInf.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.EnInf[indice].tipo_id = this.CA1.tipo_id;
+              this.EnInf[indice].sexo = this.CA1.sexo;
+              this.EnInf[indice].identificacion = this.CA1.identificacion;
+              this.EnInf[indice].pnom = this.CA1.pnom;
+              this.EnInf[indice].snom = this.CA1.snom;
+              this.EnInf[indice].pape = this.CA1.pape;
+              this.EnInf[indice].sape = this.CA1.sape;
+              this.EnInf[indice].estado = "Activo";
+              this.EnInf.splice(indice, 1, this.EnInf[indice]);
+            }
+            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+            indice = this.Migra.findIndex(identi => identi.identificacion === id);
+            if (indice >= 0) {
+              this.Migra[indice].tipo_id = this.CA1.tipo_id;
+              this.Migra[indice].sexo = this.CA1.sexo;
+              this.Migra[indice].identificacion = this.CA1.identificacion;
+              this.Migra[indice].pnom = this.CA1.pnom;
+              this.Migra[indice].snom = this.CA1.snom;
+              this.Migra[indice].pape = this.CA1.pape;
+              this.Migra[indice].sape = this.CA1.sape;
+              this.Migra[indice].estado = "Activo";
+              this.Migra.splice(indice, 1, this.Migra[indice]);
+            }
+          }
+        }else{
+
+          let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          let indice = this.Men1A.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.Men1A[indice].tipo_id = this.CA1.tipo_id;
+            this.Men1A[indice].sexo = this.CA1.sexo;
+            this.Men1A[indice].identificacion = this.CA1.identificacion;
+            this.Men1A[indice].pnom = this.CA1.pnom;
+            this.Men1A[indice].snom = this.CA1.snom;
+            this.Men1A[indice].pape = this.CA1.pape;
+            this.Men1A[indice].sape = this.CA1.sape;
+            this.Men1A[indice].peso_actual = this.CA1.peso;
+            this.Men1A[indice].longitud_actual = this.CA1.talla;
+            this.Men1A[indice].estado = "Activo";          
+            this.Men1A.splice(indice, 1, this.Men1A[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De1A5.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.De1A5[indice].tipo_id = this.CA1.tipo_id;
+            this.De1A5[indice].sexo = this.CA1.sexo;
+            this.De1A5[indice].identificacion = this.CA1.identificacion;
+            this.De1A5[indice].pnom = this.CA1.pnom;
+            this.De1A5[indice].snom = this.CA1.snom;
+            this.De1A5[indice].pape = this.CA1.pape;
+            this.De1A5[indice].sape = this.CA1.sape;
+            this.De1A5[indice].peso = this.CA1.peso;
+            this.De1A5[indice].talla = this.CA1.talla;
+            this.De1A5[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+            this.De1A5[indice].estado = "Activo";          
+            this.De1A5.splice(indice, 1, this.De1A5[indice]);
+          }   
+          
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De6A11.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.De6A11[indice].tipo_id = this.CA1.tipo_id;
+            this.De6A11[indice].sexo = this.CA1.sexo;
+            this.De6A11[indice].identificacion = this.CA1.identificacion;
+            this.De6A11[indice].pnom = this.CA1.pnom;
+            this.De6A11[indice].snom = this.CA1.snom;
+            this.De6A11[indice].pape = this.CA1.pape;
+            this.De6A11[indice].sape = this.CA1.sape;
+            this.De6A11[indice].peso = this.CA1.peso;
+            this.De6A11[indice].talla = this.CA1.talla;
+            this.De6A11[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+            this.De6A11[indice].estado = "Activo";         
+            this.De6A11.splice(indice, 1, this.De6A11[indice]);
+          }        
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De10A59.findIndex(
+            identi => identi.identificacion === id
+          );
+          if (indice >= 0) {
+            this.De10A59[indice].tipo_id = this.CA1.tipo_id;
+            this.De10A59[indice].sexo = this.CA1.sexo;
+            this.De10A59[indice].identificacion = this.CA1.identificacion;
+            this.De10A59[indice].pnom = this.CA1.pnom;
+            this.De10A59[indice].snom = this.CA1.snom;
+            this.De10A59[indice].pape = this.CA1.pape;
+            this.De10A59[indice].sape = this.CA1.sape;
+            this.De10A59[indice].estado = "Activo";          
+            this.De10A59.splice(indice, 1, this.De10A59[indice]);
+          }        
+          if(this.embarazoEditar==="SI"){
+            indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+            if(this.CA1.embarazo==="SI"){
+              //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+              if (indice >= 0) {
+                this.ParPost[indice].tipo_id = this.CA1.tipo_id;
+                this.ParPost[indice].sexo = this.CA1.sexo;
+                this.ParPost[indice].identificacion = this.CA1.identificacion;
+                this.ParPost[indice].pnom = this.CA1.pnom;
+                this.ParPost[indice].snom = this.CA1.snom;
+                this.ParPost[indice].pape = this.CA1.pape;
+                this.ParPost[indice].sape = this.CA1.sape;
+                this.ParPost[indice].peso = this.CA1.peso;
+                this.ParPost[indice].talla = this.CA1.talla;
+                this.ParPost[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+                this.ParPost[indice].estado = "Activo";              
+                this.ParPost.splice(indice, 1, this.ParPost[indice]);
+              }
+            }else if(this.CA1.embarazo==="NO"){
+              //ELIMINO
+              this.ParPost[indice].estado = "Inactivo";
+              this.ParPost.splice(indice, 1, this.ParPost[indice]);
+            }
+          }else{
+            if(this.CA1.embarazo==="SI"){
+              //AGREGO
+              this.AParPost(this.CA1, edad, "INTE");
+            }
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De12A17.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De12A17[indice].tipo_id = this.CA1.tipo_id;
+            this.De12A17[indice].sexo = this.CA1.sexo;
+            this.De12A17[indice].identificacion = this.CA1.identificacion;
+            this.De12A17[indice].pnom = this.CA1.pnom;
+            this.De12A17[indice].snom = this.CA1.snom;
+            this.De12A17[indice].pape = this.CA1.pape;
+            this.De12A17[indice].sape = this.CA1.sape;
+            this.De12A17[indice].peso = this.CA1.peso;
+            this.De12A17[indice].talla = this.CA1.talla;
+            this.De12A17[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+            this.De12A17[indice].estado = "Activo";          
+            this.De12A17.splice(indice, 1, this.De12A17[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De18A28.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De18A28[indice].tipo_id = this.CA1.tipo_id;
+            this.De18A28[indice].sexo = this.CA1.sexo;
+            this.De18A28[indice].identificacion = this.CA1.identificacion;
+            this.De18A28[indice].pnom = this.CA1.pnom;
+            this.De18A28[indice].snom = this.CA1.snom;
+            this.De18A28[indice].pape = this.CA1.pape;
+            this.De18A28[indice].sape = this.CA1.sape;
+            this.De18A28[indice].peso = this.CA1.peso;
+            this.De18A28[indice].talla = this.CA1.talla;
+            this.De18A28[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+            this.De18A28[indice].estado = "Activo";         
+            this.De18A28.splice(indice, 1, this.De18A28[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De29A59.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De29A59[indice].tipo_id = this.CA1.tipo_id;
+            this.De29A59[indice].sexo = this.CA1.sexo;
+            this.De29A59[indice].identificacion = this.CA1.identificacion;
+            this.De29A59[indice].pnom = this.CA1.pnom;
+            this.De29A59[indice].snom = this.CA1.snom;
+            this.De29A59[indice].pape = this.CA1.pape;
+            this.De29A59[indice].sape = this.CA1.sape;
+            this.De29A59[indice].peso = this.CA1.peso;
+            this.De29A59[indice].talla = this.CA1.talla;
+            this.De29A59[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+            this.De29A59[indice].estado = "Activo";          
+            this.De29A59.splice(indice, 1, this.De29A59[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.De60.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.De60[indice].tipo_id = this.CA1.tipo_id;
+            this.De60[indice].sexo = this.CA1.sexo;
+            this.De60[indice].identificacion = this.CA1.identificacion;
+            this.De60[indice].pnom = this.CA1.pnom;
+            this.De60[indice].snom = this.CA1.snom;
+            this.De60[indice].pape = this.CA1.pape;
+            this.De60[indice].sape = this.CA1.sape;
+            this.De60[indice].peso = this.CA1.peso;
+            this.De60[indice].talla = this.CA1.talla;
+            this.De60[indice].imc = this.calcularImc(this.CA1.peso,this.CA1.talla);
+            this.De60[indice].estado = "Activo";          
+            this.De60.splice(indice, 1, this.De60[indice]);
+          }
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.EnCro.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.EnCro[indice].tipo_id = this.CA1.tipo_id;
+            this.EnCro[indice].sexo = this.CA1.sexo;
+            this.EnCro[indice].identificacion = this.CA1.identificacion;
+            this.EnCro[indice].pnom = this.CA1.pnom;
+            this.EnCro[indice].snom = this.CA1.snom;
+            this.EnCro[indice].pape = this.CA1.pape;
+            this.EnCro[indice].sape = this.CA1.sape;
+            this.EnCro[indice].estado = "Activo";          
+            this.EnCro.splice(indice, 1, this.EnCro[indice]);
+          }        
+
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.EnInf.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.EnInf[indice].tipo_id = this.CA1.tipo_id;
+            this.EnInf[indice].sexo = this.CA1.sexo;
+            this.EnInf[indice].identificacion = this.CA1.identificacion;
+            this.EnInf[indice].pnom = this.CA1.pnom;
+            this.EnInf[indice].snom = this.CA1.snom;
+            this.EnInf[indice].pape = this.CA1.pape;
+            this.EnInf[indice].sape = this.CA1.sape;
+            this.EnInf[indice].estado = "Activo";
+            this.EnInf.splice(indice, 1, this.EnInf[indice]);
+          }
+          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+          indice = this.Migra.findIndex(identi => identi.identificacion === id);
+          if (indice >= 0) {
+            this.Migra[indice].tipo_id = this.CA1.tipo_id;
+            this.Migra[indice].sexo = this.CA1.sexo;
+            this.Migra[indice].identificacion = this.CA1.identificacion;
+            this.Migra[indice].pnom = this.CA1.pnom;
+            this.Migra[indice].snom = this.CA1.snom;
+            this.Migra[indice].pape = this.CA1.pape;
+            this.Migra[indice].sape = this.CA1.sape;
+            this.Migra[indice].estado = "Activo";
+            this.Migra.splice(indice, 1, this.Migra[indice]);
+          }
+        }       
+        this.datos[this.indiceEditInte].id = this.CA1.id;
+        this.datos[this.indiceEditInte].estado = "Activo";
+        this.datos[this.indiceEditInte].tipo_id = this.CA1.tipo_id;
+        this.datos[this.indiceEditInte].identificacion = this.CA1.identificacion;
+        this.datos[this.indiceEditInte].sexo = this.CA1.sexo;
+        this.datos[this.indiceEditInte].parentesco = this.CA1.parentesco;
+        this.datos[this.indiceEditInte].textoParentesco = this.showText(Number(this.CA1.parentesco),this.parentesco_options);
+        this.datos[this.indiceEditInte].pnom = this.CA1.pnom;
+        this.datos[this.indiceEditInte].snom = this.CA1.snom;
+        this.datos[this.indiceEditInte].pape = this.CA1.pape;
+        this.datos[this.indiceEditInte].sape = this.CA1.sape;
+        this.datos[this.indiceEditInte].estado_civil = this.CA1.estado_civil;
+        this.datos[this.indiceEditInte].textoEstado = this.showText(Number(this.CA1.estado_civil),this.estado_options);
+        this.datos[this.indiceEditInte].fecha_nac = this.CA1.fecha_nac;
+        this.datos[this.indiceEditInte].edad = this.CA1.edad;
+        this.datos[this.indiceEditInte].puntaje_sisben = this.CA1.puntaje_sisben;
+        this.datos[this.indiceEditInte].afi_entidad = this.CA1.afi_entidad;
+        this.datos[this.indiceEditInte].textoEps = this.showText(Number(this.CA1.afi_entidad),this.admini_options);
+        this.datos[this.indiceEditInte].otra_eps = this.CA1.otra_eps;
+        this.datos[this.indiceEditInte].tipo_afiliacion = this.CA1.tipo_afiliacion;
+        this.datos[this.indiceEditInte].embarazo = this.CA1.embarazo;
+        this.datos[this.indiceEditInte].embarazo_multiple = this.CA1.embarazo_multiple;
+        this.datos[this.indiceEditInte].discapacidad = this.CA1.discapacidad;
+        this.datos[this.indiceEditInte].escolaridad = this.CA1.escolaridad;
+        this.datos[this.indiceEditInte].textoEscolaridad = this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);
+        this.datos[this.indiceEditInte].ocupacion = this.CA1.ocupacion;
+        this.datos[this.indiceEditInte].textoOcupacion = this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);
+        this.datos[this.indiceEditInte].colegio = this.CA1.colegio;
+        this.datos[this.indiceEditInte].textoColegio = this.showText(Number(this.CA1.colegio),this.colegio_options);
+        this.datos[this.indiceEditInte].grado = this.CA1.grado;
+        this.datos[this.indiceEditInte].entiende = this.CA1.entiende;
+        this.datos[this.indiceEditInte].migrante = this.CA1.migrante;
+        this.datos[this.indiceEditInte].pyp = this.CA1.pyp;
+        this.datos[this.indiceEditInte].etnia = this.CA1.etnia;
+        this.datos[this.indiceEditInte].textoEtnia = this.showText(Number(this.CA1.etnia), this.etnia_options);
+        this.datos[this.indiceEditInte].clasificacion = this.CA1.clasificacion;
+        this.datos[this.indiceEditInte].textoClasificacion = this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);
+        this.datos[this.indiceEditInte].id_hogar = this.CA1.id_hogar;
+        this.datos[this.indiceEditInte].jefe = this.CA1.jefe;
+        this.datos[this.indiceEditInte].orientacion = this.CA1.orientacion;
+        this.datos[this.indiceEditInte].identidad_genero = this.CA1.identidad_genero;
+        this.datos[this.indiceEditInte].telefono = this.CA1.telefono;
+        this.datos[this.indiceEditInte].perdida_peso = this.CA1.perdida_peso;
+        this.datos[this.indiceEditInte].programa_icbf = this.CA1.programa_icbf;
+        this.datos[this.indiceEditInte].excepciones = this.CA1.excepciones;
+        this.datos[this.indiceEditInte].textoExcepciones = this.showText(this.CA1.excepciones, this.opciones7);
+        this.datos[this.indiceEditInte].meses = this.CA1.meses;
+        this.datos[this.indiceEditInte].dias = this.CA1.dias;                    
+        this.datos[this.indiceEditInte].ocupacionAuxiliar = this.CA1.textoOcupacion2;
+        
+        this.datos[this.indiceEditInte].enfermedad_infecciosa = this.CA1.enfermedad_infecciosa;        
+        this.datos[this.indiceEditInte].enfermedad_cronica = this.CA1.enfermedad_cronica;
+        this.datos[this.indiceEditInte].textoEnfermedad_infecciosa = this.showText(Number(this.CA1.enfermedad_infecciosa),this.enfinf_options);
+        this.datos[this.indiceEditInte].textoEnfermedad_cronica = this.showText(Number(this.CA1.enfermedad_cronica),this.enfcro_options);        
+                     
+        this.datos[this.indiceEditInte].peso = this.CA1.peso;
+        this.datos[this.indiceEditInte].talla = this.CA1.talla;
+        this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
+        this.limpiar();        
       },                
       validarTablaIntegrantes: async function() {
         for (let i = 0; i < this.datos.length; i++) {
@@ -18102,6 +20285,38 @@
           //   this.caracData.puntaje_sisben = "";
           // }
         }
+        if (caja == "peso1") {
+          this.caracData.peso = this.caracData.peso
+            .replace(/[^.\d]/g, "")
+            .trim();
+          if (this.caracData.peso == "NaN") {
+            this.caracData.peso = "0";
+          }
+        }
+        if (caja == "talla1") {
+          this.caracData.talla = this.caracData.talla
+            .replace(/[^.\d]/g, "")
+            .trim();
+          if (this.caracData.talla == "NaN") {
+            this.caracData.talla = "0";
+          }
+        }
+        if (caja == "peso2") {
+          this.CA1.peso = this.CA1.peso
+            .replace(/[^.\d]/g, "")
+            .trim();
+          if (this.CA1.peso == "NaN") {
+            this.CA1.peso = "0";
+          }
+        }
+        if (caja == "talla2") {
+          this.CA1.talla = this.CA1.talla
+            .replace(/[^.\d]/g, "")
+            .trim();
+          if (this.CA1.talla == "NaN") {
+            this.CA1.talla = "0";
+          }
+        }                               
       },
       volver() {
         this.$router.push("/gestion");
@@ -18146,13 +20361,24 @@
 
         this.bandeGuaEdiInte = true;
         this.indiceEditInte = null;
-        this.ocupacionAuxiliar2 = "";       
+        this.idEditar = null;
+        this.identificacionEditar = null;
+        this.fechaEditar = null;
+        this.edadEditar = null;
+        this.embarazoEditar = null;
+
+        this.ocupacionAuxiliar2 = "";
+        
+        this.CA1.enfermedad_infecciosa = "0";
+        this.CA1.enfermedad_cronica = "0";
+        this.CA1.peso = "0";
+        this.CA1.talla = "0";               
       },
       limpiar2() {
         this.caracData.tipo_id = "";
         this.caracData.identificacion = "";
         this.caracData.sexo = "";
-        this.caracData.parentesco = "";
+        this.caracData.parentesco = "33";
         this.caracData.pnom = "";
         this.caracData.snom = "";
         this.caracData.pape = "";
@@ -18185,7 +20411,17 @@
         
         this.bandeGuaEdiJefe = true;
         this.indiceEditJefe = null;
+        this.idEditar = null;
+        this.identificacionEditar = null;
+        this.fechaEditar = null;
+        this.edadEditar = null;
+        this.embarazoEditar = null;
         this.ocupacionAuxiliar = "";
+
+        this.caracData.enfermedad_infecciosa = "";
+        this.caracData.enfermedad_cronica = "";
+        this.caracData.peso = "0";
+        this.caracData.talla = "0";
       },
       mostrarOtro(tipo) {
         if (tipo === "TE") {
@@ -18570,9 +20806,9 @@
           valoracion_911: "",
           lactancia: "",
           peso_nacer: "",
-          peso_actual: "",
+          peso_actual: vector.peso,
           longitud_nacer: "",
-          longitud_actual: "",
+          longitud_actual: vector.talla,
           peso_long: "",
           cinta: "",
           edemas: "",
@@ -18704,9 +20940,9 @@
           valoracion_1823: "",
           valoracion_3035: "",
           valoracion_4: "",
-          peso: "",
-          talla: "",
-          imc: "",
+          peso: vector.peso,
+          talla: vector.talla,
+          imc: this.calcularImc(vector.peso,vector.talla),
           pb: "",
           pt: "",
           te: "",
@@ -18848,9 +21084,9 @@
           edad: edad,
           cyc: "",
           atencion: "",
-          peso: "",
-          talla: "",
-          imc: "",
+          peso: vector.peso,
+          talla: vector.talla,
+          imc: this.calcularImc(vector.peso,vector.talla),
           pb: "NA",
           pt: "NA",
           te: "",
@@ -19126,9 +21362,9 @@
           carnet: "",
           fecha_ultima: "",
           fecha_probable: "",
-          peso: "",
-          talla: "",
-          imc: "",
+          peso: vector.peso,
+          talla: vector.talla,
+          imc: this.calcularImc(vector.peso,vector.talla),
           semanas_ges: "",
           num_controles: "",
           vih: "",
@@ -19310,9 +21546,9 @@
           sape: vector.sape,
           sexo: vector.sexo,
           edad: edad,
-          peso: "",
-          talla: "",
-          imc: "",
+          peso: vector.peso,
+          talla: vector.talla,
+          imc: this.calcularImc(vector.peso,vector.talla),
           pb: "NA",
           visuales: "",
           auditivos: "",
@@ -19435,9 +21671,9 @@
           sape: vector.sape,
           sexo: vector.sexo,
           edad: edad,
-          peso: "",
-          talla: "",
-          imc: "",
+          peso: vector.peso,
+          talla: vector.talla,
+          imc: this.calcularImc(vector.peso,vector.talla),
           pcintura: "",
           pb: "NA",
           visuales: "",
@@ -19544,9 +21780,9 @@
           sape: vector.sape,
           sexo: vector.sexo,
           edad: edad,
-          peso: "",
-          talla: "",
-          imc: "",
+          peso: vector.peso,
+          talla: vector.talla,
+          imc: this.calcularImc(vector.peso,vector.talla),
           pcintura: "",
           pb: "NA",
           visuales: "",
@@ -19666,9 +21902,9 @@
           sexo: vector.sexo,
           edad: edad,
           grupo_ayudas: "",
-          peso: "",
-          talla: "",
-          imc: "",
+          peso: vector.peso,
+          talla: vector.talla,
+          imc: this.calcularImc(vector.peso,vector.talla),
           pa: "",
           glicemia: "",
           cigarrillo: "",

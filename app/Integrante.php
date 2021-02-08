@@ -15,6 +15,7 @@ class Integrante extends Model
         'colegio', 'grado', 'etnia', 'entiende', 'pyp', 'migrante',
         'id_compania', 'estado', 'clasificacion', 'puntaje_sisben', 'otra_eps',
         'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'excepciones',
+        'enfermedad_infecciosa', 'enfermedad_cronica', 'peso', 'talla',
     ];
     public static function guardar($data, $alias)
     {
@@ -73,7 +74,10 @@ class Integrante extends Model
             'programa_icbf' => $data['programa_icbf'],
             'identi_auxi' => $data['identificacion'],
             'excepciones' => $data['excepciones'],
-
+            'enfermedad_infecciosa' => $data['enfermedad_infecciosa'],
+            'enfermedad_cronica' => $data['enfermedad_cronica'],
+            'peso' => $data['peso'],
+            'talla' => $data['talla'],
         ]);
     }
 
@@ -124,6 +128,9 @@ class Integrante extends Model
             ->leftjoin($alias . '.escolaridad', 'escolaridad.id', 'integrantes.escolaridad')
             ->leftjoin($alias . '.etnias', 'etnias.id', 'integrantes.etnia')
             ->leftjoin($alias . '.clasificacion_etnia', 'clasificacion_etnia.id', 'integrantes.clasificacion')
+
+            ->leftjoin($alias . '.enfermedadescro', 'enfermedadescro.id', 'integrantes.enfermedad_cronica')
+            ->leftjoin($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'integrantes.enfermedad_infecciosa')
             ->where('integrantes.id_hogar', $id_hogar)
             ->where('integrantes.estado', 'Activo')
             ->select("integrantes.*",
@@ -134,7 +141,10 @@ class Integrante extends Model
                 "estadocivil.descripcion AS textoEstado",
                 "escolaridad.descripcion AS textoEscolaridad",
                 "etnias.descripcion AS textoEtnia",
-                "clasificacion_etnia.clasificacion AS textoClasificacion")
+                "clasificacion_etnia.clasificacion AS textoClasificacion",
+                "enfermedadesinf.descripcion AS textoEnfermedad_infecciosa",
+                "enfermedadescro.descripcion AS textoEnfermedad_cronica"
+            )
             ->selectRaw("CASE "
                 . " WHEN integrantes.afi_entidad IS NULL THEN '' "
                 . " WHEN integrantes.afi_entidad='OTRA' THEN 'OTRA' "

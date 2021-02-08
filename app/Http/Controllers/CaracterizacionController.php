@@ -272,7 +272,8 @@ class CaracterizacionController extends Controller
                 ];
             }
 
-            $codigo = \App\Codigo::guardar(Session::get('alias'), Session::get('sigla'));
+            // $codigo = \App\Codigo::guardar(Session::get('alias'), Session::get('sigla'));
+            $codigo = 1;
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
                 'arrayMuni' => $arrayMuni,

@@ -15,6 +15,7 @@ class Caracterizacion extends Model
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
         'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf', 'identi_auxi',
+        'enfermedad_infecciosa', 'enfermedad_cronica', 'peso', 'talla',
     ];
 
     public static function listar($busqueda, $alias)
@@ -135,6 +136,10 @@ class Caracterizacion extends Model
             'perdida_peso' => $data['perdida_peso'],
             'programa_icbf' => $data['programa_icbf'],
             'identi_auxi' => $data['identificacion'],
+            'enfermedad_infecciosa' => $data['enfermedad_infecciosa'],
+            'enfermedad_cronica' => $data['enfermedad_cronica'],
+            'peso' => $data['peso'],
+            'talla' => $data['talla'],
         ]);
     }
 
@@ -224,6 +229,9 @@ class Caracterizacion extends Model
             ->leftjoin($alias . '.etnias', 'etnias.id', 'caracterizacion.etnia')
             ->leftjoin($alias . '.clasificacion_etnia', 'clasificacion_etnia.id', 'caracterizacion.clasificacion')
 
+            ->leftjoin($alias . '.enfermedadescro', 'enfermedadescro.id', 'caracterizacion.enfermedad_cronica')
+            ->leftjoin($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'caracterizacion.enfermedad_infecciosa')
+
             ->where('id_hogar', $id_hogar)
             ->where('caracterizacion.estado', 'Activo')
             ->select("caracterizacion.*",
@@ -233,7 +241,9 @@ class Caracterizacion extends Model
                 "estadocivil.descripcion AS textoEstado",
                 "escolaridad.descripcion AS textoNivel",
                 "etnias.descripcion AS textoEtnia",
-                "clasificacion_etnia.clasificacion AS textoClasificacion"
+                "clasificacion_etnia.clasificacion AS textoClasificacion",
+                "enfermedadesinf.descripcion AS textoEnfermedad_infecciosa",
+                "enfermedadescro.descripcion AS textoEnfermedad_cronica"
             )
             ->selectRaw("CASE "
                 . " WHEN caracterizacion.afiliacion_entidad IS NULL THEN '' "

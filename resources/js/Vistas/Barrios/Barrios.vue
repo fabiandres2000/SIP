@@ -692,8 +692,8 @@
         var title = "";
         var titulo = "";
         if (usu.ESTADO == "Activo") {
-          title = "¿Desea anular el barrio " + usu.BARRIO + "?";
-          titulo = "Barrio " + usu.BARRIO + " anulado de manera exitosa";
+          title = "¿Desea anular el barrio " + usu.BARRI + "?";
+          titulo = "Barrio " + usu.BARRI + " anulado de manera exitosa";
         } else {
           title = "¿Desea activar el barrio " + usu.BARRIO + "?";
           titulo = "Barrio " + usu.BARRIO + " activado de manera exitosa";

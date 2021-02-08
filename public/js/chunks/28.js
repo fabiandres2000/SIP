@@ -9767,7 +9767,7 @@ var render = function() {
                           _vm._v("Seleccione")
                         ]),
                         _vm._v(" "),
-                        _vm._l(_vm.razon1, function(item) {
+                        _vm._l(_vm.beneficios, function(item) {
                           return _c(
                             "option",
                             {

@@ -1105,7 +1105,7 @@
                 >
                   <option value selected>Seleccione</option>
                   <option
-                    v-for="item in razon1"
+                    v-for="item in beneficios"
                     :value="item.value"
                     :key="item.value"
                   >{{item.texto}}</option>
