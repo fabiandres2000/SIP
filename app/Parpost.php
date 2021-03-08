@@ -82,23 +82,105 @@ class Parpost extends Model
 
     public static function buscar($alias, $id_hogar)
     {
-        return DB::connection('mysql')->table($alias . '.parpost')
+        $parpost1 = DB::connection('mysql')->table($alias . '.parpost')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'parpost.id_integrante')
             ->where('parpost.id_hogar', $id_hogar)
-            ->where('estado', 'Activo')
-            ->select("parpost.*")
-            ->selectRaw("CASE "
-                . " WHEN parpost.snom IS NULL THEN '' "
-                . " WHEN parpost.snom = '' THEN '' "
-                . " ELSE parpost.snom "
-                . " END snom"
-                . " ")
-            ->selectRaw("CASE "
-                . " WHEN parpost.sape IS NULL THEN '' "
-                . " WHEN parpost.sape = '' THEN '' "
-                . " ELSE parpost.sape "
-                . " END sape"
-                . " ")
-            ->get();
+            ->where('parpost.estado', 'Activo')
+            ->where('parpost.opci', 'JEFE')
+            ->select("caracterizacion.identificacion AS identificacion"
+                , "caracterizacion.tipo_id AS tipo_id"
+                , "caracterizacion.pnom AS pnom"
+                , "caracterizacion.pape AS pape"
+                , "caracterizacion.sexo AS sexo"
+                , "caracterizacion.peso AS peso"
+                , "caracterizacion.talla AS talla"
+            )
+            ->selectRaw("IFNULL(caracterizacion.snom,'') AS snom")
+            ->selectRaw("IFNULL(caracterizacion.sape,'') AS sape")
+            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edadCal")
+            ->selectRaw("IFNULL(parpost.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(parpost.id_compania,'1') AS id_compania")
+            ->selectRaw("IFNULL(parpost.id,0) AS id")
+            ->selectRaw("IFNULL(parpost.edad,YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(parpost.imc,(caracterizacion.peso/(caracterizacion.talla*caracterizacion.talla))) AS imc")
+            ->selectRaw("IFNULL(parpost.aceptacion,'') AS aceptacion")
+            ->selectRaw("IFNULL(parpost.control_prenatal,'') AS control_prenatal")
+            ->selectRaw("IFNULL(parpost.atencion_parto,'') AS atencion_parto")
+            ->selectRaw("IFNULL(parpost.carnet,'') AS carnet")
+            ->selectRaw("IFNULL(parpost.fecha_ultima,'') AS fecha_ultima")
+            ->selectRaw("IFNULL(parpost.fecha_probable,'') AS fecha_probable")
+            ->selectRaw("IFNULL(parpost.semanas_ges,'') AS semanas_ges")
+            ->selectRaw("IFNULL(parpost.num_controles,'') AS num_controles")
+            ->selectRaw("IFNULL(parpost.vih,'') AS vih")
+            ->selectRaw("IFNULL(parpost.toxoplasma,'') AS toxoplasma")
+            ->selectRaw("IFNULL(parpost.vdrl,'') AS vdrl")
+            ->selectRaw("IFNULL(parpost.odontologia,'') AS odontologia")
+            ->selectRaw("IFNULL(parpost.vacunaciontdit,'') AS vacunaciontdit")
+            ->selectRaw("IFNULL(parpost.fecha_ultimo_parto,'') AS fecha_ultimo_parto")
+            ->selectRaw("IFNULL(parpost.suplementacion,'') AS suplementacion")
+            ->selectRaw("IFNULL(parpost.enfermedades_cronicas,'') AS enfermedades_cronicas")
+            ->selectRaw("IFNULL(parpost.sedentarismo,'') AS sedentarismo")
+            ->selectRaw("IFNULL(parpost.fuma,'') AS fuma")
+            ->selectRaw("IFNULL(parpost.consumo,'') AS consumo")
+            ->selectRaw("IFNULL(parpost.bebidas,'') AS bebidas")
+            ->selectRaw("IFNULL(parpost.tipo_parto,'') AS tipo_parto")
+            ->selectRaw("IFNULL(parpost.atencion_institucional,'') AS atencion_institucional")
+            ->selectRaw("IFNULL(parpost.cc18,'') AS cc18")
+            ->selectRaw("IFNULL(parpost.morgestacion,'') AS morgestacion")
+            ->selectRaw("IFNULL(parpost.morparto,'') AS morparto")
+            ->selectRaw("IFNULL(parpost.morposparto,'') AS morposparto")
+            ->selectRaw("IFNULL(parpost.opci,'JEFE') AS opci");
+
+        $parpost2 = DB::connection('mysql')->table($alias . '.parpost')
+            ->join($alias . '.integrantes', 'integrantes.id', 'parpost.id_integrante')
+            ->where('parpost.id_hogar', $id_hogar)
+            ->where('parpost.estado', 'Activo')
+            ->where('parpost.opci', 'INTE')
+            ->select("integrantes.identificacion AS identificacion"
+                , "integrantes.tipo_id AS tipo_id"
+                , "integrantes.pnom AS pnom"
+                , "integrantes.pape AS pape"
+                , "integrantes.sexo AS sexo"
+                , "integrantes.peso AS peso"
+                , "integrantes.talla AS talla"
+            )
+            ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
+            ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edadCal")
+            ->selectRaw("IFNULL(parpost.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(parpost.id_compania,'1') AS id_compania")
+            ->selectRaw("IFNULL(parpost.id,0) AS id")
+            ->selectRaw("IFNULL(parpost.edad,YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(parpost.imc,(integrantes.peso/(integrantes.talla*integrantes.talla))) AS imc")
+            ->selectRaw("IFNULL(parpost.aceptacion,'') AS aceptacion")
+            ->selectRaw("IFNULL(parpost.control_prenatal,'') AS control_prenatal")
+            ->selectRaw("IFNULL(parpost.atencion_parto,'') AS atencion_parto")
+            ->selectRaw("IFNULL(parpost.carnet,'') AS carnet")
+            ->selectRaw("IFNULL(parpost.fecha_ultima,'') AS fecha_ultima")
+            ->selectRaw("IFNULL(parpost.fecha_probable,'') AS fecha_probable")
+            ->selectRaw("IFNULL(parpost.semanas_ges,'') AS semanas_ges")
+            ->selectRaw("IFNULL(parpost.num_controles,'') AS num_controles")
+            ->selectRaw("IFNULL(parpost.vih,'') AS vih")
+            ->selectRaw("IFNULL(parpost.toxoplasma,'') AS toxoplasma")
+            ->selectRaw("IFNULL(parpost.vdrl,'') AS vdrl")
+            ->selectRaw("IFNULL(parpost.odontologia,'') AS odontologia")
+            ->selectRaw("IFNULL(parpost.vacunaciontdit,'') AS vacunaciontdit")
+            ->selectRaw("IFNULL(parpost.fecha_ultimo_parto,'') AS fecha_ultimo_parto")
+            ->selectRaw("IFNULL(parpost.suplementacion,'') AS suplementacion")
+            ->selectRaw("IFNULL(parpost.enfermedades_cronicas,'') AS enfermedades_cronicas")
+            ->selectRaw("IFNULL(parpost.sedentarismo,'') AS sedentarismo")
+            ->selectRaw("IFNULL(parpost.fuma,'') AS fuma")
+            ->selectRaw("IFNULL(parpost.consumo,'') AS consumo")
+            ->selectRaw("IFNULL(parpost.bebidas,'') AS bebidas")
+            ->selectRaw("IFNULL(parpost.tipo_parto,'') AS tipo_parto")
+            ->selectRaw("IFNULL(parpost.atencion_institucional,'') AS atencion_institucional")
+            ->selectRaw("IFNULL(parpost.cc18,'') AS cc18")
+            ->selectRaw("IFNULL(parpost.morgestacion,'') AS morgestacion")
+            ->selectRaw("IFNULL(parpost.morparto,'') AS morparto")
+            ->selectRaw("IFNULL(parpost.morposparto,'') AS morposparto")
+            ->selectRaw("IFNULL(parpost.opci,'INTE') AS opci");
+
+        return $parpost1->unionAll($parpost2)->get();
     }
 
     public static function editarestado($estado, $identificacion, $tabla, $alias)

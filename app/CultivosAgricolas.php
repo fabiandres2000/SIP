@@ -15,7 +15,7 @@ class CultivosAgricolas extends Model
         'costo_produccion', 'costo_establecimiento', 'costo_sostenimiento', 'produccion_destinada', 'tipo_problema',
         'compradores', 'precio_promedio_venta', 'metodo_pago', 'precio_promedio_venta_kg', 'subproductos_produccion',
         'programa_asistencia_tecnica', 'nombre_programa', 'entidad', 'cambios_produccion_anio', 'actividad_cambio',
-        'estado', 'id_compania', 'otro_tipo_problema',
+        'estado', 'id_compania', 'otro_tipo_problema', 'unidad_frecuencia_cosecha', 'unidad_producion_destinada',
     ];
 
     public static function guardar($data, $alias)
@@ -40,12 +40,16 @@ class CultivosAgricolas extends Model
             'no_pertenece' => $data['no_pertenece'],
             'trabaja_asociacion' => $data['trabaja_asociacion'],
             'frecuente_cosecha' => $data['frecuente_cosecha'],
+            'unidad_frecuencia_cosecha' => $data['unidad_frecuencia_cosecha'],
+
             'area_cosecha' => $data['area_cosecha'],
             'unidad_area_cosecha' => $data['unidad_area_cosecha'],
             'costo_produccion' => $data['costo_produccion'],
             'costo_establecimiento' => $data['costo_establecimiento'],
             'costo_sostenimiento' => $data['costo_sostenimiento'],
             'produccion_destinada' => $data['produccion_destinada'],
+            'unidad_producion_destinada' => $data['unidad_producion_destinada'],
+
             'tipo_problema' => $data['tipo_problema'],
 
             'compradores' => $data['compradores'],
@@ -54,12 +58,12 @@ class CultivosAgricolas extends Model
             'precio_promedio_venta_kg' => $data['precio_promedio_venta_kg'],
             'subproductos_produccion' => $data['subproductos_produccion'],
             'programa_asistencia_tecnica' => $data['programa_asistencia_tecnica'],
-            'nombre_programa' => "".$data['nombre_programa'],
-            'entidad' => "".$data['entidad'],
+            'nombre_programa' => "" . $data['nombre_programa'],
+            'entidad' => "" . $data['entidad'],
             'cambios_produccion_anio' => $data['cambios_produccion_anio'],
-            'actividad_cambio' => "".$data['actividad_cambio'],
+            'actividad_cambio' => "" . $data['actividad_cambio'],
 
-            'otro_tipo_problema' => "".$data['otro_tipo_problema'],
+            'otro_tipo_problema' => "" . $data['otro_tipo_problema'],
             'id_compania' => 1,
             'estado' => $data['estado'],
         ]);
@@ -83,6 +87,17 @@ class CultivosAgricolas extends Model
                 . " WHEN cultivos_agricolas.unidad_area_produccion='8' THEN 'Acre' "
                 . " ELSE cultivos_agricolas.unidad_area_produccion "
                 . " END AS texto_unidad_area_produccion"
+                . " ")
+
+            ->selectRaw("CASE "
+                . " WHEN cultivos_agricolas.unidad_frecuencia_cosecha IS NULL THEN '' "
+                . " WHEN cultivos_agricolas.unidad_frecuencia_cosecha='1' THEN 'Mensual' "
+                . " WHEN cultivos_agricolas.unidad_frecuencia_cosecha='2' THEN 'Bimensual' "
+                . " WHEN cultivos_agricolas.unidad_frecuencia_cosecha='3' THEN 'Trimestral' "
+                . " WHEN cultivos_agricolas.unidad_frecuencia_cosecha='4' THEN 'Semestral' "
+                . " WHEN cultivos_agricolas.unidad_frecuencia_cosecha='5' THEN 'Anual' "
+                . " WHEN cultivos_agricolas.unidad_frecuencia_cosecha='6' THEN 'Mas de un año' "
+                . " END AS texto_unidad_frecuencia_cosecha"
                 . " ")
 
             ->selectRaw("CASE "
@@ -273,6 +288,14 @@ class CultivosAgricolas extends Model
                 . " WHEN cultivos_agricolas.unidad_area_cosecha='8' THEN 'Acre' "
                 . " ELSE cultivos_agricolas.unidad_area_cosecha "
                 . " END AS texto_unidad_area_cosecha"
+                . " ")
+
+            ->selectRaw("CASE "
+                . " WHEN cultivos_agricolas.unidad_producion_destinada IS NULL THEN '' "
+                . " WHEN cultivos_agricolas.unidad_producion_destinada='1' THEN 'kilogramos' "
+                . " WHEN cultivos_agricolas.unidad_producion_destinada='2' THEN 'Toneladas' "
+                . " WHEN cultivos_agricolas.unidad_producion_destinada='3' THEN 'Unidades' "
+                . " END AS texto_unidad_producion_destinada"
                 . " ")
             ->get();
     }

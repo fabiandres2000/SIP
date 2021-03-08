@@ -907,7 +907,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(caja) {
         var _this2 = this;
 
-        var parametros, _parametros, _parametros2;
+        var parametros, _parametros, _parametros2, vere;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
@@ -960,16 +960,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 20:
                 if (!(caja === "corregi")) {
-                  _context2.next = 58;
+                  _context2.next = 42;
                   break;
                 }
 
                 this.datos.id_vereda = "";
                 this.datos.id_barrio = "";
-                console.log(this.datos.id_corre);
 
-                if (!(this.datos.id_corre !== "0")) {
-                  _context2.next = 42;
+                if (!(this.datos.id_corre !== "0" && this.datos.id_corre !== "")) {
+                  _context2.next = 41;
                   break;
                 }
 
@@ -978,77 +977,98 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   id: this.datos.id_corre,
                   opcion: "CORRE"
                 };
-                _context2.prev = 26;
-                _context2.next = 29;
+                _context2.prev = 25;
+                _context2.next = 28;
                 return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_3__["comboBarrios"](_parametros).then(function (respuesta) {
                   _this2.barrio_options = respuesta.data.arrayBarrios;
                 });
 
-              case 29:
-                _context2.next = 40;
+              case 28:
+                _context2.next = 39;
                 break;
 
-              case 31:
-                _context2.prev = 31;
-                _context2.t2 = _context2["catch"](26);
+              case 30:
+                _context2.prev = 30;
+                _context2.t2 = _context2["catch"](25);
                 _context2.t3 = _context2.t2.response.status;
-                _context2.next = _context2.t3 === 422 ? 36 : 38;
+                _context2.next = _context2.t3 === 422 ? 35 : 37;
                 break;
 
-              case 36:
+              case 35:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 40);
+                return _context2.abrupt("break", 39);
 
-              case 38:
+              case 37:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 40);
+                return _context2.abrupt("break", 39);
 
-              case 40:
-                _context2.next = 58;
+              case 39:
+                _context2.next = 42;
                 break;
+
+              case 41:
+                if (this.datos.id_corre === "0") {
+                  this.cambiarCombo("muni");
+                  this.datos.id_corre = "0";
+                } else {
+                  this.cambiarCombo("muni");
+                }
 
               case 42:
-                if (!(this.datos.id_corre === "0")) {
-                  _context2.next = 58;
+                if (!(caja === "vereda")) {
+                  _context2.next = 61;
                   break;
                 }
 
+                this.datos.id_barrio = "0";
                 _parametros2 = {
                   _token: this.csrf,
-                  id: this.datos.id_mun,
-                  opcion: "MUN"
+                  id: this.datos.id_corre,
+                  opcion: "VERE"
                 };
-                _context2.prev = 44;
-                _context2.next = 47;
+                _context2.prev = 45;
+                _context2.next = 48;
                 return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_3__["comboBarrios"](_parametros2).then(function (respuesta) {
                   _this2.barrio_options = respuesta.data.arrayBarrios;
                 });
 
-              case 47:
-                _context2.next = 58;
+              case 48:
+                _context2.next = 59;
                 break;
 
-              case 49:
-                _context2.prev = 49;
-                _context2.t4 = _context2["catch"](44);
+              case 50:
+                _context2.prev = 50;
+                _context2.t4 = _context2["catch"](45);
                 _context2.t5 = _context2.t4.response.status;
-                _context2.next = _context2.t5 === 422 ? 54 : 56;
+                _context2.next = _context2.t5 === 422 ? 55 : 57;
                 break;
 
-              case 54:
+              case 55:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 58);
+                return _context2.abrupt("break", 59);
 
-              case 56:
+              case 57:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context2.abrupt("break", 58);
+                return _context2.abrupt("break", 59);
 
-              case 58:
+              case 59:
+                vere = "";
+
+                if (this.datos.id_vereda === "" || this.datos.id_vereda === "0") {
+                  vere = this.datos.id_vereda;
+                  this.cambiarCombo("corregi");
+
+                  if (vere === "0") {
+                    this.datos.id_vereda = "0";
+                  }
+                }
+
+              case 61:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[6, 11], [26, 31], [44, 49]]);
+        }, _callee2, this, [[6, 11], [25, 30], [45, 50]]);
       }));
 
       function cambiarCombo(_x3) {

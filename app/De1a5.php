@@ -77,23 +77,60 @@ class De1a5 extends Model
 
     public static function buscar($alias, $id_hogar)
     {
-        return DB::connection('mysql')->table($alias . '.de1a5')
+
+        $de1a5 = DB::connection('mysql')->table($alias . '.de1a5')
+            ->join($alias . '.integrantes', 'integrantes.id', 'de1a5.id_integrante')
             ->where('de1a5.id_hogar', $id_hogar)
             ->where('de1a5.estado', 'Activo')
-            ->select("de1a5.*")
-            ->selectRaw("CASE "
-                . " WHEN de1a5.snom IS NULL THEN '' "
-                . " WHEN de1a5.snom = '' THEN '' "
-                . " ELSE de1a5.snom "
-                . " END snom"
-                . " ")
-            ->selectRaw("CASE "
-                . " WHEN de1a5.sape IS NULL THEN '' "
-                . " WHEN de1a5.sape = '' THEN '' "
-                . " ELSE de1a5.sape "
-                . " END sape"
-                . " ")
-            ->get();
+            ->select("integrantes.identificacion AS identificacion"
+                , "integrantes.tipo_id AS tipo_id"
+                , "integrantes.pnom AS pnom"
+                , "integrantes.pape AS pape"
+                , "integrantes.sexo AS sexo"
+                , "integrantes.peso AS peso"
+                , "integrantes.talla AS talla"
+            )
+            ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
+            ->selectRaw("IFNULL(integrantes.sape,'') AS sape")            
+            ->selectRaw("IFNULL(de1a5.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(de1a5.id_compania,'1') AS id_compania")
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edadCal")
+            ->selectRaw("IFNULL(de1a5.edad,YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(de1a5.imc,(integrantes.peso/(integrantes.talla*integrantes.talla))) AS imc")
+            ->selectRaw("IFNULL(de1a5.id,0) AS id")
+            ->selectRaw("IFNULL(de1a5.beneficiario,'') AS beneficiario")
+            ->selectRaw("IFNULL(de1a5.cyc,'') AS cyc")
+            ->selectRaw("IFNULL(de1a5.valoracion_1823,'') AS valoracion_1823")
+            ->selectRaw("IFNULL(de1a5.valoracion_3035,'') AS valoracion_3035")
+            ->selectRaw("IFNULL(de1a5.valoracion_4,'') AS valoracion_4")
+            ->selectRaw("IFNULL(de1a5.pb,'') AS pb")
+            ->selectRaw("IFNULL(de1a5.pt,'') AS pt")
+            ->selectRaw("IFNULL(de1a5.te,'') AS te")
+            ->selectRaw("IFNULL(de1a5.lenguaje,'') AS lenguaje")
+            ->selectRaw("IFNULL(de1a5.motora,'') AS motora")
+            ->selectRaw("IFNULL(de1a5.conducta,'') AS conducta")
+            ->selectRaw("IFNULL(de1a5.visuales,'') AS visuales")
+            ->selectRaw("IFNULL(de1a5.auditivos,'') AS auditivos")
+            ->selectRaw("IFNULL(de1a5.caries,'') AS caries")
+            ->selectRaw("IFNULL(de1a5.nocepillado,'') AS nocepillado")
+            ->selectRaw("IFNULL(de1a5.consultaodon,'') AS consultaodon")
+            ->selectRaw("IFNULL(de1a5.carnet,'') AS carnet")
+            ->selectRaw("IFNULL(de1a5.bcg,'') AS bcg")
+            ->selectRaw("IFNULL(de1a5.polio,'') AS polio")
+            ->selectRaw("IFNULL(de1a5.dpt,'') AS dpt")
+            ->selectRaw("IFNULL(de1a5.fiebrea,'') AS fiebrea")
+            ->selectRaw("IFNULL(de1a5.tripleviral,'') AS tripleviral")
+            ->selectRaw("IFNULL(de1a5.otras,'') AS otras")
+            ->selectRaw("IFNULL(de1a5.desparacitado,'') AS desparacitado")
+            ->selectRaw("IFNULL(de1a5.maltrato,'') AS maltrato")
+            ->selectRaw("IFNULL(de1a5.enfermedad,'') AS enfermedad")
+            ->selectRaw("IFNULL(de1a5.medicamento,'') AS medicamento")
+            ->selectRaw("IFNULL(de1a5.opci,'INTE') AS opci")
+            ->selectRaw("IFNULL(de1a5.pentavalente,'') AS pentavalente")
+            ->selectRaw("IFNULL(de1a5.pcefalico,'') AS pcefalico");
+
+        return $de1a5->get();
+
     }
 
     public static function editarestado($estado, $id, $alias)

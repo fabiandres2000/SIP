@@ -25,6 +25,8 @@ class UsuarioController extends Controller
             Session::put('sigla', $alias->sigla);
             $opc = true;
             $mensaje = "Usuario logueado";
+
+            $gua = \App\Log::guardar("Entrada al sistema del usuario con el id = " . $resultado->id, Session::get('alias'));
             $respuesta = [
                 'OPC' => $opc,
                 'MENSAJE' => $mensaje,
@@ -54,7 +56,6 @@ class UsuarioController extends Controller
         if (Auth::check()) {
             $busqueda = request()->get('txtbusqueda');
             $usuarios = \App\User::listar($busqueda);
-            // dd($usuarios->lastPage());die;
             if ($usuarios) {
                 $respuesta = [
                     'paginacion' => [
@@ -83,33 +84,9 @@ class UsuarioController extends Controller
     {
         if (Auth::check()) {
             $data = request()->all();
-            request()->validate([
-                'identificacion' => 'required|unique:users,identificacion',
-                'nombre' => 'required',
-                'email' => 'required|email|unique:users,email',
-                'rol' => 'required',
-                'celular' => 'required',
-                'usuario' => 'required|unique:users,usuario',
-                'password' => 'required|min:5',
-                'confPassword' => 'required|min:5',
-            ], [
-                'identificacion.required' => 'La identificación es obligatorio',
-                'identificacion.unique' => 'La identificación ya se encuentra registrada',
-                'nombre.required' => 'El Nombre es obligatorio',
-                'email.required' => 'El email es obligatorio',
-                'email.unique' => 'El email ya se encuentra registrado',
-                'email.email' => 'El email debe ser valido',
-                'rol.required' => 'El rol es obligatorio',
-                'celular.required' => 'El celular es obligatorio',
-                'usuario.required' => 'El usuario es obligatorio',
-                'usuario.unique' => 'El usuario ya se encuentra registrado',
-                'password.required' => 'La contraseña es obligatoria',
-                'password.min' => 'La contraseña debe tener minimo 5 caracteres',
-                'confPassword.required' => 'Confirmar la contraseña es obligatorio',
-                'confPassword.min' => 'La contraseña debe tener minimo 5 caracteres',
-            ]);
             $usuarios = \App\User::guardar($data);
             if ($usuarios) {
+                $gua = \App\Log::guardar("Guardar el usuario con id = " . $usuarios->id, Session::get('alias'));
                 $respuesta = [
                     'OPC' => 'SI',
                     'usuarios' => $usuarios,
@@ -136,7 +113,9 @@ class UsuarioController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar el usuario con id = " . $id, Session::get('alias'));
             } else {
+                $gua = \App\Log::guardar("Activar el usuario con id = " . $id, Session::get('alias'));
                 $estado = "Activo";
             }
             $respuesta = \App\User::editarestado($estado, $id);
@@ -173,6 +152,7 @@ class UsuarioController extends Controller
             ]);
             $resp = \App\User::modificar($data, $id);
             if ($resp) {
+                $gua = \App\Log::guardar("Editar el usuario con id = " . $id, Session::get('alias'));
                 $usuarios = \App\User::buscarUsuario($id);
                 $respuesta = [
                     'OPC' => 'SI',
@@ -194,6 +174,7 @@ class UsuarioController extends Controller
 
     public function logout()
     {
+        $gua = \App\Log::guardar("Salida del sistema del usuario con el id = " . Auth::user()->id, Session::get('alias'));
         Session::flush();
         Auth::logout();
         $respuesta = [

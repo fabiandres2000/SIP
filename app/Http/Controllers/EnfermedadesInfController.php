@@ -43,6 +43,7 @@ class EnfermedadesInfController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $enfermedadesinf = \App\EnfermedadesInf::guardar($data, Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la enfermedad infecciosa  = ".$data['descripcion'], Session::get('alias'));
             if ($enfermedadesinf) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -70,8 +71,10 @@ class EnfermedadesInfController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar la enfermedad infecciosa con id = ".$id, Session::get('alias'));
             } else {
                 $estado = "Activo";
+                $gua = \App\Log::guardar("Activar la enfermedad infecciosa con id = ".$id, Session::get('alias'));
             }
             $respuesta = \App\EnfermedadesInf::editarestado($estado, $id, Session::get('alias'));
             return;

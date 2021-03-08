@@ -67,6 +67,7 @@ class CorregimientoController extends Controller
                     $dato['corregimiento'] = $item["corregimiento"];
                     $dato['id'] = $item["id"];
                     $corregimientos = \App\Corregimiento::guardar($dato, Session::get('alias'));
+                    $gua = \App\Log::guardar("Guardar corregimiento = " . $item["corregimiento"], Session::get('alias'));
                 }
             } else {
                 $dato['dpto'] = $data["dpto"];
@@ -74,6 +75,7 @@ class CorregimientoController extends Controller
                 $dato['corregimiento'] = $data["corregimiento"];
                 $dato['id'] = $data["id"];
                 $corregimientos = \App\Corregimiento::guardar($dato, Session::get('alias'));
+                $gua = \App\Log::guardar("Editar corregimiento id = " . $data["id"], Session::get('alias'));
             }
             if ($corregimientos) {
                 $respuesta = [
@@ -102,8 +104,10 @@ class CorregimientoController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar el corregimiento con id = ".$id, Session::get('alias'));
             } else {
                 $estado = "Activo";
+                $gua = \App\Log::guardar("Activar el corregimiento con id = ".$id, Session::get('alias'));
             }
             $respuesta = \App\Corregimiento::editarestado($estado, $id, Session::get('alias'));
             return;

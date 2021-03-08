@@ -272,8 +272,17 @@ class CaracterizacionController extends Controller
                 ];
             }
 
-            // $codigo = \App\Codigo::guardar(Session::get('alias'), Session::get('sigla'));
-            $codigo = 1;
+            $codigo = \App\Codigo::guardar(Session::get('alias'), Session::get('sigla'));
+            // $codigo = 1;
+
+            $conspaises = \App\Paises::buscar(Session::get('alias'));
+            foreach ($conspaises as $item) {
+                $arrayPaises[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->nombre),
+                ];
+            }
+
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
                 'arrayMuni' => $arrayMuni,
@@ -296,6 +305,7 @@ class CaracterizacionController extends Controller
                 'arrayEnfInf' => $arrayEnfInf,
                 'arrayReligion' => $arrayReligion,
                 'codigo' => $codigo,
+                'arrayPaises' => $arrayPaises,
             ];
             return response()->json($respuesta, 200);
         } else {
@@ -556,6 +566,7 @@ class CaracterizacionController extends Controller
             //TABLA INTEGRANTES
             $integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'), $id_hogar);
             //TABLA INTEGRANTES
+
             //DATOS GUARDADOS
 
             //TABLA FACTORES
@@ -571,6 +582,8 @@ class CaracterizacionController extends Controller
             $vivienda = [];
             $animales = [];
             $estratificacion = [];
+
+            $viviVacia = 0;
             if ($respuvivi) {
                 $vivienda = [
                     'id' => $respuvivi->id,
@@ -700,7 +713,9 @@ class CaracterizacionController extends Controller
                 ];
                 $animales = \App\Animal::buscar(Session::get('alias'), $id_hogar);
                 $estratificacion = \App\Estratificacion::buscar(Session::get('alias'), $id_hogar);
+                $viviVacia = 1;
             }
+
             //TABLA VIVIENDA
 
             //TABLA MENORES DE 1 AÑO
@@ -749,8 +764,15 @@ class CaracterizacionController extends Controller
 
             //TABLA Migra
             $Migra = \App\Migra::buscar(Session::get('alias'), $id_hogar);
-
             //TABLA Migra
+
+            $conspaises = \App\Paises::buscar(Session::get('alias'));
+            foreach ($conspaises as $item) {
+                $arrayPaises[] = [
+                    'value' => $item->id,
+                    'texto' => strtoupper($item->nombre),
+                ];
+            }            
 
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
@@ -781,6 +803,7 @@ class CaracterizacionController extends Controller
                 'factores' => $factores,
                 'afectacion' => $afectacion,
                 'vivienda' => $vivienda,
+                'viviVacia' => $viviVacia,
                 'animales' => $animales,
                 'estratificacion' => $estratificacion,
                 'De10A59' => $De10A59,
@@ -795,6 +818,7 @@ class CaracterizacionController extends Controller
                 'EnCro' => $EnCro,
                 'EnInf' => $EnInf,
                 'Migra' => $Migra,
+                'arrayPaises' => $arrayPaises,
             ];
             return response()->json($respuesta, 200);
         } else {
@@ -836,13 +860,42 @@ class CaracterizacionController extends Controller
                         for ($i = 0; $i < count($dataafectacion); $i++) {
                             $dataafectacion[$i]['id_hogar'] = $hogarrespuesta;
                             $afectacionrespuesta = \App\Afectacion::guardar($dataafectacion[$i], Session::get('alias'));
-                        }                        
+                        }
 
                         $codigo = \App\Codigo::editar(Session::get('alias'), request()->get("CODIGOGENE"), $hogarrespuesta, Session::get('sigla'));
+
+                        //TABLA HOGAR
+                        $hogar = \App\Hogar::buscar(Session::get('alias'), $hogarrespuesta);
+                        //TABLA HOGAR
+
+                        //TABLA JEFES DE HOGAR
+                        $jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'), $hogarrespuesta);
+                        //TABLA JEFES DE HOGAR
+
+                        //TABLA INTEGRANTES
+                        $integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'), $hogarrespuesta);
+                        //TABLA INTEGRANTES
+
+                        //TABLA FACTORES
+                        $factores = \App\Factores::buscar(Session::get('alias'), $hogarrespuesta);
+                        //TABLA FACTORES
+
+                        //TABLA AFECTACION
+                        $afectacion = \App\Afectacion::buscar(Session::get('alias'), $hogarrespuesta);
+                        //TABLA AFECTACION
+
+                        // $codigo = \App\Codigo::buscar(Session::get('alias'), Session::get('sigla'), $hogarrespuesta);
+
                         $respuesta = [
-                            'OPC' => 'SI',
+                            'OPC' => 'G',
                             'IDHOGAR' => $hogarrespuesta,
+                            'hogar' => $hogar,
+                            'jefes' => $jefes,
+                            'integrantes' => $integrantes,
+                            'factores' => $factores,
+                            'afectacion' => $afectacion,
                         ];
+                        $gua = \App\Log::guardar("Guardar la pestaña identificación con id_hogar  = ".$hogarrespuesta, Session::get('alias'));
                         return response()->json($respuesta, 200);
                     } else {
                         $respuesta = [
@@ -880,9 +933,28 @@ class CaracterizacionController extends Controller
                         }
                         // GUARDAR DE ANIMALES
 
+                        //TABLA VIVIENDA
+                        $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $IDHOGAR);
+                        $vivienda = [];
+                        $animales = [];
+                        $estratificacion = [];
+                        if ($respuvivi) {
+                            $vivienda = [
+                                'id' => $respuvivi->id,
+                            ];
+                            $animales = \App\Animal::buscar(Session::get('alias'), $IDHOGAR);
+                            $estratificacion = \App\Estratificacion::buscar(Session::get('alias'), $IDHOGAR);
+                        }
+                        //TABLA VIVIENDA
+
                         $respuesta = [
                             'OPC' => 'SI',
+                            'vivienda' => $vivienda,
+                            'animales' => $animales,
+                            'estratificacion' => $estratificacion,
                         ];
+
+                        $gua = \App\Log::guardar("Guardar la pestaña viviendas con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                         return response()->json($respuesta, 200);
                     } else {
                         $respuesta = [
@@ -934,9 +1006,35 @@ class CaracterizacionController extends Controller
                         $ParPostrespuesta = \App\Parpost::guardar($dataParPost[$i], Session::get('alias'));
                     }
                     // GUARDAR DE PARPOST
+
+                    //TABLA MENORES DE 1 AÑO
+                    $Men1A = \App\Men1a::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA MENORES DE 1 AÑO
+
+                    //TABLA DE 1 A 5
+                    $De1A5 = \App\De1a5::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 1 A 5
+
+                    //TABLA DE 6 A 11
+                    $De6A11 = \App\De6a11::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 6 A 11
+
+                    //TABLA DE 10 A 59 AÑOS
+                    $De10A59 = \App\De10a59::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 10 A 59 AÑOS
+
+                    //TABLA PARPOST
+                    $ParPost = \App\Parpost::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA PARPOST
                     $respuesta = [
                         'OPC' => 'SI',
+                        'De10A59' => $De10A59,
+                        'Men1A' => $Men1A,
+                        'De1A5' => $De1A5,
+                        'De6A11' => $De6A11,
+                        'ParPost' => $ParPost,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña cart.X.ciclo con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUADOLE") {
@@ -966,9 +1064,25 @@ class CaracterizacionController extends Controller
                     }
                     // GUARDAR DE 29 A 59
 
+                    //TABLA DE 12 A 17
+                    $De12A17 = \App\De12a17::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 12 A 17
+
+                    //TABLA DE 18 A 28
+                    $De18A28 = \App\De18a28::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 18 A 28
+
+                    //TABLA DE 29 A 59
+                    $De29A59 = \App\De29a59::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 29 A 59
+
                     $respuesta = [
                         'OPC' => 'SI',
+                        'De12A17' => $De12A17,
+                        'De18A28' => $De18A28,
+                        'De29A59' => $De29A59,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña Adolescentes/Jovenes con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUADULT") {
@@ -995,10 +1109,24 @@ class CaracterizacionController extends Controller
                         $EnInfrespuesta = \App\Eninf::guardar($dataEnInf[$i], Session::get('alias'));
                     }
                     // GUARDAR DE ENINF
+                    //TABLA DE 60
+                    $De60 = \App\De60::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 60
 
+                    //TABLA ENCRO
+                    $EnCro = \App\Encro::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA ENCRO
+
+                    //TABLA ENINF
+                    $EnInf = \App\Eninf::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA ENINF
                     $respuesta = [
                         'OPC' => 'SI',
+                        'De60' => $De60,
+                        'EnCro' => $EnCro,
+                        'EnInf' => $EnInf,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña Adulto mayor con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUAMIGRA") {
@@ -1014,11 +1142,15 @@ class CaracterizacionController extends Controller
 
                     // CALCULOS FINALES
                     $resultado = self::calcular($IDHOGAR);
-
                     // CALCULOS FINALES
+                    //TABLA Migra
+                    $Migra = \App\Migra::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA Migra
                     $respuesta = [
                         'OPC' => 'SI',
+                        'Migra' => $Migra,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña Migrante con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
             }
@@ -1054,12 +1186,38 @@ class CaracterizacionController extends Controller
                         for ($i = 0; $i < count($dataafectacion); $i++) {
                             $dataafectacion[$i]['id_hogar'] = $id_hogar;
                             $afectacionrespuesta = \App\Afectacion::guardar($dataafectacion[$i], Session::get('alias'));
-                        }                        
+                        }
                         // $codigo = \App\Codigo::editar(Session::get('alias'), request()->get("CODIGOGENE"), $hogarrespuesta, Session::get('sigla'));
+
+                        //TABLA HOGAR
+                        $hogar = \App\Hogar::buscar(Session::get('alias'), $id_hogar);
+                        //TABLA HOGAR
+
+                        //TABLA JEFES DE HOGAR
+                        $jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'), $id_hogar);
+                        //TABLA JEFES DE HOGAR
+
+                        //TABLA INTEGRANTES
+                        $integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'), $id_hogar);
+                        //TABLA INTEGRANTES
+
+                        //TABLA FACTORES
+                        $factores = \App\Factores::buscar(Session::get('alias'), $id_hogar);
+                        //TABLA FACTORES
+
+                        //TABLA AFECTACION
+                        $afectacion = \App\Afectacion::buscar(Session::get('alias'), $id_hogar);
+                        //TABLA AFECTACION
                         $respuesta = [
-                            'OPC' => 'SI',
+                            'OPC' => 'E',
                             'IDHOGAR' => $id_hogar,
+                            'hogar' => $hogar,
+                            'jefes' => $jefes,
+                            'integrantes' => $integrantes,
+                            'factores' => $factores,
+                            'afectacion' => $afectacion,
                         ];
+                        $gua = \App\Log::guardar("Guardar la pestaña identificación con id_hogar  = ".$id_hogar, Session::get('alias'));
                         return response()->json($respuesta, 200);
                     } else {
                         $respuesta = [
@@ -1095,9 +1253,27 @@ class CaracterizacionController extends Controller
                     }
                     // GUARDAR DE ANIMALES
 
+                    //TABLA VIVIENDA
+                    $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $IDHOGAR);
+                    $vivienda = [];
+                    $animales = [];
+                    $estratificacion = [];
+                    if ($respuvivi) {
+                        $vivienda = [
+                            'id' => $respuvivi->id,
+                        ];
+                        $animales = \App\Animal::buscar(Session::get('alias'), $IDHOGAR);
+                        $estratificacion = \App\Estratificacion::buscar(Session::get('alias'), $IDHOGAR);
+                    }
+                    //TABLA VIVIENDA
+
                     $respuesta = [
                         'OPC' => 'SI',
+                        'vivienda' => $vivienda,
+                        'animales' => $animales,
+                        'estratificacion' => $estratificacion,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña viviendas con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUACARCI") {
@@ -1142,9 +1318,35 @@ class CaracterizacionController extends Controller
                         $ParPostrespuesta = \App\Parpost::guardar($dataParPost[$i], Session::get('alias'));
                     }
                     // GUARDAR DE PARPOST
+
+                    //TABLA MENORES DE 1 AÑO
+                    $Men1A = \App\Men1a::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA MENORES DE 1 AÑO
+
+                    //TABLA DE 1 A 5
+                    $De1A5 = \App\De1a5::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 1 A 5
+
+                    //TABLA DE 6 A 11
+                    $De6A11 = \App\De6a11::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 6 A 11
+
+                    //TABLA DE 10 A 59 AÑOS
+                    $De10A59 = \App\De10a59::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 10 A 59 AÑOS
+
+                    //TABLA PARPOST
+                    $ParPost = \App\Parpost::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA PARPOST
                     $respuesta = [
                         'OPC' => 'SI',
+                        'De10A59' => $De10A59,
+                        'Men1A' => $Men1A,
+                        'De1A5' => $De1A5,
+                        'De6A11' => $De6A11,
+                        'ParPost' => $ParPost,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña cart.X.ciclo con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUADOLE") {
@@ -1173,10 +1375,24 @@ class CaracterizacionController extends Controller
                         $De29A59respuesta = \App\De29a59::guardar($dataDe29A59[$i], Session::get('alias'));
                     }
                     // GUARDAR DE 29 A 59
+                    //TABLA DE 12 A 17
+                    $De12A17 = \App\De12a17::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 12 A 17
 
+                    //TABLA DE 18 A 28
+                    $De18A28 = \App\De18a28::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 18 A 28
+
+                    //TABLA DE 29 A 59
+                    $De29A59 = \App\De29a59::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 29 A 59
                     $respuesta = [
                         'OPC' => 'SI',
+                        'De12A17' => $De12A17,
+                        'De18A28' => $De18A28,
+                        'De29A59' => $De29A59,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña Adolescentes/Jovenes con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUADULT") {
@@ -1184,6 +1400,8 @@ class CaracterizacionController extends Controller
                     $dataEnCro = request()->get("EnCro");
                     $dataEnInf = request()->get("EnInf");
                     $IDHOGAR = request()->get("IDHOGAR");
+
+                    // dd($dataDe60);die;
                     // GUARDAR DE 60
                     for ($i = 0; $i < count($dataDe60); $i++) {
                         $dataDe60[$i]['id_hogar'] = $IDHOGAR;
@@ -1203,10 +1421,24 @@ class CaracterizacionController extends Controller
                         $EnInfrespuesta = \App\Eninf::guardar($dataEnInf[$i], Session::get('alias'));
                     }
                     // GUARDAR DE ENINF
+                    //TABLA DE 60
+                    $De60 = \App\De60::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA DE 60
 
+                    //TABLA ENCRO
+                    $EnCro = \App\Encro::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA ENCRO
+
+                    //TABLA ENINF
+                    $EnInf = \App\Eninf::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA ENINF
                     $respuesta = [
                         'OPC' => 'SI',
+                        'De60' => $De60,
+                        'EnCro' => $EnCro,
+                        'EnInf' => $EnInf,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña Adulto mayor con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUAMIGRA") {
@@ -1219,9 +1451,14 @@ class CaracterizacionController extends Controller
                         $Migrarespuesta = \App\Migra::guardar($dataMigra[$i], Session::get('alias'));
                     }
                     // GUARDAR DE MIGRA
+                    //TABLA Migra
+                    $Migra = \App\Migra::buscar(Session::get('alias'), $IDHOGAR);
+                    //TABLA Migra
                     $respuesta = [
                         'OPC' => 'SI',
+                        'Migra' => $Migra,
                     ];
+                    $gua = \App\Log::guardar("Guardar la pestaña Migrante con id_hogar  = ".$IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
                 }
             }
@@ -1580,6 +1817,8 @@ class CaracterizacionController extends Controller
                 $respuesta = \App\Encro::editarestado("Inactivo", $id_hogar, Session::get('alias'));
                 $respuesta = \App\Eninf::editarestado("Inactivo", $id_hogar, Session::get('alias'));
                 $respuesta = \App\Migra::editarestado("Inactivo", $id_hogar, Session::get('alias'));
+
+                $gua = \App\Log::guardar("Eliminar la caracterizacion con id_hogar  = ".$id_hogar, Session::get('alias'));
                 $OPC = "SI";
             }
             if ($opcion == "PARPOST") {

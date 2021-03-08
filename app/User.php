@@ -59,10 +59,10 @@ class User extends Authenticatable
                     ->orWhere('rol', 'LIKE', '%' . $busqueda . '%');
             })
                 ->orderBy('id', 'DESC')
-                ->paginate(2);
+                ->paginate(10);
         } else {
             $respuesta = User::orderBy('id', 'DESC')
-                ->paginate(2);
+                ->paginate(10);
         }
 
         return $respuesta;

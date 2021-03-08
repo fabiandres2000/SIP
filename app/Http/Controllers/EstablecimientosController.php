@@ -96,9 +96,11 @@ class EstablecimientosController extends Controller
             $data = request()->get("datos");
             if ($opcion == "guardar") {
                 $establecimientos = \App\Establecimientos::guardar($data, Session::get('alias'));
+                $gua = \App\Log::guardar("Guardar el establecimiento  con razón social= ".$data["razon"], Session::get('alias'));
             } else {
-                $id = request()->get("id");
+                $id = request()->get("id");                
                 $establecimientos = \App\Establecimientos::modificar($data, Session::get('alias'), $id);
+                $gua = \App\Log::guardar("Editar el establecimiento  con razón social= ".$data["razon"], Session::get('alias'));
             }
             if ($establecimientos) {
                 $respuesta = [
@@ -124,6 +126,7 @@ class EstablecimientosController extends Controller
         if (Auth::check()) {
             $id = request()->get("id");
             $ParPost = \App\Establecimientos::editarestado("Inactivo", $id, Session::get('alias'));
+            $gua = \App\Log::guardar("Eliminar el establecimiento  con id = ".$id, Session::get('alias'));
             $OPC = "SI";
             $respuesta = [
                 'OPC' => $OPC,

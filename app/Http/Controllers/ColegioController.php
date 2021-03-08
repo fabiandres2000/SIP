@@ -78,6 +78,7 @@ class ColegioController extends Controller
                     $dato['descripcion'] = $item["descripcion"];
                     $dato['id'] = $item["id"];
                     $colegios = \App\Colegio::guardar($dato, Session::get('alias'));
+                    $gua = \App\Log::guardar("Guardar el colegio  = ".$item['descripcion'], Session::get('alias'));
                 }
             } else {
                 $dato['dpto'] = $data["dpto"];
@@ -86,6 +87,7 @@ class ColegioController extends Controller
                 $dato['descripcion'] = $data["descripcion"];
                 $dato['id'] = $data["id"];
                 $colegios = \App\Colegio::guardar($dato, Session::get('alias'));
+                $gua = \App\Log::guardar("Guardar el colegio  = ".$data['descripcion'], Session::get('alias'));
             }
             if ($colegios) {
                 $respuesta = [
@@ -114,8 +116,10 @@ class ColegioController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar el colegio con id = ".$id, Session::get('alias'));
             } else {
                 $estado = "Activo";
+                $gua = \App\Log::guardar("Activar el colegio con id = ".$id, Session::get('alias'));
             }
             $respuesta = \App\Colegio::editarestado($estado, $id, Session::get('alias'));
             return;

@@ -53,33 +53,80 @@ class Factores extends Model
 
     public static function buscar($alias, $id_hogar)
     {
-        return DB::connection('mysql')->table($alias . '.factores')
-            ->join($alias . '.hogar', 'hogar.id', 'factores.id_hogar')
+        $fac1 = DB::connection('mysql')->table($alias . '.factores')
             ->join($alias . '.caracterizacion', 'caracterizacion.id', 'factores.id_jefe')
             ->where('factores.id_hogar', $id_hogar)
             ->where('factores.estado', 'Activo')
-            ->select("factores.*"
-                , "caracterizacion.identificacion AS id_jefe"
+            ->select("caracterizacion.identificacion AS identificacion"
                 , "caracterizacion.tipo_id AS tipo_id"
-                , "caracterizacion.identificacion AS identificacion"
                 , "caracterizacion.pnom AS pnom"
                 , "caracterizacion.pape AS pape"
                 , "caracterizacion.sexo AS sexo"
             )
-            ->selectRaw("CASE "
-                . " WHEN caracterizacion.snom IS NULL THEN '' "
-                . " WHEN caracterizacion.snom = '' THEN '' "
-                . " ELSE caracterizacion.snom "
-                . " END snom"
-                . " ")
-            ->selectRaw("CASE "
-                . " WHEN caracterizacion.sape IS NULL THEN '' "
-                . " WHEN caracterizacion.sape = '' THEN '' "
-                . " ELSE caracterizacion.sape "
-                . " END sape"
-                . " ")            
-            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad")
-            ->get();
+            ->selectRaw("IFNULL(factores.id,'0') AS id")
+            ->selectRaw("IFNULL(factores.dialogos,'') AS dialogos")
+            ->selectRaw("IFNULL(factores.id_hogar,'') AS id_hogar")
+            ->selectRaw("IFNULL(factores.sancion,'') AS sancion")
+            ->selectRaw("IFNULL(factores.castigo_verbal,'') AS castigo_verbal")
+            ->selectRaw("IFNULL(factores.castigo_fisico,'') AS castigo_fisico")
+            ->selectRaw("IFNULL(factores.alcohol,'') AS alcohol")
+            ->selectRaw("IFNULL(factores.tabaco,'') AS tabaco")
+            ->selectRaw("IFNULL(factores.sustancias_psico,'') AS sustancias_psico")
+            ->selectRaw("IFNULL(factores.apuestas,'') AS apuestas")
+            ->selectRaw("IFNULL(factores.violencia_fisica,'') AS violencia_fisica")
+            ->selectRaw("IFNULL(factores.violencia_psico,'') AS violencia_psico")
+            ->selectRaw("IFNULL(factores.violencia_economica,'') AS violencia_economica")
+            ->selectRaw("IFNULL(factores.abuso_sexual,'') AS abuso_sexual")
+            ->selectRaw("IFNULL(factores.actividad_fisica,'') AS actividad_fisica")
+            ->selectRaw("IFNULL(factores.consumo_frutas,'') AS consumo_frutas")
+            ->selectRaw("IFNULL(factores.religiosos,'') AS religiosos")
+            ->selectRaw("IFNULL(factores.sociales,'') AS sociales")
+            ->selectRaw("IFNULL(factores.culturales,'') AS culturales")
+            ->selectRaw("IFNULL(factores.recreativos,'') AS recreativos")
+            ->selectRaw("IFNULL(factores.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(factores.id_compania,'1') AS id_compania")
+            ->selectRaw("IFNULL(caracterizacion.snom,'') AS snom")
+            ->selectRaw("IFNULL(caracterizacion.sape,'') AS sape")
+            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad");
+
+        $fac2 = DB::connection('mysql')->table($alias . '.factores')
+            ->rightjoin($alias . '.caracterizacion', 'caracterizacion.id', 'factores.id_jefe')
+            ->where('caracterizacion.id_hogar', $id_hogar)
+            ->where('caracterizacion.estado', 'Activo')
+            ->whereRaw('factores.id_hogar IS NULL')
+            ->select("caracterizacion.identificacion AS identificacion"
+                , "caracterizacion.tipo_id AS tipo_id"
+                , "caracterizacion.pnom AS pnom"
+                , "caracterizacion.pape AS pape"
+                , "caracterizacion.sexo AS sexo"
+            )
+            ->selectRaw("IFNULL(factores.id,'0') AS id")
+            ->selectRaw("IFNULL(factores.dialogos,'') AS dialogos")
+            ->selectRaw("IFNULL(factores.id_hogar,'') AS id_hogar")
+            ->selectRaw("IFNULL(factores.sancion,'') AS sancion")
+            ->selectRaw("IFNULL(factores.castigo_verbal,'') AS castigo_verbal")
+            ->selectRaw("IFNULL(factores.castigo_fisico,'') AS castigo_fisico")
+            ->selectRaw("IFNULL(factores.alcohol,'') AS alcohol")
+            ->selectRaw("IFNULL(factores.tabaco,'') AS tabaco")
+            ->selectRaw("IFNULL(factores.sustancias_psico,'') AS sustancias_psico")
+            ->selectRaw("IFNULL(factores.apuestas,'') AS apuestas")
+            ->selectRaw("IFNULL(factores.violencia_fisica,'') AS violencia_fisica")
+            ->selectRaw("IFNULL(factores.violencia_psico,'') AS violencia_psico")
+            ->selectRaw("IFNULL(factores.violencia_economica,'') AS violencia_economica")
+            ->selectRaw("IFNULL(factores.abuso_sexual,'') AS abuso_sexual")
+            ->selectRaw("IFNULL(factores.actividad_fisica,'') AS actividad_fisica")
+            ->selectRaw("IFNULL(factores.consumo_frutas,'') AS consumo_frutas")
+            ->selectRaw("IFNULL(factores.religiosos,'') AS religiosos")
+            ->selectRaw("IFNULL(factores.sociales,'') AS sociales")
+            ->selectRaw("IFNULL(factores.culturales,'') AS culturales")
+            ->selectRaw("IFNULL(factores.recreativos,'') AS recreativos")
+            ->selectRaw("IFNULL(factores.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(factores.id_compania,'1') AS id_compania")
+            ->selectRaw("IFNULL(caracterizacion.snom,'') AS snom")
+            ->selectRaw("IFNULL(caracterizacion.sape,'') AS sape")
+            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edad");
+
+        return $fac1->union($fac2)->get();
     }
 
     public static function editarestado($estado, $id, $alias)

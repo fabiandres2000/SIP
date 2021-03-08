@@ -15,7 +15,7 @@ class CultivosForestales extends Model
         'compradores_forestales', 'metodo_pago_forestales', 'precio_promedio_venta_forestales', 'subproductos_produccion_forestales', 'pertenece_forestales',
         'nombre_programa_forestales', 'entidad_forestales', 'pertenece_organizacion_forestales', 'tipo_pertenece_forestales', 'nombre_organizacion_forestales',
         'beneficios_forestales', 'no_pertenece_forestales', 'trabaja_asociacion_forestales', 'estado', 'id_compania',
-        'otros_problematica_productos_forestales',
+        'otros_problematica_productos_forestales', 'unidad_producion_destinada_forestales',
     ];
 
     public static function guardar($data, $alias)
@@ -40,6 +40,7 @@ class CultivosForestales extends Model
             'costo_sostenimiento_forestales' => $data['costo_sostenimiento_forestales'],
             'problematica_productos_forestales' => $data['problematica_productos_forestales'],
             'produccion_destinada_forestales' => $data['produccion_destinada_forestales'],
+            'unidad_producion_destinada_forestales' => $data['unidad_producion_destinada_forestales'],
             'numero_arboles' => $data['numero_arboles'],
             'compradores_forestales' => $data['compradores_forestales'],
             'metodo_pago_forestales' => $data['metodo_pago_forestales'],
@@ -138,6 +139,13 @@ class CultivosForestales extends Model
                 . " WHEN cultivos_forestales.no_pertenece_forestales='NA' THEN 'No Aplica' "
                 . " ELSE cultivos_forestales.no_pertenece_forestales "
                 . " END AS texto_no_pertenece_forestales"
+                . " ")
+            ->selectRaw("CASE "
+                . " WHEN cultivos_forestales.unidad_producion_destinada_forestales IS NULL THEN '' "
+                . " WHEN cultivos_forestales.unidad_producion_destinada_forestales='1' THEN 'kilogramos' "
+                . " WHEN cultivos_forestales.unidad_producion_destinada_forestales='2' THEN 'Toneladas' "
+                . " WHEN cultivos_forestales.unidad_producion_destinada_forestales='3' THEN 'Unidades' "
+                . " END AS texto_unidad_producion_destinada_forestales"
                 . " ")
             ->get();
     }

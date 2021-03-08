@@ -12,7 +12,7 @@ class ActividadController extends Controller
     {
         if (Auth::check()) {
             $busqueda = request()->get('txtbusqueda');
-            $actividades = \App\Actividad::listar($busqueda, Session::get('alias'));
+            $actividades = \App\Actividad::listar($busqueda, Session::get('alias'));            
             if ($actividades) {
                 $respuesta = [
                     'paginacion' => [
@@ -43,6 +43,7 @@ class ActividadController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $actividades = \App\Actividad::guardar($data, Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la actividad economica  = ".$data['descripcion'], Session::get('alias'));
             if ($actividades) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -70,8 +71,10 @@ class ActividadController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar la actividad economica con id = ".$id, Session::get('alias'));
             } else {
                 $estado = "Activo";
+                $gua = \App\Log::guardar("Activar la actividad economica con id = ".$id, Session::get('alias'));
             }
             $respuesta = \App\Actividad::editarestado($estado, $id, Session::get('alias'));
             return;

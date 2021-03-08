@@ -14,7 +14,7 @@ class ExplotacionesPecuarias extends Model
         'unidad_area_destinada', 'compradores_pecuaria', 'precio_promedio_venta_pecuaria', 'metodo_pago_pecuaria', 'subproductos_produccion_pecuaria',
         'pertenece_pecuaria', 'nombre_programa_pecuaria', 'entidad_pecuaria', 'pertenece_organizacion_pecuaria', 'tipo_organizacion_pecuaria',
         'nombre_organizacion_pecuaria', 'beneficios_pecuaria', 'no_pertenece_pecuaria', 'trabaja_asociacion_pecuaria', 'producto_comercial',
-        'produccion_destinada_pecuaria', 'estado', 'id_compania',
+        'produccion_destinada_pecuaria', 'estado', 'id_compania','unidad_producion_destinada_pecuaria'
     ];
 
     public static function guardar($data, $alias)
@@ -53,6 +53,7 @@ class ExplotacionesPecuarias extends Model
             'trabaja_asociacion_pecuaria' => $data['trabaja_asociacion_pecuaria'],
             'producto_comercial' => $data['producto_comercial'],
             'produccion_destinada_pecuaria' => $data['produccion_destinada_pecuaria'],
+            'unidad_producion_destinada_pecuaria' => $data['unidad_producion_destinada_pecuaria'],            
             'id_compania' => 1,
             'estado' => $data['estado'],
         ]);
@@ -116,6 +117,13 @@ class ExplotacionesPecuarias extends Model
                 . " ELSE explotaciones_pecuarias.no_pertenece_pecuaria "
                 . " END AS texto_no_pertenece_pecuaria"
                 . " ")
+                ->selectRaw("CASE "
+                . " WHEN explotaciones_pecuarias.unidad_producion_destinada_pecuaria IS NULL THEN '' "
+                . " WHEN explotaciones_pecuarias.unidad_producion_destinada_pecuaria='1' THEN 'kilogramos' "
+                . " WHEN explotaciones_pecuarias.unidad_producion_destinada_pecuaria='2' THEN 'Toneladas' "
+                . " WHEN explotaciones_pecuarias.unidad_producion_destinada_pecuaria='3' THEN 'Unidades' "
+                . " END AS texto_unidad_producion_destinada_pecuaria"
+                . " ")              
             ->get();
     }
 }

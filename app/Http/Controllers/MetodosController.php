@@ -43,6 +43,7 @@ class MetodosController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $metodos = \App\Metodos::guardar($data, Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar el metodo de planificación  = ".$data['descripcion'], Session::get('alias'));
             if ($metodos) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -70,8 +71,10 @@ class MetodosController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar el metodo de planificación con id = ".$id, Session::get('alias'));
             } else {
                 $estado = "Activo";
+                $gua = \App\Log::guardar("Activar el metodo de planificación con id = ".$id, Session::get('alias'));
             }
             $respuesta = \App\Metodos::editarestado($estado, $id, Session::get('alias'));
             return;

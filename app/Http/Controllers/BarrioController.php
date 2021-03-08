@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use Session;
 use Illuminate\Http\Request;
+use Session;
 
 class BarrioController extends Controller
 {
@@ -38,7 +38,7 @@ class BarrioController extends Controller
             }
 
             $busqueda = request()->get('txtbusqueda');
-            $barrios = \App\Barrio::listar($busqueda,Session::get('alias'));
+            $barrios = \App\Barrio::listar($busqueda, Session::get('alias'));
             if ($barrios) {
                 $respuesta = [
                     'paginacion' => [
@@ -78,7 +78,8 @@ class BarrioController extends Controller
                     $dato['corregimiento'] = $item["corregimiento"];
                     $dato['barrio'] = $item["barrio"];
                     $dato['id'] = $item["id"];
-                    $barrios = \App\Barrio::guardar($dato,Session::get('alias'));
+                    $barrios = \App\Barrio::guardar($dato, Session::get('alias'));
+                    $gua = \App\Log::guardar("Guardar barrio = " . $item["barrio"], Session::get('alias'));
                 }
             } else {
                 $dato['dpto'] = $data["dpto"];
@@ -86,7 +87,8 @@ class BarrioController extends Controller
                 $dato['corregimiento'] = $data["corregimiento"];
                 $dato['barrio'] = $data["barrio"];
                 $dato['id'] = $data["id"];
-                $barrios = \App\Barrio::guardar($dato,Session::get('alias'));
+                $barrios = \App\Barrio::guardar($dato, Session::get('alias'));
+                $gua = \App\Log::guardar("Editar barrio id = " . $data["id"], Session::get('alias'));
             }
             if ($barrios) {
                 $respuesta = [
@@ -94,7 +96,7 @@ class BarrioController extends Controller
                     'barrios' => $barrios,
                 ];
                 return response()->json($respuesta, 200);
-            } else {                
+            } else {
                 $respuesta = [
                     'OPC' => 'NO',
                     'MENSAJE' => "Barrio(s) No Guardado(s)...",
@@ -112,12 +114,14 @@ class BarrioController extends Controller
             $mensaje = "";
             $id = request()->get('id');
             $estado = request()->get('estado');
-            if ($estado == "Activo") {
+            if ($estado == "Activo") {                
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar el barrio con id = ".$id, Session::get('alias'));
             } else {
                 $estado = "Activo";
+                $gua = \App\Log::guardar("Activar el barrio con id = ".$id, Session::get('alias'));
             }
-            $respuesta = \App\Barrio::editarestado($estado, $id,Session::get('alias'));
+            $respuesta = \App\Barrio::editarestado($estado, $id, Session::get('alias'));
             return;
         } else {
             return redirect("/")->with("error", "Su sesion ha terminado");
@@ -130,17 +134,21 @@ class BarrioController extends Controller
             $mensaje = "";
             $id = request()->get('id');
             $opcion = request()->get('opcion');
+            $consbarrios = "";
             if ($opcion == "MUN") {
-                $consbarrios = \App\Barrio::barriosMuni($id,Session::get('alias'));
-            } else {
-                $consbarrios = \App\Barrio::barriosCorre($id,Session::get('alias'));
+                $consbarrios = \App\Barrio::barriosMuni($id, Session::get('alias'));
+            }
+            if ($opcion == "CORRE") {
+                $consbarrios = \App\Barrio::barriosCorre($id, Session::get('alias'));
             }
             $arrayBarrios = [];
-            foreach ($consbarrios as $item) {
-                $arrayBarrios[] = [
-                    'value' => $item->id,
-                    'texto' => strtoupper($item->barrio),
-                ];
+            if ($consbarrios != "") {
+                foreach ($consbarrios as $item) {
+                    $arrayBarrios[] = [
+                        'value' => $item->id,
+                        'texto' => strtoupper($item->barrio),
+                    ];
+                }
             }
             $respuesta = [
                 'arrayBarrios' => $arrayBarrios,

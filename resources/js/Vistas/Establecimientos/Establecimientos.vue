@@ -871,8 +871,7 @@
           this.datos.id_vereda = "";
           this.datos.id_barrio = "";
 
-          console.log(this.datos.id_corre);
-          if (this.datos.id_corre !== "0") {
+          if (this.datos.id_corre !== "0" && this.datos.id_corre !== "") {
             const parametros = {
               _token: this.csrf,
               id: this.datos.id_corre,
@@ -893,31 +892,44 @@
               }
             }
           } else {
-            if (this.datos.id_corre === "0") {
-              const parametros = {
-                _token: this.csrf,
-                id: this.datos.id_mun,
-                opcion: "MUN"
-              };
-              try {
-                await barriosServicios
-                  .comboBarrios(parametros)
-                  .then(respuesta => {
-                    this.barrio_options = respuesta.data.arrayBarrios;
-                  });
-              } catch (error) {
-                switch (error.response.status) {
-                  case 422:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  default:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                }
-              }
+            if (this.datos.id_corre === "0"){
+              this.cambiarCombo("muni");
+              this.datos.id_corre = "0";
+            }else{
+              this.cambiarCombo("muni");
             }
           }
         }
+        if (caja === "vereda"){
+          this.datos.id_barrio = "0";
+          const parametros = {
+            _token: this.csrf,
+            id: this.datos.id_corre,
+            opcion: "VERE"
+          };
+          try {
+            await barriosServicios.comboBarrios(parametros).then(respuesta => {
+              this.barrio_options = respuesta.data.arrayBarrios;
+            });
+          } catch (error) {
+            switch (error.response.status) {
+              case 422:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              default:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+            }
+          }
+          let vere ="";          
+          if(this.datos.id_vereda === "" || this.datos.id_vereda === "0"){
+            vere = this.datos.id_vereda;
+            this.cambiarCombo("corregi");
+            if(vere==="0"){
+              this.datos.id_vereda="0";
+            }
+          }
+        }       
       },
       volver() {
         this.$router.push("/gestion");

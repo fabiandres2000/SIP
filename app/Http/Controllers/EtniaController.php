@@ -43,7 +43,8 @@ class EtniaController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $etnias = \App\Etnia::guardar($data,Session::get('alias'));
-            if ($etnias) {
+            $gua = \App\Log::guardar("Guardar la etnia  = ".$data['descripcion'], Session::get('alias'));
+            if ($etnias) {                
                 $respuesta = [
                     'OPC' => 'SI',
                     'etnias' => $etnias,
@@ -70,8 +71,10 @@ class EtniaController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
+                $gua = \App\Log::guardar("Eliminar la etnia con id = ".$id, Session::get('alias'));
             } else {
                 $estado = "Activo";
+                $gua = \App\Log::guardar("Activar la etnia con id = ".$id, Session::get('alias'));
             }
             $respuesta = \App\Etnia::editarestado($estado, $id,Session::get('alias'));
             return;
@@ -91,6 +94,7 @@ class EtniaController extends Controller
                 $dato['estado'] = $item["estado"];
                 $dato['id_etnia'] = $id_etnia;
                 $clasificacion = \App\ClasificacionEtnia::guardar($dato,Session::get('alias'));
+                $gua = \App\Log::guardar("Guardar la clasificación de la etnia = ".$item["clasificacion"], Session::get('alias'));
             }
             if ($clasificacion) {
                 $respuesta = [

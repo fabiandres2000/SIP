@@ -176,6 +176,7 @@ class Integrante extends Model
                 . " END textoExcepciones"
                 . " ")
             ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->orderBy("integrantes.id","ASC")
             ->get();
     }
 

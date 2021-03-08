@@ -312,7 +312,7 @@
                   >
                     <option value selected>Seleccione</option>
                     <option value="1">Permanente</option>
-                    <option value="2">Ocacional</option>
+                    <option value="2">Ocasional</option>
                     <option value="3">Periódico</option>
                     <option value="4">No hay acceso a servicios públicos</option>
                     <option value="5">No</option>
@@ -622,7 +622,7 @@
                   </b-form-select>
                 </div>
                 <div class="col-lg-3">
-                  <label>Discapacidad:</label>
+                  <label>Personas con discapacidad (PCD):</label>
                   <b-form-select
                     v-model="caracData.discapacidad"
                     :class="caracData.discapacidad==''?'':'is-valid'"
@@ -630,8 +630,11 @@
                     <option value selected>Seleccione</option>
                     <option value="FISICA">FISICA</option>
                     <option value="COGNITIVA">COGNITIVA</option>
-                    <option value="SENSORIAL">SENSORIAL</option>
+                    <option value="AUDITIVA">AUDITIVA</option>
+                    <option value="VISUAL">VISUAL</option>
                     <option value="PSIQUICA">PSÍQUICA</option>
+                    <option value="VISCERAL">VISCERAL</option>
+                    <option value="MULTIPLE">MULTIPLE</option>
                     <option value="NINGUNA">NINGUNA</option>
                   </b-form-select>
                 </div>
@@ -1458,7 +1461,7 @@
                             />                            
                           </td>                                                                                                       
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
-                            <div style="width:70px;" v-if="GIDEN==false">
+                            <div style="width:70px;">
                               <button
                                 class="btn btn-icon btn-sm btn-outline-danger"
                                 type="button"
@@ -1770,7 +1773,7 @@
                   </b-form-select>
                 </div>
                 <div class="col-lg-3">
-                  <label>Discapacidad:</label>
+                  <label>Personas con discapacidad (PCD):</label>
                   <b-form-select
                     v-model="CA1.discapacidad"
                     :class="CA1.discapacidad=='0'?'':'is-valid'"
@@ -1778,8 +1781,11 @@
                     <option value="0" selected>Seleccione</option>
                     <option value="FISICA">FISICA</option>
                     <option value="COGNITIVA">COGNITIVA</option>
-                    <option value="SENSORIAL">SENSORIAL</option>
+                    <option value="AUDITIVA">AUDITIVA</option>
+                    <option value="VISUAL">VISUAL</option>
                     <option value="PSÍQUICA">PSÍQUICA</option>
+                    <option value="VISCERAL">VISCERAL</option>
+                    <option value="MULTIPLE">MULTIPLE</option>                    
                     <option value="NINGUNA">NINGUNA</option>
                   </b-form-select>
                 </div>
@@ -2623,7 +2629,7 @@
                             />                            
                           </td>                                                    
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
-                            <div style="width:70px;" v-if="GIDEN==false">
+                            <div style="width:70px;">
 
                               <button
                                 class="btn btn-icon btn-sm btn-outline-danger"
@@ -3325,10 +3331,9 @@
                     <option value="1">No Aplica</option>
                     <option value="2">Casa</option>
                     <option value="3">Apartamento</option>
-                    <option value="4">Pieza</option>
-                    <option value="5">Finca</option>
-                    <option value="6">Vivienda Indigena</option>
-                    <option value="7">Improvisada - Lote</option>
+                    <option value="4">Finca</option>
+                    <option value="5">Vivienda Indigena</option>
+                    <option value="6">Improvisada - Lote</option>
                   </b-form-select>
                   <div class="valid-feedback">Tipo de Vivienda Valido</div>
                   <div class="invalid-feedback">
@@ -6522,6 +6527,7 @@
                               <option value="3">Desayuno Escolar</option>
                               <option value="4">Jardin Social - CDI</option>
                               <option value="5">Otro</option>
+                              <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
                             </b-form-select>
                           </td>
@@ -7905,8 +7911,7 @@
                               style="width:150px;background-color:white;"
                               v-model="item.tdit"
                               @input="tdit=>updateDe10A59(item,tdit,'tdit')"
-                              :class="item.tdit==''?'is-invalid':'is-valid'"
-                              :disabled="item.sexo=='MASCULINO'"
+                              :class="item.tdit==''?'is-invalid':'is-valid'"                              
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
@@ -7925,7 +7930,6 @@
                               v-model="item.tripleviral"
                               @input="tripleviral=>updateDe10A59(item,tripleviral,'tripleviral')"
                               :class="item.tripleviral==''?'is-invalid':'is-valid'"
-                              :disabled="item.sexo=='MASCULINO'"
                             > 
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
@@ -8690,7 +8694,7 @@
                           <td class="kt-bg-fill-success">Peso(Kgs)</td>
                           <td class="kt-bg-fill-success">Talla(m)</td>
                           <td class="kt-bg-fill-success">IMC</td>
-                          <!-- <td class="kt-bg-fill-success">PB</td> -->
+                          <td class="kt-bg-fill-success">T/E</td>
                           <td class="kt-bg-fill-success">Visuales</td>
                           <td class="kt-bg-fill-success">Auditivos</td>
                           <td class="kt-bg-fill-success">De Conducta</td>
@@ -8809,18 +8813,18 @@
                               :class="item.imc==''?'is-invalid':'is-valid'"
                             />
                           </td>
-                          <!-- <td
+                          <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <input
                               type="text"
                               style="width:150px;"
                               class="form-control text-capitalize"
-                              v-model="item.pb"
-                              @input="changeupdateDe12A17(item,$event,'pb')"
-                              :class="item.pb==''?'is-invalid':'is-valid'"
+                              v-model="item.te"
+                              @input="changeupdateDe12A17(item,$event,'te')"
+                              :class="item.te==''?'is-invalid':'is-valid'"
                             />
-                          </td> -->
+                          </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -8999,7 +9003,8 @@
                               :class="item.empleo==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="SIF">SI FORMAL</option>
+                              <option value="SII">SI INFORMAL</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -9561,7 +9566,8 @@
                               :class="item.empleo==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="SIF">SI FORMAL</option>
+                              <option value="SII">SI INFORMAL</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -10061,7 +10067,8 @@
                               :class="item.empleo==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="SIF">SI FORMAL</option>
+                              <option value="SII">SI INFORMAL</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -10604,7 +10611,8 @@
                               :class="item.empleo==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="SIF">SI FORMAL</option>
+                              <option value="SII">SI INFORMAL</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>                          
@@ -10720,10 +10728,10 @@
                               :class="item.tiempo==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="1">Reciente</option>
-                              <option value="2">3 Meses</option>
-                              <option value="3">Entre 3 y 6 meses</option>
-                              <option value="4">Mas de 1 año</option>
+                              <option value="1">Menos de 6 Meses</option>
+                              <option value="2">Menos de 1 Años</option>
+                              <option value="3">Menos de 5 Años</option>
+                              <option value="4">Mas de 5 Años</option>                            
                             </b-form-select>                            
                           </td>
                           <td
@@ -10861,10 +10869,10 @@
                               :class="item.tiempo==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="1">Menos de 6 Meses</option>
-                              <option value="2">Menos de 1 Años</option>
-                              <option value="3">Menos de 5 Años</option>
-                              <option value="4">Mas de 5 Años</option>
+                              <option value="1">Reciente</option>
+                              <option value="2">3 Meses</option>
+                              <option value="3">Entre 3 y 6 meses</option>
+                              <option value="4">Mas de 1 año</option>
                             </b-form-select>                            
                           </td>
                           <td
@@ -10957,7 +10965,7 @@
                           <td class="kt-bg-fill-danger">Hace Cuanto Llego Al Pais</td>
                           <td class="kt-bg-fill-danger">¿En el Futuro Usted Piensa?</td>
                           <td class="kt-bg-fill-danger">¿Usted a Recibido Ayudas del Gobierno?</td>
-                          <td class="kt-bg-fill-danger">Principal Necesidad en Estos Momnetos</td>
+                          <td class="kt-bg-fill-danger">Principal Necesidad en Estos Momentos</td>
                           <td class="kt-bg-fill-danger">Personas Que Dependen de Usted</td>
                           <td class="kt-bg-fill-danger">Ingreso Mensual Actualmente</td>
                         </tr>
@@ -11020,14 +11028,19 @@
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
-                            <input
-                              type="text"
+                            <b-form-select
                               style="width:150px;"
-                              class="form-control text-capitalize"
-                              :class="item.pais==''?'is-invalid':'is-valid'"
                               v-model="item.pais"
-                              @input="changeupdateMigra(item,$event,'pais')"
-                            />
+                              @input="pais=>updateMigra(item,pais,'pais')"
+                              :class="item.pais==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option
+                                v-for="item in paises_options"
+                                :value="item.value"
+                                :key="item.value"
+                              >{{item.texto}}</option>
+                            </b-form-select>
                           </td>
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -11131,6 +11144,7 @@
                               <option value="1">menos de 500.000</option>
                               <option value="2">500.000 a 800.0000</option>
                               <option value="3">mas de 800.000</option>
+                              <option value="4">Sin ingresos</option>
                             </b-form-select>
                           </td>
                         </tr>
@@ -11507,6 +11521,7 @@
         csrf: document
           .querySelector('meta[name="csrf-token"]')
           .getAttribute("content"),
+        paises_options: [],
         dpto_options: [],
         muni_options: {},
         corregi_options: {},
@@ -11640,8 +11655,8 @@
           programa_icbf: "",
           enfermedad_infecciosa: "",
           enfermedad_cronica: "",
-          peso: 0,
-          talla: 0
+          peso: "",
+          talla: ""
         },
         CA1: {
           id: 0,
@@ -11684,8 +11699,8 @@
           dias: 0,
           enfermedad_infecciosa: "0",
           enfermedad_cronica: "0",
-          peso: 0,
-          talla: 0                  
+          peso: "",
+          talla: ""                  
         },
         viviendaData: {
           id: 0,
@@ -11894,7 +11909,9 @@
         fechaEditar: null,
         edadEditar: null,
         embarazoEditar: null, 
-        identificacionJefe: null      
+        identificacionJefe: null,
+        migrarEditar: null,
+        errores: []
       };
     },
     validations: {
@@ -11991,7 +12008,6 @@
         if (nacimiento < hoy) {
           edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
         }
-        // console.info(hoy);
         return edad;
       },
       calEdad2() {
@@ -12128,8 +12144,11 @@
               this.CA1.dias = days + " DIAS";
             }  
           }
-
-        }
+        }else{
+          this.CA1.meses = 0;
+          this.CA1.dias = 0;          
+        }        
+        
       },      
       abrirModalOcupaciones(opcion){
         this.opcionOcupaciones=opcion;
@@ -12272,195 +12291,193 @@
       async cambiarTab1(opcion, actual) {
         let bandera = false;
         if (actual === "tabIdentificacion") {
-          if (this.GIDEN === false) {
-            //VALIDAR DATOS DEL HOGAR
-            if (this.hogar.id_dpto === "") {
-              this.$refs.id_dpto.focus();
-              this.$swal(
-                "Error...!",
-                "Por favor seleccione el departamento!",
-                "error"
-              );
-              return;
-            }
-            if (this.hogar.id_mun === "") {
-              this.$refs.id_mun.focus();
-              this.$swal(
-                "Error...!",
-                "Por favor seleccione el municipio!",
-                "error"
-              );
-              return;
-            }
-            if (this.hogar.tenencia_vivienda === "") {
-              this.$refs.tenencia_vivienda.focus();
-              this.$swal(
-                "Error...!",
-                "Por favor seleccione la tenencia de vivienda!",
-                "error"
-              );
-              return;
-            }
-            if (this.allLetter(this.hogar.numero_hogares) === false) {
-              this.$refs.numero_hogares.focus();
-              this.hogar.numero_hogares = "";
-              this.$swal(
-                "Error...!",
-                "Por favor digite solo numero en el numero de hogares!",
-                "error"
-              );
-              return;
-            }
-            if (this.hogar.numero_hogares === "") {
-              this.$refs.numero_hogares.focus();
-              this.$swal(
-                "Error...!",
-                "Por favor digite el numero de hogares!",
-                "error"
-              );
-              return;
-            }
-            if (this.hogar.poblacion_especial === "") {
-              this.$refs.poblacion_especial.focus();
-              this.$swal(
-                "Error...!",
-                "Por favor seleccione la población especial!",
-                "error"
-              );
-              return;
-            }
-            if (this.hogar.vias_acceso === "") {
-              this.$refs.vias_acceso.focus();
-              this.$swal(
-                "Error...!",
-                "Por favor seleccione si la comunidad presenta vías de acceso!",
-                "error"
-              );
-              return;
-            }
-            if (this.hogar.servicios_publicos === "") {
-              this.$refs.servicios_publicos.focus();
-              this.$swal(
-                "Error...!",
-                "Por favor seleccione si presenta acceso fácil a los servicios públicos!",
-                "error"
-              );
-              return;
-            }
-            if (this.hogar.direccion === "") {
-              this.$refs.direccion.focus();
-              this.$swal("Error...!", "Por favor digite la dirección!", "error");
-              return;
-            }
-            //VALIDAR DATOS DEL HOGAR
+          //VALIDAR DATOS DEL HOGAR
+          if (this.hogar.id_dpto === "") {
+            this.$refs.id_dpto.focus();
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el departamento!",
+              "error"
+            );
+            return;
+          }
+          if (this.hogar.id_mun === "") {
+            this.$refs.id_mun.focus();
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione el municipio!",
+              "error"
+            );
+            return;
+          }
+          if (this.hogar.tenencia_vivienda === "") {
+            this.$refs.tenencia_vivienda.focus();
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la tenencia de vivienda!",
+              "error"
+            );
+            return;
+          }
+          if (this.allLetter(this.hogar.numero_hogares) === false) {
+            this.$refs.numero_hogares.focus();
+            this.hogar.numero_hogares = "";
+            this.$swal(
+              "Error...!",
+              "Por favor digite solo numero en el numero de hogares!",
+              "error"
+            );
+            return;
+          }
+          if (this.hogar.numero_hogares === "") {
+            this.$refs.numero_hogares.focus();
+            this.$swal(
+              "Error...!",
+              "Por favor digite el numero de hogares!",
+              "error"
+            );
+            return;
+          }
+          if (this.hogar.poblacion_especial === "") {
+            this.$refs.poblacion_especial.focus();
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione la población especial!",
+              "error"
+            );
+            return;
+          }
+          if (this.hogar.vias_acceso === "") {
+            this.$refs.vias_acceso.focus();
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si la comunidad presenta vías de acceso!",
+              "error"
+            );
+            return;
+          }
+          if (this.hogar.servicios_publicos === "") {
+            this.$refs.servicios_publicos.focus();
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si presenta acceso fácil a los servicios públicos!",
+              "error"
+            );
+            return;
+          }
+          if (this.hogar.direccion === "") {
+            this.$refs.direccion.focus();
+            this.$swal("Error...!", "Por favor digite la dirección!", "error");
+            return;
+          }
+          //VALIDAR DATOS DEL HOGAR
 
-            //VALIDAR LA TABLA JEFES DE HOGAR
-            if (this.datosJefe.length <= 0) {
-              this.$swal(
-                "Error...!",
-                "Por favor agregue por lo menos un jefe de hogar",
-                "error"
-              );
-              return;
+          //VALIDAR LA TABLA JEFES DE HOGAR
+          if (this.datosJefe.length <= 0) {
+            this.$swal(
+              "Error...!",
+              "Por favor agregue por lo menos un jefe de hogar",
+              "error"
+            );
+            return;
+          } else {
+            let resul = this.valJef1();
+            if (resul) {
+              bandera = true;
             } else {
-              let resul = this.valJef1();
-              if (resul) {
-                bandera = true;
-              } else {
-                return false;
-              }
-              this.vectorAyuda = [];
-              await this.valJef2();
-              if (this.vectorAyuda.length > 0) {
-                for (let i = 0; i < this.vectorAyuda.length; i++) {
-                  if (this.vectorAyuda[i].error === "ERROR1") {
-                    let val = (this.vectorAyuda[i].identificacion / 1)
-                      .toFixed(0)
-                      .replace(".", ",");
-                    let iden = val
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                    this.$swal(
-                      "Validar...!",
-                      "El Documento <b>" +
-                        iden +
-                        "</b> De La Fila <b>" +
-                        (i + 1) +
-                        "</b> Se Encuentra Registrado",
-                      "warning"
-                    );
-                    bandera = false;
-                  }
-                }
-              } else {
-                bandera = true;
-              }
+              return false;
             }
-            //VALIDAR LA TABLA JEFES DE HOGAR
+            // this.vectorAyuda = [];
+            // await this.valJef2();
+            // if (this.vectorAyuda.length > 0) {
+            //   for (let i = 0; i < this.vectorAyuda.length; i++) {
+            //     if (this.vectorAyuda[i].error === "ERROR1") {
+            //       let val = (this.vectorAyuda[i].identificacion / 1)
+            //         .toFixed(0)
+            //         .replace(".", ",");
+            //       let iden = val
+            //         .toString()
+            //         .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            //       this.$swal(
+            //         "Validar...!",
+            //         "El Documento <b>" +
+            //           iden +
+            //           "</b> De La Fila <b>" +
+            //           (i + 1) +
+            //           "</b> Se Encuentra Registrado",
+            //         "warning"
+            //       );
+            //       bandera = false;
+            //     }
+            //   }
+            // } else {
+            //   bandera = true;
+            // }
+          }
+          //VALIDAR LA TABLA JEFES DE HOGAR
 
-            //VALIDAR LA TABLA INTEGRANTES
-            if (this.datos.length > 0) {
-              let resul = this.valInt1();
-              if (resul) {
-                bandera = true;
-              } else {
-                return false;
-              }
-              this.vectorAyuda = [];
-              await this.valInt2();
-              if (this.vectorAyuda.length > 0) {
-                for (let i = 0; i < this.vectorAyuda.length; i++) {
-                  if (this.vectorAyuda[i].error === "ERROR1") {
-                    let val1 = (this.vectorAyuda[i].identificacion / 1)
-                      .toFixed(0)
-                      .replace(".", ",");
-                    let iden1 = val1
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                    this.$swal(
-                      "Validar...!",
-                      "El Documento <b>" +
-                        iden1 +
-                        "</b> De La Fila <b>" +
-                        (i + 1) +
-                        "</b> Se Encuentra Registrado En Los Integrantes",
-                      "warning"
-                    );
-                    bandera = false;
-                  }
-                }
-              } else {
-                bandera = true;
-              }
+          //VALIDAR LA TABLA INTEGRANTES
+          if (this.datos.length > 0) {
+            let resul = this.valInt1();
+            if (resul) {
+              bandera = true;
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA INTEGRANTES
-
-            
-            //VALIDAR LA TABLA FACTORES
-            if (this.factores.length > 0) {
-              let resul = this.valFactores();
-              if (resul) {
-                bandera = true;     
-              } else {
-                return false;
-              }
+            // this.vectorAyuda = [];
+            // await this.valInt2();
+            // if (this.vectorAyuda.length > 0) {
+            //   for (let i = 0; i < this.vectorAyuda.length; i++) {
+            //     if (this.vectorAyuda[i].error === "ERROR1") {
+            //       let val1 = (this.vectorAyuda[i].identificacion / 1)
+            //         .toFixed(0)
+            //         .replace(".", ",");
+            //       let iden1 = val1
+            //         .toString()
+            //         .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            //       this.$swal(
+            //         "Validar...!",
+            //         "El Documento <b>" +
+            //           iden1 +
+            //           "</b> De La Fila <b>" +
+            //           (i + 1) +
+            //           "</b> Se Encuentra Registrado En Los Integrantes",
+            //         "warning"
+            //       );
+            //       bandera = false;
+            //     }
+            //   }
+            // } else {
+            //   bandera = true;
+            // }
+          }
+          //VALIDAR LA TABLA INTEGRANTES
+          
+          //VALIDAR LA TABLA FACTORES
+          if (this.factores.length > 0) {
+            let resul = this.valFactores();
+            if (resul) {
+              bandera = true;     
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA FACTORES
-            
-            //VALIDAR LA TABLA AFECTACION
-            if (this.afectacion.length > 0) {
-              let resul = this.valAfectacion();
-              if (resul) {
-                bandera = true;     
-              } else {
-                return false;
-              }
+          }
+          //VALIDAR LA TABLA FACTORES
+          
+          //VALIDAR LA TABLA AFECTACION
+          if (this.afectacion.length > 0) {
+            let resul = this.valAfectacion();
+            if (resul) {
+              bandera = true;     
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA AFECTACION
-
-            //GUARDAR DATOS
-            this.valGIden = false;
-            const parametros = {
+          }
+          //VALIDAR LA TABLA AFECTACION
+          //GUARDAR DATOS
+          var parametros = "";
+          if (this.GIDEN === false) {
+            parametros = {
               _token: this.csrf,
               hogar: this.hogar,
               caracterizacion: this.datosJefe,
@@ -12471,14 +12488,148 @@
               opcion: "GUARDAR",
               opc: "GUAINDEN"
             };
+          }else{
+            parametros = {
+              _token: this.csrf,
+              hogar: this.hogar,
+              caracterizacion: this.datosJefe,
+              integrantes: this.datos,
+              factores: this.factores,
+              CODIGOGENE: this.CODIGOGENE,
+              afectacion: this.afectacion,
+              opcion: "MODIFICAR",
+              opc: "GUAINDEN",
+              id_hogar: this.IDHOGAR
+            };            
+          }          
+          this.valGIden = false;
+          try {
+            await caracterizacionServicios
+              .guardar(parametros)
+              .then(respuesta => {
+                if (respuesta.data.OPC == "G") {
+                  this.GIDEN = true;
+                  this.IDHOGAR = respuesta.data.IDHOGAR;
+                  this.valGIden = true;
+                  this.hogar.id = this.IDHOGAR;
+                  bandera = true;
+                  this.datosJefe.length = 0;
+                  this.datos.length = 0;
+                  this.factores.length = 0;
+                  this.afectacion.length = 0;
+                  this.datosJefe = respuesta.data.jefes;
+                  this.datos = respuesta.data.integrantes;
+                  this.factores = respuesta.data.factores;
+                  this.afectacion = respuesta.data.afectacion;                                    
+                }
+                if (respuesta.data.OPC == "E") {
+                  this.GIDEN = true;
+                  this.IDHOGAR = respuesta.data.IDHOGAR;
+                  this.valGIden = true;
+                  bandera = true;
+                  this.datosJefe.length = 0;
+                  this.datos.length = 0;
+                  this.factores.length = 0;
+                  this.afectacion.length = 0;
+                  this.datosJefe = respuesta.data.jefes;
+                  this.datos = respuesta.data.integrantes;
+                  this.factores = respuesta.data.factores;
+                  this.afectacion = respuesta.data.afectacion;                                    
+                }                
+              })
+              .catch(error => {
+                this.errorDevuelto = error.response.data.errors;
+                this.entrarPorError = true;
+                this.$swal(
+                  "Error...!",
+                  "No se pudo guardar los datos de la pestaña identificación",
+                  "error"
+                );
+                return;
+              });
+          } catch (error) {
+            switch (error.response.status) {
+              case 419:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              case 422:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              default:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+            }
+          }
+          //GUARDAR DATOS
+        }
+        if (actual === "tabVivienda") {
+          bandera = true;
+          // this.GIDEN=true;
+          // this.IDHOGAR=1;
+          if (this.GIDEN===false) {
+            this.$swal(
+              "Error...!",
+              "Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar",
+              "error"
+            );            
+            return false;
+          }          
+          this.$v.$touch();
+          const isInvalid = this.$v.$invalid;          
+          if (isInvalid) {
+            this.$swal(
+              "Error...!",
+              "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
+              "error"
+            );
+            return false;
+          } else {
+            if (this.estratificacion.length <= 0) {
+              this.$swal(
+                "Error...!",
+                "Por favor agregue por lo menos una estratificación",
+                "error"
+              );
+              return;
+            }            
+            var parametros = "";
+            if (this.GVIVI === false) {
+              parametros = {
+                _token: this.csrf,
+                vivienda: this.viviendaData,
+                estratificacion: this.estratificacion,
+                Animales: this.animalesData,
+                opcion: "GUARDAR",
+                opc: "GUAVIVI",
+                IDHOGAR: this.IDHOGAR
+              };              
+            }else{
+              parametros = {
+                _token: this.csrf,
+                vivienda: this.viviendaData,
+                estratificacion: this.estratificacion,
+                Animales: this.animalesData,
+                opcion: "MODIFICAR",
+                opc: "GUAVIVI",
+                IDHOGAR: this.IDHOGAR
+              };              
+            }
+
+            //GUARDAR DATOS
+            this.valGVivi = false;
             try {
               await caracterizacionServicios
                 .guardar(parametros)
                 .then(respuesta => {
                   if (respuesta.data.OPC == "SI") {
-                    this.GIDEN = true;
-                    this.IDHOGAR = respuesta.data.IDHOGAR;
-                    this.valGIden = true;
+                    this.GVIVI = true;
+                    bandera = true;
+                    this.valGVivi = true;
+                    this.viviendaData.id = respuesta.data.vivienda.id;
+                    this.animalesData.length = 0;
+                    this.estratificacion.length = 0;
+                    this.animalesData = respuesta.data.animales;
+                    this.estratificacion = respuesta.data.estratificacion;                                      
                   }
                 })
                 .catch(error => {
@@ -12486,10 +12637,10 @@
                   this.entrarPorError = true;
                   this.$swal(
                     "Error...!",
-                    "No se pudo guardar los datos de la pestaña identificación",
+                    "No se pudo guardar los datos de la pestaña vivienda",
                     "error"
                   );
-                  return;
+                  return;                    
                 });
             } catch (error) {
               switch (error.response.status) {
@@ -12505,171 +12656,84 @@
               }
             }
             //GUARDAR DATOS
-          }else{
-            bandera = true;
-          }
-        }
-        if (actual === "tabVivienda") {
-          bandera = true;
-          if (this.GIDEN===false) {
-            this.$swal(
-              "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
-              "error"
-            );            
-            return false;
-          }          
-          this.$v.$touch();
-          const isInvalid = this.$v.$invalid;          
-          if (isInvalid) {
-            this.$swal(
-              "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
-              "error"
-            );
-            return false;
-          } else {
-            if (this.GVIVI === false && this.GIDEN===true && this.IDHOGAR!==0) {
-                if (this.estratificacion.length <= 0) {
-                  this.$swal(
-                    "Error...!",
-                    "Por favor agregue por lo menos una estratificación",
-                    "error"
-                  );
-                  return;
-                }
-                //GUARDAR DATOS
-                this.valGVivi = false;
-                const parametros = {
-                  _token: this.csrf,
-                  vivienda: this.viviendaData,
-                  estratificacion: this.estratificacion,
-                  Animales: this.animalesData,
-                  opcion: "GUARDAR",
-                  opc: "GUAVIVI",
-                  IDHOGAR: this.IDHOGAR
-                };
-                try {
-                  await caracterizacionServicios
-                    .guardar(parametros)
-                    .then(respuesta => {
-                      if (respuesta.data.OPC == "SI") {
-                        this.GVIVI = true;
-                        bandera = true;
-                        this.valGVivi = true;                  
-                      }
-                    })
-                    .catch(error => {
-                      this.errorDevuelto = error.response.data.errors;
-                      this.entrarPorError = true;
-                      this.$swal(
-                        "Error...!",
-                        "No se pudo guardar los datos de la pestaña vivienda",
-                        "error"
-                      );
-                      return;                    
-                    });
-                } catch (error) {
-                  switch (error.response.status) {
-                    case 419:
-                      this.$swal("Error...!", "Ocurrio un error!", "error");
-                      break;
-                    case 422:
-                      this.$swal("Error...!", "Ocurrio un error!", "error");
-                      break;
-                    default:
-                      this.$swal("Error...!", "Ocurrio un error!", "error");
-                      break;
-                  }
-                }
-                //GUARDAR DATOS
-            }else{
-              bandera = true;
-            }
           }          
         }
         if (actual === "cartxciclo") {
           bandera = true;
-          if (this.GIDEN===false) {
+          if (this.IDHOGAR===0) {
             this.$swal(
               "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
-              "error"
-            );            
-            return false;
-          }
-          if (this.GVIVI === false) {
-            this.$swal(
-              "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
+              "Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar",
               "error"
             );            
             return false;
           }          
-          if (this.GCARXCI === false && this.GIDEN===true && this.GVIVI === true) {
-            let auxi=false;
-            //VALIDAR LA TABLA MENORES DE 1 AÑO
-            if (this.Men1A.length > 0) {
-              let resul = this.valMen1();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
+          let auxi=false;
+          //VALIDAR LA TABLA MENORES DE 1 AÑO
+          if (this.Men1A.length > 0) {
+            let resul = this.valMen1();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA MENORES DE 1 AÑO
+          }
+          //VALIDAR LA TABLA MENORES DE 1 AÑO
 
-            //VALIDAR LA TABLA DE 1 A 5 AÑOS
-            if (this.De1A5.length > 0) {
-              let resul = this.valDe1A5();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
+          //VALIDAR LA TABLA DE 1 A 5 AÑOS
+          if (this.De1A5.length > 0) {
+            let resul = this.valDe1A5();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA DE 1 A 5 AÑOS
+          }
+          //VALIDAR LA TABLA DE 1 A 5 AÑOS
 
-            //VALIDAR LA TABLA DE 6 A 11 AÑOS
-            if (this.De6A11.length > 0) {
-              let resul = this.valDe6A11();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
+          //VALIDAR LA TABLA DE 6 A 11 AÑOS
+          if (this.De6A11.length > 0) {
+            let resul = this.valDe6A11();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA DE 6 A 11 AÑOS
+          }
+          //VALIDAR LA TABLA DE 6 A 11 AÑOS
 
-            //VALIDAR LA TABLA DE 10 A 59 AÑOS
-            if (this.De10A59.length > 0) {
-              let resul = this.valDe10A59();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
+          //VALIDAR LA TABLA DE 10 A 59 AÑOS
+          if (this.De10A59.length > 0) {
+            let resul = this.valDe10A59();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA DE 10 A 59 AÑOS          
+          }
+          //VALIDAR LA TABLA DE 10 A 59 AÑOS          
 
-            //VALIDAR LA TABLA POSTPAR
-            if (this.ParPost.length > 0) {
-              let resul = this.valParPost();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
+          //VALIDAR LA TABLA POSTPAR
+          if (this.ParPost.length > 0) {
+            let resul = this.valParPost();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
             }
-            //VALIDAR LA TABLA POSTPAR                        
-            if(auxi){
-              //GUARDAR DATOS
-              const parametros = {
+          }
+          //VALIDAR LA TABLA POSTPAR                        
+          if(auxi){
+            //GUARDAR DATOS
+            var parametros = "";
+
+            if (this.GCARXCI === false) {
+              parametros = {
                 _token: this.csrf,
                 Men1A: this.Men1A,
                 De1A5: this.De1A5,
@@ -12679,45 +12743,67 @@
                 opcion: "GUARDAR",
                 opc: "GUACARCI",
                 IDHOGAR: this.IDHOGAR
-              };
-              this.valGCart = false;
-              try {
-                await caracterizacionServicios
-                  .guardar(parametros)
-                  .then(respuesta => {
-                    if (respuesta.data.OPC == "SI") {
-                      this.GCARXCI = true;
-                      bandera = true;
-                      this.valGCart = true;
-                    }
-                  })
-                  .catch(error => {
-                    this.errorDevuelto = error.response.data.errors;
-                    this.entrarPorError = true;
-                    this.$swal(
-                      "Error...!",
-                      "No se pudo guardar los datos de la pestaña ciclos",
-                      "error"
-                    );
-                    return;                  
-                  });
-              } catch (error) {
-                switch (error.response.status) {
-                  case 419:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  case 422:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  default:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                }
-              }            
-              //GUARDAR DATOS
+              };              
             }else{
-              bandera = true;
-            }
+              parametros = {
+                _token: this.csrf,
+                Men1A: this.Men1A,
+                De1A5: this.De1A5,
+                De6A11: this.De6A11,
+                De10A59: this.De10A59,
+                ParPost: this.ParPost,
+                opcion: "MODIFICAR",
+                opc: "GUACARCI",
+                IDHOGAR: this.IDHOGAR
+              };
+            }            
+            this.valGCart = false;
+            try {
+              await caracterizacionServicios
+                .guardar(parametros)
+                .then(respuesta => {
+                  if (respuesta.data.OPC == "SI") {
+                    this.GCARXCI = true;
+                    bandera = true;
+                    this.valGCart = true;
+                    // GESTION DE LAS VARIABLES DE CART X CICLO
+                    this.Men1A.length = 0;
+                    this.De1A5.length = 0;
+                    this.De6A11.length = 0;
+                    this.De10A59.length = 0;
+                    this.ParPost.length = 0;
+                    this.Men1A = respuesta.data.Men1A;
+                    this.De1A5 = respuesta.data.De1A5;
+                    this.De6A11 = respuesta.data.De6A11;
+                    this.De10A59 = respuesta.data.De10A59;                                            
+                    this.ParPost = respuesta.data.ParPost;
+                    // GESTION DE LAS VARIABLES DE CART X CICLO                    
+                  }
+                })
+                .catch(error => {
+                  this.errorDevuelto = error.response.data.errors;
+                  this.entrarPorError = true;
+                  this.$swal(
+                    "Error...!",
+                    "No se pudo guardar los datos de la pestaña ciclos",
+                    "error"
+                  );
+                  return;                  
+                });
+            } catch (error) {
+              switch (error.response.status) {
+                case 419:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                case 422:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                default:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+              }
+            }            
+            //GUARDAR DATOS
           }else{
             bandera = true;
           }
@@ -12725,71 +12811,54 @@
         if (actual === "adolescente") {
           bandera = true;
           let auxi=false;
-          if (this.GIDEN===false) {
+          if (this.IDHOGAR===0) {
             this.$swal(
               "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
+              "Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar",
               "error"
             );            
             return false;
-          }
-          if (this.GVIVI === false) {
-            this.$swal(
-              "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
-              "error"
-            );            
-            return false;
-          }      
-          if(this.Men1A.length > 0 || this.De1A5.length > 0 || this.De6A11.length > 0 || this.De10A59.length > 0 || this.ParPost.length > 0){
-            if(this.GCARXCI === false){
-              this.$swal(
-                "Error...!",
-                "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo",
-                "error"
-              );            
+          }          
+          //VALIDAR LA TABLA DE 12 A 17 AÑOS
+          if (this.De12A17.length > 0) {
+            let resul = this.valDe12A17();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
               return false;
             }
-          }          
-          if (this.GADOLE === false && this.GIDEN===true && this.GVIVI === true ) {
-            //VALIDAR LA TABLA DE 12 A 17 AÑOS
-            if (this.De12A17.length > 0) {
-              let resul = this.valDe12A17();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
-            }            
-            //VALIDAR LA TABLA DE 12 A 17 AÑOS
+          }            
+          //VALIDAR LA TABLA DE 12 A 17 AÑOS
 
-            //VALIDAR LA TABLA DE 18 A 28 AÑOS
-            if (this.De18A28.length > 0) {
-              let resul = this.valDe18A28();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
-            }            
-            //VALIDAR LA TABLA DE 18 A 28 AÑOS
+          //VALIDAR LA TABLA DE 18 A 28 AÑOS
+          if (this.De18A28.length > 0) {
+            let resul = this.valDe18A28();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
+            }
+          }            
+          //VALIDAR LA TABLA DE 18 A 28 AÑOS
 
-            //VALIDAR LA TABLA DE 29 A 59 AÑOS
-            if (this.De29A59.length > 0) {
-              let resul = this.valDe29A59();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
-            }            
-            //VALIDAR LA TABLA DE 29 A 59 AÑOS
-            if(auxi){
-              //GUARDAR DATOS
-              const parametros = {
+          //VALIDAR LA TABLA DE 29 A 59 AÑOS
+          if (this.De29A59.length > 0) {
+            let resul = this.valDe29A59();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
+            }
+          }            
+          //VALIDAR LA TABLA DE 29 A 59 AÑOS
+          if(auxi){
+            var parametros = "";
+            //GUARDAR DATOS
+            if (this.GADOLE === false) {
+              parametros = {
                 _token: this.csrf,
                 De12A17: this.De12A17,
                 De18A28: this.De18A28,
@@ -12798,127 +12867,113 @@
                 opc: "GUADOLE",
                 IDHOGAR: this.IDHOGAR
               };
-              this.valGAdole = false;
-              try {
-                await caracterizacionServicios
-                  .guardar(parametros)
-                  .then(respuesta => {
-                    if (respuesta.data.OPC == "SI") {
-                      this.GADOLE = true;
-                      bandera = true;
-                      this.valGAdole = true;
-                    }
-                  })
-                  .catch(error => {
-                    this.errorDevuelto = error.response.data.errors;
-                    this.entrarPorError = true;
-                    this.$swal(
-                      "Error...!",
-                      "No se pudo guardar los datos de la pestaña adolescentes",
-                      "error"
-                    );
-                    return;                  
-                  });
-              } catch (error) {
-                switch (error.response.status) {
-                  case 419:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  case 422:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  default:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                }
-              }            
-              //GUARDAR DATOS
             }else{
-              bandera = true;
-            }
+              parametros = {
+                _token: this.csrf,
+                De12A17: this.De12A17,
+                De18A28: this.De18A28,
+                De29A59: this.De29A59,
+                opcion: "MODIFICAR",
+                opc: "GUADOLE",
+                IDHOGAR: this.IDHOGAR
+              };
+            }            
+            this.valGAdole = false;
+            try {
+              await caracterizacionServicios
+                .guardar(parametros)
+                .then(respuesta => {
+                  if (respuesta.data.OPC == "SI") {
+                    this.GADOLE = true;
+                    bandera = true;
+                    this.valGAdole = true;
+                    this.De12A17.length = 0;
+                    this.De18A28.length = 0;
+                    this.De29A59.length = 0;
+                    // GESTION DE LAS VARIABLES DE ADOLESCENTES
+                    this.De12A17 = respuesta.data.De12A17;
+                    this.De18A28 = respuesta.data.De18A28;
+                    this.De29A59 = respuesta.data.De29A59;                  
+                    // GESTION DE LAS VARIABLES DE ADOLESCENTES                    
+                  }
+                })
+                .catch(error => {
+                  this.errorDevuelto = error.response.data.errors;
+                  this.entrarPorError = true;
+                  this.$swal(
+                    "Error...!",
+                    "No se pudo guardar los datos de la pestaña adolescentes",
+                    "error"
+                  );
+                  return;                  
+                });
+            } catch (error) {
+              switch (error.response.status) {
+                case 419:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                case 422:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                default:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+              }
+            }            
+            //GUARDAR DATOS
           }else{
             bandera = true;
           }
         }
         if (actual === "adultomayor") {
           let auxi=false;
-          if (this.GIDEN===false) {
+          if (this.IDHOGAR===0) {
             this.$swal(
               "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
+              "Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar",
               "error"
             );            
             return false;
-          }
-          if (this.GVIVI === false) {
-            this.$swal(
-              "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
-              "error"
-            );            
-            return false;
-          }
-          
-          if(this.Men1A.length > 0 || this.De1A5.length > 0 || this.De6A11.length > 0 || this.De10A59.length > 0 || this.ParPost.length > 0){
-            if(this.GCARXCI === false){              
-              this.$swal(
-                "Error...!",
-                "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo",
-                "error"
-              );            
+          }                                    
+          //VALIDAR LA TABLA MAYORES DE 60 AÑOS
+          if (this.De60.length > 0) {
+            let resul = this.valDe60();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
               return false;
             }
-          }                   
-          if(this.De12A17.length > 0 || this.De18A28.length > 0 || this.De29A59.length > 0 ){
-            if(this.GADOLE === false){
-              this.$swal(
-                "Error...!",
-                "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes",
-                "error"
-              );            
+          }                 
+          //VALIDAR LA TABLA MAYORES DE 60 AÑOS
+                      
+          //VALIDAR LA TABLA ENFERMEDADES CRONICAS
+          if (this.EnCro.length > 0) {
+            let resul = this.valEnCro();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
               return false;
-            }                        
-          }        
-                    
-          //VALIDAR LA TABLA ENFERMEDADES INFECCIOSAS          
-          if (this.GADULT === false ) {
-            //VALIDAR LA TABLA MAYORES DE 60 AÑOS
-            if (this.De60.length > 0) {
-              let resul = this.valDe60();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
-            }                        
-            //VALIDAR LA TABLA MAYORES DE 60 AÑOS
-                        
-            //VALIDAR LA TABLA ENFERMEDADES CRONICAS
-            if (this.EnCro.length > 0) {
-              let resul = this.valEnCro();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
-            }                        
-            //VALIDAR LA TABLA ENFERMEDADES CRONICAS
-            
-            //VALIDAR LA TABLA ENFERMEDADES INFECCIOSAS
-            if (this.EnInf.length > 0) {
-              let resul = this.valEnInf();
-              if (resul) {
-                bandera = true;
-                auxi=true;
-              } else {
-                return false;
-              }
-            }          
-            if(auxi){
-              //GUARDAR DATOS
-              const parametros = {
+            }
+          }                        
+          //VALIDAR LA TABLA ENFERMEDADES CRONICAS
+          
+          //VALIDAR LA TABLA ENFERMEDADES INFECCIOSAS
+          if (this.EnInf.length > 0) {
+            let resul = this.valEnInf();
+            if (resul) {
+              bandera = true;
+              auxi=true;
+            } else {
+              return false;
+            }
+          }
+          //VALIDAR LA TABLA ENFERMEDADES INFECCIOSAS
+          if(auxi){
+            var parametros = "";
+            if (this.GADULT === false ) {
+              parametros = {
                 _token: this.csrf,
                 De60: this.De60,
                 EnCro: this.EnCro,
@@ -12926,175 +12981,153 @@
                 opcion: "GUARDAR",
                 opc: "GUADULT",
                 IDHOGAR: this.IDHOGAR
-              };
-              this.valGAdul = false;
-              try {
-                await caracterizacionServicios
-                  .guardar(parametros)
-                  .then(respuesta => {
-                    if (respuesta.data.OPC == "SI") {
-                      console.log("SI GUARDE");
-                      this.GADULT = true;
-                      bandera = true;
-                      this.valGAdul = true;
-                    }
-                  })
-                  .catch(error => {
-                    this.errorDevuelto = error.response.data.errors;
-                    this.entrarPorError = true;
-                    this.$swal(
-                      "Error...!",
-                      "No se pudo guardar los datos de la pestaña adultos",
-                      "error"
-                    );
-                    return;                  
-                  });
-              } catch (error) {
-                switch (error.response.status) {
-                  case 419:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  case 422:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  default:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                }
-              }            
-              //GUARDAR DATOS            
+              };            
             }else{
-              bandera = true;
-            }
+              parametros = {
+                _token: this.csrf,
+                De60: this.De60,
+                EnCro: this.EnCro,
+                EnInf: this.EnInf,
+                opcion: "MODIFICAR",
+                opc: "GUADULT",
+                IDHOGAR: this.IDHOGAR
+              };            
+            }            
+            //GUARDAR DATOS
+            this.valGAdul = false;
+            try {
+              await caracterizacionServicios
+                .guardar(parametros)
+                .then(respuesta => {
+                  if (respuesta.data.OPC == "SI") {
+                    this.GADULT = true;
+                    bandera = true;
+                    this.valGAdul = true;
+
+                    this.De60.length = 0;
+                    this.EnCro.length = 0;
+                    this.EnInf.length = 0;
+                    // GESTION DE LAS VARIABLES DE ADULTO MAYOR
+                    this.De60 = respuesta.data.De60;
+                    this.EnCro = respuesta.data.EnCro;
+                    this.EnInf = respuesta.data.EnInf;
+                    // GESTION DE LAS VARIABLES DE ADULTO MAYOR                    
+                  }
+                })
+                .catch(error => {
+                  this.errorDevuelto = error.response.data.errors;
+                  this.entrarPorError = true;
+                  this.$swal(
+                    "Error...!",
+                    "No se pudo guardar los datos de la pestaña adultos",
+                    "error"
+                  );
+                  return;                  
+                });
+            } catch (error) {
+              switch (error.response.status) {
+                case 419:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                case 422:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                default:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+              }
+            }            
+            //GUARDAR DATOS            
           }else{
             bandera = true;
           }
         }
         if (actual === "migrante") {
           let auxi=false;
-          if (this.GIDEN===false) {
+          if (this.IDHOGAR===0) {
             this.$swal(
               "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Hogar",
+              "Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar",
               "error"
             );            
             return false;
-          }
-          if (this.GVIVI === false) {
-            this.$swal(
-              "Error...!",
-              "Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda",
-              "error"
-            );            
-            return false;
-          }          
-          if(this.Men1A.length > 0 || this.De1A5.length > 0 || this.De6A11.length > 0 || this.De10A59.length > 0 || this.ParPost.length > 0){
-            if(this.GCARXCI === false){
-              this.$swal(
-                "Error...!",
-                "Por Favor Guarde Los Datos de la Pestaña Cart. X ciclo",
-                "error"
-              );            
+          }                   
+          //VALIDAR LA TABLA MIGRANTES
+          if (this.Migra.length > 0) {
+            let resul = this.valMigra();
+            if (resul) {
+              bandera = true;  
+              auxi=true;              
+            } else {
               return false;
             }
-          }
-          if(this.De12A17.length > 0 || this.De18A28.length > 0 || this.De29A59.length > 0 ){
-            if(this.GADOLE === false){
-              this.$swal(
-                "Error...!",
-                "Por Favor Complete Los Campos Obligatorios de la Pestaña Adolecentes/Jovenes",
-                "error"
-              );            
-              return false;
-            }                        
-          }
-          if(this.De60.length > 0 || this.EnCro.length > 0 || this.EnInf.length > 0 ){
-            if(this.GADULT === false){
-              this.$swal(
-                "Error...!",
-                "Por Favor Complete Los Campos Obligatorios de la Pestaña Adulto mayor",
-                "error"
-              );            
-              return false;
-            }                        
-          }                    
-          if (this.GMIGRA === false) {
-            //VALIDAR LA TABLA MIGRANTES
-            if (this.Migra.length > 0) {
-              let resul = this.valMigra();
-              if (resul) {
-                bandera = true;  
-                auxi=true;              
-              } else {
-                return false;
-              }
-            }            
-            //VALIDAR LA TABLA MIGRANTES
-            if(auxi){
-              const parametros = {
+          }            
+          //VALIDAR LA TABLA MIGRANTES
+          if(auxi){
+            var parametros = "";
+            if (this.GMIGRA === false) {
+              parametros = {
                 _token: this.csrf,
                 Migra: this.Migra,
                 opcion: "GUARDAR",
                 opc: "GUAMIGRA",
                 IDHOGAR: this.IDHOGAR
-              };
-              this.valGMig = false;
-              try {
-                await caracterizacionServicios
-                  .guardar(parametros)
-                  .then(respuesta => {
-                    if (respuesta.data.OPC == "SI") {
-                      this.$swal(
-                        "Guardar...!",
-                        "Datos Guardados Exitosamente!",
-                        "success"
-                      );
-                      this.valGMig = true;
-                      // this.$router.push("/gestion");
-                      this.$refs.modalAbrir.show();
-                    }
-                  })
-                  .catch(error => {
-                    this.errorDevuelto = error.response.data.errors;
-                    this.entrarPorError = true;
-                    this.$swal(
-                      "Error...!",
-                      "No se pudo guardar los datos de la pestaña migrantes",
-                      "error"
-                    );
-                    return;                  
-                  });
-              } catch (error) {
-                switch (error.response.status) {
-                  case 419:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  case 422:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                  default:
-                    this.$swal("Error...!", "Ocurrio un error!", "error");
-                    break;
-                }
-              }                        
+              };            
             }else{
-              bandera = true;
-              this.$swal(
-                "Guardar...!",
-                "Datos Guardados Exitosamente!",
-                "success"
-              );
-              // this.$router.push("/gestion");
-              this.$refs.modalAbrir.show();              
-            }
+              parametros = {
+                _token: this.csrf,
+                Migra: this.Migra,
+                opcion: "MODIFICAR",
+                opc: "GUAMIGRA",
+                IDHOGAR: this.IDHOGAR
+              };         
+            }            
+            this.valGMig = false;
+            try {
+              await caracterizacionServicios
+                .guardar(parametros)
+                .then(respuesta => {
+                  if (respuesta.data.OPC == "SI") {
+                    this.valGMig = true;
+                    bandera = true;
+                    this.Migra.length = 0;
+                    // GESTION DE LAS VARIABLES DE MIGRANTES
+                    this.Migra = respuesta.data.Migra;
+                    // GESTION DE LAS VARIABLES DE MIGRANTES                    
+                    // this.$router.push("/gestion");
+                    this.$refs.modalAbrir.show();
+                  }
+                })
+                .catch(error => {
+                  this.errorDevuelto = error.response.data.errors;
+                  this.entrarPorError = true;
+                  this.$swal(
+                    "Error...!",
+                    "No se pudo guardar los datos de la pestaña migrantes",
+                    "error"
+                  );
+                  return;                  
+                });
+            } catch (error) {
+              switch (error.response.status) {
+                case 419:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                case 422:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+                default:
+                  this.$swal("Error...!", "Ocurrio un error!", "error");
+                  break;
+              }
+            }                        
           }else{
             this.$swal(
               "Guardar...!",
               "Datos Guardados Exitosamente!",
               "success"
             );
-            this.SAPU=false;
-            // this.$router.push("/gestion");          
+            this.$router.push("/gestion");           
           }
         }
         if (bandera) {
@@ -13103,6 +13136,11 @@
         }
       },
       seleccionarOpcion(opcion) {
+        this.$swal(
+          "Guardar...!",
+          "Datos Guardados Exitosamente!",
+          "success"
+        );        
         if (opcion === "unidades") {
           this.$router.push({
             name: "Unidades",
@@ -13119,7 +13157,7 @@
             }
           });
         }
-        if (opcion === "salir") {
+        if (opcion === "salir") {          
           this.$router.push("/gestion");
         }        
       },      
@@ -15408,10 +15446,10 @@
             );
             return false;
           }
-          if (this.De12A17[i].pb === "") {
+          if (this.De12A17[i].te === "") {
             this.$swal(
               "Error...!",
-              "Por favor digite la <b>PB</b> en la fila " +
+              "Por favor digite la <b>T/E</b> en la fila " +
                 (i + 1) +
                 " de la tabla adolescentes de 12 a 17 años",
               "error"
@@ -15683,16 +15721,16 @@
             );
             return false;
           }          
-          if (this.De18A28[i].pb === "") {
-            this.$swal(
-              "Error...!",
-              "Por favor digite la opcion <b>PB</b> en la fila " +
-                (i + 1) +
-                " de la tabla juventud, jovenes de 18 a 28 años",
-              "error"
-            );
-            return false;
-          }
+          // if (this.De18A28[i].pb === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor digite la opcion <b>PB</b> en la fila " +
+          //       (i + 1) +
+          //       " de la tabla juventud, jovenes de 18 a 28 años",
+          //     "error"
+          //   );
+          //   return false;
+          // }
           if (this.De18A28[i].visuales === "") {
             this.$swal(
               "Error...!",
@@ -16471,7 +16509,7 @@
           if (this.Migra[i].necesidad === "") {
             this.$swal(
               "Error...!",
-              "Por favor seleccione la opcion <b>Principal Necesidad en Estos Momnetos</b> en la fila " +
+              "Por favor seleccione la opcion <b>Principal Necesidad en Estos Momentos</b> en la fila " +
                 (i + 1) +
                 " de la tabla migrantes",
               "error"
@@ -16510,10 +16548,8 @@
           return false;
         } else {
           if (valor.match(letters)) {
-            // console.log("no hay letras");
             return true;
           } else {
-            // console.log("hay letras");
             return false;
           }
         }
@@ -16551,6 +16587,8 @@
               this.enfinf_options = respuesta.data.arrayEnfInf;
               this.religion_options = respuesta.data.arrayReligion;              
               this.CODIGOGENE = respuesta.data.codigo;
+
+              this.paises_options = respuesta.data.arrayPaises;
             });
         } catch (error) {
           switch (error.response.status) {
@@ -16564,167 +16602,159 @@
         }
       },
       agregar: async function() {
-        // if (this.CA1.tipo_id == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione un tipo de identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.identificacion == "") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite el documento de identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.sexo == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-        //   return;
-        // }
-        // if (this.CA1.orientacion === "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-        //   return;
-        // }
-        // if (this.CA1.identidad_genero === "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+        if (this.CA1.tipo_id == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.identificacion == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el documento de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.sexo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.CA1.orientacion === "0") {
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.CA1.identidad_genero === "0") {
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }        
+        if (this.CA1.parentesco == "0") {
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.CA1.pnom == "0") {
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.CA1.pape == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.estado_civil == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.fecha_nac == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.afi_entidad === "") {
+          this.$refs.afi_entidad.focus();
+          this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+          return;
+        }        
+        if (this.CA1.tipo_afiliacion === "") {
+          this.$refs.tipo_afiliacion.focus();
+          this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
+          return;
+        }        
+        if (this.CA1.escolaridad == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el nivel de escolaridad!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.ocupacion == "0") {
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.CA1.etnia == "0") {
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.CA1.clasificacion == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.entiende == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción entiende español!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.pyp == "0") {
+          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+          return;
+        }
+        if (this.CA1.migrante == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción migrante!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.jefe == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el un jefe de hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.CA1.programa_icbf === "") {
+          this.$refs.programa_icbf.focus();
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }
+        // if (this.CA1.excepciones === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
         //   return;
         // }        
-        // if (this.CA1.parentesco == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-        //   return;
-        // }
-        // if (this.CA1.pnom == "0") {
-        //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-        //   return;
-        // }
-        // if (this.CA1.pape == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite el primer apellido!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.estado_civil == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el estado civil!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.fecha_nac == "") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la fecha de nacimiento!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.afi_entidad === "") {
-        //   this.$refs.afi_entidad.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la eps!", "error");
-        //   return;
-        // }        
-        // if (this.CA1.tipo_afiliacion === "") {
-        //   this.$refs.tipo_afiliacion.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
-        //   return;
-        // }        
-        // if (this.CA1.escolaridad == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el nivel de escolaridad!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.ocupacion == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-        //   return;
-        // }
-        // if (this.CA1.etnia == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-        //   return;
-        // }
-        // if (this.CA1.clasificacion == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la clasificacion de la etnia!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.entiende == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la opción entiende español!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.pyp == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-        //   return;
-        // }
-        // if (this.CA1.migrante == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la opción migrante!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.jefe == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el un jefe de hogar!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.perdida_peso === "") {
-        //   this.$refs.perdida_peso.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-        //   return;
-        // }
-        // if (this.CA1.programa_icbf === "") {
-        //   this.$refs.programa_icbf.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-        //   return;
-        // }
-        // // if (this.CA1.excepciones === "0") {
-        // //   bande = false;
-        // //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
-        // //   return;
-        // // }        
-        // if (this.CA1.enfermedad_infecciosa === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
-        //   return;
-        // }
-        // if (this.CA1.enfermedad_cronica === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
-        //   return;
-        // }
-        // if (this.CA1.peso === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor digite el peso!", "error");
-        //   return;
-        // }
-        // if (this.CA1.talla === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor digite la talla!", "error");
-        //   return;
-        // }                              
+        if (this.CA1.enfermedad_infecciosa === "0") {
+          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
+          return;
+        }
+        if (this.CA1.enfermedad_cronica === "0") {
+          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+          return;
+        }
+        if (this.CA1.peso === "") {
+          this.$swal("Error...!", "Por favor digite el peso!", "error");
+          return;
+        }
+        if (this.CA1.talla === "") {
+          this.$swal("Error...!", "Por favor digite la talla!", "error");
+          return;
+        }                              
         // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
@@ -16939,7 +16969,6 @@
                   // AGREGAR DE 60 ó MAS AÑOS
 
                   // AGREGAR MIGRANTES
-
                   if (this.CA1.migrante === "SI") {
                     this.AMigra(this.CA1, edad, "INTE");
                   }
@@ -17197,155 +17226,155 @@
       },
       checkForm(e) {
         let bande = true;
-        // if (this.caracData.tipo_id === "") {
-        //   this.$refs.tipo_id.focus();
-        //   bande = false;
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione un tipo de identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.caracData.identificacion === "") {
-        //   this.$refs.identificacion.focus();
-        //   bande = false;
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite una identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.caracData.sexo === "") {
-        //   this.$refs.sexo.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-        //   return;
-        // }
-        // if (this.caracData.orientacion === "") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-        //   return;
-        // }
-        // if (this.caracData.identidad_genero === "") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-        //   return;
-        // }                
-        // if (this.caracData.parentesco === "") {
-        //   this.$refs.parentesco.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-        //   return;
-        // }
-        // if (this.caracData.pnom === "") {
-        //   this.$refs.pnom.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-        //   return;
-        // }
-        // if (this.caracData.pape === "") {
-        //   this.$refs.pape.focus();
-        //   bande = false;
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite el primer apellido!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.caracData.estado_civil === "") {
-        //   this.$refs.estado_civil.focus();
-        //   bande = false;
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el estado civil!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.caracData.fecha_nacimiento === "") {
-        //   this.$refs.fecha_nacimiento.focus();
-        //   bande = false;
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la fecha de nacimiento!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.caracData.afiliacion_entidad === "") {
-        //   this.$refs.afiliacion_entidad.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la eps!", "error");
-        //   return;
-        // }
-        // if (this.caracData.tipo_afiliacion === "") {
-        //   this.$refs.tipo_afiliacion.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
-        //   return;
-        // }        
-        // if (this.caracData.ocupacion === "") {
-        //   this.$refs.ocupacion.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-        //   return;
-        // }
-        // if (this.caracData.etnia === "") {
-        //   this.$refs.etnia.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-        //   return;
-        // }
-        // if (this.caracData.clasificacion === "") {
-        //   this.$refs.clasificacion.focus();
-        //   bande = false;
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la clasificacion de la etnia!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.caracData.salario === "") {
-        //   this.$refs.salario.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor digite el salario!", "error");
-        //   return;
-        // }
-        // if (this.caracData.perdida_peso === "") {
-        //   this.$refs.perdida_peso.focus();
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-        //   return;
-        // }
-        // if (this.caracData.programa_icbf === "") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-        //   return;
-        // }
-        // if (this.caracData.enfermedad_infecciosa === "") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
-        //   return;
-        // }
-        // if (this.caracData.enfermedad_cronica === "") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
-        //   return;
-        // }
-        // if (this.caracData.peso === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor digite el peso!", "error");
-        //   return;
-        // }
-        // if (this.caracData.talla === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor digite la talla!", "error");
-        //   return;
-        // }                                               
+        if (this.caracData.tipo_id === "") {
+          this.$refs.tipo_id.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.identificacion === "") {
+          this.$refs.identificacion.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor digite una identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.sexo === "") {
+          this.$refs.sexo.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.caracData.orientacion === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.caracData.identidad_genero === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }                
+        if (this.caracData.parentesco === "") {
+          this.$refs.parentesco.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.caracData.pnom === "") {
+          this.$refs.pnom.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.caracData.pape === "") {
+          this.$refs.pape.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.estado_civil === "") {
+          this.$refs.estado_civil.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.fecha_nacimiento === "") {
+          this.$refs.fecha_nacimiento.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.afiliacion_entidad === "") {
+          this.$refs.afiliacion_entidad.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+          return;
+        }
+        if (this.caracData.tipo_afiliacion === "") {
+          this.$refs.tipo_afiliacion.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
+          return;
+        }        
+        if (this.caracData.ocupacion === "") {
+          this.$refs.ocupacion.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.caracData.etnia === "") {
+          this.$refs.etnia.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.caracData.clasificacion === "") {
+          this.$refs.clasificacion.focus();
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.caracData.salario === "") {
+          this.$refs.salario.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor digite el salario!", "error");
+          return;
+        }
+        if (this.caracData.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.caracData.programa_icbf === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }
+        if (this.caracData.enfermedad_infecciosa === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
+          return;
+        }
+        if (this.caracData.enfermedad_cronica === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+          return;
+        }
+        if (this.caracData.peso === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor digite el peso!", "error");
+          return;
+        }
+        if (this.caracData.talla === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor digite la talla!", "error");
+          return;
+        }                                               
         return bande;
         e.preventDefault();
       },
@@ -17362,7 +17391,6 @@
           return "";
         }
         for (var i = 0; i < vectorAux[id].length; i++) {
-          console.log(vectorAux[id][i].value);
           if (vectorAux[id][i].value === val) {
             return vectorAux[id][i].texto;
           }
@@ -17370,95 +17398,353 @@
         return "";
       },      
       eliminarItem: function(index, item) {
-        this.datos.splice(index, 1);
-        this.vectorIntegrante.splice(index, 1);
-        let identificacion = item.identificacion;
-        this.Men1A = this.Men1A.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De1A5 = this.De1A5.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De6A11 = this.De6A11.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De10A59 = this.De10A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.ParPost = this.ParPost.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De12A17 = this.De12A17.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De18A28 = this.De18A28.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De29A59 = this.De29A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De60 = this.De60.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.EnCro = this.EnCro.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.EnInf = this.EnInf.filter(function(men) {
-          return men.identificacion != identificacion;
+        let nombre = " " + item.pnom + " " + item.snom + " " + item.pape + " " + item.sape;
+        this.$swal({
+          title: "¿Desea anular el integrante  " + nombre + "?",
+          text: "",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Aceptar",
+          cancelButtonText: "Cancelar"
+        }).then(result => {
+          if (result.value) {
+            if(item.id===0){
+              this.datos.splice(index, 1);
+              this.vectorIntegrante.splice(index, 1);
+              let identificacion = item.identificacion;
+              this.Men1A = this.Men1A.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De1A5 = this.De1A5.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De6A11 = this.De6A11.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De10A59 = this.De10A59.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.ParPost = this.ParPost.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De12A17 = this.De12A17.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De18A28 = this.De18A28.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De29A59 = this.De29A59.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De60 = this.De60.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.EnCro = this.EnCro.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.EnInf = this.EnInf.filter(function(men) {
+                return men.identificacion != identificacion;
+              });        
+              this.Migra = this.Migra.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+            }else{
+              let identificacion = item.identificacion;
+    
+              let indice = this.datos.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.datos[indice].estado = "Inactivo";
+                this.datos.splice(indice, 1, this.datos[indice]);
+              }          
+              indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.Men1A[indice].estado = "Inactivo";
+                this.Men1A.splice(indice, 1, this.Men1A[indice]);
+              }        
+    
+              indice = this.De1A5.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.De1A5[indice].estado = "Inactivo";
+                this.De1A5.splice(indice, 1, this.De1A5[indice]);
+              }        
+    
+              indice = this.De6A11.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.De6A11[indice].estado = "Inactivo";
+                this.De6A11.splice(indice, 1, this.De6A11[indice]);
+              }        
+    
+              indice = this.De10A59.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.De10A59[indice].estado = "Inactivo";
+                this.De10A59.splice(indice, 1, this.De10A59[indice]);
+              }        
+    
+              indice = this.De12A17.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.De12A17[indice].estado = "Inactivo";
+                this.De12A17.splice(indice, 1, this.De12A17[indice]);
+              }        
+              
+              indice = this.De18A28.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.De18A28[indice].estado = "Inactivo";
+                this.De18A28.splice(indice, 1, this.De18A28[indice]);
+              }        
+              
+              indice = this.De29A59.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.De29A59[indice].estado = "Inactivo";
+                this.De29A59.splice(indice, 1, this.De29A59[indice]);        
+              }        
+    
+              indice = this.De60.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.De60[indice].estado = "Inactivo";
+                this.De60.splice(indice, 1, this.De60[indice]);
+              }        
+    
+              indice = this.EnCro.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.EnCro[indice].estado = "Inactivo";
+                this.EnCro.splice(indice, 1, this.EnCro[indice]);
+              }        
+    
+              indice = this.EnInf.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.EnInf[indice].estado = "Inactivo";
+                this.EnInf.splice(indice, 1, this.EnInf[indice]);        
+              }        
+    
+              indice = this.Migra.findIndex(identi => identi.identificacion === identificacion);
+              if(indice >= 0){
+                this.Migra[indice].estado = "Inactivo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);                
+              }          
+            }
+            this.$swal(
+              "Eliminar...!",
+              "Datos En Proceso de Eliminación!",
+              "success"
+            );            
+          }
         });        
-        this.Migra = this.Migra.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
       },
       eliminarItemJefe: function(index, item) {
-        this.datosJefe.splice(index, 1);
-        this.vectorJefes.splice(index, 1);
-        let identificacion = item.identificacion;
+        let nombre = " " + item.pnom + " " + item.snom + " " + item.pape + " " + item.sape;
+        this.$swal({
+          title: "¿Desea anular el jefe de hogar  " + nombre + "?",
+          text: "",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Aceptar",
+          cancelButtonText: "Cancelar"
+        }).then(result => {
+          if (result.value) {
+            if(item.id === 0){
+              this.datosJefe.splice(index, 1);
+              this.vectorJefes.splice(index, 1);
+              let identificacion = item.identificacion;
 
-        this.factores = this.factores.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.afectacion = this.afectacion.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.estratificacion = this.estratificacion.filter(function(men) {
-          return men.id_jefe != identificacion;
-        });        
-        this.Men1A = this.Men1A.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De1A5 = this.De1A5.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De6A11 = this.De6A11.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De10A59 = this.De10A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.ParPost = this.ParPost.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De12A17 = this.De12A17.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De18A28 = this.De18A28.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De29A59 = this.De29A59.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.De60 = this.De60.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.EnCro = this.EnCro.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
-        this.EnInf = this.EnInf.filter(function(men) {
-          return men.identificacion != identificacion;
-        });        
-        this.Migra = this.Migra.filter(function(men) {
-          return men.identificacion != identificacion;
+              this.factores = this.factores.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.afectacion = this.afectacion.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.estratificacion = this.estratificacion.filter(function(men) {
+                return men.id_jefe != identificacion;
+              });
+              this.Men1A = this.Men1A.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De1A5 = this.De1A5.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De6A11 = this.De6A11.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De10A59 = this.De10A59.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.ParPost = this.ParPost.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De12A17 = this.De12A17.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De18A28 = this.De18A28.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De29A59 = this.De29A59.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.De60 = this.De60.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.EnCro = this.EnCro.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+              this.EnInf = this.EnInf.filter(function(men) {
+                return men.identificacion != identificacion;
+              });                
+              this.Migra = this.Migra.filter(function(men) {
+                return men.identificacion != identificacion;
+              });
+
+            }else{
+              let identificacion = item.identificacion;
+              // TABLA datos
+              for (let i = 0; i < this.datos.length; i++) {
+                if(this.datos[i].jefe === identificacion){
+                  this.$swal(
+                    "Advertencia...!",
+                    "El jefe de hogar " + nombre + " tiene integrantes asociados asociados !",
+                    "warning"
+                  );
+                  return;                                    
+                }
+              }
+              // TABLA datos
+                            
+              let id = item.identificacion;
+
+              //INACTIVAR LA FILA DE JEFES
+              this.datosJefe[index].estado = "Inactivo";
+              this.datosJefe.splice(index, 1, this.datosJefe[index]);
+              //INACTIVAR LA FILA DE JEFES
+
+              //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+              let indice = this.De10A59.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.De10A59[indice].estado = "Inactivo";
+                this.De10A59.splice(indice, 1, this.De10A59[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+              
+              //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+              indice = this.ParPost.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.ParPost[indice].estado = "Inactivo";
+                this.ParPost.splice(indice, 1, this.ParPost[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+              
+              //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+              indice = this.De12A17.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.De12A17[indice].estado = "Inactivo";
+                this.De12A17.splice(indice, 1, this.De12A17[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+              
+              //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+              indice = this.De18A28.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.De18A28[indice].estado = "Inactivo";
+                this.De18A28.splice(indice, 1, this.De18A28[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+              
+              //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+              indice = this.De29A59.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.De29A59[indice].estado = "Inactivo";
+                this.De29A59.splice(indice, 1, this.De29A59[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+              
+              //SABER EL INDICE DE LA IDENTIFICACION DE De60
+              indice = this.De60.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.De60[indice].estado = "Inactivo";
+                this.De60.splice(indice, 1, this.De60[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE De60
+              
+              //SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+              indice = this.EnCro.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.EnCro[indice].estado = "Inactivo";
+                this.EnCro.splice(indice, 1, this.EnCro[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+
+              //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+              indice = this.EnInf.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.EnInf[indice].estado = "Inactivo";
+                this.EnInf.splice(indice, 1, this.EnInf[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+
+              //SABER EL INDICE DE LA IDENTIFICACION DE Migra
+              indice = this.Migra.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.Migra[indice].estado = "Inactivo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE Migra              
+
+              //SABER EL INDICE DE LA IDENTIFICACION DE factores
+              indice = this.factores.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.factores[indice].estado = "Inactivo";
+                this.factores.splice(indice, 1, this.factores[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE factores
+
+              //SABER EL INDICE DE LA IDENTIFICACION DE afectacion
+              indice = this.afectacion.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.afectacion[indice].estado = "Inactivo";
+                this.afectacion.splice(indice, 1, this.afectacion[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE afectacion
+              
+              //SABER EL INDICE DE LA IDENTIFICACION DE estratificacion
+              indice = this.estratificacion.findIndex(
+                identi => identi.identificacion === id
+              );
+              if (indice >= 0) {
+                this.estratificacion[indice].estado = "Inactivo";
+                this.estratificacion.splice(indice, 1, this.estratificacion[indice]);
+              }
+              //SABER EL INDICE DE LA IDENTIFICACION DE estratificacion              
+              
+            }
+            this.$swal(
+              "Eliminar...!",
+              "Datos En Proceso de Eliminación!",
+              "success"
+            );            
+          }
         });
       },
       editarItemJefe: function(index, item) {
@@ -17513,7 +17799,9 @@
         this.identificacionEditar = item.identificacion;
         this.fechaEditar = item.fecha_nacimiento;
         this.edadEditar = item.edad;
-        this.embarazoEditar = item.embarazo;        
+        this.embarazoEditar = item.embarazo;
+        this.identificacionJefe = item.identificacion;
+        this.migrarEditar = item.migrante;     
         // ELIMINAR LOS DATOS DE LAS TABLAS
         let identificacion = this.vectorJefes[this.indiceEditJefe].identificacion;
 
@@ -17729,9 +18017,15 @@
         this.caracData.identificacion = this.caracData.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
           ""
-        );        
+        );
+        this.identificacionEditar = this.identificacionEditar.replace(
+          /[.*+\-?^${}()|[\]\\]/g,
+          ""
+        );
         if(this.identificacionEditar===this.caracData.identificacion){
-          this.ediJe();
+          if (this.checkForm() === true) {
+            this.ediJe();
+          }
         }else{
           if (this.checkForm() === true) {
             // VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
@@ -17828,7 +18122,8 @@
           }
         }
 
-        let id = this.vectorJefes[this.indiceEditJefe].identificacion;
+        // let id = this.vectorJefes[this.indiceEditJefe].identificacion;
+        let id = this.identificacionEditar;
 
         if(this.caracData.fecha_nacimiento !== this.fechaEditar){
           if(edad !== this.edadEditar){
@@ -17962,7 +18257,13 @@
             }else{
               if(this.caracData.embarazo==="SI"){
                 //AGREGO
-                this.AParPost(this.caracData, edad, "JEFE");
+                indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+                if (indice >= 0) {
+                  this.ParPost[indice].estado = "Activo";
+                  this.ParPost.splice(indice, 1, this.ParPost[indice]);
+                }else{
+                  this.AParPost(this.caracData, edad, "JEFE");
+                }
               }
             }
 
@@ -18061,19 +18362,40 @@
               this.EnInf[indice].estado = "Activo";
               this.EnInf.splice(indice, 1, this.EnInf[indice]);
             }
-            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-            indice = this.Migra.findIndex(identi => identi.identificacion === id);
-            if (indice >= 0) {
-              this.Migra[indice].tipo_id = this.caracData.tipo_id;
-              this.Migra[indice].sexo = this.caracData.sexo;
-              this.Migra[indice].identificacion = this.caracData.identificacion;
-              this.Migra[indice].pnom = this.caracData.pnom;
-              this.Migra[indice].snom = this.caracData.snom;
-              this.Migra[indice].pape = this.caracData.pape;
-              this.Migra[indice].sape = this.caracData.sape;
-              this.Migra[indice].estado = "Activo";
-              this.Migra.splice(indice, 1, this.Migra[indice]);
-            }            
+
+
+            if(this.migrarEditar==="SI"){
+              indice = this.Migra.findIndex(identi => identi.identificacion === id);
+              if(this.caracData.migrante==="SI"){
+                //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+                if (indice >= 0) {
+                  this.Migra[indice].tipo_id = this.caracData.tipo_id;
+                  this.Migra[indice].sexo = this.caracData.sexo;
+                  this.Migra[indice].identificacion = this.caracData.identificacion;
+                  this.Migra[indice].pnom = this.caracData.pnom;
+                  this.Migra[indice].snom = this.caracData.snom;
+                  this.Migra[indice].pape = this.caracData.pape;
+                  this.Migra[indice].sape = this.caracData.sape;
+                  this.Migra[indice].estado = "Activo";
+                  this.Migra.splice(indice, 1, this.Migra[indice]);
+                }
+              }else if(this.caracData.migrante==="NO"){
+                //ELIMINO
+                this.Migra[indice].estado = "Inactivo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);            
+              }
+            }else{
+              if(this.caracData.migrante==="SI"){
+                //AGREGO
+                indice = this.Migra.findIndex(identi => identi.identificacion === id);
+                if (indice >= 0) {
+                  this.Migra[indice].estado = "Activo";
+                  this.Migra.splice(indice, 1, this.Migra[indice]);
+                }else{
+                  this.AMigra(this.caracData, edad, "JEFE");
+                }
+              }
+            }                      
           }
         }else{
 
@@ -18135,7 +18457,6 @@
             this.De10A59[indice].estado = "Activo";
             this.De10A59.splice(indice, 1, this.De10A59[indice]);
           }
-
           if(this.embarazoEditar==="SI"){
             indice = this.ParPost.findIndex(identi => identi.identificacion === id);
             if(this.caracData.embarazo==="SI"){
@@ -18162,7 +18483,13 @@
           }else{
             if(this.caracData.embarazo==="SI"){
               //AGREGO
-              this.AParPost(this.caracData, edad, "JEFE");
+              indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+              if (indice >= 0) {
+                this.ParPost[indice].estado = "Activo";
+                this.ParPost.splice(indice, 1, this.ParPost[indice]);
+              }else{
+                this.AParPost(this.caracData, edad, "JEFE");
+              }
             }
           }
 
@@ -18261,18 +18588,37 @@
             this.EnInf[indice].estado = "Activo";
             this.EnInf.splice(indice, 1, this.EnInf[indice]);
           }
-          //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-          indice = this.Migra.findIndex(identi => identi.identificacion === id);
-          if (indice >= 0) {
-            this.Migra[indice].tipo_id = this.caracData.tipo_id;
-            this.Migra[indice].sexo = this.caracData.sexo;
-            this.Migra[indice].identificacion = this.caracData.identificacion;
-            this.Migra[indice].pnom = this.caracData.pnom;
-            this.Migra[indice].snom = this.caracData.snom;
-            this.Migra[indice].pape = this.caracData.pape;
-            this.Migra[indice].sape = this.caracData.sape;
-            this.Migra[indice].estado = "Activo";
-            this.Migra.splice(indice, 1, this.Migra[indice]);
+          if(this.migrarEditar==="SI"){
+            indice = this.Migra.findIndex(identi => identi.identificacion === id);
+            if(this.caracData.migrante==="SI"){
+              //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+              if (indice >= 0) {
+                this.Migra[indice].tipo_id = this.caracData.tipo_id;
+                this.Migra[indice].sexo = this.caracData.sexo;
+                this.Migra[indice].identificacion = this.caracData.identificacion;
+                this.Migra[indice].pnom = this.caracData.pnom;
+                this.Migra[indice].snom = this.caracData.snom;
+                this.Migra[indice].pape = this.caracData.pape;
+                this.Migra[indice].sape = this.caracData.sape;
+                this.Migra[indice].estado = "Activo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);
+              }
+            }else if(this.caracData.migrante==="NO"){
+              //ELIMINO
+              this.Migra[indice].estado = "Inactivo";
+              this.Migra.splice(indice, 1, this.Migra[indice]);            
+            }
+          }else{
+            if(this.caracData.migrante==="SI"){
+              //AGREGO
+              indice = this.Migra.findIndex(identi => identi.identificacion === id);
+              if (indice >= 0) {
+                this.Migra[indice].estado = "Activo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);
+              }else{
+                this.AMigra(this.caracData, edad, "JEFE");
+              }
+            }
           }
         }
 
@@ -18338,7 +18684,6 @@
                
       },
       eliEdad(identificacion,vector,edad,opcion){
-        console.log("me meti");
         let indice = this.Men1A.findIndex(identi => identi.identificacion === identificacion);
         if(indice >= 0){
           this.Men1A[indice].estado = "Inactivo";
@@ -18526,6 +18871,7 @@
         this.fechaEditar = item.fecha_nac;
         this.edadEditar = item.edad;
         this.embarazoEditar = item.embarazo;
+        this.migrarEditar = item.migrante;
 
         // this.datos.splice(this.indiceEditInte, 1);
         // this.vectorIntegrante.splice(this.indiceEditInte, 1);
@@ -18903,25 +19249,43 @@
         }
         if (this.CA1.perdida_peso === "") {
           this.$refs.perdida_peso.focus();
-          bande = false;
           this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
           return;
         }
         if (this.CA1.programa_icbf === "") {
           this.$refs.programa_icbf.focus();
-          bande = false;
           this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
           return;
         }
-        if (this.CA1.excepciones === "0") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+        // if (this.CA1.excepciones === "0") {
+        //   bande = false;
+        //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
+        //   return;
+        // }
+        if (this.CA1.enfermedad_infecciosa === "0") {
+          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
           return;
-        }        
+        }
+        if (this.CA1.enfermedad_cronica === "0") {
+          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+          return;
+        }
+        if (this.CA1.peso === "") {
+          this.$swal("Error...!", "Por favor digite el peso!", "error");
+          return;
+        }
+        if (this.CA1.talla === "") {
+          this.$swal("Error...!", "Por favor digite la talla!", "error");
+          return;
+        }                
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
           ""
-        );        
+        );
+        this.identificacionEditar = this.identificacionEditar.replace(
+          /[.*+\-?^${}()|[\]\\]/g,
+          ""
+        );                
         if(this.identificacionEditar===this.CA1.identificacion){
           this.ediIn();
         }else{
@@ -19018,7 +19382,8 @@
             this.eliEdad(this.identificacionEditar,this.CA1,edad,"INTE");
           }else{
 
-            let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+            // let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+            let id = this.identificacionEditar;
 
             //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
             let indice = this.Men1A.findIndex(
@@ -19117,7 +19482,13 @@
             }else{
               if(this.CA1.embarazo==="SI"){
                 //AGREGO
-                this.AParPost(this.CA1, edad, "INTE");
+                indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+                if (indice >= 0) {
+                  this.ParPost[indice].estado = "Activo";
+                  this.ParPost.splice(indice, 1, this.ParPost[indice]);
+                }else{
+                  this.AParPost(this.CA1, edad, "INTE");
+                }                
               }
             }
 
@@ -19216,23 +19587,44 @@
               this.EnInf[indice].estado = "Activo";
               this.EnInf.splice(indice, 1, this.EnInf[indice]);
             }
-            //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-            indice = this.Migra.findIndex(identi => identi.identificacion === id);
-            if (indice >= 0) {
-              this.Migra[indice].tipo_id = this.CA1.tipo_id;
-              this.Migra[indice].sexo = this.CA1.sexo;
-              this.Migra[indice].identificacion = this.CA1.identificacion;
-              this.Migra[indice].pnom = this.CA1.pnom;
-              this.Migra[indice].snom = this.CA1.snom;
-              this.Migra[indice].pape = this.CA1.pape;
-              this.Migra[indice].sape = this.CA1.sape;
-              this.Migra[indice].estado = "Activo";
-              this.Migra.splice(indice, 1, this.Migra[indice]);
-            }
+
+            if(this.migrarEditar==="SI"){
+              indice = this.Migra.findIndex(identi => identi.identificacion === id);
+              if(this.CA1.migrante==="SI"){
+                //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+                if (indice >= 0) {
+                  this.Migra[indice].tipo_id = this.CA1.tipo_id;
+                  this.Migra[indice].sexo = this.CA1.sexo;
+                  this.Migra[indice].identificacion = this.CA1.identificacion;
+                  this.Migra[indice].pnom = this.CA1.pnom;
+                  this.Migra[indice].snom = this.CA1.snom;
+                  this.Migra[indice].pape = this.CA1.pape;
+                  this.Migra[indice].sape = this.CA1.sape;
+                  this.Migra[indice].estado = "Activo";
+                  this.Migra.splice(indice, 1, this.Migra[indice]);
+                }
+              }else if(this.CA1.migrante==="NO"){
+                //ELIMINO
+                this.Migra[indice].estado = "Inactivo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);            
+              }
+            }else{
+              if(this.CA1.migrante==="SI"){
+                //AGREGO
+                indice = this.Migra.findIndex(identi => identi.identificacion === id);
+                if (indice >= 0) {
+                  this.Migra[indice].estado = "Activo";
+                  this.Migra.splice(indice, 1, this.Migra[indice]);
+                }else{
+                  this.AMigra(this.CA1, edad, "JEFE");
+                }
+              }
+            }            
           }
         }else{
 
-          let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+          // let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+          let id = this.identificacionEditar;
 
           //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
           let indice = this.Men1A.findIndex(
@@ -19331,7 +19723,13 @@
           }else{
             if(this.CA1.embarazo==="SI"){
               //AGREGO
-              this.AParPost(this.CA1, edad, "INTE");
+              indice = this.ParPost.findIndex(identi => identi.identificacion === id);
+              if (indice >= 0) {
+                this.ParPost[indice].estado = "Activo";
+                this.ParPost.splice(indice, 1, this.ParPost[indice]);
+              }else{
+                this.AParPost(this.CA1, edad, "INTE");
+              }
             }
           }
 
@@ -19431,17 +19829,37 @@
             this.EnInf.splice(indice, 1, this.EnInf[indice]);
           }
           //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-          indice = this.Migra.findIndex(identi => identi.identificacion === id);
-          if (indice >= 0) {
-            this.Migra[indice].tipo_id = this.CA1.tipo_id;
-            this.Migra[indice].sexo = this.CA1.sexo;
-            this.Migra[indice].identificacion = this.CA1.identificacion;
-            this.Migra[indice].pnom = this.CA1.pnom;
-            this.Migra[indice].snom = this.CA1.snom;
-            this.Migra[indice].pape = this.CA1.pape;
-            this.Migra[indice].sape = this.CA1.sape;
-            this.Migra[indice].estado = "Activo";
-            this.Migra.splice(indice, 1, this.Migra[indice]);
+          if(this.migrarEditar==="SI"){
+            indice = this.Migra.findIndex(identi => identi.identificacion === id);
+            if(this.CA1.migrante==="SI"){
+              //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+              if (indice >= 0) {
+                this.Migra[indice].tipo_id = this.CA1.tipo_id;
+                this.Migra[indice].sexo = this.CA1.sexo;
+                this.Migra[indice].identificacion = this.CA1.identificacion;
+                this.Migra[indice].pnom = this.CA1.pnom;
+                this.Migra[indice].snom = this.CA1.snom;
+                this.Migra[indice].pape = this.CA1.pape;
+                this.Migra[indice].sape = this.CA1.sape;
+                this.Migra[indice].estado = "Activo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);
+              }
+            }else if(this.CA1.migrante==="NO"){
+              //ELIMINO
+              this.Migra[indice].estado = "Inactivo";
+              this.Migra.splice(indice, 1, this.Migra[indice]);            
+            }
+          }else{
+            if(this.CA1.migrante==="SI"){
+              //AGREGO
+              indice = this.Migra.findIndex(identi => identi.identificacion === id);
+              if (indice >= 0) {
+                this.Migra[indice].estado = "Activo";
+                this.Migra.splice(indice, 1, this.Migra[indice]);
+              }else{
+                this.AMigra(this.CA1, edad, "JEFE");
+              }
+            }
           }
         }       
         this.datos[this.indiceEditInte].id = this.CA1.id;
@@ -19923,7 +20341,6 @@
             "error"
           );
         } else {
-          // console.log("Form is correct");
           // submit to server
           this.entrarPorError = false;
           this.errores = [];
@@ -19979,7 +20396,6 @@
             await caracterizacionServicios
               .guardar(parametros)
               .then(respuesta => {
-                console.info(respuesta.data);
                 if (respuesta.data.OPC == "SI") {
                   this.datos = [];
                   this.$swal(
@@ -20076,7 +20492,7 @@
           this.hogar.id_vereda = "";
           this.hogar.id_barrio = "";
 
-          if (this.hogar.id_corre !== "0") {
+          if (this.hogar.id_corre !== "0" && this.hogar.id_corre !== "") {
             const parametros = {
               _token: this.csrf,
               id: this.hogar.id_corre,
@@ -20111,10 +20527,47 @@
                   break;
               }
             }
+          }else{
+            if (this.hogar.id_corre === "0"){
+              this.cambiarCombo("muni");
+              this.hogar.id_corre = "0";
+            }else{
+              this.cambiarCombo("muni");
+            }            
           }
         }
         if (caja === "etnia") {
           this.CA1.clasificacion = "0";
+        }
+        if (caja === "vereda"){
+          this.hogar.id_barrio = "0";
+          const parametros = {
+            _token: this.csrf,
+            id: this.hogar.id_corre,
+            opcion: "VERE"
+          };
+          try {
+            await barriosServicios.comboBarrios(parametros).then(respuesta => {
+              this.barrio_options = respuesta.data.arrayBarrios;
+            });
+          } catch (error) {
+            switch (error.response.status) {
+              case 422:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+              default:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                break;
+            }
+          }          
+          let vere ="";          
+          if(this.hogar.id_vereda === "" || this.hogar.id_vereda === "0"){
+            vere = this.hogar.id_vereda;
+            this.cambiarCombo("corregi");
+            if(vere==="0"){
+              this.hogar.id_vereda="0";
+            }
+          }
         }        
       },
       validarNumHog() {
@@ -20155,9 +20608,9 @@
           if (this.caracData.salario == "NaN") {
             this.caracData.salario = "";
           }
-          if (this.caracData.salario == "0") {
-            this.caracData.salario = "";
-          }
+          // if (this.caracData.salario == "0") {
+          //   this.caracData.salario = "";
+          // }
         }
         if (caja == "tipoid") {
           this.caracData.identificacion = ""; 
@@ -20318,9 +20771,1209 @@
           }
         }                               
       },
-      volver() {
+      async volver() {
+        let valid = await this.validarVolver("Men1A");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("De1A5");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("De6A11");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("De10A59");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("ParPost");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("De12A17");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("De18A28");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("De29A59");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("De60");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("EnCro");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }        
+        valid = await this.validarVolver("EnInf");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
+        valid = await this.validarVolver("Migra");
+        if(valid ===  false){
+          return false;
+        }else{
+          if(valid ===  true){
+
+          }else{
+            return false;
+          }
+        }
         this.$router.push("/gestion");
       },
+      async validarVolver(valor){
+        let valid = false;
+        switch(valor){
+          case "Men1A":
+            valid = false;
+            // validar Men1A      
+            for (let i = 0; i < this.Men1A.length; i++) {
+              if (this.Men1A[i].lugar_nacimiento === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].hemoclasificacion === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].compli_parto === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].via_parto === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].cyc === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].valoracion_23 === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].valoracion_68 === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].valoracion_911 === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].lactancia === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].peso_nacer === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].peso_actual === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].longitud_nacer === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].longitud_actual === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].longitud_actual === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].cinta === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].pb === "") {
+                valid = true;
+              }          
+              if (this.Men1A[i].edemas === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].lenguaje === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].motora === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].conducta === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].visuales === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].auditivos === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].carnet === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].bcg === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].hepb === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].polio === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].pentavalente === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].maltrato === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].morbilidad === "") {
+                valid = true;
+              }
+              if (this.Men1A[i].tsh === "") {
+                valid = true;
+              }          
+              if(valid){
+                i = this.Men1A.length;
+              }
+            }              
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }    
+            // validar Men1A
+            break;
+          case "De1A5":
+            valid = false;
+            // validar De1A5
+            for (let i = 0; i < this.De1A5.length; i++) {
+              if (this.De1A5[i].beneficiario === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].cyc === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].valoracion_1823 === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].valoracion_3035 === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].valoracion_4 === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].peso === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].talla === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].imc === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].pb === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].pt === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].te === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].pcefalico === "") {
+                valid = true;
+              }                    
+              if (this.De1A5[i].lenguaje === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].motora === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].conducta === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].visuales === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].auditivos === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].caries === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].nocepillado === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].consultaodon === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].carnet === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].bcg === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].polio === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].dpt === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].fiebrea === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].tripleviral === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].pentavalente === "") {
+                valid = true;
+              }                    
+              if (this.De1A5[i].desparacitado === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].maltrato === "") {
+                valid = true;
+              }
+              if (this.De1A5[i].enfermedad === "") {
+                valid = true;            
+              }
+              if (this.De1A5[i].medicamento === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.De1A5.length;
+              }                                                                    
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }    
+            // validar De1A5
+            break;
+          case "De6A11":
+            valid = false;
+            // validar De6A11
+            for (let i = 0; i < this.De6A11.length; i++) {
+              if (this.De6A11[i].cyc === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].atencion === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].peso === "") {
+                valid = true;            
+              }
+              if (this.De6A11[i].talla === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].imc === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].pb === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].te === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].conducta === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].visuales === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].auditivos === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].dientes_sanos === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].consultaodon === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].nofluor === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].nocepillado === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].maltrato === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].sustanciaspsico === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].desparacitado === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].enfermedad === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].medicamento === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].padre === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].madre === "") {
+                valid = true;
+              }
+              if (this.De6A11[i].hermanos === "") {
+                valid = true;
+              }                                                                                                                                                                                                                     
+              if (this.De6A11[i].conyuge === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.De6A11.length;
+              }                    
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }        
+            // validar De6A11
+            break;
+          case "De10A59":
+            valid = false;
+            // validar De10A59
+            for (let i = 0; i < this.De10A59.length; i++) {
+              if (this.De10A59[i].primera_mes === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].flujo_vaginal === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].flujo_uretral === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].relaciones_sexuales === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].compa_sexuales === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].usa_condon === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].abortos_seis === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].embarazo_adolecentes === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].metodo === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].tiempo_metodo === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].controles === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].motivo === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].citologia === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].colposcopia === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].examen_seno === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].violencia === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].tdit === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].tripleviral === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].nacidos_vivos === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].abortos === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].examen_prostata === "") {
+                valid = true;
+              }
+              if (this.De10A59[i].biposia_prostata === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.De10A59.length;
+              }                                                                                                                                                                                                                      
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }        
+            // validar De10A59
+            break;
+          case "ParPost":
+            valid = false;
+            // validar ParPost
+            for (let i = 0; i < this.ParPost.length; i++) {
+              if (this.ParPost[i].aceptacion === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].control_prenatal === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].atencion_parto === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].carnet === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].fecha_ultima === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].fecha_probable === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].peso === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].talla === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].imc === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].semanas_ges === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].num_controles === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].vih === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].toxoplasma === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].vdrl === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].odontologia === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].vacunaciontdit === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].suplementacion === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].enfermedades_cronicas === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].sedentarismo === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].fuma === "") {
+                valid = true;
+              }                                                                                                                                                                                                  
+              if (this.ParPost[i].consumo === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].bebidas === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].tipo_parto === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].atencion_institucional === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].cc18 === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].morgestacion === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].morparto === "") {
+                valid = true;
+              }
+              if (this.ParPost[i].morposparto === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.ParPost.length;
+              }                                                                                        
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }      
+            // validar ParPost
+            break;
+          case "De12A17":
+            valid = false;
+            // validar De12A17
+            for (let i = 0; i < this.De12A17.length; i++) {
+              if (this.De12A17[i].peso === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].talla === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].imc === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].pb === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].visuales === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].auditivos === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].conducta === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].enfermedades_cronicas === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].dientes_sanos === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].consultaodon === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].nocepillado === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].maltrato === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].alcohol === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].fuma === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].spa === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].desparacitado === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].empleo === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].religion === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].queesvih === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].queescancerutero === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].queespapiloma === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].queescancerseno === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].padre === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].madre === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].hermanos === "") {
+                valid = true;
+              }
+              if (this.De12A17[i].conyuge === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.De12A17.length;
+              }                                                                                                                                                                                                                                                           
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }        
+            // validar De12A17
+            break;
+          case "De18A28":
+            valid = false;
+            // validar De18A28
+            for (let i = 0; i < this.De18A28.length; i++) { 
+              if (this.De18A28[i].peso === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].talla === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].imc === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].pcintura === "") {
+                valid = true;
+              }          
+              if (this.De18A28[i].visuales === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].auditivos === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].conducta === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].enfermedades_cronicas === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].dientes_sanos === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].consultaodon === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].nocepillado === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].maltrato === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].alcohol === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].fuma === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].spa === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].desparacitado === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].empleo === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].religion === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].queesvih === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].queescancerutero === "") {
+                valid = true;
+              }
+              if (this.De18A28[i].queespapiloma === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.De18A28.length;
+              }                   
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }                
+            // validar De18A28
+            break;
+          case "De29A59":
+            valid = false;
+            // validar De29A59
+            for (let i = 0; i < this.De29A59.length; i++) { 
+              if (this.De29A59[i].peso === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].talla === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].imc === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].pcintura === "") {
+                valid = true;
+              }          
+              if (this.De29A59[i].pb === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].visuales === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].auditivos === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].conducta === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].enfermedades_cronicas === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].dientes_sanos === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].consultaodon === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].nocepillado === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].maltrato === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].alcohol === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].fuma === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].spa === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].desparacitado === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].empleo === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].examen_prostata === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].citologia === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].examen_mama === "") {
+                valid = true;
+              }                              
+              if (this.De29A59[i].religion === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].queesvih === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].queescancerutero === "") {
+                valid = true;
+              }
+              if (this.De29A59[i].queespapiloma === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.De29A59.length;
+              }                   
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }               
+            // validar De29A59
+            break;
+          case "De60":
+            valid = false;
+            // validar De60
+            for (let i = 0; i < this.De60.length; i++) {
+              if (this.De60[i].grupo_ayudas === "") {
+                valid = true;
+              }
+              if (this.De60[i].peso === "") {
+                valid = true;
+              }
+              if (this.De60[i].talla === "") {
+                valid = true;
+              }
+              if (this.De60[i].imc === "") {
+                valid = true;
+              }
+              if (this.De60[i].pa === "") {
+                valid = true;
+              }
+              if (this.De60[i].cigarrillo === "") {
+                valid = true;
+              }
+              if (this.De60[i].alcohol === "") {
+                valid = true;
+              }
+              if (this.De60[i].actividad_fisica === "") {
+                valid = true;
+              }
+              if (this.De60[i].sintomatico === "") {
+                valid = true;
+              }
+              if (this.De60[i].examen_seno === "") {
+                valid = true;
+              }
+              if (this.De60[i].citologia === "") {
+                valid = true;
+              }
+              if (this.De60[i].colposcopia === "") {
+                valid = true;
+              }
+              if (this.De60[i].examen_prostata === "") {
+                valid = true;
+              }
+              if (this.De60[i].biposia_prostata === "") {
+                valid = true;
+              }
+              if (this.De60[i].agudeza_visual === "") {
+                valid = true;
+              }
+              if (this.De60[i].subsidio === "") {
+                valid = true;
+              }
+              if (this.De60[i].enfermedades_cronicas === "") {
+                valid = true;
+              }
+              if (this.De60[i].enfermedades_infecciosas === "") {
+                valid = true;
+              }
+              if (this.De60[i].empleo === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.De60.length;
+              }                                                                                                                                                                                                
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{                
+                return false;
+              }                            
+            }else{
+              return true;
+            }                
+            // validar De60
+            break;
+          case "EnCro":
+            valid = false;
+            // validar EnCro
+            for (let i = 0; i < this.EnCro.length; i++) {
+              if (this.EnCro[i].enfermedad === "") {
+                valid = true;
+              }
+              if (this.EnCro[i].tiempo === "") {
+                valid = true;
+              }
+              if (this.EnCro[i].tratamiento === "") {
+                valid = true;
+              }
+              if (this.EnCro[i].complicaciones === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.EnCro.length;
+              }                                                                                                                                                                                               
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }              
+            // validar EnCro
+            break;
+          case "EnInf":
+            valid = false;
+            // validar EnInf
+            for (let i = 0; i < this.EnInf.length; i++) {
+              if (this.EnInf[i].enfermedad === "") {
+                valid = true;
+              }
+              if (this.EnInf[i].tiempo === "") {
+                valid = true;
+              }
+              if (this.EnInf[i].tratamiento === "") {
+                valid = true;
+              }
+              if (this.EnInf[i].complicaciones === "") {
+                valid = true;
+              }
+              if(valid){
+                i = this.EnInf.length;
+              }                                                                                                                                                                                              
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }                
+            // validar EnInf
+            break;
+          case "Migra":
+            valid = false;
+            // validar Migra
+            for (let i = 0; i < this.Migra.length; i++) { 
+              if (this.Migra[i].pais === "") {
+                valid = true;
+              }
+              if (this.Migra[i].registrado === "") {
+                valid = true;
+              }
+              if (this.Migra[i].cuantollego === "") {
+                valid = true;
+              }
+              if (this.Migra[i].futuro === "") {
+                valid = true;
+              }
+              if (this.Migra[i].recibido === "") {
+                valid = true;
+              }
+              if (this.Migra[i].necesidad === "") {
+                valid = true;
+              }
+              if (this.Migra[i].dependen === "") {
+                valid = true;
+              }
+              if (this.Migra[i].ingreso === "") {
+                valid = true;
+              }                                      
+              if(valid){
+                i = this.Migra.length;
+              }          
+            }
+            if(valid){
+              const alert =  await this.$swal({
+                title: "Existen campos sin completar!!! ¿Desea salir?",
+                text: "",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+              });
+              if(alert.value){
+                this.$router.push("/gestion");
+              }else{
+                return false;
+              }                            
+            }else{
+              return true;
+            }          
+            // validar Migra
+            break;
+          default:
+            return false;
+            break;
+        }                     
+      },      
       limpiar() {
         this.CA1.tipo_id = "0";
         this.CA1.identificacion = "";
@@ -20366,13 +22019,14 @@
         this.fechaEditar = null;
         this.edadEditar = null;
         this.embarazoEditar = null;
+        this.migrarEditar = null;
 
         this.ocupacionAuxiliar2 = "";
         
         this.CA1.enfermedad_infecciosa = "0";
         this.CA1.enfermedad_cronica = "0";
-        this.CA1.peso = "0";
-        this.CA1.talla = "0";               
+        this.CA1.peso = "";
+        this.CA1.talla = "";               
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -20417,11 +22071,13 @@
         this.edadEditar = null;
         this.embarazoEditar = null;
         this.ocupacionAuxiliar = "";
+        this.identificacionJefe = null;
+        this.migrarEditar = null;
 
         this.caracData.enfermedad_infecciosa = "";
         this.caracData.enfermedad_cronica = "";
-        this.caracData.peso = "0";
-        this.caracData.talla = "0";
+        this.caracData.peso = "";
+        this.caracData.talla = "";
       },
       mostrarOtro(tipo) {
         if (tipo === "TE") {
@@ -20618,7 +22274,8 @@
           id: 0,
           animal: this.animal,
           cuantos: this.cuantosAnimal,
-          vacunados: this.vacunadoAnimal
+          vacunados: this.vacunadoAnimal,
+          estado: "Activo"
         });
         this.animal = "";
         this.cuantosAnimal = "";
@@ -20761,7 +22418,8 @@
           texto_ingresos_ciudad: this.showText(
             this.estratificacionData.ingresos_ciudad,
             this.opciones6
-          )
+          ),
+          estado: "Activo"
         });
         this.estratificacionData.cuenta_internet = "";
         this.estratificacionData.tiene_pc_escritorio = "";
@@ -20778,6 +22436,7 @@
         }        
         // this.estratificacionData.ingresos_zona_rural = "";
         // this.estratificacionData.ingresos_ciudad = "";
+        this.habilitar_zonas();
         this.estratificacionData.id_jefe = "0";
       },
       Amenores1Anio(vector,meses, opcion) {
@@ -21549,7 +23208,7 @@
           peso: vector.peso,
           talla: vector.talla,
           imc: this.calcularImc(vector.peso,vector.talla),
-          pb: "NA",
+          te: "",
           visuales: "",
           auditivos: "",
           conducta: "",
@@ -21588,7 +23247,7 @@
           item.imc = event.target.value.replace(/[^.\d]/g, "").trim();
           item.imc = this.calcularImc(item.peso, item.talla);
         }
-        if (opcion === "pb") {
+        if (opcion === "te") {
           item.pb = event.target.value.replace(/[^.\d]/g, "").trim();
         }
         if (opcion === "nocepillado") {
@@ -22048,9 +23707,19 @@
       },
       EEnCro(item) {
         let identificacion = item.identificacion;
-        this.EnCro = this.EnCro.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
+        if(item.id===0){
+          this.EnCro = this.EnCro.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+        }else{
+          let indice = this.EnCro.findIndex(
+            identi => identi.id === item.id
+          );
+          if (indice >= 0) {
+            this.EnCro[indice].estado = "Inactivo";
+            this.EnCro.splice(indice, 1, this.EnCro[indice]);
+          }          
+        }
       },
       AEnInf(vector) {
         let opcion = "";
@@ -22094,9 +23763,19 @@
       },
       EEnInf(item) {
         let identificacion = item.identificacion;
-        this.EnInf = this.EnInf.filter(function(men) {
-          return men.identificacion != identificacion;
-        });
+        if(item.id===0){
+          this.EnInf = this.EnInf.filter(function(men) {
+            return men.identificacion != identificacion;
+          });
+        }else{
+          let indice = this.EnInf.findIndex(
+            identi => identi.id === item.id
+          );
+          if (indice >= 0) {
+            this.EnInf[indice].estado = "Inactivo";
+            this.EnInf.splice(indice, 1, this.EnInf[indice]);
+          }          
+        }        
       },
       AMigra(vector, edad, opcion) {
         this.Migra.push({
@@ -23516,7 +25195,6 @@
         
         if (d1 < d2) {
           m1--;
-          console.log("daysenmonth: "+this.DaysInMonth(y2, m2));
           d1 = d1 + this.DaysInMonth(y2, m2);
         }
         if (m1 < m2) {
