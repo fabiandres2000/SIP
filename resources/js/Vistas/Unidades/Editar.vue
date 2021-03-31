@@ -225,7 +225,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <div class="col-lg-12">
+              <div class="col-lg-10">
                 <label>Nombre de la Finca:</label>
                 <input
                   type="text"
@@ -240,9 +240,7 @@
                   <span v-if="datos.nom_finca==''">Nombre de la Finca es obligatoria</span>
                 </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-lg-3">
+              <div class="col-lg-2">
                 <label>Hogares en la Finca:</label>
                 <input
                   type="text"
@@ -254,18 +252,23 @@
                   @change="formato('hogares_finca')"
                 />
               </div>
-              <div class="col-lg-6">
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-12">
                 <label>Línea productiva:</label>
-                <b-form-select                  
+                <multiselect
                   v-model="datos.linea_productiva"
+                  :options="lineas"
+                  :multiple="true"
+                  :close-on-select="false"
+                  :clear-on-select="false"
+                  :preserve-search="true"
+                  placeholder="Seleccione una linea productiva"
+                  label="texto"
+                  track-by="texto"
                   :class="datos.linea_productiva==''?'':'is-valid'"
-                  ref="linea_productiva"
-                >
-                  <option value selected>Seleccione</option>
-                  <option value="1">Cultivos agrícolas.</option>
-                  <option value="2">Pecuarias - especie animal con perspectiva comercial.</option>
-                  <option value="3">Cultivos forestales con perspectiva comercial.</option>
-                </b-form-select>
+                ></multiselect>
+                <!-- <pre class="language-json"><code>{{ datos.linea_productiva }}</code></pre> -->
               </div>
             </div>
             <div class="form-group row">
@@ -872,7 +875,7 @@
                   <option value selected>Seleccione</option>
                   <option value="Tracción animal">Tracción animal</option>
                   <option value="Animal">Animal</option>
-                  <option value="Automóvil">Automóvil</option>
+                  <option value="Vehiculo">Vehiculo</option>
                   <option value="Bicicleta">Bicicleta</option>
                   <option value="Caminata">Caminata</option>
                   <option value="Camión">Camión</option>
@@ -1067,7 +1070,7 @@
                   <option value="Asociaciones">Asociaciones.</option>
                   <option value="Cooperativas">Cooperativas.</option>
                   <option value="Agremiaciones">Agremiaciones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option value="NO">NO</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4" v-show="mOP">
@@ -1174,7 +1177,7 @@
                     :key="item.value"
                   >{{item.texto}}</option>
                 </b-form-select>
-              </div>              
+              </div>
               <div class="col-lg-4">
                 <label>Área de Cosecha de cada uno de los productos:</label>
                 <input
@@ -1257,7 +1260,7 @@
                 <label>Unidad de Medida:</label>
                 <b-form-select
                   v-model="datosCulAgri.unidad_producion_destinada"
-                  :class="datosCulAgri.unidad_producion_destinada==''?'':'is-valid'"                  
+                  :class="datosCulAgri.unidad_producion_destinada==''?'':'is-valid'"
                   ref="unidad_producion_destinada"
                 >
                   <option value selected>Seleccione</option>
@@ -1529,7 +1532,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(item,index) in cultivos_agricolas" :key="index" v-show="item.estado=='Activo'">
+                      <tr
+                        v-for="(item,index) in cultivos_agricolas"
+                        :key="index"
+                        v-show="item.estado=='Activo'"
+                      >
                         <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -1698,7 +1705,7 @@
                             :class="item.texto_unidad_frecuencia_cosecha==''?'is-invalid':'is-valid'"
                             readonly
                           />
-                        </td>                        
+                        </td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                         >
@@ -2093,7 +2100,7 @@
                     :key="item.value"
                   >{{item.texto}}</option>
                 </b-form-select>
-              </div>              
+              </div>
             </div>
             <div class="form-group row">
               <div class="col-lg-4">
@@ -2243,7 +2250,7 @@
                   <option value="Asociaciones">Asociaciones.</option>
                   <option value="Cooperativas">Cooperativas.</option>
                   <option value="Agremiaciones">Agremiaciones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option value="NO">NO</option>
                 </b-form-select>
               </div>
               <div class="col-lg-2" v-show="mOPECU">
@@ -2413,7 +2420,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(item,index) in explotaciones_pecuarias" :key="index" v-show="item.estado=='Activo'">
+                      <tr
+                        v-for="(item,index) in explotaciones_pecuarias"
+                        :key="index"
+                        v-show="item.estado=='Activo'"
+                      >
                         <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -2546,7 +2557,7 @@
                             :class="item.texto_unidad_producion_destinada_pecuaria==''?'is-invalid':'is-valid'"
                             readonly
                           />
-                        </td>                        
+                        </td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                         >
@@ -2973,7 +2984,7 @@
                     :key="item.value"
                   >{{item.texto}}</option>
                 </b-form-select>
-              </div>              
+              </div>
             </div>
             <div class="form-group row">
               <div class="col-lg-3">
@@ -3092,7 +3103,7 @@
                   <option value="Asociaciones">Asociaciones.</option>
                   <option value="Cooperativas">Cooperativas.</option>
                   <option value="Agremiaciones">Agremiaciones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option value="NO">NO.</option>
                 </b-form-select>
               </div>
             </div>
@@ -3268,7 +3279,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(item,index) in cultivos_forestales" :key="index" v-show="item.estado=='Activo'">
+                      <tr
+                        v-for="(item,index) in cultivos_forestales"
+                        :key="index"
+                        v-show="item.estado=='Activo'"
+                      >
                         <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
@@ -3449,7 +3464,7 @@
                             :class="item.texto_unidad_producion_destinada_forestales==''?'is-invalid':'is-valid'"
                             readonly
                           />
-                        </td>                        
+                        </td>
                         <td
                           style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                         >
@@ -3655,6 +3670,7 @@
   "use strict";
   import * as unidadesServicios from "../../Servicios/unidades_servicios";
   import * as barriosServicios from "../../Servicios/barrios_servicios";
+  import Multiselect from "vue-multiselect";
 
   // Import component
   import Loading from "vue-loading-overlay";
@@ -3662,7 +3678,8 @@
   import "vue-loading-overlay/dist/vue-loading.css";
   export default {
     components: {
-      Loading
+      Loading,
+      Multiselect
     },
     mounted() {
       this.hoy = moment();
@@ -3696,7 +3713,7 @@
           identificacion: "",
           nom_finca: "",
           hogares_finca: "",
-          linea_productiva: "",
+          linea_productiva: [],
           area_total_finca: "",
           distancia_finca: "",
 
@@ -4129,10 +4146,18 @@
           { value: 1, texto: "kilogramos" },
           { value: 2, texto: "Toneladas" },
           { value: 3, texto: "Unidades" }
-        ],        
+        ],
         indiceEditarCA: null,
         indiceEditarEP: null,
-        indiceEditarCF: null     
+        indiceEditarCF: null,
+        lineas: [
+          { value: 1, texto: "Cultivos agrícolas" },
+          {
+            value: 2,
+            texto: "Pecuarias - especie animal con perspectiva comercial"
+          },
+          { value: 3, texto: "Cultivos forestales con perspectiva comercial" }
+        ]
       };
     },
     computed: {
@@ -4203,8 +4228,9 @@
               "" + respuesta.data.unidades.identificacion;
             this.datos.nom_finca = "" + respuesta.data.unidades.nom_finca;
             this.datos.hogares_finca = "" + respuesta.data.unidades.hogares_finca;
-            this.datos.linea_productiva =
-              "" + respuesta.data.unidades.linea_productiva;
+            this.datos.linea_productiva = JSON.parse(
+              respuesta.data.unidades.linea_productiva
+            );
             this.datos.area_total_finca =
               "" + respuesta.data.unidades.area_total_finca;
             this.datos.distancia_finca =
@@ -4221,8 +4247,7 @@
             this.datos.fuentes_prestamo =
               "" + respuesta.data.unidades.fuentes_prestamo;
             this.datos.cual_fuente = "" + respuesta.data.unidades.cual_fuente;
-            this.datos.herramientas_produccion =
-              "" + respuesta.data.unidades.herramientas_produccion;
+
             this.datos.vias_acceso =
               respuesta.data.unidades.vias_acceso == null
                 ? ""
@@ -4231,382 +4256,10 @@
               respuesta.data.unidades.tipos_vias_acceso == null
                 ? ""
                 : respuesta.data.unidades.tipos_vias_acceso;
-            this.datos.importancias_agricolas =
-              respuesta.data.unidades.importancias_agricolas == null
-                ? ""
-                : respuesta.data.unidades.importancias_agricolas;
-            this.datos.area_produccion =
-              respuesta.data.unidades.area_produccion == null
-                ? ""
-                : respuesta.data.unidades.area_produccion;
-            this.datos.unidad_area_produccion =
-              respuesta.data.unidades.unidad_area_produccion == null
-                ? ""
-                : respuesta.data.unidades.unidad_area_produccion;
 
-            this.datos.producto =
-              respuesta.data.unidades.producto == null
-                ? ""
-                : respuesta.data.unidades.producto;
-            this.datos.variedad =
-              respuesta.data.unidades.variedad == null
-                ? ""
-                : respuesta.data.unidades.variedad;
-            this.datos.semilla =
-              respuesta.data.unidades.semilla == null
-                ? ""
-                : respuesta.data.unidades.semilla;
-            this.datos.pertenece =
-              respuesta.data.unidades.pertenece == null
-                ? ""
-                : respuesta.data.unidades.pertenece;
-            this.mostrarOtro("P");
-
-            this.datos.tipo_pertenece =
-              respuesta.data.unidades.tipo_pertenece == null
-                ? ""
-                : respuesta.data.unidades.tipo_pertenece;
-            this.datos.nombre_organizacion =
-              respuesta.data.unidades.nombre_organizacion == null
-                ? ""
-                : respuesta.data.unidades.nombre_organizacion;
-            this.datos.beneficios =
-              respuesta.data.unidades.beneficios == null
-                ? ""
-                : respuesta.data.unidades.beneficios;
-            this.datos.no_pertenece =
-              respuesta.data.unidades.no_pertenece == null
-                ? ""
-                : respuesta.data.unidades.no_pertenece;
-            this.datos.trabaja_asociacion =
-              respuesta.data.unidades.trabaja_asociacion == null
-                ? ""
-                : respuesta.data.unidades.trabaja_asociacion;
-            this.datos.frecuente_cosecha =
-              respuesta.data.unidades.frecuente_cosecha == null
-                ? ""
-                : respuesta.data.unidades.frecuente_cosecha;
-
-            this.datos.area_cosecha =
-              respuesta.data.unidades.area_cosecha == null
-                ? ""
-                : respuesta.data.unidades.area_cosecha;
-            this.datos.unidad_area_cosecha =
-              respuesta.data.unidades.unidad_area_cosecha == null
-                ? ""
-                : respuesta.data.unidades.unidad_area_cosecha;
-            this.datos.costo_produccion =
-              respuesta.data.unidades.costo_produccion == null
-                ? ""
-                : respuesta.data.unidades.costo_produccion;
-            this.datos.costo_establecimiento =
-              respuesta.data.unidades.costo_establecimiento == null
-                ? ""
-                : respuesta.data.unidades.costo_establecimiento;
-            this.datos.costo_sostenimiento =
-              respuesta.data.unidades.costo_sostenimiento == null
-                ? ""
-                : respuesta.data.unidades.costo_sostenimiento;
-            this.datos.produccion_destinada =
-              respuesta.data.unidades.produccion_destinada == null
-                ? ""
-                : respuesta.data.unidades.produccion_destinada;
-            this.datos.tipo_problema =
-              respuesta.data.unidades.tipo_problema == null
-                ? ""
-                : respuesta.data.unidades.tipo_problema;
-            this.mostrarOtro("TPP");
-
-            this.datos.compradores =
-              respuesta.data.unidades.compradores == null
-                ? ""
-                : respuesta.data.unidades.compradores;
-            this.datos.precio_promedio_venta =
-              respuesta.data.unidades.precio_promedio_venta == null
-                ? ""
-                : respuesta.data.unidades.precio_promedio_venta;
-            this.datos.metodo_pago =
-              respuesta.data.unidades.metodo_pago == null
-                ? ""
-                : respuesta.data.unidades.metodo_pago;
-
-            this.datos.precio_promedio_venta_kg =
-              respuesta.data.unidades.precio_promedio_venta_kg == null
-                ? ""
-                : respuesta.data.unidades.precio_promedio_venta_kg;
-            this.datos.subproductos_produccion =
-              respuesta.data.unidades.subproductos_produccion == null
-                ? ""
-                : respuesta.data.unidades.subproductos_produccion;
-            this.datos.programa_asistencia_tecnica =
-              respuesta.data.unidades.programa_asistencia_tecnica == null
-                ? ""
-                : respuesta.data.unidades.programa_asistencia_tecnica;
-            this.mostrarOtro("PAT");
-
-            this.datos.nombre_programa =
-              respuesta.data.unidades.nombre_programa == null
-                ? ""
-                : respuesta.data.unidades.nombre_programa;
-            this.datos.entidad =
-              respuesta.data.unidades.entidad == null
-                ? ""
-                : respuesta.data.unidades.entidad;
-            this.datos.cambios_produccion_anio =
-              respuesta.data.unidades.cambios_produccion_anio == null
-                ? ""
-                : respuesta.data.unidades.cambios_produccion_anio;
-            this.mostrarOtro("CTI");
-
-            this.datos.actividad_cambio =
-              respuesta.data.unidades.actividad_cambio == null
-                ? ""
-                : respuesta.data.unidades.actividad_cambio;
-            this.datos.importancia_comercial =
-              respuesta.data.unidades.importancia_comercial == null
-                ? ""
-                : respuesta.data.unidades.importancia_comercial;
-            this.datos.raza =
-              respuesta.data.unidades.raza == null
-                ? ""
-                : respuesta.data.unidades.raza;
-            this.datos.costo_total =
-              respuesta.data.unidades.costo_total == null
-                ? ""
-                : respuesta.data.unidades.costo_total;
-
-            this.datos.costo_establecer =
-              respuesta.data.unidades.costo_establecer == null
-                ? ""
-                : respuesta.data.unidades.costo_establecer;
-            this.datos.costo_pecuaria =
-              respuesta.data.unidades.costo_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.costo_pecuaria;
-            this.datos.problematica_productos =
-              respuesta.data.unidades.problematica_productos == null
-                ? ""
-                : respuesta.data.unidades.problematica_productos;
-            this.mostrarOtro("PPP");
-
-            this.datos.otra_problematica =
-              respuesta.data.unidades.otra_problematica == null
-                ? ""
-                : respuesta.data.unidades.otra_problematica;
-            this.datos.produccion =
-              respuesta.data.unidades.produccion == null
-                ? ""
-                : respuesta.data.unidades.produccion;
-            this.datos.numero_animales =
-              respuesta.data.unidades.numero_animales == null
-                ? ""
-                : respuesta.data.unidades.numero_animales;
-            this.datos.area_destinada_produccion =
-              respuesta.data.unidades.area_destinada_produccion == null
-                ? ""
-                : respuesta.data.unidades.area_destinada_produccion;
-            this.datos.unidad_area_destinada =
-              respuesta.data.unidades.unidad_area_destinada == null
-                ? ""
-                : respuesta.data.unidades.unidad_area_destinada;
-            this.datos.compradores_pecuaria =
-              respuesta.data.unidades.compradores_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.compradores_pecuaria;
-            this.datos.precio_promedio_venta_pecuaria =
-              respuesta.data.unidades.precio_promedio_venta_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.precio_promedio_venta_pecuaria;
-
-            this.datos.metodo_pago_pecuaria =
-              respuesta.data.unidades.metodo_pago_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.metodo_pago_pecuaria;
-            this.datos.subproductos_produccion_pecuaria =
-              respuesta.data.unidades.subproductos_produccion_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.subproductos_produccion_pecuaria;
-            this.datos.pertenece_pecuaria =
-              respuesta.data.unidades.pertenece_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.pertenece_pecuaria;
-            this.mostrarOtro("PATP");
-
-            this.datos.nombre_programa_pecuaria =
-              respuesta.data.unidades.nombre_programa_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.nombre_programa_pecuaria;
-            this.datos.entidad_pecuaria =
-              respuesta.data.unidades.entidad_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.entidad_pecuaria;
-            this.datos.pertenece_organizacion_pecuaria =
-              respuesta.data.unidades.pertenece_organizacion_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.pertenece_organizacion_pecuaria;
-            this.mostrarOtro("POPECU");
-
-            this.datos.tipo_organizacion_pecuaria =
-              respuesta.data.unidades.tipo_organizacion_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.tipo_organizacion_pecuaria;
-            this.datos.nombre_organizacion_pecuaria =
-              respuesta.data.unidades.nombre_organizacion_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.nombre_organizacion_pecuaria;
-            this.datos.beneficios_pecuaria =
-              respuesta.data.unidades.beneficios_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.beneficios_pecuaria;
-            this.datos.no_pertenece_pecuaria =
-              respuesta.data.unidades.no_pertenece_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.no_pertenece_pecuaria;
-
-            this.datos.trabaja_asociacion_pecuaria =
-              respuesta.data.unidades.trabaja_asociacion_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.trabaja_asociacion_pecuaria;
-            this.datos.importancia_forestales =
-              respuesta.data.unidades.importancia_forestales == null
-                ? ""
-                : respuesta.data.unidades.importancia_forestales;
-            this.datos.producto_forestales =
-              respuesta.data.unidades.producto_forestales == null
-                ? ""
-                : respuesta.data.unidades.producto_forestales;
-            this.datos.variedad_forestales =
-              respuesta.data.unidades.variedad_forestales == null
-                ? ""
-                : respuesta.data.unidades.variedad_forestales;
-            this.datos.edad_plantacion =
-              respuesta.data.unidades.edad_plantacion == null
-                ? ""
-                : respuesta.data.unidades.edad_plantacion;
-            this.datos.tipo_edad =
-              respuesta.data.unidades.tipo_edad == null
-                ? ""
-                : respuesta.data.unidades.tipo_edad;
-            this.datos.area_sembrada_forestales =
-              respuesta.data.unidades.area_sembrada_forestales == null
-                ? ""
-                : respuesta.data.unidades.area_sembrada_forestales;
-            this.datos.unidad_area_forestales =
-              respuesta.data.unidades.unidad_area_forestales == null
-                ? ""
-                : respuesta.data.unidades.unidad_area_forestales;
-            this.datos.rendimiento_arbol =
-              respuesta.data.unidades.rendimiento_arbol == null
-                ? ""
-                : respuesta.data.unidades.rendimiento_arbol;
-            this.datos.costo_total_forestales =
-              respuesta.data.unidades.costo_total_forestales == null
-                ? ""
-                : respuesta.data.unidades.costo_total_forestales;
-
-            this.datos.costo_establecimiento_forestales =
-              respuesta.data.unidades.costo_establecimiento_forestales == null
-                ? ""
-                : respuesta.data.unidades.costo_establecimiento_forestales;
-            this.datos.costo_sostenimiento_forestales =
-              respuesta.data.unidades.costo_sostenimiento_forestales == null
-                ? ""
-                : respuesta.data.unidades.costo_sostenimiento_forestales;
-            this.datos.problematica_productos_forestales =
-              respuesta.data.unidades.problematica_productos_forestales == null
-                ? ""
-                : respuesta.data.unidades.problematica_productos_forestales;
-            this.mostrarOtro("PPPF");
-
-            this.datos.produccion_destinada_forestales =
-              respuesta.data.unidades.produccion_destinada_forestales == null
-                ? ""
-                : respuesta.data.unidades.produccion_destinada_forestales;
-            this.datos.numero_arboles =
-              respuesta.data.unidades.produccion_destinada_forestales == null
-                ? ""
-                : respuesta.data.unidades.produccion_destinada_forestales;
-            this.datos.compradores_forestales =
-              respuesta.data.unidades.compradores_forestales == null
-                ? ""
-                : respuesta.data.unidades.compradores_forestales;
-            this.datos.metodo_pago_forestales =
-              respuesta.data.unidades.metodo_pago_forestales == null
-                ? ""
-                : respuesta.data.unidades.metodo_pago_forestales;
-            this.datos.precio_promedio_venta_forestales =
-              respuesta.data.unidades.precio_promedio_venta_forestales == null
-                ? ""
-                : respuesta.data.unidades.precio_promedio_venta_forestales;
-            this.datos.subproductos_produccion_forestales =
-              respuesta.data.unidades.subproductos_produccion_forestales == null
-                ? ""
-                : respuesta.data.unidades.subproductos_produccion_forestales;
-            this.datos.pertenece_forestales =
-              respuesta.data.unidades.pertenece_forestales == null
-                ? ""
-                : respuesta.data.unidades.pertenece_forestales;
-            this.mostrarOtro("PATF");
-
-            this.datos.nombre_programa_forestales =
-              respuesta.data.unidades.nombre_programa_forestales == null
-                ? ""
-                : respuesta.data.unidades.nombre_programa_forestales;
-            this.datos.entidad_forestales =
-              respuesta.data.unidades.entidad_forestales == null
-                ? ""
-                : respuesta.data.unidades.entidad_forestales;
-            this.datos.pertenece_organizacion_forestales =
-              respuesta.data.unidades.pertenece_organizacion_forestales == null
-                ? ""
-                : respuesta.data.unidades.pertenece_organizacion_forestales;
-            this.mostrarOtro("PF");
-
-            this.datos.tipo_pertenece_forestales =
-              respuesta.data.unidades.tipo_pertenece_forestales == null
-                ? ""
-                : respuesta.data.unidades.tipo_pertenece_forestales;
-            this.datos.nombre_organizacion_forestales =
-              respuesta.data.unidades.nombre_organizacion_forestales == null
-                ? ""
-                : respuesta.data.unidades.nombre_organizacion_forestales;
-            this.datos.beneficios_forestales =
-              respuesta.data.unidades.beneficios_forestales == null
-                ? ""
-                : respuesta.data.unidades.beneficios_forestales;
-            this.datos.no_pertenece_forestales =
-              respuesta.data.unidades.no_pertenece_forestales == null
-                ? ""
-                : respuesta.data.unidades.no_pertenece_forestales;
-            this.datos.trabaja_asociacion_forestales =
-              respuesta.data.unidades.trabaja_asociacion_forestales == null
-                ? ""
-                : respuesta.data.unidades.trabaja_asociacion_forestales;
-            this.datos.unidad_area =
-              respuesta.data.unidades.unidad_area == null
-                ? ""
-                : respuesta.data.unidades.unidad_area;
+            this.datos.unidad_area = "" + respuesta.data.unidades.unidad_area;
             this.datos.unidad_distancia =
-              respuesta.data.unidades.unidad_distancia == null
-                ? ""
-                : respuesta.data.unidades.unidad_distancia;
-            this.datos.otro_tipo_problema =
-              respuesta.data.unidades.otro_tipo_problema == null
-                ? ""
-                : respuesta.data.unidades.otro_tipo_problema;
-            this.datos.producto_comercial =
-              respuesta.data.unidades.producto_comercial == null
-                ? ""
-                : respuesta.data.unidades.producto_comercial;
-            this.datos.produccion_destinada_pecuaria =
-              respuesta.data.unidades.produccion_destinada_pecuaria == null
-                ? ""
-                : respuesta.data.unidades.produccion_destinada_pecuaria;
-            this.datos.otros_problematica_productos_forestales =
-              respuesta.data.unidades.otros_problematica_productos_forestales ==
-              null
-                ? ""
-                : respuesta.data.unidades.otros_problematica_productos_forestales;
+              "" + respuesta.data.unidades.unidad_distancia;
 
             this.herramientasData = respuesta.data.herramientas;
             this.utensiliosData = respuesta.data.utensilios;
@@ -4685,15 +4338,15 @@
               }
             }
           } else {
-            if (this.datos.id_corre === "0"){
+            if (this.datos.id_corre === "0") {
               this.cambiarCombo("muni");
               this.datos.id_corre = "0";
-            }else{
+            } else {
               this.cambiarCombo("muni");
             }
           }
         }
-        if (caja === "vereda"){
+        if (caja === "vereda") {
           this.datos.id_barrio = "0";
           const parametros = {
             _token: this.csrf,
@@ -4714,15 +4367,15 @@
                 break;
             }
           }
-          let vere ="";          
-          if(this.datos.id_vereda === "" || this.datos.id_vereda === "0"){
+          let vere = "";
+          if (this.datos.id_vereda === "" || this.datos.id_vereda === "0") {
             vere = this.datos.id_vereda;
             this.cambiarCombo("corregi");
-            if(vere==="0"){
-              this.datos.id_vereda="0";
+            if (vere === "0") {
+              this.datos.id_vereda = "0";
             }
           }
-        }              
+        }
       },
       volver() {
         this.$router.push("/gestion");
@@ -4739,22 +4392,25 @@
           }
         }
         if (tipo === "P") {
-          if (this.datosCulAgri.pertenece === "NA") {
+          if (this.datosCulAgri.pertenece === "NO") {
             this.mOP = false;
             this.datosCulAgri.tipo_pertenece = "NA";
             this.datosCulAgri.nombre_organizacion = "NA";
             this.datosCulAgri.no_pertenece = "NA";
+            this.datosCulAgri.beneficios = "NA";
           } else {
             if (this.datosCulAgri.pertenece === "") {
               this.mOP = false;
               this.datosCulAgri.tipo_pertenece = "";
               this.datosCulAgri.nombre_organizacion = "";
               this.datosCulAgri.no_pertenece = "";
+              this.datosCulAgri.beneficios = "";
             } else {
               this.mOP = true;
               this.datosCulAgri.tipo_pertenece = "";
               this.datosCulAgri.nombre_organizacion = "";
               this.datosCulAgri.no_pertenece = "NA";
+              this.datosCulAgri.beneficios = "";
             }
           }
         }
@@ -4801,22 +4457,25 @@
           this.datosExpPec.entidad_pecuaria = "";
         }
         if (tipo === "POPECU") {
-          if (this.datosExpPec.pertenece_organizacion_pecuaria === "NA") {
+          if (this.datosExpPec.pertenece_organizacion_pecuaria === "NO") {
             this.mOPECU = false;
             this.datosExpPec.tipo_organizacion_pecuaria = "NA";
             this.datosExpPec.nombre_organizacion_pecuaria = "NA";
             this.datosExpPec.no_pertenece_pecuaria = "NA";
+            this.datosExpPec.beneficios_pecuaria = "NA";
           } else {
             if (this.datosExpPec.pertenece_organizacion_pecuaria === "") {
               this.mOPECU = false;
               this.datosExpPec.tipo_organizacion_pecuaria = "";
               this.datosExpPec.nombre_organizacion_pecuaria = "";
               this.datosExpPec.no_pertenece_pecuaria = "";
+              this.datosExpPec.beneficios_pecuaria = "";
             } else {
               this.mOPECU = true;
               this.datosExpPec.tipo_organizacion_pecuaria = "";
               this.datosExpPec.nombre_organizacion_pecuaria = "";
               this.datosExpPec.no_pertenece_pecuaria = "NA";
+              this.datosExpPec.beneficios_pecuaria = "";
             }
           }
         }
@@ -4838,33 +4497,36 @@
           this.datosCulFor.entidad_forestales = "";
         }
         if (tipo === "PF") {
-          if (this.datosCulFor.pertenece_organizacion_forestales === "NA") {
+          if (this.datosCulFor.pertenece_organizacion_forestales === "NO") {
             this.mOPF = false;
             this.datosCulFor.tipo_pertenece_forestales = "NA";
             this.datosCulFor.nombre_organizacion_forestales = "NA";
             this.datosCulFor.no_pertenece = "NA";
+            this.datosCulFor.beneficios_forestales = "NA";
           } else {
             if (this.datosCulFor.pertenece_organizacion_forestales === "") {
               this.mOPF = false;
               this.datosCulFor.tipo_pertenece_forestales = "";
               this.datosCulFor.nombre_organizacion_forestales = "";
               this.datosCulFor.no_pertenece_forestales = "";
+              this.datosCulFor.beneficios_forestales = "";
             } else {
               this.mOPF = true;
               this.datosCulFor.tipo_pertenece_forestales = "";
               this.datosCulFor.nombre_organizacion_forestales = "";
               this.datosCulFor.no_pertenece_forestales = "NA";
+              this.datosCulFor.beneficios_forestales = "";
             }
           }
         }
         if (tipo === "FP") {
-          this.datosCulFor.cual_fuente = "";                   
+          this.datosCulFor.cual_fuente = "";
           if (this.datosCulFor.fuentes_prestamo === "7") {
-            this.mOFP = true;            
+            this.mOFP = true;
           } else {
             this.mOFP = false;
-          }          
-        }        
+          }
+        }
       },
       guardar: async function() {
         if (!this.checkForm()) {
@@ -4879,7 +4541,7 @@
             medios: this.mediosData,
             cultivos_agricolas: this.cultivos_agricolas,
             explotaciones_pecuarias: this.explotaciones_pecuarias,
-            cultivos_forestales: this.cultivos_forestales,            
+            cultivos_forestales: this.cultivos_forestales,
             opcion: "editar",
             id: this.IDUNIDAD
           };
@@ -5001,8 +4663,7 @@
           );
           return;
         }
-        if (this.datos.linea_productiva === "") {
-          this.$refs.linea_productiva.focus();
+        if (this.datos.linea_productiva.length <= 0) {
           bande = false;
           this.$swal(
             "Error...!",
@@ -5504,10 +5165,10 @@
         }
       },
       eliminarItemHerramientas: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.herramientasData[index].estado = "Inactivo";
           this.herramientasData.splice(index, 1, this.herramientasData[index]);
-        }else{
+        } else {
           this.herramientasData.splice(index, 1);
         }
       },
@@ -5551,10 +5212,10 @@
         this.cuantasHerramienta = "";
       },
       eliminarItemUtensilios: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.utensiliosData[index].estado = "Inactivo";
           this.utensiliosData.splice(index, 1, this.utensiliosData[index]);
-        }else{
+        } else {
           this.utensiliosData.splice(index, 1);
         }
       },
@@ -5601,10 +5262,10 @@
         return !isNaN(parseFloat(n)) && isFinite(n);
       },
       eliminarItemMaquinas: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.maquinasData[index].estado = "Inactivo";
           this.maquinasData.splice(index, 1, this.maquinasData[index]);
-        }else{
+        } else {
           this.maquinasData.splice(index, 1);
         }
       },
@@ -5648,10 +5309,10 @@
         this.cuantasMaquina = "";
       },
       eliminarItemInstalacion: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.instalacionesData[index].estado = "Inactivo";
           this.instalacionesData.splice(index, 1, this.instalacionesData[index]);
-        }else{
+        } else {
           this.instalacionesData.splice(index, 1);
         }
       },
@@ -5695,10 +5356,10 @@
         this.cuantasInstalacion = "";
       },
       eliminarItemMedio: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.mediosData[index].estado = "Inactivo";
           this.mediosData.splice(index, 1, this.mediosData[index]);
-        }else{
+        } else {
           this.mediosData.splice(index, 1);
         }
       },
@@ -5877,9 +5538,13 @@
         }
         if (this.datosCulAgri.unidad_frecuencia_cosecha === "") {
           this.$refs.unidad_frecuencia_cosecha.focus();
-          this.$swal("Error...!", "Por favor seleccione una unidad de medida para frecuencia de la cosecha de los cultivos agrícolas", "error");
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione una unidad de medida para frecuencia de la cosecha de los cultivos agrícolas",
+            "error"
+          );
           return;
-        }        
+        }
         if (this.datosCulAgri.area_cosecha === "") {
           this.$refs.area_cosecha.focus();
           this.$swal(
@@ -5942,7 +5607,7 @@
             "error"
           );
           return;
-        }        
+        }
         if (this.datosCulAgri.tipo_problema === "") {
           this.$refs.tipo_problema.focus();
           this.$swal(
@@ -6095,11 +5760,12 @@
           costo_sostenimiento: this.datosCulAgri.costo_sostenimiento,
           produccion_destinada: this.datosCulAgri.produccion_destinada,
 
-          unidad_producion_destinada: this.datosCulAgri.unidad_producion_destinada,
+          unidad_producion_destinada: this.datosCulAgri
+            .unidad_producion_destinada,
           texto_unidad_producion_destinada: this.showText(
             this.datosCulAgri.unidad_producion_destinada,
             this.unidades3
-          ),          
+          ),
 
           tipo_problema: this.datosCulAgri.tipo_problema,
           compradores: this.datosCulAgri.compradores,
@@ -6163,12 +5829,16 @@
         this.mOCTI = false;
       },
       eliminarItemCA: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.cultivos_agricolas[index].estado = "Inactivo";
-          this.cultivos_agricolas.splice(index, 1, this.cultivos_agricolas[index]);
-        }else{
+          this.cultivos_agricolas.splice(
+            index,
+            1,
+            this.cultivos_agricolas[index]
+          );
+        } else {
           this.cultivos_agricolas.splice(index, 1);
-        }      
+        }
       },
       editarItemCA: function(index, item) {
         this.indiceEditarCA = index;
@@ -6190,7 +5860,8 @@
         this.datosCulAgri.no_pertenece = item.no_pertenece;
         this.datosCulAgri.trabaja_asociacion = item.trabaja_asociacion;
         this.datosCulAgri.frecuente_cosecha = item.frecuente_cosecha;
-        this.datosCulAgri.unidad_frecuencia_cosecha = item.unidad_frecuencia_cosecha;
+        this.datosCulAgri.unidad_frecuencia_cosecha =
+          item.unidad_frecuencia_cosecha;
         this.datosCulAgri.area_cosecha = item.area_cosecha;
         this.datosCulAgri.unidad_area_cosecha = item.unidad_area_cosecha;
         this.datosCulAgri.costo_produccion = item.costo_produccion;
@@ -6198,7 +5869,8 @@
         this.datosCulAgri.costo_sostenimiento = item.costo_sostenimiento;
         this.datosCulAgri.produccion_destinada = item.produccion_destinada;
 
-        this.datosCulAgri.unidad_producion_destinada = item.unidad_producion_destinada;
+        this.datosCulAgri.unidad_producion_destinada =
+          item.unidad_producion_destinada;
 
         this.datosCulAgri.tipo_problema = item.tipo_problema;
         this.datosCulAgri.compradores = item.compradores;
@@ -6243,14 +5915,17 @@
           this.mOCTI = false;
         }
         // this.cultivos_agricolas.splice(index, 1);
-        
+
         //INACTIVAR LA FILA
         this.cultivos_agricolas[this.indiceEditarCA].estado = "Inactivo";
-        this.cultivos_agricolas.splice(this.indiceEditarCA, 1, this.cultivos_agricolas[this.indiceEditarCA]);
+        this.cultivos_agricolas.splice(
+          this.indiceEditarCA,
+          1,
+          this.cultivos_agricolas[this.indiceEditarCA]
+        );
         //INACTIVAR LA FILA
       },
       editarCA: function() {
-
         if (this.datosCulAgri.importancias_agricolas === "") {
           this.$refs.importancias_agricolas.focus();
           this.$swal(
@@ -6377,9 +6052,13 @@
         }
         if (this.datosCulAgri.unidad_frecuencia_cosecha === "") {
           this.$refs.unidad_frecuencia_cosecha.focus();
-          this.$swal("Error...!", "Por favor seleccione una unidad de medida para frecuencia de la cosecha de los cultivos agrícolas", "error");
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione una unidad de medida para frecuencia de la cosecha de los cultivos agrícolas",
+            "error"
+          );
           return;
-        }        
+        }
         if (this.datosCulAgri.area_cosecha === "") {
           this.$refs.area_cosecha.focus();
           this.$swal(
@@ -6442,7 +6121,7 @@
             "error"
           );
           return;
-        }        
+        }
         if (this.datosCulAgri.tipo_problema === "") {
           this.$refs.tipo_problema.focus();
           this.$swal(
@@ -6538,58 +6217,175 @@
             );
             return;
           }
-        }        
+        }
         // AGREGAR LOS DATOS
         this.cultivos_agricolas[this.indiceEditarCA].id = this.datosCulAgri.id;
-        this.cultivos_agricolas[this.indiceEditarCA].id_unidad = this.datosCulAgri.id_unidad;
-        this.cultivos_agricolas[this.indiceEditarCA].importancias_agricolas = this.datosCulAgri.importancias_agricolas;
-        this.cultivos_agricolas[this.indiceEditarCA].unidad_area_produccion = this.datosCulAgri.unidad_area_produccion;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_unidad_area_produccion = this.showText(Number(this.datosCulAgri.unidad_area_produccion),this.unidades1);
-        this.cultivos_agricolas[this.indiceEditarCA].producto = this.datosCulAgri.producto;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_producto = this.showText(Number(this.datosCulAgri.producto),this.tipocultivo);
-        this.cultivos_agricolas[this.indiceEditarCA].variedad = this.datosCulAgri.variedad;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_variedad = this.showText2(Number(this.datosCulAgri.variedad),this.especie2,this.datosCulAgri.producto);
-        this.cultivos_agricolas[this.indiceEditarCA].semilla = this.datosCulAgri.semilla;
-        this.cultivos_agricolas[this.indiceEditarCA].pertenece = this.datosCulAgri.pertenece;
-        this.cultivos_agricolas[this.indiceEditarCA].tipo_pertenece = this.datosCulAgri.tipo_pertenece;
-        this.cultivos_agricolas[this.indiceEditarCA].nombre_organizacion = this.datosCulAgri.nombre_organizacion;
-        this.cultivos_agricolas[this.indiceEditarCA].area_produccion = this.datosCulAgri.area_produccion;
-        this.cultivos_agricolas[this.indiceEditarCA].beneficios = this.datosCulAgri.beneficios;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_beneficios = this.showText(this.datosCulAgri.beneficios,this.beneficios);
-        this.cultivos_agricolas[this.indiceEditarCA].no_pertenece = this.datosCulAgri.no_pertenece;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_no_pertenece = this.showText(Number(this.datosCulAgri.no_pertenece),this.razon1);
-        this.cultivos_agricolas[this.indiceEditarCA].trabaja_asociacion = this.datosCulAgri.trabaja_asociacion;
-        this.cultivos_agricolas[this.indiceEditarCA].frecuente_cosecha = this.datosCulAgri.frecuente_cosecha;
-        this.cultivos_agricolas[this.indiceEditarCA].unidad_frecuencia_cosecha = this.datosCulAgri.unidad_frecuencia_cosecha;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_unidad_frecuencia_cosecha = this.showText(Number(this.datosCulAgri.unidad_frecuencia_cosecha),this.unidades2);
-        this.cultivos_agricolas[this.indiceEditarCA].area_cosecha = this.datosCulAgri.area_cosecha;
-        this.cultivos_agricolas[this.indiceEditarCA].unidad_area_cosecha = this.datosCulAgri.unidad_area_cosecha;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_unidad_area_cosecha = this.showText(Number(this.datosCulAgri.unidad_area_cosecha),this.unidades1);
-        this.cultivos_agricolas[this.indiceEditarCA].costo_produccion = this.datosCulAgri.costo_produccion;
-        this.cultivos_agricolas[this.indiceEditarCA].costo_establecimiento = this.datosCulAgri.costo_establecimiento;
-        this.cultivos_agricolas[this.indiceEditarCA].costo_sostenimiento = this.datosCulAgri.costo_sostenimiento;
-        this.cultivos_agricolas[this.indiceEditarCA].produccion_destinada = this.datosCulAgri.produccion_destinada;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].id_unidad = this.datosCulAgri.id_unidad;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].importancias_agricolas = this.datosCulAgri.importancias_agricolas;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].unidad_area_produccion = this.datosCulAgri.unidad_area_produccion;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_unidad_area_produccion = this.showText(
+          Number(this.datosCulAgri.unidad_area_produccion),
+          this.unidades1
+        );
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].producto = this.datosCulAgri.producto;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_producto = this.showText(
+          Number(this.datosCulAgri.producto),
+          this.tipocultivo
+        );
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].variedad = this.datosCulAgri.variedad;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_variedad = this.showText2(
+          Number(this.datosCulAgri.variedad),
+          this.especie2,
+          this.datosCulAgri.producto
+        );
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].semilla = this.datosCulAgri.semilla;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].pertenece = this.datosCulAgri.pertenece;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].tipo_pertenece = this.datosCulAgri.tipo_pertenece;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].nombre_organizacion = this.datosCulAgri.nombre_organizacion;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].area_produccion = this.datosCulAgri.area_produccion;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].beneficios = this.datosCulAgri.beneficios;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_beneficios = this.showText(
+          this.datosCulAgri.beneficios,
+          this.beneficios
+        );
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].no_pertenece = this.datosCulAgri.no_pertenece;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_no_pertenece = this.showText(
+          Number(this.datosCulAgri.no_pertenece),
+          this.razon1
+        );
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].trabaja_asociacion = this.datosCulAgri.trabaja_asociacion;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].frecuente_cosecha = this.datosCulAgri.frecuente_cosecha;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].unidad_frecuencia_cosecha = this.datosCulAgri.unidad_frecuencia_cosecha;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_unidad_frecuencia_cosecha = this.showText(
+          Number(this.datosCulAgri.unidad_frecuencia_cosecha),
+          this.unidades2
+        );
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].area_cosecha = this.datosCulAgri.area_cosecha;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].unidad_area_cosecha = this.datosCulAgri.unidad_area_cosecha;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_unidad_area_cosecha = this.showText(
+          Number(this.datosCulAgri.unidad_area_cosecha),
+          this.unidades1
+        );
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].costo_produccion = this.datosCulAgri.costo_produccion;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].costo_establecimiento = this.datosCulAgri.costo_establecimiento;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].costo_sostenimiento = this.datosCulAgri.costo_sostenimiento;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].produccion_destinada = this.datosCulAgri.produccion_destinada;
 
-        this.cultivos_agricolas[this.indiceEditarCA].unidad_producion_destinada = this.datosCulAgri.unidad_producion_destinada;
-        this.cultivos_agricolas[this.indiceEditarCA].texto_unidad_producion_destinada = this.showText(Number(this.datosCulAgri.unidad_producion_destinada),this.unidades3);  
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].unidad_producion_destinada = this.datosCulAgri.unidad_producion_destinada;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].texto_unidad_producion_destinada = this.showText(
+          Number(this.datosCulAgri.unidad_producion_destinada),
+          this.unidades3
+        );
 
-        this.cultivos_agricolas[this.indiceEditarCA].tipo_problema = this.datosCulAgri.tipo_problema;
-        this.cultivos_agricolas[this.indiceEditarCA].compradores = this.datosCulAgri.compradores;
-        this.cultivos_agricolas[this.indiceEditarCA].precio_promedio_venta = this.datosCulAgri.precio_promedio_venta;
-        this.cultivos_agricolas[this.indiceEditarCA].metodo_pago = this.datosCulAgri.metodo_pago;
-        this.cultivos_agricolas[this.indiceEditarCA].precio_promedio_venta_kg = this.datosCulAgri.precio_promedio_venta_kg;
-        this.cultivos_agricolas[this.indiceEditarCA].subproductos_produccion = this.datosCulAgri.subproductos_produccion;
-        this.cultivos_agricolas[this.indiceEditarCA].programa_asistencia_tecnica = this.datosCulAgri.programa_asistencia_tecnica;
-        this.cultivos_agricolas[this.indiceEditarCA].nombre_programa = this.datosCulAgri.nombre_programa;
-        this.cultivos_agricolas[this.indiceEditarCA].entidad = this.datosCulAgri.entidad;
-        this.cultivos_agricolas[this.indiceEditarCA].cambios_produccion_anio = this.datosCulAgri.cambios_produccion_anio;
-        this.cultivos_agricolas[this.indiceEditarCA].actividad_cambio = this.datosCulAgri.actividad_cambio;
-        this.cultivos_agricolas[this.indiceEditarCA].estado = this.datosCulAgri.estado;
-        this.cultivos_agricolas[this.indiceEditarCA].id_compania = this.datosCulAgri.id_compania;
-        this.cultivos_agricolas[this.indiceEditarCA].otro_tipo_problema = this.datosCulAgri.otro_tipo_problema;
-        
-        this.cultivos_agricolas.splice(this.indiceEditarCA, 1, this.cultivos_agricolas[this.indiceEditarCA]);
-        
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].tipo_problema = this.datosCulAgri.tipo_problema;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].compradores = this.datosCulAgri.compradores;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].precio_promedio_venta = this.datosCulAgri.precio_promedio_venta;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].metodo_pago = this.datosCulAgri.metodo_pago;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].precio_promedio_venta_kg = this.datosCulAgri.precio_promedio_venta_kg;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].subproductos_produccion = this.datosCulAgri.subproductos_produccion;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].programa_asistencia_tecnica = this.datosCulAgri.programa_asistencia_tecnica;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].nombre_programa = this.datosCulAgri.nombre_programa;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].entidad = this.datosCulAgri.entidad;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].cambios_produccion_anio = this.datosCulAgri.cambios_produccion_anio;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].actividad_cambio = this.datosCulAgri.actividad_cambio;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].estado = this.datosCulAgri.estado;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].id_compania = this.datosCulAgri.id_compania;
+        this.cultivos_agricolas[
+          this.indiceEditarCA
+        ].otro_tipo_problema = this.datosCulAgri.otro_tipo_problema;
+
+        this.cultivos_agricolas.splice(
+          this.indiceEditarCA,
+          1,
+          this.cultivos_agricolas[this.indiceEditarCA]
+        );
+
         this.datosCulAgri.importancias_agricolas = "";
         this.datosCulAgri.unidad_area_produccion = "";
         this.datosCulAgri.producto = "";
@@ -6629,14 +6425,18 @@
         this.mOPAT = false;
         this.mOTPP = false;
         this.mOP = false;
-        this.mOCTI = false;        
+        this.mOCTI = false;
         this.bandeGuaEdiCA = true;
         // AGREGAR LOS DATOS
       },
       CancelarEditarCA() {
         // AGREGAR LOS DATOS
         this.cultivos_agricolas[this.indiceEditarCA].estado = "Activo";
-        this.cultivos_agricolas.splice(this.indiceEditarCA, 1, this.cultivos_agricolas[this.indiceEditarCA]);
+        this.cultivos_agricolas.splice(
+          this.indiceEditarCA,
+          1,
+          this.cultivos_agricolas[this.indiceEditarCA]
+        );
         this.datosCulAgri.importancias_agricolas = "";
         this.datosCulAgri.unidad_area_produccion = "";
         this.datosCulAgri.producto = "";
@@ -6678,7 +6478,7 @@
         this.mOPAT = false;
         this.mOTPP = false;
         this.mOP = false;
-        this.mOCTI = false;        
+        this.mOCTI = false;
         this.bandeGuaEdiCA = true;
         // AGREGAR LOS DATOS
       },
@@ -6784,7 +6584,7 @@
             "error"
           );
           return;
-        }        
+        }
         if (this.datosExpPec.numero_animales === "") {
           this.$refs.numero_animales.focus();
           this.$swal(
@@ -6988,7 +6788,8 @@
           producto_comercial: this.datosExpPec.producto_comercial,
           produccion_destinada_pecuaria: this.datosExpPec
             .produccion_destinada_pecuaria,
-          unidad_producion_destinada_pecuaria: this.datosExpPec.unidad_producion_destinada_pecuaria,  
+          unidad_producion_destinada_pecuaria: this.datosExpPec
+            .unidad_producion_destinada_pecuaria,
           texto_unidad_producion_destinada_pecuaria: this.showText(
             this.datosExpPec.unidad_producion_destinada_pecuaria,
             this.unidades3
@@ -7033,12 +6834,16 @@
         this.mOPECU = false;
       },
       eliminarItemEP: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.explotaciones_pecuarias[index].estado = "Inactivo";
-          this.explotaciones_pecuarias.splice(index, 1, this.explotaciones_pecuarias[index]);
-        }else{
+          this.explotaciones_pecuarias.splice(
+            index,
+            1,
+            this.explotaciones_pecuarias[index]
+          );
+        } else {
           this.explotaciones_pecuarias.splice(index, 1);
-        }        
+        }
       },
       editarItemEP: function(index, item) {
         this.indiceEditarEP = index;
@@ -7083,7 +6888,8 @@
         this.datosExpPec.produccion_destinada_pecuaria =
           item.produccion_destinada_pecuaria;
 
-        this.datosExpPec.unidad_producion_destinada_pecuaria = item.unidad_producion_destinada_pecuaria;  
+        this.datosExpPec.unidad_producion_destinada_pecuaria =
+          item.unidad_producion_destinada_pecuaria;
 
         if (this.datosExpPec.problematica_productos === "Otras") {
           this.mOPPP = true;
@@ -7096,9 +6902,9 @@
         } else {
           this.mOPATP = false;
         }
-        
+
         if (this.datosExpPec.pertenece_organizacion_pecuaria === "NA") {
-          this.mOPECU = false;         
+          this.mOPECU = false;
         } else {
           if (this.datosExpPec.pertenece_organizacion_pecuaria === "") {
             this.mOPECU = false;
@@ -7109,8 +6915,12 @@
 
         //INACTIVAR LA FILA
         this.explotaciones_pecuarias[this.indiceEditarEP].estado = "Inactivo";
-        this.explotaciones_pecuarias.splice(this.indiceEditarEP, 1, this.explotaciones_pecuarias[this.indiceEditarEP]);
-        //INACTIVAR LA FILA        
+        this.explotaciones_pecuarias.splice(
+          this.indiceEditarEP,
+          1,
+          this.explotaciones_pecuarias[this.indiceEditarEP]
+        );
+        //INACTIVAR LA FILA
       },
       editarEP: function() {
         if (this.datosExpPec.importancia_comercial === "") {
@@ -7213,7 +7023,7 @@
             "error"
           );
           return;
-        }        
+        }
         if (this.datosExpPec.numero_animales === "") {
           this.$refs.numero_animales.focus();
           this.$swal(
@@ -7366,52 +7176,140 @@
             "error"
           );
           return;
-        }        
+        }
         // AGREGAR LOS DATOS
-        this.explotaciones_pecuarias[this.indiceEditarEP].id = this.datosExpPec.id;
-        this.explotaciones_pecuarias[this.indiceEditarEP].id_unidad = this.datosExpPec.id_unidad;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].id = this.datosExpPec.id;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].id_unidad = this.datosExpPec.id_unidad;
 
-        this.explotaciones_pecuarias[this.indiceEditarEP].importancia_comercial = this.datosExpPec.importancia_comercial;
-        this.explotaciones_pecuarias[this.indiceEditarEP].raza = this.datosExpPec.raza;
-        this.explotaciones_pecuarias[this.indiceEditarEP].texto_raza = this.showText(Number(this.datosExpPec.raza), this.raza);
-        this.explotaciones_pecuarias[this.indiceEditarEP].costo_total = this.datosExpPec.costo_total;
-        this.explotaciones_pecuarias[this.indiceEditarEP].costo_establecer = this.datosExpPec.costo_establecer;
-        this.explotaciones_pecuarias[this.indiceEditarEP].costo_pecuaria = this.datosExpPec.costo_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].problematica_productos = this.datosExpPec.problematica_productos;
-        this.explotaciones_pecuarias[this.indiceEditarEP].otra_problematica = this.datosExpPec.otra_problematica;
-        this.explotaciones_pecuarias[this.indiceEditarEP].produccion = this.datosExpPec.produccion;
-        this.explotaciones_pecuarias[this.indiceEditarEP].numero_animales = this.datosExpPec.numero_animales;
-        this.explotaciones_pecuarias[this.indiceEditarEP].area_destinada_produccion = this.datosExpPec.area_destinada_produccion;
-        this.explotaciones_pecuarias[this.indiceEditarEP].unidad_area_destinada = this.datosExpPec.unidad_area_destinada;
-        this.explotaciones_pecuarias[this.indiceEditarEP].texto_unidad_area_destinada = this.showText(Number(this.datosExpPec.unidad_area_destinada),this.unidades1);
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].importancia_comercial = this.datosExpPec.importancia_comercial;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].raza = this.datosExpPec.raza;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].texto_raza = this.showText(Number(this.datosExpPec.raza), this.raza);
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].costo_total = this.datosExpPec.costo_total;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].costo_establecer = this.datosExpPec.costo_establecer;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].costo_pecuaria = this.datosExpPec.costo_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].problematica_productos = this.datosExpPec.problematica_productos;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].otra_problematica = this.datosExpPec.otra_problematica;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].produccion = this.datosExpPec.produccion;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].numero_animales = this.datosExpPec.numero_animales;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].area_destinada_produccion = this.datosExpPec.area_destinada_produccion;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].unidad_area_destinada = this.datosExpPec.unidad_area_destinada;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].texto_unidad_area_destinada = this.showText(
+          Number(this.datosExpPec.unidad_area_destinada),
+          this.unidades1
+        );
 
-        this.explotaciones_pecuarias[this.indiceEditarEP].compradores_pecuaria = this.datosExpPec.compradores_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].precio_promedio_venta_pecuaria = this.datosExpPec.precio_promedio_venta_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].metodo_pago_pecuaria = this.datosExpPec.metodo_pago_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].subproductos_produccion_pecuaria = this.datosExpPec.subproductos_produccion_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].pertenece_pecuaria = this.datosExpPec.pertenece_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].nombre_programa_pecuaria = this.datosExpPec.nombre_programa_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].entidad_pecuaria = this.datosExpPec.entidad_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].pertenece_organizacion_pecuaria = this.datosExpPec.pertenece_organizacion_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].tipo_organizacion_pecuaria = this.datosExpPec.tipo_organizacion_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].nombre_organizacion_pecuaria = this.datosExpPec.nombre_organizacion_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].compradores_pecuaria = this.datosExpPec.compradores_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].precio_promedio_venta_pecuaria = this.datosExpPec.precio_promedio_venta_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].metodo_pago_pecuaria = this.datosExpPec.metodo_pago_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].subproductos_produccion_pecuaria = this.datosExpPec.subproductos_produccion_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].pertenece_pecuaria = this.datosExpPec.pertenece_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].nombre_programa_pecuaria = this.datosExpPec.nombre_programa_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].entidad_pecuaria = this.datosExpPec.entidad_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].pertenece_organizacion_pecuaria = this.datosExpPec.pertenece_organizacion_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].tipo_organizacion_pecuaria = this.datosExpPec.tipo_organizacion_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].nombre_organizacion_pecuaria = this.datosExpPec.nombre_organizacion_pecuaria;
 
-        this.explotaciones_pecuarias[this.indiceEditarEP].beneficios_pecuaria = this.datosExpPec.beneficios_pecuaria;        
-        this.explotaciones_pecuarias[this.indiceEditarEP].texto_beneficios_pecuaria = this.showText(this.datosExpPec.beneficios_pecuaria,this.beneficios);
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].beneficios_pecuaria = this.datosExpPec.beneficios_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].texto_beneficios_pecuaria = this.showText(
+          this.datosExpPec.beneficios_pecuaria,
+          this.beneficios
+        );
 
-        this.explotaciones_pecuarias[this.indiceEditarEP].no_pertenece_pecuaria = this.datosExpPec.no_pertenece_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].texto_no_pertenece_pecuaria = this.showText(this.datosExpPec.no_pertenece_pecuaria,this.razon1);        
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].no_pertenece_pecuaria = this.datosExpPec.no_pertenece_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].texto_no_pertenece_pecuaria = this.showText(
+          this.datosExpPec.no_pertenece_pecuaria,
+          this.razon1
+        );
 
-        this.explotaciones_pecuarias[this.indiceEditarEP].trabaja_asociacion_pecuaria = this.datosExpPec.trabaja_asociacion_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].producto_comercial = this.datosExpPec.producto_comercial;
-        this.explotaciones_pecuarias[this.indiceEditarEP].produccion_destinada_pecuaria = this.datosExpPec.produccion_destinada_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].estado = this.datosExpPec.estado;
-        this.explotaciones_pecuarias[this.indiceEditarEP].id_compania = this.datosExpPec.id_compania;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].trabaja_asociacion_pecuaria = this.datosExpPec.trabaja_asociacion_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].producto_comercial = this.datosExpPec.producto_comercial;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].produccion_destinada_pecuaria = this.datosExpPec.produccion_destinada_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].estado = this.datosExpPec.estado;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].id_compania = this.datosExpPec.id_compania;
 
-        this.explotaciones_pecuarias[this.indiceEditarEP].unidad_producion_destinada_pecuaria = this.datosExpPec.unidad_producion_destinada_pecuaria;
-        this.explotaciones_pecuarias[this.indiceEditarEP].texto_unidad_producion_destinada_pecuaria = this.showText(Number(this.datosExpPec.unidad_producion_destinada_pecuaria),this.unidades3);
-        
-        this.explotaciones_pecuarias.splice(this.indiceEditarEP, 1, this.explotaciones_pecuarias[this.indiceEditarEP]);
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].unidad_producion_destinada_pecuaria = this.datosExpPec.unidad_producion_destinada_pecuaria;
+        this.explotaciones_pecuarias[
+          this.indiceEditarEP
+        ].texto_unidad_producion_destinada_pecuaria = this.showText(
+          Number(this.datosExpPec.unidad_producion_destinada_pecuaria),
+          this.unidades3
+        );
+
+        this.explotaciones_pecuarias.splice(
+          this.indiceEditarEP,
+          1,
+          this.explotaciones_pecuarias[this.indiceEditarEP]
+        );
 
         this.datosExpPec.importancia_comercial = "";
         this.datosExpPec.raza = "";
@@ -7446,14 +7344,18 @@
 
         this.mOPPP = false;
         this.mOPATP = false;
-        this.mOPECU = false;        
+        this.mOPECU = false;
         this.bandeGuaEdiEP = true;
         // AGREGAR LOS DATOS
       },
       CancelarEditarEP() {
         // AGREGAR LOS DATOS
         this.explotaciones_pecuarias[this.indiceEditarEP].estado = "Activo";
-        this.explotaciones_pecuarias.splice(this.indiceEditarEP, 1, this.explotaciones_pecuarias[this.indiceEditarEP]);
+        this.explotaciones_pecuarias.splice(
+          this.indiceEditarEP,
+          1,
+          this.explotaciones_pecuarias[this.indiceEditarEP]
+        );
         this.datosExpPec.importancia_comercial = "";
         this.datosExpPec.raza = "";
         this.datosExpPec.costo_total = "";
@@ -7487,7 +7389,7 @@
 
         this.mOPPP = false;
         this.mOPATP = false;
-        this.mOPECU = false;        
+        this.mOPECU = false;
         this.bandeGuaEdiEP = true;
         // AGREGAR LOS DATOS
       },
@@ -7786,11 +7688,12 @@
             .problematica_productos_forestales,
           produccion_destinada_forestales: this.datosCulFor
             .produccion_destinada_forestales,
-          unidad_producion_destinada_forestales: this.datosCulFor.unidad_producion_destinada_forestales,
+          unidad_producion_destinada_forestales: this.datosCulFor
+            .unidad_producion_destinada_forestales,
           texto_unidad_producion_destinada_forestales: this.showText(
             this.datosCulFor.unidad_producion_destinada_forestales,
             this.unidades3
-          ),          
+          ),
           numero_arboles: this.datosCulFor.numero_arboles,
           compradores_forestales: this.datosCulFor.compradores_forestales,
           metodo_pago_forestales: this.datosCulFor.metodo_pago_forestales,
@@ -7863,12 +7766,16 @@
         this.mOPF = false;
       },
       eliminarItemCF: function(item, index) {
-        if(item.id !== 0){
+        if (item.id !== 0) {
           this.cultivos_forestales[index].estado = "Inactivo";
-          this.cultivos_forestales.splice(index, 1, this.cultivos_forestales[index]);
-        }else{
+          this.cultivos_forestales.splice(
+            index,
+            1,
+            this.cultivos_forestales[index]
+          );
+        } else {
           this.cultivos_forestales.splice(index, 1);
-        }        
+        }
       },
       editarItemCF: function(index, item) {
         this.indiceEditarCF = index;
@@ -7894,7 +7801,8 @@
           item.problematica_productos_forestales;
         this.datosCulFor.produccion_destinada_forestales =
           item.produccion_destinada_forestales;
-        this.datosCulFor.unidad_producion_destinada_forestales = item.unidad_producion_destinada_forestales;                        
+        this.datosCulFor.unidad_producion_destinada_forestales =
+          item.unidad_producion_destinada_forestales;
         this.datosCulFor.numero_arboles = item.numero_arboles;
         this.datosCulFor.compradores_forestales = item.compradores_forestales;
         this.datosCulFor.metodo_pago_forestales = item.metodo_pago_forestales;
@@ -7941,8 +7849,12 @@
         }
         //INACTIVAR LA FILA
         this.cultivos_forestales[this.indiceEditarCF].estado = "Inactivo";
-        this.cultivos_forestales.splice(this.indiceEditarCF, 1, this.cultivos_forestales[this.indiceEditarCF]);
-        //INACTIVAR LA FILA        
+        this.cultivos_forestales.splice(
+          this.indiceEditarCF,
+          1,
+          this.cultivos_forestales[this.indiceEditarCF]
+        );
+        //INACTIVAR LA FILA
       },
       editarCF: function() {
         if (this.datosCulFor.importancia_forestales === "") {
@@ -8207,54 +8119,147 @@
             "error"
           );
           return;
-        }        
+        }
         // AGREGAR LOS DATOS
         this.cultivos_forestales[this.indiceEditarCF].id = this.datosCulFor.id;
-        this.cultivos_forestales[this.indiceEditarCF].id_unidad = this.datosCulFor.id_unidad;
-        this.cultivos_forestales[this.indiceEditarCF].importancia_forestales = this.datosCulFor.importancia_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].producto_forestales = this.datosCulFor.producto_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].variedad_forestales = this.datosCulFor.variedad_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].texto_variedad_forestales = this.showText(Number(this.datosCulFor.variedad_forestales),this.especie1);
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].id_unidad = this.datosCulFor.id_unidad;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].importancia_forestales = this.datosCulFor.importancia_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].producto_forestales = this.datosCulFor.producto_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].variedad_forestales = this.datosCulFor.variedad_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].texto_variedad_forestales = this.showText(
+          Number(this.datosCulFor.variedad_forestales),
+          this.especie1
+        );
 
-        this.cultivos_forestales[this.indiceEditarCF].edad_plantacion = this.datosCulFor.edad_plantacion;
-        this.cultivos_forestales[this.indiceEditarCF].tipo_edad = this.datosCulFor.tipo_edad;
-        this.cultivos_forestales[this.indiceEditarCF].area_sembrada_forestales = this.datosCulFor.area_sembrada_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].unidad_area_forestales = this.datosCulFor.unidad_area_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].texto_unidad_area_forestales = this.showText(Number(this.datosCulFor.unidad_area_forestales),this.unidades1);
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].edad_plantacion = this.datosCulFor.edad_plantacion;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].tipo_edad = this.datosCulFor.tipo_edad;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].area_sembrada_forestales = this.datosCulFor.area_sembrada_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].unidad_area_forestales = this.datosCulFor.unidad_area_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].texto_unidad_area_forestales = this.showText(
+          Number(this.datosCulFor.unidad_area_forestales),
+          this.unidades1
+        );
 
-        this.cultivos_forestales[this.indiceEditarCF].rendimiento_arbol = this.datosCulFor.rendimiento_arbol;
-        this.cultivos_forestales[this.indiceEditarCF].costo_total_forestales = this.datosCulFor.costo_total_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].costo_establecimiento_forestales = this.datosCulFor.costo_establecimiento_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].costo_sostenimiento_forestales = this.datosCulFor.costo_sostenimiento_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].problematica_productos_forestales = this.datosCulFor.problematica_productos_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].produccion_destinada_forestales = this.datosCulFor.produccion_destinada_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].rendimiento_arbol = this.datosCulFor.rendimiento_arbol;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].costo_total_forestales = this.datosCulFor.costo_total_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].costo_establecimiento_forestales = this.datosCulFor.costo_establecimiento_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].costo_sostenimiento_forestales = this.datosCulFor.costo_sostenimiento_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].problematica_productos_forestales = this.datosCulFor.problematica_productos_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].produccion_destinada_forestales = this.datosCulFor.produccion_destinada_forestales;
 
-        this.cultivos_forestales[this.indiceEditarCF].unidad_producion_destinada_forestales = this.datosCulFor.unidad_producion_destinada_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].texto_unidad_producion_destinada_forestales = this.showText(Number(this.datosCulFor.unidad_producion_destinada_forestales),this.unidades3);
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].unidad_producion_destinada_forestales = this.datosCulFor.unidad_producion_destinada_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].texto_unidad_producion_destinada_forestales = this.showText(
+          Number(this.datosCulFor.unidad_producion_destinada_forestales),
+          this.unidades3
+        );
 
-        this.cultivos_forestales[this.indiceEditarCF].numero_arboles = this.datosCulFor.numero_arboles;
-        this.cultivos_forestales[this.indiceEditarCF].compradores_forestales = this.datosCulFor.compradores_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].metodo_pago_forestales = this.datosCulFor.metodo_pago_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].precio_promedio_venta_forestales = this.datosCulFor.precio_promedio_venta_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].subproductos_produccion_forestales = this.datosCulFor.subproductos_produccion_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].pertenece_forestales = this.datosCulFor.pertenece_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].numero_arboles = this.datosCulFor.numero_arboles;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].compradores_forestales = this.datosCulFor.compradores_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].metodo_pago_forestales = this.datosCulFor.metodo_pago_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].precio_promedio_venta_forestales = this.datosCulFor.precio_promedio_venta_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].subproductos_produccion_forestales = this.datosCulFor.subproductos_produccion_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].pertenece_forestales = this.datosCulFor.pertenece_forestales;
 
-        this.cultivos_forestales[this.indiceEditarCF].nombre_programa_forestales = this.datosCulFor.nombre_programa_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].entidad_forestales = this.datosCulFor.entidad_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].pertenece_organizacion_forestales = this.datosCulFor.pertenece_organizacion_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].tipo_pertenece_forestales = this.datosCulFor.tipo_pertenece_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].nombre_organizacion_forestales = this.datosCulFor.nombre_organizacion_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].beneficios_forestales = this.datosCulFor.beneficios_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].texto_beneficios_forestales = this.showText(this.datosCulFor.beneficios_forestales,this.beneficios);
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].nombre_programa_forestales = this.datosCulFor.nombre_programa_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].entidad_forestales = this.datosCulFor.entidad_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].pertenece_organizacion_forestales = this.datosCulFor.pertenece_organizacion_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].tipo_pertenece_forestales = this.datosCulFor.tipo_pertenece_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].nombre_organizacion_forestales = this.datosCulFor.nombre_organizacion_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].beneficios_forestales = this.datosCulFor.beneficios_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].texto_beneficios_forestales = this.showText(
+          this.datosCulFor.beneficios_forestales,
+          this.beneficios
+        );
 
-        this.cultivos_forestales[this.indiceEditarCF].no_pertenece_forestales = this.datosCulFor.no_pertenece_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].texto_no_pertenece_forestales = this.showText(this.datosCulFor.no_pertenece_forestales,this.razon1);
-        this.cultivos_forestales[this.indiceEditarCF].trabaja_asociacion_forestales = this.datosCulFor.trabaja_asociacion_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].otros_problematica_productos_forestales = this.datosCulFor.otros_problematica_productos_forestales;
-        this.cultivos_forestales[this.indiceEditarCF].estado = this.datosCulFor.estado;
-        this.cultivos_forestales[this.indiceEditarCF].id_compania = this.datosCulFor.id_compania;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].no_pertenece_forestales = this.datosCulFor.no_pertenece_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].texto_no_pertenece_forestales = this.showText(
+          this.datosCulFor.no_pertenece_forestales,
+          this.razon1
+        );
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].trabaja_asociacion_forestales = this.datosCulFor.trabaja_asociacion_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].otros_problematica_productos_forestales = this.datosCulFor.otros_problematica_productos_forestales;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].estado = this.datosCulFor.estado;
+        this.cultivos_forestales[
+          this.indiceEditarCF
+        ].id_compania = this.datosCulFor.id_compania;
 
-        this.cultivos_forestales.splice(this.indiceEditarCF, 1, this.cultivos_forestales[this.indiceEditarCF]);
+        this.cultivos_forestales.splice(
+          this.indiceEditarCF,
+          1,
+          this.cultivos_forestales[this.indiceEditarCF]
+        );
         this.datosCulFor.importancia_forestales = "";
         this.datosCulFor.producto_forestales = "";
         this.datosCulFor.variedad_forestales = "";
@@ -8289,14 +8294,18 @@
 
         this.mOPPPF = false;
         this.mOPATF = false;
-        this.mOPF = false;        
+        this.mOPF = false;
         this.bandeGuaEdiCF = true;
         // AGREGAR LOS DATOS
       },
       CancelarEditarCF() {
         // AGREGAR LOS DATOS
         this.cultivos_forestales[this.indiceEditarCF].estado = "Activo";
-        this.cultivos_forestales.splice(this.indiceEditarCF, 1, this.cultivos_forestales[this.indiceEditarCF]);        
+        this.cultivos_forestales.splice(
+          this.indiceEditarCF,
+          1,
+          this.cultivos_forestales[this.indiceEditarCF]
+        );
         this.datosCulFor.importancia_forestales = "";
         this.datosCulFor.producto_forestales = "";
         this.datosCulFor.variedad_forestales = "";
@@ -8332,15 +8341,15 @@
 
         this.mOPPPF = false;
         this.mOPATF = false;
-        this.mOPF = false;        
+        this.mOPF = false;
         this.bandeGuaEdiCF = true;
         // AGREGAR LOS DATOS
       },
-      
+
       showText: function(val, vectorAux) {
-        if(val!=="NA"){
+        if (val !== "NA") {
           val = Number(val);
-        }          
+        }
         for (var i = 0; i < vectorAux.length; i++) {
           if (vectorAux[i].value === val) {
             return vectorAux[i].texto;
@@ -8351,10 +8360,10 @@
       showText2: function(val, vectorAux, id) {
         if (id === "") {
           return "";
-        } 
-        if(val!=="NA"){
+        }
+        if (val !== "NA") {
           val = Number(val);
-        }          
+        }
         for (var i = 0; i < vectorAux[id].length; i++) {
           if (vectorAux[id][i].value === val) {
             return vectorAux[id][i].texto;
@@ -8365,4 +8374,15 @@
     }
   };
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .modal-title {
+    color: #f8f9fa !important;
+  }
+  .close {
+    display: none;
+  }
+</style>

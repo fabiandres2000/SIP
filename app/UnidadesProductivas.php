@@ -10,17 +10,21 @@ class UnidadesProductivas extends Model
 {
     protected $table = 'unidades_productivas';
     protected $fillable = [
-        'id_hogar', 'nom_productor', 'nivel_educativo', 'tipo_id', 'identificacion', 
-        'nom_finca', 'hogares_finca','linea_productiva', 'area_total_finca', 'distancia_finca', 
-        'tenencia_propiedad', 'atiende_entrevista', 'credito_produccion', 'fuentes_prestamo','cual_fuente', 
-        'vias_acceso', 'tipos_vias_acceso', 'fecha', 'usuario_crear', 'fecha_editar', 
-        'usuario_editar', 'estado', 'id_compania','id_dpto', 'id_mun', 
-        'id_corre', 'id_vereda', 'id_barrio', 'direccion', 'unidad_area', 
+        'id_hogar', 'nom_productor', 'nivel_educativo', 'tipo_id', 'identificacion',
+        'nom_finca', 'hogares_finca', 'linea_productiva', 'area_total_finca', 'distancia_finca',
+        'tenencia_propiedad', 'atiende_entrevista', 'credito_produccion', 'fuentes_prestamo', 'cual_fuente',
+        'vias_acceso', 'tipos_vias_acceso', 'fecha', 'usuario_crear', 'fecha_editar',
+        'usuario_editar', 'estado', 'id_compania', 'id_dpto', 'id_mun',
+        'id_corre', 'id_vereda', 'id_barrio', 'direccion', 'unidad_area',
         'unidad_distancia',
+    ];
+    protected $casts = [
+        'linea_productiva',
     ];
 
     public static function guardar($data, $alias)
     {
+        // dd($data)->die();
         return DB::connection('mysql')->table($alias . '.unidades_productivas')->insertGetId([
 
             'id_hogar' => $data['id_hogar'],
@@ -30,7 +34,7 @@ class UnidadesProductivas extends Model
             'identificacion' => $data['identificacion'],
             'nom_finca' => $data['nom_finca'],
             'hogares_finca' => $data['hogares_finca'],
-            'linea_productiva' => $data['linea_productiva'],
+            'linea_productiva' => json_encode($data['linea_productiva']),
             'area_total_finca' => $data['area_total_finca'],
             'distancia_finca' => $data['distancia_finca'],
 
@@ -71,7 +75,7 @@ class UnidadesProductivas extends Model
             'identificacion' => $data['identificacion'],
             'nom_finca' => $data['nom_finca'],
             'hogares_finca' => $data['hogares_finca'],
-            'linea_productiva' => $data['linea_productiva'],
+            'linea_productiva' => json_encode($data['linea_productiva']),
             'area_total_finca' => $data['area_total_finca'],
 
             'distancia_finca' => $data['distancia_finca'],

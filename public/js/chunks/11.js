@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,7 +11,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/enfermedadesCro_servicios */ "./resources/js/Servicios/enfermedadesCro_servicios.js");
+/* harmony import */ var _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/actividad_servicios */ "./resources/js/Servicios/actividad_servicios.js");
 //
 //
 //
@@ -303,8 +303,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       bandera: false,
       entrarPorError: false,
       txtbusqueda: "",
-      enfermedadescro: [],
-      enfermedadData: {
+      actividades: [],
+      actividadesData: {
         descripcion: "",
         observacion: "",
         id: 0
@@ -319,22 +319,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         hasta: 0
       },
       offset: 4,
+      variableGlobal: "GUARDAR",
       valG: true
     };
   },
   computed: {
     // CLASES Y ERRORES DE CAMPO IDENTIFICACION
-    enfermedadescroError: function enfermedadescroError() {
-      var valor = this.enfermedadData.descripcion.trim();
+    ocupacionesError: function ocupacionesError() {
+      var valor = this.actividadesData.descripcion.trim();
 
       if (valor == "") {
         return "El campo es obligatorio";
       }
     },
-    enfermedadesClases: function enfermedadesClases() {
+    ocupacionesClases: function ocupacionesClases() {
       return [{
-        "is-invalid": this.enfermedadescroError,
-        "is-valid": !this.enfermedadescroError
+        "is-invalid": this.ocupacionesError,
+        "is-valid": !this.ocupacionesError
       }];
     },
     esActivo: function esActivo() {
@@ -394,8 +395,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context.prev = 1;
                 _context.next = 4;
-                return _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
-                  _this.enfermedadescro = respuesta.data.enfermedadescro.data;
+                return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
+                  _this.actividades = respuesta.data.actividades.data;
                   _this.paginacion = respuesta.data.paginacion;
                 });
 
@@ -433,18 +434,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return consultar;
     }(),
     abrirModal: function abrirModal() {
-      this.enfermedadData.descripcion = "";
-      this.enfermedadData.observacion = "";
-      this.enfermedadData.id = 0;
+      this.variableGlobal = "GUARDAR";
+      this.actividadesData.descripcion = "";
+      this.actividadesData.observacion = "";
+      this.actividadesData.id = 0;
       this.errores = [];
       this.entrarPorError = false;
-      this.$refs.modalEnfermedad.show();
+      this.$refs.modalOcupaciones.show();
     },
     cerrarModal: function cerrarModal() {
-      this.$refs.modalEnfermedad.hide();
+      this.$refs.modalOcupaciones.hide();
     },
-    guardar: function () {
-      var _guardar = _asyncToGenerator(
+    guardarOcupacion: function () {
+      var _guardarOcupacion = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this2 = this;
@@ -467,24 +469,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 this.errores = [];
                 parametros = {
                   _token: this.csrf,
-                  descripcion: this.enfermedadData.descripcion,
-                  observacion: this.enfermedadData.observacion,
-                  id: this.enfermedadData.id
+                  descripcion: this.actividadesData.descripcion,
+                  observacion: this.actividadesData.observacion,
+                  id: this.actividadesData.id,
+                  opcion: this.variableGlobal
                 };
                 this.valG = false;
                 _context2.prev = 7;
                 _context2.next = 10;
-                return _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
+                return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
                   _this2.consultar(1);
 
-                  _this2.enfermedadData.descripcion = "";
-                  _this2.enfermedadData.observacion = "";
-                  _this2.enfermedadData.id = 0;
+                  _this2.actividadesData.descripcion = "";
+                  _this2.actividadesData.observacion = "";
 
                   _this2.cerrarModal();
 
                   _this2.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
 
+                  _this2.entrarPorError = false;
                   _this2.valG = true;
                 })["catch"](function (error) {
                   _this2.errorDevuelto = error.response.data.errors;
@@ -522,16 +525,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, this, [[7, 12]]);
       }));
 
-      function guardar() {
-        return _guardar.apply(this, arguments);
+      function guardarOcupacion() {
+        return _guardarOcupacion.apply(this, arguments);
       }
 
-      return guardar;
+      return guardarOcupacion;
     }(),
     checkForm: function checkForm(e) {
       this.errores = [];
 
-      if (!this.enfermedadData.descripcion) {
+      if (!this.actividadesData.descripcion) {
+        this.errores.push("La descripción es obligatoria.");
+      }
+
+      if (!this.errores.length) {
+        return true;
+      } else {
+        return false;
+      }
+
+      e.preventDefault();
+    },
+    checkForm2: function checkForm2(e) {
+      this.errores = [];
+
+      if (this.actividadesData.descripcion == "") {
         this.errores.push("La descripción es obligatoria.");
       }
 
@@ -562,11 +580,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 titulo = "";
 
                 if (usu.estado == "Activo") {
-                  title = "¿Desea anular la enfermedad cronica " + usu.descripcion + "?";
-                  titulo = "Enfermedad cronica " + usu.descripcion + " anulada de manera exitosa";
+                  title = "¿Desea anular la actividad economica " + usu.descripcion + "?";
+                  titulo = "Actividad Economica " + usu.descripcion + " anulada de manera exitosa";
                 } else {
-                  title = "¿Desea activar la enfermedad cronica " + usu.descripcion + "?";
-                  titulo = "Enfermedad cronica " + usu.descripcion + " activada de manera exitosa";
+                  title = "¿Desea activar la actividad economica " + usu.descripcion + "?";
+                  titulo = "Actividad Economica " + usu.descripcion + " activada de manera exitosa";
                 }
 
                 this.$swal({
@@ -587,7 +605,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     };
 
                     try {
-                      _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function (respuesta) {
+                      _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function (respuesta) {
                         _this3.consultar(1);
 
                         _this3.$swal({
@@ -638,12 +656,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                this.enfermedadData.descripcion = item.descripcion;
-                this.enfermedadData.observacion = item.observacion;
-                this.enfermedadData.id = item.id;
-                this.$refs.modalEnfermedad.show();
+                this.actividadesData.descripcion = item.descripcion;
+                this.actividadesData.observacion = item.observacion;
+                this.actividadesData.id = item.id;
+                this.variableGlobal = "EDITAR";
+                this.$refs.modalOcupaciones.show();
 
-              case 4:
+              case 5:
               case "end":
                 return _context4.stop();
             }
@@ -662,10 +681,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -681,15 +700,15 @@ exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -711,10 +730,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c& ***!
-  \***************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0& ***!
+  \******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -749,7 +768,7 @@ var render = function() {
                             "data-skin": "dark",
                             "data-toggle": "kt-tooltip",
                             "data-placement": "top",
-                            title: "Nueva Enfermedad Cronica"
+                            title: "Nueva Actividad Economica"
                           },
                           on: { click: _vm.abrirModal }
                         },
@@ -815,7 +834,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.enfermedadescro, function(item, index) {
+                        _vm._l(_vm.actividades, function(item, index) {
                           return _c("tr", { key: index }, [
                             _c(
                               "td",
@@ -1125,10 +1144,10 @@ var render = function() {
         _c(
           "b-modal",
           {
-            ref: "modalEnfermedad",
+            ref: "modalOcupaciones",
             attrs: {
               "hide-footer": "",
-              title: "Gestion de Enfermedades Cronicas",
+              title: "Gestion de Actividades Economicas",
               size: "xl",
               centered: "",
               "header-bg-variant": "danger",
@@ -1287,29 +1306,29 @@ var render = function() {
               _vm._v(" "),
               _c("form", [
                 _c("div", { staticClass: "form-group row" }, [
-                  _c("div", { staticClass: "col-lg-6" }, [
-                    _c("label", [_vm._v("Enfermedad Cronica:")]),
+                  _c("div", { staticClass: "col-lg-4" }, [
+                    _c("label", [_vm._v("Actividad Economica:")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.enfermedadData.descripcion,
-                          expression: "enfermedadData.descripcion"
+                          value: _vm.actividadesData.descripcion,
+                          expression: "actividadesData.descripcion"
                         }
                       ],
                       staticClass: "form-control text-capitalize",
-                      class: _vm.enfermedadesClases,
+                      class: _vm.actividadesData,
                       attrs: { type: "text", placeholder: "Descripción" },
-                      domProps: { value: _vm.enfermedadData.descripcion },
+                      domProps: { value: _vm.actividadesData.descripcion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.enfermedadData,
+                            _vm.actividadesData,
                             "descripcion",
                             $event.target.value
                           )
@@ -1317,14 +1336,14 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm.enfermedadescroError
+                    _vm.ocupacionesError
                       ? _c("div", { staticClass: "invalid-feedback" }, [
-                          _vm._v(_vm._s(_vm.enfermedadescroError))
+                          _vm._v(_vm._s(_vm.ocupacionesError))
                         ])
                       : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-6" }, [
+                  _c("div", { staticClass: "col-lg-8" }, [
                     _c("label", [_vm._v("Observación:")]),
                     _vm._v(" "),
                     _c("input", {
@@ -1332,20 +1351,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.enfermedadData.observacion,
-                          expression: "enfermedadData.observacion"
+                          value: _vm.actividadesData.observacion,
+                          expression: "actividadesData.observacion"
                         }
                       ],
                       staticClass: "form-control text-capitalize",
                       attrs: { type: "text", placeholder: "Observación" },
-                      domProps: { value: _vm.enfermedadData.observacion },
+                      domProps: { value: _vm.actividadesData.observacion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.enfermedadData,
+                            _vm.actividadesData,
                             "observacion",
                             $event.target.value
                           )
@@ -1364,7 +1383,7 @@ var render = function() {
                       staticClass: "btn btn-success",
                       class: _vm.spinG,
                       attrs: { type: "button", disabled: !_vm.valG },
-                      on: { click: _vm.guardar }
+                      on: { click: _vm.guardarOcupacion }
                     },
                     [
                       _c("i", { staticClass: "fa fa-edit" }),
@@ -1403,7 +1422,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "kt-portlet__head-label" }, [
         _c("h3", { staticClass: "kt-portlet__head-title" }, [
           _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-            _vm._v("GESTIÓN DE ENFERMEDADES CRONICAS")
+            _vm._v("GESTIÓN DE ACTIVIDADES ECONOMICAS")
           ])
         ])
       ])
@@ -1417,7 +1436,7 @@ var staticRenderFns = [
       _c("tr", { staticClass: "kt-bg-fill-brand" }, [
         _c("th", [_vm._v("No.")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Enfermedad")]),
+        _c("th", [_vm._v("Actividad Economica")]),
         _vm._v(" "),
         _c("th", [_vm._v("Observación")]),
         _vm._v(" "),
@@ -1434,10 +1453,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Servicios/enfermedadesCro_servicios.js":
-/*!*************************************************************!*\
-  !*** ./resources/js/Servicios/enfermedadesCro_servicios.js ***!
-  \*************************************************************/
+/***/ "./resources/js/Servicios/actividad_servicios.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/Servicios/actividad_servicios.js ***!
+  \*******************************************************/
 /*! exports provided: listar, guardar, eliminar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1449,29 +1468,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro', $data);
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/actividad', $data);
 }
 function guardar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro/guardar', $data);
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/actividad/guardar', $data);
 }
 function eliminar($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro/eliminar', $data);
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/actividad/eliminar', $data);
 }
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue":
-/*!**************************************************************!*\
-  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue ***!
-  \**************************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=template&id=1860428c& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&");
-/* harmony import */ var _EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Actividad.vue?vue&type=template&id=41d4bcc0& */ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&");
+/* harmony import */ var _Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Actividad.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Actividad.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1482,9 +1501,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1494,54 +1513,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Enfermedades/EnfermedadesCro.vue"
+component.options.__file = "resources/js/Vistas/Actividad/Actividad.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
-  \***********************************************************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c& ***!
-  \*********************************************************************************************/
+/***/ "./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0& ***!
+  \************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=template&id=1860428c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Actividad.vue?vue&type=template&id=41d4bcc0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Actividad/Actividad.vue?vue&type=template&id=41d4bcc0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Actividad_vue_vue_type_template_id_41d4bcc0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

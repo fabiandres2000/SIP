@@ -225,7 +225,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <div class="col-lg-12">
+              <div class="col-lg-10">
                 <label>Nombre de la Finca:</label>
                 <input
                   type="text"
@@ -240,9 +240,7 @@
                   <span v-if="datos.nom_finca==''">Nombre de la Finca es obligatoria</span>
                 </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-lg-3">
+              <div class="col-lg-2">
                 <label>Hogares en la Finca:</label>
                 <input
                   type="text"
@@ -254,18 +252,22 @@
                   @change="formato('hogares_finca')"
                 />
               </div>
-              <div class="col-lg-6">
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-12">
                 <label>Línea productiva:</label>
-                <b-form-select
-                  v-model="datos.linea_productiva"
+                <multiselect 
+                  v-model="datos.linea_productiva" 
+                  :options="lineas" 
+                  :multiple="true" 
+                  :close-on-select="false" 
+                  :clear-on-select="false" 
+                  :preserve-search="true" 
+                  placeholder="Seleccione una linea productiva" 
+                  label="texto" track-by="texto"
                   :class="datos.linea_productiva==''?'':'is-valid'"
-                  ref="linea_productiva"
-                >
-                  <option value selected>Seleccione</option>
-                  <option value="1">Cultivos agrícolas.</option>
-                  <option value="2">Pecuarias - especie animal con perspectiva comercial.</option>
-                  <option value="3">Cultivos forestales con perspectiva comercial.</option>
-                </b-form-select>
+                >                  
+                </multiselect>
               </div>
             </div>
             <div class="form-group row">
@@ -856,7 +858,7 @@
                   <option value selected>Seleccione</option>
                   <option value="Tracción animal">Tracción animal</option>
                   <option value="Animal">Animal</option>
-                  <option value="Automóvil">Automóvil</option>
+                  <option value="Vehiculo">Vehiculo</option>
                   <option value="Bicicleta">Bicicleta</option>
                   <option value="Caminata">Caminata</option>
                   <option value="Camión">Camión</option>
@@ -1047,7 +1049,7 @@
                   <option value="Asociaciones">Asociaciones.</option>
                   <option value="Cooperativas">Cooperativas.</option>
                   <option value="Agremiaciones">Agremiaciones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option value="NO">NO</option>
                 </b-form-select>
               </div>
               <div class="col-lg-4" v-show="mOP">
@@ -2218,7 +2220,7 @@
                   <option value="Asociaciones">Asociaciones.</option>
                   <option value="Cooperativas">Cooperativas.</option>
                   <option value="Agremiaciones">Agremiaciones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option value="NO">NO</option>
                 </b-form-select>
               </div>              
               <div class="col-lg-2" v-show="mOPECU">
@@ -3046,7 +3048,7 @@
                   <option value="Asociaciones">Asociaciones.</option>
                   <option value="Cooperativas">Cooperativas.</option>
                   <option value="Agremiaciones">Agremiaciones.</option>
-                  <option value="NA">No Aplica.</option>
+                  <option value="NO">NO</option>
                 </b-form-select>
               </div>
             </div>
@@ -3601,6 +3603,7 @@
   "use strict";
   import * as unidadesServicios from "../../Servicios/unidades_servicios";
   import * as barriosServicios from "../../Servicios/barrios_servicios";
+  import Multiselect from 'vue-multiselect';
 
   // Import component
   import Loading from "vue-loading-overlay";
@@ -3608,7 +3611,8 @@
   import "vue-loading-overlay/dist/vue-loading.css";
   export default {
     components: {
-      Loading
+      Loading,
+      Multiselect
     },
     mounted() {
       this.hoy = moment();
@@ -3640,7 +3644,7 @@
           identificacion: "",
           nom_finca: "",
           hogares_finca: "",
-          linea_productiva: "",
+          linea_productiva: [],
           area_total_finca: "",
           distancia_finca: "",
           
@@ -4079,7 +4083,12 @@
         ],        
         indiceEditarCA: null,
         indiceEditarEP: null,
-        indiceEditarCF: null                              
+        indiceEditarCF: null,
+        lineas: [
+          { value: 1, texto: "Cultivos agrícolas" },
+          { value: 2, texto: "Pecuarias - especie animal con perspectiva comercial" },
+          { value: 3, texto: "Cultivos forestales con perspectiva comercial" }
+        ],                                      
       };
     },
     computed: {
@@ -4241,22 +4250,25 @@
           }
         }
         if (tipo === "P") {
-          if (this.datosCulAgri.pertenece === "NA") {
+          if (this.datosCulAgri.pertenece === "NO") {
             this.mOP = false;
             this.datosCulAgri.tipo_pertenece = "NA";
             this.datosCulAgri.nombre_organizacion = "NA";
             this.datosCulAgri.no_pertenece = "NA";
+            this.datosCulAgri.beneficios = "NA";
           } else {
             if (this.datosCulAgri.pertenece === "") {
               this.mOP = false;
               this.datosCulAgri.tipo_pertenece = "";
               this.datosCulAgri.nombre_organizacion = "";
               this.datosCulAgri.no_pertenece = "";
+              this.datosCulAgri.beneficios = "";
             } else {
               this.mOP = true;
               this.datosCulAgri.tipo_pertenece = "";
               this.datosCulAgri.nombre_organizacion = "";
               this.datosCulAgri.no_pertenece = "NA";
+              this.datosCulAgri.beneficios = "";
             }
           }
         }
@@ -4303,22 +4315,25 @@
           this.datosExpPec.entidad_pecuaria = "";
         }
         if (tipo === "POPECU") {
-          if (this.datosExpPec.pertenece_organizacion_pecuaria === "NA") {
+          if (this.datosExpPec.pertenece_organizacion_pecuaria === "NO") {
             this.mOPECU = false;
             this.datosExpPec.tipo_organizacion_pecuaria = "NA";
             this.datosExpPec.nombre_organizacion_pecuaria = "NA";
             this.datosExpPec.no_pertenece_pecuaria = "NA";
+            this.datosExpPec.beneficios_pecuaria = "NA";
           } else {
             if (this.datosExpPec.pertenece_organizacion_pecuaria === "") {
               this.mOPECU = false;
               this.datosExpPec.tipo_organizacion_pecuaria = "";
               this.datosExpPec.nombre_organizacion_pecuaria = "";
               this.datosExpPec.no_pertenece_pecuaria = "";
+              this.datosExpPec.beneficios_pecuaria = "";
             } else {
               this.mOPECU = true;
               this.datosExpPec.tipo_organizacion_pecuaria = "";
               this.datosExpPec.nombre_organizacion_pecuaria = "";
               this.datosExpPec.no_pertenece_pecuaria = "NA";
+              this.datosExpPec.beneficios_pecuaria = "";
             }
           }
         }
@@ -4340,22 +4355,25 @@
           this.datosCulFor.entidad_forestales = "";
         }
         if (tipo === "PF") {
-          if (this.datosCulFor.pertenece_organizacion_forestales === "NA") {
+          if (this.datosCulFor.pertenece_organizacion_forestales === "NO") {
             this.mOPF = false;
             this.datosCulFor.tipo_pertenece_forestales = "NA";
             this.datosCulFor.nombre_organizacion_forestales = "NA";
             this.datosCulFor.no_pertenece = "NA";
+            this.datosCulFor.beneficios_forestales = "NA";
           } else {
             if (this.datosCulFor.pertenece_organizacion_forestales === "") {
               this.mOPF = false;
               this.datosCulFor.tipo_pertenece_forestales = "";
               this.datosCulFor.nombre_organizacion_forestales = "";
               this.datosCulFor.no_pertenece_forestales = "";
+              this.datosCulFor.beneficios_forestales = "";
             } else {
               this.mOPF = true;
               this.datosCulFor.tipo_pertenece_forestales = "";
               this.datosCulFor.nombre_organizacion_forestales = "";
               this.datosCulFor.no_pertenece_forestales = "NA";
+              this.datosCulFor.beneficios_forestales = "";
             }
           }
         }
@@ -4503,8 +4521,7 @@
           );
           return;
         }
-        if (this.datos.linea_productiva === "") {
-          this.$refs.linea_productiva.focus();
+        if (this.datos.linea_productiva.length <= 0) {
           bande = false;
           this.$swal(
             "Error...!",
@@ -7840,4 +7857,15 @@
     }
   };
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .modal-title {
+    color: #f8f9fa !important;
+  }
+  .close {
+    display: none;
+  }
+</style>

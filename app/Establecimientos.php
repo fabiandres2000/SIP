@@ -11,7 +11,7 @@ class Establecimientos extends Model
     protected $table = 'establecimientos';
     protected $fillable = [
         'id_hogar', 'registrado', 'num_matricula', 'naturaleza',
-        'otra_naturaleza', 'tipo', 'actividad_economica', 'capital_extranjero', 'permiso', 'otro_permiso', 'anio',
+        'otra_naturaleza', 'tipo', 'capital_extranjero', 'permiso', 'otro_permiso', 'anio',
         'num_empleados', 'tiempo_sin_operacion', 'fecha_retorno', 'promedio_ingresos_anterior', 'promedio_ingresos_durante',
         'promedio_ingresos_posterior', 'carga_economica', 'protocolo_bioseguridad', 'tipo_afectacion', 'ayuda',
         'tiempo_recuperacion', 'principal_problema', 'internet', 'estado', 'id_compania',
@@ -77,16 +77,13 @@ class Establecimientos extends Model
     public static function guardar($data, $alias)
     {
         
-        return DB::connection('mysql')->table($alias . '.establecimientos')->updateOrInsert([
-            'id' => $data['id'],
-        ], [
+        return DB::connection('mysql')->table($alias . '.establecimientos')->insertGetId([            
             'id_hogar' => $data['id_hogar'],
             'registrado' => $data['registrado'],
             'num_matricula' => $data['num_matricula'],
             'naturaleza' => $data['naturaleza'],
             'otra_naturaleza' => $data['otra_naturaleza'],
             'tipo' => $data['tipo'],
-            'actividad_economica' => $data['actividad_economica'],
             'capital_extranjero' => $data['capital_extranjero'],
             'permiso' => $data['permiso'],
             'otro_permiso' => $data['otro_permiso'],
@@ -99,7 +96,7 @@ class Establecimientos extends Model
             'promedio_ingresos_posterior' => $data['promedio_ingresos_posterior'],
             'carga_economica' => $data['carga_economica'],
             'protocolo_bioseguridad' => $data['protocolo_bioseguridad'],
-            'tipo_afectacion' => $data['tipo_afectacion'],
+            'tipo_afectacion' => json_encode($data['tipo_afectacion']),
             'ayuda' => $data['ayuda'],
             'tiempo_recuperacion' => $data['tiempo_recuperacion'],
             'principal_problema' => $data['principal_problema'],
@@ -135,15 +132,12 @@ class Establecimientos extends Model
     public static function buscar($alias, $id)
     {
         return DB::connection('mysql')->table($alias . '.establecimientos')
-            ->leftjoin($alias . '.actividades_economicas', 'actividades_economicas.id', 'establecimientos.actividad_economica')
-            ->select("actividades_economicas.descripcion AS actividadesAuxiliar")
             ->selectRaw("IFNULL(establecimientos.id_hogar,'') AS id_hogar")
             ->selectRaw("IFNULL(establecimientos.registrado,'') AS registrado")
             ->selectRaw("IFNULL(establecimientos.num_matricula,'') AS num_matricula")
             ->selectRaw("IFNULL(establecimientos.naturaleza,'') AS naturaleza")
             ->selectRaw("IFNULL(establecimientos.otra_naturaleza,'') AS otra_naturaleza")
             ->selectRaw("IFNULL(establecimientos.tipo,'') AS tipo")
-            ->selectRaw("IFNULL(establecimientos.actividad_economica,'') AS actividad_economica")
             ->selectRaw("IFNULL(establecimientos.capital_extranjero,'') AS capital_extranjero")
             ->selectRaw("IFNULL(establecimientos.permiso,'') AS permiso")
             ->selectRaw("IFNULL(establecimientos.otro_permiso,'') AS otro_permiso")
@@ -194,7 +188,6 @@ class Establecimientos extends Model
             'naturaleza' => $data['naturaleza'],
             'otra_naturaleza' => $data['otra_naturaleza'],
             'tipo' => $data['tipo'],
-            'actividad_economica' => $data['actividad_economica'],
             'capital_extranjero' => $data['capital_extranjero'],
             'permiso' => $data['permiso'],
             'otro_permiso' => $data['otro_permiso'],
@@ -207,7 +200,7 @@ class Establecimientos extends Model
             'promedio_ingresos_posterior' => $data['promedio_ingresos_posterior'],
             'carga_economica' => $data['carga_economica'],
             'protocolo_bioseguridad' => $data['protocolo_bioseguridad'],
-            'tipo_afectacion' => $data['tipo_afectacion'],
+            'tipo_afectacion' => json_encode($data['tipo_afectacion']),
             'ayuda' => $data['ayuda'],
             'tiempo_recuperacion' => $data['tiempo_recuperacion'],
             'principal_problema' => $data['principal_problema'],

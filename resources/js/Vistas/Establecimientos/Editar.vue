@@ -263,7 +263,7 @@
                   <option value="8">Panaderia/ pasteliría</option>
                   <option value="9">Ferretería</option>
                   <option value="10">Miscelania</option>
-                  <option value="11">Papelería  y Librerías</option>
+                  <option value="11">Papelería y Librerías</option>
                   <option value="12">Cafetería</option>
                   <option value="13">Frutería</option>
                   <option value="14">Venta de loterías o juegos de azar</option>
@@ -290,18 +290,88 @@
               </div>
             </div>
             <div class="form-group row">
-              <div class="col-lg-12">
+              <div class="col-lg-10">
                 <label>Actividad Económica:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
                   placeholder="Actividad Económica"
                   v-model="actividadesAuxiliar"
-                  ref="actividad_economica"
+                  ref="actividadesAuxiliar"
                   :class="actividadesAuxiliar==''?'':'is-valid'"
                   @click="abrirModalActividades()"
                   :readonly="true"
                 />
+              </div>
+              <div class="col-lg-1">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Agregar"
+                  @click.prevent="AgregarActividad"
+                >
+                  <i class="fa fa-plus"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-danger btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Limpiar"
+                  @click.prevent="limpiarActividad"
+                >
+                  <i class="fa fa-trash"></i>
+                </a>&nbsp;
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th>No.</th>
+                        <th>Actividad</th>
+                        <td class="text-center">Opciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        v-for="(item,index) in ActividadData"
+                        :key="index"
+                        v-show="item.estado=='Activo'"
+                      >
+                        <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <span class="text-capitalize">{{item.actividad}}</span>
+                        </td>
+                        <td style="text-align:center;vertical-align: middle;text-align: center;">
+                          <button
+                            class="btn btn-icon btn-sm btn-outline-danger"
+                            type="button"
+                            title="Eliminar"
+                            @click="eliminarItemActividad(item, index)"
+                          >
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
               </div>
             </div>
             <div class="form-group row">
@@ -422,7 +492,7 @@
                   ref="fecha_retorno"
                   :readonly="datos.tiempo_sin_operacion>0? false:true"
                   v-show="datos.tiempo_sin_operacion==0"
-                />                
+                />
               </div>
             </div>
             <div class="form-group row">
@@ -489,22 +559,29 @@
                   <option value="NO">NO</option>
                 </b-form-select>
               </div>
-              <div class="col-lg-4">
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-12">
                 <label>Tipo de Afectación del Establecimiento:</label>
-                <b-form-select
+                <multiselect
+                  v-model="datos.tipo_afectacion"
+                  :options="tipo"
+                  :multiple="true"
+                  :close-on-select="false"
+                  :clear-on-select="false"
+                  :preserve-search="true"
+                  placeholder="Seleccione un tipo de afectación"
+                  label="texto"
+                  track-by="value"
+                  :class="datos.tipo_afectacion==''?'':'is-valid'"
+                ></multiselect>
+                <!-- <b-form-select
                   v-model="datos.tipo_afectacion"
                   :class="datos.tipo_afectacion==''?'':'is-valid'"
                   ref="tipo_afectacion"
                   @change="mostrarOtro('TA')"
                 >
-                  <option value selected>Seleccione</option>
-                  <option value="1">Reducción de personal.</option>
-                  <option value="2">Reducción de salarios.</option>
-                  <option value="3">Desabastecimiento de insumos y materia prima.</option>
-                  <option value="4">Disminución de demanda.</option>
-                  <option value="5">Ninguna afectación.</option>
-                  <option value="6">Otros.</option>
-                </b-form-select>
+                </b-form-select>-->
               </div>
             </div>
             <div class="form-group row">
@@ -705,14 +782,15 @@
   import * as actividadesServicios from "../../Servicios/actividad_servicios";
   import * as establecimientosServicios from "../../Servicios/establecimientos_servicios";
   import * as barriosServicios from "../../Servicios/barrios_servicios";
-
+  import Multiselect from "vue-multiselect";
   // Import component
   import Loading from "vue-loading-overlay";
   // Import stylesheet
   import "vue-loading-overlay/dist/vue-loading.css";
   export default {
     components: {
-      Loading
+      Loading,
+      Multiselect
     },
     mounted() {
       this.hoy = moment();
@@ -736,6 +814,7 @@
         txtbusquedaAct: "",
         actividadesVector: [],
         actividadesAuxiliar: "",
+        actividad_economica: "",
         hoy: "",
         datos: {
           id: 0,
@@ -750,7 +829,7 @@
           naturaleza: "",
           otra_naturaleza: "",
           tipo: "",
-          actividad_economica: "",
+          // actividad_economica: "",
           capital_extranjero: "",
           permiso: "",
           otro_permiso: "",
@@ -763,7 +842,7 @@
           promedio_ingresos_posterior: "",
           carga_economica: "",
           protocolo_bioseguridad: "",
-          tipo_afectacion: "",
+          tipo_afectacion: [],
           otro_tipo_afectacion: "",
           ayuda: "",
           tiempo_recuperacion: "",
@@ -787,7 +866,18 @@
         mOMP: false,
         mOTA: false,
         mOPP: false,
-        valG: true
+        valG: true,
+        tipo: [
+          { value: 1, texto: "Reducción de personal" },
+          {
+            value: 2,
+            texto: "Reducción de salarios"
+          },
+          { value: 3, texto: "Desabastecimiento de insumos y materia prima" },
+          { value: 4, texto: "Disminución de demanda" },
+          { value: 5, texto: "Ninguna afectación" }
+        ],
+        ActividadData: []
       };
     },
     computed: {
@@ -863,8 +953,7 @@
             this.datos.otra_naturaleza =
               "" + respuesta.data.establecimientos.otra_naturaleza;
             this.datos.tipo = "" + respuesta.data.establecimientos.tipo;
-            this.datos.actividad_economica =
-              "" + respuesta.data.establecimientos.actividad_economica;
+
             this.datos.capital_extranjero =
               "" + respuesta.data.establecimientos.capital_extranjero;
             this.datos.permiso = "" + respuesta.data.establecimientos.permiso;
@@ -872,7 +961,7 @@
               this.mOMP = true;
             } else {
               this.mOMP = false;
-            }            
+            }
             this.datos.otro_permiso =
               "" + respuesta.data.establecimientos.otro_permiso;
             this.datos.anio = "" + respuesta.data.establecimientos.anio;
@@ -894,13 +983,15 @@
               "" + respuesta.data.establecimientos.carga_economica;
             this.datos.protocolo_bioseguridad =
               "" + respuesta.data.establecimientos.protocolo_bioseguridad;
-            this.datos.tipo_afectacion =
-              "" + respuesta.data.establecimientos.tipo_afectacion;
+            this.datos.tipo_afectacion = JSON.parse(
+              respuesta.data.establecimientos.tipo_afectacion
+            );
+
             if (this.datos.tipo_afectacion === "6") {
               this.mOTA = true;
             } else {
               this.mOTA = false;
-            }              
+            }
             this.datos.otro_tipo_afectacion =
               "" + respuesta.data.establecimientos.otro_tipo_afectacion;
             this.datos.ayuda = "" + respuesta.data.establecimientos.ayuda;
@@ -912,7 +1003,7 @@
               this.mOPP = true;
             } else {
               this.mOPP = false;
-            }              
+            }
             this.datos.internet = "" + respuesta.data.establecimientos.internet;
             this.datos.estado = "" + respuesta.data.establecimientos.estado;
             this.datos.id_compania =
@@ -931,8 +1022,8 @@
               "" + respuesta.data.establecimientos.representante;
             this.datos.direccion = "" + respuesta.data.establecimientos.direccion;
             this.datos.razon = "" + respuesta.data.establecimientos.razon;
-            this.actividadesAuxiliar =
-              respuesta.data.establecimientos.actividadesAuxiliar;
+
+            this.ActividadData = respuesta.data.actividad_establecimientos;
           });
         } catch (error) {
           switch (error.response.status) {
@@ -1001,15 +1092,15 @@
               }
             }
           } else {
-            if (this.datos.id_corre === "0"){
+            if (this.datos.id_corre === "0") {
               this.cambiarCombo("muni");
               this.datos.id_corre = "0";
-            }else{
+            } else {
               this.cambiarCombo("muni");
             }
           }
         }
-        if (caja === "vereda"){
+        if (caja === "vereda") {
           this.datos.id_barrio = "0";
           const parametros = {
             _token: this.csrf,
@@ -1030,15 +1121,15 @@
                 break;
             }
           }
-          let vere ="";          
-          if(this.datos.id_vereda === "" || this.datos.id_vereda === "0"){
+          let vere = "";
+          if (this.datos.id_vereda === "" || this.datos.id_vereda === "0") {
             vere = this.datos.id_vereda;
             this.cambiarCombo("corregi");
-            if(vere==="0"){
-              this.datos.id_vereda="0";
+            if (vere === "0") {
+              this.datos.id_vereda = "0";
             }
           }
-        }        
+        }
       },
       volver() {
         this.$router.push("/gestion");
@@ -1115,17 +1206,26 @@
         }
       },
       seleccionarActividades(item) {
-        this.datos.actividad_economica = item.id;
+        this.actividad_economica = item.id;
         this.actividadesAuxiliar = item.descripcion;
         this.$refs.modalActividad.hide();
       },
       guardar: async function() {
         if (!this.checkForm()) {
         } else {
+          if (this.ActividadData.length <= 0 ) {
+            this.$swal(
+              "Error...!",
+              "Por favor agrege por lo menos una actividad economica!",
+              "error"
+            );
+            return;
+          }
           this.datos.id_hogar = this.IDHOGAR;
           const parametros = {
             _token: this.csrf,
             datos: this.datos,
+            actividad_establecimientos: this.ActividadData,
             opcion: "editar",
             id: this.IDESTA
           };
@@ -1277,16 +1377,16 @@
           );
           return;
         }
-        if (this.datos.actividad_economica === "") {
-          this.$refs.actividad_economica.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción actividad economica!",
-            "error"
-          );
-          return;
-        }
+        // if (this.datos.actividad_economica === "") {
+        //   this.$refs.actividad_economica.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la opción actividad economica!",
+        //     "error"
+        //   );
+        //   return;
+        // }
         if (this.datos.capital_extranjero === "") {
           this.$refs.capital_extranjero.focus();
           bande = false;
@@ -1337,7 +1437,7 @@
           );
           return;
         }
-        if(this.datos.tiempo_sin_operacion < "0"){
+        if (this.datos.tiempo_sin_operacion < "0") {
           if (this.datos.tipo_tiempo === "") {
             this.$refs.tipo_tiempo.focus();
             bande = false;
@@ -1358,7 +1458,7 @@
             );
             return;
           }
-        }        
+        }
         if (this.datos.promedio_ingresos_anterior === "") {
           this.$refs.promedio_ingresos_anterior.focus();
           bande = false;
@@ -1409,8 +1509,7 @@
           );
           return;
         }
-        if (this.datos.tipo_afectacion === "") {
-          this.$refs.tipo_afectacion.focus();
+        if (this.datos.tipo_afectacion.length <= 0) {
           bande = false;
           this.$swal(
             "Error...!",
@@ -1491,12 +1590,12 @@
             this.datos.tiempo_sin_operacion = "";
           }
           if (this.datos.tiempo_sin_operacion < "0") {
-            this.datos.tiempo_sin_operacion = "";            
+            this.datos.tiempo_sin_operacion = "";
           }
           if (this.datos.tiempo_sin_operacion === "0") {
             this.datos.tipo_tiempo = "";
             this.datos.fecha_retorno = "";
-          }          
+          }
         }
         if (caja == "promedio_ingresos_anterior") {
           this.datos.promedio_ingresos_anterior = this.datos.promedio_ingresos_anterior.replace(
@@ -1552,8 +1651,49 @@
             this.datos.promedio_ingresos_posterior = "";
           }
         }
+      },
+      AgregarActividad() {
+        if (this.actividadesAuxiliar === "") {
+          this.$refs.actividadesAuxiliar.focus();
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione una actividad economica!",
+            "error"
+          );
+          return;
+        }
+        this.ActividadData.push({
+          id: 0,
+          id_actividad: this.actividad_economica,
+          actividad: this.actividadesAuxiliar,
+          estado: "Activo"
+        });
+        this.limpiarActividad();
+      },
+      limpiarActividad() {
+        this.actividadesAuxiliar = "";
+        this.actividad_economica = "";
+      },
+      eliminarItemActividad: function(item, index) {
+        if (item.id !== 0) {
+          this.ActividadData[index].estado = "Inactivo";
+          this.ActividadData.splice(index, 1, this.ActividadData[index]);
+        } else {
+          this.ActividadData.splice(index, 1);
+        }
       }
     }
   };
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .modal-title {
+    color: #f8f9fa !important;
+  }
+  .close {
+    display: none;
+  }
+</style>

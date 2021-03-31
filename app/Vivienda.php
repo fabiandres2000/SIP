@@ -10,7 +10,7 @@ class Vivienda extends Model
     protected $table = 'vivienda';
     protected $fillable = [
         'id_hogar', 'tipo_vivienda', 'tipo_estructura', 'otro_tipo_estructura', 'numero_cuartos', 'personas_por_cuartos',
-        'material_predominante', 'tipo_cubierta', 'otro_tipo_cubierta', 'actividad_economica', 'cual_actividad_economica', 'evento_afecta_vivienda',
+        'material_predominante', 'tipo_cubierta', 'otro_tipo_cubierta',  'cual_actividad_economica', 'evento_afecta_vivienda',
         'familias_accion', 'promedio_ingresos', 'otro_depositan_excretas', 'fuente_agua', 'cual_fuente', 'donde_almacena_agua',
         'otro_almacena_agua', 'ubicacion_tanque', 'tipo_tratamiento_agua', 'destino_final_basura', 'otro_destino_final_basura', 'porquerizas',
         'plagas', 'industrias', 'malos_olores', 'rellenos', 'contaminacion_a', 'contaminacion_v',
@@ -44,7 +44,6 @@ class Vivienda extends Model
             'material_predominante' => $data['material_predominante'],
             'tipo_cubierta' => $data['tipo_cubierta'],
             'otro_tipo_cubierta' => $data['otro_tipo_cubierta'],
-            'actividad_economica' => $data['actividad_economica'],
             'cual_actividad_economica' => $data['cual_actividad_economica'],
             'evento_afecta_vivienda' => $data['evento_afecta_vivienda'],
             'familias_accion' => $data['familias_accion'],
@@ -156,10 +155,9 @@ class Vivienda extends Model
     {
         return DB::connection('mysql')->table($alias . '.vivienda')
             ->join($alias . '.hogar', 'hogar.id', 'vivienda.id_hogar')
-            ->leftjoin($alias . '.actividades_economicas', 'actividades_economicas.id', 'vivienda.actividad_economica')
             ->where('vivienda.id_hogar', $id_hogar)
             ->where('vivienda.estado', 'Activo')
-            ->select("vivienda.*", "actividades_economicas.descripcion AS actividadesAuxiliar")
+            ->select("vivienda.*")
             ->first();
     }
 

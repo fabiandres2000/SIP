@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19,8 +19,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
 /* harmony import */ var vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuejs-datepicker/dist/locale */ "./node_modules/vuejs-datepicker/dist/locale/index.js");
 /* harmony import */ var vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__);
 //
 //
 //
@@ -11494,45 +11498,783 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"]},mounted:function mounted(){this.nuevo();this.hoy=moment();},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){return{hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),paises_options:[],dpto_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",peso:"",talla:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",peso:"",talla:""},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",actividad_economica:"",cual_actividad_economica:"",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,errores:[]};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// actividad_economica: { required },
-evento_afecta_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},familias_accion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},promedio_ingresos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},promedio_gastos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},fuente_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},energia_electrica:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},gas_natural:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},acueducto:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},alcantarillado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},telefono_fijo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},aseo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},internet_subsidiado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},internet_privado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},donde_almacena_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},ubicacion_tanque:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_tratamiento_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},destino_final_basura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},porquerizas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},plagas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},industrias:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},malos_olores:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},rellenos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},contaminacion_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},rio:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},otro_cerca:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},avenidas_transitadas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lotes_abandonados:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},servicio_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},donde_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},excretas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},dormitorio_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},sala:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lavadero:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// iluminacion_adecuada: { required },
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};// Import component
+// Import stylesheet
+/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"],Loading:vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8___default.a},mounted:function mounted(){this.hoy=moment();this.IDHOGAR=this.$route.params.IDHOGAR;if(this.IDHOGAR==null){this.$router.push("/gestion");}else{this.nuevo(this.IDHOGAR);}},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){return{isLoading:false,fullPage:true,hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),dpto_options:[],paises_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",enfermedades:[],peso:"",talla:""},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
+cual_actividad_economica:"NA",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,valGEst:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[]};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// actividad_economica: { required },
+evento_afecta_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},familias_accion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},promedio_ingresos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},promedio_gastos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},fuente_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},energia_electrica:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},gas_natural:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},acueducto:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},alcantarillado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},telefono_fijo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},aseo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},internet_subsidiado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},internet_privado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},donde_almacena_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},ubicacion_tanque:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_tratamiento_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},destino_final_basura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},porquerizas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},plagas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},industrias:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},malos_olores:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},rellenos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},contaminacion_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},rio:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},otro_cerca:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},avenidas_transitadas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lotes_abandonados:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},servicio_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},donde_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},excretas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},dormitorio_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},sala:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lavadero:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// iluminacion_adecuada: { required },
 // techo_adecuado: { required },
 // ventilacion_adecuada: { required },
 // pisos_adecuado: { required },
 // paredes_adecuadas: { required },
-gasolina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},plaguicidas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},detergentes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},plaguicidas_insectos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},envases_vacios:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},elementos_protecion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},metodos_coccion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lugares_preparan_alimentos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lugares_almacenan_alimentos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lava_frutas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_explotacion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},otros_genera:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_combustible:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},zona_alto_riesgo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},almacenamiento_residuos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},aguas_negras:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},zonas_verdes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},desplazamientos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},rotacion_cultivo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},emplea_fertilizantes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},quema_cultivo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},mantenimiento_preventivo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},veces_inundaciones:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},fachada:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},cuantos_baños:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},estado_conservacion_baños:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},acabados_externos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},estado_conservacion_estructuras:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},mobiliario_cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},andenes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},residuos_aprovechables:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},residuos_organicos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},residuos_no_aprovechables:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]}}},computed:{calEdad:function calEdad(){var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
+gasolina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},plaguicidas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},detergentes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},plaguicidas_insectos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},envases_vacios:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},elementos_protecion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},metodos_coccion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lugares_preparan_alimentos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lugares_almacenan_alimentos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lava_frutas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_explotacion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},otros_genera:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_combustible:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},zona_alto_riesgo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},almacenamiento_residuos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},aguas_negras:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},zonas_verdes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},desplazamientos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},rotacion_cultivo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},emplea_fertilizantes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},quema_cultivo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},mantenimiento_preventivo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},veces_inundaciones:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},fachada:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},cuantos_baños:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},estado_conservacion_baños:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},acabados_externos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},estado_conservacion_estructuras:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},mobiliario_cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},andenes:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},residuos_aprovechables:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},residuos_organicos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},residuos_no_aprovechables:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]}}},computed:{calEdad:function calEdad(){var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
 }return edad;},calEdad2:function calEdad2(){var nacimiento=moment(this.caracData.fecha_nacimiento);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
-}this.caracData.edad=edad;return edad;},wrongNumber:function wrongNumber(){return this.isNumeric(this.number)===false;},inputDisabled:function inputDisabled(){if(this.CA1.sexo==="MASCULINO"){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";}else{// this.CA1.embarazo = "0";
-// this.CA1.embarazo_multiple = "0";
-if(this.CA1.embarazo==="NO"){this.CA1.embarazo_multiple="NO";}else{// this.caracData.embarazo = "0";
-this.CA1.embarazo_multiple="0";}}return this.CA1.sexo==="MASCULINO";},inputDisabled2:function inputDisabled2(){if(this.caracData.sexo==="MASCULINO"){this.caracData.embarazo="NOAPLICA";this.caracData.embarazo_multiple="NOAPLICA";}else{// this.caracData.embarazo = "";
+}this.caracData.edad=edad;return edad;},wrongNumber:function wrongNumber(){return this.isNumeric(this.number)===false;},inputDisabled:function inputDisabled(){if(this.CA1.sexo==="MASCULINO"){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";}else{if(this.CA1.embarazo==="NO"){this.CA1.embarazo_multiple="NO";}else{if(this.CA1.embarazo==="NOAPLICA"){this.CA1.embarazo_multiple="NOAPLICA";}else{this.CA1.embarazo_multiple="0";}}}return this.CA1.sexo==="MASCULINO";},inputDisabled2:function inputDisabled2(){if(this.caracData.sexo==="MASCULINO"){this.caracData.embarazo="NOAPLICA";this.caracData.embarazo_multiple="NOAPLICA";}else{// this.caracData.embarazo = "";
 // this.caracData.embarazo_multiple = "";
 if(this.caracData.embarazo==="NO"){this.caracData.embarazo_multiple="NO";}else{// this.caracData.embarazo = "0";
 this.caracData.embarazo_multiple="";}}return this.caracData.sexo==="MASCULINO";},soloNum:function soloNum(){// alert(this.Men1A.peso_nacer);
 // return this.Men1A.peso_nacer.replace( /[^\d]/g, '' ).trim();
-},calHoy:function calHoy(){var hoy=moment();return hoy;},spinGIden:function spinGIden(){if(this.valGIden){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGVivi:function spinGVivi(){if(this.valGVivi){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGCart:function spinGCart(){if(this.valGCart){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGAdole:function spinGAdole(){if(this.valGAdole){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGAdul:function spinGAdul(){if(this.valGAdul){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGMig:function spinGMig(){if(this.valGMig){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGActu:function spinGActu(){if(this.valGActu){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}}},methods:{calculaEdad:function calculaEdad(){var a=moment();var b=moment(this.CA1.fecha_nac);var years=a.diff(b,'year');b.add(years,'years');var months=a.diff(b,'months');b.add(months,'months');var days=a.diff(b,'days');if(years==0){if(months<=1){if(days<=1){this.CA1.meses=months+" MES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MES";this.CA1.dias=days+" DIAS";}}else{if(days<=1){this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIAS";}}}else{this.CA1.meses=0;this.CA1.dias=0;}},abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:parametros={txtbusqueda:_this.txtbusqueda.trim(),_token:_this.csrf,page:pagina};_context.prev=1;_context.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this.ocupacionesVector=respuesta.data.ocupaciones.data;_this.paginacionVector=respuesta.data.paginacion;});case 4:_context.next=15;break;case 6:_context.prev=6;_context.t0=_context["catch"](1);_context.t1=_context.t0.response.status;_context.next=_context.t1===422?11:13;break;case 11:_this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",15);case 13:_this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",15);case 15:case"end":return _context.stop();}}},_callee,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},abrirModalActividades:function abrirModalActividades(){this.txtbusquedaAct="";this.consultarActividades(1);this.$refs.modalActividad.show();},consultarActividades:function consultarActividades(pagina){var _this2=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:parametros={txtbusqueda:_this2.txtbusquedaAct.trim(),_token:_this2.csrf,page:pagina};_context2.prev=1;_context2.next=4;return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_5__["listar"](parametros).then(function(respuesta){_this2.actividadesVector=respuesta.data.actividades.data;});case 4:_context2.next=15;break;case 6:_context2.prev=6;_context2.t0=_context2["catch"](1);_context2.t1=_context2.t0.response.status;_context2.next=_context2.t1===422?11:13;break;case 11:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",15);case 13:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",15);case 15:case"end":return _context2.stop();}}},_callee2,null,[[1,6]]);}))();},seleccionarActividades:function seleccionarActividades(item){this.viviendaData.actividad_economica=item.id;this.actividadesAuxiliar=item.descripcion;this.$refs.modalActividad.hide();},Actualizar:function Actualizar(){var _this3=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(){var id,opcion,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:id=0;opcion="";if(_this3.hogar.id_corre!=""){opcion="CORRE";id=_this3.hogar.id_corre;}else{opcion="MUN";id=_this3.hogar.id_mun;}parametros={_token:_this3.csrf,id:id,opcion:opcion};_this3.valGActu=false;_context3.prev=5;_context3.next=8;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function(respuesta){_this3.corregi_options=respuesta.data.arrayCorregi;_this3.vereda_options=respuesta.data.arrayVeredas;_this3.parentesco_options=respuesta.data.arrayParentesco;_this3.estado_options=respuesta.data.arrayEstado;_this3.escolaridad_options=respuesta.data.arrayEscolaridad;_this3.ocupacion_options=respuesta.data.arrayOcupacion;_this3.etnia_options=respuesta.data.arrayEtnia;_this3.admini_options=respuesta.data.arrayAdmini;_this3.clasifi_options=respuesta.data.arrayCLasifi;_this3.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this3.morbilidad_options=respuesta.data.arrayMorbilidad;_this3.metodos_options=respuesta.data.arrayMetodos;_this3.motivos_options=respuesta.data.arrayMotivos;_this3.grupos_options=respuesta.data.arrayGrupos;_this3.enfcro_options=respuesta.data.arrayEnfCro;_this3.enfinf_options=respuesta.data.arrayEnfInf;_this3.religion_options=respuesta.data.arrayReligion;_this3.colegio_options=respuesta.data.arrayColegios;_this3.barrio_options=respuesta.data.arrayBarrios;_this3.valGActu=true;});case 8:_context3.next=19;break;case 10:_context3.prev=10;_context3.t0=_context3["catch"](5);_context3.t1=_context3.t0.response.status;_context3.next=_context3.t1===422?15:17;break;case 15:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",19);case 17:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",19);case 19:case"end":return _context3.stop();}}},_callee3,null,[[5,10]]);}))();},cambiarTab2:function cambiarTab2(opcion){if(this.GIDEN===false){// $('.nav-tabs a[href="#' + opcion + '"]').tab('show');
-$('.nav-tabs a[href="#tabIdentificacion"]').tab('show');return false;}else{}},cambiarTab1:function cambiarTab1(opcion,actual){var _this4=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(){var bandera,resul,_resul,_resul2,_resul3,parametros,isInvalid,auxi,_resul4,_resul5,_resul6,_resul7,_resul8,_auxi,_resul9,_resul10,_resul11,_auxi2,_resul12,_resul13,_resul14,_auxi3,_resul15;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:bandera=false;if(!(actual==="tabIdentificacion")){_context4.next=90;break;}if(!(_this4.hogar.id_dpto==="")){_context4.next=6;break;}_this4.$refs.id_dpto.focus();_this4.$swal("Error...!","Por favor seleccione el departamento!","error");return _context4.abrupt("return");case 6:if(!(_this4.hogar.id_mun==="")){_context4.next=10;break;}_this4.$refs.id_mun.focus();_this4.$swal("Error...!","Por favor seleccione el municipio!","error");return _context4.abrupt("return");case 10:if(!(_this4.hogar.tenencia_vivienda==="")){_context4.next=14;break;}_this4.$refs.tenencia_vivienda.focus();_this4.$swal("Error...!","Por favor seleccione la tenencia de vivienda!","error");return _context4.abrupt("return");case 14:if(!(_this4.allLetter(_this4.hogar.numero_hogares)===false)){_context4.next=19;break;}_this4.$refs.numero_hogares.focus();_this4.hogar.numero_hogares="";_this4.$swal("Error...!","Por favor digite solo numero en el numero de hogares!","error");return _context4.abrupt("return");case 19:if(!(_this4.hogar.numero_hogares==="")){_context4.next=23;break;}_this4.$refs.numero_hogares.focus();_this4.$swal("Error...!","Por favor digite el numero de hogares!","error");return _context4.abrupt("return");case 23:if(!(_this4.hogar.poblacion_especial==="")){_context4.next=27;break;}_this4.$refs.poblacion_especial.focus();_this4.$swal("Error...!","Por favor seleccione la población especial!","error");return _context4.abrupt("return");case 27:if(!(_this4.hogar.vias_acceso==="")){_context4.next=31;break;}_this4.$refs.vias_acceso.focus();_this4.$swal("Error...!","Por favor seleccione si la comunidad presenta vías de acceso!","error");return _context4.abrupt("return");case 31:if(!(_this4.hogar.servicios_publicos==="")){_context4.next=35;break;}_this4.$refs.servicios_publicos.focus();_this4.$swal("Error...!","Por favor seleccione si presenta acceso fácil a los servicios públicos!","error");return _context4.abrupt("return");case 35:if(!(_this4.hogar.direccion==="")){_context4.next=39;break;}_this4.$refs.direccion.focus();_this4.$swal("Error...!","Por favor digite la dirección!","error");return _context4.abrupt("return");case 39:if(!(_this4.datosJefe.length<=0)){_context4.next=44;break;}_this4.$swal("Error...!","Por favor agregue por lo menos un jefe de hogar","error");return _context4.abrupt("return");case 44:resul=_this4.valJef1();if(!resul){_context4.next=49;break;}bandera=true;_context4.next=50;break;case 49:return _context4.abrupt("return",false);case 50:if(!(_this4.datos.length>0)){_context4.next=57;break;}_resul=_this4.valInt1();if(!_resul){_context4.next=56;break;}bandera=true;_context4.next=57;break;case 56:return _context4.abrupt("return",false);case 57:if(!(_this4.factores.length>0)){_context4.next=64;break;}_resul2=_this4.valFactores();if(!_resul2){_context4.next=63;break;}bandera=true;_context4.next=64;break;case 63:return _context4.abrupt("return",false);case 64:if(!(_this4.afectacion.length>0)){_context4.next=71;break;}_resul3=_this4.valAfectacion();if(!_resul3){_context4.next=70;break;}bandera=true;_context4.next=71;break;case 70:return _context4.abrupt("return",false);case 71://VALIDAR LA TABLA AFECTACION
-//GUARDAR DATOS
-parametros="";if(_this4.GIDEN===false){parametros={_token:_this4.csrf,hogar:_this4.hogar,caracterizacion:_this4.datosJefe,integrantes:_this4.datos,factores:_this4.factores,CODIGOGENE:_this4.CODIGOGENE,afectacion:_this4.afectacion,opcion:"GUARDAR",opc:"GUAINDEN"};}else{parametros={_token:_this4.csrf,hogar:_this4.hogar,caracterizacion:_this4.datosJefe,integrantes:_this4.datos,factores:_this4.factores,CODIGOGENE:_this4.CODIGOGENE,afectacion:_this4.afectacion,opcion:"MODIFICAR",opc:"GUAINDEN",id_hogar:_this4.IDHOGAR};}_this4.valGIden=false;_context4.prev=74;_context4.next=77;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="G"){_this4.GIDEN=true;_this4.IDHOGAR=respuesta.data.IDHOGAR;_this4.valGIden=true;_this4.hogar.id=_this4.IDHOGAR;bandera=true;_this4.datosJefe.length=0;_this4.datos.length=0;_this4.factores.length=0;_this4.afectacion.length=0;_this4.datosJefe=respuesta.data.jefes;_this4.datos=respuesta.data.integrantes;_this4.factores=respuesta.data.factores;_this4.afectacion=respuesta.data.afectacion;}if(respuesta.data.OPC=="E"){_this4.GIDEN=true;_this4.IDHOGAR=respuesta.data.IDHOGAR;_this4.valGIden=true;bandera=true;_this4.datosJefe.length=0;_this4.datos.length=0;_this4.factores.length=0;_this4.afectacion.length=0;_this4.datosJefe=respuesta.data.jefes;_this4.datos=respuesta.data.integrantes;_this4.factores=respuesta.data.factores;_this4.afectacion=respuesta.data.afectacion;}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña identificación","error");return;});case 77:_context4.next=90;break;case 79:_context4.prev=79;_context4.t0=_context4["catch"](74);_context4.t1=_context4.t0.response.status;_context4.next=_context4.t1===419?84:_context4.t1===422?86:88;break;case 84:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",90);case 86:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",90);case 88:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",90);case 90:if(!(actual==="tabVivienda")){_context4.next=124;break;}bandera=true;// this.GIDEN=true;
-// this.IDHOGAR=1;
-if(!(_this4.GIDEN===false)){_context4.next=95;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 95:_this4.$v.$touch();isInvalid=_this4.$v.$invalid;if(!isInvalid){_context4.next=102;break;}_this4.$swal("Error...!","Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda","error");return _context4.abrupt("return",false);case 102:if(!(_this4.estratificacion.length<=0)){_context4.next=105;break;}_this4.$swal("Error...!","Por favor agregue por lo menos una estratificación","error");return _context4.abrupt("return");case 105:parametros="";if(_this4.GVIVI===false){parametros={_token:_this4.csrf,vivienda:_this4.viviendaData,estratificacion:_this4.estratificacion,Animales:_this4.animalesData,opcion:"GUARDAR",opc:"GUAVIVI",IDHOGAR:_this4.IDHOGAR};}else{parametros={_token:_this4.csrf,vivienda:_this4.viviendaData,estratificacion:_this4.estratificacion,Animales:_this4.animalesData,opcion:"MODIFICAR",opc:"GUAVIVI",IDHOGAR:_this4.IDHOGAR};}//GUARDAR DATOS
-_this4.valGVivi=false;_context4.prev=108;_context4.next=111;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.GVIVI=true;bandera=true;_this4.valGVivi=true;_this4.viviendaData.id=respuesta.data.vivienda.id;_this4.animalesData.length=0;_this4.estratificacion.length=0;_this4.animalesData=respuesta.data.animales;_this4.estratificacion=respuesta.data.estratificacion;}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 111:_context4.next=124;break;case 113:_context4.prev=113;_context4.t2=_context4["catch"](108);_context4.t3=_context4.t2.response.status;_context4.next=_context4.t3===419?118:_context4.t3===422?120:122;break;case 118:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",124);case 120:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",124);case 122:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",124);case 124:if(!(actual==="cartxciclo")){_context4.next=193;break;}bandera=true;if(!(_this4.IDHOGAR===0)){_context4.next=129;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 129:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
-if(!(_this4.Men1A.length>0)){_context4.next=138;break;}_resul4=_this4.valMen1();if(!_resul4){_context4.next=137;break;}bandera=true;auxi=true;_context4.next=138;break;case 137:return _context4.abrupt("return",false);case 138:if(!(_this4.De1A5.length>0)){_context4.next=146;break;}_resul5=_this4.valDe1A5();if(!_resul5){_context4.next=145;break;}bandera=true;auxi=true;_context4.next=146;break;case 145:return _context4.abrupt("return",false);case 146:if(!(_this4.De6A11.length>0)){_context4.next=154;break;}_resul6=_this4.valDe6A11();if(!_resul6){_context4.next=153;break;}bandera=true;auxi=true;_context4.next=154;break;case 153:return _context4.abrupt("return",false);case 154:if(!(_this4.De10A59.length>0)){_context4.next=162;break;}_resul7=_this4.valDe10A59();if(!_resul7){_context4.next=161;break;}bandera=true;auxi=true;_context4.next=162;break;case 161:return _context4.abrupt("return",false);case 162:if(!(_this4.ParPost.length>0)){_context4.next=170;break;}_resul8=_this4.valParPost();if(!_resul8){_context4.next=169;break;}bandera=true;auxi=true;_context4.next=170;break;case 169:return _context4.abrupt("return",false);case 170:if(!auxi){_context4.next=192;break;}//GUARDAR DATOS
-parametros="";if(_this4.GCARXCI===false){parametros={_token:_this4.csrf,Men1A:_this4.Men1A,De1A5:_this4.De1A5,De6A11:_this4.De6A11,De10A59:_this4.De10A59,ParPost:_this4.ParPost,opcion:"GUARDAR",opc:"GUACARCI",IDHOGAR:_this4.IDHOGAR};}else{parametros={_token:_this4.csrf,Men1A:_this4.Men1A,De1A5:_this4.De1A5,De6A11:_this4.De6A11,De10A59:_this4.De10A59,ParPost:_this4.ParPost,opcion:"MODIFICAR",opc:"GUACARCI",IDHOGAR:_this4.IDHOGAR};}_this4.valGCart=false;_context4.prev=174;_context4.next=177;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.GCARXCI=true;bandera=true;_this4.valGCart=true;// GESTION DE LAS VARIABLES DE CART X CICLO
-_this4.Men1A.length=0;_this4.De1A5.length=0;_this4.De6A11.length=0;_this4.De10A59.length=0;_this4.ParPost.length=0;_this4.Men1A=respuesta.data.Men1A;_this4.De1A5=respuesta.data.De1A5;_this4.De6A11=respuesta.data.De6A11;_this4.De10A59=respuesta.data.De10A59;_this4.ParPost=respuesta.data.ParPost;// GESTION DE LAS VARIABLES DE CART X CICLO                    
-}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña ciclos","error");return;});case 177:_context4.next=190;break;case 179:_context4.prev=179;_context4.t4=_context4["catch"](174);_context4.t5=_context4.t4.response.status;_context4.next=_context4.t5===419?184:_context4.t5===422?186:188;break;case 184:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",190);case 186:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",190);case 188:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",190);case 190:_context4.next=193;break;case 192:bandera=true;case 193:if(!(actual==="adolescente")){_context4.next=246;break;}bandera=true;_auxi=false;if(!(_this4.IDHOGAR===0)){_context4.next=199;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 199:if(!(_this4.De12A17.length>0)){_context4.next=207;break;}_resul9=_this4.valDe12A17();if(!_resul9){_context4.next=206;break;}bandera=true;_auxi=true;_context4.next=207;break;case 206:return _context4.abrupt("return",false);case 207:if(!(_this4.De18A28.length>0)){_context4.next=215;break;}_resul10=_this4.valDe18A28();if(!_resul10){_context4.next=214;break;}bandera=true;_auxi=true;_context4.next=215;break;case 214:return _context4.abrupt("return",false);case 215:if(!(_this4.De29A59.length>0)){_context4.next=223;break;}_resul11=_this4.valDe29A59();if(!_resul11){_context4.next=222;break;}bandera=true;_auxi=true;_context4.next=223;break;case 222:return _context4.abrupt("return",false);case 223:if(!_auxi){_context4.next=245;break;}parametros="";//GUARDAR DATOS
-if(_this4.GADOLE===false){parametros={_token:_this4.csrf,De12A17:_this4.De12A17,De18A28:_this4.De18A28,De29A59:_this4.De29A59,opcion:"GUARDAR",opc:"GUADOLE",IDHOGAR:_this4.IDHOGAR};}else{parametros={_token:_this4.csrf,De12A17:_this4.De12A17,De18A28:_this4.De18A28,De29A59:_this4.De29A59,opcion:"MODIFICAR",opc:"GUADOLE",IDHOGAR:_this4.IDHOGAR};}_this4.valGAdole=false;_context4.prev=227;_context4.next=230;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.GADOLE=true;bandera=true;_this4.valGAdole=true;_this4.De12A17.length=0;_this4.De18A28.length=0;_this4.De29A59.length=0;// GESTION DE LAS VARIABLES DE ADOLESCENTES
-_this4.De12A17=respuesta.data.De12A17;_this4.De18A28=respuesta.data.De18A28;_this4.De29A59=respuesta.data.De29A59;// GESTION DE LAS VARIABLES DE ADOLESCENTES                    
-}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña adolescentes","error");return;});case 230:_context4.next=243;break;case 232:_context4.prev=232;_context4.t6=_context4["catch"](227);_context4.t7=_context4.t6.response.status;_context4.next=_context4.t7===419?237:_context4.t7===422?239:241;break;case 237:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",243);case 239:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",243);case 241:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",243);case 243:_context4.next=246;break;case 245:bandera=true;case 246:if(!(actual==="adultomayor")){_context4.next=298;break;}_auxi2=false;if(!(_this4.IDHOGAR===0)){_context4.next=251;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 251:if(!(_this4.De60.length>0)){_context4.next=259;break;}_resul12=_this4.valDe60();if(!_resul12){_context4.next=258;break;}bandera=true;_auxi2=true;_context4.next=259;break;case 258:return _context4.abrupt("return",false);case 259:if(!(_this4.EnCro.length>0)){_context4.next=267;break;}_resul13=_this4.valEnCro();if(!_resul13){_context4.next=266;break;}bandera=true;_auxi2=true;_context4.next=267;break;case 266:return _context4.abrupt("return",false);case 267:if(!(_this4.EnInf.length>0)){_context4.next=275;break;}_resul14=_this4.valEnInf();if(!_resul14){_context4.next=274;break;}bandera=true;_auxi2=true;_context4.next=275;break;case 274:return _context4.abrupt("return",false);case 275:if(!_auxi2){_context4.next=297;break;}parametros="";if(_this4.GADULT===false){parametros={_token:_this4.csrf,De60:_this4.De60,EnCro:_this4.EnCro,EnInf:_this4.EnInf,opcion:"GUARDAR",opc:"GUADULT",IDHOGAR:_this4.IDHOGAR};}else{parametros={_token:_this4.csrf,De60:_this4.De60,EnCro:_this4.EnCro,EnInf:_this4.EnInf,opcion:"MODIFICAR",opc:"GUADULT",IDHOGAR:_this4.IDHOGAR};}//GUARDAR DATOS
-_this4.valGAdul=false;_context4.prev=279;_context4.next=282;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.GADULT=true;bandera=true;_this4.valGAdul=true;_this4.De60.length=0;_this4.EnCro.length=0;_this4.EnInf.length=0;// GESTION DE LAS VARIABLES DE ADULTO MAYOR
-_this4.De60=respuesta.data.De60;_this4.EnCro=respuesta.data.EnCro;_this4.EnInf=respuesta.data.EnInf;// GESTION DE LAS VARIABLES DE ADULTO MAYOR                    
-}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña adultos","error");return;});case 282:_context4.next=295;break;case 284:_context4.prev=284;_context4.t8=_context4["catch"](279);_context4.t9=_context4.t8.response.status;_context4.next=_context4.t9===419?289:_context4.t9===422?291:293;break;case 289:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",295);case 291:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",295);case 293:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",295);case 295:_context4.next=298;break;case 297:bandera=true;case 298:if(!(actual==="migrante")){_context4.next=335;break;}_auxi3=false;if(!(_this4.IDHOGAR===0)){_context4.next=303;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 303:if(!(_this4.Migra.length>0)){_context4.next=311;break;}_resul15=_this4.valMigra();if(!_resul15){_context4.next=310;break;}bandera=true;_auxi3=true;_context4.next=311;break;case 310:return _context4.abrupt("return",false);case 311:if(!_auxi3){_context4.next=333;break;}parametros="";if(_this4.GMIGRA===false){parametros={_token:_this4.csrf,Migra:_this4.Migra,opcion:"GUARDAR",opc:"GUAMIGRA",IDHOGAR:_this4.IDHOGAR};}else{parametros={_token:_this4.csrf,Migra:_this4.Migra,opcion:"MODIFICAR",opc:"GUAMIGRA",IDHOGAR:_this4.IDHOGAR};}_this4.valGMig=false;_context4.prev=315;_context4.next=318;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.valGMig=true;bandera=true;_this4.Migra.length=0;// GESTION DE LAS VARIABLES DE MIGRANTES
-_this4.Migra=respuesta.data.Migra;// GESTION DE LAS VARIABLES DE MIGRANTES                    
-// this.$router.push("/gestion");
-_this4.$refs.modalAbrir.show();}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña migrantes","error");return;});case 318:_context4.next=331;break;case 320:_context4.prev=320;_context4.t10=_context4["catch"](315);_context4.t11=_context4.t10.response.status;_context4.next=_context4.t11===419?325:_context4.t11===422?327:329;break;case 325:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",331);case 327:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",331);case 329:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",331);case 331:_context4.next=335;break;case 333:_this4.$swal("Guardar...!","Datos Guardados Exitosamente!","success");_this4.$router.push("/gestion");case 335:if(bandera){bandera=false;$('.nav-tabs a[href="#'+opcion+'"]').tab("show");}case 336:case"end":return _context4.stop();}}},_callee4,null,[[74,79],[108,113],[174,179],[227,232],[279,284],[315,320]]);}))();},seleccionarOpcion:function seleccionarOpcion(opcion){this.$swal("Guardar...!","Datos Guardados Exitosamente!","success");if(opcion==="unidades"){this.$router.push({name:"Unidades",params:{IDHOGAR:this.IDHOGAR}});}if(opcion==="establecimiento"){this.$router.push({name:"Establecimientos",params:{IDHOGAR:this.IDHOGAR}});}if(opcion==="salir"){this.$router.push("/gestion");}},//VALIDACIONES
+},calHoy:function calHoy(){var hoy=moment();return hoy;},spinGIden:function spinGIden(){if(this.valGIden){return{};}else{return["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"];}},spinGVivi:function spinGVivi(){if(this.valGVivi){return{};}else{return["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"];}},spinGCart:function spinGCart(){if(this.valGCart){return{};}else{return["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"];}},spinGAdole:function spinGAdole(){if(this.valGAdole){return{};}else{return["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"];}},spinGAdul:function spinGAdul(){if(this.valGAdul){return{};}else{return["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"];}},spinGMig:function spinGMig(){if(this.valGMig){return{};}else{return["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"];}},spinGActu:function spinGActu(){if(this.valGActu){return{};}else{return["kt-spinner","kt-spinner--right","kt-spinner--sm","kt-spinner--light"];}}},methods:{onCancel:function onCancel(){// this.isLoading = true;
+// // simulate AJAX
+// setTimeout(() => {
+//   this.isLoading = false
+// },5000)
+},nuevo:function(){var _nuevo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id_hogar){var _this=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:parametros={_token:this.csrf,id_hogar:id_hogar};this.isLoading=true;_context.prev=2;_context.next=5;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["editarCaracterizacion"](parametros).then(function(respuesta){_this.dpto_options=respuesta.data.arrayDpto;_this.muni_options=respuesta.data.arrayMuni;_this.corregi_options=respuesta.data.arrayCorregi;_this.vereda_options=respuesta.data.arrayVeredas;_this.parentesco_options=respuesta.data.arrayParentesco;_this.estado_options=respuesta.data.arrayEstado;_this.escolaridad_options=respuesta.data.arrayEscolaridad;_this.ocupacion_options=respuesta.data.arrayOcupacion;_this.etnia_options=respuesta.data.arrayEtnia;_this.admini_options=respuesta.data.arrayAdmini;_this.clasifi_options=respuesta.data.arrayCLasifi;_this.grados_option=respuesta.data.arrayGrados;_this.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this.morbilidad_options=respuesta.data.arrayMorbilidad;_this.metodos_options=respuesta.data.arrayMetodos;_this.motivos_options=respuesta.data.arrayMotivos;_this.grupos_options=respuesta.data.arrayGrupos;_this.enfcro_options=respuesta.data.arrayEnfCro;_this.enfinf_options=respuesta.data.arrayEnfInf;_this.religion_options=respuesta.data.arrayReligion;_this.CODIGOGENE=respuesta.data.codigo;_this.paises_options=respuesta.data.arrayPaises;_this.IDHOGAR=respuesta.data.hogar.id;_this.hogar.id=respuesta.data.hogar.id;_this.hogar.id_dpto=respuesta.data.hogar.id_dpto;_this.hogar.id_mun=respuesta.data.hogar.id_mun.padStart(3,0);_this.cambiarCombo("muni");_this.hogar.id_corre=""+respuesta.data.hogar.id_corre;if(_this.hogar.id_corre!=="0"){_this.cambiarCombo("corregi");}_this.hogar.id_vereda=""+respuesta.data.hogar.id_vereda;_this.hogar.id_barrio=""+respuesta.data.hogar.id_barrio;_this.hogar.id_zona=""+respuesta.data.hogar.id_zona;_this.habilitar_zonas();_this.hogar.tenencia_vivienda=respuesta.data.hogar.tenencia_vivienda;_this.hogar.numero_hogares=""+respuesta.data.hogar.numero_hogares;_this.hogar.poblacion_especial=respuesta.data.hogar.poblacion_especial;_this.hogar.vias_acceso=respuesta.data.hogar.vias_acceso;_this.hogar.servicios_publicos=respuesta.data.hogar.servicios_publicos;// GESTION DE LAS VARIABLES DEL HOGAR
+_this.hogar.direccion=respuesta.data.hogar.direccion;_this.datosJefe=respuesta.data.jefes;_this.datos=respuesta.data.integrantes;_this.factores=respuesta.data.factores;_this.afectacion=respuesta.data.afectacion;var _loop=function _loop(i){var indice=_this.datosJefe.findIndex(function(identi){return identi.identificacion===_this.datosJefe[i].identificacion;});_this.vectorJefes.push({index:indice,identificacion:_this.datosJefe[i].identificacion});};for(var i=0;i<_this.datosJefe.length;i++){_loop(i);}var _loop2=function _loop2(_i){var indice=_this.datos.findIndex(function(identi){return identi.identificacion===_this.datos[_i].identificacion;});_this.vectorIntegrante.push({index:indice,identificacion:_this.datos[_i].identificacion});};for(var _i=0;_i<_this.datos.length;_i++){_loop2(_i);}// GESTION DE LAS VARIABLES DEL HOGAR
+if(respuesta.data.viviVacia<=0){_this.viviendaData.id=0;_this.viviendaData.actividad_economica="";_this.actividadesAuxiliar="";}else{_this.viviendaData.id=respuesta.data.vivienda.id;_this.viviendaData.actividad_economica=respuesta.data.vivienda.actividad_economica;_this.actividadesAuxiliar=respuesta.data.vivienda.actividadesAuxiliar;}_this.viviendaData.id_hogar=respuesta.data.vivienda.id_hogar;_this.viviendaData.tipo_vivienda=respuesta.data.vivienda.tipo_vivienda;_this.viviendaData.tipo_estructura=respuesta.data.vivienda.tipo_estructura;_this.viviendaData.otro_tipo_estructura=respuesta.data.vivienda.otro_tipo_estructura;_this.viviendaData.numero_cuartos=respuesta.data.vivienda.numero_cuartos;_this.viviendaData.personas_por_cuartos=0;_this.viviendaData.material_predominante=respuesta.data.vivienda.material_predominante;_this.viviendaData.tipo_cubierta=respuesta.data.vivienda.tipo_cubierta;_this.viviendaData.otro_tipo_cubierta=respuesta.data.vivienda.otro_tipo_cubierta;_this.viviendaData.cual_actividad_economica="NA";_this.viviendaData.evento_afecta_vivienda=respuesta.data.vivienda.evento_afecta_vivienda;_this.viviendaData.familias_accion=respuesta.data.vivienda.familias_accion;_this.viviendaData.promedio_ingresos=respuesta.data.vivienda.promedio_ingresos;_this.viviendaData.promedio_gastos=respuesta.data.vivienda.promedio_gastos;_this.viviendaData.fuente_agua=respuesta.data.vivienda.fuente_agua;_this.viviendaData.energia_electrica=respuesta.data.vivienda.energia_electrica;_this.viviendaData.gas_natural=respuesta.data.vivienda.gas_natural;_this.viviendaData.acueducto=respuesta.data.vivienda.acueducto;_this.viviendaData.alcantarillado=respuesta.data.vivienda.alcantarillado;_this.viviendaData.telefono_fijo=respuesta.data.vivienda.telefono_fijo;_this.viviendaData.aseo=respuesta.data.vivienda.aseo;_this.viviendaData.internet_subsidiado=respuesta.data.vivienda.internet_subsidiado;_this.viviendaData.internet_privado=respuesta.data.vivienda.internet_privado;_this.viviendaData.cual_fuente=respuesta.data.vivienda.cual_fuente;_this.viviendaData.donde_almacena_agua=respuesta.data.vivienda.donde_almacena_agua;_this.viviendaData.otro_almacena_agua=respuesta.data.vivienda.otro_almacena_agua;_this.viviendaData.ubicacion_tanque=respuesta.data.vivienda.ubicacion_tanque;_this.viviendaData.tipo_tratamiento_agua=respuesta.data.vivienda.tipo_tratamiento_agua;_this.viviendaData.destino_final_basura=respuesta.data.vivienda.destino_final_basura;_this.viviendaData.otro_destino_final_basura=respuesta.data.vivienda.otro_destino_final_basura;_this.viviendaData.porquerizas=respuesta.data.vivienda.porquerizas;_this.viviendaData.plagas=respuesta.data.vivienda.plagas;_this.viviendaData.industrias=respuesta.data.vivienda.industrias;_this.viviendaData.malos_olores=respuesta.data.vivienda.malos_olores;_this.viviendaData.rellenos=respuesta.data.vivienda.rellenos;_this.viviendaData.contaminacion_a=respuesta.data.vivienda.contaminacion_a;_this.viviendaData.contaminacion_v="NA";_this.viviendaData.rio=respuesta.data.vivienda.rio;_this.viviendaData.otro_cerca=respuesta.data.vivienda.otro_cerca;_this.viviendaData.cual_cerca=respuesta.data.vivienda.cual_cerca;_this.viviendaData.aereopuertos="NA";_this.viviendaData.avenidas_transitadas=respuesta.data.vivienda.avenidas_transitadas;_this.viviendaData.lotes_abandonados=respuesta.data.vivienda.lotes_abandonados;_this.viviendaData.servicio_sanitario=respuesta.data.vivienda.servicio_sanitario;_this.viviendaData.donde_sanitario=respuesta.data.vivienda.donde_sanitario;_this.viviendaData.excretas=respuesta.data.vivienda.excretas;_this.viviendaData.otro_depositan_excretas=respuesta.data.vivienda.otro_depositan_excretas;_this.viviendaData.cocina=respuesta.data.vivienda.cocina;_this.viviendaData.dormitorio_a=respuesta.data.vivienda.dormitorio_a;_this.viviendaData.sala=respuesta.data.vivienda.sala;_this.viviendaData.dormitorio_n="NA";_this.viviendaData.sanitario=respuesta.data.vivienda.sanitario;_this.viviendaData.lavadero=respuesta.data.vivienda.lavadero;_this.viviendaData.iluminacion_adecuada="NA";_this.viviendaData.techo_adecuado="NA";_this.viviendaData.ventilacion_adecuada="NA";_this.viviendaData.pisos_adecuado="NA";_this.viviendaData.paredes_adecuadas="NA";_this.viviendaData.gasolina=respuesta.data.vivienda.gasolina;_this.viviendaData.plaguicidas=respuesta.data.vivienda.plaguicidas;_this.viviendaData.detergentes=respuesta.data.vivienda.detergentes;_this.viviendaData.plaguicidas_insectos=respuesta.data.vivienda.plaguicidas_insectos;_this.viviendaData.envases_vacios=respuesta.data.vivienda.envases_vacios;_this.viviendaData.otro_envases_vacios=respuesta.data.vivienda.otro_envases_vacios;_this.viviendaData.elementos_protecion=respuesta.data.vivienda.elementos_protecion;_this.viviendaData.otro_elementos_protecion=respuesta.data.vivienda.otro_elementos_protecion;_this.viviendaData.metodos_coccion=respuesta.data.vivienda.metodos_coccion;_this.viviendaData.otro_metodos_coccion=respuesta.data.vivienda.otro_metodos_coccion;_this.viviendaData.lugares_preparan_alimentos=respuesta.data.vivienda.lugares_preparan_alimentos;_this.viviendaData.lugares_almacenan_alimentos=respuesta.data.vivienda.lugares_almacenan_alimentos;_this.viviendaData.otro_lugares_almacenan_alimentos=respuesta.data.vivienda.otro_lugares_almacenan_alimentos;_this.viviendaData.lava_frutas=respuesta.data.vivienda.lava_frutas;_this.viviendaData.tipo_explotacion=respuesta.data.vivienda.tipo_explotacion;_this.viviendaData.otro_tipo_explotacion=respuesta.data.vivienda.otro_tipo_explotacion;_this.viviendaData.flora_afectados="NA";_this.viviendaData.fauna_afectados="NA";_this.viviendaData.suelo_afectados="NA";_this.viviendaData.aire_afectados="NA";_this.viviendaData.agua_afectados="NA";_this.viviendaData.residuos_solidos_genera="NA";_this.viviendaData.aguas_servidas_genera="NA";_this.viviendaData.desechos_cocina_genera="NA";_this.viviendaData.heces_animales_genera="NA";_this.viviendaData.quimicos_genera="NA";_this.viviendaData.otros_genera=respuesta.data.vivienda.otros_genera;_this.viviendaData.cual_genera=respuesta.data.vivienda.cual_genera;_this.viviendaData.tipo_combustible=respuesta.data.vivienda.tipo_combustible;_this.viviendaData.mantenimiento_red="NA";_this.viviendaData.zona_alto_riesgo=respuesta.data.vivienda.zona_alto_riesgo;_this.viviendaData.almacenamiento_residuos=respuesta.data.vivienda.almacenamiento_residuos;_this.viviendaData.fuente_contaminacion="NA";_this.viviendaData.aguas_negras=respuesta.data.vivienda.aguas_negras;_this.viviendaData.zonas_verdes=respuesta.data.vivienda.zonas_verdes;_this.viviendaData.desplazamientos=respuesta.data.vivienda.desplazamientos;_this.viviendaData.rotacion_cultivo=respuesta.data.vivienda.rotacion_cultivo;_this.viviendaData.emplea_fertilizantes=respuesta.data.vivienda.emplea_fertilizantes;_this.viviendaData.suministro_energia_ilegal="NA";_this.viviendaData.quema_cultivo=respuesta.data.vivienda.quema_cultivo;_this.viviendaData.mantenimiento_preventivo=respuesta.data.vivienda.mantenimiento_preventivo;_this.viviendaData.veces_inundaciones=respuesta.data.vivienda.veces_inundaciones;_this.viviendaData.fachada=respuesta.data.vivienda.fachada;_this.viviendaData.cuantos_baños=respuesta.data.vivienda.cuantos_baños;_this.viviendaData.estado_conservacion_baños=respuesta.data.vivienda.estado_conservacion_baños;_this.viviendaData.acabados_externos=respuesta.data.vivienda.acabados_externos;_this.viviendaData.estado_conservacion_estructuras=respuesta.data.vivienda.estado_conservacion_estructuras;_this.viviendaData.mobiliario_cocina=respuesta.data.vivienda.mobiliario_cocina;_this.viviendaData.andenes=respuesta.data.vivienda.andenes;_this.viviendaData.residuos_aprovechables=respuesta.data.vivienda.residuos_aprovechables;_this.viviendaData.residuos_organicos=respuesta.data.vivienda.residuos_organicos;_this.viviendaData.residuos_no_aprovechables=respuesta.data.vivienda.residuos_no_aprovechables;_this.animalesData=respuesta.data.animales;_this.estratificacion=respuesta.data.estratificacion;_this.ActividadData=respuesta.data.actividad_viviendas;// GESTION DE LAS VARIABLES DE LA VIVIENDA
+// GESTION DE LAS VARIABLES DE CART X CICLO
+_this.Men1A=respuesta.data.Men1A;_this.De1A5=respuesta.data.De1A5;_this.De6A11=respuesta.data.De6A11;_this.De10A59=respuesta.data.De10A59;_this.ParPost=respuesta.data.ParPost;// GESTION DE LAS VARIABLES DE CART X CICLO
+// GESTION DE LAS VARIABLES DE ADOLESCENTES
+_this.De12A17=respuesta.data.De12A17;_this.De18A28=respuesta.data.De18A28;_this.De29A59=respuesta.data.De29A59;// GESTION DE LAS VARIABLES DE ADOLESCENTES
+// GESTION DE LAS VARIABLES DE ADULTO MAYOR
+_this.De60=respuesta.data.De60;_this.EnCro=respuesta.data.EnCro;_this.EnInf=respuesta.data.EnInf;// GESTION DE LAS VARIABLES DE ADULTO MAYOR
+// GESTION DE LAS VARIABLES DE MIGRANTES
+_this.Migra=respuesta.data.Migra;// GESTION DE LAS VARIABLES DE MIGRANTES
+for(var _i2=0;_i2<_this.datosJefe.length;_i2++){var _nacimiento=moment(_this.datosJefe[_i2].fecha_nacimiento);var _hoy=moment();var edad=0;if(_nacimiento<_hoy){edad=_hoy.diff(_nacimiento,"years");//Calculamos la diferencia en años
+}// AGREGAR DE 10 A 59 AÑOS
+if(_this.datosJefe[_i2].edad>=10&&_this.datosJefe[_i2].edad<=59){var banderin=false;var j=0;while(j<_this.De10A59.length&&banderin===false){if(_this.datosJefe[_i2].identificacion===_this.De10A59[j].identificacion){banderin=true;}j++;}if(banderin===false){_this.Ade10a59Anio(_this.datosJefe[_i2],_this.datosJefe[_i2].edad,"JEFE");}}// AGREGAR DE 10 A 59 AÑOS
+// AGREGAR PARTO POSTPARTO
+if(_this.datosJefe[_i2].embarazo==="SI"){var _banderin=false;var _j=0;while(_j<_this.ParPost.length&&_banderin===false){if(_this.datosJefe[_i2].identificacion===_this.ParPost[_j].identificacion){_banderin=true;}_j++;}if(_banderin===false){_this.AParPost(_this.datosJefe[_i2],_this.datosJefe[_i2].edad,"JEFE");}}// AGREGAR PARTO POSTPARTO
+// AGREGAR DE 12 A 17 AÑOS
+if(_this.datosJefe[_i2].edad>=12&&_this.datosJefe[_i2].edad<=17){var _banderin2=false;var _j2=0;while(_j2<_this.De12A17.length&&_banderin2===false){if(_this.datosJefe[_i2].identificacion===_this.De12A17[_j2].identificacion){_banderin2=true;}_j2++;}if(_banderin2===false){_this.Ade12a17Anio(_this.datosJefe[_i2],_this.datosJefe[_i2].edad,"JEFE");}}// AGREGAR DE 12 A 17 AÑOS
+// AGREGAR DE 18 A 28 AÑOS
+if(_this.datosJefe[_i2].edad>=18&&_this.datosJefe[_i2].edad<=28){var _banderin3=false;var _j3=0;while(_j3<_this.De18A28.length&&_banderin3===false){if(_this.datosJefe[_i2].identificacion===_this.De18A28[_j3].identificacion){_banderin3=true;}_j3++;}if(_banderin3===false){_this.Ade18a28Anio(_this.datosJefe[_i2],_this.datosJefe[_i2].edad,"JEFE");}}// AGREGAR DE 18 A 28 AÑOS
+// AGREGAR DE 29 A 59 AÑOS
+if(_this.datosJefe[_i2].edad>=29&&_this.datosJefe[_i2].edad<=59){var _banderin4=false;var _j4=0;while(_j4<_this.De29A59.length&&_banderin4===false){if(_this.datosJefe[_i2].identificacion===_this.De29A59[_j4].identificacion){_banderin4=true;}_j4++;}if(_banderin4===false){_this.Ade29a59Anio(_this.datosJefe[_i2],_this.datosJefe[_i2].edad,"JEFE");}}// AGREGAR DE 29 A 59 AÑOS
+// COMPLETAR VECTOR this.De60                
+if(_this.datosJefe[_i2].edad>=60){var _banderin5=false;var _j5=0;while(_j5<_this.De60.length&&_banderin5===false){if(_this.datosJefe[_i2].identificacion===_this.De60[_j5].identificacion){_banderin5=true;}_j5++;}if(_banderin5===false){_this.Ade60Anio(_this.datosJefe[_i2],_this.datosJefe[_i2].edad,"JEFE");}}// COMPLETAR VECTOR this.De60
+// AGREGAR MIGRANTES
+if(_this.datosJefe[_i2].migrante==="SI"){var _banderin6=false;var _j6=0;while(_j6<_this.Migra.length&&_banderin6===false){if(_this.datosJefe[_i2].identificacion===_this.Migra[_j6].identificacion){_banderin6=true;}_j6++;}if(_banderin6===false){_this.AMigra(_this.datosJefe[_i2],_this.datosJefe[_i2].edad,"JEFE");}}// AGREGAR MIGRANTES                
+}for(var _i3=0;_i3<_this.datos.length;_i3++){var _nacimiento2=moment(_this.datos[_i3].fecha_nac);var _hoy2=moment();var _edad=0;if(_nacimiento2<_hoy2){_edad=_hoy2.diff(_nacimiento2,"years");//Calculamos la diferencia en años
+}// COMPLETAR VECTOR this.Men1A
+if(_this.datos[_i3].edad<=0){var _banderin7=false;var _j7=0;while(_j7<_this.Men1A.length&&_banderin7===false){if(_this.datos[_i3].identificacion===_this.Men1A[_j7].identificacion){_banderin7=true;}_j7++;}if(_banderin7===false){_this.Amenores1Anio(_this.datos[_i3],_hoy2.diff(_nacimiento2,"months"),"INTE");}}// COMPLETAR VECTOR this.Men1A
+// COMPLETAR VECTOR this.De1A5
+if(_this.datos[_i3].edad>=1&&_this.datos[_i3].edad<=5){var _banderin8=false;var _j8=0;while(_j8<_this.De1A5.length&&_banderin8===false){if(_this.datos[_i3].identificacion===_this.De1A5[_j8].identificacion){_banderin8=true;}_j8++;}if(_banderin8===false){_this.Ade1a5Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// COMPLETAR VECTOR this.De1A5
+// COMPLETAR VECTOR this.De6A11
+if(_this.datos[_i3].edad>=6&&_this.datos[_i3].edad<=11){var _banderin9=false;var _j9=0;while(_j9<_this.De6A11.length&&_banderin9===false){if(_this.datos[_i3].identificacion===_this.De6A11[_j9].identificacion){_banderin9=true;}_j9++;}if(_banderin9===false){_this.Ade6a11Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// COMPLETAR VECTOR this.De6A11
+// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+if(_this.datos[_i3].edad<10){if(_this.datos[_i3].excepciones==="1"){var _banderin10=false;var _j10=0;while(_j10<_this.De10A59.length&&_banderin10===false){if(_this.datos[_i3].identificacion===_this.De10A59[_j10].identificacion){_banderin10=true;}_j10++;}if(_banderin10===false){_this.Ade10a59Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}}// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS                
+// AGREGAR DE 10 A 59 AÑOS
+if(_this.datos[_i3].edad>=10&&_this.datos[_i3].edad<=59){var _banderin11=false;var _j11=0;while(_j11<_this.De10A59.length&&_banderin11===false){if(_this.datos[_i3].identificacion===_this.De10A59[_j11].identificacion){_banderin11=true;}_j11++;}if(_banderin11===false){_this.Ade10a59Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// AGREGAR DE 10 A 59 AÑOS
+// AGREGAR PARTO POSTPARTO
+if(_this.datos[_i3].embarazo==="SI"){if(_this.datos[_i3].edad<8){var _banderin12=false;var _j12=0;while(_j12<_this.ParPost.length&&_banderin12===false){if(_this.datos[_i3].identificacion===_this.ParPost[_j12].identificacion){_banderin12=true;}_j12++;}if(_banderin12===false){_this.AParPost(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}}// AGREGAR PARTO POSTPARTO
+// AGREGAR DE 12 A 17 AÑOS
+if(_this.datos[_i3].edad>=12&&_this.datos[_i3].edad<=17){var _banderin13=false;var _j13=0;while(_j13<_this.De12A17.length&&_banderin13===false){if(_this.datos[_i3].identificacion===_this.De12A17[_j13].identificacion){_banderin13=true;}_j13++;}if(_banderin13===false){_this.Ade12a17Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// AGREGAR DE 12 A 17 AÑOS
+// AGREGAR DE 18 A 28 AÑOS
+if(_this.datos[_i3].edad>=18&&_this.datos[_i3].edad<=28){var _banderin14=false;var _j14=0;while(_j14<_this.De18A28.length&&_banderin14===false){if(_this.datos[_i3].identificacion===_this.De18A28[_j14].identificacion){_banderin14=true;}_j14++;}if(_banderin14===false){_this.Ade18a28Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// AGREGAR DE 18 A 28 AÑOS
+// AGREGAR DE 29 A 59 AÑOS
+if(_this.datos[_i3].edad>=29&&_this.datos[_i3].edad<=59){var _banderin15=false;var _j15=0;while(_j15<_this.De29A59.length&&_banderin15===false){if(_this.datos[_i3].identificacion===_this.De29A59[_j15].identificacion){_banderin15=true;}_j15++;}if(_banderin15===false){_this.Ade29a59Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// AGREGAR DE 29 A 59 AÑOS
+// COMPLETAR VECTOR this.De60                
+if(_this.datos[_i3].edad>=60){var _banderin16=false;var _j16=0;while(_j16<_this.De60.length&&_banderin16===false){if(_this.datos[_i3].identificacion===_this.De60[_j16].identificacion){_banderin16=true;}_j16++;}if(_banderin16===false){_this.Ade60Anio(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// COMPLETAR VECTOR this.De60
+// AGREGAR MIGRANTES
+if(_this.datos[_i3].migrante==="SI"){var _banderin17=false;var _j17=0;while(_j17<_this.Migra.length&&_banderin17===false){if(_this.datos[_i3].identificacion===_this.Migra[_j17].identificacion){_banderin17=true;}_j17++;}if(_banderin17===false){_this.AMigra(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// AGREGAR MIGRANTES                
+}_this.isLoading=false;});case 5:_context.next=16;break;case 7:_context.prev=7;_context.t0=_context["catch"](2);_context.t1=_context.t0.response.status;_context.next=_context.t1===422?12:14;break;case 12:this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",16);case 14:this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",16);case 16:case"end":return _context.stop();}}},_callee,this,[[2,7]]);}));function nuevo(_x2){return _nuevo.apply(this,arguments);}return nuevo;}(),Actualizar:function Actualizar(){var _this2=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(){var id,opcion,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:id=0;opcion="";if(_this2.hogar.id_corre!=""){opcion="CORRE";id=_this2.hogar.id_corre;}else{opcion="MUN";id=_this2.hogar.id_mun;}parametros={_token:_this2.csrf,id:id,opcion:opcion};_this2.valGActu=false;_context2.prev=5;_context2.next=8;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function(respuesta){_this2.corregi_options=respuesta.data.arrayCorregi;_this2.vereda_options=respuesta.data.arrayVeredas;_this2.parentesco_options=respuesta.data.arrayParentesco;_this2.estado_options=respuesta.data.arrayEstado;_this2.escolaridad_options=respuesta.data.arrayEscolaridad;_this2.ocupacion_options=respuesta.data.arrayOcupacion;_this2.etnia_options=respuesta.data.arrayEtnia;_this2.admini_options=respuesta.data.arrayAdmini;_this2.clasifi_options=respuesta.data.arrayCLasifi;_this2.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this2.morbilidad_options=respuesta.data.arrayMorbilidad;_this2.metodos_options=respuesta.data.arrayMetodos;_this2.motivos_options=respuesta.data.arrayMotivos;_this2.grupos_options=respuesta.data.arrayGrupos;_this2.enfcro_options=respuesta.data.arrayEnfCro;_this2.enfinf_options=respuesta.data.arrayEnfInf;_this2.religion_options=respuesta.data.arrayReligion;_this2.colegio_options=respuesta.data.arrayColegios;_this2.barrio_options=respuesta.data.arrayBarrios;_this2.valGActu=true;});case 8:_context2.next=19;break;case 10:_context2.prev=10;_context2.t0=_context2["catch"](5);_context2.t1=_context2.t0.response.status;_context2.next=_context2.t1===422?15:17;break;case 15:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",19);case 17:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",19);case 19:case"end":return _context2.stop();}}},_callee2,null,[[5,10]]);}))();},cambiarTab1:function cambiarTab1(opcion,actual){var _this3=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(){var bandera,resul,_resul,_resul2,_resul3,parametros,isInvalid,_parametros,auxi,_resul4,_resul5,_resul6,_resul7,_resul8,_parametros2,_auxi,_resul9,_resul10,_resul11,_parametros3,_auxi2,_resul12,_resul13,_resul14,_parametros4,_auxi3,_resul15,_parametros5;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:bandera=false;if(!(actual==="tabIdentificacion")){_context3.next=89;break;}if(!(_this3.hogar.id_dpto==="")){_context3.next=6;break;}_this3.$refs.id_dpto.focus();_this3.$swal("Error...!","Por favor seleccione el departamento!","error");return _context3.abrupt("return");case 6:if(!(_this3.hogar.id_mun==="")){_context3.next=10;break;}_this3.$refs.id_mun.focus();_this3.$swal("Error...!","Por favor seleccione el municipio!","error");return _context3.abrupt("return");case 10:if(!(_this3.hogar.tenencia_vivienda==="")){_context3.next=14;break;}_this3.$refs.tenencia_vivienda.focus();_this3.$swal("Error...!","Por favor seleccione la tenencia de vivienda!","error");return _context3.abrupt("return");case 14:if(!(_this3.allLetter(_this3.hogar.numero_hogares)===false)){_context3.next=19;break;}_this3.$refs.numero_hogares.focus();_this3.hogar.numero_hogares="";_this3.$swal("Error...!","Por favor digite solo numero en el numero de hogares!","error");return _context3.abrupt("return");case 19:if(!(_this3.hogar.numero_hogares==="")){_context3.next=23;break;}_this3.$refs.numero_hogares.focus();_this3.$swal("Error...!","Por favor digite el numero de hogares!","error");return _context3.abrupt("return");case 23:if(!(_this3.hogar.poblacion_especial==="")){_context3.next=27;break;}_this3.$refs.poblacion_especial.focus();_this3.$swal("Error...!","Por favor seleccione la población especial!","error");return _context3.abrupt("return");case 27:if(!(_this3.hogar.vias_acceso==="")){_context3.next=31;break;}_this3.$refs.vias_acceso.focus();_this3.$swal("Error...!","Por favor seleccione si la comunidad presenta vías de acceso!","error");return _context3.abrupt("return");case 31:if(!(_this3.hogar.servicios_publicos==="")){_context3.next=35;break;}_this3.$refs.servicios_publicos.focus();_this3.$swal("Error...!","Por favor seleccione si presenta acceso fácil a los servicios públicos!","error");return _context3.abrupt("return");case 35:if(!(_this3.hogar.direccion==="")){_context3.next=39;break;}_this3.$refs.direccion.focus();_this3.$swal("Error...!","Por favor digite la dirección!","error");return _context3.abrupt("return");case 39:if(!(_this3.datosJefe.length<=0)){_context3.next=44;break;}_this3.$swal("Error...!","Por favor agregue por lo menos un jefe de hogar","error");return _context3.abrupt("return");case 44:resul=_this3.valJef1();if(!resul){_context3.next=49;break;}bandera=true;_context3.next=50;break;case 49:return _context3.abrupt("return",false);case 50:if(!(_this3.datos.length>0)){_context3.next=57;break;}_resul=_this3.valInt1();if(!_resul){_context3.next=56;break;}bandera=true;_context3.next=57;break;case 56:return _context3.abrupt("return",false);case 57:if(!(_this3.factores.length>0)){_context3.next=64;break;}_resul2=_this3.valFactores();if(!_resul2){_context3.next=63;break;}bandera=true;_context3.next=64;break;case 63:return _context3.abrupt("return",false);case 64:if(!(_this3.afectacion.length>0)){_context3.next=71;break;}_resul3=_this3.valAfectacion();if(!_resul3){_context3.next=70;break;}bandera=true;_context3.next=71;break;case 70:return _context3.abrupt("return",false);case 71://VALIDAR LA TABLA AFECTACION
+parametros={_token:_this3.csrf,hogar:_this3.hogar,caracterizacion:_this3.datosJefe,integrantes:_this3.datos,factores:_this3.factores,CODIGOGENE:_this3.CODIGOGENE,afectacion:_this3.afectacion,opcion:"MODIFICAR",opc:"GUAINDEN",id_hogar:_this3.IDHOGAR};_this3.valGIden=false;_context3.prev=73;_context3.next=76;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="E"){_this3.GIDEN=true;_this3.IDHOGAR=respuesta.data.IDHOGAR;_this3.valGIden=true;bandera=true;_this3.datosJefe.length=0;_this3.datos.length=0;_this3.factores.length=0;_this3.afectacion.length=0;_this3.datosJefe=respuesta.data.jefes;_this3.datos=respuesta.data.integrantes;_this3.factores=respuesta.data.factores;_this3.afectacion=respuesta.data.afectacion;}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña identificación","error");return;});case 76:_context3.next=89;break;case 78:_context3.prev=78;_context3.t0=_context3["catch"](73);_context3.t1=_context3.t0.response.status;_context3.next=_context3.t1===419?83:_context3.t1===422?85:87;break;case 83:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 85:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 87:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 89:if(!(actual==="tabVivienda")){_context3.next=125;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=94;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 94:_this3.$v.$touch();isInvalid=_this3.$v.$invalid;if(!isInvalid){_context3.next=101;break;}_this3.$swal("Error...!","Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda","error");return _context3.abrupt("return",false);case 101:if(!(_this3.estratificacion.length<=0)){_context3.next=104;break;}_this3.$swal("Error...!","Por favor agregue por lo menos una estratificación","error");return _context3.abrupt("return");case 104:if(!(_this3.ActividadData.length<=0)){_context3.next=107;break;}_this3.$swal("Error...!","Por favor agrege por lo menos una actividad economica!","error");return _context3.abrupt("return");case 107://GUARDAR DATOS
+_this3.valGVivi=false;_parametros={_token:_this3.csrf,vivienda:_this3.viviendaData,estratificacion:_this3.estratificacion,Animales:_this3.animalesData,actividad_viviendas:_this3.ActividadData,opcion:"MODIFICAR",opc:"GUAVIVI",IDHOGAR:_this3.IDHOGAR};_context3.prev=109;_context3.next=112;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GVIVI=true;bandera=true;_this3.valGVivi=true;_this3.viviendaData.id=respuesta.data.vivienda.id;_this3.animalesData.length=0;_this3.estratificacion.length=0;_this3.ActividadData.length=0;_this3.animalesData=respuesta.data.animales;_this3.estratificacion=respuesta.data.estratificacion;_this3.ActividadData=respuesta.data.actividad_viviendas;}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 112:_context3.next=125;break;case 114:_context3.prev=114;_context3.t2=_context3["catch"](109);_context3.t3=_context3.t2.response.status;_context3.next=_context3.t3===419?119:_context3.t3===422?121:123;break;case 119:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 121:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 123:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 125:if(!(actual==="cartxciclo")){_context3.next=193;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=130;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 130:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
+if(!(_this3.Men1A.length>0)){_context3.next=139;break;}_resul4=_this3.valMen1();if(!_resul4){_context3.next=138;break;}bandera=true;auxi=true;_context3.next=139;break;case 138:return _context3.abrupt("return",false);case 139:if(!(_this3.De1A5.length>0)){_context3.next=147;break;}_resul5=_this3.valDe1A5();if(!_resul5){_context3.next=146;break;}bandera=true;auxi=true;_context3.next=147;break;case 146:return _context3.abrupt("return",false);case 147:if(!(_this3.De6A11.length>0)){_context3.next=155;break;}_resul6=_this3.valDe6A11();if(!_resul6){_context3.next=154;break;}bandera=true;auxi=true;_context3.next=155;break;case 154:return _context3.abrupt("return",false);case 155:if(!(_this3.De10A59.length>0)){_context3.next=163;break;}_resul7=_this3.valDe10A59();if(!_resul7){_context3.next=162;break;}bandera=true;auxi=true;_context3.next=163;break;case 162:return _context3.abrupt("return",false);case 163:if(!(_this3.ParPost.length>0)){_context3.next=171;break;}_resul8=_this3.valParPost();if(!_resul8){_context3.next=170;break;}bandera=true;auxi=true;_context3.next=171;break;case 170:return _context3.abrupt("return",false);case 171:if(!auxi){_context3.next=192;break;}//GUARDAR DATOS
+_parametros2={_token:_this3.csrf,Men1A:_this3.Men1A,De1A5:_this3.De1A5,De6A11:_this3.De6A11,De10A59:_this3.De10A59,ParPost:_this3.ParPost,opcion:"MODIFICAR",opc:"GUACARCI",IDHOGAR:_this3.IDHOGAR};_this3.valGCart=false;_context3.prev=174;_context3.next=177;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GCARXCI=true;bandera=true;_this3.valGCart=true;// GESTION DE LAS VARIABLES DE CART X CICLO
+_this3.Men1A.length=0;_this3.De1A5.length=0;_this3.De6A11.length=0;_this3.De10A59.length=0;_this3.ParPost.length=0;_this3.Men1A=respuesta.data.Men1A;_this3.De1A5=respuesta.data.De1A5;_this3.De6A11=respuesta.data.De6A11;_this3.De10A59=respuesta.data.De10A59;_this3.ParPost=respuesta.data.ParPost;// GESTION DE LAS VARIABLES DE CART X CICLO                    
+}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña ciclos","error");return;});case 177:_context3.next=190;break;case 179:_context3.prev=179;_context3.t4=_context3["catch"](174);_context3.t5=_context3.t4.response.status;_context3.next=_context3.t5===419?184:_context3.t5===422?186:188;break;case 184:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 186:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 188:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 190:_context3.next=193;break;case 192:bandera=true;case 193:if(!(actual==="adolescente")){_context3.next=245;break;}bandera=true;_auxi=false;if(!(_this3.IDHOGAR===0)){_context3.next=199;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 199:if(!(_this3.De12A17.length>0)){_context3.next=207;break;}_resul9=_this3.valDe12A17();if(!_resul9){_context3.next=206;break;}bandera=true;_auxi=true;_context3.next=207;break;case 206:return _context3.abrupt("return",false);case 207:if(!(_this3.De18A28.length>0)){_context3.next=215;break;}_resul10=_this3.valDe18A28();if(!_resul10){_context3.next=214;break;}bandera=true;_auxi=true;_context3.next=215;break;case 214:return _context3.abrupt("return",false);case 215:if(!(_this3.De29A59.length>0)){_context3.next=223;break;}_resul11=_this3.valDe29A59();if(!_resul11){_context3.next=222;break;}bandera=true;_auxi=true;_context3.next=223;break;case 222:return _context3.abrupt("return",false);case 223:if(!_auxi){_context3.next=244;break;}//GUARDAR DATOS
+_parametros3={_token:_this3.csrf,De12A17:_this3.De12A17,De18A28:_this3.De18A28,De29A59:_this3.De29A59,opcion:"MODIFICAR",opc:"GUADOLE",IDHOGAR:_this3.IDHOGAR};_this3.valGAdole=false;_context3.prev=226;_context3.next=229;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros3).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GADOLE=true;bandera=true;_this3.valGAdole=true;_this3.De12A17.length=0;_this3.De18A28.length=0;_this3.De29A59.length=0;// GESTION DE LAS VARIABLES DE ADOLESCENTES
+_this3.De12A17=respuesta.data.De12A17;_this3.De18A28=respuesta.data.De18A28;_this3.De29A59=respuesta.data.De29A59;// GESTION DE LAS VARIABLES DE ADOLESCENTES                    
+}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña adolescentes","error");return;});case 229:_context3.next=242;break;case 231:_context3.prev=231;_context3.t6=_context3["catch"](226);_context3.t7=_context3.t6.response.status;_context3.next=_context3.t7===419?236:_context3.t7===422?238:240;break;case 236:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",242);case 238:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",242);case 240:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",242);case 242:_context3.next=245;break;case 244:bandera=true;case 245:if(!(actual==="adultomayor")){_context3.next=296;break;}_auxi2=false;if(!(_this3.IDHOGAR===0)){_context3.next=250;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 250:if(!(_this3.De60.length>0)){_context3.next=258;break;}_resul12=_this3.valDe60();if(!_resul12){_context3.next=257;break;}bandera=true;_auxi2=true;_context3.next=258;break;case 257:return _context3.abrupt("return",false);case 258:if(!(_this3.EnCro.length>0)){_context3.next=266;break;}_resul13=_this3.valEnCro();if(!_resul13){_context3.next=265;break;}bandera=true;_auxi2=true;_context3.next=266;break;case 265:return _context3.abrupt("return",false);case 266:if(!(_this3.EnInf.length>0)){_context3.next=274;break;}_resul14=_this3.valEnInf();if(!_resul14){_context3.next=273;break;}bandera=true;_auxi2=true;_context3.next=274;break;case 273:return _context3.abrupt("return",false);case 274:if(!_auxi2){_context3.next=295;break;}//GUARDAR DATOS
+_parametros4={_token:_this3.csrf,De60:_this3.De60,EnCro:_this3.EnCro,EnInf:_this3.EnInf,opcion:"MODIFICAR",opc:"GUADULT",IDHOGAR:_this3.IDHOGAR};_this3.valGAdul=false;_context3.prev=277;_context3.next=280;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros4).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GADULT=true;bandera=true;_this3.valGAdul=true;_this3.De60.length=0;_this3.EnCro.length=0;_this3.EnInf.length=0;// GESTION DE LAS VARIABLES DE ADULTO MAYOR
+_this3.De60=respuesta.data.De60;_this3.EnCro=respuesta.data.EnCro;_this3.EnInf=respuesta.data.EnInf;// GESTION DE LAS VARIABLES DE ADULTO MAYOR                     
+}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña adultos","error");return;});case 280:_context3.next=293;break;case 282:_context3.prev=282;_context3.t8=_context3["catch"](277);_context3.t9=_context3.t8.response.status;_context3.next=_context3.t9===419?287:_context3.t9===422?289:291;break;case 287:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",293);case 289:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",293);case 291:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",293);case 293:_context3.next=296;break;case 295:bandera=true;case 296:if(!(actual==="migrante")){_context3.next=332;break;}_auxi3=false;if(!(_this3.IDHOGAR===0)){_context3.next=301;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 301:if(!(_this3.Migra.length>0)){_context3.next=309;break;}_resul15=_this3.valMigra();if(!_resul15){_context3.next=308;break;}bandera=true;_auxi3=true;_context3.next=309;break;case 308:return _context3.abrupt("return",false);case 309:if(!_auxi3){_context3.next=330;break;}_parametros5={_token:_this3.csrf,Migra:_this3.Migra,opcion:"MODIFICAR",opc:"GUAMIGRA",IDHOGAR:_this3.IDHOGAR};_this3.valGMig=false;_context3.prev=312;_context3.next=315;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros5).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.$swal("Guardar...!","Datos Guardados Exitosamente!","success");_this3.valGMig=true;_this3.Migra.length=0;bandera=true;// GESTION DE LAS VARIABLES DE MIGRANTES
+_this3.Migra=respuesta.data.Migra;// GESTION DE LAS VARIABLES DE MIGRANTES                    
+_this3.$router.push("/gestion");}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña migrantes","error");return;});case 315:_context3.next=328;break;case 317:_context3.prev=317;_context3.t10=_context3["catch"](312);_context3.t11=_context3.t10.response.status;_context3.next=_context3.t11===419?322:_context3.t11===422?324:326;break;case 322:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",328);case 324:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",328);case 326:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",328);case 328:_context3.next=332;break;case 330:_this3.$swal("Guardar...!","Datos Guardados Exitosamente!","success");_this3.$router.push("/gestion");case 332:if(bandera){bandera=false;$('.nav-tabs a[href="#'+opcion+'"]').tab("show");}case 333:case"end":return _context3.stop();}}},_callee3,null,[[73,78],[109,114],[174,179],[226,231],[277,282],[312,317]]);}))();},cambiarTab2:function cambiarTab2(opcion){if(this.GIDEN===false){// $('.nav-tabs a[href="#' + opcion + '"]').tab('show');
+$('.nav-tabs a[href="#tabIdentificacion"]').tab("show");return false;}else{}},volver:function volver(){var _this4=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(){var valid;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:_context4.next=2;return _this4.validarVolver("Men1A");case 2:valid=_context4.sent;if(!(valid===false)){_context4.next=7;break;}return _context4.abrupt("return",false);case 7:if(!(valid===true)){_context4.next=10;break;}_context4.next=11;break;case 10:return _context4.abrupt("return",false);case 11:_context4.next=13;return _this4.validarVolver("De1A5");case 13:valid=_context4.sent;if(!(valid===false)){_context4.next=18;break;}return _context4.abrupt("return",false);case 18:if(!(valid===true)){_context4.next=21;break;}_context4.next=22;break;case 21:return _context4.abrupt("return",false);case 22:_context4.next=24;return _this4.validarVolver("De6A11");case 24:valid=_context4.sent;if(!(valid===false)){_context4.next=29;break;}return _context4.abrupt("return",false);case 29:if(!(valid===true)){_context4.next=32;break;}_context4.next=33;break;case 32:return _context4.abrupt("return",false);case 33:_context4.next=35;return _this4.validarVolver("De10A59");case 35:valid=_context4.sent;if(!(valid===false)){_context4.next=40;break;}return _context4.abrupt("return",false);case 40:if(!(valid===true)){_context4.next=43;break;}_context4.next=44;break;case 43:return _context4.abrupt("return",false);case 44:_context4.next=46;return _this4.validarVolver("ParPost");case 46:valid=_context4.sent;if(!(valid===false)){_context4.next=51;break;}return _context4.abrupt("return",false);case 51:if(!(valid===true)){_context4.next=54;break;}_context4.next=55;break;case 54:return _context4.abrupt("return",false);case 55:_context4.next=57;return _this4.validarVolver("De12A17");case 57:valid=_context4.sent;if(!(valid===false)){_context4.next=62;break;}return _context4.abrupt("return",false);case 62:if(!(valid===true)){_context4.next=65;break;}_context4.next=66;break;case 65:return _context4.abrupt("return",false);case 66:_context4.next=68;return _this4.validarVolver("De18A28");case 68:valid=_context4.sent;if(!(valid===false)){_context4.next=73;break;}return _context4.abrupt("return",false);case 73:if(!(valid===true)){_context4.next=76;break;}_context4.next=77;break;case 76:return _context4.abrupt("return",false);case 77:_context4.next=79;return _this4.validarVolver("De29A59");case 79:valid=_context4.sent;if(!(valid===false)){_context4.next=84;break;}return _context4.abrupt("return",false);case 84:if(!(valid===true)){_context4.next=87;break;}_context4.next=88;break;case 87:return _context4.abrupt("return",false);case 88:_context4.next=90;return _this4.validarVolver("De60");case 90:valid=_context4.sent;if(!(valid===false)){_context4.next=95;break;}return _context4.abrupt("return",false);case 95:if(!(valid===true)){_context4.next=98;break;}_context4.next=99;break;case 98:return _context4.abrupt("return",false);case 99:_context4.next=101;return _this4.validarVolver("EnCro");case 101:valid=_context4.sent;if(!(valid===false)){_context4.next=106;break;}return _context4.abrupt("return",false);case 106:if(!(valid===true)){_context4.next=109;break;}_context4.next=110;break;case 109:return _context4.abrupt("return",false);case 110:_context4.next=112;return _this4.validarVolver("EnInf");case 112:valid=_context4.sent;if(!(valid===false)){_context4.next=117;break;}return _context4.abrupt("return",false);case 117:if(!(valid===true)){_context4.next=120;break;}_context4.next=121;break;case 120:return _context4.abrupt("return",false);case 121:_context4.next=123;return _this4.validarVolver("Migra");case 123:valid=_context4.sent;if(!(valid===false)){_context4.next=128;break;}return _context4.abrupt("return",false);case 128:if(!(valid===true)){_context4.next=131;break;}_context4.next=132;break;case 131:return _context4.abrupt("return",false);case 132:_this4.$router.push("/gestion");case 133:case"end":return _context4.stop();}}},_callee4);}))();},validarVolver:function validarVolver(valor){var _this5=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(){var valid,i,alert,_i4,_alert,_i5,_alert2,_i6,_alert3,_i7,_alert4,_i8,_alert5,_i9,_alert6,_i10,_alert7,_i11,_alert8,_i12,_alert9,_i13,_alert10,_i14,_alert11;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:valid=false;_context5.t0=valor;_context5.next=_context5.t0==="Men1A"?4:_context5.t0==="De1A5"?19:_context5.t0==="De6A11"?34:_context5.t0==="De10A59"?49:_context5.t0==="ParPost"?64:_context5.t0==="De12A17"?79:_context5.t0==="De18A28"?94:_context5.t0==="De29A59"?109:_context5.t0==="De60"?124:_context5.t0==="EnCro"?139:_context5.t0==="EnInf"?154:_context5.t0==="Migra"?169:184;break;case 4:valid=false;// validar Men1A      
+for(i=0;i<_this5.Men1A.length;i++){if(_this5.Men1A[i].lugar_nacimiento===""){valid=true;}if(_this5.Men1A[i].hemoclasificacion===""){valid=true;}if(_this5.Men1A[i].compli_parto===""){valid=true;}if(_this5.Men1A[i].via_parto===""){valid=true;}if(_this5.Men1A[i].cyc===""){valid=true;}if(_this5.Men1A[i].valoracion_23===""){valid=true;}if(_this5.Men1A[i].valoracion_68===""){valid=true;}if(_this5.Men1A[i].valoracion_911===""){valid=true;}if(_this5.Men1A[i].lactancia===""){valid=true;}if(_this5.Men1A[i].peso_nacer===""){valid=true;}if(_this5.Men1A[i].peso_actual===""){valid=true;}if(_this5.Men1A[i].longitud_nacer===""){valid=true;}if(_this5.Men1A[i].longitud_actual===""){valid=true;}if(_this5.Men1A[i].longitud_actual===""){valid=true;}if(_this5.Men1A[i].cinta===""){valid=true;}if(_this5.Men1A[i].pb===""){valid=true;}if(_this5.Men1A[i].edemas===""){valid=true;}if(_this5.Men1A[i].lenguaje===""){valid=true;}if(_this5.Men1A[i].motora===""){valid=true;}if(_this5.Men1A[i].conducta===""){valid=true;}if(_this5.Men1A[i].visuales===""){valid=true;}if(_this5.Men1A[i].auditivos===""){valid=true;}if(_this5.Men1A[i].carnet===""){valid=true;}if(_this5.Men1A[i].bcg===""){valid=true;}if(_this5.Men1A[i].hepb===""){valid=true;}if(_this5.Men1A[i].polio===""){valid=true;}if(_this5.Men1A[i].pentavalente===""){valid=true;}if(_this5.Men1A[i].maltrato===""){valid=true;}if(_this5.Men1A[i].morbilidad===""){valid=true;}if(_this5.Men1A[i].tsh===""){valid=true;}if(valid){i=_this5.Men1A.length;}}if(!valid){_context5.next=17;break;}_context5.next=9;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 9:alert=_context5.sent;if(!alert.value){_context5.next=14;break;}_this5.$router.push("/gestion");_context5.next=15;break;case 14:return _context5.abrupt("return",false);case 15:_context5.next=18;break;case 17:return _context5.abrupt("return",true);case 18:return _context5.abrupt("break",186);case 19:valid=false;// validar De1A5
+for(_i4=0;_i4<_this5.De1A5.length;_i4++){if(_this5.De1A5[_i4].beneficiario===""){valid=true;}if(_this5.De1A5[_i4].cyc===""){valid=true;}if(_this5.De1A5[_i4].valoracion_1823===""){valid=true;}if(_this5.De1A5[_i4].valoracion_3035===""){valid=true;}if(_this5.De1A5[_i4].valoracion_4===""){valid=true;}if(_this5.De1A5[_i4].peso===""){valid=true;}if(_this5.De1A5[_i4].talla===""){valid=true;}if(_this5.De1A5[_i4].imc===""){valid=true;}if(_this5.De1A5[_i4].pb===""){valid=true;}if(_this5.De1A5[_i4].pt===""){valid=true;}if(_this5.De1A5[_i4].te===""){valid=true;}if(_this5.De1A5[_i4].pcefalico===""){valid=true;}if(_this5.De1A5[_i4].lenguaje===""){valid=true;}if(_this5.De1A5[_i4].motora===""){valid=true;}if(_this5.De1A5[_i4].conducta===""){valid=true;}if(_this5.De1A5[_i4].visuales===""){valid=true;}if(_this5.De1A5[_i4].auditivos===""){valid=true;}if(_this5.De1A5[_i4].caries===""){valid=true;}if(_this5.De1A5[_i4].nocepillado===""){valid=true;}if(_this5.De1A5[_i4].consultaodon===""){valid=true;}if(_this5.De1A5[_i4].carnet===""){valid=true;}if(_this5.De1A5[_i4].bcg===""){valid=true;}if(_this5.De1A5[_i4].polio===""){valid=true;}if(_this5.De1A5[_i4].dpt===""){valid=true;}if(_this5.De1A5[_i4].fiebrea===""){valid=true;}if(_this5.De1A5[_i4].tripleviral===""){valid=true;}if(_this5.De1A5[_i4].pentavalente===""){valid=true;}if(_this5.De1A5[_i4].desparacitado===""){valid=true;}if(_this5.De1A5[_i4].maltrato===""){valid=true;}if(_this5.De1A5[_i4].enfermedad===""){valid=true;}if(_this5.De1A5[_i4].medicamento===""){valid=true;}if(valid){_i4=_this5.De1A5.length;}}if(!valid){_context5.next=32;break;}_context5.next=24;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 24:_alert=_context5.sent;if(!_alert.value){_context5.next=29;break;}_this5.$router.push("/gestion");_context5.next=30;break;case 29:return _context5.abrupt("return",false);case 30:_context5.next=33;break;case 32:return _context5.abrupt("return",true);case 33:return _context5.abrupt("break",186);case 34:valid=false;// validar De6A11
+for(_i5=0;_i5<_this5.De6A11.length;_i5++){if(_this5.De6A11[_i5].cyc===""){valid=true;}if(_this5.De6A11[_i5].atencion===""){valid=true;}if(_this5.De6A11[_i5].peso===""){valid=true;}if(_this5.De6A11[_i5].talla===""){valid=true;}if(_this5.De6A11[_i5].imc===""){valid=true;}if(_this5.De6A11[_i5].pb===""){valid=true;}if(_this5.De6A11[_i5].te===""){valid=true;}if(_this5.De6A11[_i5].conducta===""){valid=true;}if(_this5.De6A11[_i5].visuales===""){valid=true;}if(_this5.De6A11[_i5].auditivos===""){valid=true;}if(_this5.De6A11[_i5].dientes_sanos===""){valid=true;}if(_this5.De6A11[_i5].consultaodon===""){valid=true;}if(_this5.De6A11[_i5].nofluor===""){valid=true;}if(_this5.De6A11[_i5].nocepillado===""){valid=true;}if(_this5.De6A11[_i5].maltrato===""){valid=true;}if(_this5.De6A11[_i5].sustanciaspsico===""){valid=true;}if(_this5.De6A11[_i5].desparacitado===""){valid=true;}if(_this5.De6A11[_i5].enfermedad===""){valid=true;}if(_this5.De6A11[_i5].medicamento===""){valid=true;}if(_this5.De6A11[_i5].padre===""){valid=true;}if(_this5.De6A11[_i5].madre===""){valid=true;}if(_this5.De6A11[_i5].hermanos===""){valid=true;}if(_this5.De6A11[_i5].conyuge===""){valid=true;}if(valid){_i5=_this5.De6A11.length;}}if(!valid){_context5.next=47;break;}_context5.next=39;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 39:_alert2=_context5.sent;if(!_alert2.value){_context5.next=44;break;}_this5.$router.push("/gestion");_context5.next=45;break;case 44:return _context5.abrupt("return",false);case 45:_context5.next=48;break;case 47:return _context5.abrupt("return",true);case 48:return _context5.abrupt("break",186);case 49:valid=false;// validar De10A59
+for(_i6=0;_i6<_this5.De10A59.length;_i6++){if(_this5.De10A59[_i6].primera_mes===""){valid=true;}if(_this5.De10A59[_i6].flujo_vaginal===""){valid=true;}if(_this5.De10A59[_i6].flujo_uretral===""){valid=true;}if(_this5.De10A59[_i6].relaciones_sexuales===""){valid=true;}if(_this5.De10A59[_i6].compa_sexuales===""){valid=true;}if(_this5.De10A59[_i6].usa_condon===""){valid=true;}if(_this5.De10A59[_i6].abortos_seis===""){valid=true;}if(_this5.De10A59[_i6].embarazo_adolecentes===""){valid=true;}if(_this5.De10A59[_i6].metodo===""){valid=true;}if(_this5.De10A59[_i6].tiempo_metodo===""){valid=true;}if(_this5.De10A59[_i6].controles===""){valid=true;}if(_this5.De10A59[_i6].motivo===""){valid=true;}if(_this5.De10A59[_i6].citologia===""){valid=true;}if(_this5.De10A59[_i6].colposcopia===""){valid=true;}if(_this5.De10A59[_i6].examen_seno===""){valid=true;}if(_this5.De10A59[_i6].violencia===""){valid=true;}if(_this5.De10A59[_i6].tdit===""){valid=true;}if(_this5.De10A59[_i6].tripleviral===""){valid=true;}if(_this5.De10A59[_i6].nacidos_vivos===""){valid=true;}if(_this5.De10A59[_i6].abortos===""){valid=true;}if(_this5.De10A59[_i6].examen_prostata===""){valid=true;}if(_this5.De10A59[_i6].biposia_prostata===""){valid=true;}if(valid){_i6=_this5.De10A59.length;}}if(!valid){_context5.next=62;break;}_context5.next=54;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 54:_alert3=_context5.sent;if(!_alert3.value){_context5.next=59;break;}_this5.$router.push("/gestion");_context5.next=60;break;case 59:return _context5.abrupt("return",false);case 60:_context5.next=63;break;case 62:return _context5.abrupt("return",true);case 63:return _context5.abrupt("break",186);case 64:valid=false;// validar ParPost
+for(_i7=0;_i7<_this5.ParPost.length;_i7++){if(_this5.ParPost[_i7].aceptacion===""){valid=true;}if(_this5.ParPost[_i7].control_prenatal===""){valid=true;}if(_this5.ParPost[_i7].atencion_parto===""){valid=true;}if(_this5.ParPost[_i7].carnet===""){valid=true;}if(_this5.ParPost[_i7].fecha_ultima===""){valid=true;}if(_this5.ParPost[_i7].fecha_probable===""){valid=true;}if(_this5.ParPost[_i7].peso===""){valid=true;}if(_this5.ParPost[_i7].talla===""){valid=true;}if(_this5.ParPost[_i7].imc===""){valid=true;}if(_this5.ParPost[_i7].semanas_ges===""){valid=true;}if(_this5.ParPost[_i7].num_controles===""){valid=true;}if(_this5.ParPost[_i7].vih===""){valid=true;}if(_this5.ParPost[_i7].toxoplasma===""){valid=true;}if(_this5.ParPost[_i7].vdrl===""){valid=true;}if(_this5.ParPost[_i7].odontologia===""){valid=true;}if(_this5.ParPost[_i7].vacunaciontdit===""){valid=true;}if(_this5.ParPost[_i7].suplementacion===""){valid=true;}if(_this5.ParPost[_i7].enfermedades_cronicas===""){valid=true;}if(_this5.ParPost[_i7].sedentarismo===""){valid=true;}if(_this5.ParPost[_i7].fuma===""){valid=true;}if(_this5.ParPost[_i7].consumo===""){valid=true;}if(_this5.ParPost[_i7].bebidas===""){valid=true;}if(_this5.ParPost[_i7].tipo_parto===""){valid=true;}if(_this5.ParPost[_i7].atencion_institucional===""){valid=true;}if(_this5.ParPost[_i7].cc18===""){valid=true;}if(_this5.ParPost[_i7].morgestacion===""){valid=true;}if(_this5.ParPost[_i7].morparto===""){valid=true;}if(_this5.ParPost[_i7].morposparto===""){valid=true;}if(valid){_i7=_this5.ParPost.length;}}if(!valid){_context5.next=77;break;}_context5.next=69;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 69:_alert4=_context5.sent;if(!_alert4.value){_context5.next=74;break;}_this5.$router.push("/gestion");_context5.next=75;break;case 74:return _context5.abrupt("return",false);case 75:_context5.next=78;break;case 77:return _context5.abrupt("return",true);case 78:return _context5.abrupt("break",186);case 79:valid=false;// validar De12A17
+for(_i8=0;_i8<_this5.De12A17.length;_i8++){if(_this5.De12A17[_i8].peso===""){valid=true;}if(_this5.De12A17[_i8].talla===""){valid=true;}if(_this5.De12A17[_i8].imc===""){valid=true;}if(_this5.De12A17[_i8].pb===""){valid=true;}if(_this5.De12A17[_i8].visuales===""){valid=true;}if(_this5.De12A17[_i8].auditivos===""){valid=true;}if(_this5.De12A17[_i8].conducta===""){valid=true;}if(_this5.De12A17[_i8].enfermedades_cronicas===""){valid=true;}if(_this5.De12A17[_i8].dientes_sanos===""){valid=true;}if(_this5.De12A17[_i8].consultaodon===""){valid=true;}if(_this5.De12A17[_i8].nocepillado===""){valid=true;}if(_this5.De12A17[_i8].maltrato===""){valid=true;}if(_this5.De12A17[_i8].alcohol===""){valid=true;}if(_this5.De12A17[_i8].fuma===""){valid=true;}if(_this5.De12A17[_i8].spa===""){valid=true;}if(_this5.De12A17[_i8].desparacitado===""){valid=true;}if(_this5.De12A17[_i8].empleo===""){valid=true;}if(_this5.De12A17[_i8].religion===""){valid=true;}if(_this5.De12A17[_i8].queesvih===""){valid=true;}if(_this5.De12A17[_i8].queescancerutero===""){valid=true;}if(_this5.De12A17[_i8].queespapiloma===""){valid=true;}if(_this5.De12A17[_i8].queescancerseno===""){valid=true;}if(_this5.De12A17[_i8].padre===""){valid=true;}if(_this5.De12A17[_i8].madre===""){valid=true;}if(_this5.De12A17[_i8].hermanos===""){valid=true;}if(_this5.De12A17[_i8].conyuge===""){valid=true;}if(valid){_i8=_this5.De12A17.length;}}if(!valid){_context5.next=92;break;}_context5.next=84;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 84:_alert5=_context5.sent;if(!_alert5.value){_context5.next=89;break;}_this5.$router.push("/gestion");_context5.next=90;break;case 89:return _context5.abrupt("return",false);case 90:_context5.next=93;break;case 92:return _context5.abrupt("return",true);case 93:return _context5.abrupt("break",186);case 94:valid=false;// validar De18A28
+for(_i9=0;_i9<_this5.De18A28.length;_i9++){if(_this5.De18A28[_i9].peso===""){valid=true;}if(_this5.De18A28[_i9].talla===""){valid=true;}if(_this5.De18A28[_i9].imc===""){valid=true;}if(_this5.De18A28[_i9].pcintura===""){valid=true;}if(_this5.De18A28[_i9].visuales===""){valid=true;}if(_this5.De18A28[_i9].auditivos===""){valid=true;}if(_this5.De18A28[_i9].conducta===""){valid=true;}if(_this5.De18A28[_i9].enfermedades_cronicas===""){valid=true;}if(_this5.De18A28[_i9].dientes_sanos===""){valid=true;}if(_this5.De18A28[_i9].consultaodon===""){valid=true;}if(_this5.De18A28[_i9].nocepillado===""){valid=true;}if(_this5.De18A28[_i9].maltrato===""){valid=true;}if(_this5.De18A28[_i9].alcohol===""){valid=true;}if(_this5.De18A28[_i9].fuma===""){valid=true;}if(_this5.De18A28[_i9].spa===""){valid=true;}if(_this5.De18A28[_i9].desparacitado===""){valid=true;}if(_this5.De18A28[_i9].empleo===""){valid=true;}if(_this5.De18A28[_i9].religion===""){valid=true;}if(_this5.De18A28[_i9].queesvih===""){valid=true;}if(_this5.De18A28[_i9].queescancerutero===""){valid=true;}if(_this5.De18A28[_i9].queespapiloma===""){valid=true;}if(valid){_i9=_this5.De18A28.length;}}if(!valid){_context5.next=107;break;}_context5.next=99;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 99:_alert6=_context5.sent;if(!_alert6.value){_context5.next=104;break;}_this5.$router.push("/gestion");_context5.next=105;break;case 104:return _context5.abrupt("return",false);case 105:_context5.next=108;break;case 107:return _context5.abrupt("return",true);case 108:return _context5.abrupt("break",186);case 109:valid=false;// validar De29A59
+for(_i10=0;_i10<_this5.De29A59.length;_i10++){if(_this5.De29A59[_i10].peso===""){valid=true;}if(_this5.De29A59[_i10].talla===""){valid=true;}if(_this5.De29A59[_i10].imc===""){valid=true;}if(_this5.De29A59[_i10].pcintura===""){valid=true;}if(_this5.De29A59[_i10].pb===""){valid=true;}if(_this5.De29A59[_i10].visuales===""){valid=true;}if(_this5.De29A59[_i10].auditivos===""){valid=true;}if(_this5.De29A59[_i10].conducta===""){valid=true;}if(_this5.De29A59[_i10].enfermedades_cronicas===""){valid=true;}if(_this5.De29A59[_i10].dientes_sanos===""){valid=true;}if(_this5.De29A59[_i10].consultaodon===""){valid=true;}if(_this5.De29A59[_i10].nocepillado===""){valid=true;}if(_this5.De29A59[_i10].maltrato===""){valid=true;}if(_this5.De29A59[_i10].alcohol===""){valid=true;}if(_this5.De29A59[_i10].fuma===""){valid=true;}if(_this5.De29A59[_i10].spa===""){valid=true;}if(_this5.De29A59[_i10].desparacitado===""){valid=true;}if(_this5.De29A59[_i10].empleo===""){valid=true;}if(_this5.De29A59[_i10].examen_prostata===""){valid=true;}if(_this5.De29A59[_i10].citologia===""){valid=true;}if(_this5.De29A59[_i10].examen_mama===""){valid=true;}if(_this5.De29A59[_i10].religion===""){valid=true;}if(_this5.De29A59[_i10].queesvih===""){valid=true;}if(_this5.De29A59[_i10].queescancerutero===""){valid=true;}if(_this5.De29A59[_i10].queespapiloma===""){valid=true;}if(valid){_i10=_this5.De29A59.length;}}if(!valid){_context5.next=122;break;}_context5.next=114;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 114:_alert7=_context5.sent;if(!_alert7.value){_context5.next=119;break;}_this5.$router.push("/gestion");_context5.next=120;break;case 119:return _context5.abrupt("return",false);case 120:_context5.next=123;break;case 122:return _context5.abrupt("return",true);case 123:return _context5.abrupt("break",186);case 124:valid=false;// validar De60
+for(_i11=0;_i11<_this5.De60.length;_i11++){if(_this5.De60[_i11].grupo_ayudas===""){valid=true;}if(_this5.De60[_i11].peso===""){valid=true;}if(_this5.De60[_i11].talla===""){valid=true;}if(_this5.De60[_i11].imc===""){valid=true;}if(_this5.De60[_i11].pa===""){valid=true;}if(_this5.De60[_i11].cigarrillo===""){valid=true;}if(_this5.De60[_i11].alcohol===""){valid=true;}if(_this5.De60[_i11].actividad_fisica===""){valid=true;}if(_this5.De60[_i11].sintomatico===""){valid=true;}if(_this5.De60[_i11].examen_seno===""){valid=true;}if(_this5.De60[_i11].citologia===""){valid=true;}if(_this5.De60[_i11].colposcopia===""){valid=true;}if(_this5.De60[_i11].examen_prostata===""){valid=true;}if(_this5.De60[_i11].biposia_prostata===""){valid=true;}if(_this5.De60[_i11].agudeza_visual===""){valid=true;}if(_this5.De60[_i11].subsidio===""){valid=true;}if(_this5.De60[_i11].enfermedades_cronicas===""){valid=true;}if(_this5.De60[_i11].enfermedades_infecciosas===""){valid=true;}if(_this5.De60[_i11].empleo===""){valid=true;}if(valid){_i11=_this5.De60.length;}}if(!valid){_context5.next=137;break;}_context5.next=129;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 129:_alert8=_context5.sent;if(!_alert8.value){_context5.next=134;break;}_this5.$router.push("/gestion");_context5.next=135;break;case 134:return _context5.abrupt("return",false);case 135:_context5.next=138;break;case 137:return _context5.abrupt("return",true);case 138:return _context5.abrupt("break",186);case 139:valid=false;// validar EnCro
+for(_i12=0;_i12<_this5.EnCro.length;_i12++){if(_this5.EnCro[_i12].enfermedad===""){valid=true;}if(_this5.EnCro[_i12].tiempo===""){valid=true;}if(_this5.EnCro[_i12].tratamiento===""){valid=true;}if(_this5.EnCro[_i12].complicaciones===""){valid=true;}if(valid){_i12=_this5.EnCro.length;}}if(!valid){_context5.next=152;break;}_context5.next=144;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 144:_alert9=_context5.sent;if(!_alert9.value){_context5.next=149;break;}_this5.$router.push("/gestion");_context5.next=150;break;case 149:return _context5.abrupt("return",false);case 150:_context5.next=153;break;case 152:return _context5.abrupt("return",true);case 153:return _context5.abrupt("break",186);case 154:valid=false;// validar EnInf
+for(_i13=0;_i13<_this5.EnInf.length;_i13++){if(_this5.EnInf[_i13].enfermedad===""){valid=true;}if(_this5.EnInf[_i13].tiempo===""){valid=true;}if(_this5.EnInf[_i13].tratamiento===""){valid=true;}if(_this5.EnInf[_i13].complicaciones===""){valid=true;}if(valid){_i13=_this5.EnInf.length;}}if(!valid){_context5.next=167;break;}_context5.next=159;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 159:_alert10=_context5.sent;if(!_alert10.value){_context5.next=164;break;}_this5.$router.push("/gestion");_context5.next=165;break;case 164:return _context5.abrupt("return",false);case 165:_context5.next=168;break;case 167:return _context5.abrupt("return",true);case 168:return _context5.abrupt("break",186);case 169:valid=false;// validar Migra
+for(_i14=0;_i14<_this5.Migra.length;_i14++){if(_this5.Migra[_i14].pais===""){valid=true;}if(_this5.Migra[_i14].registrado===""){valid=true;}if(_this5.Migra[_i14].cuantollego===""){valid=true;}if(_this5.Migra[_i14].futuro===""){valid=true;}if(_this5.Migra[_i14].recibido===""){valid=true;}if(_this5.Migra[_i14].necesidad===""){valid=true;}if(_this5.Migra[_i14].dependen===""){valid=true;}if(_this5.Migra[_i14].ingreso===""){valid=true;}if(valid){_i14=_this5.Migra.length;}}if(!valid){_context5.next=182;break;}_context5.next=174;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 174:_alert11=_context5.sent;if(!_alert11.value){_context5.next=179;break;}_this5.$router.push("/gestion");_context5.next=180;break;case 179:return _context5.abrupt("return",false);case 180:_context5.next=183;break;case 182:return _context5.abrupt("return",true);case 183:return _context5.abrupt("break",186);case 184:return _context5.abrupt("return",false);case 186:case"end":return _context5.stop();}}},_callee5);}))();},habilitar_zonas:function habilitar_zonas(){if(this.hogar.id_zona===""){this.estratificacionData.ingresos_zona_rural="";this.estratificacionData.ingresos_ciudad="";}if(this.hogar.id_zona==="0"){this.estratificacionData.ingresos_zona_rural=8;this.estratificacionData.ingresos_ciudad=8;}if(this.hogar.id_zona==="1"){this.estratificacionData.ingresos_zona_rural=8;this.estratificacionData.ingresos_ciudad="";}if(this.hogar.id_zona==="2"||this.hogar.id_zona==="3"){this.estratificacionData.ingresos_zona_rural="";this.estratificacionData.ingresos_ciudad=8;}},allLetter:function allLetter(valor){var letters=/^([0-9])*$/;if(valor===""){return false;}else{if(valor.match(letters)){return true;}else{return false;}}},isNumeric:function isNumeric(n){return!isNaN(parseFloat(n))&&isFinite(n);},validarNumHog:function validarNumHog(){if(this.hogar.numero_hogares<=0){this.hogar.numero_hogares="";}},SoloNumeros:function SoloNumeros(event){if(event.keyCode<48||event.keyCode>57){return false;// this.caracData.salario = 0;
+}},cambiarCombo:function(){var _cambiarCombo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(caja){var _this6=this;var parametros,_parametros6,_parametros7,vere;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:if(caja==="dpto"){this.hogar.id_mun="";this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";}if(!(caja==="muni")){_context6.next=34;break;}this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";parametros={_token:this.csrf,id:this.hogar.id_mun,opcion:"MUN"};_context6.prev=6;_context6.next=9;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 9:_context6.next=20;break;case 11:_context6.prev=11;_context6.t0=_context6["catch"](6);_context6.t1=_context6.t0.response.status;_context6.next=_context6.t1===422?16:18;break;case 16:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",20);case 18:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",20);case 20:_context6.prev=20;_context6.next=23;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](parametros).then(function(respuesta){_this6.colegio_options=respuesta.data.arrayColegios;});case 23:_context6.next=34;break;case 25:_context6.prev=25;_context6.t2=_context6["catch"](20);_context6.t3=_context6.t2.response.status;_context6.next=_context6.t3===422?30:32;break;case 30:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",34);case 32:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",34);case 34:if(!(caja==="corregi")){_context6.next=70;break;}this.hogar.id_vereda="";this.hogar.id_barrio="";if(!(this.hogar.id_corre!=="0"&&this.hogar.id_corre!=="")){_context6.next=69;break;}_parametros6={_token:this.csrf,id:this.hogar.id_corre,opcion:"CORRE"};_context6.prev=39;_context6.next=42;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros6).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 42:_context6.next=53;break;case 44:_context6.prev=44;_context6.t4=_context6["catch"](39);_context6.t5=_context6.t4.response.status;_context6.next=_context6.t5===422?49:51;break;case 49:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",53);case 51:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",53);case 53:_context6.prev=53;_context6.next=56;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](_parametros6).then(function(respuesta){_this6.colegio_options=respuesta.data.arrayColegios;});case 56:_context6.next=67;break;case 58:_context6.prev=58;_context6.t6=_context6["catch"](53);_context6.t7=_context6.t6.response.status;_context6.next=_context6.t7===422?63:65;break;case 63:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",67);case 65:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",67);case 67:_context6.next=70;break;case 69:if(this.hogar.id_corre==="0"){this.cambiarCombo("muni");this.hogar.id_corre="0";}else{this.cambiarCombo("muni");}case 70:if(caja==="etnia"){if(this.caracData.etnia===7){this.caracData.clasificacion="89";}else{this.caracData.clasificacion="";}console.log(this.caracData.clasificacion);}if(caja==="etnia2"){if(this.CA1.etnia===7){this.CA1.clasificacion="89";}else{this.CA1.clasificacion="0";}}if(!(caja==="vereda")){_context6.next=91;break;}this.hogar.id_barrio="0";_parametros7={_token:this.csrf,id:this.hogar.id_corre,opcion:"VERE"};_context6.prev=75;_context6.next=78;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros7).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 78:_context6.next=89;break;case 80:_context6.prev=80;_context6.t8=_context6["catch"](75);_context6.t9=_context6.t8.response.status;_context6.next=_context6.t9===422?85:87;break;case 85:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",89);case 87:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",89);case 89:vere="";if(this.hogar.id_vereda===""||this.hogar.id_vereda==="0"){vere=this.hogar.id_vereda;this.cambiarCombo("corregi");if(vere==="0"){this.hogar.id_vereda="0";}}case 91:if(caja==="IdenGen1"){if(this.caracData.identidad_genero==="NA"){this.caracData.orientacion="NA";}else{this.caracData.orientacion="";}if(this.caracData.identidad_genero==="CISGENERO"){this.caracData.orientacion="HETEROSEXUAL";}}if(caja==="IdenGen2"){if(this.CA1.identidad_genero==="NA"){this.CA1.orientacion="NA";}else{this.CA1.orientacion="0";}if(this.CA1.identidad_genero==="CISGENERO"){this.CA1.orientacion="HETEROSEXUAL";}}if(caja==="Orienta1"){if(this.caracData.orientacion==="HETEROSEXUAL"){this.caracData.identidad_genero="CISGENERO";}}if(caja==="Orienta2"){if(this.CA1.orientacion==="HETEROSEXUAL"){this.CA1.identidad_genero="CISGENERO";}}case 95:case"end":return _context6.stop();}}},_callee6,this,[[6,11],[20,25],[39,44],[53,58],[75,80]]);}));function cambiarCombo(_x3){return _cambiarCombo.apply(this,arguments);}return cambiarCombo;}(),formato:function formato(caja){if(caja=="id1"){if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var val=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}if(caja=="salario"){this.caracData.salario=this.caracData.salario.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val=(this.caracData.salario/1).toFixed(0).replace(".",",");this.caracData.salario=_val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.salario=="NaN"){this.caracData.salario="";}// if (this.caracData.salario == "0") {
+//   this.caracData.salario = "";
+// }
+}if(caja=="tipoid"){this.caracData.identificacion="";if(this.caracData.tipo_id!="CC"){if(this.caracData.tipo_id==="ASI"||this.caracData.tipo_id==="MSI"){this.caracData.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val2=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=_val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}}if(caja=="id2"){if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val3=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}if(caja=="tipoid2"){this.CA1.identificacion="";if(this.CA1.tipo_id!="CC"){if(this.CA1.tipo_id==="ASI"||this.CA1.tipo_id==="MSI"){this.CA1.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val4=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}}if(caja=="telefono1"){this.caracData.telefono=this.caracData.telefono.replace(/[^.\d]/g,"").trim();if(this.caracData.telefono=="NaN"){this.caracData.telefono="";}if(this.caracData.telefono=="0"){this.caracData.telefono="";}}if(caja=="telefono2"){this.CA1.telefono=this.CA1.telefono.replace(/[^.\d]/g,"").trim();if(this.CA1.telefono=="NaN"){this.CA1.telefono="";}if(this.CA1.telefono=="0"){this.CA1.telefono="";}}if(caja=="puntaje"){}if(caja=="puntaje1"){}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},// OPCIONES DE LAS OCUPACIONES
+abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this7=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:parametros={txtbusqueda:_this7.txtbusqueda.trim(),_token:_this7.csrf,page:pagina};_context7.prev=1;_context7.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this7.ocupacionesVector=respuesta.data.ocupaciones.data;_this7.paginacionVector=respuesta.data.paginacion;});case 4:_context7.next=15;break;case 6:_context7.prev=6;_context7.t0=_context7["catch"](1);_context7.t1=_context7.t0.response.status;_context7.next=_context7.t1===422?11:13;break;case 11:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 13:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 15:case"end":return _context7.stop();}}},_callee7,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},// OPCIONES DE LAS OCUPACIONES
+//OPCIONES DEL JEFE DE HOGAR
+agregarJefe:function(){var _agregarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:if(!(this.checkForm()===true)){_context8.next=12;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.caracData.identificacion};_context8.prev=3;_context8.next=6;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this8.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+var resultado=_this8.datosJefe.filter(function(identi){return identi.identificacion==_this8.caracData.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
+if(resultado.length){_this8.$swal("Validar...!","El Documento <b>"+_this8.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento3=moment(_this8.caracData.fecha_nacimiento);var _hoy3=moment();var edad=0;if(_nacimiento3<_hoy3){edad=_hoy3.diff(_nacimiento3,"years");//Calculamos la diferencia en años
+}if(edad<14){_this8.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}//VALIDAR LA TABLA ENFERMEDADES JEFES
+if(_this8.caracData.enfermedades.length>0){for(var i=0;i<_this8.caracData.enfermedades.length;i++){if(_this8.caracData.enfermedades[i].tiempo===""){_this8.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this8.caracData.enfermedades[i].tratamiento===""){_this8.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES JEFES
+var textoEps="";if(_this8.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.caracData.afiliacion_entidad,_this8.admini_options);}}_this8.datosJefe.push({id:0,id_hogar:0,telefono:_this8.caracData.telefono,puntaje_sisben:_this8.caracData.puntaje_sisben,afiliacion_entidad:_this8.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this8.caracData.otra_eps,tipo_id:_this8.caracData.tipo_id,identificacion:_this8.caracData.identificacion,sexo:_this8.caracData.sexo,parentesco:_this8.caracData.parentesco,textoParentesco:_this8.showText(_this8.caracData.parentesco,_this8.parentesco_options),pnom:_this8.caracData.pnom,snom:_this8.caracData.snom,pape:_this8.caracData.pape,sape:_this8.caracData.sape,salario:_this8.caracData.salario,estado_civil:_this8.caracData.estado_civil,textoEstado:_this8.showText(_this8.caracData.estado_civil,_this8.estado_options),fecha_nacimiento:_this8.caracData.fecha_nacimiento,tipo_afiliacion:_this8.caracData.tipo_afiliacion,embarazo:_this8.caracData.embarazo,embarazo_multiple:_this8.caracData.embarazo_multiple,discapacidad:_this8.caracData.discapacidad,nivel_escolaridad:_this8.caracData.nivel_escolaridad,textoNivel:_this8.showText(_this8.caracData.nivel_escolaridad,_this8.escolaridad_options),ocupacion:_this8.caracData.ocupacion,textoOcupacion:_this8.showText(_this8.caracData.ocupacion,_this8.ocupacion_options),colegio:_this8.caracData.colegio,textoColegio:_this8.showText(_this8.caracData.colegio,_this8.colegio_options),grado:_this8.caracData.grado,entiende:_this8.caracData.entiende,migrante:_this8.caracData.migrante,pyp:_this8.caracData.pyp,etnia:_this8.caracData.etnia,textoEtnia:_this8.showText(_this8.caracData.etnia,_this8.etnia_options),clasificacion:_this8.caracData.clasificacion,textoClasificacion:_this8.showText2(_this8.caracData.clasificacion,_this8.clasifi_options,_this8.caracData.etnia),edad:_this8.caracData.edad,orientacion:_this8.caracData.orientacion,identidad_genero:_this8.caracData.identidad_genero,perdida_peso:_this8.caracData.perdida_peso,programa_icbf:_this8.caracData.programa_icbf,identi_auxi:"",estado:"Activo",peso:_this8.caracData.peso,talla:_this8.caracData.talla,enfermedades:[]});for(var _i15=0;_i15<_this8.caracData.enfermedades.length;_i15++){_this8.datosJefe[_this8.datosJefe.length-1].enfermedades.push({id:_this8.caracData.enfermedades[_i15].id,id_hogar:_this8.caracData.enfermedades[_i15].id_hogar,id_jefe:_this8.caracData.enfermedades[_i15].id_jefe,textoEnfermedad:_this8.caracData.enfermedades[_i15].textoEnfermedad,id_enfermedad:_this8.caracData.enfermedades[_i15].id_enfermedad,tipo:_this8.caracData.enfermedades[_i15].tipo,tiempo:_this8.caracData.enfermedades[_i15].tiempo,tratamiento:_this8.caracData.enfermedades[_i15].tratamiento,estado:_this8.caracData.enfermedades[_i15].estado});_this8.datosJefe.splice(_this8.datosJefe.length-1,1,_this8.datosJefe[_this8.datosJefe.length-1]);}_this8.caracData.enfermedades.length=[];if(_this8.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this8.caracData.tipo_afiliacion==="ESPECIAL"){_this8.SAPU=true;_this8.estratificacionData.afiliacion_salud_privada="SI";}_this8.ocupacionAuxiliar="";_this8.mOCOL1=false;var indice=_this8.datosJefe.findIndex(function(identi){return identi.identificacion===_this8.caracData.identificacion;});_this8.vectorJefes.push({index:indice,identificacion:_this8.caracData.identificacion});// AGREGAR FACTORES
+_this8.AFactores(_this8.caracData,edad);// AGREGAR FACTORES
+// AGREGAR AFECTACION
+_this8.AAFECTACION(_this8.caracData,edad);// AGREGAR AFECTACION                    
+// AGREGAR DE 10 A 59 AÑOS
+if(edad>=10&&edad<=59){_this8.Ade10a59Anio(_this8.caracData,edad,"JEFE");}// AGREGAR DE 10 A 59 AÑOS
+// AGREGAR PARTO POSTPARTO
+if(_this8.caracData.embarazo==="SI"){_this8.AParPost(_this8.caracData,edad,"JEFE");}// AGREGAR PARTO POSTPARTO
+// AGREGAR DE 12 A 17 AÑOS
+if(edad>=12&&edad<=17){_this8.Ade12a17Anio(_this8.caracData,edad,"JEFE");}// AGREGAR DE 12 A 17 AÑOS
+// AGREGAR DE 18 A 28 AÑOS
+if(edad>=18&&edad<=28){_this8.Ade18a28Anio(_this8.caracData,edad,"JEFE");}// AGREGAR DE 18 A 28 AÑOS
+// AGREGAR DE 29 A 59 AÑOS
+if(edad>=29&&edad<=59){_this8.Ade29a59Anio(_this8.caracData,edad,"JEFE");}// AGREGAR DE 29 A 59 AÑOS
+// AGREGAR DE 60 ó MAS AÑOS
+if(edad>=60){_this8.Ade60Anio(_this8.caracData,edad,"JEFE");}// AGREGAR DE 60 ó MAS AÑOS
+// AGREGAR MIGRANTES
+if(_this8.caracData.migrante==="SI"){_this8.AMigra(_this8.caracData,edad,"JEFE");}// AGREGAR MIGRANTES
+_this8.limpiar2();}}})["catch"](function(error){_this8.errorDevuelto=error.response.data.errors;_this8.entrarPorError=true;});case 6:_context8.next=12;break;case 8:_context8.prev=8;_context8.t0=_context8["catch"](3);this.errorDevuelto=_context8.t0.response.data.errors;this.entrarPorError=true;case 12:case"end":return _context8.stop();}}},_callee8,this,[[3,8]]);}));function agregarJefe(){return _agregarJefe.apply(this,arguments);}return agregarJefe;}(),calculosAedad:function calculosAedad(){var a=moment();var b=moment(this.caracData.fecha_nacimiento);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years>=18){this.caracData.programa_icbf="NA";}else{this.caracData.programa_icbf="";}if(years<=8){this.caracData.estado_civil=9;}else{this.caracData.estado_civil="";}},checkForm:function checkForm(e){var bande=true;if(this.caracData.tipo_id===""){this.$refs.tipo_id.focus();bande=false;this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return;}if(this.caracData.identificacion===""){this.$refs.identificacion.focus();bande=false;this.$swal("Error...!","Por favor digite una identificación!","error");return;}if(this.caracData.sexo===""){this.$refs.sexo.focus();bande=false;this.$swal("Error...!","Por favor seleccione el sexo!","error");return;}if(this.caracData.orientacion===""){bande=false;this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return;}if(this.caracData.identidad_genero===""){bande=false;this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return;}if(this.caracData.parentesco===""){this.$refs.parentesco.focus();bande=false;this.$swal("Error...!","Por favor seleccione el parentesco!","error");return;}if(this.caracData.pnom===""){this.$refs.pnom.focus();bande=false;this.$swal("Error...!","Por favor digite el primer nombre!","error");return;}if(this.caracData.pape===""){this.$refs.pape.focus();bande=false;this.$swal("Error...!","Por favor digite el primer apellido!","error");return;}if(this.caracData.estado_civil===""){this.$refs.estado_civil.focus();bande=false;this.$swal("Error...!","Por favor seleccione el estado civil!","error");return;}if(this.caracData.fecha_nacimiento===""){this.$refs.fecha_nacimiento.focus();bande=false;this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return;}if(this.caracData.afiliacion_entidad===""){this.$refs.afiliacion_entidad.focus();bande=false;this.$swal("Error...!","Por favor seleccione la eps!","error");return;}if(this.caracData.tipo_afiliacion===""){this.$refs.tipo_afiliacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return;}if(this.caracData.ocupacion===""){this.$refs.ocupacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la ocupación!","error");return;}if(this.caracData.etnia===""){this.$refs.etnia.focus();bande=false;this.$swal("Error...!","Por favor seleccione la etnia!","error");return;}if(this.caracData.clasificacion===""){this.$refs.clasificacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return;}if(this.caracData.salario===""){this.$refs.salario.focus();bande=false;this.$swal("Error...!","Por favor digite el salario!","error");return;}if(this.caracData.perdida_peso===""){this.$refs.perdida_peso.focus();bande=false;this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return;}if(this.caracData.programa_icbf===""){bande=false;this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return;}if(this.caracData.peso===""){bande=false;this.$swal("Error...!","Por favor digite el peso!","error");return;}if(this.caracData.talla===""){bande=false;this.$swal("Error...!","Por favor digite la talla!","error");return;}return bande;e.preventDefault();},showText:function showText(val,vectorAux){for(var i=0;i<vectorAux.length;i++){if(vectorAux[i].value===val){return vectorAux[i].texto;}}return"";},showText2:function showText2(val,vectorAux,id){if(id===""){return"";}for(var i=0;i<vectorAux[id].length;i++){if(vectorAux[id][i].value===val){return vectorAux[id][i].texto;}}return"";},eliminarItemJefe:function eliminarItemJefe(index,item){var _this9=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el jefe de hogar  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this9.datosJefe.splice(index,1);_this9.vectorJefes.splice(index,1);var identificacion=item.identificacion;_this9.factores=_this9.factores.filter(function(men){return men.identificacion!=identificacion;});_this9.afectacion=_this9.afectacion.filter(function(men){return men.identificacion!=identificacion;});_this9.estratificacion=_this9.estratificacion.filter(function(men){return men.id_jefe!=identificacion;});_this9.Men1A=_this9.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this9.De1A5=_this9.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this9.De6A11=_this9.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this9.De10A59=_this9.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this9.ParPost=_this9.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this9.De12A17=_this9.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this9.De18A28=_this9.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this9.De29A59=_this9.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this9.De60=_this9.De60.filter(function(men){return men.identificacion!=identificacion;});_this9.EnCro=_this9.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this9.EnInf=_this9.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this9.Migra=_this9.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion=item.identificacion;// TABLA datos
+for(var i=0;i<_this9.datos.length;i++){if(_this9.datos[i].jefe===_identificacion){_this9.$swal("Advertencia...!","El jefe de hogar "+nombre+" tiene integrantes asociados asociados !","warning");return;}}// TABLA datos
+var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
+_this9.datosJefe[index].estado="Inactivo";_this9.datosJefe.splice(index,1,_this9.datosJefe[index]);//INACTIVAR LA FILA DE JEFES
+//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+var indice=_this9.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.De10A59[indice].estado="Inactivo";_this9.De10A59.splice(indice,1,_this9.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+indice=_this9.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.ParPost[indice].estado="Inactivo";_this9.ParPost.splice(indice,1,_this9.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+indice=_this9.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.De12A17[indice].estado="Inactivo";_this9.De12A17.splice(indice,1,_this9.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+indice=_this9.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.De18A28[indice].estado="Inactivo";_this9.De18A28.splice(indice,1,_this9.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+indice=_this9.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.De29A59[indice].estado="Inactivo";_this9.De29A59.splice(indice,1,_this9.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+//SABER EL INDICE DE LA IDENTIFICACION DE De60
+indice=_this9.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.De60[indice].estado="Inactivo";_this9.De60.splice(indice,1,_this9.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
+//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+indice=_this9.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.EnCro[indice].estado="Inactivo";_this9.EnCro.splice(indice,1,_this9.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+indice=_this9.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.EnInf[indice].estado="Inactivo";_this9.EnInf.splice(indice,1,_this9.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+//SABER EL INDICE DE LA IDENTIFICACION DE Migra
+indice=_this9.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.Migra[indice].estado="Inactivo";_this9.Migra.splice(indice,1,_this9.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra              
+//SABER EL INDICE DE LA IDENTIFICACION DE factores
+indice=_this9.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.factores[indice].estado="Inactivo";_this9.factores.splice(indice,1,_this9.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE factores
+//SABER EL INDICE DE LA IDENTIFICACION DE afectacion
+indice=_this9.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.afectacion[indice].estado="Inactivo";_this9.afectacion.splice(indice,1,_this9.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE afectacion
+//SABER EL INDICE DE LA IDENTIFICACION DE estratificacion
+indice=_this9.estratificacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.estratificacion[indice].estado="Inactivo";_this9.estratificacion.splice(indice,1,_this9.estratificacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE estratificacion              
+}_this9.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.ocupacionAuxiliar="";this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";this.caracData.enfermedades=[];},updateJefe:function updateJefe(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var id=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.factores[indice].tipo_id=valor;this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].tipo_id=valor;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].tipo_id=valor;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].tipo_id=valor;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].tipo_id=valor;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].tipo_id=valor;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].tipo_id=valor;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].tipo_id=valor;this.Migra.splice(indice,1,this.Migra[indice]);}}if(opcion==="sexo"){if(item.sexo===""){item.embarazo="";item.embarazo_multiple="";}if(item.sexo==="MASCULINO"){item.embarazo="NOAPLICA";item.embarazo_multiple="NOAPLICA";}if(item.sexo==="FEMENINO"){item.embarazo="";item.embarazo_multiple="";}//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice=this.factores.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.factores[_indice].sexo=valor;this.factores.splice(_indice,1,this.factores[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice=this.De10A59.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.De10A59[_indice].sexo=valor;this.De10A59.splice(_indice,1,this.De10A59[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice=this.ParPost.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.ParPost[_indice].sexo=valor;this.ParPost.splice(_indice,1,this.ParPost[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice=this.De12A17.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.De12A17[_indice].sexo=valor;this.De12A17.splice(_indice,1,this.De12A17[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice=this.De18A28.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.De18A28[_indice].sexo=valor;this.De18A28.splice(_indice,1,this.De18A28[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice=this.De29A59.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.De29A59[_indice].sexo=valor;this.De29A59.splice(_indice,1,this.De29A59[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice=this.De60.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.De60[_indice].sexo=valor;this.De60.splice(_indice,1,this.De60[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(_indice>=0){this.Migra[_indice].sexo=valor;this.Migra.splice(_indice,1,this.Migra[_indice]);}}if(opcion==="embarazo"){if(item.embarazo===""){item.embarazo_multiple="";}if(item.embarazo==="SI"){item.embarazo_multiple="";}if(item.embarazo==="NO"){item.embarazo_multiple="NO";}}if(opcion==="afiliacion_entidad"){if(item.afiliacion_entidad==="NINGUNA"){item.tipo_afiliacion="0";}else{if(item.afiliacion_entidad==="OTRA"){item.otra_eps="";}else{item.tipo_afiliacion="";}}}if(opcion==="nivel_escolaridad"){item.colegio="";item.grado="";}},changeupdateJefe:function changeupdateJefe(item,event,opcion,index){if(opcion=="identificacion"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var id=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.factores[indice].identificacion=item.identificacion;this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[indice].identificacion=item.identificacion;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[indice].identificacion=item.identificacion;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[indice].identificacion=item.identificacion;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[indice].identificacion=item.identificacion;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[indice].identificacion=item.identificacion;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[indice].identificacion=item.identificacion;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[indice].identificacion=item.identificacion;this.Migra.splice(indice,1,this.Migra[indice]);}//CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
+//DIGITADA EN LA TABLA
+this.vectorJefes[index].identificacion=item.identificacion;// Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
+this.vectorJefes.splice(index,1,this.vectorJefes[index]);}if(opcion=="pnom"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id2=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice2=this.factores.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.factores[_indice2].pnom=item.pnom;this.factores.splice(_indice2,1,this.factores[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice2=this.De10A59.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice2].pnom=item.pnom;this.De10A59.splice(_indice2,1,this.De10A59[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice2=this.ParPost.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice2].pnom=item.pnom;this.ParPost.splice(_indice2,1,this.ParPost[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice2=this.De12A17.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice2].pnom=item.pnom;this.De12A17.splice(_indice2,1,this.De12A17[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice2=this.De18A28.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice2].pnom=item.pnom;this.De18A28.splice(_indice2,1,this.De18A28[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice2=this.De29A59.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice2].pnom=item.pnom;this.De29A59.splice(_indice2,1,this.De29A59[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice2=this.De60.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice2].pnom=item.pnom;this.De60.splice(_indice2,1,this.De60[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice2=this.Migra.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice2>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice2].pnom=item.pnom;this.Migra.splice(_indice2,1,this.Migra[_indice2]);}}if(opcion=="snom"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id3=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice3=this.factores.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.factores[_indice3].snom=item.snom;this.factores.splice(_indice3,1,this.factores[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice3=this.De10A59.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice3].snom=item.snom;this.De10A59.splice(_indice3,1,this.De10A59[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice3=this.ParPost.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice3].snom=item.snom;this.ParPost.splice(_indice3,1,this.ParPost[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice3=this.De12A17.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice3].snom=item.snom;this.De12A17.splice(_indice3,1,this.De12A17[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice3=this.De18A28.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice3].snom=item.snom;this.De18A28.splice(_indice3,1,this.De18A28[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice3=this.De29A59.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice3].snom=item.snom;this.De29A59.splice(_indice3,1,this.De29A59[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice3=this.De60.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice3].snom=item.snom;this.De60.splice(_indice3,1,this.De60[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice3>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice3].snom=item.snom;this.Migra.splice(_indice3,1,this.Migra[_indice3]);}}if(opcion=="pape"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id4=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice4=this.factores.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.factores[_indice4].pape=item.pape;this.factores.splice(_indice4,1,this.factores[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice4=this.De10A59.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice4].pape=item.pape;this.De10A59.splice(_indice4,1,this.De10A59[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice4=this.ParPost.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice4].pape=item.pape;this.ParPost.splice(_indice4,1,this.ParPost[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice4=this.De12A17.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice4].pape=item.pape;this.De12A17.splice(_indice4,1,this.De12A17[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice4=this.De18A28.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice4].pape=item.pape;this.De18A28.splice(_indice4,1,this.De18A28[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice4=this.De29A59.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice4].pape=item.pape;this.De29A59.splice(_indice4,1,this.De29A59[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice4=this.De60.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice4].pape=item.pape;this.De60.splice(_indice4,1,this.De60[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice4=this.Migra.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice4>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice4].pape=item.pape;this.Migra.splice(_indice4,1,this.Migra[_indice4]);}}if(opcion=="sape"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id5=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice5=this.factores.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.factores[_indice5].sape=item.sape;this.factores.splice(_indice5,1,this.factores[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice5=this.De10A59.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice5].sape=item.sape;this.De10A59.splice(_indice5,1,this.De10A59[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice5=this.ParPost.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice5].sape=item.sape;this.ParPost.splice(_indice5,1,this.ParPost[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice5=this.De12A17.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice5].sape=item.sape;this.De12A17.splice(_indice5,1,this.De12A17[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice5=this.De18A28.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice5].sape=item.sape;this.De18A28.splice(_indice5,1,this.De18A28[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice5=this.De29A59.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice5].sape=item.sape;this.De29A59.splice(_indice5,1,this.De29A59[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice5=this.De60.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice5].sape=item.sape;this.De60.splice(_indice5,1,this.De60[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice5=this.Migra.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice5].sape=item.sape;this.Migra.splice(_indice5,1,this.Migra[_indice5]);}}if(opcion=="salario"){item.salario=event.target.value.replace(/[.*+\-?^${}()|[\]\\]/g,"");var val=(item.salario/1).toFixed(0).replace(".",",");item.salario=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(item.salario=="NaN"){item.salario="";}if(item.salario=="0"){item.salario="";}}},AFactores:function AFactores(vector,edad){this.factores.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,dialogos:"",sancion:"",castigo_verbal:"",castigo_fisico:"",alcohol:"",tabaco:"",sustancias_psico:"",apuestas:"",violencia_fisica:"",violencia_psico:"",violencia_economica:"",abuso_sexual:"",actividad_fisica:"",consumo_frutas:"",religiosos:"",sociales:"",culturales:"",recreativos:"",estado:"Activo"});},AAFECTACION:function AAFECTACION(vector,edad){this.afectacion.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,presentado:"",prueba:"",afectado:"",nivel:"",porcentaje:"",perdida:"",sobrelleva:"",percibe:"",principal:"",tiempo:"",estado:"Activo"});},datediff:function datediff(date1,date2){var fecha1=date1.split("-");var fecha2=date2.split("-");var y1=fecha1[0],m1=fecha1[1],d1=fecha1[2],y2=fecha2[0],m2=fecha2[1],d2=fecha2[2];if(d1<d2){m1--;d1+=this.DaysInMonth(y2,m2);}if(m1<m2){y1--;m1+=12;}return[y1-y2,m1-m2,d1-d2];},DaysInMonth:function DaysInMonth(Y,M){return new Date(Y,M,1,12).getDate();},validarTablaJefes:function(){var _validarTablaJefes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(){var _this10=this;var _loop3,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:_loop3=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context9){while(1){switch(_context9.prev=_context9.next){case 0:parametros={_token:_this10.csrf,identificacion:_this10.datosJefe[i].identificacion};_context9.prev=1;_context9.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this10.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
+return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+var resultado=_this10.datosJefe.filter(function(identi){return identi.identificacion.includes(_this10.datosJefe[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
+if(resultado.length>1){_this10.$swal("Validar...!","El Documento <b>"+_this10.datosJefe[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar","warning");// item.identificacion="";
+return false;}else{if(_this10.datosJefe[i].tipo_id===""){_this10.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].identificacion===""){_this10.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].pnom===""){_this10.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].pape===""){_this10.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].sexo===""){_this10.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].parentesco===""){_this10.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].estado_civil===""){_this10.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].fecha_nacimiento===""){_this10.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].afiliacion_entidad===""){_this10.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].tipo_afiliacion===""){_this10.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].nivel_escolaridad===""){_this10.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].ocupacion===""){_this10.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].etnia===""){_this10.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].clasificacion===""){_this10.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].salario===""){_this10.$swal("Error...!","Por favor digite el <b>salario</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}return true;}}})["catch"](function(error){});case 4:_context9.next=8;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);case 8:case"end":return _context9.stop();}}},_loop3,null,[[1,6]]);});i=0;case 2:if(!(i<this.datosJefe.length)){_context10.next=7;break;}return _context10.delegateYield(_loop3(i),"t0",4);case 4:i++;_context10.next=2;break;case 7:case"end":return _context10.stop();}}},_callee9,this);}));function validarTablaJefes(){return _validarTablaJefes.apply(this,arguments);}return validarTablaJefes;}(),editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedades=item.enfermedades;this.vaEnfJef=item.enfermedades;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;this.identificacionJefe=item.identificacion;var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
+this.datosJefe[this.indiceEditJefe].estado="Inactivo";this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);//INACTIVAR LA FILA DE JEFES
+//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+var indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Inactivo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+//SABER EL INDICE DE LA IDENTIFICACION DE De60
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
+//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+//SABER EL INDICE DE LA IDENTIFICACION DE Migra
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
+},CancelarEditarJefe:function CancelarEditarJefe(){this.datosJefe[this.indiceEditJefe].estado="Activo";this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);var id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+var indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Activo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Activo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Activo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Activo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+//SABER EL INDICE DE LA IDENTIFICACION DE De60
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Activo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
+//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Activo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+//SABER EL INDICE DE LA IDENTIFICACION DE Migra
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
+this.limpiar2();},editarJefe:function(){var _editarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10(){var _this11=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context11){while(1){switch(_context11.prev=_context11.next){case 0:this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.caracData.identificacion)){_context11.next=6;break;}if(this.checkForm()===true){this.ediJe();}_context11.next=17;break;case 6:if(!(this.checkForm()===true)){_context11.next=17;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+parametros={_token:this.csrf,identificacion:this.caracData.identificacion};_context11.prev=8;_context11.next=11;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this11.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+var resultado=_this11.datosJefe.filter(function(identi){return identi.identificacion==_this11.caracData.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
+if(resultado.length){_this11.$swal("Validar...!","El Documento <b>"+_this11.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this11.ediJe();}}})["catch"](function(error){_this11.errorDevuelto=error.response.data.errors;_this11.entrarPorError=true;});case 11:_context11.next=17;break;case 13:_context11.prev=13;_context11.t0=_context11["catch"](8);this.errorDevuelto=_context11.t0.response.data.errors;this.entrarPorError=true;case 17:case"end":return _context11.stop();}}},_callee10,this,[[8,13]]);}));function editarJefe(){return _editarJefe.apply(this,arguments);}return editarJefe;}(),ediJe:function ediJe(){var nacimiento=moment(this.caracData.fecha_nacimiento);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
+}if(edad<14){this.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}//VALIDAR LA TABLA ENFERMEDADES JEFES
+if(this.caracData.enfermedades.length>0){for(var i=0;i<this.caracData.enfermedades.length;i++){if(this.caracData.enfermedades[i].tiempo===""){this.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(this.caracData.enfermedades[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES JEFES
+var textoEps="";if(this.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(this.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.caracData.afiliacion_entidad,this.admini_options);}}if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO"||this.caracData.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar="";this.mOCOL1=false;for(var _i16=0;_i16<this.datos.length;_i16++){if(this.datos[_i16].jefe===this.identificacionJefe){this.datos[_i16].jefe=this.caracData.identificacion;this.datos.splice(_i16,1,this.datos[_i16]);}}// let id = this.vectorJefes[this.indiceEditJefe].identificacion;
+var id=this.identificacionEditar;if(this.caracData.fecha_nacimiento!==this.fechaEditar){if(edad!==this.edadEditar){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.factores[indice].tipo_id=this.caracData.tipo_id;this.factores[indice].sexo=this.caracData.sexo;this.factores[indice].identificacion=this.caracData.identificacion;this.factores[indice].pnom=this.caracData.pnom;this.factores[indice].snom=this.caracData.snom;this.factores[indice].pape=this.caracData.pape;this.factores[indice].sape=this.caracData.sape;this.factores[indice].estado="Activo";this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.afectacion[indice].tipo_id=this.caracData.tipo_id;this.afectacion[indice].sexo=this.caracData.sexo;this.afectacion[indice].identificacion=this.caracData.identificacion;this.afectacion[indice].pnom=this.caracData.pnom;this.afectacion[indice].snom=this.caracData.snom;this.afectacion[indice].pape=this.caracData.pape;this.afectacion[indice].sape=this.caracData.sape;this.afectacion[indice].estado="Activo";this.afectacion.splice(indice,1,this.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.estratificacion.findIndex(function(identi){return identi.id_jefe===id;});if(indice>=0){this.estratificacion[indice].id_jefe=this.caracData.identificacion;this.estratificacion[indice].estado="Activo";this.estratificacion.splice(indice,1,this.estratificacion[indice]);}// ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
+this.eliEdad(this.identificacionEditar,this.caracData,edad,"JEFE");}else{//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice6=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.factores[_indice6].tipo_id=this.caracData.tipo_id;this.factores[_indice6].sexo=this.caracData.sexo;this.factores[_indice6].identificacion=this.caracData.identificacion;this.factores[_indice6].pnom=this.caracData.pnom;this.factores[_indice6].snom=this.caracData.snom;this.factores[_indice6].pape=this.caracData.pape;this.factores[_indice6].sape=this.caracData.sape;this.factores[_indice6].estado="Activo";this.factores.splice(_indice6,1,this.factores[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.afectacion[_indice6].tipo_id=this.caracData.tipo_id;this.afectacion[_indice6].sexo=this.caracData.sexo;this.afectacion[_indice6].identificacion=this.caracData.identificacion;this.afectacion[_indice6].pnom=this.caracData.pnom;this.afectacion[_indice6].snom=this.caracData.snom;this.afectacion[_indice6].pape=this.caracData.pape;this.afectacion[_indice6].sape=this.caracData.sape;this.afectacion[_indice6].estado="Activo";this.afectacion.splice(_indice6,1,this.afectacion[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.estratificacion.findIndex(function(identi){return identi.id_jefe===id;});if(_indice6>=0){this.estratificacion[_indice6].id_jefe=this.caracData.identificacion;this.estratificacion[_indice6].estado="Activo";this.estratificacion.splice(_indice6,1,this.estratificacion[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.De10A59[_indice6].tipo_id=this.caracData.tipo_id;this.De10A59[_indice6].sexo=this.caracData.sexo;this.De10A59[_indice6].identificacion=this.caracData.identificacion;this.De10A59[_indice6].pnom=this.caracData.pnom;this.De10A59[_indice6].snom=this.caracData.snom;this.De10A59[_indice6].pape=this.caracData.pape;this.De10A59[_indice6].sape=this.caracData.sape;this.De10A59[_indice6].estado="Activo";this.De10A59.splice(_indice6,1,this.De10A59[_indice6]);}if(this.embarazoEditar==="SI"){_indice6=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(_indice6>=0){this.ParPost[_indice6].tipo_id=this.caracData.tipo_id;this.ParPost[_indice6].sexo=this.caracData.sexo;this.ParPost[_indice6].identificacion=this.caracData.identificacion;this.ParPost[_indice6].pnom=this.caracData.pnom;this.ParPost[_indice6].snom=this.caracData.snom;this.ParPost[_indice6].pape=this.caracData.pape;this.ParPost[_indice6].sape=this.caracData.sape;this.ParPost[_indice6].peso=this.caracData.peso;this.ParPost[_indice6].talla=this.caracData.talla;this.ParPost[_indice6].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.ParPost[_indice6].estado="Activo";this.ParPost.splice(_indice6,1,this.ParPost[_indice6]);}}else if(this.caracData.embarazo==="NO"){//ELIMINO
+this.ParPost[_indice6].estado="Inactivo";this.ParPost.splice(_indice6,1,this.ParPost[_indice6]);}}else{if(this.caracData.embarazo==="SI"){//AGREGO
+_indice6=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.ParPost[_indice6].estado="Activo";this.ParPost.splice(_indice6,1,this.ParPost[_indice6]);}else{this.AParPost(this.caracData,edad,"JEFE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.De12A17[_indice6].tipo_id=this.caracData.tipo_id;this.De12A17[_indice6].sexo=this.caracData.sexo;this.De12A17[_indice6].identificacion=this.caracData.identificacion;this.De12A17[_indice6].pnom=this.caracData.pnom;this.De12A17[_indice6].snom=this.caracData.snom;this.De12A17[_indice6].pape=this.caracData.pape;this.De12A17[_indice6].sape=this.caracData.sape;this.De12A17[_indice6].peso=this.caracData.peso;this.De12A17[_indice6].talla=this.caracData.talla;this.De12A17[_indice6].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De12A17[_indice6].estado="Activo";this.De12A17.splice(_indice6,1,this.De12A17[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.De18A28[_indice6].tipo_id=this.caracData.tipo_id;this.De18A28[_indice6].sexo=this.caracData.sexo;this.De18A28[_indice6].identificacion=this.caracData.identificacion;this.De18A28[_indice6].pnom=this.caracData.pnom;this.De18A28[_indice6].snom=this.caracData.snom;this.De18A28[_indice6].pape=this.caracData.pape;this.De18A28[_indice6].sape=this.caracData.sape;this.De18A28[_indice6].peso=this.caracData.peso;this.De18A28[_indice6].talla=this.caracData.talla;this.De18A28[_indice6].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De18A28[_indice6].estado="Activo";this.De18A28.splice(_indice6,1,this.De18A28[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.De29A59[_indice6].tipo_id=this.caracData.tipo_id;this.De29A59[_indice6].sexo=this.caracData.sexo;this.De29A59[_indice6].identificacion=this.caracData.identificacion;this.De29A59[_indice6].pnom=this.caracData.pnom;this.De29A59[_indice6].snom=this.caracData.snom;this.De29A59[_indice6].pape=this.caracData.pape;this.De29A59[_indice6].sape=this.caracData.sape;this.De29A59[_indice6].peso=this.caracData.peso;this.De29A59[_indice6].talla=this.caracData.talla;this.De29A59[_indice6].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De29A59[_indice6].estado="Activo";this.De29A59.splice(_indice6,1,this.De29A59[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.De60[_indice6].tipo_id=this.caracData.tipo_id;this.De60[_indice6].sexo=this.caracData.sexo;this.De60[_indice6].identificacion=this.caracData.identificacion;this.De60[_indice6].pnom=this.caracData.pnom;this.De60[_indice6].snom=this.caracData.snom;this.De60[_indice6].pape=this.caracData.pape;this.De60[_indice6].sape=this.caracData.sape;this.De60[_indice6].peso=this.caracData.peso;this.De60[_indice6].talla=this.caracData.talla;this.De60[_indice6].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De60[_indice6].estado="Activo";this.De60.splice(_indice6,1,this.De60[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.EnCro[_indice6].tipo_id=this.caracData.tipo_id;this.EnCro[_indice6].sexo=this.caracData.sexo;this.EnCro[_indice6].identificacion=this.caracData.identificacion;this.EnCro[_indice6].pnom=this.caracData.pnom;this.EnCro[_indice6].snom=this.caracData.snom;this.EnCro[_indice6].pape=this.caracData.pape;this.EnCro[_indice6].sape=this.caracData.sape;this.EnCro[_indice6].estado="Activo";this.EnCro.splice(_indice6,1,this.EnCro[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice6=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.EnInf[_indice6].tipo_id=this.caracData.tipo_id;this.EnInf[_indice6].sexo=this.caracData.sexo;this.EnInf[_indice6].identificacion=this.caracData.identificacion;this.EnInf[_indice6].pnom=this.caracData.pnom;this.EnInf[_indice6].snom=this.caracData.snom;this.EnInf[_indice6].pape=this.caracData.pape;this.EnInf[_indice6].sape=this.caracData.sape;this.EnInf[_indice6].estado="Activo";this.EnInf.splice(_indice6,1,this.EnInf[_indice6]);}if(this.migrarEditar==="SI"){_indice6=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(_indice6>=0){this.Migra[_indice6].tipo_id=this.caracData.tipo_id;this.Migra[_indice6].sexo=this.caracData.sexo;this.Migra[_indice6].identificacion=this.caracData.identificacion;this.Migra[_indice6].pnom=this.caracData.pnom;this.Migra[_indice6].snom=this.caracData.snom;this.Migra[_indice6].pape=this.caracData.pape;this.Migra[_indice6].sape=this.caracData.sape;this.Migra[_indice6].estado="Activo";this.Migra.splice(_indice6,1,this.Migra[_indice6]);}}else if(this.caracData.migrante==="NO"){//ELIMINO
+this.Migra[_indice6].estado="Inactivo";this.Migra.splice(_indice6,1,this.Migra[_indice6]);}}else{if(this.caracData.migrante==="SI"){//AGREGO
+_indice6=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(_indice6>=0){this.Migra[_indice6].estado="Activo";this.Migra.splice(_indice6,1,this.Migra[_indice6]);}else{this.AMigra(this.caracData,edad,"JEFE");}}}}}else{//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice7=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.factores[_indice7].tipo_id=this.caracData.tipo_id;this.factores[_indice7].sexo=this.caracData.sexo;this.factores[_indice7].identificacion=this.caracData.identificacion;this.factores[_indice7].pnom=this.caracData.pnom;this.factores[_indice7].snom=this.caracData.snom;this.factores[_indice7].pape=this.caracData.pape;this.factores[_indice7].sape=this.caracData.sape;this.factores[_indice7].estado="Activo";this.factores.splice(_indice7,1,this.factores[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.afectacion[_indice7].tipo_id=this.caracData.tipo_id;this.afectacion[_indice7].sexo=this.caracData.sexo;this.afectacion[_indice7].identificacion=this.caracData.identificacion;this.afectacion[_indice7].pnom=this.caracData.pnom;this.afectacion[_indice7].snom=this.caracData.snom;this.afectacion[_indice7].pape=this.caracData.pape;this.afectacion[_indice7].sape=this.caracData.sape;this.afectacion[_indice7].estado="Activo";this.afectacion.splice(_indice7,1,this.afectacion[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.estratificacion.findIndex(function(identi){return identi.id_jefe===id;});if(_indice7>=0){this.estratificacion[_indice7].id_jefe=this.caracData.identificacion;this.estratificacion[_indice7].estado="Activo";this.estratificacion.splice(_indice7,1,this.estratificacion[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.De10A59[_indice7].tipo_id=this.caracData.tipo_id;this.De10A59[_indice7].sexo=this.caracData.sexo;this.De10A59[_indice7].identificacion=this.caracData.identificacion;this.De10A59[_indice7].pnom=this.caracData.pnom;this.De10A59[_indice7].snom=this.caracData.snom;this.De10A59[_indice7].pape=this.caracData.pape;this.De10A59[_indice7].sape=this.caracData.sape;this.De10A59[_indice7].estado="Activo";this.De10A59.splice(_indice7,1,this.De10A59[_indice7]);}if(this.embarazoEditar==="SI"){_indice7=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(_indice7>=0){this.ParPost[_indice7].tipo_id=this.caracData.tipo_id;this.ParPost[_indice7].sexo=this.caracData.sexo;this.ParPost[_indice7].identificacion=this.caracData.identificacion;this.ParPost[_indice7].pnom=this.caracData.pnom;this.ParPost[_indice7].snom=this.caracData.snom;this.ParPost[_indice7].pape=this.caracData.pape;this.ParPost[_indice7].sape=this.caracData.sape;this.ParPost[_indice7].peso=this.caracData.peso;this.ParPost[_indice7].talla=this.caracData.talla;this.ParPost[_indice7].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.ParPost[_indice7].estado="Activo";this.ParPost.splice(_indice7,1,this.ParPost[_indice7]);}}else if(this.caracData.embarazo==="NO"){//ELIMINO
+this.ParPost[_indice7].estado="Inactivo";this.ParPost.splice(_indice7,1,this.ParPost[_indice7]);}}else{if(this.caracData.embarazo==="SI"){//AGREGO
+_indice7=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.ParPost[_indice7].estado="Activo";this.ParPost.splice(_indice7,1,this.ParPost[_indice7]);}else{this.AParPost(this.caracData,edad,"JEFE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.De12A17[_indice7].tipo_id=this.caracData.tipo_id;this.De12A17[_indice7].sexo=this.caracData.sexo;this.De12A17[_indice7].identificacion=this.caracData.identificacion;this.De12A17[_indice7].pnom=this.caracData.pnom;this.De12A17[_indice7].snom=this.caracData.snom;this.De12A17[_indice7].pape=this.caracData.pape;this.De12A17[_indice7].sape=this.caracData.sape;this.De12A17[_indice7].peso=this.caracData.peso;this.De12A17[_indice7].talla=this.caracData.talla;this.De12A17[_indice7].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De12A17[_indice7].estado="Activo";this.De12A17.splice(_indice7,1,this.De12A17[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.De18A28[_indice7].tipo_id=this.caracData.tipo_id;this.De18A28[_indice7].sexo=this.caracData.sexo;this.De18A28[_indice7].identificacion=this.caracData.identificacion;this.De18A28[_indice7].pnom=this.caracData.pnom;this.De18A28[_indice7].snom=this.caracData.snom;this.De18A28[_indice7].pape=this.caracData.pape;this.De18A28[_indice7].sape=this.caracData.sape;this.De18A28[_indice7].peso=this.caracData.peso;this.De18A28[_indice7].talla=this.caracData.talla;this.De18A28[_indice7].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De18A28[_indice7].estado="Activo";this.De18A28.splice(_indice7,1,this.De18A28[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.De29A59[_indice7].tipo_id=this.caracData.tipo_id;this.De29A59[_indice7].sexo=this.caracData.sexo;this.De29A59[_indice7].identificacion=this.caracData.identificacion;this.De29A59[_indice7].pnom=this.caracData.pnom;this.De29A59[_indice7].snom=this.caracData.snom;this.De29A59[_indice7].pape=this.caracData.pape;this.De29A59[_indice7].sape=this.caracData.sape;this.De29A59[_indice7].peso=this.caracData.peso;this.De29A59[_indice7].talla=this.caracData.talla;this.De29A59[_indice7].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De29A59[_indice7].estado="Activo";this.De29A59.splice(_indice7,1,this.De29A59[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.De60[_indice7].tipo_id=this.caracData.tipo_id;this.De60[_indice7].sexo=this.caracData.sexo;this.De60[_indice7].identificacion=this.caracData.identificacion;this.De60[_indice7].pnom=this.caracData.pnom;this.De60[_indice7].snom=this.caracData.snom;this.De60[_indice7].pape=this.caracData.pape;this.De60[_indice7].sape=this.caracData.sape;this.De60[_indice7].peso=this.caracData.peso;this.De60[_indice7].talla=this.caracData.talla;this.De60[_indice7].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De60[_indice7].estado="Activo";this.De60.splice(_indice7,1,this.De60[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.EnCro[_indice7].tipo_id=this.caracData.tipo_id;this.EnCro[_indice7].sexo=this.caracData.sexo;this.EnCro[_indice7].identificacion=this.caracData.identificacion;this.EnCro[_indice7].pnom=this.caracData.pnom;this.EnCro[_indice7].snom=this.caracData.snom;this.EnCro[_indice7].pape=this.caracData.pape;this.EnCro[_indice7].sape=this.caracData.sape;this.EnCro[_indice7].estado="Activo";this.EnCro.splice(_indice7,1,this.EnCro[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice7=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.EnInf[_indice7].tipo_id=this.caracData.tipo_id;this.EnInf[_indice7].sexo=this.caracData.sexo;this.EnInf[_indice7].identificacion=this.caracData.identificacion;this.EnInf[_indice7].pnom=this.caracData.pnom;this.EnInf[_indice7].snom=this.caracData.snom;this.EnInf[_indice7].pape=this.caracData.pape;this.EnInf[_indice7].sape=this.caracData.sape;this.EnInf[_indice7].estado="Activo";this.EnInf.splice(_indice7,1,this.EnInf[_indice7]);}if(this.migrarEditar==="SI"){_indice7=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(_indice7>=0){this.Migra[_indice7].tipo_id=this.caracData.tipo_id;this.Migra[_indice7].sexo=this.caracData.sexo;this.Migra[_indice7].identificacion=this.caracData.identificacion;this.Migra[_indice7].pnom=this.caracData.pnom;this.Migra[_indice7].snom=this.caracData.snom;this.Migra[_indice7].pape=this.caracData.pape;this.Migra[_indice7].sape=this.caracData.sape;this.Migra[_indice7].estado="Activo";this.Migra.splice(_indice7,1,this.Migra[_indice7]);}}else if(this.caracData.migrante==="NO"){//ELIMINO
+this.Migra[_indice7].estado="Inactivo";this.Migra.splice(_indice7,1,this.Migra[_indice7]);}}else{if(this.caracData.migrante==="SI"){//AGREGO
+_indice7=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(_indice7>=0){this.Migra[_indice7].estado="Activo";this.Migra.splice(_indice7,1,this.Migra[_indice7]);}else{this.AMigra(this.caracData,edad,"JEFE");}}}}this.datosJefe[this.indiceEditJefe].id=this.caracData.id;this.datosJefe[this.indiceEditJefe].id_hogar=this.caracData.id_hogar;this.datosJefe[this.indiceEditJefe].telefono=this.caracData.telefono;this.datosJefe[this.indiceEditJefe].puntaje_sisben=this.caracData.puntaje_sisben;this.datosJefe[this.indiceEditJefe].afiliacion_entidad=this.caracData.afiliacion_entidad;this.datosJefe[this.indiceEditJefe].textoEps=textoEps;this.datosJefe[this.indiceEditJefe].otra_eps=this.caracData.otra_eps;this.datosJefe[this.indiceEditJefe].tipo_id=this.caracData.tipo_id;this.datosJefe[this.indiceEditJefe].identificacion=this.caracData.identificacion;this.datosJefe[this.indiceEditJefe].sexo=this.caracData.sexo;this.datosJefe[this.indiceEditJefe].parentesco=this.caracData.parentesco;this.datosJefe[this.indiceEditJefe].textoParentesco=this.showText(Number(this.caracData.parentesco),this.parentesco_options);this.datosJefe[this.indiceEditJefe].pnom=this.caracData.pnom;this.datosJefe[this.indiceEditJefe].snom=this.caracData.snom;this.datosJefe[this.indiceEditJefe].pape=this.caracData.pape;this.datosJefe[this.indiceEditJefe].sape=this.caracData.sape;this.datosJefe[this.indiceEditJefe].salario=this.caracData.salario;this.datosJefe[this.indiceEditJefe].id_compania=this.caracData.id_compania;// this.datosJefe[this.indiceEditJefe].estado = this.caracData.estado;
+this.datosJefe[this.indiceEditJefe].estado="Activo";this.datosJefe[this.indiceEditJefe].estado_civil=this.caracData.estado_civil;this.datosJefe[this.indiceEditJefe].textoEstado=this.showText(Number(this.caracData.estado_civil),this.estado_options);this.datosJefe[this.indiceEditJefe].fecha_nacimiento=this.caracData.fecha_nacimiento;this.datosJefe[this.indiceEditJefe].tipo_afiliacion=this.caracData.tipo_afiliacion;this.datosJefe[this.indiceEditJefe].embarazo=this.caracData.embarazo;this.datosJefe[this.indiceEditJefe].embarazo_multiple=this.caracData.embarazo_multiple;this.datosJefe[this.indiceEditJefe].discapacidad=this.caracData.discapacidad;this.datosJefe[this.indiceEditJefe].nivel_escolaridad=this.caracData.nivel_escolaridad;this.datosJefe[this.indiceEditJefe].textoNivel=this.showText(Number(this.caracData.nivel_escolaridad),this.escolaridad_options);this.datosJefe[this.indiceEditJefe].ocupacion=this.caracData.ocupacion;this.datosJefe[this.indiceEditJefe].textoOcupacion=this.showText(Number(this.caracData.ocupacion),this.ocupacion_options);this.datosJefe[this.indiceEditJefe].colegio=this.caracData.colegio;this.datosJefe[this.indiceEditJefe].textoColegio=this.showText(Number(this.caracData.colegio),this.colegio_options);this.datosJefe[this.indiceEditJefe].grado=this.caracData.grado;this.datosJefe[this.indiceEditJefe].etnia=this.caracData.etnia;this.datosJefe[this.indiceEditJefe].textoEtnia=this.showText(Number(this.caracData.etnia),this.etnia_options);this.datosJefe[this.indiceEditJefe].clasificacion=this.caracData.clasificacion;this.datosJefe[this.indiceEditJefe].textoClasificacion=this.showText2(Number(this.caracData.clasificacion),this.clasifi_options,this.caracData.etnia);this.datosJefe[this.indiceEditJefe].entiende=this.caracData.entiende;this.datosJefe[this.indiceEditJefe].pyp=this.caracData.pyp;this.datosJefe[this.indiceEditJefe].migrante=this.caracData.migrante;this.datosJefe[this.indiceEditJefe].edad=this.caracData.edad;this.datosJefe[this.indiceEditJefe].orientacion=this.caracData.orientacion;this.datosJefe[this.indiceEditJefe].identidad_genero=this.caracData.identidad_genero;this.datosJefe[this.indiceEditJefe].perdida_peso=this.caracData.perdida_peso;this.datosJefe[this.indiceEditJefe].programa_icbf=this.caracData.programa_icbf;// this.datosJefe[this.indiceEditJefe].textoOcupacion = this.ocupacionAuxiliar;
+// this.datosJefe[this.indiceEditJefe].enfermedad_infecciosa = this.caracData.enfermedad_infecciosa;
+// this.datosJefe[this.indiceEditJefe].enfermedad_cronica = this.caracData.enfermedad_cronica;
+this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa=this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica=this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe[this.indiceEditJefe].enfermedades=this.caracData.enfermedades;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
+if(edad<=0){this.Amenores1Anio(vector,hoy.diff(nacimiento,"months"),opcion);}// AGREGAR NIÑOS MENORES DE 1 AÑO
+// AGREGAR DE 1 A 5 AÑOS
+if(edad>=1&&edad<=5){this.Ade1a5Anio(vector,edad,opcion);}// AGREGAR DE 1 A 5 AÑOS
+// AGREGAR DE 6 A 11 AÑOS
+if(edad>=6&&edad<=11){this.Ade6a11Anio(vector,edad,opcion);}// AGREGAR DE 6 A 11 AÑOS
+// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+if(edad<10){if(vector.excepciones==="1"){this.Ade10a59Anio(vector,edad,opcion);}}// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+// AGREGAR DE 10 A 59 AÑOS
+if(edad>=10&&edad<=59){this.Ade10a59Anio(vector,edad,opcion);}// AGREGAR DE 10 A 59 AÑOS
+// AGREGAR PARTO POSTPARTO
+if(vector.embarazo==="SI"){this.AParPost(vector,edad,opcion);}// AGREGAR PARTO POSTPARTO
+// AGREGAR DE 12 A 17 AÑOS
+if(edad>=12&&edad<=17){this.Ade12a17Anio(vector,edad,opcion);}// AGREGAR DE 12 A 17 AÑOS
+// AGREGAR DE 18 A 28 AÑOS
+if(edad>=18&&edad<=28){this.Ade18a28Anio(vector,edad,opcion);}// AGREGAR DE 18 A 28 AÑOS
+// AGREGAR DE 29 A 59 AÑOS
+if(edad>=29&&edad<=59){this.Ade29a59Anio(vector,edad,opcion);}// AGREGAR DE 29 A 59 AÑOS
+// AGREGAR DE 60 ó MAS AÑOS
+if(edad>=60){this.Ade60Anio(vector,edad,opcion);}// AGREGAR DE 60 ó MAS AÑOS
+// AGREGAR MIGRANTES
+if(vector.migrante==="SI"){this.AMigra(vector,edad,opcion);}// AGREGAR MIGRANTES               
+},//OPCIONES DEL JEFE DE HOGAR
+//OPCIONES DE LOS INTEGRANTES
+agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11(){var _this12=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context12){while(1){switch(_context12.prev=_context12.next){case 0:if(!(this.CA1.tipo_id=="0")){_context12.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context12.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context12.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context12.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context12.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context12.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context12.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context12.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context12.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context12.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context12.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context12.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context12.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context12.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context12.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context12.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context12.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context12.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context12.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context12.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context12.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context12.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context12.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context12.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context12.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context12.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context12.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context12.abrupt("return");case 44:if(!(this.CA1.etnia=="0")){_context12.next=47;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context12.abrupt("return");case 47:if(!(this.CA1.clasificacion=="0")){_context12.next=50;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context12.abrupt("return");case 50:if(!(this.CA1.entiende=="0")){_context12.next=53;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context12.abrupt("return");case 53:if(!(this.CA1.pyp=="0")){_context12.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context12.abrupt("return");case 56:if(!(this.CA1.migrante=="0")){_context12.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context12.abrupt("return");case 59:if(!(this.CA1.jefe=="0")){_context12.next=62;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context12.abrupt("return");case 62:if(!(this.CA1.perdida_peso==="")){_context12.next=66;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context12.abrupt("return");case 66:if(!(this.CA1.programa_icbf==="")){_context12.next=70;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context12.abrupt("return");case 70:if(!(this.CA1.peso==="")){_context12.next=73;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context12.abrupt("return");case 73:if(!(this.CA1.talla==="")){_context12.next=76;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context12.abrupt("return");case 76:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
+this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context12.prev=78;_context12.next=81;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this12.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+var resultado=_this12.datos.filter(function(identi){return identi.identificacion==_this12.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
+if(resultado.length>0){_this12.$swal("Validar...!","El Documento <b>"+_this12.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento4=moment(_this12.CA1.fecha_nac);var _hoy4=moment();var edad=0;if(_nacimiento4<_hoy4){edad=_hoy4.diff(_nacimiento4,"years");//Calculamos la diferencia en años
+}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
+if(_this12.CA1.enfermedades.length>0){for(var i=0;i<_this12.CA1.enfermedades.length;i++){if(_this12.CA1.enfermedades[i].tiempo===""){_this12.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this12.CA1.enfermedades[i].tratamiento===""){_this12.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
+var textoEps="";if(_this12.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this12.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this12.showText(_this12.CA1.afi_entidad,_this12.admini_options);}}_this12.datos.push({id:0,tipo_id:_this12.CA1.tipo_id,identificacion:_this12.CA1.identificacion,sexo:_this12.CA1.sexo,parentesco:_this12.CA1.parentesco,textoParentesco:_this12.showText(_this12.CA1.parentesco,_this12.parentesco_options),pnom:_this12.CA1.pnom,snom:_this12.CA1.snom,pape:_this12.CA1.pape,sape:_this12.CA1.sape,estado_civil:_this12.CA1.estado_civil,textoEstado:_this12.showText(_this12.CA1.estado_civil,_this12.estado_options),fecha_nac:_this12.CA1.fecha_nac,edad:edad,afi_entidad:_this12.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this12.CA1.otra_eps,tipo_afiliacion:_this12.CA1.tipo_afiliacion,embarazo:_this12.CA1.embarazo,embarazo_multiple:_this12.CA1.embarazo_multiple,discapacidad:_this12.CA1.discapacidad,escolaridad:_this12.CA1.escolaridad,textoEscolaridad:_this12.showText(_this12.CA1.escolaridad,_this12.escolaridad_options),ocupacion:_this12.CA1.ocupacion,textoOcupacion:_this12.showText(_this12.CA1.ocupacion,_this12.ocupacion_options),colegio:_this12.CA1.colegio,textoColegio:_this12.showText(_this12.CA1.colegio,_this12.colegio_options),grado:_this12.CA1.grado,entiende:_this12.CA1.entiende,migrante:_this12.CA1.migrante,pyp:_this12.CA1.pyp,etnia:_this12.CA1.etnia,textoEtnia:_this12.showText(_this12.CA1.etnia,_this12.etnia_options),clasificacion:_this12.CA1.clasificacion,textoClasificacion:_this12.showText2(_this12.CA1.clasificacion,_this12.clasifi_options,_this12.CA1.etnia),puntaje_sisben:_this12.CA1.puntaje_sisben,jefe:_this12.CA1.jefe,orientacion:_this12.CA1.orientacion,identidad_genero:_this12.CA1.identidad_genero,telefono:_this12.CA1.telefono,perdida_peso:_this12.CA1.perdida_peso,programa_icbf:_this12.CA1.programa_icbf,excepciones:_this12.CA1.excepciones,textoExcepciones:_this12.showText(_this12.CA1.excepciones,_this12.opciones7),identi_auxi:"",estado:"Activo",peso:_this12.CA1.peso,talla:_this12.CA1.talla,enfermedades:[]});for(var _i17=0;_i17<_this12.CA1.enfermedades.length;_i17++){_this12.datos[_this12.datos.length-1].enfermedades.push({id:_this12.CA1.enfermedades[_i17].id,id_hogar:_this12.CA1.enfermedades[_i17].id_hogar,id_jefe:_this12.CA1.enfermedades[_i17].id_jefe,textoEnfermedad:_this12.CA1.enfermedades[_i17].textoEnfermedad,id_enfermedad:_this12.CA1.enfermedades[_i17].id_enfermedad,tipo:_this12.CA1.enfermedades[_i17].tipo,tiempo:_this12.CA1.enfermedades[_i17].tiempo,tratamiento:_this12.CA1.enfermedades[_i17].tratamiento,estado:_this12.CA1.enfermedades[_i17].estado});_this12.datos.splice(_this12.datos.length-1,1,_this12.datos[_this12.datos.length-1]);}// this.CA1.enfermedades.length = [];
+if(_this12.CA1.tipo_afiliacion==="CONTRIBUTIVO"||_this12.CA1.tipo_afiliacion==="ESPECIAL"){_this12.SAPU=true;_this12.estratificacionData.afiliacion_salud_privada="SI";}_this12.ocupacionAuxiliar2="";_this12.mOCOL2=false;var indice=_this12.datos.findIndex(function(identi){return identi.identificacion===_this12.CA1.identificacion;});_this12.vectorIntegrante.push({index:indice,identificacion:_this12.CA1.identificacion});// AGREGAR NIÑOS MENORES DE 1 AÑO
+if(edad<=0){_this12.Amenores1Anio(_this12.CA1,_hoy4.diff(_nacimiento4,"months"),"INTE");}// AGREGAR NIÑOS MENORES DE 1 AÑO
+// AGREGAR DE 1 A 5 AÑOS
+if(edad>=1&&edad<=5){_this12.Ade1a5Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 1 A 5 AÑOS
+// AGREGAR DE 6 A 11 AÑOS
+if(edad>=6&&edad<=11){_this12.Ade6a11Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 6 A 11 AÑOS
+// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+if(edad<10){if(_this12.CA1.excepciones==="1"){_this12.Ade10a59Anio(_this12.CA1,edad,"INTE");}}// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
+// AGREGAR DE 10 A 59 AÑOS
+if(edad>=10&&edad<=59){_this12.Ade10a59Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 10 A 59 AÑOS
+// AGREGAR PARTO POSTPARTO
+// alert(this.CA1.embarazo_multiple);
+if(_this12.CA1.embarazo==="SI"){_this12.AParPost(_this12.CA1,edad,"INTE");}// AGREGAR PARTO POSTPARTO
+// AGREGAR DE 12 A 17 AÑOS
+if(edad>=12&&edad<=17){_this12.Ade12a17Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 12 A 17 AÑOS
+// AGREGAR DE 18 A 28 AÑOS
+if(edad>=18&&edad<=28){_this12.Ade18a28Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 18 A 28 AÑOS
+// AGREGAR DE 29 A 59 AÑOS
+if(edad>=29&&edad<=59){_this12.Ade29a59Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 29 A 59 AÑOS
+// AGREGAR DE 60 ó MAS AÑOS
+if(edad>=60){_this12.Ade60Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 60 ó MAS AÑOS
+// AGREGAR MIGRANTES
+if(_this12.CA1.migrante==="SI"){_this12.AMigra(_this12.CA1,edad,"INTE");}// AGREGAR MIGRANTES
+_this12.limpiar();}}})["catch"](function(error){_this12.errorDevuelto=error.response.data.errors;_this12.entrarPorError=true;});case 81:_context12.next=94;break;case 83:_context12.prev=83;_context12.t0=_context12["catch"](78);_context12.t1=_context12.t0.response.status;_context12.next=_context12.t1===419?88:_context12.t1===422?90:92;break;case 88:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",94);case 90:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",94);case 92:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",94);case 94:case"end":return _context12.stop();}}},_callee11,this,[[78,83]]);}));function agregar(){return _agregar.apply(this,arguments);}return agregar;}(),calculaEdad:function calculaEdad(){var a=moment();var b=moment(this.CA1.fecha_nac);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years==0){if(months<=1){if(days<=1){this.CA1.meses=months+" MES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MES";this.CA1.dias=days+" DIAS";}}else{if(days<=1){this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIAS";}}}else{this.CA1.meses=0;this.CA1.dias=0;}if(years>=18){this.CA1.programa_icbf="NA";}else{this.CA1.programa_icbf="0";}if(years<8){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";this.CA1.estado_civil=9;}else{if(this.CA1.sexo==="MASCULINO"){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";}else{this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";}this.CA1.estado_civil="0";}if(years<=2){this.CA1.escolaridad=22;this.CA1.ocupacion=9993;this.ocupacionAuxiliar2="NO APLICA";}else{this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.ocupacionAuxiliar2="";}},updateIntegrante:function updateIntegrante(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var id=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].tipo_id=valor;this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].tipo_id=valor;this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].tipo_id=valor;this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].tipo_id=valor;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].tipo_id=valor;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].tipo_id=valor;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].tipo_id=valor;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].tipo_id=valor;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].tipo_id=valor;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].tipo_id=valor;this.Migra.splice(indice,1,this.Migra[indice]);}}if(opcion==="sexo"){if(item.sexo==="0"){item.embarazo="0";item.embarazo_multiple="0";}if(item.sexo==="MASCULINO"){item.embarazo="NOAPLICA";item.embarazo_multiple="NOAPLICA";}if(item.sexo==="FEMENINO"){item.embarazo="0";item.embarazo_multiple="0";}//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id6=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice8=this.Men1A.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.Men1A[_indice8].sexo=valor;this.Men1A.splice(_indice8,1,this.Men1A[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.De1A5.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.De1A5[_indice8].sexo=valor;this.De1A5.splice(_indice8,1,this.De1A5[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.De6A11.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.De6A11[_indice8].sexo=valor;this.De6A11.splice(_indice8,1,this.De6A11[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.De10A59.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.De10A59[_indice8].sexo=valor;this.De10A59.splice(_indice8,1,this.De10A59[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.ParPost.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.ParPost[_indice8].sexo=valor;this.ParPost.splice(_indice8,1,this.ParPost[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.De12A17.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.De12A17[_indice8].sexo=valor;this.De12A17.splice(_indice8,1,this.De12A17[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.De18A28.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.De18A28[_indice8].sexo=valor;this.De18A28.splice(_indice8,1,this.De18A28[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.De29A59.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.De29A59[_indice8].sexo=valor;this.De29A59.splice(_indice8,1,this.De29A59[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.De60.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.De60[_indice8].sexo=valor;this.De60.splice(_indice8,1,this.De60[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice8=this.Migra.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){this.Migra[_indice8].sexo=valor;this.Migra.splice(_indice8,1,this.Migra[_indice8]);}}if(opcion==="embarazo"){if(item.embarazo==="0"){item.embarazo_multiple="0";}if(item.embarazo==="SI"){item.embarazo_multiple="0";}if(item.embarazo==="NO"){item.embarazo_multiple="NO";}}if(opcion==="afi_entidad"){if(item.afi_entidad==="NINGUNA"){item.tipo_afiliacion="0";}else{if(item.afi_entidad==="OTRA"){item.otra_eps="";}else{item.tipo_afiliacion="0";}}}if(opcion==="escolaridad"){item.colegio="";item.grado="0";}},changeupdateIntegrante:function changeupdateIntegrante(item,event,opcion,index){if(opcion=="identificacion"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var id=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].identificacion=item.identificacion;this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].identificacion=item.identificacion;this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].identificacion=item.identificacion;this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[indice].identificacion=item.identificacion;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[indice].identificacion=item.identificacion;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[indice].identificacion=item.identificacion;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[indice].identificacion=item.identificacion;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[indice].identificacion=item.identificacion;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[indice].identificacion=item.identificacion;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[indice].identificacion=item.identificacion;this.Migra.splice(indice,1,this.Migra[indice]);}//CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
+//DIGITADA EN LA TABLA
+this.vectorIntegrante[index].identificacion=item.identificacion;// Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
+this.vectorIntegrante.splice(index,1,this.vectorIntegrante[index]);}if(opcion=="pnom"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id7=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice9=this.Men1A.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.Men1A[_indice9].pnom=item.pnom;this.Men1A.splice(_indice9,1,this.Men1A[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.De1A5.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De1A5[_indice9].pnom=item.pnom;this.De1A5.splice(_indice9,1,this.De1A5[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.De6A11.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De6A11[_indice9].pnom=item.pnom;this.De6A11.splice(_indice9,1,this.De6A11[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.De10A59.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice9].pnom=item.pnom;this.De10A59.splice(_indice9,1,this.De10A59[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.ParPost.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice9].pnom=item.pnom;this.ParPost.splice(_indice9,1,this.ParPost[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.De12A17.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice9].pnom=item.pnom;this.De12A17.splice(_indice9,1,this.De12A17[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.De18A28.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice9].pnom=item.pnom;this.De18A28.splice(_indice9,1,this.De18A28[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.De29A59.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice9].pnom=item.pnom;this.De29A59.splice(_indice9,1,this.De29A59[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.De60.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice9].pnom=item.pnom;this.De60.splice(_indice9,1,this.De60[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice9=this.Migra.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice9].pnom=item.pnom;this.Migra.splice(_indice9,1,this.Migra[_indice9]);}}if(opcion=="snom"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id8=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice10=this.Men1A.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){this.Men1A[_indice10].snom=item.snom;this.Men1A.splice(_indice10,1,this.Men1A[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.De1A5.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){this.De1A5[_indice10].snom=item.snom;this.De1A5.splice(_indice10,1,this.De1A5[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.De6A11.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){this.De6A11[_indice10].snom=item.snom;this.De6A11.splice(_indice10,1,this.De6A11[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.De10A59.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice10].snom=item.snom;this.De10A59.splice(_indice10,1,this.De10A59[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.ParPost.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice10].snom=item.snom;this.ParPost.splice(_indice10,1,this.ParPost[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.De12A17.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice10].snom=item.snom;this.De12A17.splice(_indice10,1,this.De12A17[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.De18A28.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice10].snom=item.snom;this.De18A28.splice(_indice10,1,this.De18A28[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.De29A59.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice10].snom=item.snom;this.De29A59.splice(_indice10,1,this.De29A59[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.De60.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice10].snom=item.snom;this.De60.splice(_indice10,1,this.De60[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice10=this.Migra.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice10].snom=item.snom;this.Migra.splice(_indice10,1,this.Migra[_indice10]);}}if(opcion=="pape"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id9=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice11=this.Men1A.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){this.Men1A[_indice11].pape=item.pape;this.Men1A.splice(_indice11,1,this.Men1A[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.De1A5.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){this.De1A5[_indice11].pape=item.pape;this.De1A5.splice(_indice11,1,this.De1A5[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.De6A11.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){this.De6A11[_indice11].pape=item.pape;this.De6A11.splice(_indice11,1,this.De6A11[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.De10A59.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice11].pape=item.pape;this.De10A59.splice(_indice11,1,this.De10A59[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.ParPost.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice11].pape=item.pape;this.ParPost.splice(_indice11,1,this.ParPost[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.De12A17.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice11].pape=item.pape;this.De12A17.splice(_indice11,1,this.De12A17[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.De18A28.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice11].pape=item.pape;this.De18A28.splice(_indice11,1,this.De18A28[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.De29A59.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice11].pape=item.pape;this.De29A59.splice(_indice11,1,this.De29A59[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.De60.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice11].pape=item.pape;this.De60.splice(_indice11,1,this.De60[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice11=this.Migra.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice11].pape=item.pape;this.Migra.splice(_indice11,1,this.Migra[_indice11]);}}if(opcion=="sape"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+//VIENE DE LA TABLA
+var _id10=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice12=this.Men1A.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){this.Men1A[_indice12].sape=item.sape;this.Men1A.splice(_indice12,1,this.Men1A[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.De1A5.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){this.De1A5[_indice12].sape=item.sape;this.De1A5.splice(_indice12,1,this.De1A5[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.De6A11.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){this.De6A11[_indice12].sape=item.sape;this.De6A11.splice(_indice12,1,this.De6A11[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.De10A59.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De10A59[_indice12].sape=item.sape;this.De10A59.splice(_indice12,1,this.De10A59[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.ParPost.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.ParPost[_indice12].sape=item.sape;this.ParPost.splice(_indice12,1,this.ParPost[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.De12A17.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De12A17[_indice12].sape=item.sape;this.De12A17.splice(_indice12,1,this.De12A17[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.De18A28.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De18A28[_indice12].sape=item.sape;this.De18A28.splice(_indice12,1,this.De18A28[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.De29A59.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De29A59[_indice12].sape=item.sape;this.De29A59.splice(_indice12,1,this.De29A59[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.De60.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.De60[_indice12].sape=item.sape;this.De60.splice(_indice12,1,this.De60[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice12=this.Migra.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
+this.Migra[_indice12].sape=item.sape;this.Migra.splice(_indice12,1,this.Migra[_indice12]);}}},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.ocupacionAuxiliar2="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";this.CA1.enfermedades=[];},eliminarItem:function eliminarItem(index,item){var _this13=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el integrante  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this13.datos.splice(index,1);_this13.vectorIntegrante.splice(index,1);var identificacion=item.identificacion;_this13.Men1A=_this13.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this13.De1A5=_this13.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this13.De6A11=_this13.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this13.De10A59=_this13.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this13.ParPost=_this13.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this13.De12A17=_this13.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this13.De18A28=_this13.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this13.De29A59=_this13.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this13.De60=_this13.De60.filter(function(men){return men.identificacion!=identificacion;});_this13.EnCro=_this13.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this13.EnInf=_this13.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this13.Migra=_this13.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion2=item.identificacion;var indice=_this13.datos.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.datos[indice].estado="Inactivo";_this13.datos.splice(indice,1,_this13.datos[indice]);}indice=_this13.Men1A.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.Men1A[indice].estado="Inactivo";_this13.Men1A.splice(indice,1,_this13.Men1A[indice]);}indice=_this13.De1A5.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De1A5[indice].estado="Inactivo";_this13.De1A5.splice(indice,1,_this13.De1A5[indice]);}indice=_this13.De6A11.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De6A11[indice].estado="Inactivo";_this13.De6A11.splice(indice,1,_this13.De6A11[indice]);}indice=_this13.De10A59.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De10A59[indice].estado="Inactivo";_this13.De10A59.splice(indice,1,_this13.De10A59[indice]);}indice=_this13.De12A17.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De12A17[indice].estado="Inactivo";_this13.De12A17.splice(indice,1,_this13.De12A17[indice]);}indice=_this13.De18A28.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De18A28[indice].estado="Inactivo";_this13.De18A28.splice(indice,1,_this13.De18A28[indice]);}indice=_this13.De29A59.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De29A59[indice].estado="Inactivo";_this13.De29A59.splice(indice,1,_this13.De29A59[indice]);}indice=_this13.De60.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De60[indice].estado="Inactivo";_this13.De60.splice(indice,1,_this13.De60[indice]);}indice=_this13.EnCro.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.EnCro[indice].estado="Inactivo";_this13.EnCro.splice(indice,1,_this13.EnCro[indice]);}indice=_this13.EnInf.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.EnInf[indice].estado="Inactivo";_this13.EnInf.splice(indice,1,_this13.EnInf[indice]);}indice=_this13.Migra.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.Migra[indice].estado="Inactivo";_this13.Migra.splice(indice,1,_this13.Migra[indice]);}}_this13.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop4,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:_loop4=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop4(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop4$(_context13){while(1){switch(_context13.prev=_context13.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context13.prev=1;_context13.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
+return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+var resultado=_this14.datos.filter(function(identi){return identi.identificacion.includes(_this14.datos[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
+if(resultado.length>1){_this14.$swal("Validar...!","El Documento <b>"+_this14.datos[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Integrantes","warning");// item.identificacion="";
+return false;}else{if(_this14.datos[i].tipo_id==="0"){_this14.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].identificacion===""){_this14.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pnom===""){_this14.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pape===""){_this14.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].sexo==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].parentesco==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].estado_civil==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].fecha_nac===""){_this14.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].afi_entidad==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].tipo_afiliacion==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].escolaridad==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].ocupacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].etnia==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].clasificacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].jefe==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>jefe de hogar</b> en la fila "+(i+1)+" de los integrantes","error");return false;}return true;}}})["catch"](function(error){});case 4:_context13.next=8;break;case 6:_context13.prev=6;_context13.t0=_context13["catch"](1);case 8:case"end":return _context13.stop();}}},_loop4,null,[[1,6]]);});i=0;case 2:if(!(i<this.datos.length)){_context14.next=7;break;}return _context14.delegateYield(_loop4(i),"t0",4);case 4:i++;_context14.next=2;break;case 7:case"end":return _context14.stop();}}},_callee12,this);}));function validarTablaIntegrantes(){return _validarTablaIntegrantes.apply(this,arguments);}return validarTablaIntegrantes;}(),editarItemInte:function editarItemInte(index,item){var _this15=this;this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;setTimeout(function(){_this15.CA1.embarazo_multiple=item.embarazo_multiple;},1000);this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedades=item.enfermedades;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;var id=item.identificacion;//INACTIVAR LA FILA DE INTEGRANTES
+this.datos[this.indiceEditInte].estado="Inactivo";this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);//INACTIVAR LA FILA DE INTEGRANTES
+//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Inactivo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+//SABER EL INDICE DE LA IDENTIFICACION DE De60
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
+//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+//SABER EL INDICE DE LA IDENTIFICACION DE Migra
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
+},CancelarEditarInte:function CancelarEditarInte(){this.datos[this.indiceEditInte].estado="Activo";this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);var id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].estado="Activo";this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
+//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].estado="Activo";this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
+//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].estado="Activo";this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
+//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Activo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
+//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
+//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Activo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
+//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Activo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
+//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Activo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
+//SABER EL INDICE DE LA IDENTIFICACION DE De60
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Activo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
+//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
+indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Activo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
+//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
+//SABER EL INDICE DE LA IDENTIFICACION DE Migra
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
+this.limpiar();},editarInte:function(){var _editarInte=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(){var _this16=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:if(!(this.CA1.tipo_id=="0")){_context15.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context15.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context15.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context15.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context15.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context15.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context15.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context15.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context15.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context15.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context15.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context15.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context15.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context15.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context15.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context15.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context15.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context15.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context15.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context15.abrupt("return");case 30:if(!(this.CA1.escolaridad=="0")){_context15.next=33;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context15.abrupt("return");case 33:if(!(this.CA1.ocupacion=="0")){_context15.next=36;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context15.abrupt("return");case 36:if(!(this.CA1.etnia=="0")){_context15.next=39;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context15.abrupt("return");case 39:if(!(this.CA1.clasificacion=="0")){_context15.next=42;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context15.abrupt("return");case 42:if(!(this.CA1.entiende=="0")){_context15.next=45;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context15.abrupt("return");case 45:if(!(this.CA1.pyp=="0")){_context15.next=48;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context15.abrupt("return");case 48:if(!(this.CA1.migrante=="0")){_context15.next=51;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context15.abrupt("return");case 51:if(!(this.CA1.jefe=="0")){_context15.next=54;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context15.abrupt("return");case 54:if(!(this.CA1.perdida_peso==="")){_context15.next=58;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context15.abrupt("return");case 58:if(!(this.CA1.programa_icbf==="")){_context15.next=62;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context15.abrupt("return");case 62:if(!(this.CA1.peso==="")){_context15.next=65;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context15.abrupt("return");case 65:if(!(this.CA1.talla==="")){_context15.next=68;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context15.abrupt("return");case 68:this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.CA1.identificacion)){_context15.next=74;break;}this.ediIn();_context15.next=91;break;case 74:parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context15.prev=75;_context15.next=78;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this16.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+var resultado=_this16.datos.filter(function(identi){return identi.identificacion==_this16.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
+if(resultado.length>0){_this16.$swal("Validar...!","El Documento <b>"+_this16.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this16.ediIn();}}})["catch"](function(error){_this16.errorDevuelto=error.response.data.errors;_this16.entrarPorError=true;});case 78:_context15.next=91;break;case 80:_context15.prev=80;_context15.t0=_context15["catch"](75);_context15.t1=_context15.t0.response.status;_context15.next=_context15.t1===419?85:_context15.t1===422?87:89;break;case 85:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",91);case 87:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",91);case 89:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",91);case 91:case"end":return _context15.stop();}}},_callee13,this,[[75,80]]);}));function editarInte(){return _editarInte.apply(this,arguments);}return editarInte;}(),ediIn:function ediIn(){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
+}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
+if(this.CA1.enfermedades.length>0){for(var i=0;i<this.CA1.enfermedades.length;i++){if(this.CA1.enfermedades[i].tiempo===""){this.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(this.CA1.enfermedades[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
+var textoEps="";if(this.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(this.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.CA1.afi_entidad,this.admini_options);}}if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO"||this.CA1.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar2="";this.mOCOL2=false;if(this.CA1.fecha_nac!==this.fechaEditar){if(edad!==this.edadEditar){// ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
+this.eliEdad(this.identificacionEditar,this.CA1,edad,"INTE");}else{// let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+var id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].tipo_id=this.CA1.tipo_id;this.Men1A[indice].sexo=this.CA1.sexo;this.Men1A[indice].identificacion=this.CA1.identificacion;this.Men1A[indice].pnom=this.CA1.pnom;this.Men1A[indice].snom=this.CA1.snom;this.Men1A[indice].pape=this.CA1.pape;this.Men1A[indice].sape=this.CA1.sape;this.Men1A[indice].peso_actual=this.CA1.peso;this.Men1A[indice].longitud_actual=this.CA1.talla;this.Men1A[indice].estado="Activo";this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].tipo_id=this.CA1.tipo_id;this.De1A5[indice].sexo=this.CA1.sexo;this.De1A5[indice].identificacion=this.CA1.identificacion;this.De1A5[indice].pnom=this.CA1.pnom;this.De1A5[indice].snom=this.CA1.snom;this.De1A5[indice].pape=this.CA1.pape;this.De1A5[indice].sape=this.CA1.sape;this.De1A5[indice].peso=this.CA1.peso;this.De1A5[indice].talla=this.CA1.talla;this.De1A5[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De1A5[indice].estado="Activo";this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].tipo_id=this.CA1.tipo_id;this.De6A11[indice].sexo=this.CA1.sexo;this.De6A11[indice].identificacion=this.CA1.identificacion;this.De6A11[indice].pnom=this.CA1.pnom;this.De6A11[indice].snom=this.CA1.snom;this.De6A11[indice].pape=this.CA1.pape;this.De6A11[indice].sape=this.CA1.sape;this.De6A11[indice].peso=this.CA1.peso;this.De6A11[indice].talla=this.CA1.talla;this.De6A11[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De6A11[indice].estado="Activo";this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].tipo_id=this.CA1.tipo_id;this.De10A59[indice].sexo=this.CA1.sexo;this.De10A59[indice].identificacion=this.CA1.identificacion;this.De10A59[indice].pnom=this.CA1.pnom;this.De10A59[indice].snom=this.CA1.snom;this.De10A59[indice].pape=this.CA1.pape;this.De10A59[indice].sape=this.CA1.sape;this.De10A59[indice].estado="Activo";this.De10A59.splice(indice,1,this.De10A59[indice]);}if(this.embarazoEditar==="SI"){indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(this.CA1.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(indice>=0){this.ParPost[indice].tipo_id=this.CA1.tipo_id;this.ParPost[indice].sexo=this.CA1.sexo;this.ParPost[indice].identificacion=this.CA1.identificacion;this.ParPost[indice].pnom=this.CA1.pnom;this.ParPost[indice].snom=this.CA1.snom;this.ParPost[indice].pape=this.CA1.pape;this.ParPost[indice].sape=this.CA1.sape;this.ParPost[indice].peso=this.CA1.peso;this.ParPost[indice].talla=this.CA1.talla;this.ParPost[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}}else if(this.CA1.embarazo==="NO"){//ELIMINO
+this.ParPost[indice].estado="Inactivo";this.ParPost.splice(indice,1,this.ParPost[indice]);}}else{if(this.CA1.embarazo==="SI"){//AGREGO                
+indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}else{this.AParPost(this.CA1,edad,"INTE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].tipo_id=this.CA1.tipo_id;this.De12A17[indice].sexo=this.CA1.sexo;this.De12A17[indice].identificacion=this.CA1.identificacion;this.De12A17[indice].pnom=this.CA1.pnom;this.De12A17[indice].snom=this.CA1.snom;this.De12A17[indice].pape=this.CA1.pape;this.De12A17[indice].sape=this.CA1.sape;this.De12A17[indice].peso=this.CA1.peso;this.De12A17[indice].talla=this.CA1.talla;this.De12A17[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De12A17[indice].estado="Activo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].tipo_id=this.CA1.tipo_id;this.De18A28[indice].sexo=this.CA1.sexo;this.De18A28[indice].identificacion=this.CA1.identificacion;this.De18A28[indice].pnom=this.CA1.pnom;this.De18A28[indice].snom=this.CA1.snom;this.De18A28[indice].pape=this.CA1.pape;this.De18A28[indice].sape=this.CA1.sape;this.De18A28[indice].peso=this.CA1.peso;this.De18A28[indice].talla=this.CA1.talla;this.De18A28[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De18A28[indice].estado="Activo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].tipo_id=this.CA1.tipo_id;this.De29A59[indice].sexo=this.CA1.sexo;this.De29A59[indice].identificacion=this.CA1.identificacion;this.De29A59[indice].pnom=this.CA1.pnom;this.De29A59[indice].snom=this.CA1.snom;this.De29A59[indice].pape=this.CA1.pape;this.De29A59[indice].sape=this.CA1.sape;this.De29A59[indice].peso=this.CA1.peso;this.De29A59[indice].talla=this.CA1.talla;this.De29A59[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De29A59[indice].estado="Activo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].tipo_id=this.CA1.tipo_id;this.De60[indice].sexo=this.CA1.sexo;this.De60[indice].identificacion=this.CA1.identificacion;this.De60[indice].pnom=this.CA1.pnom;this.De60[indice].snom=this.CA1.snom;this.De60[indice].pape=this.CA1.pape;this.De60[indice].sape=this.CA1.sape;this.De60[indice].peso=this.CA1.peso;this.De60[indice].talla=this.CA1.talla;this.De60[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De60[indice].estado="Activo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].tipo_id=this.CA1.tipo_id;this.EnCro[indice].sexo=this.CA1.sexo;this.EnCro[indice].identificacion=this.CA1.identificacion;this.EnCro[indice].pnom=this.CA1.pnom;this.EnCro[indice].snom=this.CA1.snom;this.EnCro[indice].pape=this.CA1.pape;this.EnCro[indice].sape=this.CA1.sape;this.EnCro[indice].estado="Activo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].tipo_id=this.CA1.tipo_id;this.EnInf[indice].sexo=this.CA1.sexo;this.EnInf[indice].identificacion=this.CA1.identificacion;this.EnInf[indice].pnom=this.CA1.pnom;this.EnInf[indice].snom=this.CA1.snom;this.EnInf[indice].pape=this.CA1.pape;this.EnInf[indice].sape=this.CA1.sape;this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}if(this.migrarEditar==="SI"){indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(indice>=0){this.Migra[indice].tipo_id=this.CA1.tipo_id;this.Migra[indice].sexo=this.CA1.sexo;this.Migra[indice].identificacion=this.CA1.identificacion;this.Migra[indice].pnom=this.CA1.pnom;this.Migra[indice].snom=this.CA1.snom;this.Migra[indice].pape=this.CA1.pape;this.Migra[indice].sape=this.CA1.sape;this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
+this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}else{this.AMigra(this.CA1,edad,"JEFE");}}}}}else{// let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+var _id11=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+var _indice13=this.Men1A.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.Men1A[_indice13].tipo_id=this.CA1.tipo_id;this.Men1A[_indice13].sexo=this.CA1.sexo;this.Men1A[_indice13].identificacion=this.CA1.identificacion;this.Men1A[_indice13].pnom=this.CA1.pnom;this.Men1A[_indice13].snom=this.CA1.snom;this.Men1A[_indice13].pape=this.CA1.pape;this.Men1A[_indice13].sape=this.CA1.sape;this.Men1A[_indice13].peso_actual=this.CA1.peso;this.Men1A[_indice13].longitud_actual=this.CA1.talla;this.Men1A[_indice13].estado="Activo";this.Men1A.splice(_indice13,1,this.Men1A[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.De1A5.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De1A5[_indice13].tipo_id=this.CA1.tipo_id;this.De1A5[_indice13].sexo=this.CA1.sexo;this.De1A5[_indice13].identificacion=this.CA1.identificacion;this.De1A5[_indice13].pnom=this.CA1.pnom;this.De1A5[_indice13].snom=this.CA1.snom;this.De1A5[_indice13].pape=this.CA1.pape;this.De1A5[_indice13].sape=this.CA1.sape;this.De1A5[_indice13].peso=this.CA1.peso;this.De1A5[_indice13].talla=this.CA1.talla;this.De1A5[_indice13].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De1A5[_indice13].estado="Activo";this.De1A5.splice(_indice13,1,this.De1A5[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.De6A11.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De6A11[_indice13].tipo_id=this.CA1.tipo_id;this.De6A11[_indice13].sexo=this.CA1.sexo;this.De6A11[_indice13].identificacion=this.CA1.identificacion;this.De6A11[_indice13].pnom=this.CA1.pnom;this.De6A11[_indice13].snom=this.CA1.snom;this.De6A11[_indice13].pape=this.CA1.pape;this.De6A11[_indice13].sape=this.CA1.sape;this.De6A11[_indice13].peso=this.CA1.peso;this.De6A11[_indice13].talla=this.CA1.talla;this.De6A11[_indice13].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De6A11[_indice13].estado="Activo";this.De6A11.splice(_indice13,1,this.De6A11[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.De10A59.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De10A59[_indice13].tipo_id=this.CA1.tipo_id;this.De10A59[_indice13].sexo=this.CA1.sexo;this.De10A59[_indice13].identificacion=this.CA1.identificacion;this.De10A59[_indice13].pnom=this.CA1.pnom;this.De10A59[_indice13].snom=this.CA1.snom;this.De10A59[_indice13].pape=this.CA1.pape;this.De10A59[_indice13].sape=this.CA1.sape;this.De10A59[_indice13].estado="Activo";this.De10A59.splice(_indice13,1,this.De10A59[_indice13]);}if(this.embarazoEditar==="SI"){_indice13=this.ParPost.findIndex(function(identi){return identi.identificacion===_id11;});if(this.CA1.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(_indice13>=0){this.ParPost[_indice13].tipo_id=this.CA1.tipo_id;this.ParPost[_indice13].sexo=this.CA1.sexo;this.ParPost[_indice13].identificacion=this.CA1.identificacion;this.ParPost[_indice13].pnom=this.CA1.pnom;this.ParPost[_indice13].snom=this.CA1.snom;this.ParPost[_indice13].pape=this.CA1.pape;this.ParPost[_indice13].sape=this.CA1.sape;this.ParPost[_indice13].peso=this.CA1.peso;this.ParPost[_indice13].talla=this.CA1.talla;this.ParPost[_indice13].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.ParPost[_indice13].estado="Activo";this.ParPost.splice(_indice13,1,this.ParPost[_indice13]);}}else if(this.CA1.embarazo==="NO"){//ELIMINO
+this.ParPost[_indice13].estado="Inactivo";this.ParPost.splice(_indice13,1,this.ParPost[_indice13]);}}else{if(this.CA1.embarazo==="SI"){//AGREGO
+_indice13=this.ParPost.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.ParPost[_indice13].estado="Activo";this.ParPost.splice(_indice13,1,this.ParPost[_indice13]);}else{this.AParPost(this.CA1,edad,"INTE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.De12A17.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De12A17[_indice13].tipo_id=this.CA1.tipo_id;this.De12A17[_indice13].sexo=this.CA1.sexo;this.De12A17[_indice13].identificacion=this.CA1.identificacion;this.De12A17[_indice13].pnom=this.CA1.pnom;this.De12A17[_indice13].snom=this.CA1.snom;this.De12A17[_indice13].pape=this.CA1.pape;this.De12A17[_indice13].sape=this.CA1.sape;this.De12A17[_indice13].peso=this.CA1.peso;this.De12A17[_indice13].talla=this.CA1.talla;this.De12A17[_indice13].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De12A17[_indice13].estado="Activo";this.De12A17.splice(_indice13,1,this.De12A17[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.De18A28.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De18A28[_indice13].tipo_id=this.CA1.tipo_id;this.De18A28[_indice13].sexo=this.CA1.sexo;this.De18A28[_indice13].identificacion=this.CA1.identificacion;this.De18A28[_indice13].pnom=this.CA1.pnom;this.De18A28[_indice13].snom=this.CA1.snom;this.De18A28[_indice13].pape=this.CA1.pape;this.De18A28[_indice13].sape=this.CA1.sape;this.De18A28[_indice13].peso=this.CA1.peso;this.De18A28[_indice13].talla=this.CA1.talla;this.De18A28[_indice13].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De18A28[_indice13].estado="Activo";this.De18A28.splice(_indice13,1,this.De18A28[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.De29A59.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De29A59[_indice13].tipo_id=this.CA1.tipo_id;this.De29A59[_indice13].sexo=this.CA1.sexo;this.De29A59[_indice13].identificacion=this.CA1.identificacion;this.De29A59[_indice13].pnom=this.CA1.pnom;this.De29A59[_indice13].snom=this.CA1.snom;this.De29A59[_indice13].pape=this.CA1.pape;this.De29A59[_indice13].sape=this.CA1.sape;this.De29A59[_indice13].peso=this.CA1.peso;this.De29A59[_indice13].talla=this.CA1.talla;this.De29A59[_indice13].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De29A59[_indice13].estado="Activo";this.De29A59.splice(_indice13,1,this.De29A59[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.De60.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De60[_indice13].tipo_id=this.CA1.tipo_id;this.De60[_indice13].sexo=this.CA1.sexo;this.De60[_indice13].identificacion=this.CA1.identificacion;this.De60[_indice13].pnom=this.CA1.pnom;this.De60[_indice13].snom=this.CA1.snom;this.De60[_indice13].pape=this.CA1.pape;this.De60[_indice13].sape=this.CA1.sape;this.De60[_indice13].peso=this.CA1.peso;this.De60[_indice13].talla=this.CA1.talla;this.De60[_indice13].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De60[_indice13].estado="Activo";this.De60.splice(_indice13,1,this.De60[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.EnCro.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.EnCro[_indice13].tipo_id=this.CA1.tipo_id;this.EnCro[_indice13].sexo=this.CA1.sexo;this.EnCro[_indice13].identificacion=this.CA1.identificacion;this.EnCro[_indice13].pnom=this.CA1.pnom;this.EnCro[_indice13].snom=this.CA1.snom;this.EnCro[_indice13].pape=this.CA1.pape;this.EnCro[_indice13].sape=this.CA1.sape;this.EnCro[_indice13].estado="Activo";this.EnCro.splice(_indice13,1,this.EnCro[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
+_indice13=this.EnInf.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.EnInf[_indice13].tipo_id=this.CA1.tipo_id;this.EnInf[_indice13].sexo=this.CA1.sexo;this.EnInf[_indice13].identificacion=this.CA1.identificacion;this.EnInf[_indice13].pnom=this.CA1.pnom;this.EnInf[_indice13].snom=this.CA1.snom;this.EnInf[_indice13].pape=this.CA1.pape;this.EnInf[_indice13].sape=this.CA1.sape;this.EnInf[_indice13].estado="Activo";this.EnInf.splice(_indice13,1,this.EnInf[_indice13]);}if(this.migrarEditar==="SI"){_indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
+if(_indice13>=0){this.Migra[_indice13].tipo_id=this.CA1.tipo_id;this.Migra[_indice13].sexo=this.CA1.sexo;this.Migra[_indice13].identificacion=this.CA1.identificacion;this.Migra[_indice13].pnom=this.CA1.pnom;this.Migra[_indice13].snom=this.CA1.snom;this.Migra[_indice13].pape=this.CA1.pape;this.Migra[_indice13].sape=this.CA1.sape;this.Migra[_indice13].estado="Activo";this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
+this.Migra[_indice13].estado="Inactivo";this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
+_indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.Migra[_indice13].estado="Activo";this.Migra.splice(_indice13,1,this.Migra[_indice13]);}else{this.AMigra(this.CA1,edad,"JEFE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=textoEps;this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos[this.indiceEditInte].enfermedades=this.CA1.enfermedades;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},//OPCIONES DE LOS INTEGRANTES
+//VALIDACIONES DE IDENTIFICACION
 valJef1:function valJef1(){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].tipo_id===""){this.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].identificacion===""){this.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].pnom===""){this.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].pape===""){this.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].sexo===""){this.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].orientacion===""){this.$swal("Error...!","Por favor seleccione la <b>Orientación Sexual</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].identidad_genero===""){this.$swal("Error...!","Por favor seleccione la <b>Identidad de Genero</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].parentesco===""){this.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].estado_civil===""){this.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].fecha_nacimiento===""){this.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].afiliacion_entidad===""){this.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].tipo_afiliacion===""){this.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].nivel_escolaridad===""){this.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].ocupacion===""){this.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].etnia===""){this.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].clasificacion===""){this.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].salario===""){this.$swal("Error...!","Por favor digite el <b>salario</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].perdida_peso===""){this.$swal("Error...!","Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].programa_icbf===""){this.$swal("Error...!","Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna <b>enfermedad infecciosa</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna <b>enfermedad cronica</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].peso===""){this.$swal("Error...!","Por favor digite el <b>peso</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].talla===""){this.$swal("Error...!","Por favor digite la <b>talla</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}// VERIFICAR SI ESTA EN LA TABLA
 var resultado=this.buscarIguales(this.datosJefe,this.datosJefe[i].identificacion);// VERIFICAR SI ESTA EN LA TABLA
-if(resultado>1){this.$swal("Validar...!","El Documento <b>"+this.datosJefe[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar","warning");return false;}}return true;},buscarIguales:function buscarIguales(vector,busqueda){var contador=0;for(var i=0;i<vector.length;i++){if(vector[i].identificacion===busqueda){contador++;}}return contador;},valJef2:function(){var _valJef=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(){var _this5=this;var _loop,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:_loop=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop$(_context5){while(1){switch(_context5.prev=_context5.next){case 0:parametros={_token:_this5.csrf,identificacion:_this5.datosJefe[i].identificacion};_context5.prev=1;_context5.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){_this5.vectorAyuda.push({identificacion:respuesta.data.identificacion,fila:i+1,error:"ERROR1"});return false;}else{}})["catch"](function(error){});case 4:_context5.next=8;break;case 6:_context5.prev=6;_context5.t0=_context5["catch"](1);case 8:case"end":return _context5.stop();}}},_loop,null,[[1,6]]);});i=0;case 2:if(!(i<this.datosJefe.length)){_context6.next=7;break;}return _context6.delegateYield(_loop(i),"t0",4);case 4:i++;_context6.next=2;break;case 7:case"end":return _context6.stop();}}},_callee5,this);}));function valJef2(){return _valJef.apply(this,arguments);}return valJef2;}(),valInt1:function valInt1(){for(var i=0;i<this.datos.length;i++){if(this.datos[i].tipo_id===""){this.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].identificacion===""){this.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].pnom===""){this.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].pape===""){this.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].sexo===""){this.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].orientacion===""){this.$swal("Error...!","Por favor seleccione la <b>Orientación Sexual</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].identidad_genero===""){this.$swal("Error...!","Por favor seleccione la <b>Identidad de Genero</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].parentesco===""){this.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].estado_civil===""){this.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].fecha_nac===""){this.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].afi_entidad===""){this.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].tipo_afiliacion===""){this.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].escolaridad===""){this.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].ocupacion===""){this.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].etnia===""){this.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].clasificacion===""){this.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].jefe===""){this.$swal("Error...!","Por favor seleccione el <b>jefe de hogar</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].perdida_peso===""){this.$swal("Error...!","Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].programa_icbf===""){this.$swal("Error...!","Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila "+(i+1)+" de los integrantes","error");return false;}// if (this.datos[i].excepciones === "") {
+if(resultado>1){this.$swal("Validar...!","El Documento <b>"+this.datosJefe[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar","warning");return false;}}return true;},buscarIguales:function buscarIguales(vector,busqueda){var contador=0;for(var i=0;i<vector.length;i++){if(vector[i].identificacion===busqueda){contador++;}}return contador;},valJef2:function(){var _valJef=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14(){var _this17=this;var _loop5,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context17){while(1){switch(_context17.prev=_context17.next){case 0:_loop5=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop5(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop5$(_context16){while(1){switch(_context16.prev=_context16.next){case 0:parametros={_token:_this17.csrf,identificacion:_this17.datosJefe[i].identificacion};_context16.prev=1;_context16.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){_this17.vectorAyuda.push({identificacion:respuesta.data.identificacion,fila:i+1,error:"ERROR1"});return false;}else{}})["catch"](function(error){});case 4:_context16.next=8;break;case 6:_context16.prev=6;_context16.t0=_context16["catch"](1);case 8:case"end":return _context16.stop();}}},_loop5,null,[[1,6]]);});i=0;case 2:if(!(i<this.datosJefe.length)){_context17.next=7;break;}return _context17.delegateYield(_loop5(i),"t0",4);case 4:i++;_context17.next=2;break;case 7:case"end":return _context17.stop();}}},_callee14,this);}));function valJef2(){return _valJef.apply(this,arguments);}return valJef2;}(),valInt1:function valInt1(){for(var i=0;i<this.datos.length;i++){if(this.datos[i].tipo_id===""){this.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].identificacion===""){this.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].pnom===""){this.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].pape===""){this.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].sexo===""){this.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].orientacion===""){this.$swal("Error...!","Por favor seleccione la <b>Orientación Sexual</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].identidad_genero===""){this.$swal("Error...!","Por favor seleccione la <b>Identidad de Genero</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].parentesco===""){this.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].estado_civil===""){this.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].fecha_nac===""){this.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].afi_entidad===""){this.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].tipo_afiliacion===""){this.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].escolaridad===""){this.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].ocupacion===""){this.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].etnia===""){this.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].clasificacion===""){this.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].jefe===""){this.$swal("Error...!","Por favor seleccione el <b>jefe de hogar</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].perdida_peso===""){this.$swal("Error...!","Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].programa_icbf===""){this.$swal("Error...!","Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila "+(i+1)+" de los integrantes","error");return false;}// if (this.datos[i].excepciones === "") {
 //   this.$swal(
 //     "Error...!",
 //     "Por favor seleccione la opción <b>excepciones</b> en la fila " +
@@ -11541,11 +12283,12 @@ if(resultado>1){this.$swal("Validar...!","El Documento <b>"+this.datosJefe[i].id
 //     "error"
 //   );
 //   return false;
-// }         
+// }          
 if(this.datos[i].enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna <b>enfermedad infecciosa</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna <b>enfermedad cronica</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].peso===""){this.$swal("Error...!","Por favor digite el <b>peso</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(this.datos[i].talla===""){this.$swal("Error...!","Por favor digite la <b>talla</b> en la fila "+(i+1)+" de los integrantes","error");return false;}// VERIFICAR SI ESTA EN LA TABLA
 var resultado=this.buscarIguales(this.datos,this.datos[i].identificacion);// VERIFICAR SI ESTA EN LA TABLA
 if(resultado>1){this.$swal("Validar...!","El Documento <b>"+this.datos[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Integrantes","warning");// item.identificacion="";
-return false;}}return true;},valInt2:function(){var _valInt=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(){var _this6=this;var _loop2,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:_loop2=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop2(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop2$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:parametros={_token:_this6.csrf,identificacion:_this6.datos[i].identificacion};_context7.prev=1;_context7.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){_this6.vectorAyuda.push({identificacion:respuesta.data.identificacion,fila:i+1,error:"ERROR1"});return false;}else{}})["catch"](function(error){});case 4:_context7.next=8;break;case 6:_context7.prev=6;_context7.t0=_context7["catch"](1);case 8:case"end":return _context7.stop();}}},_loop2,null,[[1,6]]);});i=0;case 2:if(!(i<this.datos.length)){_context8.next=7;break;}return _context8.delegateYield(_loop2(i),"t0",4);case 4:i++;_context8.next=2;break;case 7:case"end":return _context8.stop();}}},_callee6,this);}));function valInt2(){return _valInt.apply(this,arguments);}return valInt2;}(),valFactores:function valFactores(){for(var i=0;i<this.factores.length;i++){if(this.factores[i].dialogos===""){this.$swal("Error...!","Por favor seleccione la opción <b>Dialogos</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].sancion===""){this.$swal("Error...!","Por favor seleccione la opción <b>Sanción ó Supresión</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].castigo_verbal===""){this.$swal("Error...!","Por favor seleccione la opción <b>Castigo Verbal</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].castigo_fisico===""){this.$swal("Error...!","Por favor seleccione la opción <b>Castigo Fisico</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].alcohol===""){this.$swal("Error...!","Por favor seleccione la opción <b>Alcohol</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].tabaco===""){this.$swal("Error...!","Por favor seleccione la opción <b>Tabaco</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].sustancias_psico===""){this.$swal("Error...!","Por favor seleccione la opción <b>Sustancias Psicoactivas</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].apuestas===""){this.$swal("Error...!","Por favor seleccione la opción <b>Apuestas</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].violencia_fisica===""){this.$swal("Error...!","Por favor seleccione la opción <b>Violencia Fisica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].violencia_psico===""){this.$swal("Error...!","Por favor seleccione la opción <b>Violencia Psicologica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].violencia_economica===""){this.$swal("Error...!","Por favor seleccione la opción <b>Violencia Economica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].abuso_sexual===""){this.$swal("Error...!","Por favor seleccione la opción <b>Abuso Sexual</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].actividad_fisica===""){this.$swal("Error...!","Por favor seleccione la opción <b>Actividad Fisica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].consumo_frutas===""){this.$swal("Error...!","Por favor seleccione la opción <b>Consumo de Frutas y Verduras</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].religiosos===""){this.$swal("Error...!","Por favor seleccione la opción <b>Religiosos</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].sociales===""){this.$swal("Error...!","Por favor seleccione la opción <b>Sociales</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].culturales===""){this.$swal("Error...!","Por favor seleccione la opción <b>Culturales</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].recreativos===""){this.$swal("Error...!","Por favor seleccione la opción <b>Recreativos</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}}return true;},valAfectacion:function valAfectacion(){for(var i=0;i<this.afectacion.length;i++){if(this.afectacion[i].presentado===""){this.$swal("Error...!","Por favor seleccione la opción <b>Ha presentado sintomas de Covid-19</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].prueba===""){this.$swal("Error...!","Por favor seleccione la opción <b>Se realizó alguna vez la prueba de covid-19</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].afectado===""){this.$swal("Error...!","Por favor seleccione la opción <b>Se ha sentido afectado por el cofinanciamiento</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].nivel===""){this.$swal("Error...!","Por favor seleccione la opción <b>Nivel de afectación</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].porcentaje===""){this.$swal("Error...!","Por favor seleccione la opción <b>Porcentaje de reducción de ingresos</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].perdida===""){this.$swal("Error...!","Por favor seleccione la opción <b>Perdida de familiares</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].sobrelleva===""){this.$swal("Error...!","Por favor seleccione la opción <b>Como sobrelleva la situación económica</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].percibe===""){this.$swal("Error...!","Por favor seleccione la opción <b>Como percibe la calidad de la educación virtual</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].principal===""){this.$swal("Error...!","Por favor seleccione la opción <b>Principal carga economica</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].tiempo===""){this.$swal("Error...!","Por favor seleccione la opción <b>En cuanto tiempo se puede recuperar</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}}return true;},//VALIDACIONES DE LOS CICLOS
+return false;}}return true;},valInt2:function(){var _valInt=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee15(){var _this18=this;var _loop6,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee15$(_context19){while(1){switch(_context19.prev=_context19.next){case 0:_loop6=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop6(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop6$(_context18){while(1){switch(_context18.prev=_context18.next){case 0:parametros={_token:_this18.csrf,identificacion:_this18.datos[i].identificacion};_context18.prev=1;_context18.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){_this18.vectorAyuda.push({identificacion:respuesta.data.identificacion,fila:i+1,error:"ERROR1"});return false;}else{}})["catch"](function(error){});case 4:_context18.next=8;break;case 6:_context18.prev=6;_context18.t0=_context18["catch"](1);case 8:case"end":return _context18.stop();}}},_loop6,null,[[1,6]]);});i=0;case 2:if(!(i<this.datos.length)){_context19.next=7;break;}return _context19.delegateYield(_loop6(i),"t0",4);case 4:i++;_context19.next=2;break;case 7:case"end":return _context19.stop();}}},_callee15,this);}));function valInt2(){return _valInt.apply(this,arguments);}return valInt2;}(),valFactores:function valFactores(){for(var i=0;i<this.factores.length;i++){if(this.factores[i].dialogos===""){this.$swal("Error...!","Por favor seleccione la opción <b>Dialogos</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].sancion===""){this.$swal("Error...!","Por favor seleccione la opción <b>Sanción ó Supresión</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].castigo_verbal===""){this.$swal("Error...!","Por favor seleccione la opción <b>Castigo Verbal</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].castigo_fisico===""){this.$swal("Error...!","Por favor seleccione la opción <b>Castigo Fisico</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].alcohol===""){this.$swal("Error...!","Por favor seleccione la opción <b>Alcohol</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].tabaco===""){this.$swal("Error...!","Por favor seleccione la opción <b>Tabaco</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].sustancias_psico===""){this.$swal("Error...!","Por favor seleccione la opción <b>Sustancias Psicoactivas</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].apuestas===""){this.$swal("Error...!","Por favor seleccione la opción <b>Apuestas</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].violencia_fisica===""){this.$swal("Error...!","Por favor seleccione la opción <b>Violencia Fisica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].violencia_psico===""){this.$swal("Error...!","Por favor seleccione la opción <b>Violencia Psicologica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].violencia_economica===""){this.$swal("Error...!","Por favor seleccione la opción <b>Violencia Economica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].abuso_sexual===""){this.$swal("Error...!","Por favor seleccione la opción <b>Abuso Sexual</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].actividad_fisica===""){this.$swal("Error...!","Por favor seleccione la opción <b>Actividad Fisica</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].consumo_frutas===""){this.$swal("Error...!","Por favor seleccione la opción <b>Consumo de Frutas y Verduras</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].religiosos===""){this.$swal("Error...!","Por favor seleccione la opción <b>Religiosos</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].sociales===""){this.$swal("Error...!","Por favor seleccione la opción <b>Sociales</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].culturales===""){this.$swal("Error...!","Por favor seleccione la opción <b>Culturales</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}if(this.factores[i].recreativos===""){this.$swal("Error...!","Por favor seleccione la opción <b>Recreativos</b> en la fila "+(i+1)+" de la tabla factores de riesgo y protectores de la familia","error");return false;}}return true;},valAfectacion:function valAfectacion(){for(var i=0;i<this.afectacion.length;i++){if(this.afectacion[i].presentado===""){this.$swal("Error...!","Por favor seleccione la opción <b>Ha presentado sintomas de Covid-19</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].prueba===""){this.$swal("Error...!","Por favor seleccione la opción <b>Se realizó alguna vez la prueba de covid-19</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].afectado===""){this.$swal("Error...!","Por favor seleccione la opción <b>Se ha sentido afectado por el cofinanciamiento</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].nivel===""){this.$swal("Error...!","Por favor seleccione la opción <b>Nivel de afectación</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].porcentaje===""){this.$swal("Error...!","Por favor seleccione la opción <b>Porcentaje de reducción de ingresos</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].perdida===""){this.$swal("Error...!","Por favor seleccione la opción <b>Perdida de familiares</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].sobrelleva===""){this.$swal("Error...!","Por favor seleccione la opción <b>Como sobrelleva la situación económica</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].percibe===""){this.$swal("Error...!","Por favor seleccione la opción <b>Como percibe la calidad de la educación virtual</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].principal===""){this.$swal("Error...!","Por favor seleccione la opción <b>Principal carga economica</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}if(this.afectacion[i].tiempo===""){this.$swal("Error...!","Por favor seleccione la opción <b>En cuanto tiempo se puede recuperar</b> en la fila "+(i+1)+" de la tabla afectación contingencia covid-19","error");return false;}}return true;},//VALIDACIONES DE IDENTIFICACION
+//VALIDACIONES DE LOS CICLOS
 valMen1:function valMen1(){for(var i=0;i<this.Men1A.length;i++){if(this.Men1A[i].lugar_nacimiento===""){this.$swal("Error...!","Por favor seleccione el <b>lugar de nacimiento</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].hemoclasificacion===""){this.$swal("Error...!","Por favor seleccione la <b>hemoclasificacion</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].compli_parto===""){this.$swal("Error...!","Por favor seleccione <b>complicaciones en el parto</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].via_parto===""){this.$swal("Error...!","Por favor seleccione la <b>via del parto</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].cyc===""){this.$swal("Error...!","Por favor seleccione el <b>control de CyC</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].valoracion_23===""){this.$swal("Error...!","Por favor seleccione la <b>valoración integral de 2 a 3 meses</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].valoracion_68===""){this.$swal("Error...!","Por favor seleccione la <b>valoración integral de 6 a 8 meses</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].valoracion_911===""){this.$swal("Error...!","Por favor seleccione la <b>valoración integral de 9 a 11 meses</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].lactancia===""){this.$swal("Error...!","Por favor seleccione la <b>lactancia exclusiva</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].peso_nacer===""){this.$swal("Error...!","Por favor digite el <b>peso al nacer</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].peso_actual===""){this.$swal("Error...!","Por favor digite el <b>peso actual</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].longitud_nacer===""){this.$swal("Error...!","Por favor digite la <b>longitud al nacer</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].longitud_actual===""){this.$swal("Error...!","Por favor digite la <b>longitud actual</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].longitud_actual===""){this.$swal("Error...!","Por favor digite la <b>longitud actual</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].cinta===""){this.$swal("Error...!","Por favor seleccione la opción<b> P. Cefalico </b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].pb===""){this.$swal("Error...!","Por favor seleccione la opción<b> PB </b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].edemas===""){this.$swal("Error...!","Por favor seleccione <b>edemas</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].lenguaje===""){this.$swal("Error...!","Por favor seleccione de la valoración del desarrollo el <b>lenguaje</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].motora===""){this.$swal("Error...!","Por favor seleccione de la valoración del desarrollo la opcion <b>motora</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].conducta===""){this.$swal("Error...!","Por favor seleccione de la valoración del desarrollo la <b>conducta</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].visuales===""){this.$swal("Error...!","Por favor seleccione si tiene problemas <b>visuales</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].auditivos===""){this.$swal("Error...!","Por favor seleccione si tiene problemas <b>auditivos</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].carnet===""){this.$swal("Error...!","Por favor seleccione de la vacunación si tiene <b>CARNET(PAI)</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].bcg===""){this.$swal("Error...!","Por favor seleccione de la vacunación si tiene la vacuna <b>BCG</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].hepb===""){this.$swal("Error...!","Por favor seleccione de la vacunación si tiene la vacuna <b>HEP-B</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].polio===""){this.$swal("Error...!","Por favor seleccione de la vacunación si tiene la vacuna <b>POLIO</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].pentavalente===""){this.$swal("Error...!","Por favor seleccione de la vacunación si tiene la vacuna <b>PENTAVALENTE</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].maltrato===""){this.$swal("Error...!","Por favor seleccione si sufre de <b>maltrato</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].morbilidad===""){this.$swal("Error...!","Por favor seleccione la <b>morbilidad</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}if(this.Men1A[i].tsh===""){this.$swal("Error...!","Por favor seleccione la opcion <b>TSH</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) menores de 1 año","error");return false;}}return true;},valDe1A5:function valDe1A5(){for(var i=0;i<this.De1A5.length;i++){if(this.De1A5[i].beneficiario===""){this.$swal("Error...!","Por favor seleccione el <b>Beneficiario de un Programa</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].cyc===""){this.$swal("Error...!","Por favor seleccione el <b>Control de CyC</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].valoracion_1823===""){this.$swal("Error...!","Por favor seleccione de la Valoración Integral <b>18-23 meses</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].valoracion_3035===""){this.$swal("Error...!","Por favor seleccione de la Valoración Integral <b>30-35 meses</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].valoracion_4===""){this.$swal("Error...!","Por favor seleccione de la Valoración Integral <b>4 años</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].peso===""){this.$swal("Error...!","Por favor digite en la Valoración Nutricional el <b>peso</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].talla===""){this.$swal("Error...!","Por favor digite en la Valoración Nutricional la <b>talla</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].imc===""){this.$swal("Error...!","Por favor digite en la Valoración Nutricional el <b>IMC</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].pb===""){this.$swal("Error...!","Por favor digite en la Valoración Nutricional el <b>P.B</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].pt===""){this.$swal("Error...!","Por favor digite en la Valoración Nutricional el <b>P/T</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].te===""){this.$swal("Error...!","Por favor digite en la Valoración Nutricional el <b>T/E</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].pcefalico===""){this.$swal("Error...!","Por favor digite en la Valoración Nutricional el <b>Perimetro Cefálico</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].lenguaje===""){this.$swal("Error...!","Por favor seleccione de la Valoración Del Desarrollo el <b>Lenguaje</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].motora===""){this.$swal("Error...!","Por favor seleccione de la Valoración Del Desarrollo <b>Motora</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].conducta===""){this.$swal("Error...!","Por favor seleccione de la Valoración Del Desarrollo La <b>Conducta</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].visuales===""){this.$swal("Error...!","Por favor seleccione de Problemas Los <b>Visuales</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].auditivos===""){this.$swal("Error...!","Por favor seleccione de Problemas Los <b>Auditivos</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].caries===""){this.$swal("Error...!","Por favor seleccione de Salud Oral Las <b>Caries</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].nocepillado===""){this.$swal("Error...!","Por favor digite en Salud Oral El <b>No. Cepillado Dia</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].consultaodon===""){this.$swal("Error...!","Por favor seleccione de Salud Oral La <b>Consulta Odontologica</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].carnet===""){this.$swal("Error...!","Por favor seleccione de Vacunación el <b>Carnet (PAI)</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].bcg===""){this.$swal("Error...!","Por favor seleccione de Vacunación el <b>BCG</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].polio===""){this.$swal("Error...!","Por favor seleccione de Vacunación el <b>POLIO</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].dpt===""){this.$swal("Error...!","Por favor seleccione de Vacunación el <b>DPT</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].fiebrea===""){this.$swal("Error...!","Por favor seleccione de Vacunación la <b>Fiebre Amarilla</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].tripleviral===""){this.$swal("Error...!","Por favor seleccione de Vacunación la <b>Triple Viral</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].pentavalente===""){this.$swal("Error...!","Por favor seleccione de Vacunación la <b>Pentavalente</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].desparacitado===""){this.$swal("Error...!","Por favor seleccione <b>Desparacitado</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].maltrato===""){this.$swal("Error...!","Por favor seleccione las <b> Señales de Maltrato</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la <b> Enfermedad</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}if(this.De1A5[i].medicamento===""){this.$swal("Error...!","Por favor seleccione el <b> Medicamento</b> en la fila "+(i+1)+" de la tabla primera infancia, niños(as) de 1 a 5 años","error");return false;}}return true;},valDe6A11:function valDe6A11(){for(var i=0;i<this.De6A11.length;i++){if(this.De6A11[i].cyc===""){this.$swal("Error...!","Por favor seleccione el <b>Control de CyC</b> en la fila "+(i+1)+" de la tabla infancia, niños(as) de 6 a 11 años","error");return false;}if(this.De6A11[i].atencion===""){this.$swal("Error...!","Por favor seleccione la <b>Atencion Por</b> en la fila "+(i+1)+" de la tabla infancia, niños(as) de 6 a 11 años","error");return false;}if(this.De6A11[i].peso===""){this.$swal("Error...!","Por favor digite el <b>Peso</b> en la fila "+(i+1)+" de la tabla infancia, niños(as) de 6 a 11 años","error");return false;}if(this.De6A11[i].talla===""){this.$swal("Error...!","Por favor digite la <b>Talla</b> en la fila "+(i+1)+" de la tabla infancia, niños(as) de 6 a 11 años","error");return false;}if(this.De6A11[i].imc===""){this.$swal("Error...!","Por favor digite el <b>IMC/E</b> en la fila "+(i+1)+" de la tabla infancia, niños(as) de 6 a 11 años","error");return false;}if(this.De6A11[i].pb===""){this.$swal("Error...!","Por favor digite el <b>P.B</b> en la fila "+(i+1)+" de la tabla infancia, niños(as) de 6 a 11 años","error");return false;}// if (this.De6A11[i].pt === "") {
 //   this.$swal(
 //     "Error...!",
@@ -11586,353 +12329,148 @@ if(this.De18A28[i].visuales===""){this.$swal("Error...!","Por favor seleccione l
 //   );
 //   return false;
 // }
-if(this.De60[i].cigarrillo===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Cigarrillo ó Tabaco</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].alcohol===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Consumo de Alcohol</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].actividad_fisica===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Actividad Fisica Recreativa</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].sintomatico===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Sintomático Respiratorio</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].examen_seno===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Examen de Seno</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].citologia===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Citologia Cervico Vaginal</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].colposcopia===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Colposcopia</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].examen_prostata===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Examen de Prostata</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].biposia_prostata===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Biposia de Prostata</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].agudeza_visual===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Examen de Agudeza Visual</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].subsidio===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Subsidio de Entidad del Estado</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].enfermedades_cronicas===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Enfermedades Cronicas</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].enfermedades_infecciosas===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Enfermedades Infecciosas</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].empleo===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Empleo</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}}return true;},valEnCro:function valEnCro(){for(var i=0;i<this.EnCro.length;i++){if(this.EnCro[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}}return true;},valEnInf:function valEnInf(){for(var i=0;i<this.EnInf.length;i++){if(this.EnInf[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}}return true;},valMigra:function valMigra(){for(var i=0;i<this.Migra.length;i++){if(this.Migra[i].pais===""){this.$swal("Error...!","Por favor digite la opción <b>Pais de Origen</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].registrado===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Registrado Como Migrante</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].cuantollego===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Hace Cuanto Llego Al Pais</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].futuro===""){this.$swal("Error...!","Por favor seleccione la opcion <b>En el Futuro Usted Piensa</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].recibido===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Usted a Recibido Ayudas del Gobierno</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].necesidad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Principal Necesidad en Estos Momentos</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].dependen===""){this.$swal("Error...!","Por favor digite la opción <b>Personas Que Dependen de Usted</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].ingreso===""){this.$swal("Error...!","Por favor digite la opción <b>Ingreso Mensual Actualmente</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}}return true;},//VALIDACIONES DE LOS CICLOS
-//VALIDACIONES
-allLetter:function allLetter(valor){var letters=/^([0-9])*$/;if(valor===""){return false;}else{if(valor.match(letters)){return true;}else{return false;}}},isNumeric:function isNumeric(n){return!isNaN(parseFloat(n))&&isFinite(n);},nuevo:function(){var _nuevo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var _this7=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context9){while(1){switch(_context9.prev=_context9.next){case 0:parametros={_token:this.csrf};_context9.prev=1;_context9.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["nuevaCaracterizacion"](parametros).then(function(respuesta){_this7.dpto_options=respuesta.data.arrayDpto;_this7.muni_options=respuesta.data.arrayMuni;_this7.corregi_options=respuesta.data.arrayCorregi;_this7.vereda_options=respuesta.data.arrayVeredas;// this.barrio_options = respuesta.data.arrayBarrios;
-_this7.parentesco_options=respuesta.data.arrayParentesco;_this7.estado_options=respuesta.data.arrayEstado;_this7.escolaridad_options=respuesta.data.arrayEscolaridad;_this7.ocupacion_options=respuesta.data.arrayOcupacion;_this7.etnia_options=respuesta.data.arrayEtnia;_this7.admini_options=respuesta.data.arrayAdmini;_this7.clasifi_options=respuesta.data.arrayCLasifi;_this7.grados_option=respuesta.data.arrayGrados;_this7.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this7.morbilidad_options=respuesta.data.arrayMorbilidad;_this7.metodos_options=respuesta.data.arrayMetodos;_this7.motivos_options=respuesta.data.arrayMotivos;_this7.grupos_options=respuesta.data.arrayGrupos;_this7.enfcro_options=respuesta.data.arrayEnfCro;_this7.enfinf_options=respuesta.data.arrayEnfInf;_this7.religion_options=respuesta.data.arrayReligion;_this7.CODIGOGENE=respuesta.data.codigo;_this7.paises_options=respuesta.data.arrayPaises;});case 4:_context9.next=15;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);_context9.t1=_context9.t0.response.status;_context9.next=_context9.t1===422?11:13;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 15:case"end":return _context9.stop();}}},_callee7,this,[[1,6]]);}));function nuevo(){return _nuevo.apply(this,arguments);}return nuevo;}(),agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:if(!(this.CA1.tipo_id=="0")){_context10.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context10.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context10.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context10.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context10.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context10.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context10.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context10.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context10.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context10.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context10.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context10.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context10.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context10.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context10.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context10.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context10.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context10.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context10.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context10.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context10.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context10.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context10.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context10.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context10.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context10.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context10.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context10.abrupt("return");case 44:if(!(this.CA1.etnia=="0")){_context10.next=47;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context10.abrupt("return");case 47:if(!(this.CA1.clasificacion=="0")){_context10.next=50;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context10.abrupt("return");case 50:if(!(this.CA1.entiende=="0")){_context10.next=53;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context10.abrupt("return");case 53:if(!(this.CA1.pyp=="0")){_context10.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context10.abrupt("return");case 56:if(!(this.CA1.migrante=="0")){_context10.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context10.abrupt("return");case 59:if(!(this.CA1.jefe=="0")){_context10.next=62;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context10.abrupt("return");case 62:if(!(this.CA1.perdida_peso==="")){_context10.next=66;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context10.abrupt("return");case 66:if(!(this.CA1.programa_icbf==="")){_context10.next=70;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context10.abrupt("return");case 70:if(!(this.CA1.enfermedad_infecciosa==="0")){_context10.next=73;break;}this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return _context10.abrupt("return");case 73:if(!(this.CA1.enfermedad_cronica==="0")){_context10.next=76;break;}this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return _context10.abrupt("return");case 76:if(!(this.CA1.peso==="")){_context10.next=79;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context10.abrupt("return");case 79:if(!(this.CA1.talla==="")){_context10.next=82;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context10.abrupt("return");case 82:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
-this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context10.prev=84;_context10.next=87;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this8.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
-var resultado=_this8.datos.filter(function(identi){return identi.identificacion==_this8.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length>0){_this8.$swal("Validar...!","El Documento <b>"+_this8.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento=moment(_this8.CA1.fecha_nac);var _hoy=moment();var edad=0;if(_nacimiento<_hoy){edad=_hoy.diff(_nacimiento,"years");//Calculamos la diferencia en años
-}var textoEps="";if(_this8.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.CA1.afi_entidad,_this8.admini_options);}}_this8.datos.push({id:0,tipo_id:_this8.CA1.tipo_id,identificacion:_this8.CA1.identificacion,sexo:_this8.CA1.sexo,parentesco:_this8.CA1.parentesco,textoParentesco:_this8.showText(_this8.CA1.parentesco,_this8.parentesco_options),pnom:_this8.CA1.pnom,snom:_this8.CA1.snom,pape:_this8.CA1.pape,sape:_this8.CA1.sape,estado_civil:_this8.CA1.estado_civil,textoEstado:_this8.showText(_this8.CA1.estado_civil,_this8.estado_options),fecha_nac:_this8.CA1.fecha_nac,edad:edad,afi_entidad:_this8.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this8.CA1.otra_eps,tipo_afiliacion:_this8.CA1.tipo_afiliacion,embarazo:_this8.CA1.embarazo,embarazo_multiple:_this8.CA1.embarazo_multiple,discapacidad:_this8.CA1.discapacidad,escolaridad:_this8.CA1.escolaridad,textoEscolaridad:_this8.showText(_this8.CA1.escolaridad,_this8.escolaridad_options),ocupacion:_this8.CA1.ocupacion,textoOcupacion:_this8.showText(_this8.CA1.ocupacion,_this8.ocupacion_options),colegio:_this8.CA1.colegio,textoColegio:_this8.showText(_this8.CA1.colegio,_this8.colegio_options),grado:_this8.CA1.grado,entiende:_this8.CA1.entiende,migrante:_this8.CA1.migrante,pyp:_this8.CA1.pyp,etnia:_this8.CA1.etnia,textoEtnia:_this8.showText(_this8.CA1.etnia,_this8.etnia_options),clasificacion:_this8.CA1.clasificacion,textoClasificacion:_this8.showText2(_this8.CA1.clasificacion,_this8.clasifi_options,_this8.CA1.etnia),puntaje_sisben:_this8.CA1.puntaje_sisben,jefe:_this8.CA1.jefe,orientacion:_this8.CA1.orientacion,identidad_genero:_this8.CA1.identidad_genero,telefono:_this8.CA1.telefono,perdida_peso:_this8.CA1.perdida_peso,programa_icbf:_this8.CA1.programa_icbf,excepciones:_this8.CA1.excepciones,textoExcepciones:_this8.showText(_this8.CA1.excepciones,_this8.opciones7),identi_auxi:"",estado:"Activo",enfermedad_infecciosa:_this8.CA1.enfermedad_infecciosa,textoEnfermedad_infecciosa:_this8.showText(_this8.CA1.enfermedad_infecciosa,_this8.enfinf_options),enfermedad_cronica:_this8.CA1.enfermedad_cronica,textoEnfermedad_cronica:_this8.showText(_this8.CA1.enfermedad_cronica,_this8.enfcro_options),peso:_this8.CA1.peso,talla:_this8.CA1.talla});if(_this8.CA1.tipo_afiliacion==="CONTRIBUTIVO"||_this8.CA1.tipo_afiliacion==="ESPECIAL"){_this8.SAPU=true;_this8.estratificacionData.afiliacion_salud_privada="SI";}_this8.ocupacionAuxiliar2="";_this8.mOCOL2=false;var indice=_this8.datos.findIndex(function(identi){return identi.identificacion===_this8.CA1.identificacion;});_this8.vectorIntegrante.push({index:indice,identificacion:_this8.CA1.identificacion});// AGREGAR NIÑOS MENORES DE 1 AÑO
-if(edad<=0){_this8.Amenores1Anio(_this8.CA1,_hoy.diff(_nacimiento,"months"),"INTE");}// AGREGAR NIÑOS MENORES DE 1 AÑO
-// AGREGAR DE 1 A 5 AÑOS
-if(edad>=1&&edad<=5){_this8.Ade1a5Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 1 A 5 AÑOS
-// AGREGAR DE 6 A 11 AÑOS
-if(edad>=6&&edad<=11){_this8.Ade6a11Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 6 A 11 AÑOS
-// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
-if(edad<10){if(_this8.CA1.excepciones==="1"){_this8.Ade10a59Anio(_this8.CA1,edad,"INTE");}}// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
-// AGREGAR DE 10 A 59 AÑOS
-if(edad>=10&&edad<=59){_this8.Ade10a59Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 10 A 59 AÑOS
-// AGREGAR PARTO POSTPARTO
-// alert(this.CA1.embarazo_multiple);
-if(_this8.CA1.embarazo==="SI"){_this8.AParPost(_this8.CA1,edad,"INTE");}// AGREGAR PARTO POSTPARTO
-// AGREGAR DE 12 A 17 AÑOS
-if(edad>=12&&edad<=17){_this8.Ade12a17Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 12 A 17 AÑOS
-// AGREGAR DE 18 A 28 AÑOS
-if(edad>=18&&edad<=28){_this8.Ade18a28Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 18 A 28 AÑOS
-// AGREGAR DE 29 A 59 AÑOS
-if(edad>=29&&edad<=59){_this8.Ade29a59Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 29 A 59 AÑOS
-// AGREGAR DE 60 ó MAS AÑOS
-if(edad>=60){_this8.Ade60Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 60 ó MAS AÑOS
-// AGREGAR MIGRANTES
-if(_this8.CA1.migrante==="SI"){_this8.AMigra(_this8.CA1,edad,"INTE");}// AGREGAR MIGRANTES
-_this8.limpiar();}}})["catch"](function(error){_this8.errorDevuelto=error.response.data.errors;_this8.entrarPorError=true;});case 87:_context10.next=100;break;case 89:_context10.prev=89;_context10.t0=_context10["catch"](84);_context10.t1=_context10.t0.response.status;_context10.next=_context10.t1===419?94:_context10.t1===422?96:98;break;case 94:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",100);case 96:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",100);case 98:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",100);case 100:case"end":return _context10.stop();}}},_callee8,this,[[84,89]]);}));function agregar(){return _agregar.apply(this,arguments);}return agregar;}(),agregarJefe:function(){var _agregarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(){var _this9=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context11){while(1){switch(_context11.prev=_context11.next){case 0:if(!(this.checkForm()===true)){_context11.next=12;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
-this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.caracData.identificacion};_context11.prev=3;_context11.next=6;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this9.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
-var resultado=_this9.datosJefe.filter(function(identi){return identi.identificacion==_this9.caracData.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length>0){_this9.$swal("Validar...!","El Documento <b>"+_this9.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento2=moment(_this9.caracData.fecha_nacimiento);var _hoy2=moment();var edad=0;if(_nacimiento2<_hoy2){edad=_hoy2.diff(_nacimiento2,"years");//Calculamos la diferencia en años
-}if(edad<14){_this9.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}var textoEps="";if(_this9.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this9.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this9.showText(_this9.caracData.afiliacion_entidad,_this9.admini_options);}}_this9.datosJefe.push({id:0,id_hogar:0,telefono:_this9.caracData.telefono,puntaje_sisben:_this9.caracData.puntaje_sisben,afiliacion_entidad:_this9.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this9.caracData.otra_eps,tipo_id:_this9.caracData.tipo_id,identificacion:_this9.caracData.identificacion,sexo:_this9.caracData.sexo,parentesco:_this9.caracData.parentesco,textoParentesco:_this9.showText(_this9.caracData.parentesco,_this9.parentesco_options),pnom:_this9.caracData.pnom,snom:_this9.caracData.snom,pape:_this9.caracData.pape,sape:_this9.caracData.sape,salario:_this9.caracData.salario,estado_civil:_this9.caracData.estado_civil,textoEstado:_this9.showText(_this9.caracData.estado_civil,_this9.estado_options),fecha_nacimiento:_this9.caracData.fecha_nacimiento,tipo_afiliacion:_this9.caracData.tipo_afiliacion,embarazo:_this9.caracData.embarazo,embarazo_multiple:_this9.caracData.embarazo_multiple,discapacidad:_this9.caracData.discapacidad,nivel_escolaridad:_this9.caracData.nivel_escolaridad,textoNivel:_this9.showText(_this9.caracData.nivel_escolaridad,_this9.escolaridad_options),ocupacion:_this9.caracData.ocupacion,textoOcupacion:_this9.showText(_this9.caracData.ocupacion,_this9.ocupacion_options),colegio:_this9.caracData.colegio,textoColegio:_this9.showText(_this9.caracData.colegio,_this9.colegio_options),grado:_this9.caracData.grado,entiende:_this9.caracData.entiende,migrante:_this9.caracData.migrante,pyp:_this9.caracData.pyp,etnia:_this9.caracData.etnia,textoEtnia:_this9.showText(_this9.caracData.etnia,_this9.etnia_options),clasificacion:_this9.caracData.clasificacion,textoClasificacion:_this9.showText2(_this9.caracData.clasificacion,_this9.clasifi_options,_this9.caracData.etnia),edad:_this9.caracData.edad,orientacion:_this9.caracData.orientacion,identidad_genero:_this9.caracData.identidad_genero,perdida_peso:_this9.caracData.perdida_peso,programa_icbf:_this9.caracData.programa_icbf,identi_auxi:"",estado:"Activo",enfermedad_infecciosa:_this9.caracData.enfermedad_infecciosa,textoEnfermedad_infecciosa:_this9.showText(_this9.caracData.enfermedad_infecciosa,_this9.enfinf_options),enfermedad_cronica:_this9.caracData.enfermedad_cronica,textoEnfermedad_cronica:_this9.showText(_this9.caracData.enfermedad_cronica,_this9.enfcro_options),peso:_this9.caracData.peso,talla:_this9.caracData.talla});if(_this9.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this9.caracData.tipo_afiliacion==="ESPECIAL"){_this9.SAPU=true;_this9.estratificacionData.afiliacion_salud_privada="SI";}_this9.ocupacionAuxiliar="";_this9.mOCOL1=false;var indice=_this9.datosJefe.findIndex(function(identi){return identi.identificacion===_this9.caracData.identificacion;});_this9.vectorJefes.push({index:indice,identificacion:_this9.caracData.identificacion});// AGREGAR FACTORES
-_this9.AFactores(_this9.caracData,edad);// AGREGAR FACTORES
-// AGREGAR AFECTACION
-_this9.AAFECTACION(_this9.caracData,edad);// AGREGAR AFECTACION                    
-// AGREGAR DE 10 A 59 AÑOS
-if(edad>=10&&edad<=59){_this9.Ade10a59Anio(_this9.caracData,edad,"JEFE");}// AGREGAR DE 10 A 59 AÑOS
-// AGREGAR PARTO POSTPARTO
-// alert(this.CA1.embarazo_multiple);
-if(_this9.caracData.embarazo==="SI"){_this9.AParPost(_this9.caracData,edad,"JEFE");}// AGREGAR PARTO POSTPARTO
-// AGREGAR DE 12 A 17 AÑOS
-if(edad>=12&&edad<=17){_this9.Ade12a17Anio(_this9.caracData,edad,"JEFE");}// AGREGAR DE 12 A 17 AÑOS
-// AGREGAR DE 18 A 28 AÑOS
-if(edad>=18&&edad<=28){_this9.Ade18a28Anio(_this9.caracData,edad,"JEFE");}// AGREGAR DE 18 A 28 AÑOS
-// AGREGAR DE 29 A 59 AÑOS
-if(edad>=29&&edad<=59){_this9.Ade29a59Anio(_this9.caracData,edad,"JEFE");}// AGREGAR DE 29 A 59 AÑOS
-// AGREGAR DE 60 ó MAS AÑOS
-if(edad>=60){_this9.Ade60Anio(_this9.caracData,edad,"JEFE");}// AGREGAR DE 60 ó MAS AÑOS
-// AGREGAR MIGRANTES
-if(_this9.caracData.migrante==="SI"){_this9.AMigra(_this9.caracData,edad,"JEFE");}// AGREGAR MIGRANTES
-_this9.limpiar2();}}})["catch"](function(error){_this9.errorDevuelto=error.response.data.errors;_this9.entrarPorError=true;});case 6:_context11.next=12;break;case 8:_context11.prev=8;_context11.t0=_context11["catch"](3);this.errorDevuelto=_context11.t0.response.data.errors;this.entrarPorError=true;case 12:case"end":return _context11.stop();}}},_callee9,this,[[3,8]]);}));function agregarJefe(){return _agregarJefe.apply(this,arguments);}return agregarJefe;}(),checkForm:function checkForm(e){var bande=true;if(this.caracData.tipo_id===""){this.$refs.tipo_id.focus();bande=false;this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return;}if(this.caracData.identificacion===""){this.$refs.identificacion.focus();bande=false;this.$swal("Error...!","Por favor digite una identificación!","error");return;}if(this.caracData.sexo===""){this.$refs.sexo.focus();bande=false;this.$swal("Error...!","Por favor seleccione el sexo!","error");return;}if(this.caracData.orientacion===""){bande=false;this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return;}if(this.caracData.identidad_genero===""){bande=false;this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return;}if(this.caracData.parentesco===""){this.$refs.parentesco.focus();bande=false;this.$swal("Error...!","Por favor seleccione el parentesco!","error");return;}if(this.caracData.pnom===""){this.$refs.pnom.focus();bande=false;this.$swal("Error...!","Por favor digite el primer nombre!","error");return;}if(this.caracData.pape===""){this.$refs.pape.focus();bande=false;this.$swal("Error...!","Por favor digite el primer apellido!","error");return;}if(this.caracData.estado_civil===""){this.$refs.estado_civil.focus();bande=false;this.$swal("Error...!","Por favor seleccione el estado civil!","error");return;}if(this.caracData.fecha_nacimiento===""){this.$refs.fecha_nacimiento.focus();bande=false;this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return;}if(this.caracData.afiliacion_entidad===""){this.$refs.afiliacion_entidad.focus();bande=false;this.$swal("Error...!","Por favor seleccione la eps!","error");return;}if(this.caracData.tipo_afiliacion===""){this.$refs.tipo_afiliacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return;}if(this.caracData.ocupacion===""){this.$refs.ocupacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la ocupación!","error");return;}if(this.caracData.etnia===""){this.$refs.etnia.focus();bande=false;this.$swal("Error...!","Por favor seleccione la etnia!","error");return;}if(this.caracData.clasificacion===""){this.$refs.clasificacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return;}if(this.caracData.salario===""){this.$refs.salario.focus();bande=false;this.$swal("Error...!","Por favor digite el salario!","error");return;}if(this.caracData.perdida_peso===""){this.$refs.perdida_peso.focus();bande=false;this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return;}if(this.caracData.programa_icbf===""){bande=false;this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return;}if(this.caracData.enfermedad_infecciosa===""){bande=false;this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}if(this.caracData.enfermedad_cronica===""){bande=false;this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}if(this.caracData.peso===""){bande=false;this.$swal("Error...!","Por favor digite el peso!","error");return;}if(this.caracData.talla===""){bande=false;this.$swal("Error...!","Por favor digite la talla!","error");return;}return bande;e.preventDefault();},showText:function showText(val,vectorAux){for(var i=0;i<vectorAux.length;i++){if(vectorAux[i].value===val){return vectorAux[i].texto;}}return"";},showText2:function showText2(val,vectorAux,id){if(id===""){return"";}for(var i=0;i<vectorAux[id].length;i++){if(vectorAux[id][i].value===val){return vectorAux[id][i].texto;}}return"";},eliminarItem:function eliminarItem(index,item){var _this10=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el integrante  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this10.datos.splice(index,1);_this10.vectorIntegrante.splice(index,1);var identificacion=item.identificacion;_this10.Men1A=_this10.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this10.De1A5=_this10.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this10.De6A11=_this10.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this10.De10A59=_this10.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this10.ParPost=_this10.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this10.De12A17=_this10.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this10.De18A28=_this10.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this10.De29A59=_this10.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this10.De60=_this10.De60.filter(function(men){return men.identificacion!=identificacion;});_this10.EnCro=_this10.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this10.EnInf=_this10.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this10.Migra=_this10.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion=item.identificacion;var indice=_this10.datos.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.datos[indice].estado="Inactivo";_this10.datos.splice(indice,1,_this10.datos[indice]);}indice=_this10.Men1A.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.Men1A[indice].estado="Inactivo";_this10.Men1A.splice(indice,1,_this10.Men1A[indice]);}indice=_this10.De1A5.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De1A5[indice].estado="Inactivo";_this10.De1A5.splice(indice,1,_this10.De1A5[indice]);}indice=_this10.De6A11.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De6A11[indice].estado="Inactivo";_this10.De6A11.splice(indice,1,_this10.De6A11[indice]);}indice=_this10.De10A59.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De10A59[indice].estado="Inactivo";_this10.De10A59.splice(indice,1,_this10.De10A59[indice]);}indice=_this10.De12A17.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De12A17[indice].estado="Inactivo";_this10.De12A17.splice(indice,1,_this10.De12A17[indice]);}indice=_this10.De18A28.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De18A28[indice].estado="Inactivo";_this10.De18A28.splice(indice,1,_this10.De18A28[indice]);}indice=_this10.De29A59.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De29A59[indice].estado="Inactivo";_this10.De29A59.splice(indice,1,_this10.De29A59[indice]);}indice=_this10.De60.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De60[indice].estado="Inactivo";_this10.De60.splice(indice,1,_this10.De60[indice]);}indice=_this10.EnCro.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.EnCro[indice].estado="Inactivo";_this10.EnCro.splice(indice,1,_this10.EnCro[indice]);}indice=_this10.EnInf.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.EnInf[indice].estado="Inactivo";_this10.EnInf.splice(indice,1,_this10.EnInf[indice]);}indice=_this10.Migra.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.Migra[indice].estado="Inactivo";_this10.Migra.splice(indice,1,_this10.Migra[indice]);}}_this10.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},eliminarItemJefe:function eliminarItemJefe(index,item){var _this11=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el jefe de hogar  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this11.datosJefe.splice(index,1);_this11.vectorJefes.splice(index,1);var identificacion=item.identificacion;_this11.factores=_this11.factores.filter(function(men){return men.identificacion!=identificacion;});_this11.afectacion=_this11.afectacion.filter(function(men){return men.identificacion!=identificacion;});_this11.estratificacion=_this11.estratificacion.filter(function(men){return men.id_jefe!=identificacion;});_this11.Men1A=_this11.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this11.De1A5=_this11.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this11.De6A11=_this11.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this11.De10A59=_this11.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this11.ParPost=_this11.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this11.De12A17=_this11.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this11.De18A28=_this11.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this11.De29A59=_this11.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this11.De60=_this11.De60.filter(function(men){return men.identificacion!=identificacion;});_this11.EnCro=_this11.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this11.EnInf=_this11.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this11.Migra=_this11.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion2=item.identificacion;// TABLA datos
-for(var i=0;i<_this11.datos.length;i++){if(_this11.datos[i].jefe===_identificacion2){_this11.$swal("Advertencia...!","El jefe de hogar "+nombre+" tiene integrantes asociados asociados !","warning");return;}}// TABLA datos
-var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
-_this11.datosJefe[index].estado="Inactivo";_this11.datosJefe.splice(index,1,_this11.datosJefe[index]);//INACTIVAR LA FILA DE JEFES
-//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-var indice=_this11.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.De10A59[indice].estado="Inactivo";_this11.De10A59.splice(indice,1,_this11.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-indice=_this11.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.ParPost[indice].estado="Inactivo";_this11.ParPost.splice(indice,1,_this11.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-indice=_this11.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.De12A17[indice].estado="Inactivo";_this11.De12A17.splice(indice,1,_this11.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-indice=_this11.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.De18A28[indice].estado="Inactivo";_this11.De18A28.splice(indice,1,_this11.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-indice=_this11.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.De29A59[indice].estado="Inactivo";_this11.De29A59.splice(indice,1,_this11.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-//SABER EL INDICE DE LA IDENTIFICACION DE De60
-indice=_this11.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.De60[indice].estado="Inactivo";_this11.De60.splice(indice,1,_this11.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
-//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
-indice=_this11.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.EnCro[indice].estado="Inactivo";_this11.EnCro.splice(indice,1,_this11.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
-//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-indice=_this11.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.EnInf[indice].estado="Inactivo";_this11.EnInf.splice(indice,1,_this11.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-//SABER EL INDICE DE LA IDENTIFICACION DE Migra
-indice=_this11.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.Migra[indice].estado="Inactivo";_this11.Migra.splice(indice,1,_this11.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra              
-//SABER EL INDICE DE LA IDENTIFICACION DE factores
-indice=_this11.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.factores[indice].estado="Inactivo";_this11.factores.splice(indice,1,_this11.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE factores
-//SABER EL INDICE DE LA IDENTIFICACION DE afectacion
-indice=_this11.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.afectacion[indice].estado="Inactivo";_this11.afectacion.splice(indice,1,_this11.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE afectacion
-//SABER EL INDICE DE LA IDENTIFICACION DE estratificacion
-indice=_this11.estratificacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.estratificacion[indice].estado="Inactivo";_this11.estratificacion.splice(indice,1,_this11.estratificacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE estratificacion              
-}_this11.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedad_infecciosa=item.enfermedad_infecciosa;this.caracData.enfermedad_cronica=item.enfermedad_cronica;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.identificacionJefe=item.identificacion;this.migrarEditar=item.migrante;// ELIMINAR LOS DATOS DE LAS TABLAS
-var identificacion=this.vectorJefes[this.indiceEditJefe].identificacion;// this.datosJefe.splice(this.indiceEditJefe, 1);
-// this.vectorJefes.splice(this.indiceEditJefe, 1);
-// this.factores = this.factores.filter(function(men) {
-//   return men.identificacion != identificacion;
-// });
-// this.afectacion = this.afectacion.filter(function(men) {
-//   return men.identificacion != identificacion;
-// });
-var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
-this.datosJefe[this.indiceEditJefe].estado="Inactivo";this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);//INACTIVAR LA FILA DE JEFES
-//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-var indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Inactivo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-//SABER EL INDICE DE LA IDENTIFICACION DE De60
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
-//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
-indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
-//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-//SABER EL INDICE DE LA IDENTIFICACION DE Migra
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
-},CancelarEditarJefe:function CancelarEditarJefe(){this.datosJefe[this.indiceEditJefe].estado="Activo";this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);var id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-var indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Activo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Activo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Activo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Activo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-//SABER EL INDICE DE LA IDENTIFICACION DE De60
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Activo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
-//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
-indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Activo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
-//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-//SABER EL INDICE DE LA IDENTIFICACION DE Migra
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
-this.limpiar2();// // AGREGAR LOS DATOS
-// this.agregarJefe();
-// // AGREGAR LOS DATOS
-},editarJefe:function(){var _editarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10(){var _this12=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context12){while(1){switch(_context12.prev=_context12.next){case 0:this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.caracData.identificacion)){_context12.next=6;break;}if(this.checkForm()===true){this.ediJe();}_context12.next=17;break;case 6:if(!(this.checkForm()===true)){_context12.next=17;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
-parametros={_token:this.csrf,identificacion:this.caracData.identificacion};_context12.prev=8;_context12.next=11;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this12.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
-var resultado=_this12.datosJefe.filter(function(identi){return identi.identificacion==_this12.caracData.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length){_this12.$swal("Validar...!","El Documento <b>"+_this12.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this12.ediJe();}}})["catch"](function(error){_this12.errorDevuelto=error.response.data.errors;_this12.entrarPorError=true;});case 11:_context12.next=17;break;case 13:_context12.prev=13;_context12.t0=_context12["catch"](8);this.errorDevuelto=_context12.t0.response.data.errors;this.entrarPorError=true;case 17:case"end":return _context12.stop();}}},_callee10,this,[[8,13]]);}));function editarJefe(){return _editarJefe.apply(this,arguments);}return editarJefe;}(),ediJe:function ediJe(){var nacimiento=moment(this.caracData.fecha_nacimiento);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
-}if(edad<14){this.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}var textoEps="";if(this.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(this.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.caracData.afiliacion_entidad,this.admini_options);}}if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO"||this.caracData.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar="";this.mOCOL1=false;for(var i=0;i<this.datos.length;i++){if(this.datos[i].jefe===this.identificacionJefe){this.datos[i].jefe=this.caracData.identificacion;this.datos.splice(i,1,this.datos[i]);}}// let id = this.vectorJefes[this.indiceEditJefe].identificacion;
-var id=this.identificacionEditar;if(this.caracData.fecha_nacimiento!==this.fechaEditar){if(edad!==this.edadEditar){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.factores[indice].tipo_id=this.caracData.tipo_id;this.factores[indice].sexo=this.caracData.sexo;this.factores[indice].identificacion=this.caracData.identificacion;this.factores[indice].pnom=this.caracData.pnom;this.factores[indice].snom=this.caracData.snom;this.factores[indice].pape=this.caracData.pape;this.factores[indice].sape=this.caracData.sape;this.factores[indice].estado="Activo";this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.afectacion[indice].tipo_id=this.caracData.tipo_id;this.afectacion[indice].sexo=this.caracData.sexo;this.afectacion[indice].identificacion=this.caracData.identificacion;this.afectacion[indice].pnom=this.caracData.pnom;this.afectacion[indice].snom=this.caracData.snom;this.afectacion[indice].pape=this.caracData.pape;this.afectacion[indice].sape=this.caracData.sape;this.afectacion[indice].estado="Activo";this.afectacion.splice(indice,1,this.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.estratificacion.findIndex(function(identi){return identi.id_jefe===id;});if(indice>=0){this.estratificacion[indice].id_jefe=this.caracData.identificacion;this.estratificacion[indice].estado="Activo";this.estratificacion.splice(indice,1,this.estratificacion[indice]);}// ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
-this.eliEdad(this.identificacionEditar,this.caracData,edad,"JEFE");}else{//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.factores[_indice].tipo_id=this.caracData.tipo_id;this.factores[_indice].sexo=this.caracData.sexo;this.factores[_indice].identificacion=this.caracData.identificacion;this.factores[_indice].pnom=this.caracData.pnom;this.factores[_indice].snom=this.caracData.snom;this.factores[_indice].pape=this.caracData.pape;this.factores[_indice].sape=this.caracData.sape;this.factores[_indice].estado="Activo";this.factores.splice(_indice,1,this.factores[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.afectacion[_indice].tipo_id=this.caracData.tipo_id;this.afectacion[_indice].sexo=this.caracData.sexo;this.afectacion[_indice].identificacion=this.caracData.identificacion;this.afectacion[_indice].pnom=this.caracData.pnom;this.afectacion[_indice].snom=this.caracData.snom;this.afectacion[_indice].pape=this.caracData.pape;this.afectacion[_indice].sape=this.caracData.sape;this.afectacion[_indice].estado="Activo";this.afectacion.splice(_indice,1,this.afectacion[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.estratificacion.findIndex(function(identi){return identi.id_jefe===id;});if(_indice>=0){this.estratificacion[_indice].id_jefe=this.caracData.identificacion;this.estratificacion[_indice].estado="Activo";this.estratificacion.splice(_indice,1,this.estratificacion[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.De10A59[_indice].tipo_id=this.caracData.tipo_id;this.De10A59[_indice].sexo=this.caracData.sexo;this.De10A59[_indice].identificacion=this.caracData.identificacion;this.De10A59[_indice].pnom=this.caracData.pnom;this.De10A59[_indice].snom=this.caracData.snom;this.De10A59[_indice].pape=this.caracData.pape;this.De10A59[_indice].sape=this.caracData.sape;this.De10A59[_indice].estado="Activo";this.De10A59.splice(_indice,1,this.De10A59[_indice]);}if(this.embarazoEditar==="SI"){_indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(_indice>=0){this.ParPost[_indice].tipo_id=this.caracData.tipo_id;this.ParPost[_indice].sexo=this.caracData.sexo;this.ParPost[_indice].identificacion=this.caracData.identificacion;this.ParPost[_indice].pnom=this.caracData.pnom;this.ParPost[_indice].snom=this.caracData.snom;this.ParPost[_indice].pape=this.caracData.pape;this.ParPost[_indice].sape=this.caracData.sape;this.ParPost[_indice].peso=this.caracData.peso;this.ParPost[_indice].talla=this.caracData.talla;this.ParPost[_indice].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.ParPost[_indice].estado="Activo";this.ParPost.splice(_indice,1,this.ParPost[_indice]);}}else if(this.caracData.embarazo==="NO"){//ELIMINO
-this.ParPost[_indice].estado="Inactivo";this.ParPost.splice(_indice,1,this.ParPost[_indice]);}}else{if(this.caracData.embarazo==="SI"){//AGREGO
-_indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.ParPost[_indice].estado="Activo";this.ParPost.splice(_indice,1,this.ParPost[_indice]);}else{this.AParPost(this.caracData,edad,"JEFE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.De12A17[_indice].tipo_id=this.caracData.tipo_id;this.De12A17[_indice].sexo=this.caracData.sexo;this.De12A17[_indice].identificacion=this.caracData.identificacion;this.De12A17[_indice].pnom=this.caracData.pnom;this.De12A17[_indice].snom=this.caracData.snom;this.De12A17[_indice].pape=this.caracData.pape;this.De12A17[_indice].sape=this.caracData.sape;this.De12A17[_indice].peso=this.caracData.peso;this.De12A17[_indice].talla=this.caracData.talla;this.De12A17[_indice].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De12A17[_indice].estado="Activo";this.De12A17.splice(_indice,1,this.De12A17[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.De18A28[_indice].tipo_id=this.caracData.tipo_id;this.De18A28[_indice].sexo=this.caracData.sexo;this.De18A28[_indice].identificacion=this.caracData.identificacion;this.De18A28[_indice].pnom=this.caracData.pnom;this.De18A28[_indice].snom=this.caracData.snom;this.De18A28[_indice].pape=this.caracData.pape;this.De18A28[_indice].sape=this.caracData.sape;this.De18A28[_indice].peso=this.caracData.peso;this.De18A28[_indice].talla=this.caracData.talla;this.De18A28[_indice].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De18A28[_indice].estado="Activo";this.De18A28.splice(_indice,1,this.De18A28[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.De29A59[_indice].tipo_id=this.caracData.tipo_id;this.De29A59[_indice].sexo=this.caracData.sexo;this.De29A59[_indice].identificacion=this.caracData.identificacion;this.De29A59[_indice].pnom=this.caracData.pnom;this.De29A59[_indice].snom=this.caracData.snom;this.De29A59[_indice].pape=this.caracData.pape;this.De29A59[_indice].sape=this.caracData.sape;this.De29A59[_indice].peso=this.caracData.peso;this.De29A59[_indice].talla=this.caracData.talla;this.De29A59[_indice].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De29A59[_indice].estado="Activo";this.De29A59.splice(_indice,1,this.De29A59[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.De60[_indice].tipo_id=this.caracData.tipo_id;this.De60[_indice].sexo=this.caracData.sexo;this.De60[_indice].identificacion=this.caracData.identificacion;this.De60[_indice].pnom=this.caracData.pnom;this.De60[_indice].snom=this.caracData.snom;this.De60[_indice].pape=this.caracData.pape;this.De60[_indice].sape=this.caracData.sape;this.De60[_indice].peso=this.caracData.peso;this.De60[_indice].talla=this.caracData.talla;this.De60[_indice].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De60[_indice].estado="Activo";this.De60.splice(_indice,1,this.De60[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.EnCro[_indice].tipo_id=this.caracData.tipo_id;this.EnCro[_indice].sexo=this.caracData.sexo;this.EnCro[_indice].identificacion=this.caracData.identificacion;this.EnCro[_indice].pnom=this.caracData.pnom;this.EnCro[_indice].snom=this.caracData.snom;this.EnCro[_indice].pape=this.caracData.pape;this.EnCro[_indice].sape=this.caracData.sape;this.EnCro[_indice].estado="Activo";this.EnCro.splice(_indice,1,this.EnCro[_indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.EnInf[_indice].tipo_id=this.caracData.tipo_id;this.EnInf[_indice].sexo=this.caracData.sexo;this.EnInf[_indice].identificacion=this.caracData.identificacion;this.EnInf[_indice].pnom=this.caracData.pnom;this.EnInf[_indice].snom=this.caracData.snom;this.EnInf[_indice].pape=this.caracData.pape;this.EnInf[_indice].sape=this.caracData.sape;this.EnInf[_indice].estado="Activo";this.EnInf.splice(_indice,1,this.EnInf[_indice]);}if(this.migrarEditar==="SI"){_indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(_indice>=0){this.Migra[_indice].tipo_id=this.caracData.tipo_id;this.Migra[_indice].sexo=this.caracData.sexo;this.Migra[_indice].identificacion=this.caracData.identificacion;this.Migra[_indice].pnom=this.caracData.pnom;this.Migra[_indice].snom=this.caracData.snom;this.Migra[_indice].pape=this.caracData.pape;this.Migra[_indice].sape=this.caracData.sape;this.Migra[_indice].estado="Activo";this.Migra.splice(_indice,1,this.Migra[_indice]);}}else if(this.caracData.migrante==="NO"){//ELIMINO
-this.Migra[_indice].estado="Inactivo";this.Migra.splice(_indice,1,this.Migra[_indice]);}}else{if(this.caracData.migrante==="SI"){//AGREGO
-_indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(_indice>=0){this.Migra[_indice].estado="Activo";this.Migra.splice(_indice,1,this.Migra[_indice]);}else{this.AMigra(this.caracData,edad,"JEFE");}}}}}else{//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice2=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.factores[_indice2].tipo_id=this.caracData.tipo_id;this.factores[_indice2].sexo=this.caracData.sexo;this.factores[_indice2].identificacion=this.caracData.identificacion;this.factores[_indice2].pnom=this.caracData.pnom;this.factores[_indice2].snom=this.caracData.snom;this.factores[_indice2].pape=this.caracData.pape;this.factores[_indice2].sape=this.caracData.sape;this.factores[_indice2].estado="Activo";this.factores.splice(_indice2,1,this.factores[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.afectacion[_indice2].tipo_id=this.caracData.tipo_id;this.afectacion[_indice2].sexo=this.caracData.sexo;this.afectacion[_indice2].identificacion=this.caracData.identificacion;this.afectacion[_indice2].pnom=this.caracData.pnom;this.afectacion[_indice2].snom=this.caracData.snom;this.afectacion[_indice2].pape=this.caracData.pape;this.afectacion[_indice2].sape=this.caracData.sape;this.afectacion[_indice2].estado="Activo";this.afectacion.splice(_indice2,1,this.afectacion[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.estratificacion.findIndex(function(identi){return identi.id_jefe===id;});if(_indice2>=0){this.estratificacion[_indice2].id_jefe=this.caracData.identificacion;this.estratificacion[_indice2].estado="Activo";this.estratificacion.splice(_indice2,1,this.estratificacion[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.De10A59[_indice2].tipo_id=this.caracData.tipo_id;this.De10A59[_indice2].sexo=this.caracData.sexo;this.De10A59[_indice2].identificacion=this.caracData.identificacion;this.De10A59[_indice2].pnom=this.caracData.pnom;this.De10A59[_indice2].snom=this.caracData.snom;this.De10A59[_indice2].pape=this.caracData.pape;this.De10A59[_indice2].sape=this.caracData.sape;this.De10A59[_indice2].estado="Activo";this.De10A59.splice(_indice2,1,this.De10A59[_indice2]);}if(this.embarazoEditar==="SI"){_indice2=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(_indice2>=0){this.ParPost[_indice2].tipo_id=this.caracData.tipo_id;this.ParPost[_indice2].sexo=this.caracData.sexo;this.ParPost[_indice2].identificacion=this.caracData.identificacion;this.ParPost[_indice2].pnom=this.caracData.pnom;this.ParPost[_indice2].snom=this.caracData.snom;this.ParPost[_indice2].pape=this.caracData.pape;this.ParPost[_indice2].sape=this.caracData.sape;this.ParPost[_indice2].peso=this.caracData.peso;this.ParPost[_indice2].talla=this.caracData.talla;this.ParPost[_indice2].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.ParPost[_indice2].estado="Activo";this.ParPost.splice(_indice2,1,this.ParPost[_indice2]);}}else if(this.caracData.embarazo==="NO"){//ELIMINO
-this.ParPost[_indice2].estado="Inactivo";this.ParPost.splice(_indice2,1,this.ParPost[_indice2]);}}else{if(this.caracData.embarazo==="SI"){//AGREGO
-_indice2=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.ParPost[_indice2].estado="Activo";this.ParPost.splice(_indice2,1,this.ParPost[_indice2]);}else{this.AParPost(this.caracData,edad,"JEFE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.De12A17[_indice2].tipo_id=this.caracData.tipo_id;this.De12A17[_indice2].sexo=this.caracData.sexo;this.De12A17[_indice2].identificacion=this.caracData.identificacion;this.De12A17[_indice2].pnom=this.caracData.pnom;this.De12A17[_indice2].snom=this.caracData.snom;this.De12A17[_indice2].pape=this.caracData.pape;this.De12A17[_indice2].sape=this.caracData.sape;this.De12A17[_indice2].peso=this.caracData.peso;this.De12A17[_indice2].talla=this.caracData.talla;this.De12A17[_indice2].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De12A17[_indice2].estado="Activo";this.De12A17.splice(_indice2,1,this.De12A17[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.De18A28[_indice2].tipo_id=this.caracData.tipo_id;this.De18A28[_indice2].sexo=this.caracData.sexo;this.De18A28[_indice2].identificacion=this.caracData.identificacion;this.De18A28[_indice2].pnom=this.caracData.pnom;this.De18A28[_indice2].snom=this.caracData.snom;this.De18A28[_indice2].pape=this.caracData.pape;this.De18A28[_indice2].sape=this.caracData.sape;this.De18A28[_indice2].peso=this.caracData.peso;this.De18A28[_indice2].talla=this.caracData.talla;this.De18A28[_indice2].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De18A28[_indice2].estado="Activo";this.De18A28.splice(_indice2,1,this.De18A28[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.De29A59[_indice2].tipo_id=this.caracData.tipo_id;this.De29A59[_indice2].sexo=this.caracData.sexo;this.De29A59[_indice2].identificacion=this.caracData.identificacion;this.De29A59[_indice2].pnom=this.caracData.pnom;this.De29A59[_indice2].snom=this.caracData.snom;this.De29A59[_indice2].pape=this.caracData.pape;this.De29A59[_indice2].sape=this.caracData.sape;this.De29A59[_indice2].peso=this.caracData.peso;this.De29A59[_indice2].talla=this.caracData.talla;this.De29A59[_indice2].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De29A59[_indice2].estado="Activo";this.De29A59.splice(_indice2,1,this.De29A59[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.De60[_indice2].tipo_id=this.caracData.tipo_id;this.De60[_indice2].sexo=this.caracData.sexo;this.De60[_indice2].identificacion=this.caracData.identificacion;this.De60[_indice2].pnom=this.caracData.pnom;this.De60[_indice2].snom=this.caracData.snom;this.De60[_indice2].pape=this.caracData.pape;this.De60[_indice2].sape=this.caracData.sape;this.De60[_indice2].peso=this.caracData.peso;this.De60[_indice2].talla=this.caracData.talla;this.De60[_indice2].imc=this.calcularImc(this.caracData.peso,this.caracData.talla);this.De60[_indice2].estado="Activo";this.De60.splice(_indice2,1,this.De60[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.EnCro[_indice2].tipo_id=this.caracData.tipo_id;this.EnCro[_indice2].sexo=this.caracData.sexo;this.EnCro[_indice2].identificacion=this.caracData.identificacion;this.EnCro[_indice2].pnom=this.caracData.pnom;this.EnCro[_indice2].snom=this.caracData.snom;this.EnCro[_indice2].pape=this.caracData.pape;this.EnCro[_indice2].sape=this.caracData.sape;this.EnCro[_indice2].estado="Activo";this.EnCro.splice(_indice2,1,this.EnCro[_indice2]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice2=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.EnInf[_indice2].tipo_id=this.caracData.tipo_id;this.EnInf[_indice2].sexo=this.caracData.sexo;this.EnInf[_indice2].identificacion=this.caracData.identificacion;this.EnInf[_indice2].pnom=this.caracData.pnom;this.EnInf[_indice2].snom=this.caracData.snom;this.EnInf[_indice2].pape=this.caracData.pape;this.EnInf[_indice2].sape=this.caracData.sape;this.EnInf[_indice2].estado="Activo";this.EnInf.splice(_indice2,1,this.EnInf[_indice2]);}if(this.migrarEditar==="SI"){_indice2=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(this.caracData.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(_indice2>=0){this.Migra[_indice2].tipo_id=this.caracData.tipo_id;this.Migra[_indice2].sexo=this.caracData.sexo;this.Migra[_indice2].identificacion=this.caracData.identificacion;this.Migra[_indice2].pnom=this.caracData.pnom;this.Migra[_indice2].snom=this.caracData.snom;this.Migra[_indice2].pape=this.caracData.pape;this.Migra[_indice2].sape=this.caracData.sape;this.Migra[_indice2].estado="Activo";this.Migra.splice(_indice2,1,this.Migra[_indice2]);}}else if(this.caracData.migrante==="NO"){//ELIMINO
-this.Migra[_indice2].estado="Inactivo";this.Migra.splice(_indice2,1,this.Migra[_indice2]);}}else{if(this.caracData.migrante==="SI"){//AGREGO
-_indice2=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(_indice2>=0){this.Migra[_indice2].estado="Activo";this.Migra.splice(_indice2,1,this.Migra[_indice2]);}else{this.AMigra(this.caracData,edad,"JEFE");}}}}this.datosJefe[this.indiceEditJefe].id=this.caracData.id;this.datosJefe[this.indiceEditJefe].id_hogar=this.caracData.id_hogar;this.datosJefe[this.indiceEditJefe].telefono=this.caracData.telefono;this.datosJefe[this.indiceEditJefe].puntaje_sisben=this.caracData.puntaje_sisben;this.datosJefe[this.indiceEditJefe].afiliacion_entidad=this.caracData.afiliacion_entidad;this.datosJefe[this.indiceEditJefe].textoEps=this.showText(Number(this.caracData.afiliacion_entidad),this.admini_options);this.datosJefe[this.indiceEditJefe].otra_eps=this.caracData.otra_eps;this.datosJefe[this.indiceEditJefe].tipo_id=this.caracData.tipo_id;this.datosJefe[this.indiceEditJefe].identificacion=this.caracData.identificacion;this.datosJefe[this.indiceEditJefe].sexo=this.caracData.sexo;this.datosJefe[this.indiceEditJefe].parentesco=this.caracData.parentesco;this.datosJefe[this.indiceEditJefe].textoParentesco=this.showText(Number(this.caracData.parentesco),this.parentesco_options);this.datosJefe[this.indiceEditJefe].pnom=this.caracData.pnom;this.datosJefe[this.indiceEditJefe].snom=this.caracData.snom;this.datosJefe[this.indiceEditJefe].pape=this.caracData.pape;this.datosJefe[this.indiceEditJefe].sape=this.caracData.sape;this.datosJefe[this.indiceEditJefe].salario=this.caracData.salario;this.datosJefe[this.indiceEditJefe].id_compania=this.caracData.id_compania;// this.datosJefe[this.indiceEditJefe].estado = this.caracData.estado;
-this.datosJefe[this.indiceEditJefe].estado="Activo";this.datosJefe[this.indiceEditJefe].estado_civil=this.caracData.estado_civil;this.datosJefe[this.indiceEditJefe].textoEstado=this.showText(Number(this.caracData.estado_civil),this.estado_options);this.datosJefe[this.indiceEditJefe].fecha_nacimiento=this.caracData.fecha_nacimiento;this.datosJefe[this.indiceEditJefe].tipo_afiliacion=this.caracData.tipo_afiliacion;this.datosJefe[this.indiceEditJefe].embarazo=this.caracData.embarazo;this.datosJefe[this.indiceEditJefe].embarazo_multiple=this.caracData.embarazo_multiple;this.datosJefe[this.indiceEditJefe].discapacidad=this.caracData.discapacidad;this.datosJefe[this.indiceEditJefe].nivel_escolaridad=this.caracData.nivel_escolaridad;this.datosJefe[this.indiceEditJefe].textoNivel=this.showText(Number(this.caracData.nivel_escolaridad),this.escolaridad_options);this.datosJefe[this.indiceEditJefe].ocupacion=this.caracData.ocupacion;this.datosJefe[this.indiceEditJefe].textoOcupacion=this.showText(Number(this.caracData.ocupacion),this.ocupacion_options);this.datosJefe[this.indiceEditJefe].colegio=this.caracData.colegio;this.datosJefe[this.indiceEditJefe].textoColegio=this.showText(Number(this.caracData.colegio),this.colegio_options);this.datosJefe[this.indiceEditJefe].grado=this.caracData.grado;this.datosJefe[this.indiceEditJefe].etnia=this.caracData.etnia;this.datosJefe[this.indiceEditJefe].textoEtnia=this.showText(Number(this.caracData.etnia),this.etnia_options);this.datosJefe[this.indiceEditJefe].clasificacion=this.caracData.clasificacion;this.datosJefe[this.indiceEditJefe].textoClasificacion=this.showText2(Number(this.caracData.clasificacion),this.clasifi_options,this.caracData.etnia);this.datosJefe[this.indiceEditJefe].entiende=this.caracData.entiende;this.datosJefe[this.indiceEditJefe].pyp=this.caracData.pyp;this.datosJefe[this.indiceEditJefe].migrante=this.caracData.migrante;this.datosJefe[this.indiceEditJefe].edad=this.caracData.edad;this.datosJefe[this.indiceEditJefe].orientacion=this.caracData.orientacion;this.datosJefe[this.indiceEditJefe].identidad_genero=this.caracData.identidad_genero;this.datosJefe[this.indiceEditJefe].perdida_peso=this.caracData.perdida_peso;this.datosJefe[this.indiceEditJefe].programa_icbf=this.caracData.programa_icbf;// this.datosJefe[this.indiceEditJefe].textoOcupacion = this.ocupacionAuxiliar;
-this.datosJefe[this.indiceEditJefe].enfermedad_infecciosa=this.caracData.enfermedad_infecciosa;this.datosJefe[this.indiceEditJefe].enfermedad_cronica=this.caracData.enfermedad_cronica;this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa=this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica=this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
-if(edad<=0){this.Amenores1Anio(vector,hoy.diff(nacimiento,"months"),opcion);}// AGREGAR NIÑOS MENORES DE 1 AÑO
-// AGREGAR DE 1 A 5 AÑOS
-if(edad>=1&&edad<=5){this.Ade1a5Anio(vector,edad,opcion);}// AGREGAR DE 1 A 5 AÑOS
-// AGREGAR DE 6 A 11 AÑOS
-if(edad>=6&&edad<=11){this.Ade6a11Anio(vector,edad,opcion);}// AGREGAR DE 6 A 11 AÑOS
-// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
-if(edad<10){if(vector.excepciones==="1"){this.Ade10a59Anio(vector,edad,opcion);}}// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
-// AGREGAR DE 10 A 59 AÑOS
-if(edad>=10&&edad<=59){this.Ade10a59Anio(vector,edad,opcion);}// AGREGAR DE 10 A 59 AÑOS
-// AGREGAR PARTO POSTPARTO
-if(vector.embarazo==="SI"){this.AParPost(vector,edad,opcion);}// AGREGAR PARTO POSTPARTO
-// AGREGAR DE 12 A 17 AÑOS
-if(edad>=12&&edad<=17){this.Ade12a17Anio(vector,edad,opcion);}// AGREGAR DE 12 A 17 AÑOS
-// AGREGAR DE 18 A 28 AÑOS
-if(edad>=18&&edad<=28){this.Ade18a28Anio(vector,edad,opcion);}// AGREGAR DE 18 A 28 AÑOS
-// AGREGAR DE 29 A 59 AÑOS
-if(edad>=29&&edad<=59){this.Ade29a59Anio(vector,edad,opcion);}// AGREGAR DE 29 A 59 AÑOS
-// AGREGAR DE 60 ó MAS AÑOS
-if(edad>=60){this.Ade60Anio(vector,edad,opcion);}// AGREGAR DE 60 ó MAS AÑOS
-// AGREGAR MIGRANTES
-if(vector.migrante==="SI"){this.AMigra(vector,edad,opcion);}// AGREGAR MIGRANTES               
-},editarItemInte:function editarItemInte(index,item){this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;this.CA1.embarazo_multiple=item.embarazo_multiple;this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedad_infecciosa=item.enfermedad_infecciosa;this.CA1.enfermedad_cronica=item.enfermedad_cronica;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;// this.datos.splice(this.indiceEditInte, 1);
-// this.vectorIntegrante.splice(this.indiceEditInte, 1);
-//INACTIVAR LA FILA DE INTEGRANTES
-this.datos[this.indiceEditInte].estado="Inactivo";this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);//INACTIVAR LA FILA DE INTEGRANTES        
-var id=item.identificacion;//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
-var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
-//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
-indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
-//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
-indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
-//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Inactivo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-//SABER EL INDICE DE LA IDENTIFICACION DE De60
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
-//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
-indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
-//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-//SABER EL INDICE DE LA IDENTIFICACION DE Migra
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra
-},CancelarEditarInte:function CancelarEditarInte(){this.datos[this.indiceEditInte].estado="Activo";this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);var id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
-var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].estado="Activo";this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
-//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
-indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].estado="Activo";this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De1A5
-//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
-indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].estado="Activo";this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De6A11
-//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Activo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
-//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE ParPost
-//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].estado="Activo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De12A17
-//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].estado="Activo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De18A28
-//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].estado="Activo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De29A59
-//SABER EL INDICE DE LA IDENTIFICACION DE De60
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].estado="Activo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De60
-//SABER EL INDICE DE LA IDENTIFICACION DE EnCro
-indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].estado="Activo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnCro        
-//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
-//SABER EL INDICE DE LA IDENTIFICACION DE Migra
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
-this.limpiar();// // AGREGAR LOS DATOS
-// this.agregar();
-// // AGREGAR LOS DATOS
-},editarInte:function(){var _editarInte=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11(){var _this13=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context13){while(1){switch(_context13.prev=_context13.next){case 0:if(!(this.CA1.tipo_id=="0")){_context13.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context13.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context13.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context13.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context13.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context13.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context13.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context13.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context13.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context13.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context13.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context13.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context13.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context13.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context13.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context13.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context13.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context13.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context13.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context13.abrupt("return");case 30:if(!(this.CA1.escolaridad=="0")){_context13.next=33;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context13.abrupt("return");case 33:if(!(this.CA1.ocupacion=="0")){_context13.next=36;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context13.abrupt("return");case 36:if(!(this.CA1.etnia=="0")){_context13.next=39;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context13.abrupt("return");case 39:if(!(this.CA1.clasificacion=="0")){_context13.next=42;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context13.abrupt("return");case 42:if(!(this.CA1.entiende=="0")){_context13.next=45;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context13.abrupt("return");case 45:if(!(this.CA1.pyp=="0")){_context13.next=48;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context13.abrupt("return");case 48:if(!(this.CA1.migrante=="0")){_context13.next=51;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context13.abrupt("return");case 51:if(!(this.CA1.jefe=="0")){_context13.next=54;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context13.abrupt("return");case 54:if(!(this.CA1.perdida_peso==="")){_context13.next=58;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context13.abrupt("return");case 58:if(!(this.CA1.programa_icbf==="")){_context13.next=62;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context13.abrupt("return");case 62:if(!(this.CA1.enfermedad_infecciosa==="0")){_context13.next=65;break;}this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return _context13.abrupt("return");case 65:if(!(this.CA1.enfermedad_cronica==="0")){_context13.next=68;break;}this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return _context13.abrupt("return");case 68:if(!(this.CA1.peso==="")){_context13.next=71;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context13.abrupt("return");case 71:if(!(this.CA1.talla==="")){_context13.next=74;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context13.abrupt("return");case 74:this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.CA1.identificacion)){_context13.next=80;break;}this.ediIn();_context13.next=97;break;case 80:parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context13.prev=81;_context13.next=84;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this13.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
-var resultado=_this13.datos.filter(function(identi){return identi.identificacion==_this13.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length>0){_this13.$swal("Validar...!","El Documento <b>"+_this13.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this13.ediIn();}}})["catch"](function(error){_this13.errorDevuelto=error.response.data.errors;_this13.entrarPorError=true;});case 84:_context13.next=97;break;case 86:_context13.prev=86;_context13.t0=_context13["catch"](81);_context13.t1=_context13.t0.response.status;_context13.next=_context13.t1===419?91:_context13.t1===422?93:95;break;case 91:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",97);case 93:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",97);case 95:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",97);case 97:case"end":return _context13.stop();}}},_callee11,this,[[81,86]]);}));function editarInte(){return _editarInte.apply(this,arguments);}return editarInte;}(),ediIn:function ediIn(){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
-}var textoEps="";if(this.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(this.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.CA1.afi_entidad,this.admini_options);}}if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO"||this.CA1.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar2="";this.mOCOL2=false;if(this.CA1.fecha_nac!==this.fechaEditar){if(edad!==this.edadEditar){// ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
-this.eliEdad(this.identificacionEditar,this.CA1,edad,"INTE");}else{// let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
-var id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].tipo_id=this.CA1.tipo_id;this.Men1A[indice].sexo=this.CA1.sexo;this.Men1A[indice].identificacion=this.CA1.identificacion;this.Men1A[indice].pnom=this.CA1.pnom;this.Men1A[indice].snom=this.CA1.snom;this.Men1A[indice].pape=this.CA1.pape;this.Men1A[indice].sape=this.CA1.sape;this.Men1A[indice].peso_actual=this.CA1.peso;this.Men1A[indice].longitud_actual=this.CA1.talla;this.Men1A[indice].estado="Activo";this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].tipo_id=this.CA1.tipo_id;this.De1A5[indice].sexo=this.CA1.sexo;this.De1A5[indice].identificacion=this.CA1.identificacion;this.De1A5[indice].pnom=this.CA1.pnom;this.De1A5[indice].snom=this.CA1.snom;this.De1A5[indice].pape=this.CA1.pape;this.De1A5[indice].sape=this.CA1.sape;this.De1A5[indice].peso=this.CA1.peso;this.De1A5[indice].talla=this.CA1.talla;this.De1A5[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De1A5[indice].estado="Activo";this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].tipo_id=this.CA1.tipo_id;this.De6A11[indice].sexo=this.CA1.sexo;this.De6A11[indice].identificacion=this.CA1.identificacion;this.De6A11[indice].pnom=this.CA1.pnom;this.De6A11[indice].snom=this.CA1.snom;this.De6A11[indice].pape=this.CA1.pape;this.De6A11[indice].sape=this.CA1.sape;this.De6A11[indice].peso=this.CA1.peso;this.De6A11[indice].talla=this.CA1.talla;this.De6A11[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De6A11[indice].estado="Activo";this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].tipo_id=this.CA1.tipo_id;this.De10A59[indice].sexo=this.CA1.sexo;this.De10A59[indice].identificacion=this.CA1.identificacion;this.De10A59[indice].pnom=this.CA1.pnom;this.De10A59[indice].snom=this.CA1.snom;this.De10A59[indice].pape=this.CA1.pape;this.De10A59[indice].sape=this.CA1.sape;this.De10A59[indice].estado="Activo";this.De10A59.splice(indice,1,this.De10A59[indice]);}if(this.embarazoEditar==="SI"){indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(this.CA1.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(indice>=0){this.ParPost[indice].tipo_id=this.CA1.tipo_id;this.ParPost[indice].sexo=this.CA1.sexo;this.ParPost[indice].identificacion=this.CA1.identificacion;this.ParPost[indice].pnom=this.CA1.pnom;this.ParPost[indice].snom=this.CA1.snom;this.ParPost[indice].pape=this.CA1.pape;this.ParPost[indice].sape=this.CA1.sape;this.ParPost[indice].peso=this.CA1.peso;this.ParPost[indice].talla=this.CA1.talla;this.ParPost[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}}else if(this.CA1.embarazo==="NO"){//ELIMINO
-this.ParPost[indice].estado="Inactivo";this.ParPost.splice(indice,1,this.ParPost[indice]);}}else{if(this.CA1.embarazo==="SI"){//AGREGO
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].estado="Activo";this.ParPost.splice(indice,1,this.ParPost[indice]);}else{this.AParPost(this.CA1,edad,"INTE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].tipo_id=this.CA1.tipo_id;this.De12A17[indice].sexo=this.CA1.sexo;this.De12A17[indice].identificacion=this.CA1.identificacion;this.De12A17[indice].pnom=this.CA1.pnom;this.De12A17[indice].snom=this.CA1.snom;this.De12A17[indice].pape=this.CA1.pape;this.De12A17[indice].sape=this.CA1.sape;this.De12A17[indice].peso=this.CA1.peso;this.De12A17[indice].talla=this.CA1.talla;this.De12A17[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De12A17[indice].estado="Activo";this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].tipo_id=this.CA1.tipo_id;this.De18A28[indice].sexo=this.CA1.sexo;this.De18A28[indice].identificacion=this.CA1.identificacion;this.De18A28[indice].pnom=this.CA1.pnom;this.De18A28[indice].snom=this.CA1.snom;this.De18A28[indice].pape=this.CA1.pape;this.De18A28[indice].sape=this.CA1.sape;this.De18A28[indice].peso=this.CA1.peso;this.De18A28[indice].talla=this.CA1.talla;this.De18A28[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De18A28[indice].estado="Activo";this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].tipo_id=this.CA1.tipo_id;this.De29A59[indice].sexo=this.CA1.sexo;this.De29A59[indice].identificacion=this.CA1.identificacion;this.De29A59[indice].pnom=this.CA1.pnom;this.De29A59[indice].snom=this.CA1.snom;this.De29A59[indice].pape=this.CA1.pape;this.De29A59[indice].sape=this.CA1.sape;this.De29A59[indice].peso=this.CA1.peso;this.De29A59[indice].talla=this.CA1.talla;this.De29A59[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De29A59[indice].estado="Activo";this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].tipo_id=this.CA1.tipo_id;this.De60[indice].sexo=this.CA1.sexo;this.De60[indice].identificacion=this.CA1.identificacion;this.De60[indice].pnom=this.CA1.pnom;this.De60[indice].snom=this.CA1.snom;this.De60[indice].pape=this.CA1.pape;this.De60[indice].sape=this.CA1.sape;this.De60[indice].peso=this.CA1.peso;this.De60[indice].talla=this.CA1.talla;this.De60[indice].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De60[indice].estado="Activo";this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnCro[indice].tipo_id=this.CA1.tipo_id;this.EnCro[indice].sexo=this.CA1.sexo;this.EnCro[indice].identificacion=this.CA1.identificacion;this.EnCro[indice].pnom=this.CA1.pnom;this.EnCro[indice].snom=this.CA1.snom;this.EnCro[indice].pape=this.CA1.pape;this.EnCro[indice].sape=this.CA1.sape;this.EnCro[indice].estado="Activo";this.EnCro.splice(indice,1,this.EnCro[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].tipo_id=this.CA1.tipo_id;this.EnInf[indice].sexo=this.CA1.sexo;this.EnInf[indice].identificacion=this.CA1.identificacion;this.EnInf[indice].pnom=this.CA1.pnom;this.EnInf[indice].snom=this.CA1.snom;this.EnInf[indice].pape=this.CA1.pape;this.EnInf[indice].sape=this.CA1.sape;this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}if(this.migrarEditar==="SI"){indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(indice>=0){this.Migra[indice].tipo_id=this.CA1.tipo_id;this.Migra[indice].sexo=this.CA1.sexo;this.Migra[indice].identificacion=this.CA1.identificacion;this.Migra[indice].pnom=this.CA1.pnom;this.Migra[indice].snom=this.CA1.snom;this.Migra[indice].pape=this.CA1.pape;this.Migra[indice].sape=this.CA1.sape;this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
-this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}else{this.AMigra(this.CA1,edad,"JEFE");}}}}}else{// let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
-var _id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice3=this.Men1A.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.Men1A[_indice3].tipo_id=this.CA1.tipo_id;this.Men1A[_indice3].sexo=this.CA1.sexo;this.Men1A[_indice3].identificacion=this.CA1.identificacion;this.Men1A[_indice3].pnom=this.CA1.pnom;this.Men1A[_indice3].snom=this.CA1.snom;this.Men1A[_indice3].pape=this.CA1.pape;this.Men1A[_indice3].sape=this.CA1.sape;this.Men1A[_indice3].peso_actual=this.CA1.peso;this.Men1A[_indice3].longitud_actual=this.CA1.talla;this.Men1A[_indice3].estado="Activo";this.Men1A.splice(_indice3,1,this.Men1A[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.De1A5.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De1A5[_indice3].tipo_id=this.CA1.tipo_id;this.De1A5[_indice3].sexo=this.CA1.sexo;this.De1A5[_indice3].identificacion=this.CA1.identificacion;this.De1A5[_indice3].pnom=this.CA1.pnom;this.De1A5[_indice3].snom=this.CA1.snom;this.De1A5[_indice3].pape=this.CA1.pape;this.De1A5[_indice3].sape=this.CA1.sape;this.De1A5[_indice3].peso=this.CA1.peso;this.De1A5[_indice3].talla=this.CA1.talla;this.De1A5[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De1A5[_indice3].estado="Activo";this.De1A5.splice(_indice3,1,this.De1A5[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.De6A11.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De6A11[_indice3].tipo_id=this.CA1.tipo_id;this.De6A11[_indice3].sexo=this.CA1.sexo;this.De6A11[_indice3].identificacion=this.CA1.identificacion;this.De6A11[_indice3].pnom=this.CA1.pnom;this.De6A11[_indice3].snom=this.CA1.snom;this.De6A11[_indice3].pape=this.CA1.pape;this.De6A11[_indice3].sape=this.CA1.sape;this.De6A11[_indice3].peso=this.CA1.peso;this.De6A11[_indice3].talla=this.CA1.talla;this.De6A11[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De6A11[_indice3].estado="Activo";this.De6A11.splice(_indice3,1,this.De6A11[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.De10A59.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De10A59[_indice3].tipo_id=this.CA1.tipo_id;this.De10A59[_indice3].sexo=this.CA1.sexo;this.De10A59[_indice3].identificacion=this.CA1.identificacion;this.De10A59[_indice3].pnom=this.CA1.pnom;this.De10A59[_indice3].snom=this.CA1.snom;this.De10A59[_indice3].pape=this.CA1.pape;this.De10A59[_indice3].sape=this.CA1.sape;this.De10A59[_indice3].estado="Activo";this.De10A59.splice(_indice3,1,this.De10A59[_indice3]);}if(this.embarazoEditar==="SI"){_indice3=this.ParPost.findIndex(function(identi){return identi.identificacion===_id;});if(this.CA1.embarazo==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(_indice3>=0){this.ParPost[_indice3].tipo_id=this.CA1.tipo_id;this.ParPost[_indice3].sexo=this.CA1.sexo;this.ParPost[_indice3].identificacion=this.CA1.identificacion;this.ParPost[_indice3].pnom=this.CA1.pnom;this.ParPost[_indice3].snom=this.CA1.snom;this.ParPost[_indice3].pape=this.CA1.pape;this.ParPost[_indice3].sape=this.CA1.sape;this.ParPost[_indice3].peso=this.CA1.peso;this.ParPost[_indice3].talla=this.CA1.talla;this.ParPost[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.ParPost[_indice3].estado="Activo";this.ParPost.splice(_indice3,1,this.ParPost[_indice3]);}}else if(this.CA1.embarazo==="NO"){//ELIMINO
-this.ParPost[_indice3].estado="Inactivo";this.ParPost.splice(_indice3,1,this.ParPost[_indice3]);}}else{if(this.CA1.embarazo==="SI"){//AGREGO
-_indice3=this.ParPost.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.ParPost[_indice3].estado="Activo";this.ParPost.splice(_indice3,1,this.ParPost[_indice3]);}else{this.AParPost(this.CA1,edad,"INTE");}}}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.De12A17.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De12A17[_indice3].tipo_id=this.CA1.tipo_id;this.De12A17[_indice3].sexo=this.CA1.sexo;this.De12A17[_indice3].identificacion=this.CA1.identificacion;this.De12A17[_indice3].pnom=this.CA1.pnom;this.De12A17[_indice3].snom=this.CA1.snom;this.De12A17[_indice3].pape=this.CA1.pape;this.De12A17[_indice3].sape=this.CA1.sape;this.De12A17[_indice3].peso=this.CA1.peso;this.De12A17[_indice3].talla=this.CA1.talla;this.De12A17[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De12A17[_indice3].estado="Activo";this.De12A17.splice(_indice3,1,this.De12A17[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.De18A28.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De18A28[_indice3].tipo_id=this.CA1.tipo_id;this.De18A28[_indice3].sexo=this.CA1.sexo;this.De18A28[_indice3].identificacion=this.CA1.identificacion;this.De18A28[_indice3].pnom=this.CA1.pnom;this.De18A28[_indice3].snom=this.CA1.snom;this.De18A28[_indice3].pape=this.CA1.pape;this.De18A28[_indice3].sape=this.CA1.sape;this.De18A28[_indice3].peso=this.CA1.peso;this.De18A28[_indice3].talla=this.CA1.talla;this.De18A28[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De18A28[_indice3].estado="Activo";this.De18A28.splice(_indice3,1,this.De18A28[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.De29A59.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De29A59[_indice3].tipo_id=this.CA1.tipo_id;this.De29A59[_indice3].sexo=this.CA1.sexo;this.De29A59[_indice3].identificacion=this.CA1.identificacion;this.De29A59[_indice3].pnom=this.CA1.pnom;this.De29A59[_indice3].snom=this.CA1.snom;this.De29A59[_indice3].pape=this.CA1.pape;this.De29A59[_indice3].sape=this.CA1.sape;this.De29A59[_indice3].peso=this.CA1.peso;this.De29A59[_indice3].talla=this.CA1.talla;this.De29A59[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De29A59[_indice3].estado="Activo";this.De29A59.splice(_indice3,1,this.De29A59[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.De60.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De60[_indice3].tipo_id=this.CA1.tipo_id;this.De60[_indice3].sexo=this.CA1.sexo;this.De60[_indice3].identificacion=this.CA1.identificacion;this.De60[_indice3].pnom=this.CA1.pnom;this.De60[_indice3].snom=this.CA1.snom;this.De60[_indice3].pape=this.CA1.pape;this.De60[_indice3].sape=this.CA1.sape;this.De60[_indice3].peso=this.CA1.peso;this.De60[_indice3].talla=this.CA1.talla;this.De60[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De60[_indice3].estado="Activo";this.De60.splice(_indice3,1,this.De60[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.EnCro.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.EnCro[_indice3].tipo_id=this.CA1.tipo_id;this.EnCro[_indice3].sexo=this.CA1.sexo;this.EnCro[_indice3].identificacion=this.CA1.identificacion;this.EnCro[_indice3].pnom=this.CA1.pnom;this.EnCro[_indice3].snom=this.CA1.snom;this.EnCro[_indice3].pape=this.CA1.pape;this.EnCro[_indice3].sape=this.CA1.sape;this.EnCro[_indice3].estado="Activo";this.EnCro.splice(_indice3,1,this.EnCro[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice3=this.EnInf.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.EnInf[_indice3].tipo_id=this.CA1.tipo_id;this.EnInf[_indice3].sexo=this.CA1.sexo;this.EnInf[_indice3].identificacion=this.CA1.identificacion;this.EnInf[_indice3].pnom=this.CA1.pnom;this.EnInf[_indice3].snom=this.CA1.snom;this.EnInf[_indice3].pape=this.CA1.pape;this.EnInf[_indice3].sape=this.CA1.sape;this.EnInf[_indice3].estado="Activo";this.EnInf.splice(_indice3,1,this.EnInf[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-if(this.migrarEditar==="SI"){_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
-if(_indice3>=0){this.Migra[_indice3].tipo_id=this.CA1.tipo_id;this.Migra[_indice3].sexo=this.CA1.sexo;this.Migra[_indice3].identificacion=this.CA1.identificacion;this.Migra[_indice3].pnom=this.CA1.pnom;this.Migra[_indice3].snom=this.CA1.snom;this.Migra[_indice3].pape=this.CA1.pape;this.Migra[_indice3].sape=this.CA1.sape;this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
-this.Migra[_indice3].estado="Inactivo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
-_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}else{this.AMigra(this.CA1,edad,"JEFE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=this.showText(Number(this.CA1.afi_entidad),this.admini_options);this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].enfermedad_infecciosa=this.CA1.enfermedad_infecciosa;this.datos[this.indiceEditInte].enfermedad_cronica=this.CA1.enfermedad_cronica;this.datos[this.indiceEditInte].textoEnfermedad_infecciosa=this.showText(Number(this.CA1.enfermedad_infecciosa),this.enfinf_options);this.datos[this.indiceEditInte].textoEnfermedad_cronica=this.showText(Number(this.CA1.enfermedad_cronica),this.enfcro_options);this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop3,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:_loop3=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context14.prev=1;_context14.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
-return false;}else{// VERIFICAR SI ESTA EN LA TABLA
-var resultado=_this14.datos.filter(function(identi){return identi.identificacion.includes(_this14.datos[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length>1){_this14.$swal("Validar...!","El Documento <b>"+_this14.datos[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Integrantes","warning");// item.identificacion="";
-return false;}else{if(_this14.datos[i].tipo_id==="0"){_this14.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].identificacion===""){_this14.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pnom===""){_this14.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pape===""){_this14.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].sexo==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].parentesco==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].estado_civil==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].fecha_nac===""){_this14.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].afi_entidad==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].tipo_afiliacion==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].escolaridad==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].ocupacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].etnia==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].clasificacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].jefe==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>jefe de hogar</b> en la fila "+(i+1)+" de los integrantes","error");return false;}return true;}}})["catch"](function(error){});case 4:_context14.next=8;break;case 6:_context14.prev=6;_context14.t0=_context14["catch"](1);case 8:case"end":return _context14.stop();}}},_loop3,null,[[1,6]]);});i=0;case 2:if(!(i<this.datos.length)){_context15.next=7;break;}return _context15.delegateYield(_loop3(i),"t0",4);case 4:i++;_context15.next=2;break;case 7:case"end":return _context15.stop();}}},_callee12,this);}));function validarTablaIntegrantes(){return _validarTablaIntegrantes.apply(this,arguments);}return validarTablaIntegrantes;}(),validarTablaJefes:function(){var _validarTablaJefes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(){var _this15=this;var _loop4,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context17){while(1){switch(_context17.prev=_context17.next){case 0:_loop4=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop4(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop4$(_context16){while(1){switch(_context16.prev=_context16.next){case 0:parametros={_token:_this15.csrf,identificacion:_this15.datosJefe[i].identificacion};_context16.prev=1;_context16.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this15.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
-return false;}else{// VERIFICAR SI ESTA EN LA TABLA
-var resultado=_this15.datosJefe.filter(function(identi){return identi.identificacion.includes(_this15.datosJefe[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length>1){_this15.$swal("Validar...!","El Documento <b>"+_this15.datosJefe[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar","warning");// item.identificacion="";
-return false;}else{if(_this15.datosJefe[i].tipo_id===""){_this15.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].identificacion===""){_this15.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].pnom===""){_this15.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].pape===""){_this15.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].sexo===""){_this15.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].parentesco===""){_this15.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].estado_civil===""){_this15.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].fecha_nacimiento===""){_this15.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].afiliacion_entidad===""){_this15.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].tipo_afiliacion===""){_this15.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].nivel_escolaridad===""){_this15.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].ocupacion===""){_this15.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].etnia===""){_this15.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].clasificacion===""){_this15.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this15.datosJefe[i].salario===""){_this15.$swal("Error...!","Por favor digite el <b>salario</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}return true;}}})["catch"](function(error){});case 4:_context16.next=8;break;case 6:_context16.prev=6;_context16.t0=_context16["catch"](1);case 8:case"end":return _context16.stop();}}},_loop4,null,[[1,6]]);});i=0;case 2:if(!(i<this.datosJefe.length)){_context17.next=7;break;}return _context17.delegateYield(_loop4(i),"t0",4);case 4:i++;_context17.next=2;break;case 7:case"end":return _context17.stop();}}},_callee13,this);}));function validarTablaJefes(){return _validarTablaJefes.apply(this,arguments);}return validarTablaJefes;}(),Guardar:function(){var _Guardar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee14(){var _this16=this;var isInvalid,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee14$(_context18){while(1){switch(_context18.prev=_context18.next){case 0:this.$v.$touch();isInvalid=this.$v.$invalid;if(!isInvalid){_context18.next=6;break;}// display error message
-this.$swal("Error...!","Por Favor Complete Los Campos Obligatorios","error");_context18.next=33;break;case 6:// submit to server
-this.entrarPorError=false;this.errores=[];if(!(this.datosJefe.length<=0)){_context18.next=11;break;}this.$swal("Error...!","Por favor agregue por lo menos un jefe de hogar","error");return _context18.abrupt("return");case 11:if(!(this.estratificacion.length<=0)){_context18.next=14;break;}this.$swal("Error...!","Por favor agregue por lo menos una estratificación","error");return _context18.abrupt("return");case 14://VALIDAR LOS CAMPOS DEL VECTOR JEFES DE HOGAR
-this.validarTablaJefes();//VALIDAR LOS CAMPOS DEL VECTOR JEFES DE HOGAR
-//VALIDAR LOS CAMPOS DEL VECTOR INTEGRANTES
-this.validarTablaIntegrantes();//VALIDAR LOS CAMPOS DEL VECTOR INTEGRANTES
-parametros={_token:this.csrf,hogar:this.hogar,caracterizacion:this.datosJefe,integrantes:this.datos,vivienda:this.viviendaData,estratificacion:this.estratificacion,Men1A:this.Men1A,De1A5:this.De1A5,De6A11:this.De6A11,De10A59:this.De10A59,ParPost:this.ParPost,De12A17:this.De12A17,De18A28:this.De18A28,De29A59:this.De29A59,De60:this.De60,EnCro:this.EnCro,EnInf:this.EnInf,Migra:this.Migra,Animales:this.animalesData,opcion:"GUARDAR"};_context18.prev=17;_context18.next=20;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this16.datos=[];_this16.$swal("Guardar...!","Datos Guardados Exitosamente!","success");_this16.$router.push("/gestion");}if(respuesta.data.OPC=="VALIDAR"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this16.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","success");}})["catch"](function(error){_this16.errorDevuelto=error.response.data.errors;_this16.entrarPorError=true;});case 20:_context18.next=33;break;case 22:_context18.prev=22;_context18.t0=_context18["catch"](17);_context18.t1=_context18.t0.response.status;_context18.next=_context18.t1===419?27:_context18.t1===422?29:31;break;case 27:this.$swal("Error...!","Ocurrio un error!","error");return _context18.abrupt("break",33);case 29:this.$swal("Error...!","Ocurrio un error!","error");return _context18.abrupt("break",33);case 31:this.$swal("Error...!","Ocurrio un error!","error");return _context18.abrupt("break",33);case 33:case"end":return _context18.stop();}}},_callee14,this,[[17,22]]);}));function Guardar(){return _Guardar.apply(this,arguments);}return Guardar;}(),SoloNumeros:function SoloNumeros(event){if(event.keyCode<48||event.keyCode>57){return false;// this.caracData.salario = 0;
-}},cambiarCombo:function(){var _cambiarCombo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee15(caja){var _this17=this;var parametros,_parametros,_parametros2,vere;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee15$(_context19){while(1){switch(_context19.prev=_context19.next){case 0:if(caja==="dpto"){this.hogar.id_mun="";this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";}if(!(caja==="muni")){_context19.next=34;break;}this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";parametros={_token:this.csrf,id:this.hogar.id_mun,opcion:"MUN"};_context19.prev=6;_context19.next=9;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function(respuesta){_this17.barrio_options=respuesta.data.arrayBarrios;});case 9:_context19.next=20;break;case 11:_context19.prev=11;_context19.t0=_context19["catch"](6);_context19.t1=_context19.t0.response.status;_context19.next=_context19.t1===422?16:18;break;case 16:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",20);case 18:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",20);case 20:_context19.prev=20;_context19.next=23;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](parametros).then(function(respuesta){_this17.colegio_options=respuesta.data.arrayColegios;});case 23:_context19.next=34;break;case 25:_context19.prev=25;_context19.t2=_context19["catch"](20);_context19.t3=_context19.t2.response.status;_context19.next=_context19.t3===422?30:32;break;case 30:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",34);case 32:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",34);case 34:if(!(caja==="corregi")){_context19.next=70;break;}this.hogar.id_vereda="";this.hogar.id_barrio="";if(!(this.hogar.id_corre!=="0"&&this.hogar.id_corre!=="")){_context19.next=69;break;}_parametros={_token:this.csrf,id:this.hogar.id_corre,opcion:"CORRE"};_context19.prev=39;_context19.next=42;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros).then(function(respuesta){_this17.barrio_options=respuesta.data.arrayBarrios;});case 42:_context19.next=53;break;case 44:_context19.prev=44;_context19.t4=_context19["catch"](39);_context19.t5=_context19.t4.response.status;_context19.next=_context19.t5===422?49:51;break;case 49:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",53);case 51:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",53);case 53:_context19.prev=53;_context19.next=56;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](_parametros).then(function(respuesta){_this17.colegio_options=respuesta.data.arrayColegios;});case 56:_context19.next=67;break;case 58:_context19.prev=58;_context19.t6=_context19["catch"](53);_context19.t7=_context19.t6.response.status;_context19.next=_context19.t7===422?63:65;break;case 63:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",67);case 65:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",67);case 67:_context19.next=70;break;case 69:if(this.hogar.id_corre==="0"){this.cambiarCombo("muni");this.hogar.id_corre="0";}else{this.cambiarCombo("muni");}case 70:if(caja==="etnia"){this.CA1.clasificacion="0";}if(!(caja==="vereda")){_context19.next=90;break;}this.hogar.id_barrio="0";_parametros2={_token:this.csrf,id:this.hogar.id_corre,opcion:"VERE"};_context19.prev=74;_context19.next=77;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros2).then(function(respuesta){_this17.barrio_options=respuesta.data.arrayBarrios;});case 77:_context19.next=88;break;case 79:_context19.prev=79;_context19.t8=_context19["catch"](74);_context19.t9=_context19.t8.response.status;_context19.next=_context19.t9===422?84:86;break;case 84:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",88);case 86:this.$swal("Error...!","Ocurrio un error!","error");return _context19.abrupt("break",88);case 88:vere="";if(this.hogar.id_vereda===""||this.hogar.id_vereda==="0"){vere=this.hogar.id_vereda;this.cambiarCombo("corregi");if(vere==="0"){this.hogar.id_vereda="0";}}case 90:case"end":return _context19.stop();}}},_callee15,this,[[6,11],[20,25],[39,44],[53,58],[74,79]]);}));function cambiarCombo(_x2){return _cambiarCombo.apply(this,arguments);}return cambiarCombo;}(),validarNumHog:function validarNumHog(){if(this.hogar.numero_hogares<=0){this.hogar.numero_hogares="";}},formato:function formato(caja){if(caja=="id1"){if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var val=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}if(caja=="salario"){this.caracData.salario=this.caracData.salario.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val=(this.caracData.salario/1).toFixed(0).replace(".",",");this.caracData.salario=_val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.salario=="NaN"){this.caracData.salario="";}// if (this.caracData.salario == "0") {
-//   this.caracData.salario = "";
+if(this.De60[i].cigarrillo===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Cigarrillo ó Tabaco</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].alcohol===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Consumo de Alcohol</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].actividad_fisica===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Actividad Fisica Recreativa</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].sintomatico===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Sintomático Respiratorio</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].examen_seno===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Examen de Seno</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].citologia===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Citologia Cervico Vaginal</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].colposcopia===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Colposcopia</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].examen_prostata===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Examen de Prostata</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].biposia_prostata===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Biposia de Prostata</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].agudeza_visual===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Examen de Agudeza Visual</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}if(this.De60[i].subsidio===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Subsidio de Entidad del Estado</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}// if (this.De60[i].enfermedades_cronicas === "") {
+//   this.$swal(
+//     "Error...!",
+//     "Por favor seleccione la opcion <b>Enfermedades Cronicas</b> en la fila " +
+//       (i + 1) +
+//       " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+//     "error"
+//   );
+//   return false;
 // }
-}if(caja=="tipoid"){this.caracData.identificacion="";if(this.caracData.tipo_id!="CC"){if(this.caracData.tipo_id==="ASI"||this.caracData.tipo_id==="MSI"){this.caracData.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val2=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=_val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}}if(caja=="id2"){if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val3=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}if(caja=="tipoid2"){this.CA1.identificacion="";if(this.CA1.tipo_id!="CC"){if(this.CA1.tipo_id==="ASI"||this.CA1.tipo_id==="MSI"){this.CA1.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val4=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}}if(caja=="telefono1"){this.caracData.telefono=this.caracData.telefono.replace(/[^.\d]/g,"").trim();if(this.caracData.telefono=="NaN"){this.caracData.telefono="";}if(this.caracData.telefono=="0"){this.caracData.telefono="";}}if(caja=="telefono2"){this.CA1.telefono=this.CA1.telefono.replace(/[^.\d]/g,"").trim();if(this.CA1.telefono=="NaN"){this.CA1.telefono="";}if(this.CA1.telefono=="0"){this.CA1.telefono="";}}if(caja=="puntaje"){// this.CA1.puntaje_sisben = this.CA1.puntaje_sisben
-//   .replace(/[^.\d]/g, "")
-//   .trim();
-// if (this.CA1.puntaje_sisben == "NaN") {
-//   this.CA1.puntaje_sisben = "";
+// if (this.De60[i].enfermedades_infecciosas === "") {
+//   this.$swal(
+//     "Error...!",
+//     "Por favor seleccione la opcion <b>Enfermedades Infecciosas</b> en la fila " +
+//       (i + 1) +
+//       " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+//     "error"
+//   );
+//   return false;
 // }
-// if (this.CA1.puntaje_sisben == "0") {
-//   this.CA1.puntaje_sisben = "";
-// }
-}if(caja=="puntaje1"){// this.caracData.puntaje_sisben = this.caracData.puntaje_sisben
-//   .replace(/[^.\d]/g, "")
-//   .trim();
-// if (this.caracData.puntaje_sisben == "NaN") {
-//   this.caracData.puntaje_sisben = "";
-// }
-// if (this.caracData.puntaje_sisben == "0") {
-//   this.caracData.puntaje_sisben = "";
-// }
-}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}},volver:function volver(){var _this18=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee16(){var valid;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee16$(_context20){while(1){switch(_context20.prev=_context20.next){case 0:_context20.next=2;return _this18.validarVolver("Men1A");case 2:valid=_context20.sent;if(!(valid===false)){_context20.next=7;break;}return _context20.abrupt("return",false);case 7:if(!(valid===true)){_context20.next=10;break;}_context20.next=11;break;case 10:return _context20.abrupt("return",false);case 11:_context20.next=13;return _this18.validarVolver("De1A5");case 13:valid=_context20.sent;if(!(valid===false)){_context20.next=18;break;}return _context20.abrupt("return",false);case 18:if(!(valid===true)){_context20.next=21;break;}_context20.next=22;break;case 21:return _context20.abrupt("return",false);case 22:_context20.next=24;return _this18.validarVolver("De6A11");case 24:valid=_context20.sent;if(!(valid===false)){_context20.next=29;break;}return _context20.abrupt("return",false);case 29:if(!(valid===true)){_context20.next=32;break;}_context20.next=33;break;case 32:return _context20.abrupt("return",false);case 33:_context20.next=35;return _this18.validarVolver("De10A59");case 35:valid=_context20.sent;if(!(valid===false)){_context20.next=40;break;}return _context20.abrupt("return",false);case 40:if(!(valid===true)){_context20.next=43;break;}_context20.next=44;break;case 43:return _context20.abrupt("return",false);case 44:_context20.next=46;return _this18.validarVolver("ParPost");case 46:valid=_context20.sent;if(!(valid===false)){_context20.next=51;break;}return _context20.abrupt("return",false);case 51:if(!(valid===true)){_context20.next=54;break;}_context20.next=55;break;case 54:return _context20.abrupt("return",false);case 55:_context20.next=57;return _this18.validarVolver("De12A17");case 57:valid=_context20.sent;if(!(valid===false)){_context20.next=62;break;}return _context20.abrupt("return",false);case 62:if(!(valid===true)){_context20.next=65;break;}_context20.next=66;break;case 65:return _context20.abrupt("return",false);case 66:_context20.next=68;return _this18.validarVolver("De18A28");case 68:valid=_context20.sent;if(!(valid===false)){_context20.next=73;break;}return _context20.abrupt("return",false);case 73:if(!(valid===true)){_context20.next=76;break;}_context20.next=77;break;case 76:return _context20.abrupt("return",false);case 77:_context20.next=79;return _this18.validarVolver("De29A59");case 79:valid=_context20.sent;if(!(valid===false)){_context20.next=84;break;}return _context20.abrupt("return",false);case 84:if(!(valid===true)){_context20.next=87;break;}_context20.next=88;break;case 87:return _context20.abrupt("return",false);case 88:_context20.next=90;return _this18.validarVolver("De60");case 90:valid=_context20.sent;if(!(valid===false)){_context20.next=95;break;}return _context20.abrupt("return",false);case 95:if(!(valid===true)){_context20.next=98;break;}_context20.next=99;break;case 98:return _context20.abrupt("return",false);case 99:_context20.next=101;return _this18.validarVolver("EnCro");case 101:valid=_context20.sent;if(!(valid===false)){_context20.next=106;break;}return _context20.abrupt("return",false);case 106:if(!(valid===true)){_context20.next=109;break;}_context20.next=110;break;case 109:return _context20.abrupt("return",false);case 110:_context20.next=112;return _this18.validarVolver("EnInf");case 112:valid=_context20.sent;if(!(valid===false)){_context20.next=117;break;}return _context20.abrupt("return",false);case 117:if(!(valid===true)){_context20.next=120;break;}_context20.next=121;break;case 120:return _context20.abrupt("return",false);case 121:_context20.next=123;return _this18.validarVolver("Migra");case 123:valid=_context20.sent;if(!(valid===false)){_context20.next=128;break;}return _context20.abrupt("return",false);case 128:if(!(valid===true)){_context20.next=131;break;}_context20.next=132;break;case 131:return _context20.abrupt("return",false);case 132:_this18.$router.push("/gestion");case 133:case"end":return _context20.stop();}}},_callee16);}))();},validarVolver:function validarVolver(valor){var _this19=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(){var valid,i,alert,_i,_alert,_i2,_alert2,_i3,_alert3,_i4,_alert4,_i5,_alert5,_i6,_alert6,_i7,_alert7,_i8,_alert8,_i9,_alert9,_i10,_alert10,_i11,_alert11;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:valid=false;_context21.t0=valor;_context21.next=_context21.t0==="Men1A"?4:_context21.t0==="De1A5"?19:_context21.t0==="De6A11"?34:_context21.t0==="De10A59"?49:_context21.t0==="ParPost"?64:_context21.t0==="De12A17"?79:_context21.t0==="De18A28"?94:_context21.t0==="De29A59"?109:_context21.t0==="De60"?124:_context21.t0==="EnCro"?139:_context21.t0==="EnInf"?154:_context21.t0==="Migra"?169:184;break;case 4:valid=false;// validar Men1A      
-for(i=0;i<_this19.Men1A.length;i++){if(_this19.Men1A[i].lugar_nacimiento===""){valid=true;}if(_this19.Men1A[i].hemoclasificacion===""){valid=true;}if(_this19.Men1A[i].compli_parto===""){valid=true;}if(_this19.Men1A[i].via_parto===""){valid=true;}if(_this19.Men1A[i].cyc===""){valid=true;}if(_this19.Men1A[i].valoracion_23===""){valid=true;}if(_this19.Men1A[i].valoracion_68===""){valid=true;}if(_this19.Men1A[i].valoracion_911===""){valid=true;}if(_this19.Men1A[i].lactancia===""){valid=true;}if(_this19.Men1A[i].peso_nacer===""){valid=true;}if(_this19.Men1A[i].peso_actual===""){valid=true;}if(_this19.Men1A[i].longitud_nacer===""){valid=true;}if(_this19.Men1A[i].longitud_actual===""){valid=true;}if(_this19.Men1A[i].longitud_actual===""){valid=true;}if(_this19.Men1A[i].cinta===""){valid=true;}if(_this19.Men1A[i].pb===""){valid=true;}if(_this19.Men1A[i].edemas===""){valid=true;}if(_this19.Men1A[i].lenguaje===""){valid=true;}if(_this19.Men1A[i].motora===""){valid=true;}if(_this19.Men1A[i].conducta===""){valid=true;}if(_this19.Men1A[i].visuales===""){valid=true;}if(_this19.Men1A[i].auditivos===""){valid=true;}if(_this19.Men1A[i].carnet===""){valid=true;}if(_this19.Men1A[i].bcg===""){valid=true;}if(_this19.Men1A[i].hepb===""){valid=true;}if(_this19.Men1A[i].polio===""){valid=true;}if(_this19.Men1A[i].pentavalente===""){valid=true;}if(_this19.Men1A[i].maltrato===""){valid=true;}if(_this19.Men1A[i].morbilidad===""){valid=true;}if(_this19.Men1A[i].tsh===""){valid=true;}if(valid){i=_this19.Men1A.length;}}if(!valid){_context21.next=17;break;}_context21.next=9;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 9:alert=_context21.sent;if(!alert.value){_context21.next=14;break;}_this19.$router.push("/gestion");_context21.next=15;break;case 14:return _context21.abrupt("return",false);case 15:_context21.next=18;break;case 17:return _context21.abrupt("return",true);case 18:return _context21.abrupt("break",186);case 19:valid=false;// validar De1A5
-for(_i=0;_i<_this19.De1A5.length;_i++){if(_this19.De1A5[_i].beneficiario===""){valid=true;}if(_this19.De1A5[_i].cyc===""){valid=true;}if(_this19.De1A5[_i].valoracion_1823===""){valid=true;}if(_this19.De1A5[_i].valoracion_3035===""){valid=true;}if(_this19.De1A5[_i].valoracion_4===""){valid=true;}if(_this19.De1A5[_i].peso===""){valid=true;}if(_this19.De1A5[_i].talla===""){valid=true;}if(_this19.De1A5[_i].imc===""){valid=true;}if(_this19.De1A5[_i].pb===""){valid=true;}if(_this19.De1A5[_i].pt===""){valid=true;}if(_this19.De1A5[_i].te===""){valid=true;}if(_this19.De1A5[_i].pcefalico===""){valid=true;}if(_this19.De1A5[_i].lenguaje===""){valid=true;}if(_this19.De1A5[_i].motora===""){valid=true;}if(_this19.De1A5[_i].conducta===""){valid=true;}if(_this19.De1A5[_i].visuales===""){valid=true;}if(_this19.De1A5[_i].auditivos===""){valid=true;}if(_this19.De1A5[_i].caries===""){valid=true;}if(_this19.De1A5[_i].nocepillado===""){valid=true;}if(_this19.De1A5[_i].consultaodon===""){valid=true;}if(_this19.De1A5[_i].carnet===""){valid=true;}if(_this19.De1A5[_i].bcg===""){valid=true;}if(_this19.De1A5[_i].polio===""){valid=true;}if(_this19.De1A5[_i].dpt===""){valid=true;}if(_this19.De1A5[_i].fiebrea===""){valid=true;}if(_this19.De1A5[_i].tripleviral===""){valid=true;}if(_this19.De1A5[_i].pentavalente===""){valid=true;}if(_this19.De1A5[_i].desparacitado===""){valid=true;}if(_this19.De1A5[_i].maltrato===""){valid=true;}if(_this19.De1A5[_i].enfermedad===""){valid=true;}if(_this19.De1A5[_i].medicamento===""){valid=true;}if(valid){_i=_this19.De1A5.length;}}if(!valid){_context21.next=32;break;}_context21.next=24;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 24:_alert=_context21.sent;if(!_alert.value){_context21.next=29;break;}_this19.$router.push("/gestion");_context21.next=30;break;case 29:return _context21.abrupt("return",false);case 30:_context21.next=33;break;case 32:return _context21.abrupt("return",true);case 33:return _context21.abrupt("break",186);case 34:valid=false;// validar De6A11
-for(_i2=0;_i2<_this19.De6A11.length;_i2++){if(_this19.De6A11[_i2].cyc===""){valid=true;}if(_this19.De6A11[_i2].atencion===""){valid=true;}if(_this19.De6A11[_i2].peso===""){valid=true;}if(_this19.De6A11[_i2].talla===""){valid=true;}if(_this19.De6A11[_i2].imc===""){valid=true;}if(_this19.De6A11[_i2].pb===""){valid=true;}if(_this19.De6A11[_i2].te===""){valid=true;}if(_this19.De6A11[_i2].conducta===""){valid=true;}if(_this19.De6A11[_i2].visuales===""){valid=true;}if(_this19.De6A11[_i2].auditivos===""){valid=true;}if(_this19.De6A11[_i2].dientes_sanos===""){valid=true;}if(_this19.De6A11[_i2].consultaodon===""){valid=true;}if(_this19.De6A11[_i2].nofluor===""){valid=true;}if(_this19.De6A11[_i2].nocepillado===""){valid=true;}if(_this19.De6A11[_i2].maltrato===""){valid=true;}if(_this19.De6A11[_i2].sustanciaspsico===""){valid=true;}if(_this19.De6A11[_i2].desparacitado===""){valid=true;}if(_this19.De6A11[_i2].enfermedad===""){valid=true;}if(_this19.De6A11[_i2].medicamento===""){valid=true;}if(_this19.De6A11[_i2].padre===""){valid=true;}if(_this19.De6A11[_i2].madre===""){valid=true;}if(_this19.De6A11[_i2].hermanos===""){valid=true;}if(_this19.De6A11[_i2].conyuge===""){valid=true;}if(valid){_i2=_this19.De6A11.length;}}if(!valid){_context21.next=47;break;}_context21.next=39;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 39:_alert2=_context21.sent;if(!_alert2.value){_context21.next=44;break;}_this19.$router.push("/gestion");_context21.next=45;break;case 44:return _context21.abrupt("return",false);case 45:_context21.next=48;break;case 47:return _context21.abrupt("return",true);case 48:return _context21.abrupt("break",186);case 49:valid=false;// validar De10A59
-for(_i3=0;_i3<_this19.De10A59.length;_i3++){if(_this19.De10A59[_i3].primera_mes===""){valid=true;}if(_this19.De10A59[_i3].flujo_vaginal===""){valid=true;}if(_this19.De10A59[_i3].flujo_uretral===""){valid=true;}if(_this19.De10A59[_i3].relaciones_sexuales===""){valid=true;}if(_this19.De10A59[_i3].compa_sexuales===""){valid=true;}if(_this19.De10A59[_i3].usa_condon===""){valid=true;}if(_this19.De10A59[_i3].abortos_seis===""){valid=true;}if(_this19.De10A59[_i3].embarazo_adolecentes===""){valid=true;}if(_this19.De10A59[_i3].metodo===""){valid=true;}if(_this19.De10A59[_i3].tiempo_metodo===""){valid=true;}if(_this19.De10A59[_i3].controles===""){valid=true;}if(_this19.De10A59[_i3].motivo===""){valid=true;}if(_this19.De10A59[_i3].citologia===""){valid=true;}if(_this19.De10A59[_i3].colposcopia===""){valid=true;}if(_this19.De10A59[_i3].examen_seno===""){valid=true;}if(_this19.De10A59[_i3].violencia===""){valid=true;}if(_this19.De10A59[_i3].tdit===""){valid=true;}if(_this19.De10A59[_i3].tripleviral===""){valid=true;}if(_this19.De10A59[_i3].nacidos_vivos===""){valid=true;}if(_this19.De10A59[_i3].abortos===""){valid=true;}if(_this19.De10A59[_i3].examen_prostata===""){valid=true;}if(_this19.De10A59[_i3].biposia_prostata===""){valid=true;}if(valid){_i3=_this19.De10A59.length;}}if(!valid){_context21.next=62;break;}_context21.next=54;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 54:_alert3=_context21.sent;if(!_alert3.value){_context21.next=59;break;}_this19.$router.push("/gestion");_context21.next=60;break;case 59:return _context21.abrupt("return",false);case 60:_context21.next=63;break;case 62:return _context21.abrupt("return",true);case 63:return _context21.abrupt("break",186);case 64:valid=false;// validar ParPost
-for(_i4=0;_i4<_this19.ParPost.length;_i4++){if(_this19.ParPost[_i4].aceptacion===""){valid=true;}if(_this19.ParPost[_i4].control_prenatal===""){valid=true;}if(_this19.ParPost[_i4].atencion_parto===""){valid=true;}if(_this19.ParPost[_i4].carnet===""){valid=true;}if(_this19.ParPost[_i4].fecha_ultima===""){valid=true;}if(_this19.ParPost[_i4].fecha_probable===""){valid=true;}if(_this19.ParPost[_i4].peso===""){valid=true;}if(_this19.ParPost[_i4].talla===""){valid=true;}if(_this19.ParPost[_i4].imc===""){valid=true;}if(_this19.ParPost[_i4].semanas_ges===""){valid=true;}if(_this19.ParPost[_i4].num_controles===""){valid=true;}if(_this19.ParPost[_i4].vih===""){valid=true;}if(_this19.ParPost[_i4].toxoplasma===""){valid=true;}if(_this19.ParPost[_i4].vdrl===""){valid=true;}if(_this19.ParPost[_i4].odontologia===""){valid=true;}if(_this19.ParPost[_i4].vacunaciontdit===""){valid=true;}if(_this19.ParPost[_i4].suplementacion===""){valid=true;}if(_this19.ParPost[_i4].enfermedades_cronicas===""){valid=true;}if(_this19.ParPost[_i4].sedentarismo===""){valid=true;}if(_this19.ParPost[_i4].fuma===""){valid=true;}if(_this19.ParPost[_i4].consumo===""){valid=true;}if(_this19.ParPost[_i4].bebidas===""){valid=true;}if(_this19.ParPost[_i4].tipo_parto===""){valid=true;}if(_this19.ParPost[_i4].atencion_institucional===""){valid=true;}if(_this19.ParPost[_i4].cc18===""){valid=true;}if(_this19.ParPost[_i4].morgestacion===""){valid=true;}if(_this19.ParPost[_i4].morparto===""){valid=true;}if(_this19.ParPost[_i4].morposparto===""){valid=true;}if(valid){_i4=_this19.ParPost.length;}}if(!valid){_context21.next=77;break;}_context21.next=69;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 69:_alert4=_context21.sent;if(!_alert4.value){_context21.next=74;break;}_this19.$router.push("/gestion");_context21.next=75;break;case 74:return _context21.abrupt("return",false);case 75:_context21.next=78;break;case 77:return _context21.abrupt("return",true);case 78:return _context21.abrupt("break",186);case 79:valid=false;// validar De12A17
-for(_i5=0;_i5<_this19.De12A17.length;_i5++){if(_this19.De12A17[_i5].peso===""){valid=true;}if(_this19.De12A17[_i5].talla===""){valid=true;}if(_this19.De12A17[_i5].imc===""){valid=true;}if(_this19.De12A17[_i5].pb===""){valid=true;}if(_this19.De12A17[_i5].visuales===""){valid=true;}if(_this19.De12A17[_i5].auditivos===""){valid=true;}if(_this19.De12A17[_i5].conducta===""){valid=true;}if(_this19.De12A17[_i5].enfermedades_cronicas===""){valid=true;}if(_this19.De12A17[_i5].dientes_sanos===""){valid=true;}if(_this19.De12A17[_i5].consultaodon===""){valid=true;}if(_this19.De12A17[_i5].nocepillado===""){valid=true;}if(_this19.De12A17[_i5].maltrato===""){valid=true;}if(_this19.De12A17[_i5].alcohol===""){valid=true;}if(_this19.De12A17[_i5].fuma===""){valid=true;}if(_this19.De12A17[_i5].spa===""){valid=true;}if(_this19.De12A17[_i5].desparacitado===""){valid=true;}if(_this19.De12A17[_i5].empleo===""){valid=true;}if(_this19.De12A17[_i5].religion===""){valid=true;}if(_this19.De12A17[_i5].queesvih===""){valid=true;}if(_this19.De12A17[_i5].queescancerutero===""){valid=true;}if(_this19.De12A17[_i5].queespapiloma===""){valid=true;}if(_this19.De12A17[_i5].queescancerseno===""){valid=true;}if(_this19.De12A17[_i5].padre===""){valid=true;}if(_this19.De12A17[_i5].madre===""){valid=true;}if(_this19.De12A17[_i5].hermanos===""){valid=true;}if(_this19.De12A17[_i5].conyuge===""){valid=true;}if(valid){_i5=_this19.De12A17.length;}}if(!valid){_context21.next=92;break;}_context21.next=84;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 84:_alert5=_context21.sent;if(!_alert5.value){_context21.next=89;break;}_this19.$router.push("/gestion");_context21.next=90;break;case 89:return _context21.abrupt("return",false);case 90:_context21.next=93;break;case 92:return _context21.abrupt("return",true);case 93:return _context21.abrupt("break",186);case 94:valid=false;// validar De18A28
-for(_i6=0;_i6<_this19.De18A28.length;_i6++){if(_this19.De18A28[_i6].peso===""){valid=true;}if(_this19.De18A28[_i6].talla===""){valid=true;}if(_this19.De18A28[_i6].imc===""){valid=true;}if(_this19.De18A28[_i6].pcintura===""){valid=true;}if(_this19.De18A28[_i6].visuales===""){valid=true;}if(_this19.De18A28[_i6].auditivos===""){valid=true;}if(_this19.De18A28[_i6].conducta===""){valid=true;}if(_this19.De18A28[_i6].enfermedades_cronicas===""){valid=true;}if(_this19.De18A28[_i6].dientes_sanos===""){valid=true;}if(_this19.De18A28[_i6].consultaodon===""){valid=true;}if(_this19.De18A28[_i6].nocepillado===""){valid=true;}if(_this19.De18A28[_i6].maltrato===""){valid=true;}if(_this19.De18A28[_i6].alcohol===""){valid=true;}if(_this19.De18A28[_i6].fuma===""){valid=true;}if(_this19.De18A28[_i6].spa===""){valid=true;}if(_this19.De18A28[_i6].desparacitado===""){valid=true;}if(_this19.De18A28[_i6].empleo===""){valid=true;}if(_this19.De18A28[_i6].religion===""){valid=true;}if(_this19.De18A28[_i6].queesvih===""){valid=true;}if(_this19.De18A28[_i6].queescancerutero===""){valid=true;}if(_this19.De18A28[_i6].queespapiloma===""){valid=true;}if(valid){_i6=_this19.De18A28.length;}}if(!valid){_context21.next=107;break;}_context21.next=99;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 99:_alert6=_context21.sent;if(!_alert6.value){_context21.next=104;break;}_this19.$router.push("/gestion");_context21.next=105;break;case 104:return _context21.abrupt("return",false);case 105:_context21.next=108;break;case 107:return _context21.abrupt("return",true);case 108:return _context21.abrupt("break",186);case 109:valid=false;// validar De29A59
-for(_i7=0;_i7<_this19.De29A59.length;_i7++){if(_this19.De29A59[_i7].peso===""){valid=true;}if(_this19.De29A59[_i7].talla===""){valid=true;}if(_this19.De29A59[_i7].imc===""){valid=true;}if(_this19.De29A59[_i7].pcintura===""){valid=true;}if(_this19.De29A59[_i7].pb===""){valid=true;}if(_this19.De29A59[_i7].visuales===""){valid=true;}if(_this19.De29A59[_i7].auditivos===""){valid=true;}if(_this19.De29A59[_i7].conducta===""){valid=true;}if(_this19.De29A59[_i7].enfermedades_cronicas===""){valid=true;}if(_this19.De29A59[_i7].dientes_sanos===""){valid=true;}if(_this19.De29A59[_i7].consultaodon===""){valid=true;}if(_this19.De29A59[_i7].nocepillado===""){valid=true;}if(_this19.De29A59[_i7].maltrato===""){valid=true;}if(_this19.De29A59[_i7].alcohol===""){valid=true;}if(_this19.De29A59[_i7].fuma===""){valid=true;}if(_this19.De29A59[_i7].spa===""){valid=true;}if(_this19.De29A59[_i7].desparacitado===""){valid=true;}if(_this19.De29A59[_i7].empleo===""){valid=true;}if(_this19.De29A59[_i7].examen_prostata===""){valid=true;}if(_this19.De29A59[_i7].citologia===""){valid=true;}if(_this19.De29A59[_i7].examen_mama===""){valid=true;}if(_this19.De29A59[_i7].religion===""){valid=true;}if(_this19.De29A59[_i7].queesvih===""){valid=true;}if(_this19.De29A59[_i7].queescancerutero===""){valid=true;}if(_this19.De29A59[_i7].queespapiloma===""){valid=true;}if(valid){_i7=_this19.De29A59.length;}}if(!valid){_context21.next=122;break;}_context21.next=114;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 114:_alert7=_context21.sent;if(!_alert7.value){_context21.next=119;break;}_this19.$router.push("/gestion");_context21.next=120;break;case 119:return _context21.abrupt("return",false);case 120:_context21.next=123;break;case 122:return _context21.abrupt("return",true);case 123:return _context21.abrupt("break",186);case 124:valid=false;// validar De60
-for(_i8=0;_i8<_this19.De60.length;_i8++){if(_this19.De60[_i8].grupo_ayudas===""){valid=true;}if(_this19.De60[_i8].peso===""){valid=true;}if(_this19.De60[_i8].talla===""){valid=true;}if(_this19.De60[_i8].imc===""){valid=true;}if(_this19.De60[_i8].pa===""){valid=true;}if(_this19.De60[_i8].cigarrillo===""){valid=true;}if(_this19.De60[_i8].alcohol===""){valid=true;}if(_this19.De60[_i8].actividad_fisica===""){valid=true;}if(_this19.De60[_i8].sintomatico===""){valid=true;}if(_this19.De60[_i8].examen_seno===""){valid=true;}if(_this19.De60[_i8].citologia===""){valid=true;}if(_this19.De60[_i8].colposcopia===""){valid=true;}if(_this19.De60[_i8].examen_prostata===""){valid=true;}if(_this19.De60[_i8].biposia_prostata===""){valid=true;}if(_this19.De60[_i8].agudeza_visual===""){valid=true;}if(_this19.De60[_i8].subsidio===""){valid=true;}if(_this19.De60[_i8].enfermedades_cronicas===""){valid=true;}if(_this19.De60[_i8].enfermedades_infecciosas===""){valid=true;}if(_this19.De60[_i8].empleo===""){valid=true;}if(valid){_i8=_this19.De60.length;}}if(!valid){_context21.next=137;break;}_context21.next=129;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 129:_alert8=_context21.sent;if(!_alert8.value){_context21.next=134;break;}_this19.$router.push("/gestion");_context21.next=135;break;case 134:return _context21.abrupt("return",false);case 135:_context21.next=138;break;case 137:return _context21.abrupt("return",true);case 138:return _context21.abrupt("break",186);case 139:valid=false;// validar EnCro
-for(_i9=0;_i9<_this19.EnCro.length;_i9++){if(_this19.EnCro[_i9].enfermedad===""){valid=true;}if(_this19.EnCro[_i9].tiempo===""){valid=true;}if(_this19.EnCro[_i9].tratamiento===""){valid=true;}if(_this19.EnCro[_i9].complicaciones===""){valid=true;}if(valid){_i9=_this19.EnCro.length;}}if(!valid){_context21.next=152;break;}_context21.next=144;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 144:_alert9=_context21.sent;if(!_alert9.value){_context21.next=149;break;}_this19.$router.push("/gestion");_context21.next=150;break;case 149:return _context21.abrupt("return",false);case 150:_context21.next=153;break;case 152:return _context21.abrupt("return",true);case 153:return _context21.abrupt("break",186);case 154:valid=false;// validar EnInf
-for(_i10=0;_i10<_this19.EnInf.length;_i10++){if(_this19.EnInf[_i10].enfermedad===""){valid=true;}if(_this19.EnInf[_i10].tiempo===""){valid=true;}if(_this19.EnInf[_i10].tratamiento===""){valid=true;}if(_this19.EnInf[_i10].complicaciones===""){valid=true;}if(valid){_i10=_this19.EnInf.length;}}if(!valid){_context21.next=167;break;}_context21.next=159;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 159:_alert10=_context21.sent;if(!_alert10.value){_context21.next=164;break;}_this19.$router.push("/gestion");_context21.next=165;break;case 164:return _context21.abrupt("return",false);case 165:_context21.next=168;break;case 167:return _context21.abrupt("return",true);case 168:return _context21.abrupt("break",186);case 169:valid=false;// validar Migra
-for(_i11=0;_i11<_this19.Migra.length;_i11++){if(_this19.Migra[_i11].pais===""){valid=true;}if(_this19.Migra[_i11].registrado===""){valid=true;}if(_this19.Migra[_i11].cuantollego===""){valid=true;}if(_this19.Migra[_i11].futuro===""){valid=true;}if(_this19.Migra[_i11].recibido===""){valid=true;}if(_this19.Migra[_i11].necesidad===""){valid=true;}if(_this19.Migra[_i11].dependen===""){valid=true;}if(_this19.Migra[_i11].ingreso===""){valid=true;}if(valid){_i11=_this19.Migra.length;}}if(!valid){_context21.next=182;break;}_context21.next=174;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 174:_alert11=_context21.sent;if(!_alert11.value){_context21.next=179;break;}_this19.$router.push("/gestion");_context21.next=180;break;case 179:return _context21.abrupt("return",false);case 180:_context21.next=183;break;case 182:return _context21.abrupt("return",true);case 183:return _context21.abrupt("break",186);case 184:return _context21.abrupt("return",false);case 186:case"end":return _context21.stop();}}},_callee17);}))();},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.ocupacionAuxiliar2="";this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.ocupacionAuxiliar="";this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},eliminarItemAnimales:function eliminarItemAnimales(index){this.animalesData.splice(index,1);},eliminarItemEstratificacion:function eliminarItemEstratificacion(index){this.estratificacion.splice(index,1);},agregarAnimales:function agregarAnimales(){if(this.animal===""){this.$swal("Error...!","Por favor Digite Un Animal!","error");return;}if(this.vacunadoAnimal==="0"){this.$swal("Error...!","Por favor Seleccione Si El Animal Se Encuentra Vacunado!","error");return;}if(this.cuantosAnimal===""){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}if(!this.isNumeric(this.cuantosAnimal)){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}this.animalesData.push({id:0,animal:this.animal,cuantos:this.cuantosAnimal,vacunados:this.vacunadoAnimal,estado:"Activo"});this.animal="";this.cuantosAnimal="";this.vacunadoAnimal="0";},agregarEstratificacion:function agregarEstratificacion(){if(this.estratificacionData.cuenta_internet===""){this.$swal("Error...!","Por favor Seleccione Si Cuenta ese Hogar con Internet!","error");return;}if(this.estratificacionData.tiene_pc_escritorio===""){this.$swal("Error...!","Por favor Seleccione Si Tiene computador de Escritorío!","error");return;}if(this.estratificacionData.tiene_pc_portatil===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Computador Portatil!","error");return;}if(this.estratificacionData.cuantos_celulares===""){this.$swal("Error...!","Por favor Seleccione Cuantos celulares en uso hay en el Hogar!","error");return;}if(this.estratificacionData.tiene_equipo_sonido===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Equipo de sonido!","error");return;}if(this.estratificacionData.cuantos_tv_color===""){this.$swal("Error...!","Por favor Seleccione Cuantos Tv a Color!","error");return;}if(this.estratificacionData.cuantos_vehiculos===""){this.$swal("Error...!","Por favor Seleccione Cuantos Vehiculos de Uso exclusivo tiene el Hogar!","error");return;}if(this.estratificacionData.nivel_instruccion===""){this.$swal("Error...!","Por favor Seleccione Cual es el nivel de Instrucción del jefe del Hogar!","error");return;}if(this.estratificacionData.afiliacion_salud_privada===""){this.$swal("Error...!","Por favor Seleccione Si Alguien en el Hogar posee afiliación de salud Privada o contribituva, prepagada!","error");return;}if(this.estratificacionData.ingresos_zona_rural===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar zona rural!","error");return;}if(this.estratificacionData.ingresos_ciudad===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar en Ciudad!","error");return;}if(this.estratificacionData.id_jefe==="0"){this.$swal("Error...!","Por favor Seleccione El Jefe del Hogar!","error");return;}this.estratificacion.push({id:0,id_hogar:0,cuenta_internet:this.estratificacionData.cuenta_internet,tiene_pc_escritorio:this.estratificacionData.tiene_pc_escritorio,tiene_pc_portatil:this.estratificacionData.tiene_pc_portatil,cuantos_celulares:this.estratificacionData.cuantos_celulares,tiene_equipo_sonido:this.estratificacionData.tiene_equipo_sonido,cuantos_tv_color:this.estratificacionData.cuantos_tv_color,cuantos_vehiculos:this.estratificacionData.cuantos_vehiculos,nivel_instruccion:this.estratificacionData.nivel_instruccion,afiliacion_salud_privada:this.estratificacionData.afiliacion_salud_privada,ingresos_zona_rural:this.estratificacionData.ingresos_zona_rural,ingresos_ciudad:this.estratificacionData.ingresos_ciudad,id_jefe:this.estratificacionData.id_jefe,texto_cuantos_celulares:this.showText(this.estratificacionData.cuantos_celulares,this.opciones1),texto_cuantos_tv_color:this.showText(this.estratificacionData.cuantos_tv_color,this.opciones2),texto_cuantos_vehiculos:this.showText(this.estratificacionData.cuantos_vehiculos,this.opciones3),texto_nivel_instruccion:this.showText(this.estratificacionData.nivel_instruccion,this.escolaridad_options),texto_ingresos_zona_rural:this.showText(this.estratificacionData.ingresos_zona_rural,this.opciones5),texto_ingresos_ciudad:this.showText(this.estratificacionData.ingresos_ciudad,this.opciones6),estado:"Activo"});this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}// this.estratificacionData.ingresos_zona_rural = "";
+if(this.De60[i].empleo===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Empleo</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}}return true;},valEnCro:function valEnCro(){for(var i=0;i<this.EnCro.length;i++){if(this.EnCro[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}}return true;},valEnInf:function valEnInf(){for(var i=0;i<this.EnInf.length;i++){if(this.EnInf[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}}return true;},valMigra:function valMigra(){for(var i=0;i<this.Migra.length;i++){if(this.Migra[i].pais===""){this.$swal("Error...!","Por favor digite la opción <b>Pais de Origen</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].registrado===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Registrado Como Migrante</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].cuantollego===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Hace Cuanto Llego Al Pais</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].futuro===""){this.$swal("Error...!","Por favor seleccione la opcion <b>En el Futuro Usted Piensa</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].recibido===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Usted a Recibido Ayudas del Gobierno</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].necesidad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Principal Necesidad en Estos Momentos</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].dependen===""){this.$swal("Error...!","Por favor digite la opción <b>Personas Que Dependen de Usted</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].ingreso===""){this.$swal("Error...!","Por favor digite la opción <b>Ingreso Mensual Actualmente</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}}return true;},//VALIDACIONES DE LOS CICLOS      
+//OPCIONES DE LA VIVIENDA
+abrirModalActividades:function abrirModalActividades(){this.txtbusquedaAct="";this.consultarActividades(1);this.$refs.modalActividad.show();},consultarActividades:function consultarActividades(pagina){var _this19=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee16(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee16$(_context20){while(1){switch(_context20.prev=_context20.next){case 0:parametros={txtbusqueda:_this19.txtbusquedaAct.trim(),_token:_this19.csrf,page:pagina};_context20.prev=1;_context20.next=4;return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_5__["listar"](parametros).then(function(respuesta){_this19.actividadesVector=respuesta.data.actividades.data;});case 4:_context20.next=15;break;case 6:_context20.prev=6;_context20.t0=_context20["catch"](1);_context20.t1=_context20.t0.response.status;_context20.next=_context20.t1===422?11:13;break;case 11:_this19.$swal("Error...!","Ocurrio un error!","error");return _context20.abrupt("break",15);case 13:_this19.$swal("Error...!","Ocurrio un error!","error");return _context20.abrupt("break",15);case 15:case"end":return _context20.stop();}}},_callee16,null,[[1,6]]);}))();},seleccionarActividades:function seleccionarActividades(item){this.actividad_economica=item.id;this.actividadesAuxiliar=item.descripcion;this.$refs.modalActividad.hide();},AgregarActividad:function AgregarActividad(){if(this.actividadesAuxiliar===""){this.$refs.actividadesAuxiliar.focus();this.$swal("Error...!","Por favor seleccione una actividad economica!","error");return;}this.ActividadData.push({id:0,id_actividad:this.actividad_economica,actividad:this.actividadesAuxiliar,estado:"Activo"});this.limpiarActividad();},limpiarActividad:function limpiarActividad(){this.actividadesAuxiliar="";this.actividad_economica="";},eliminarItemActividad:function eliminarItemActividad(item,index){if(item.id!==0){this.ActividadData[index].estado="Inactivo";this.ActividadData.splice(index,1,this.ActividadData[index]);}else{this.ActividadData.splice(index,1);}},llenarVivienda:function llenarVivienda(data){// this.viviendaData.id = data.vivienda[0].id;
+// this.viviendaData.id_hogar = data.vivienda[0].id_hogar;
+// this.viviendaData.tipo_vivienda = data.vivienda[0].tipo_vivienda;
+// this.viviendaData.tipo_estructura = data.vivienda[0].tipo_estructura;
+// this.viviendaData.otro_tipo_estructura = data.vivienda[0].otro_tipo_estructura;
+// this.viviendaData.numero_cuartos = data.vivienda[0].numero_cuartos;
+// this.viviendaData.personas_por_cuartos = data.vivienda[0].personas_por_cuartos;
+// this.viviendaData.material_predominante = data.vivienda[0].material_predominante;
+// this.viviendaData.tipo_cubierta = data.vivienda[0].tipo_cubierta;
+// this.viviendaData.otro_tipo_cubierta = data.vivienda[0].otro_tipo_cubierta;
+// this.viviendaData.actividad_economica = data.vivienda[0].actividad_economica;
+// this.viviendaData.cual_actividad_economica = data.vivienda[0].cual_actividad_economica;
+// this.viviendaData.evento_afecta_vivienda = data.vivienda[0].evento_afecta_vivienda;
+// this.viviendaData.familias_accion = data.vivienda[0].familias_accion;
+// this.viviendaData.promedio_ingresos = data.vivienda[0].promedio_ingresos;
+// this.viviendaData.promedio_gastos = data.vivienda[0].promedio_gastos;
+// this.viviendaData.fuente_agua = data.vivienda[0].fuente_agua;
+// this.viviendaData.energia_electrica = data.vivienda[0].energia_electrica;
+// this.viviendaData.gas_natural = data.vivienda[0].gas_natural;
+// this.viviendaData.acueducto = data.vivienda[0].acueducto;
+// this.viviendaData.alcantarillado = data.vivienda[0].alcantarillado;
+// this.viviendaData.telefono_fijo = data.vivienda[0].telefono_fijo;
+// this.viviendaData.aseo = data.vivienda[0].aseo;
+// this.viviendaData.internet_subsidiado = data.vivienda[0].internet_subsidiado;
+// this.viviendaData.internet_privado = data.vivienda[0].internet_privado;
+// this.viviendaData.cual_fuente = data.vivienda[0].cual_fuente;
+// this.viviendaData.donde_almacena_agua = data.vivienda[0].donde_almacena_agua;
+// this.viviendaData.otro_almacena_agua = data.vivienda[0].otro_almacena_agua;
+// this.viviendaData.ubicacion_tanque = data.vivienda[0].ubicacion_tanque;
+// this.viviendaData.tipo_tratamiento_agua = data.vivienda[0].tipo_tratamiento_agua;
+// this.viviendaData.destino_final_basura = data.vivienda[0].destino_final_basura;
+// this.viviendaData.otro_destino_final_basura = data.vivienda[0].otro_destino_final_basura;
+// this.viviendaData.porquerizas = data.vivienda[0].porquerizas;
+// this.viviendaData.plagas = data.vivienda[0].plagas;
+// this.viviendaData.industrias = data.vivienda[0].industrias;
+// this.viviendaData.malos_olores = data.vivienda[0].malos_olores;
+// this.viviendaData.rellenos = data.vivienda[0].rellenos;
+// this.viviendaData.contaminacion_a = data.vivienda[0].contaminacion_a;
+// this.viviendaData.contaminacion_v = data.vivienda[0].contaminacion_v;
+// this.viviendaData.rio = data.vivienda[0].rio;
+// this.viviendaData.otro_cerca = data.vivienda[0].otro_cerca;
+// this.viviendaData.cual_cerca = data.vivienda[0].cual_cerca;
+// this.viviendaData.aereopuertos = data.vivienda[0].aereopuertos;
+// this.viviendaData.avenidas_transitadas = data.vivienda[0].avenidas_transitadas;
+// this.viviendaData.lotes_abandonados = data.vivienda[0].lotes_abandonados;
+// this.viviendaData.servicio_sanitario = data.vivienda[0].servicio_sanitario;
+// this.viviendaData.donde_sanitario = data.vivienda[0].donde_sanitario;
+// this.viviendaData.excretas = data.vivienda[0].excretas;
+// this.viviendaData.otro_depositan_excretas = data.vivienda[0].otro_depositan_excretas;
+// this.viviendaData.cocina = data.vivienda[0].cocina;
+// this.viviendaData.dormitorio_a = data.vivienda[0].dormitorio_a;
+// this.viviendaData.sala = data.vivienda[0].sala;
+// this.viviendaData.dormitorio_n = data.vivienda[0].dormitorio_n;
+// this.viviendaData.sanitario = data.vivienda[0].sanitario;
+// this.viviendaData.lavadero = data.vivienda[0].lavadero;
+// this.viviendaData.iluminacion_adecuada = data.vivienda[0].iluminacion_adecuada;
+// this.viviendaData.techo_adecuado = data.vivienda[0].techo_adecuado;
+// this.viviendaData.ventilacion_adecuada = data.vivienda[0].ventilacion_adecuada;
+// this.viviendaData.pisos_adecuado = data.vivienda[0].pisos_adecuado;
+// this.viviendaData.paredes_adecuadas = data.vivienda[0].paredes_adecuadas;
+// this.viviendaData.gasolina = data.vivienda[0].gasolina;
+// this.viviendaData.plaguicidas = data.vivienda[0].plaguicidas;
+// this.viviendaData.detergentes = data.vivienda[0].detergentes;
+// this.viviendaData.plaguicidas_insectos = data.vivienda[0].plaguicidas_insectos;
+// this.viviendaData.envases_vacios = data.vivienda[0].envases_vacios;
+// this.viviendaData.otro_envases_vacios = data.vivienda[0].otro_envases_vacios;
+// this.viviendaData.elementos_protecion = data.vivienda[0].elementos_protecion;
+// this.viviendaData.otro_elementos_protecion = data.vivienda[0].otro_elementos_protecion;
+// this.viviendaData.metodos_coccion = data.vivienda[0].metodos_coccion;
+// this.viviendaData.otro_metodos_coccion = data.vivienda[0].otro_metodos_coccion;
+// this.viviendaData.lugares_preparan_alimentos = data.vivienda[0].lugares_preparan_alimentos;
+// this.viviendaData.lugares_almacenan_alimentos = data.vivienda[0].lugares_almacenan_alimentos;
+// this.viviendaData.otro_lugares_almacenan_alimentos = data.vivienda[0].otro_lugares_almacenan_alimentos;
+// this.viviendaData.lava_frutas = data.vivienda[0].lava_frutas;
+// this.viviendaData.tipo_explotacion = data.vivienda[0].tipo_explotacion;
+// this.viviendaData.otro_tipo_explotacion = data.vivienda[0].otro_tipo_explotacion;
+// this.viviendaData.flora_afectados = data.vivienda[0].flora_afectados;
+// this.viviendaData.fauna_afectados = data.vivienda[0].fauna_afectados;
+// this.viviendaData.suelo_afectados = data.vivienda[0].suelo_afectados;
+// this.viviendaData.aire_afectados = data.vivienda[0].aire_afectados;
+// this.viviendaData.agua_afectados = data.vivienda[0].agua_afectados;
+// this.viviendaData.residuos_solidos_genera = data.vivienda[0].residuos_solidos_genera;
+// this.viviendaData.aguas_servidas_genera = data.vivienda[0].aguas_servidas_genera;
+// this.viviendaData.desechos_cocina_genera = data.vivienda[0].desechos_cocina_genera;
+// this.viviendaData.heces_animales_genera = data.vivienda[0].heces_animales_genera;
+// this.viviendaData.quimicos_genera = data.vivienda[0].quimicos_genera;
+// this.viviendaData.otros_genera = data.vivienda[0].otros_genera;
+// this.viviendaData.cual_genera = data.vivienda[0].cual_genera;
+// this.viviendaData.tipo_combustible = data.vivienda[0].tipo_combustible;
+// this.viviendaData.mantenimiento_red = data.vivienda[0].mantenimiento_red;
+// this.viviendaData.zona_alto_riesgo = data.vivienda[0].zona_alto_riesgo;
+// this.viviendaData.almacenamiento_residuos = data.vivienda[0].almacenamiento_residuos;
+// this.viviendaData.fuente_contaminacion = data.vivienda[0].fuente_contaminacion;
+// this.viviendaData.aguas_negras = data.vivienda[0].aguas_negras;
+// this.viviendaData.zonas_verdes = data.vivienda[0].zonas_verdes;
+// this.viviendaData.desplazamientos = data.vivienda[0].desplazamientos;
+// this.viviendaData.rotacion_cultivo = data.vivienda[0].rotacion_cultivo;
+// this.viviendaData.emplea_fertilizantes = data.vivienda[0].emplea_fertilizantes;
+// this.viviendaData.suministro_energia_ilegal = data.vivienda[0].suministro_energia_ilegal;
+// this.viviendaData.quema_cultivo = data.vivienda[0].quema_cultivo;
+// this.viviendaData.mantenimiento_preventivo = data.vivienda[0].mantenimiento_preventivo;
+// this.viviendaData.veces_inundaciones = data.vivienda[0].veces_inundaciones;
+// this.viviendaData.fachada = data.vivienda[0].fachada;
+// this.viviendaData.cuantos_baños = data.vivienda[0].cuantos_baños;
+// this.viviendaData.estado_conservacion_baños = data.vivienda[0].estado_conservacion_baños;
+// this.viviendaData.acabados_externos = data.vivienda[0].acabados_externos;
+// this.viviendaData.estado_conservacion_estructuras = data.vivienda[0].estado_conservacion_estructuras;
+// this.viviendaData.mobiliario_cocina = data.vivienda[0].mobiliario_cocina;
+// this.viviendaData.andenes = data.vivienda[0].andenes;
+},eliminarItemAnimales:function eliminarItemAnimales(index){this.animalesData.splice(index,1);},eliminarItemEstratificacion:function eliminarItemEstratificacion(index){this.estratificacion.splice(index,1);},agregarAnimales:function agregarAnimales(){if(this.animal===""){this.$swal("Error...!","Por favor Digite Un Animal!","error");return;}if(this.vacunadoAnimal==="0"){this.$swal("Error...!","Por favor Seleccione Si El Animal Se Encuentra Vacunado!","error");return;}if(this.cuantosAnimal===""){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}if(!this.isNumeric(this.cuantosAnimal)){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}this.animalesData.push({id:0,animal:this.animal,cuantos:this.cuantosAnimal,vacunados:this.vacunadoAnimal,estado:"Activo"});this.animal="";this.cuantosAnimal="";this.vacunadoAnimal="0";},agregarEstratificacion:function agregarEstratificacion(){if(this.estratificacionData.cuenta_internet===""){this.$swal("Error...!","Por favor Seleccione Si Cuenta ese Hogar con Internet!","error");return;}if(this.estratificacionData.tiene_pc_escritorio===""){this.$swal("Error...!","Por favor Seleccione Si Tiene computador de Escritorío!","error");return;}if(this.estratificacionData.tiene_pc_portatil===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Computador Portatil!","error");return;}if(this.estratificacionData.cuantos_celulares===""){this.$swal("Error...!","Por favor Seleccione Cuantos celulares en uso hay en el Hogar!","error");return;}if(this.estratificacionData.tiene_equipo_sonido===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Equipo de sonido!","error");return;}if(this.estratificacionData.cuantos_tv_color===""){this.$swal("Error...!","Por favor Seleccione Cuantos Tv a Color!","error");return;}if(this.estratificacionData.cuantos_vehiculos===""){this.$swal("Error...!","Por favor Seleccione Cuantos Vehiculos de Uso exclusivo tiene el Hogar!","error");return;}if(this.estratificacionData.nivel_instruccion===""){this.$swal("Error...!","Por favor Seleccione Cual es el nivel de Instrucción del jefe del Hogar!","error");return;}if(this.estratificacionData.afiliacion_salud_privada===""){this.$swal("Error...!","Por favor Seleccione Si Alguien en el Hogar posee afiliación de salud Privada o contribituva, prepagada!","error");return;}if(this.estratificacionData.ingresos_zona_rural===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar zona rural!","error");return;}if(this.estratificacionData.ingresos_ciudad===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar en Ciudad!","error");return;}if(this.estratificacionData.id_jefe==="0"){this.$swal("Error...!","Por favor Seleccione El Jefe del Hogar!","error");return;}this.estratificacion.push({id:0,id_hogar:0,cuenta_internet:this.estratificacionData.cuenta_internet,tiene_pc_escritorio:this.estratificacionData.tiene_pc_escritorio,tiene_pc_portatil:this.estratificacionData.tiene_pc_portatil,cuantos_celulares:this.estratificacionData.cuantos_celulares,tiene_equipo_sonido:this.estratificacionData.tiene_equipo_sonido,cuantos_tv_color:this.estratificacionData.cuantos_tv_color,cuantos_vehiculos:this.estratificacionData.cuantos_vehiculos,nivel_instruccion:this.estratificacionData.nivel_instruccion,afiliacion_salud_privada:this.estratificacionData.afiliacion_salud_privada,ingresos_zona_rural:this.estratificacionData.ingresos_zona_rural,ingresos_ciudad:this.estratificacionData.ingresos_ciudad,id_jefe:this.estratificacionData.id_jefe,texto_cuantos_celulares:this.showText(this.estratificacionData.cuantos_celulares,this.opciones1),texto_cuantos_tv_color:this.showText(this.estratificacionData.cuantos_tv_color,this.opciones2),texto_cuantos_vehiculos:this.showText(this.estratificacionData.cuantos_vehiculos,this.opciones3),texto_nivel_instruccion:this.showText(this.estratificacionData.nivel_instruccion,this.escolaridad_options),texto_ingresos_zona_rural:this.showText(this.estratificacionData.ingresos_zona_rural,this.opciones5),texto_ingresos_ciudad:this.showText(this.estratificacionData.ingresos_ciudad,this.opciones6),estado:"Activo"});this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}// this.estratificacionData.ingresos_zona_rural = "";
 // this.estratificacionData.ingresos_ciudad = "";
-this.habilitar_zonas();this.estratificacionData.id_jefe="0";},Amenores1Anio:function Amenores1Anio(vector,meses,opcion){var pb="";if(meses>=3){pb="";}else{pb="No Aplica";}this.Men1A.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,lugar_nacimiento:"",hemoclasificacion:"",compli_parto:"",via_parto:"",cyc:"",valoracion_23:"",valoracion_68:"",valoracion_911:"",lactancia:"",peso_nacer:"",peso_actual:vector.peso,longitud_nacer:"",longitud_actual:vector.talla,peso_long:"",cinta:"",edemas:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",carnet:"",bcg:"",hepb:"",polio:"",pentavalente:"",maltrato:"",morbilidad:"",tsh:"",opci:opcion,pb:pb,estado:"Activo"});},changeupdateMenA1:function changeupdateMenA1(item,event,opcion){if(opcion==="peso_nacer"){item.peso_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_actual"){item.peso_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_nacer"){item.longitud_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_actual"){item.longitud_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_long"){item.peso_long=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="cinta"){item.cinta=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMenA1:function updateMenA1(item,valor,opcion){if(opcion==="hemoclasificacion"){item.hemoclasificacion=valor;}if(opcion==="lugar_nacimiento"){item.lugar_nacimiento=valor;}if(opcion==="compli_parto"){item.compli_parto=valor;}if(opcion==="via_parto"){item.via_parto=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_23"){item.valoracion_23=valor;}if(opcion==="valoracion_68"){item.valoracion_68=valor;}if(opcion==="valoracion_911"){item.valoracion_911=valor;}if(opcion==="lactancia"){item.lactancia=valor;}// if (opcion === "cinta") {
+this.habilitar_zonas();this.estratificacionData.id_jefe="0";},//OPCIONES DE LA VIVIENDA
+//OPCIONES DE LOS CICLOS DE VIDA
+Amenores1Anio:function Amenores1Anio(vector,meses,opcion){var pb="";if(meses>=3){pb="";}else{pb="No Aplica";}this.Men1A.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,lugar_nacimiento:"",hemoclasificacion:"",compli_parto:"",via_parto:"",cyc:"",valoracion_23:"",valoracion_68:"",valoracion_911:"",lactancia:"",peso_nacer:"",peso_actual:vector.peso,longitud_nacer:"",longitud_actual:vector.talla,peso_long:"",cinta:"",edemas:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",carnet:"",bcg:"",hepb:"",polio:"",pentavalente:"",maltrato:"",morbilidad:"",tsh:"",opci:opcion,pb:pb,estado:"Activo"});},changeupdateMenA1:function changeupdateMenA1(item,event,opcion){if(opcion==="peso_nacer"){item.peso_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_actual"){item.peso_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_nacer"){item.longitud_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_actual"){item.longitud_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_long"){item.peso_long=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="cinta"){item.cinta=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMenA1:function updateMenA1(item,valor,opcion){if(opcion==="hemoclasificacion"){item.hemoclasificacion=valor;}if(opcion==="lugar_nacimiento"){item.lugar_nacimiento=valor;}if(opcion==="compli_parto"){item.compli_parto=valor;}if(opcion==="via_parto"){item.via_parto=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_23"){item.valoracion_23=valor;}if(opcion==="valoracion_68"){item.valoracion_68=valor;}if(opcion==="valoracion_911"){item.valoracion_911=valor;}if(opcion==="lactancia"){item.lactancia=valor;}// if (opcion === "cinta") {
 //   item.cinta = valor;
 // }
 if(opcion==="edemas"){item.edemas=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="hepb"){item.hepb=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="morbilidad"){item.morbilidad=valor;}if(opcion==="tsh"){item.tsh=valor;}},Ade1a5Anio:function Ade1a5Anio(vector,edad,opcion){this.De1A5.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,beneficiario:"",cyc:"",valoracion_1823:"",valoracion_3035:"",valoracion_4:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"",pt:"",te:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",caries:"",nocepillado:"",consultaodon:"",carnet:"",bcg:"",polio:"",dpt:"",fiebrea:"",tripleviral:"",pentavalente:"",otras:"",desparacitado:"",maltrato:"",enfermedad:"",medicamento:"",opci:opcion,pcefalico:"",estado:"Activo"});},changeupdateDe1A5:function changeupdateDe1A5(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}// if (opcion === "imc") {
 //   item.imc = event.target.value.replace( /[^.\d]/g, '' ).trim();;
 // }
-if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="otras"){item.otras=event.target.value.trim();}},updateDe1A5:function updateDe1A5(item,valor,opcion){if(opcion==="beneficiario"){item.beneficiario=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_1823"){item.valoracion_1823=valor;}if(opcion==="valoracion_3035"){item.valoracion_3035=valor;}if(opcion==="valoracion_4"){item.valoracion_4=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="caries"){item.caries=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="dpt"){item.dpt=valor;}if(opcion==="fiebrea"){item.fiebrea=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}},Ade6a11Anio:function Ade6a11Anio(vector,edad,opcion){this.De6A11.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,cyc:"",atencion:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"NA",pt:"NA",te:"",conducta:"",visuales:"",auditivos:"",dientes_sanos:"",consultaodon:"",nofluor:"",nocepillado:"",maltrato:"",sustanciaspsico:"",desparacitado:"",enfermedad:"",medicamento:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe6A11:function changeupdateDe6A11(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe6A11:function updateDe6A11(item,valor,opcion){if(opcion==="cyc"){item.cyc=valor;}if(opcion==="atencion"){item.atencion=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="sustanciaspsico"){item.sustanciaspsico=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}if(opcion==="nofluor"){item.nofluor=valor;}},Ade10a59Anio:function Ade10a59Anio(vector,edad,opcion){if(vector.sexo==="MASCULINO"){this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"NA",flujo_vaginal:"NA",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"NA",embarazo_adolecentes:"NA",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"NA",colposcopia:"NA",examen_seno:"NA",violencia:"",tdit:"NA",tripleviral:"NA",nacidos_vivos:"NA",abortos:"NA",examen_prostata:"",biposia_prostata:"",opci:opcion,estado:"Activo"});}else{this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"",flujo_vaginal:"",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"",embarazo_adolecentes:"",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"",colposcopia:"",examen_seno:"",violencia:"",tdit:"",tripleviral:"",nacidos_vivos:"",abortos:"",examen_prostata:"NA",biposia_prostata:"NA",opci:opcion,estado:"Activo"});}},changeupdateDe10A59:function changeupdateDe10A59(item,event,opcion){},updateDe10A59:function updateDe10A59(item,valor,opcion){if(opcion==="flujo_vaginal"){item.flujo_vaginal=valor;}if(opcion==="flujo_uretral"){item.flujo_uretral=valor;}if(opcion==="relaciones_sexuales"){item.relaciones_sexuales=valor;}if(opcion==="usa_condon"){item.usa_condon=valor;}if(opcion==="abortos_seis"){item.abortos_seis=valor;}if(opcion==="embarazo_adolecentes"){item.embarazo_adolecentes=valor;}if(opcion==="metodo"){item.metodo=valor;}if(opcion==="motivo"){item.motivo=valor;}if(opcion==="controles"){item.controles=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="violencia"){item.violencia=valor;}if(opcion==="tdit"){item.tdit=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="abortos"){item.abortos=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="tiempo_metodo"){item.tiempo_metodo=valor;}if(opcion==="primera_mes"){if(item.sexo==="MASCULINO"){item.primera_mes="NA";}else{item.primera_mes=valor;}}if(opcion==="compa_sexuales"){if(item.sexo==="MASCULINO"){item.compa_sexuales="NA";}else{item.compa_sexuales=valor;}}if(opcion==="nacidos_vivos"){if(item.sexo==="MASCULINO"){item.nacidos_vivos="NA";}else{item.nacidos_vivos=valor;}}},AParPost:function AParPost(vector,edad,opcion){this.ParPost.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,aceptacion:"",control_prenatal:"",atencion_parto:"",carnet:"",fecha_ultima:"",fecha_probable:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),semanas_ges:"",num_controles:"",vih:"",toxoplasma:"",vdrl:"",odontologia:"",vacunaciontdit:"",fecha_ultimo_parto:"",suplementacion:"",enfermedades_cronicas:"",sedentarismo:"",fuma:"",consumo:"",bebidas:"",tipo_parto:"",atencion_institucional:"",cc18:"NA",morgestacion:"",morparto:"",morposparto:"",opci:opcion,estado:"Activo"});},changeupdatePosparto:function changeupdatePosparto(item,event,opcion){moment.locale("es");if(opcion==="fecha_ultima"){var fecha=moment.utc(item.fecha_ultima,"YYYY-MM-DD");var suma=fecha.add(9,"months");suma=suma.add(7,"days");item.fecha_probable=suma.format("YYYY-MM-DD");// let hoy = moment();
+if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="otras"){item.otras=event.target.value.trim();}if(opcion==="pcefalico"){item.pcefalico=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe1A5:function updateDe1A5(item,valor,opcion){if(opcion==="beneficiario"){item.beneficiario=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_1823"){item.valoracion_1823=valor;}if(opcion==="valoracion_3035"){item.valoracion_3035=valor;}if(opcion==="valoracion_4"){item.valoracion_4=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="caries"){item.caries=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="dpt"){item.dpt=valor;}if(opcion==="fiebrea"){item.fiebrea=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}},Ade6a11Anio:function Ade6a11Anio(vector,edad,opcion){this.De6A11.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,cyc:"",atencion:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"NA",pt:"NA",te:"",conducta:"",visuales:"",auditivos:"",dientes_sanos:"",consultaodon:"",nofluor:"",nocepillado:"",maltrato:"",sustanciaspsico:"",desparacitado:"",enfermedad:"",medicamento:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe6A11:function changeupdateDe6A11(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe6A11:function updateDe6A11(item,valor,opcion){if(opcion==="cyc"){item.cyc=valor;}if(opcion==="atencion"){item.atencion=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="sustanciaspsico"){item.sustanciaspsico=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}if(opcion==="nofluor"){item.nofluor=valor;}},Ade10a59Anio:function Ade10a59Anio(vector,edad,opcion){if(vector.sexo==="MASCULINO"){this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"NA",flujo_vaginal:"NA",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"NA",embarazo_adolecentes:"NA",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"NA",colposcopia:"NA",examen_seno:"NA",violencia:"",tdit:"NA",tripleviral:"NA",nacidos_vivos:"NA",abortos:"NA",examen_prostata:"",biposia_prostata:"",opci:opcion,estado:"Activo"});}else{this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"",flujo_vaginal:"",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"",embarazo_adolecentes:"",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"",colposcopia:"",examen_seno:"",violencia:"",tdit:"",tripleviral:"",nacidos_vivos:"",abortos:"",examen_prostata:"NA",biposia_prostata:"NA",opci:opcion,estado:"Activo"});}},changeupdateDe10A59:function changeupdateDe10A59(item,event,opcion){},updateDe10A59:function updateDe10A59(item,valor,opcion){if(opcion==="flujo_vaginal"){item.flujo_vaginal=valor;}if(opcion==="flujo_uretral"){item.flujo_uretral=valor;}if(opcion==="relaciones_sexuales"){item.relaciones_sexuales=valor;if(valor==="NO"){item.metodo="NA";item.tiempo_metodo="NA";item.controles="NA";item.motivo=14;}else{item.metodo="";item.tiempo_metodo="";item.controles="";item.motivo="";}}if(opcion==="usa_condon"){item.usa_condon=valor;}if(opcion==="abortos_seis"){item.abortos_seis=valor;}if(opcion==="embarazo_adolecentes"){item.embarazo_adolecentes=valor;}if(opcion==="metodo"){item.metodo=valor;}if(opcion==="motivo"){item.motivo=valor;}if(opcion==="controles"){item.controles=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="violencia"){item.violencia=valor;}if(opcion==="tdit"){item.tdit=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="abortos"){item.abortos=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="tiempo_metodo"){item.tiempo_metodo=valor;}if(opcion==="primera_mes"){if(item.sexo==="MASCULINO"){item.primera_mes="NA";}else{item.primera_mes=valor;}}if(opcion==="compa_sexuales"){if(item.sexo==="MASCULINO"){item.compa_sexuales="NA";}else{item.compa_sexuales=valor;}}if(opcion==="nacidos_vivos"){if(item.sexo==="MASCULINO"){item.nacidos_vivos="NA";}else{item.nacidos_vivos=valor;}}},AParPost:function AParPost(vector,edad,opcion){this.ParPost.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,aceptacion:"",control_prenatal:"",atencion_parto:"",carnet:"",fecha_ultima:"",fecha_probable:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),semanas_ges:"",num_controles:"",vih:"",toxoplasma:"",vdrl:"",odontologia:"",vacunaciontdit:"",fecha_ultimo_parto:"",suplementacion:"",enfermedades_cronicas:"",sedentarismo:"",fuma:"",consumo:"",bebidas:"",tipo_parto:"",atencion_institucional:"",cc18:"NA",morgestacion:"",morparto:"",morposparto:"",opci:opcion,estado:"Activo"});},changeupdatePosparto:function changeupdatePosparto(item,event,opcion){moment.locale("es");if(opcion==="fecha_ultima"){var fecha=moment.utc(item.fecha_ultima,"YYYY-MM-DD");var suma=fecha.add(9,"months");suma=suma.add(7,"days");item.fecha_probable=suma.format("YYYY-MM-DD");// let hoy = moment();
 // let hoyFormato = moment().format("YYYY-MM-DD");
 // let edad = 0;
 // edad = hoy.diff(item.fecha_ultima, "months"); //Calculamos la diferencia en años
@@ -11943,13 +12481,13 @@ if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(op
 // }
 // let mesTrimestre = Math.floor(dife[1]/3);
 // let valor = dife[1] * 4; 
-// item.semanas_ges = valor+diaSemanas+mesTrimestre;          
+// item.semanas_ges = valor+diaSemanas+mesTrimestre;   
 var fecha2=item.fecha_ultima.split("-");var y2=Number(fecha2[0]);var m2=Number(fecha2[1]);var d2=Number(fecha2[2]);var fecha_inicio=new Date();var lleva=new Date();var hoy=new Date();var dia_parto=new Date();var falta=new Date();var fecha_dada=new Date(y2,m2-1,d2);fecha_inicio.setTime(fecha_dada.getTime());dia_parto.setTime(fecha_inicio.getTime()+280*86400000);//Calculamos el tiempo que lleva
 lleva.setTime(hoy.getTime()-fecha_inicio.getTime());var llevasemanas=parseInt(lleva.getTime()/86400000/7);var llevadias=Math.floor(lleva.getTime()/86400000%7);falta.setTime(dia_parto.getTime()-hoy.getTime());var faltasemanas=parseInt(falta.getTime()/86400000/7);var faltadias=parseInt(falta.getTime()/86400000%7);item.semanas_ges=llevasemanas+" semanas y "+llevadias+" dias";}if(opcion==="fecha_probable"){var _fecha=moment.utc(item.fecha_probable,"YYYY-MM-DD");var _suma=_fecha.subtract(9,"months");_suma=_suma.subtract(7,"days");item.fecha_ultima=_suma.format("YYYY-MM-DD");// item.fecha_probable = event.target.value.replace(/[^.\d]/g, "").trim();
 }if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="semanas_ges"){item.semanas_ges=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="fecha_ultimo_parto"){// item.fecha_ultimo_parto = event.target.value
 //   .replace(/[^.\d]/g, "")
 //   .trim();
-}},updatePosparto:function updatePosparto(item,valor,opcion){if(opcion==="aceptacion"){item.aceptacion=valor;}if(opcion==="control_prenatal"){item.control_prenatal=valor;}if(opcion==="atencion_parto"){item.atencion_parto=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="num_controles"){item.num_controles=valor;}if(opcion==="vih"){item.vih=valor;}if(opcion==="toxoplasma"){item.toxoplasma=valor;}if(opcion==="vdrl"){item.vdrl=valor;}if(opcion==="odontologia"){item.odontologia=valor;}if(opcion==="vacunaciontdit"){item.vacunaciontdit=valor;}if(opcion==="suplementacion"){item.suplementacion=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="sedentarismo"){item.sedentarismo=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="consumo"){item.consumo=valor;}if(opcion==="bebidas"){item.bebidas=valor;}if(opcion==="tipo_parto"){item.tipo_parto=valor;}if(opcion==="atencion_institucional"){item.atencion_institucional=valor;}if(opcion==="cc18"){item.cc18=valor;}if(opcion==="morgestacion"){item.morgestacion=valor;}if(opcion==="morparto"){item.morparto=valor;}if(opcion==="morposparto"){item.morposparto=valor;}},Ade12a17Anio:function Ade12a17Anio(vector,edad,opcion){this.De12A17.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),te:"",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",queescancerseno:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe12A17:function changeupdateDe12A17(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="te"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe12A17:function updateDe12A17(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}if(opcion==="queescancerseno"){item.queescancerseno=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}},Ade18a28Anio:function Ade18a28Anio(vector,edad,opcion){this.De18A28.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe18A28:function changeupdateDe18A28(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe18A28:function updateDe18A28(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade29a59Anio:function Ade29a59Anio(vector,edad,opcion){this.De29A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",examen_prostata:"NA",citologia:"NA",examen_mama:"NA",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe29A59:function changeupdateDe29A59(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe29A59:function updateDe29A59(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="examen_mama"){item.examen_mama=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade60Anio:function Ade60Anio(vector,edad,opcion){this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"",citologia:"",colposcopia:"",examen_prostata:"",biposia_prostata:"",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"",enfermedades_infecciosas:"",opci:opcion,empleo:"",estado:"Activo"});},changeupdateDe60:function changeupdateDe60(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pa"){item.pa=event.target.value.trim();}if(opcion==="glicemia"){item.glicemia=event.target.value.trim();}},updateDe60:function updateDe60(item,valor,opcion){if(opcion==="grupo_ayudas"){item.grupo_ayudas=valor;}if(opcion==="cigarrillo"){item.cigarrillo=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="actividad_fisica"){item.actividad_fisica=valor;}if(opcion==="sintomatico"){item.sintomatico=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="agudeza_visual"){item.agudeza_visual=valor;}if(opcion==="subsidio"){item.subsidio=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;if(valor==="SI"){// AGREGAR ENFERMEDADES CONTAGIOSAS
+}},updatePosparto:function updatePosparto(item,valor,opcion){if(opcion==="aceptacion"){item.aceptacion=valor;}if(opcion==="control_prenatal"){item.control_prenatal=valor;if(valor==="NO"){item.carnet="NO";item.num_controles="NA";}else{item.carnet="";item.num_controles="";}}if(opcion==="atencion_parto"){item.atencion_parto=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="num_controles"){item.num_controles=valor;}if(opcion==="vih"){item.vih=valor;}if(opcion==="toxoplasma"){item.toxoplasma=valor;}if(opcion==="vdrl"){item.vdrl=valor;}if(opcion==="odontologia"){item.odontologia=valor;}if(opcion==="vacunaciontdit"){item.vacunaciontdit=valor;}if(opcion==="suplementacion"){item.suplementacion=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="sedentarismo"){item.sedentarismo=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="consumo"){item.consumo=valor;}if(opcion==="bebidas"){item.bebidas=valor;}if(opcion==="tipo_parto"){item.tipo_parto=valor;}if(opcion==="atencion_institucional"){item.atencion_institucional=valor;}if(opcion==="cc18"){item.cc18=valor;}if(opcion==="morgestacion"){item.morgestacion=valor;}if(opcion==="morparto"){item.morparto=valor;}if(opcion==="morposparto"){item.morposparto=valor;}},eliminarParpost:function(){var _eliminarParpost=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(identificacion,tabla){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:parametros={_token:this.csrf,identificacion:identificacion,id_hogar:this.IDHOGAR,opcion:"PARPOST",tabla:tabla};_context21.prev=1;_context21.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function(respuesta){if(respuesta.OPC==="SI"){return true;}else{return false;}})["catch"](function(error){});case 4:_context21.next=17;break;case 6:_context21.prev=6;_context21.t0=_context21["catch"](1);_context21.t1=_context21.t0.response.status;_context21.next=_context21.t1===419?11:_context21.t1===422?13:15;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context21.abrupt("break",17);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context21.abrupt("break",17);case 15:this.$swal("Error...!","Ocurrio un error!","error");return _context21.abrupt("break",17);case 17:case"end":return _context21.stop();}}},_callee17,this,[[1,6]]);}));function eliminarParpost(_x4,_x5){return _eliminarParpost.apply(this,arguments);}return eliminarParpost;}(),Ade12a17Anio:function Ade12a17Anio(vector,edad,opcion){this.De12A17.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),te:"",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",queescancerseno:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe12A17:function changeupdateDe12A17(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="te"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe12A17:function updateDe12A17(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}if(opcion==="queescancerseno"){item.queescancerseno=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}},Ade18a28Anio:function Ade18a28Anio(vector,edad,opcion){this.De18A28.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe18A28:function changeupdateDe18A28(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe18A28:function updateDe18A28(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade29a59Anio:function Ade29a59Anio(vector,edad,opcion){this.De29A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",examen_prostata:"NA",citologia:"NA",examen_mama:"NA",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe29A59:function changeupdateDe29A59(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe29A59:function updateDe29A59(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="examen_mama"){item.examen_mama=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade60Anio:function Ade60Anio(vector,edad,opcion){this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"",citologia:"",colposcopia:"",examen_prostata:"",biposia_prostata:"",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});},changeupdateDe60:function changeupdateDe60(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pa"){item.pa=event.target.value.trim();}if(opcion==="glicemia"){item.glicemia=event.target.value.trim();}},updateDe60:function updateDe60(item,valor,opcion){if(opcion==="grupo_ayudas"){item.grupo_ayudas=valor;}if(opcion==="cigarrillo"){item.cigarrillo=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="actividad_fisica"){item.actividad_fisica=valor;}if(opcion==="sintomatico"){item.sintomatico=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="agudeza_visual"){item.agudeza_visual=valor;}if(opcion==="subsidio"){item.subsidio=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;if(valor==="SI"){// AGREGAR ENFERMEDADES CONTAGIOSAS
 this.AEnCro(item);// AGREGAR ENFERMEDADES CONTAGIOSAS
 }else{// ELIMINAR ENFERMEDADES CONTAGIOSAS
 this.EEnCro(item);// ELIMINAR ENFERMEDADES CONTAGIOSAS
@@ -11957,330 +12495,15 @@ this.EEnCro(item);// ELIMINAR ENFERMEDADES CONTAGIOSAS
 this.AEnInf(item);// AGREGAR ENFERMEDADES INFECCIOSAS
 }else{// ELIMINAR ENFERMEDADES INFECCIOSAS
 this.EEnInf(item);// ELIMINAR ENFERMEDADES INFECCIOSAS
-}}},AEnCro:function AEnCro(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnCro.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnCro:function changeupdateEnCro(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnCro:function updateEnCro(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnCro:function EEnCro(item){var identificacion=item.identificacion;if(item.id===0){this.EnCro=this.EnCro.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnCro.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}}},AEnInf:function AEnInf(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnInf.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnInf:function changeupdateEnInf(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnInf:function updateEnInf(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnInf:function EEnInf(item){var identificacion=item.identificacion;if(item.id===0){this.EnInf=this.EnInf.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnInf.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}}},AMigra:function AMigra(vector,edad,opcion){this.Migra.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,pais:"",registrado:"",cuantollego:"",futuro:"",recibido:"",necesidad:"",dependen:"",ingreso:"",opci:opcion,estado:"Activo"});},changeupdateMigra:function changeupdateMigra(item,event,opcion){if(opcion==="pais"){item.pais=event.target.value.trim();}if(opcion==="dependen"){item.dependen=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMigra:function updateMigra(item,valor,opcion){if(opcion==="registrado"){item.registrado=valor;}if(opcion==="cuantollego"){item.cuantollego=valor;}if(opcion==="futuro"){item.futuro=valor;}if(opcion==="recibido"){item.recibido=valor;}if(opcion==="necesidad"){item.necesidad=valor;}if(opcion==="ingreso"){item.ingreso=valor;}},calcularImc:function calcularImc(peso,talla){if(peso===""){peso=0;}if(talla===""){talla=1;}talla=talla/100;var imc=peso/(talla*talla);return imc.toFixed(2);},habilitar_zonas:function habilitar_zonas(){if(this.hogar.id_zona===""){this.estratificacionData.ingresos_zona_rural="";this.estratificacionData.ingresos_ciudad="";}if(this.hogar.id_zona==="0"){this.estratificacionData.ingresos_zona_rural=8;this.estratificacionData.ingresos_ciudad=8;}if(this.hogar.id_zona==="1"){this.estratificacionData.ingresos_zona_rural=8;this.estratificacionData.ingresos_ciudad="";}if(this.hogar.id_zona==="2"||this.hogar.id_zona==="3"){this.estratificacionData.ingresos_zona_rural="";this.estratificacionData.ingresos_ciudad=8;}},updateJefe:function updateJefe(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var id=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.factores[indice].tipo_id=valor;this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].tipo_id=valor;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].tipo_id=valor;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].tipo_id=valor;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].tipo_id=valor;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].tipo_id=valor;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].tipo_id=valor;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].tipo_id=valor;this.Migra.splice(indice,1,this.Migra[indice]);}}if(opcion==="sexo"){if(item.sexo===""){item.embarazo="";item.embarazo_multiple="";}if(item.sexo==="MASCULINO"){item.embarazo="NOAPLICA";item.embarazo_multiple="NOAPLICA";}if(item.sexo==="FEMENINO"){item.embarazo="";item.embarazo_multiple="";}//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id2=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice4=this.factores.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.factores[_indice4].sexo=valor;this.factores.splice(_indice4,1,this.factores[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice4=this.De10A59.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.De10A59[_indice4].sexo=valor;this.De10A59.splice(_indice4,1,this.De10A59[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice4=this.ParPost.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.ParPost[_indice4].sexo=valor;this.ParPost.splice(_indice4,1,this.ParPost[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice4=this.De12A17.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.De12A17[_indice4].sexo=valor;this.De12A17.splice(_indice4,1,this.De12A17[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice4=this.De18A28.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.De18A28[_indice4].sexo=valor;this.De18A28.splice(_indice4,1,this.De18A28[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice4=this.De29A59.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.De29A59[_indice4].sexo=valor;this.De29A59.splice(_indice4,1,this.De29A59[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice4=this.De60.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.De60[_indice4].sexo=valor;this.De60.splice(_indice4,1,this.De60[_indice4]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice4=this.Migra.findIndex(function(identi){return identi.identificacion===_id2;});if(_indice4>=0){this.Migra[_indice4].sexo=valor;this.Migra.splice(_indice4,1,this.Migra[_indice4]);}}if(opcion==="embarazo"){if(item.embarazo===""){item.embarazo_multiple="";}if(item.embarazo==="SI"){item.embarazo_multiple="";}if(item.embarazo==="NO"){item.embarazo_multiple="NO";}}if(opcion==="afiliacion_entidad"){if(item.afiliacion_entidad==="NINGUNA"){item.tipo_afiliacion="0";}else{if(item.afiliacion_entidad==="OTRA"){item.otra_eps="";}else{item.tipo_afiliacion="";}}}if(opcion==="nivel_escolaridad"){item.colegio="";item.grado="";}},changeupdateJefe:function changeupdateJefe(item,event,opcion,index){if(opcion=="identificacion"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var id=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.factores[indice].identificacion=item.identificacion;this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[indice].identificacion=item.identificacion;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[indice].identificacion=item.identificacion;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[indice].identificacion=item.identificacion;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[indice].identificacion=item.identificacion;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[indice].identificacion=item.identificacion;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[indice].identificacion=item.identificacion;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[indice].identificacion=item.identificacion;this.Migra.splice(indice,1,this.Migra[indice]);}//CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
-//DIGITADA EN LA TABLA
-this.vectorJefes[index].identificacion=item.identificacion;// Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
-this.vectorJefes.splice(index,1,this.vectorJefes[index]);}if(opcion=="pnom"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id3=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice5=this.factores.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.factores[_indice5].pnom=item.pnom;this.factores.splice(_indice5,1,this.factores[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice5=this.De10A59.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice5].pnom=item.pnom;this.De10A59.splice(_indice5,1,this.De10A59[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice5=this.ParPost.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice5].pnom=item.pnom;this.ParPost.splice(_indice5,1,this.ParPost[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice5=this.De12A17.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice5].pnom=item.pnom;this.De12A17.splice(_indice5,1,this.De12A17[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice5=this.De18A28.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice5].pnom=item.pnom;this.De18A28.splice(_indice5,1,this.De18A28[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice5=this.De29A59.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice5].pnom=item.pnom;this.De29A59.splice(_indice5,1,this.De29A59[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice5=this.De60.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice5].pnom=item.pnom;this.De60.splice(_indice5,1,this.De60[_indice5]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice5=this.Migra.findIndex(function(identi){return identi.identificacion===_id3;});if(_indice5>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice5].pnom=item.pnom;this.Migra.splice(_indice5,1,this.Migra[_indice5]);}}if(opcion=="snom"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id4=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice6=this.factores.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.factores[_indice6].snom=item.snom;this.factores.splice(_indice6,1,this.factores[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice6=this.De10A59.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice6].snom=item.snom;this.De10A59.splice(_indice6,1,this.De10A59[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice6=this.ParPost.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice6].snom=item.snom;this.ParPost.splice(_indice6,1,this.ParPost[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice6=this.De12A17.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice6].snom=item.snom;this.De12A17.splice(_indice6,1,this.De12A17[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice6=this.De18A28.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice6].snom=item.snom;this.De18A28.splice(_indice6,1,this.De18A28[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice6=this.De29A59.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice6].snom=item.snom;this.De29A59.splice(_indice6,1,this.De29A59[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice6=this.De60.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice6].snom=item.snom;this.De60.splice(_indice6,1,this.De60[_indice6]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice6=this.Migra.findIndex(function(identi){return identi.identificacion===_id4;});if(_indice6>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice6].snom=item.snom;this.Migra.splice(_indice6,1,this.Migra[_indice6]);}}if(opcion=="pape"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id5=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice7=this.factores.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.factores[_indice7].pape=item.pape;this.factores.splice(_indice7,1,this.factores[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice7=this.De10A59.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice7].pape=item.pape;this.De10A59.splice(_indice7,1,this.De10A59[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice7=this.ParPost.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice7].pape=item.pape;this.ParPost.splice(_indice7,1,this.ParPost[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice7=this.De12A17.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice7].pape=item.pape;this.De12A17.splice(_indice7,1,this.De12A17[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice7=this.De18A28.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice7].pape=item.pape;this.De18A28.splice(_indice7,1,this.De18A28[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice7=this.De29A59.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice7].pape=item.pape;this.De29A59.splice(_indice7,1,this.De29A59[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice7=this.De60.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice7].pape=item.pape;this.De60.splice(_indice7,1,this.De60[_indice7]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice7=this.Migra.findIndex(function(identi){return identi.identificacion===_id5;});if(_indice7>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice7].pape=item.pape;this.Migra.splice(_indice7,1,this.Migra[_indice7]);}}if(opcion=="sape"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id6=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice8=this.factores.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.factores[_indice8].sape=item.sape;this.factores.splice(_indice8,1,this.factores[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice8=this.De10A59.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice8].sape=item.sape;this.De10A59.splice(_indice8,1,this.De10A59[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice8=this.ParPost.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice8].sape=item.sape;this.ParPost.splice(_indice8,1,this.ParPost[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice8=this.De12A17.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice8].sape=item.sape;this.De12A17.splice(_indice8,1,this.De12A17[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice8=this.De18A28.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice8].sape=item.sape;this.De18A28.splice(_indice8,1,this.De18A28[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice8=this.De29A59.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice8].sape=item.sape;this.De29A59.splice(_indice8,1,this.De29A59[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice8=this.De60.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice8].sape=item.sape;this.De60.splice(_indice8,1,this.De60[_indice8]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice8=this.Migra.findIndex(function(identi){return identi.identificacion===_id6;});if(_indice8>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice8].sape=item.sape;this.Migra.splice(_indice8,1,this.Migra[_indice8]);}}if(opcion=="salario"){item.salario=event.target.value.replace(/[.*+\-?^${}()|[\]\\]/g,"");var val=(item.salario/1).toFixed(0).replace(".",",");item.salario=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(item.salario=="NaN"){item.salario="";}if(item.salario=="0"){item.salario="";}}},updateIntegrante:function updateIntegrante(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var id=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].tipo_id=valor;this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].tipo_id=valor;this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].tipo_id=valor;this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].tipo_id=valor;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.ParPost[indice].tipo_id=valor;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De12A17[indice].tipo_id=valor;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De18A28[indice].tipo_id=valor;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De29A59[indice].tipo_id=valor;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De60[indice].tipo_id=valor;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].tipo_id=valor;this.Migra.splice(indice,1,this.Migra[indice]);}}if(opcion==="sexo"){if(item.sexo==="0"){item.embarazo="0";item.embarazo_multiple="0";}if(item.sexo==="MASCULINO"){item.embarazo="NOAPLICA";item.embarazo_multiple="NOAPLICA";}if(item.sexo==="FEMENINO"){item.embarazo="0";item.embarazo_multiple="0";}//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id7=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice9=this.Men1A.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.Men1A[_indice9].sexo=valor;this.Men1A.splice(_indice9,1,this.Men1A[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.De1A5.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De1A5[_indice9].sexo=valor;this.De1A5.splice(_indice9,1,this.De1A5[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.De6A11.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De6A11[_indice9].sexo=valor;this.De6A11.splice(_indice9,1,this.De6A11[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.De10A59.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De10A59[_indice9].sexo=valor;this.De10A59.splice(_indice9,1,this.De10A59[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.ParPost.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.ParPost[_indice9].sexo=valor;this.ParPost.splice(_indice9,1,this.ParPost[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.De12A17.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De12A17[_indice9].sexo=valor;this.De12A17.splice(_indice9,1,this.De12A17[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.De18A28.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De18A28[_indice9].sexo=valor;this.De18A28.splice(_indice9,1,this.De18A28[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.De29A59.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De29A59[_indice9].sexo=valor;this.De29A59.splice(_indice9,1,this.De29A59[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.De60.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.De60[_indice9].sexo=valor;this.De60.splice(_indice9,1,this.De60[_indice9]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice9=this.Migra.findIndex(function(identi){return identi.identificacion===_id7;});if(_indice9>=0){this.Migra[_indice9].sexo=valor;this.Migra.splice(_indice9,1,this.Migra[_indice9]);}}if(opcion==="embarazo"){if(item.embarazo==="0"){item.embarazo_multiple="0";}if(item.embarazo==="SI"){item.embarazo_multiple="0";}if(item.embarazo==="NO"){item.embarazo_multiple="NO";}}if(opcion==="afi_entidad"){if(item.afi_entidad==="NINGUNA"){item.tipo_afiliacion="0";}else{if(item.afi_entidad==="OTRA"){item.otra_eps="";}else{item.tipo_afiliacion="0";}}}if(opcion==="escolaridad"){item.colegio="";item.grado="0";}},changeupdateIntegrante:function changeupdateIntegrante(item,event,opcion,index){// if (opcion === "fecha_nac") {
-//   let nacimiento = moment(event.target.value);
-//   let hoy = moment();
-//   let edad = 0;
-//   if (nacimiento < hoy) {
-//     edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
-//   }
-//   item.edad = edad;
-//   //SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//   //VIENE DE LA TABLA
-//   let id = this.vectorIntegrante[index].identificacion;
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   let indice = this.Men1A.findIndex(
-//     identi => identi.identificacion === id
-//   );
-//   if (indice >= 0) {
-//     this.Men1A[indice].edad = item.edad;
-//     this.Men1A.splice(indice, 1, this.Men1A[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.De1A5.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     this.De1A5[indice].edad = item.edad;
-//     this.De1A5.splice(indice, 1, this.De1A5[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.De6A11.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     this.De6A11[indice].edad = item.edad;
-//     this.De6A11.splice(indice, 1, this.De6A11[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.De10A59.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-//     this.De10A59[indice].edad = item.edad;
-//     this.De10A59.splice(indice, 1, this.De10A59[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.ParPost.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-//     this.ParPost[indice].edad = item.edad;
-//     this.ParPost.splice(indice, 1, this.ParPost[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.De12A17.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-//     this.De12A17[indice].edad = item.edad;
-//     this.De12A17.splice(indice, 1, this.De12A17[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.De18A28.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-//     this.De18A28[indice].edad = item.edad;
-//     this.De18A28.splice(indice, 1, this.De18A28[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.De29A59.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-//     this.De29A59[indice].edad = item.edad;
-//     this.De29A59.splice(indice, 1, this.De29A59[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.De60.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-//     this.De60[indice].edad = item.edad;
-//     this.De60.splice(indice, 1, this.De60[indice]);
-//   }
-//   //SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-//   indice = this.Migra.findIndex(identi => identi.identificacion === id);
-//   if (indice >= 0) {
-//     //CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-//     this.Migra[indice].edad = item.edad;
-//     this.Migra.splice(indice, 1, this.Migra[indice]);
-//   }
-// }
-if(opcion=="identificacion"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var id=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].identificacion=item.identificacion;this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De1A5.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De1A5[indice].identificacion=item.identificacion;this.De1A5.splice(indice,1,this.De1A5[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De6A11.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De6A11[indice].identificacion=item.identificacion;this.De6A11.splice(indice,1,this.De6A11[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[indice].identificacion=item.identificacion;this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.ParPost.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[indice].identificacion=item.identificacion;this.ParPost.splice(indice,1,this.ParPost[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De12A17.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[indice].identificacion=item.identificacion;this.De12A17.splice(indice,1,this.De12A17[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De18A28.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[indice].identificacion=item.identificacion;this.De18A28.splice(indice,1,this.De18A28[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De29A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[indice].identificacion=item.identificacion;this.De29A59.splice(indice,1,this.De29A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.De60.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[indice].identificacion=item.identificacion;this.De60.splice(indice,1,this.De60[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[indice].identificacion=item.identificacion;this.Migra.splice(indice,1,this.Migra[indice]);}//CAMBIAR LA IDENTIFICACION DEL VECTOR JEFE POR LA NUEVA IDENTIFICACION
-//DIGITADA EN LA TABLA
-this.vectorIntegrante[index].identificacion=item.identificacion;// Vue.set(this.vectorJefes, 1, this.vectorJefes[index]);
-this.vectorIntegrante.splice(index,1,this.vectorIntegrante[index]);}if(opcion=="pnom"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id8=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice10=this.Men1A.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){this.Men1A[_indice10].pnom=item.pnom;this.Men1A.splice(_indice10,1,this.Men1A[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.De1A5.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){this.De1A5[_indice10].pnom=item.pnom;this.De1A5.splice(_indice10,1,this.De1A5[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.De6A11.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){this.De6A11[_indice10].pnom=item.pnom;this.De6A11.splice(_indice10,1,this.De6A11[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.De10A59.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice10].pnom=item.pnom;this.De10A59.splice(_indice10,1,this.De10A59[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.ParPost.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice10].pnom=item.pnom;this.ParPost.splice(_indice10,1,this.ParPost[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.De12A17.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice10].pnom=item.pnom;this.De12A17.splice(_indice10,1,this.De12A17[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.De18A28.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice10].pnom=item.pnom;this.De18A28.splice(_indice10,1,this.De18A28[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.De29A59.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice10].pnom=item.pnom;this.De29A59.splice(_indice10,1,this.De29A59[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.De60.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice10].pnom=item.pnom;this.De60.splice(_indice10,1,this.De60[_indice10]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice10=this.Migra.findIndex(function(identi){return identi.identificacion===_id8;});if(_indice10>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice10].pnom=item.pnom;this.Migra.splice(_indice10,1,this.Migra[_indice10]);}}if(opcion=="snom"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id9=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice11=this.Men1A.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){this.Men1A[_indice11].snom=item.snom;this.Men1A.splice(_indice11,1,this.Men1A[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.De1A5.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){this.De1A5[_indice11].snom=item.snom;this.De1A5.splice(_indice11,1,this.De1A5[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.De6A11.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){this.De6A11[_indice11].snom=item.snom;this.De6A11.splice(_indice11,1,this.De6A11[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.De10A59.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice11].snom=item.snom;this.De10A59.splice(_indice11,1,this.De10A59[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.ParPost.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice11].snom=item.snom;this.ParPost.splice(_indice11,1,this.ParPost[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.De12A17.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice11].snom=item.snom;this.De12A17.splice(_indice11,1,this.De12A17[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.De18A28.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice11].snom=item.snom;this.De18A28.splice(_indice11,1,this.De18A28[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.De29A59.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice11].snom=item.snom;this.De29A59.splice(_indice11,1,this.De29A59[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.De60.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice11].snom=item.snom;this.De60.splice(_indice11,1,this.De60[_indice11]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice11=this.Migra.findIndex(function(identi){return identi.identificacion===_id9;});if(_indice11>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice11].snom=item.snom;this.Migra.splice(_indice11,1,this.Migra[_indice11]);}}if(opcion=="pape"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id10=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice12=this.Men1A.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){this.Men1A[_indice12].pape=item.pape;this.Men1A.splice(_indice12,1,this.Men1A[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.De1A5.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){this.De1A5[_indice12].pape=item.pape;this.De1A5.splice(_indice12,1,this.De1A5[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.De6A11.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){this.De6A11[_indice12].pape=item.pape;this.De6A11.splice(_indice12,1,this.De6A11[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.De10A59.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice12].pape=item.pape;this.De10A59.splice(_indice12,1,this.De10A59[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.ParPost.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice12].pape=item.pape;this.ParPost.splice(_indice12,1,this.ParPost[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.De12A17.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice12].pape=item.pape;this.De12A17.splice(_indice12,1,this.De12A17[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.De18A28.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice12].pape=item.pape;this.De18A28.splice(_indice12,1,this.De18A28[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.De29A59.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice12].pape=item.pape;this.De29A59.splice(_indice12,1,this.De29A59[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.De60.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice12].pape=item.pape;this.De60.splice(_indice12,1,this.De60[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice12=this.Migra.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice12].pape=item.pape;this.Migra.splice(_indice12,1,this.Migra[_indice12]);}}if(opcion=="sape"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
-//VIENE DE LA TABLA
-var _id11=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-var _indice13=this.Men1A.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.Men1A[_indice13].sape=item.sape;this.Men1A.splice(_indice13,1,this.Men1A[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.De1A5.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De1A5[_indice13].sape=item.sape;this.De1A5.splice(_indice13,1,this.De1A5[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.De6A11.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.De6A11[_indice13].sape=item.sape;this.De6A11.splice(_indice13,1,this.De6A11[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.De10A59.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De10A59[_indice13].sape=item.sape;this.De10A59.splice(_indice13,1,this.De10A59[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.ParPost.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.ParPost[_indice13].sape=item.sape;this.ParPost.splice(_indice13,1,this.ParPost[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.De12A17.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De12A17[_indice13].sape=item.sape;this.De12A17.splice(_indice13,1,this.De12A17[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.De18A28.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De18A28[_indice13].sape=item.sape;this.De18A28.splice(_indice13,1,this.De18A28[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.De29A59.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De29A59[_indice13].sape=item.sape;this.De29A59.splice(_indice13,1,this.De29A59[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.De60.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.De60[_indice13].sape=item.sape;this.De60.splice(_indice13,1,this.De60[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
-_indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice13].sape=item.sape;this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}},AFactores:function AFactores(vector,edad){this.factores.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,dialogos:"",sancion:"",castigo_verbal:"",castigo_fisico:"",alcohol:"",tabaco:"",sustancias_psico:"",apuestas:"",violencia_fisica:"",violencia_psico:"",violencia_economica:"",abuso_sexual:"",actividad_fisica:"",consumo_frutas:"",religiosos:"",sociales:"",culturales:"",recreativos:"",estado:"Activo"});},AAFECTACION:function AAFECTACION(vector,edad){this.afectacion.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,presentado:"",prueba:"",afectado:"",nivel:"",porcentaje:"",perdida:"",sobrelleva:"",percibe:"",principal:"",tiempo:"",estado:"Activo"});},datediff:function datediff(date1,date2){var fecha1=date1.split("-");var fecha2=date2.split("-");var y1=Number(fecha1[0]),m1=Number(fecha1[1]),d1=Number(fecha1[2]),y2=Number(fecha2[0]),m2=Number(fecha2[1]),d2=Number(fecha2[2]);if(d1<d2){m1--;d1=d1+this.DaysInMonth(y2,m2);}if(m1<m2){y1--;m1=m1+12;}var ano=y1-y2;var mes=m1-m2;var dia=d1-d2;if(ano<0){ano=ano*-1;}if(mes<0){mes=mes*-1;}if(dia<0){dia=dia*-1;}return[ano,mes,dia];},DaysInMonth:function DaysInMonth(Y,M){return new Date(Y,M,1,12).getDate();},cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";}}});
+}}},AEnCro:function AEnCro(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnCro.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnCro:function changeupdateEnCro(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnCro:function updateEnCro(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnCro:function EEnCro(item){var identificacion=item.identificacion;if(item.id===0){this.EnCro=this.EnCro.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnCro.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}}},AEnInf:function AEnInf(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnInf.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnInf:function changeupdateEnInf(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnInf:function updateEnInf(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnInf:function EEnInf(item){var identificacion=item.identificacion;if(item.id===0){this.EnInf=this.EnInf.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnInf.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}}},AMigra:function AMigra(vector,edad,opcion){this.Migra.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,pais:"",registrado:"",cuantollego:"",futuro:"",recibido:"",necesidad:"",dependen:"",ingreso:"",opci:opcion,estado:"Activo"});},changeupdateMigra:function changeupdateMigra(item,event,opcion){if(opcion==="pais"){item.pais=event.target.value.trim();}if(opcion==="dependen"){item.dependen=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMigra:function updateMigra(item,valor,opcion){if(opcion==="registrado"){item.registrado=valor;}if(opcion==="cuantollego"){item.cuantollego=valor;}if(opcion==="futuro"){item.futuro=valor;}if(opcion==="recibido"){item.recibido=valor;}if(opcion==="necesidad"){item.necesidad=valor;}if(opcion==="ingreso"){item.ingreso=valor;}},calcularImc:function calcularImc(peso,talla){if(peso===""){peso=0;}if(talla===""){talla=1;}talla=talla/100;var imc=peso/(talla*talla);return imc.toFixed(2);},//OPCIONES DE LOS CICLOS DE VIDA
+cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}}}});
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12289,22 +12512,22 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n.color-datepicker {\n  background: #f2f2f2;\n  border: 1px solid #ddd;\n  padding: 0em 1em 1em;\n  margin-bottom: 2em;\n}\n.modal-sm {\n  max-width: 60%;\n}  \n", ""]);
+exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n  color: #f8f9fa !important;\n}\n.close {\n  display: none;\n}\n.color-datepicker {\n  background: #f2f2f2;\n  border: 1px solid #ddd;\n  padding: 0em 1em 1em;\n  margin-bottom: 2em;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -12326,10 +12549,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1& ***!
-  \**********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a& ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12542,6 +12765,50 @@ var render = function() {
             _c("div", { staticClass: "tab-content" }, [
               _c(
                 "div",
+                { staticClass: "vld-parent" },
+                [
+                  _c(
+                    "loading",
+                    {
+                      attrs: {
+                        active: _vm.isLoading,
+                        "can-cancel": true,
+                        "on-cancel": _vm.onCancel,
+                        "is-full-page": true
+                      },
+                      on: {
+                        "update:active": function($event) {
+                          _vm.isLoading = $event
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "alert alert-success",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _c("div", { staticClass: "alert-icon" }, [
+                            _c("i", { staticClass: "fa fa-spinner" })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "alert-text" }, [
+                            _c("h3", [
+                              _vm._v("Cargando... Por Favor Espere!!!")
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
                 {
                   staticClass: "tab-pane active",
                   attrs: { id: "tabIdentificacion", role: "tabpanel" }
@@ -12728,7 +12995,10 @@ var render = function() {
                         _c(
                           "b-form-select",
                           {
-                            class: { "is-valid": _vm.hogar.id_corre },
+                            class:
+                              _vm.hogar.id_corre == ""
+                                ? "is-invalid"
+                                : "is-valid",
                             on: {
                               change: function($event) {
                                 return _vm.cambiarCombo("corregi")
@@ -12798,7 +13068,10 @@ var render = function() {
                         _c(
                           "b-form-select",
                           {
-                            class: { "is-valid": _vm.hogar.id_vereda },
+                            class:
+                              _vm.hogar.id_vereda == ""
+                                ? "is-invalid"
+                                : "is-valid",
                             on: {
                               change: function($event) {
                                 return _vm.cambiarCombo("vereda")
@@ -12858,7 +13131,10 @@ var render = function() {
                         _c(
                           "b-form-select",
                           {
-                            class: { "is-valid": _vm.hogar.id_barrio },
+                            class:
+                              _vm.hogar.id_barrio == ""
+                                ? "is-invalid"
+                                : "is-valid",
                             model: {
                               value: _vm.hogar.id_barrio,
                               callback: function($$v) {
@@ -13499,9 +13775,11 @@ var render = function() {
                             }
                           },
                           [
-                            _c("option", { attrs: { value: "" } }, [
-                              _vm._v("Seleccione")
-                            ]),
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
                             _vm._v(" "),
                             _vm._l(_vm.parentesco_options, function(item) {
                               return _c(
@@ -13572,62 +13850,6 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Orientación Sexual (*):")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            ref: "sexo",
-                            class:
-                              _vm.caracData.orientacion == "" ? "" : "is-valid",
-                            model: {
-                              value: _vm.caracData.orientacion,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.caracData,
-                                  "orientacion",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression: "caracData.orientacion"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "HETEROSEXUAL" } }, [
-                              _vm._v("HETEROSEXUAL")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "HOMOSEXUAL" } }, [
-                              _vm._v("HOMOSEXUAL")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "BISEXUAL" } }, [
-                              _vm._v("BISEXUAL")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NODECLARA" } }, [
-                              _vm._v("NO DECLARA")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("NO APLICA")
-                            ])
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
                         _c("label", [_vm._v("Identidad de Genero (*):")]),
                         _vm._v(" "),
                         _c(
@@ -13637,6 +13859,11 @@ var render = function() {
                               _vm.caracData.identidad_genero == ""
                                 ? ""
                                 : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.cambiarCombo("IdenGen1")
+                              }
+                            },
                             model: {
                               value: _vm.caracData.identidad_genero,
                               callback: function($$v) {
@@ -13675,6 +13902,67 @@ var render = function() {
                               },
                               [_vm._v("TERCER GENERO Ó NO BINARIOS")]
                             ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Orientación Sexual (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "sexo",
+                            class:
+                              _vm.caracData.orientacion == "" ? "" : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.cambiarCombo("Orienta1")
+                              }
+                            },
+                            model: {
+                              value: _vm.caracData.orientacion,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.caracData,
+                                  "orientacion",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "caracData.orientacion"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HETEROSEXUAL" } }, [
+                              _vm._v("HETEROSEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HOMOSEXUAL" } }, [
+                              _vm._v("HOMOSEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "BISEXUAL" } }, [
+                              _vm._v("BISEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NODECLARA" } }, [
+                              _vm._v("NO DECLARA")
+                            ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "NA" } }, [
                               _vm._v("NO APLICA")
@@ -13872,6 +14160,78 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("label", [_vm._v("Fecha de Nacimiento (*):")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.caracData.fecha_nacimiento,
+                            expression: "caracData.fecha_nacimiento"
+                          }
+                        ],
+                        ref: "fecha_nacimiento",
+                        staticClass: "form-control text-capitalize",
+                        class:
+                          _vm.caracData.fecha_nacimiento == ""
+                            ? ""
+                            : "is-valid",
+                        attrs: {
+                          id: "date",
+                          type: "date",
+                          placeholder: "Fecha de Nacimiento",
+                          max: _vm._f("moment")(_vm.hoy)
+                        },
+                        domProps: { value: _vm.caracData.fecha_nacimiento },
+                        on: {
+                          change: _vm.calculosAedad,
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "fecha_nacimiento",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-2" }, [
+                      _c("label", [_vm._v("Edad:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.calEdad2,
+                            expression: "calEdad2"
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.edad == "" ? "" : "is-valid",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Edad",
+                          readonly: ""
+                        },
+                        domProps: { value: _vm.calEdad2 },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.calEdad2 = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "col-lg-3" },
@@ -13916,78 +14276,7 @@ var render = function() {
                         )
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
-                      _c("label", [_vm._v("Fecha de Nacimiento (*):")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.caracData.fecha_nacimiento,
-                            expression: "caracData.fecha_nacimiento"
-                          }
-                        ],
-                        ref: "fecha_nacimiento",
-                        staticClass: "form-control text-capitalize",
-                        class:
-                          _vm.caracData.fecha_nacimiento == ""
-                            ? ""
-                            : "is-valid",
-                        attrs: {
-                          id: "date",
-                          type: "date",
-                          placeholder: "Fecha de Nacimiento",
-                          max: _vm._f("moment")(_vm.hoy)
-                        },
-                        domProps: { value: _vm.caracData.fecha_nacimiento },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.caracData,
-                              "fecha_nacimiento",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-2" }, [
-                      _c("label", [_vm._v("Edad:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.calEdad2,
-                            expression: "calEdad2"
-                          }
-                        ],
-                        staticClass: "form-control text-capitalize",
-                        class: _vm.caracData.edad == "" ? "" : "is-valid",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Edad",
-                          readonly: ""
-                        },
-                        domProps: { value: _vm.calEdad2 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.calEdad2 = $event.target.value
-                          }
-                        }
-                      })
-                    ])
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -14373,7 +14662,7 @@ var render = function() {
                               _vm._v("VISUAL")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "PSIQUICA" } }, [
+                            _c("option", { attrs: { value: "PSÍQUICA" } }, [
                               _vm._v("PSÍQUICA")
                             ]),
                             _vm._v(" "),
@@ -14938,53 +15227,6 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [
-                          _vm._v("Pertenece a algún programa del ICBF:")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class:
-                              _vm.caracData.programa_icbf == ""
-                                ? ""
-                                : "is-valid",
-                            model: {
-                              value: _vm.caracData.programa_icbf,
-                              callback: function($$v) {
-                                _vm.$set(_vm.caracData, "programa_icbf", $$v)
-                              },
-                              expression: "caracData.programa_icbf"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "SI" } }, [
-                              _vm._v("SI")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NO" } }, [
-                              _vm._v("NO")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("NO APLICA")
-                            ])
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
                         _c("label", [_vm._v("Enfermedad Infecciosa:")]),
                         _vm._v(" "),
                         _c(
@@ -15029,6 +15271,34 @@ var render = function() {
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-success btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar Enfermedades"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregarEnfJef("Infecciosa")
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ]),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -15077,10 +15347,508 @@ var render = function() {
                         )
                       ],
                       1
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-success btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar Enfermedades"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregarEnfJef("Cronica")
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ])
                   ]),
                   _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.caracData.enfermedades.length > 0,
+                          expression: "caracData.enfermedades.length > 0"
+                        }
+                      ],
+                      staticClass: "row"
+                    },
+                    [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _vm._m(3),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.caracData.enfermedades, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c(
+                                    "tr",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: item.estado == "Activo",
+                                          expression: "item.estado=='Activo'"
+                                        }
+                                      ],
+                                      key: index
+                                    },
+                                    [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: index + 1 }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.textoEnfermedad,
+                                                expression:
+                                                  "item.textoEnfermedad"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "300px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value: item.textoEnfermedad
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "textoEnfermedad",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.tipo,
+                                                expression: "item.tipo"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "200px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: item.tipo },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "tipo",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "show",
+                                                  rawName: "v-show",
+                                                  value: item.tipo == "Cronica",
+                                                  expression:
+                                                    "item.tipo=='Cronica'"
+                                                }
+                                              ],
+                                              class:
+                                                item.tiempo == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "300px" },
+                                              model: {
+                                                value: item.tiempo,
+                                                callback: function($$v) {
+                                                  _vm.$set(item, "tiempo", $$v)
+                                                },
+                                                expression: "item.tiempo"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "1" } },
+                                                [_vm._v("Menos de 6 Meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "2" } },
+                                                [_vm._v("Menos de 1 Años")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "3" } },
+                                                [_vm._v("Menos de 5 Años")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "4" } },
+                                                [_vm._v("Mas de 5 Años")]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "show",
+                                                  rawName: "v-show",
+                                                  value:
+                                                    item.tipo == "Infecciosa",
+                                                  expression:
+                                                    "item.tipo=='Infecciosa'"
+                                                }
+                                              ],
+                                              class:
+                                                item.tiempo == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "300px" },
+                                              model: {
+                                                value: item.tiempo,
+                                                callback: function($$v) {
+                                                  _vm.$set(item, "tiempo", $$v)
+                                                },
+                                                expression: "item.tiempo"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "1" } },
+                                                [_vm._v("Reciente")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "2" } },
+                                                [_vm._v("3 Meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "3" } },
+                                                [_vm._v("Entre 3 y 6 meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "4" } },
+                                                [_vm._v("Mas de 1 año")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.tratamiento == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              model: {
+                                                value: item.tratamiento,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "tratamiento",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "item.tratamiento"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "SI" } },
+                                                [_vm._v("SI")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "NO" } },
+                                                [_vm._v("NO")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "text-align": "center",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticStyle: { width: "70px" } },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-icon btn-sm btn-outline-danger",
+                                                  attrs: {
+                                                    type: "button",
+                                                    title: "Eliminar"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.eliminarItemEnfJef(
+                                                        index,
+                                                        item
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    staticClass: "fa fa-trash"
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [
+                          _vm._v("Pertenece a algún programa del ICBF:")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.programa_icbf == ""
+                                ? ""
+                                : "is-valid",
+                            model: {
+                              value: _vm.caracData.programa_icbf,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "programa_icbf", $$v)
+                              },
+                              expression: "caracData.programa_icbf"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SI" } }, [
+                              _vm._v("SI")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NO" } }, [
+                              _vm._v("NO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c("div", { staticClass: "col-lg-2" }, [
                       _c("label", [_vm._v("Peso:")]),
                       _vm._v(" "),
@@ -15263,7 +16031,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(3),
+                            _vm._m(4),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -17030,115 +17798,6 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value:
-                                                item.textoEnfermedad_infecciosa,
-                                              expression:
-                                                "item.textoEnfermedad_infecciosa"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control text-capitalize",
-                                          class:
-                                            item.textoEnfermedad_infecciosa ==
-                                            ""
-                                              ? ""
-                                              : "is-valid",
-                                          staticStyle: { width: "200px" },
-                                          attrs: {
-                                            type: "text",
-                                            placeholder:
-                                              "Enfermedad Infecciosa",
-                                            readonly: ""
-                                          },
-                                          domProps: {
-                                            value:
-                                              item.textoEnfermedad_infecciosa
-                                          },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                item,
-                                                "textoEnfermedad_infecciosa",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value:
-                                                item.textoEnfermedad_cronica,
-                                              expression:
-                                                "item.textoEnfermedad_cronica"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control text-capitalize",
-                                          class:
-                                            item.textoEnfermedad_cronica == ""
-                                              ? ""
-                                              : "is-valid",
-                                          staticStyle: { width: "200px" },
-                                          attrs: {
-                                            type: "text",
-                                            placeholder: "Enfermedad Cronica",
-                                            readonly: ""
-                                          },
-                                          domProps: {
-                                            value: item.textoEnfermedad_cronica
-                                          },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                item,
-                                                "textoEnfermedad_cronica",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
                                               value: item.peso,
                                               expression: "item.peso"
                                             }
@@ -17303,7 +17962,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(4),
+                  _vm._m(5),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -17490,61 +18149,6 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Orientación Sexual (*):")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            ref: "sexo",
-                            class: _vm.CA1.orientacion == "0" ? "" : "is-valid",
-                            model: {
-                              value: _vm.CA1.orientacion,
-                              callback: function($$v) {
-                                _vm.$set(
-                                  _vm.CA1,
-                                  "orientacion",
-                                  typeof $$v === "string" ? $$v.trim() : $$v
-                                )
-                              },
-                              expression: "CA1.orientacion"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "0", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "HETEROSEXUAL" } }, [
-                              _vm._v("HETEROSEXUAL")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "HOMOSEXUAL" } }, [
-                              _vm._v("HOMOSEXUAL")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "BISEXUAL" } }, [
-                              _vm._v("BISEXUAL")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NODECLARA" } }, [
-                              _vm._v("NO DECLARA")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("NO APLICA")
-                            ])
-                          ]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
                         _c("label", [_vm._v("Identidad de Genero (*):")]),
                         _vm._v(" "),
                         _c(
@@ -17552,6 +18156,11 @@ var render = function() {
                           {
                             class:
                               _vm.CA1.identidad_genero == "0" ? "" : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.cambiarCombo("IdenGen2")
+                              }
+                            },
                             model: {
                               value: _vm.CA1.identidad_genero,
                               callback: function($$v) {
@@ -17590,6 +18199,66 @@ var render = function() {
                               },
                               [_vm._v("TERCER GENERO Ó NO BINARIOS")]
                             ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Orientación Sexual (*):")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            ref: "sexo",
+                            class: _vm.CA1.orientacion == "0" ? "" : "is-valid",
+                            on: {
+                              change: function($event) {
+                                return _vm.cambiarCombo("Orienta2")
+                              }
+                            },
+                            model: {
+                              value: _vm.CA1.orientacion,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.CA1,
+                                  "orientacion",
+                                  typeof $$v === "string" ? $$v.trim() : $$v
+                                )
+                              },
+                              expression: "CA1.orientacion"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HETEROSEXUAL" } }, [
+                              _vm._v("HETEROSEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "HOMOSEXUAL" } }, [
+                              _vm._v("HOMOSEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "BISEXUAL" } }, [
+                              _vm._v("BISEXUAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NODECLARA" } }, [
+                              _vm._v("NO DECLARA")
+                            ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "NA" } }, [
                               _vm._v("NO APLICA")
@@ -17752,49 +18421,6 @@ var render = function() {
                         }
                       })
                     ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-3" },
-                      [
-                        _c("label", [_vm._v("Estado Civil:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class:
-                              _vm.CA1.estado_civil == "0" ? "" : "is-valid",
-                            model: {
-                              value: _vm.CA1.estado_civil,
-                              callback: function($$v) {
-                                _vm.$set(_vm.CA1, "estado_civil", $$v)
-                              },
-                              expression: "CA1.estado_civil"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "0", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.estado_options, function(item) {
-                              return _c(
-                                "option",
-                                {
-                                  key: item.value,
-                                  domProps: { value: item.value }
-                                },
-                                [_vm._v(_vm._s(item.texto))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-3" }, [
                       _c("label", [_vm._v("Puntaje Sisben:")]),
@@ -17961,7 +18587,50 @@ var render = function() {
                           }
                         }
                       })
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-3" },
+                      [
+                        _c("label", [_vm._v("Estado Civil:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.CA1.estado_civil == "0" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.estado_civil,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "estado_civil", $$v)
+                              },
+                              expression: "CA1.estado_civil"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.estado_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -18022,7 +18691,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "col-lg-4" },
+                      { staticClass: "col-lg-2" },
                       [
                         _c("label", [_vm._v("Tipo Afiliación:")]),
                         _vm._v(" "),
@@ -18523,7 +19192,7 @@ var render = function() {
                             class: _vm.CA1.etnia == "0" ? "" : "is-valid",
                             on: {
                               change: function($event) {
-                                return _vm.cambiarCombo("etnia")
+                                return _vm.cambiarCombo("etnia2")
                               }
                             },
                             model: {
@@ -18895,48 +19564,6 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
-                        _c("label", [_vm._v("Excepciones:")]),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-select",
-                          {
-                            class: _vm.CA1.excepciones == "0" ? "" : "is-valid",
-                            model: {
-                              value: _vm.CA1.excepciones,
-                              callback: function($$v) {
-                                _vm.$set(_vm.CA1, "excepciones", $$v)
-                              },
-                              expression: "CA1.excepciones"
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              { attrs: { value: "0", selected: "" } },
-                              [_vm._v("Seleccione")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.opciones7, function(item) {
-                              return _c(
-                                "option",
-                                {
-                                  key: item.value,
-                                  domProps: { value: item.value }
-                                },
-                                [_vm._v(_vm._s(item.texto))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-lg-4" },
-                      [
                         _c("label", [_vm._v("Enfermedad Infecciosa:")]),
                         _vm._v(" "),
                         _c(
@@ -18977,6 +19604,34 @@ var render = function() {
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-success btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar Enfermedades"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregarEnfInt("Infecciosa")
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ]),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -19021,10 +19676,503 @@ var render = function() {
                         )
                       ],
                       1
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-success btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar Enfermedades"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregarEnfInt("Cronica")
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ])
                   ]),
                   _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.CA1.enfermedades.length > 0,
+                          expression: "CA1.enfermedades.length > 0"
+                        }
+                      ],
+                      staticClass: "row"
+                    },
+                    [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _vm._m(6),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.CA1.enfermedades, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c(
+                                    "tr",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: item.estado == "Activo",
+                                          expression: "item.estado=='Activo'"
+                                        }
+                                      ],
+                                      key: index
+                                    },
+                                    [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: index + 1 }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.textoEnfermedad,
+                                                expression:
+                                                  "item.textoEnfermedad"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "300px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value: item.textoEnfermedad
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "textoEnfermedad",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.tipo,
+                                                expression: "item.tipo"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "200px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: item.tipo },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "tipo",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "show",
+                                                  rawName: "v-show",
+                                                  value: item.tipo == "Cronica",
+                                                  expression:
+                                                    "item.tipo=='Cronica'"
+                                                }
+                                              ],
+                                              class:
+                                                item.tiempo == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "300px" },
+                                              model: {
+                                                value: item.tiempo,
+                                                callback: function($$v) {
+                                                  _vm.$set(item, "tiempo", $$v)
+                                                },
+                                                expression: "item.tiempo"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "1" } },
+                                                [_vm._v("Menos de 6 Meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "2" } },
+                                                [_vm._v("Menos de 1 Años")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "3" } },
+                                                [_vm._v("Menos de 5 Años")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "4" } },
+                                                [_vm._v("Mas de 5 Años")]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "show",
+                                                  rawName: "v-show",
+                                                  value:
+                                                    item.tipo == "Infecciosa",
+                                                  expression:
+                                                    "item.tipo=='Infecciosa'"
+                                                }
+                                              ],
+                                              class:
+                                                item.tiempo == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "300px" },
+                                              model: {
+                                                value: item.tiempo,
+                                                callback: function($$v) {
+                                                  _vm.$set(item, "tiempo", $$v)
+                                                },
+                                                expression: "item.tiempo"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "1" } },
+                                                [_vm._v("Reciente")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "2" } },
+                                                [_vm._v("3 Meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "3" } },
+                                                [_vm._v("Entre 3 y 6 meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "4" } },
+                                                [_vm._v("Mas de 1 año")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.tratamiento == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              model: {
+                                                value: item.tratamiento,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "tratamiento",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "item.tratamiento"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "SI" } },
+                                                [_vm._v("SI")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "NO" } },
+                                                [_vm._v("NO")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "text-align": "center",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticStyle: { width: "70px" } },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-icon btn-sm btn-outline-danger",
+                                                  attrs: {
+                                                    type: "button",
+                                                    title: "Eliminar"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.eliminarItemEnfInt(
+                                                        index,
+                                                        item
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    staticClass: "fa fa-trash"
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
+                        _c("label", [_vm._v("Excepciones:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.CA1.excepciones == "0" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.excepciones,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "excepciones", $$v)
+                              },
+                              expression: "CA1.excepciones"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.opciones7, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c("div", { staticClass: "col-lg-2" }, [
                       _c("label", [_vm._v("Peso:")]),
                       _vm._v(" "),
@@ -19207,7 +20355,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(5),
+                            _vm._m(7),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -21020,115 +22168,6 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value:
-                                                item.textoEnfermedad_infecciosa,
-                                              expression:
-                                                "item.textoEnfermedad_infecciosa"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control text-capitalize",
-                                          class:
-                                            item.textoEnfermedad_infecciosa ==
-                                            ""
-                                              ? ""
-                                              : "is-valid",
-                                          staticStyle: { width: "200px" },
-                                          attrs: {
-                                            type: "text",
-                                            placeholder:
-                                              "Enfermedad Infecciosa",
-                                            readonly: ""
-                                          },
-                                          domProps: {
-                                            value:
-                                              item.textoEnfermedad_infecciosa
-                                          },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                item,
-                                                "textoEnfermedad_infecciosa",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value:
-                                                item.textoEnfermedad_cronica,
-                                              expression:
-                                                "item.textoEnfermedad_cronica"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control text-capitalize",
-                                          class:
-                                            item.textoEnfermedad_cronica == ""
-                                              ? ""
-                                              : "is-valid",
-                                          staticStyle: { width: "200px" },
-                                          attrs: {
-                                            type: "text",
-                                            placeholder: "Enfermedad Cronica",
-                                            readonly: ""
-                                          },
-                                          domProps: {
-                                            value: item.textoEnfermedad_cronica
-                                          },
-                                          on: {
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                item,
-                                                "textoEnfermedad_cronica",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
                                               value: item.peso,
                                               expression: "item.peso"
                                             }
@@ -21290,13 +22329,14 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("br"),
+                  _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
                   _c("div", {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(6),
+                  _vm._m(8),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -21305,7 +22345,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(7),
+                            _vm._m(9),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -22638,7 +23678,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(8),
+                  _vm._m(10),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -22647,7 +23687,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(9),
+                            _vm._m(11),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -23635,7 +24675,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(10),
+                  _vm._m(12),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -24223,7 +25263,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "col-lg-10" }, [
                       _c("label", [_vm._v("Actividad Económica:")]),
                       _vm._v(" "),
                       _c("input", {
@@ -24235,12 +25275,11 @@ var render = function() {
                             expression: "actividadesAuxiliar"
                           }
                         ],
-                        ref: "Actividad Económica",
+                        ref: "ocupacion",
                         staticClass: "form-control text-capitalize",
-                        class: _vm.actividadesAuxiliar == "" ? "" : "is-valid",
                         attrs: {
                           type: "text",
-                          placeholder: "Ocupaciones",
+                          placeholder: "Actividad Económica",
                           readonly: true
                         },
                         domProps: { value: _vm.actividadesAuxiliar },
@@ -24256,6 +25295,62 @@ var render = function() {
                           }
                         }
                       })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("           ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-info btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.AgregarActividad($event)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("           ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-danger btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Limpiar"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.limpiarActividad($event)
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-trash" })]
+                      ),
+                      _vm._v(" \n              ")
                     ]),
                     _vm._v(" "),
                     _c(
@@ -24312,6 +25407,113 @@ var render = function() {
                         })
                       ]
                     )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("div", { staticClass: "table-responsive" }, [
+                        _c(
+                          "table",
+                          { staticClass: "table table-sm table-hover" },
+                          [
+                            _vm._m(13),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.ActividadData, function(item, index) {
+                                return _c(
+                                  "tr",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "show",
+                                        rawName: "v-show",
+                                        value: item.estado == "Activo",
+                                        expression: "item.estado=='Activo'"
+                                      }
+                                    ],
+                                    key: index
+                                  },
+                                  [
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(index + 1))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "font-weight": "normal",
+                                          "vertical-align": "middle",
+                                          "text-align": "left",
+                                          "text-transform": "capitalize"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-capitalize" },
+                                          [_vm._v(_vm._s(item.actividad))]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticStyle: {
+                                          "text-align": "center",
+                                          "vertical-align": "middle"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-icon btn-sm btn-outline-danger",
+                                            attrs: {
+                                              type: "button",
+                                              title: "Eliminar"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.eliminarItemActividad(
+                                                  item,
+                                                  index
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-trash"
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -24772,7 +25974,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(11),
+                  _vm._m(14),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -25720,7 +26922,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(12),
+                  _vm._m(15),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -26406,7 +27608,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(13),
+                  _vm._m(16),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c("div", { staticClass: "col-lg-4" }, [
@@ -26538,7 +27740,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(14),
+                            _vm._m(17),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -26961,7 +28163,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(15),
+                  _vm._m(18),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -27272,7 +28474,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(16),
+                  _vm._m(19),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -27517,7 +28719,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(17),
+                  _vm._m(20),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -28687,7 +29889,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(18),
+                  _vm._m(21),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -29298,10 +30500,6 @@ var render = function() {
                               { attrs: { value: "", selected: "" } },
                               [_vm._v("Seleccione")]
                             ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No Aplica")
-                            ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "FRECUENTE" } }, [
                               _vm._v("FRECUENTE")
@@ -30437,7 +31635,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(19),
+                  _vm._m(22),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -31161,7 +32359,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(20),
+                            _vm._m(23),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -31561,9 +32759,9 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(21),
+                  _vm._m(24),
                   _vm._v(" "),
-                  _vm._m(22),
+                  _vm._m(25),
                   _vm._v(" "),
                   _c("div", {
                     staticClass: "kt-separator kt-separator--border-dashed"
@@ -31579,7 +32777,7 @@ var render = function() {
                             staticStyle: { width: "100%" }
                           },
                           [
-                            _vm._m(23),
+                            _vm._m(26),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -33860,7 +35058,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(24),
+                  _vm._m(27),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -33869,7 +35067,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(25),
+                            _vm._m(28),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -36303,7 +37501,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(26),
+                  _vm._m(29),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -36312,7 +37510,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(27),
+                            _vm._m(30),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -37970,7 +39168,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(28),
+                  _vm._m(31),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -37979,7 +39177,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(29),
+                            _vm._m(32),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -39981,7 +41179,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(30),
+                  _vm._m(33),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -39990,7 +41188,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(31),
+                            _vm._m(34),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -42158,7 +43356,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(32),
+                  _vm._m(35),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -42167,7 +43365,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(33),
+                            _vm._m(36),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -44088,7 +45286,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(34),
+                  _vm._m(37),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -44097,7 +45295,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(35),
+                            _vm._m(38),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -45617,7 +46815,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(36),
+                  _vm._m(39),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -45626,7 +46824,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(37),
+                            _vm._m(40),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -47176,7 +48374,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(38),
+                  _vm._m(41),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -47185,7 +48383,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(39),
+                            _vm._m(42),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -48463,7 +49661,8 @@ var render = function() {
                                           "font-weight": "normal",
                                           "vertical-align": "middle",
                                           "text-align": "left",
-                                          "text-transform": "capitalize"
+                                          "text-transform": "capitalize",
+                                          display: "none"
                                         }
                                       },
                                       [
@@ -48502,12 +49701,7 @@ var render = function() {
                                           [
                                             _c(
                                               "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
+                                              { attrs: { value: "" } },
                                               [_vm._v("Seleccione")]
                                             ),
                                             _vm._v(" "),
@@ -48519,7 +49713,12 @@ var render = function() {
                                             _vm._v(" "),
                                             _c(
                                               "option",
-                                              { attrs: { value: "NO" } },
+                                              {
+                                                attrs: {
+                                                  value: "NO",
+                                                  selected: ""
+                                                }
+                                              },
                                               [_vm._v("NO")]
                                             )
                                           ]
@@ -48535,7 +49734,8 @@ var render = function() {
                                           "font-weight": "normal",
                                           "vertical-align": "middle",
                                           "text-align": "left",
-                                          "text-transform": "capitalize"
+                                          "text-transform": "capitalize",
+                                          display: "none"
                                         }
                                       },
                                       [
@@ -48576,12 +49776,7 @@ var render = function() {
                                           [
                                             _c(
                                               "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
+                                              { attrs: { value: "" } },
                                               [_vm._v("Seleccione")]
                                             ),
                                             _vm._v(" "),
@@ -48593,7 +49788,12 @@ var render = function() {
                                             _vm._v(" "),
                                             _c(
                                               "option",
-                                              { attrs: { value: "NO" } },
+                                              {
+                                                attrs: {
+                                                  value: "NO",
+                                                  selected: ""
+                                                }
+                                              },
                                               [_vm._v("NO")]
                                             )
                                           ]
@@ -48687,745 +49887,781 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(40),
-                  _vm._v(" "),
-                  _vm._m(41),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "table-responsive" }, [
-                        _c(
-                          "table",
-                          { staticClass: "table table-sm table-hover" },
-                          [
-                            _vm._m(42),
-                            _vm._v(" "),
-                            _c(
-                              "tbody",
-                              _vm._l(_vm.EnCro, function(item, index) {
-                                return _c(
-                                  "tr",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: item.estado == "Activo",
-                                        expression: "item.estado=='Activo'"
-                                      }
-                                    ],
-                                    key: index
-                                  },
-                                  [
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
-                                          staticStyle: {
-                                            width: "100px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: { value: index + 1 }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
-                                          staticStyle: {
-                                            width: "200px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: {
-                                            value:
-                                              item.tipo_id +
-                                              " : " +
-                                              item.identificacion
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
-                                          staticStyle: {
-                                            width: "300px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: {
-                                            value:
-                                              item.pnom +
-                                              " " +
-                                              item.snom +
-                                              " " +
-                                              item.pape +
-                                              " " +
-                                              item.sape
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
-                                          staticStyle: {
-                                            width: "150px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: { value: item.sexo }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.enfermedad == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(enfermedad) {
-                                                return _vm.updateEnCro(
-                                                  item,
-                                                  enfermedad,
-                                                  "enfermedad"
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: item.enfermedad,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  item,
-                                                  "enfermedad",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "item.enfermedad"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._l(_vm.enfcro_options, function(
-                                              item
-                                            ) {
-                                              return _c(
-                                                "option",
-                                                {
-                                                  key: item.value,
-                                                  domProps: {
-                                                    value: item.value
-                                                  }
-                                                },
-                                                [_vm._v(_vm._s(item.texto))]
-                                              )
-                                            })
-                                          ],
-                                          2
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.tiempo == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(tiempo) {
-                                                return _vm.updateEnCro(
-                                                  item,
-                                                  tiempo,
-                                                  "tiempo"
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: item.tiempo,
-                                              callback: function($$v) {
-                                                _vm.$set(item, "tiempo", $$v)
-                                              },
-                                              expression: "item.tiempo"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "1" } },
-                                              [_vm._v("Menos de 6 Meses")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "2" } },
-                                              [_vm._v("Menos de 1 Años")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "3" } },
-                                              [_vm._v("Menos de 5 Años")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "4" } },
-                                              [_vm._v("Mas de 5 Años")]
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.tratamiento == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(tratamiento) {
-                                                return _vm.updateEnCro(
-                                                  item,
-                                                  tratamiento,
-                                                  "tratamiento"
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: item.tratamiento,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  item,
-                                                  "tratamiento",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "item.tratamiento"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "SI" } },
-                                              [_vm._v("SI")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "NO" } },
-                                              [_vm._v("NO")]
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                )
-                              }),
-                              0
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "kt-separator kt-separator--border-dashed"
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _vm._m(43),
                   _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-12" }, [
-                      _c("div", { staticClass: "table-responsive" }, [
-                        _c(
-                          "table",
-                          { staticClass: "table table-sm table-hover" },
-                          [
-                            _vm._m(44),
-                            _vm._v(" "),
-                            _c(
-                              "tbody",
-                              _vm._l(_vm.EnInf, function(item, index) {
-                                return _c(
-                                  "tr",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: item.estado == "Activo",
-                                        expression: "item.estado=='Activo'"
-                                      }
-                                    ],
-                                    key: index
-                                  },
-                                  [
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle"
+                  _vm._m(44),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row", staticStyle: { display: "none" } },
+                    [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _vm._m(45),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.EnCro, function(item, index) {
+                                  return _c(
+                                    "tr",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: item.estado == "Activo",
+                                          expression: "item.estado=='Activo'"
                                         }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
+                                      ],
+                                      key: index
+                                    },
+                                    [
+                                      _c(
+                                        "td",
+                                        {
                                           staticStyle: {
-                                            width: "100px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: { value: index + 1 }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
-                                          staticStyle: {
-                                            width: "200px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: {
-                                            value:
-                                              item.tipo_id +
-                                              " : " +
-                                              item.identificacion
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle"
                                           }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
-                                          staticStyle: {
-                                            width: "300px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: {
-                                            value:
-                                              item.pnom +
-                                              " " +
-                                              item.snom +
-                                              " " +
-                                              item.pape +
-                                              " " +
-                                              item.sape
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c("input", {
-                                          staticClass:
-                                            "form-control text-capitalize is-valid",
-                                          staticStyle: {
-                                            width: "150px",
-                                            "background-color": "white"
-                                          },
-                                          attrs: { type: "text", readonly: "" },
-                                          domProps: { value: item.sexo }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.enfermedad == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(enfermedad) {
-                                                return _vm.updateEnInf(
-                                                  item,
-                                                  enfermedad,
-                                                  "enfermedad"
-                                                )
-                                              }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100px",
+                                              "background-color": "white"
                                             },
-                                            model: {
-                                              value: item.enfermedad,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  item,
-                                                  "enfermedad",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "item.enfermedad"
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: index + 1 }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "200px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value:
+                                                item.tipo_id +
+                                                " : " +
+                                                item.identificacion
                                             }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "300px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value:
+                                                item.pnom +
+                                                " " +
+                                                item.snom +
+                                                " " +
+                                                item.pape +
+                                                " " +
+                                                item.sape
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "150px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: item.sexo }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.enfermedad == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              on: {
+                                                input: function(enfermedad) {
+                                                  return _vm.updateEnCro(
+                                                    item,
+                                                    enfermedad,
+                                                    "enfermedad"
+                                                  )
                                                 }
                                               },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _vm._l(_vm.enfinf_options, function(
-                                              item
-                                            ) {
-                                              return _c(
+                                              model: {
+                                                value: item.enfermedad,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "enfermedad",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "item.enfermedad"
+                                              }
+                                            },
+                                            [
+                                              _c(
                                                 "option",
                                                 {
-                                                  key: item.value,
-                                                  domProps: {
-                                                    value: item.value
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
                                                   }
                                                 },
-                                                [_vm._v(_vm._s(item.texto))]
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                _vm.enfcro_options,
+                                                function(item) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      key: item.value,
+                                                      domProps: {
+                                                        value: item.value
+                                                      }
+                                                    },
+                                                    [_vm._v(_vm._s(item.texto))]
+                                                  )
+                                                }
                                               )
-                                            })
-                                          ],
-                                          2
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.tiempo == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(tiempo) {
-                                                return _vm.updateEnInf(
-                                                  item,
-                                                  tiempo,
-                                                  "tiempo"
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: item.tiempo,
-                                              callback: function($$v) {
-                                                _vm.$set(item, "tiempo", $$v)
-                                              },
-                                              expression: "item.tiempo"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
+                                            ],
+                                            2
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.tiempo == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              on: {
+                                                input: function(tiempo) {
+                                                  return _vm.updateEnCro(
+                                                    item,
+                                                    tiempo,
+                                                    "tiempo"
+                                                  )
                                                 }
                                               },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "1" } },
-                                              [_vm._v("Reciente")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "2" } },
-                                              [_vm._v("3 Meses")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "3" } },
-                                              [_vm._v("Entre 3 y 6 meses")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "4" } },
-                                              [_vm._v("Mas de 1 año")]
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.tratamiento == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(tratamiento) {
-                                                return _vm.updateEnInf(
-                                                  item,
-                                                  tratamiento,
-                                                  "tratamiento"
-                                                )
+                                              model: {
+                                                value: item.tiempo,
+                                                callback: function($$v) {
+                                                  _vm.$set(item, "tiempo", $$v)
+                                                },
+                                                expression: "item.tiempo"
                                               }
                                             },
-                                            model: {
-                                              value: item.tratamiento,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  item,
-                                                  "tratamiento",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "item.tratamiento"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "1" } },
+                                                [_vm._v("Menos de 6 Meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "2" } },
+                                                [_vm._v("Menos de 1 Años")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "3" } },
+                                                [_vm._v("Menos de 5 Años")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "4" } },
+                                                [_vm._v("Mas de 5 Años")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.tratamiento == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              on: {
+                                                input: function(tratamiento) {
+                                                  return _vm.updateEnCro(
+                                                    item,
+                                                    tratamiento,
+                                                    "tratamiento"
+                                                  )
                                                 }
                                               },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "SI" } },
-                                              [_vm._v("SI")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "NO" } },
-                                              [_vm._v("NO")]
-                                            )
-                                          ]
-                                        )
+                                              model: {
+                                                value: item.tratamiento,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "tratamiento",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "item.tratamiento"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "SI" } },
+                                                [_vm._v("SI")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "NO" } },
+                                                [_vm._v("NO")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(46),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row", staticStyle: { display: "none" } },
+                    [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _vm._m(47),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.EnInf, function(item, index) {
+                                  return _c(
+                                    "tr",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: item.estado == "Activo",
+                                          expression: "item.estado=='Activo'"
+                                        }
                                       ],
-                                      1
-                                    )
-                                  ]
-                                )
-                              }),
-                              0
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "kt-separator kt-separator--border-dashed"
-                      })
-                    ])
-                  ])
+                                      key: index
+                                    },
+                                    [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: index + 1 }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "200px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value:
+                                                item.tipo_id +
+                                                " : " +
+                                                item.identificacion
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "300px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value:
+                                                item.pnom +
+                                                " " +
+                                                item.snom +
+                                                " " +
+                                                item.pape +
+                                                " " +
+                                                item.sape
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "150px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: item.sexo }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.enfermedad == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              on: {
+                                                input: function(enfermedad) {
+                                                  return _vm.updateEnInf(
+                                                    item,
+                                                    enfermedad,
+                                                    "enfermedad"
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.enfermedad,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "enfermedad",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "item.enfermedad"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                _vm.enfinf_options,
+                                                function(item) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      key: item.value,
+                                                      domProps: {
+                                                        value: item.value
+                                                      }
+                                                    },
+                                                    [_vm._v(_vm._s(item.texto))]
+                                                  )
+                                                }
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.tiempo == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              on: {
+                                                input: function(tiempo) {
+                                                  return _vm.updateEnInf(
+                                                    item,
+                                                    tiempo,
+                                                    "tiempo"
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.tiempo,
+                                                callback: function($$v) {
+                                                  _vm.$set(item, "tiempo", $$v)
+                                                },
+                                                expression: "item.tiempo"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "1" } },
+                                                [_vm._v("Reciente")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "2" } },
+                                                [_vm._v("3 Meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "3" } },
+                                                [_vm._v("Entre 3 y 6 meses")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "4" } },
+                                                [_vm._v("Mas de 1 año")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "b-form-select",
+                                            {
+                                              class:
+                                                item.tratamiento == ""
+                                                  ? "is-invalid"
+                                                  : "is-valid",
+                                              staticStyle: { width: "150px" },
+                                              on: {
+                                                input: function(tratamiento) {
+                                                  return _vm.updateEnInf(
+                                                    item,
+                                                    tratamiento,
+                                                    "tratamiento"
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.tratamiento,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "tratamiento",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "item.tratamiento"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                {
+                                                  attrs: {
+                                                    value: "",
+                                                    selected: ""
+                                                  }
+                                                },
+                                                [_vm._v("Seleccione")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "SI" } },
+                                                [_vm._v("SI")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "NO" } },
+                                                [_vm._v("NO")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ]
+                  )
                 ]
               ),
               _vm._v(" "),
@@ -49461,7 +50697,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(45),
+                  _vm._m(48),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -49470,7 +50706,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(46),
+                            _vm._m(49),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -50641,315 +51877,6 @@ var render = function() {
                 ])
               ])
             ]
-          ),
-          _vm._v(" "),
-          _c(
-            "b-modal",
-            {
-              ref: "modalAbrir",
-              attrs: {
-                "hide-footer": "",
-                title: "Seleccione una opción",
-                size: "sm",
-                centered: "",
-                "header-bg-variant": "danger",
-                "header-text-variant": "light",
-                "no-close-on-backdrop": true
-              }
-            },
-            [
-              _c("div", { staticClass: "d-block" }, [
-                _c("div", { ref: "content" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "kt-portlet kt-portlet--last kt-portlet--head-lg kt-portlet--responsive-mobile"
-                    },
-                    [
-                      _c("div", { staticClass: "kt-portlet__body" }, [
-                        _c("div", { staticClass: "kt-section" }, [
-                          _c("div", { staticClass: "kt-section__content" }, [
-                            _c(
-                              "div",
-                              { staticClass: "row justify-content-center" },
-                              [
-                                _c("div", { staticClass: "col-md-4" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "kt-portlet kt-portlet--height-fluid",
-                                      attrs: {
-                                        "data-container": "body",
-                                        "data-toggle": "kt-popover",
-                                        "data-placement": "left",
-                                        "data-content": "",
-                                        "data-html": "true"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "kt-widget14",
-                                          staticStyle: {
-                                            cursor: "pointer",
-                                            width: "200px"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.seleccionarOpcion(
-                                                "establecimiento"
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "kt-widget14__header"
-                                            },
-                                            [
-                                              _c(
-                                                "h3",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__title text-center font-weight-bold",
-                                                  staticStyle: {
-                                                    "font-size": "11px"
-                                                  }
-                                                },
-                                                [_vm._v("Establecimientos")]
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "kt-widget14__content"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__chart text-center"
-                                                },
-                                                [
-                                                  _c("img", {
-                                                    staticStyle: {
-                                                      height: "100px",
-                                                      width: "140px",
-                                                      float: "right"
-                                                    },
-                                                    attrs: {
-                                                      src:
-                                                        _vm.$store.state
-                                                          .serverPath +
-                                                        "assets/iconos/zonas/viviendas.png"
-                                                    }
-                                                  })
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-4" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "kt-portlet kt-portlet--height-fluid",
-                                      attrs: {
-                                        "data-container": "body",
-                                        "data-toggle": "kt-popover",
-                                        "data-placement": "left",
-                                        "data-content": "",
-                                        "data-html": "true"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "kt-widget14",
-                                          staticStyle: {
-                                            cursor: "pointer",
-                                            width: "200px"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.seleccionarOpcion(
-                                                "unidades"
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "kt-widget14__header"
-                                            },
-                                            [
-                                              _c(
-                                                "h3",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__title text-center font-weight-bold",
-                                                  staticStyle: {
-                                                    "font-size": "11px"
-                                                  }
-                                                },
-                                                [_vm._v("Unidades Productivas")]
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "kt-widget14__content"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__chart text-center"
-                                                },
-                                                [
-                                                  _c("img", {
-                                                    staticStyle: {
-                                                      height: "100px",
-                                                      width: "140px",
-                                                      float: "right"
-                                                    },
-                                                    attrs: {
-                                                      src:
-                                                        _vm.$store.state
-                                                          .serverPath +
-                                                        "assets/iconos/zonas/hogares.png"
-                                                    }
-                                                  })
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "col-md-4" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "kt-portlet kt-portlet--height-fluid",
-                                      attrs: {
-                                        "data-container": "body",
-                                        "data-toggle": "kt-popover",
-                                        "data-placement": "left",
-                                        "data-content": "",
-                                        "data-html": "true"
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "div",
-                                        {
-                                          staticClass: "kt-widget14",
-                                          staticStyle: {
-                                            cursor: "pointer",
-                                            width: "200px"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.seleccionarOpcion(
-                                                "salir"
-                                              )
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass: "kt-widget14__header"
-                                            },
-                                            [
-                                              _c(
-                                                "h3",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__title text-center font-weight-bold",
-                                                  staticStyle: {
-                                                    "font-size": "11px"
-                                                  }
-                                                },
-                                                [_vm._v("Salir")]
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "kt-widget14__content"
-                                            },
-                                            [
-                                              _c(
-                                                "div",
-                                                {
-                                                  staticClass:
-                                                    "kt-widget14__chart text-center"
-                                                },
-                                                [
-                                                  _c("img", {
-                                                    staticStyle: {
-                                                      height: "100px",
-                                                      width: "140px",
-                                                      float: "right"
-                                                    },
-                                                    attrs: {
-                                                      src:
-                                                        _vm.$store.state
-                                                          .serverPath +
-                                                        "assets/iconos/zonas/hogares.png"
-                                                    }
-                                                  })
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            )
-                          ])
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ]
           )
         ],
         1
@@ -50998,6 +51925,32 @@ var staticRenderFns = [
         },
         [_vm._v("Jefe del Hogar")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Enfermedad")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-success" }, [
+          _vm._v("Tipo Enfermedad")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [
+          _vm._v("Diagnosticado Hace cuanto tiempo")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [
+          _vm._v("Está en Tratamiento")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("Eliminar")])
+      ])
     ])
   },
   function() {
@@ -51074,10 +52027,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Programa ICBF")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Enfermedad Infecciosa")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Enfermedad Cronica")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Peso")]),
         _vm._v(" "),
         _c("th", [_vm._v("Talla")]),
@@ -51099,6 +52048,32 @@ var staticRenderFns = [
         },
         [_vm._v("B.Integrantes de la familia")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Enfermedad")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-success" }, [
+          _vm._v("Tipo Enfermedad")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [
+          _vm._v("Diagnosticado Hace cuanto tiempo")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [
+          _vm._v("Está en Tratamiento")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("Eliminar")])
+      ])
     ])
   },
   function() {
@@ -51176,10 +52151,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Jefe de Hogar")]),
         _vm._v(" "),
         _c("th", [_vm._v("Excepciones")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Enfermedad Infecciosa")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Enfermedad Cronica")]),
         _vm._v(" "),
         _c("th", [_vm._v("Peso")]),
         _vm._v(" "),
@@ -51450,6 +52421,20 @@ var staticRenderFns = [
         },
         [_vm._v("Vivienda")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Actividad")]),
+        _vm._v(" "),
+        _c("td", { staticClass: "text-center" }, [_vm._v("Opciones")])
+      ])
     ])
   },
   function() {
@@ -51803,7 +52788,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Via de Parto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Control de CyC")]),
+        _c("th", [_vm._v("Control de CyD")]),
         _vm._v(" "),
         _c("th", { staticClass: "kt-bg-fill-dark" }, [_vm._v("2-3 meses")]),
         _vm._v(" "),
@@ -52067,7 +53052,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [_vm._v("Beneficiario de un Programa")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Control de CyC")]),
+        _c("td", [_vm._v("Control de CyD")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-dark" }, [_vm._v("18-23 meses")]),
         _vm._v(" "),
@@ -52310,7 +53295,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", [_vm._v("Edad")]),
         _vm._v(" "),
-        _c("td", [_vm._v("Control de CyC")]),
+        _c("td", [_vm._v("Control de CyD")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-dark" }, [
           _vm._v("Valoración Integral")
@@ -52610,7 +53595,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-dark" }, [
-          _vm._v("Biposia de Prostata")
+          _vm._v("Biopsia de Prostata")
         ])
       ])
     ])
@@ -52937,7 +53922,7 @@ var staticRenderFns = [
               "text-align": "center",
               "text-transform": "capitalize"
             },
-            attrs: { colspan: "11" }
+            attrs: { colspan: "12" }
           },
           [_vm._v("Crecimiento y Desarrollo")]
         ),
@@ -52979,16 +53964,20 @@ var staticRenderFns = [
           attrs: { colspan: "11" }
         }),
         _vm._v(" "),
-        _c("th", {
-          staticClass: "kt-bg-fill-danger",
-          staticStyle: {
-            "font-weight": "normal",
-            "vertical-align": "middle",
-            "text-align": "center",
-            "text-transform": "capitalize"
+        _c(
+          "th",
+          {
+            staticClass: "kt-bg-fill-danger",
+            staticStyle: {
+              "font-weight": "normal",
+              "vertical-align": "middle",
+              "text-align": "center",
+              "text-transform": "capitalize"
+            },
+            attrs: { colspan: "4" }
           },
-          attrs: { colspan: "4" }
-        })
+          [_vm._v("Relación Familiar")]
+        )
       ]),
       _vm._v(" "),
       _c("tr", { staticClass: "kt-bg-fill-warning" }, [
@@ -53672,7 +54661,7 @@ var staticRenderFns = [
             "text-align": "center",
             "text-transform": "capitalize"
           },
-          attrs: { colspan: "15" }
+          attrs: { colspan: "13" }
         })
       ]),
       _vm._v(" "),
@@ -53743,13 +54732,23 @@ var staticRenderFns = [
           _vm._v("Subsidio de Entidad del Estado")
         ]),
         _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-warning" }, [
-          _vm._v("Enfermedades Cronicas")
-        ]),
+        _c(
+          "td",
+          {
+            staticClass: "kt-bg-fill-warning",
+            staticStyle: { display: "none" }
+          },
+          [_vm._v("Enfermedades Cronicas")]
+        ),
         _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-warning" }, [
-          _vm._v("Enfermedades Infecciosas")
-        ]),
+        _c(
+          "td",
+          {
+            staticClass: "kt-bg-fill-warning",
+            staticStyle: { display: "none" }
+          },
+          [_vm._v("Enfermedades Infecciosas")]
+        ),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-warning" }, [_vm._v("Empleo")])
       ])
@@ -53759,7 +54758,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
+    return _c("p", { staticStyle: { display: "none" } }, [
       _c(
         "span",
         {
@@ -53774,7 +54773,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
+    return _c("p", { staticStyle: { display: "none" } }, [
       _c(
         "span",
         {
@@ -53845,7 +54844,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
+    return _c("p", { staticStyle: { display: "none" } }, [
       _c(
         "span",
         {
@@ -54203,18 +55202,18 @@ function eliminarOcupaciones($data) {
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue":
-/*!*********************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue ***!
-  \*********************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=template&id=45771cc1& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&");
-/* harmony import */ var _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Editar.vue?vue&type=template&id=8bf6b44a& */ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&");
+/* harmony import */ var _Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Editar.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Editar.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -54225,9 +55224,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -54237,54 +55236,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Caracterizacion/Ingreso.vue"
+component.options.__file = "resources/js/Vistas/Caracterizacion/Editar.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css& ***!
-  \******************************************************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1& ***!
-  \****************************************************************************************/
+/***/ "./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a& ***!
+  \***************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Ingreso.vue?vue&type=template&id=45771cc1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Ingreso.vue?vue&type=template&id=45771cc1&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Editar.vue?vue&type=template&id=8bf6b44a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Caracterizacion/Editar.vue?vue&type=template&id=8bf6b44a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Ingreso_vue_vue_type_template_id_45771cc1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Editar_vue_vue_type_template_id_8bf6b44a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

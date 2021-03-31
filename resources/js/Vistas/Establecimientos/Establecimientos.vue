@@ -290,7 +290,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <div class="col-lg-12">
+              <div class="col-lg-10">
                 <label>Actividad Económica:</label>
                 <input
                   type="text"
@@ -303,7 +303,77 @@
                   :readonly="true"
                 />
               </div>
+              <div class="col-lg-1">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-info btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Agregar"
+                  @click.prevent="AgregarActividad"
+                >
+                  <i class="fa fa-plus"></i>
+                </a>&nbsp;
+              </div>
+              <div class="col-lg-1">
+                <br />
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <a
+                  href="javascript:;"
+                  class="btn btn-outline-danger btn-icon"
+                  data-skin="dark"
+                  data-toggle="kt-tooltip"
+                  data-placement="top"
+                  title="Limpiar"
+                  @click.prevent="limpiarActividad"
+                >
+                  <i class="fa fa-trash"></i>
+                </a>&nbsp;
+              </div>              
             </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th>No.</th>
+                        <th>Actividad</th>
+                        <td class="text-center">Opciones</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        v-for="(item,index) in ActividadData"
+                        :key="index"
+                        v-show="item.estado=='Activo'"
+                      >
+                        <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                        <td
+                          style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                        >
+                          <span class="text-capitalize">{{item.actividad}}</span>
+                        </td>
+                        <td style="text-align:center;vertical-align: middle;text-align: center;">
+                          <button
+                            class="btn btn-icon btn-sm btn-outline-danger"
+                            type="button"
+                            title="Eliminar"
+                            @click="eliminarItemActividad(item, index)"
+                          >
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>
+            </div>            
             <div class="form-group row">
               <div class="col-lg-4">
                 <label>Participación de Capital Extranjero:</label>
@@ -489,23 +559,23 @@
                   <option value="NO">NO</option>
                 </b-form-select>
               </div>
-              <div class="col-lg-4">
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-12">
                 <label>Tipo de Afectación del Establecimiento:</label>
-                <b-form-select
+                <multiselect
                   v-model="datos.tipo_afectacion"
+                  :options="tipo"
+                  :multiple="true"
+                  :close-on-select="false"
+                  :clear-on-select="false"
+                  :preserve-search="true"
+                  placeholder="Seleccione un tipo de afectación"
+                  label="texto"
+                  track-by="value"
                   :class="datos.tipo_afectacion==''?'':'is-valid'"
-                  ref="tipo_afectacion"
-                  @change="mostrarOtro('TA')"
-                >
-                  <option value selected>Seleccione</option>
-                  <option value="1">Reducción de personal.</option>
-                  <option value="2">Reducción de salarios.</option>
-                  <option value="3">Desabastecimiento de insumos y materia prima.</option>
-                  <option value="4">Disminución de demanda.</option>
-                  <option value="5">Ninguna afectación.</option>
-                  <option value="6">Otros.</option>
-                </b-form-select>
-              </div>
+                ></multiselect>
+              </div>              
             </div>
             <div class="form-group row">
               <div class="col-lg-4" v-show="mOTA">
@@ -705,6 +775,7 @@
   import * as actividadesServicios from "../../Servicios/actividad_servicios";
   import * as establecimientosServicios from "../../Servicios/establecimientos_servicios";
   import * as barriosServicios from "../../Servicios/barrios_servicios";
+  import Multiselect from "vue-multiselect";
 
   // Import component
   import Loading from "vue-loading-overlay";
@@ -712,7 +783,8 @@
   import "vue-loading-overlay/dist/vue-loading.css";
   export default {
     components: {
-      Loading
+      Loading,
+      Multiselect
     },
     mounted() {
       this.hoy = moment();
@@ -734,6 +806,7 @@
         txtbusquedaAct: "",
         actividadesVector: [],
         actividadesAuxiliar: "",
+        actividad_economica: "",
         hoy: "",
         auxNit: "Identificación",
         datos: {
@@ -749,7 +822,7 @@
           naturaleza: "",
           otra_naturaleza: "",
           tipo: "",
-          actividad_economica: "",
+          // actividad_economica: "",
           capital_extranjero: "",
           permiso: "",
           otro_permiso: "",
@@ -762,7 +835,7 @@
           promedio_ingresos_posterior: "",
           carga_economica: "",
           protocolo_bioseguridad: "",
-          tipo_afectacion: "",
+          tipo_afectacion: [],
           otro_tipo_afectacion: "",
           ayuda: "",
           tiempo_recuperacion: "",
@@ -786,7 +859,18 @@
         mOMP: false,
         mOTA: false,
         mOPP: false,
-        valG: true
+        valG: true,
+        tipo: [
+          { value: 1, texto: "Reducción de personal" },
+          {
+            value: 2,
+            texto: "Reducción de salarios"
+          },
+          { value: 3, texto: "Desabastecimiento de insumos y materia prima" },
+          { value: 4, texto: "Disminución de demanda" },
+          { value: 5, texto: "Ninguna afectación" }
+        ],
+        ActividadData: []        
       };
     },
     computed: {
@@ -1008,17 +1092,26 @@
         }
       },
       seleccionarActividades(item) {
-        this.datos.actividad_economica = item.id;
+        this.actividad_economica = item.id;
         this.actividadesAuxiliar = item.descripcion;
         this.$refs.modalActividad.hide();
       },
       guardar: async function() {
         if (!this.checkForm()) {
         } else {
+          if (this.ActividadData.length <= 0 ) {
+            this.$swal(
+              "Error...!",
+              "Por favor agrege por lo menos una actividad economica!",
+              "error"
+            );
+            return;
+          }          
           this.datos.id_hogar = this.IDHOGAR;
           const parametros = {
             _token: this.csrf,
             datos: this.datos,
+            actividad_establecimientos: this.ActividadData,
             opcion: "guardar"
           };
           this.valG = false;
@@ -1140,16 +1233,16 @@
           );
           return;
         }
-        if (this.datos.actividad_economica === "") {
-          this.$refs.actividad_economica.focus();
-          bande = false;
-          this.$swal(
-            "Error...!",
-            "Por favor seleccione la opción actividad economica!",
-            "error"
-          );
-          return;
-        }
+        // if (this.datos.actividad_economica === "") {
+        //   this.$refs.actividad_economica.focus();
+        //   bande = false;
+        //   this.$swal(
+        //     "Error...!",
+        //     "Por favor seleccione la opción actividad economica!",
+        //     "error"
+        //   );
+        //   return;
+        // }
         if (this.datos.capital_extranjero === "") {
           this.$refs.capital_extranjero.focus();
           bande = false;
@@ -1272,7 +1365,7 @@
           );
           return;
         }
-        if (this.datos.tipo_afectacion === "") {
+        if (this.datos.tipo_afectacion.length <= 0) {
           this.$refs.tipo_afectacion.focus();
           bande = false;
           this.$swal(
@@ -1417,10 +1510,41 @@
             this.datos.promedio_ingresos_posterior = "";
           }
         }
-      }
+      },
+      AgregarActividad(){
+        if (this.actividadesAuxiliar === "") {
+          this.$refs.actividadesAuxiliar.focus();
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione una actividad economica!",
+            "error"
+          );
+          return;
+        }
+        this.ActividadData.push({
+          id: 0,
+          id_actividad: this.actividad_economica,
+          actividad: this.actividadesAuxiliar,
+          estado: "Activo"
+        });
+        this.limpiarActividad();                
+      },
+      limpiarActividad(){
+        this.actividadesAuxiliar = "";
+        this.actividad_economica = "";
+      },
+      eliminarItemActividad: function(item, index) {
+        if (item.id !== 0) {
+          this.ActividadData[index].estado = "Inactivo";
+          this.ActividadData.splice(index, 1, this.ActividadData[index]);
+        } else {
+          this.ActividadData.splice(index, 1);
+        }
+      },      
     }
   };
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
   .modal-backdrop {
     background-color: rgba(0, 0, 0, 0.5) !important;

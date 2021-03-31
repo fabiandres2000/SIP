@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[15],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,119 +11,7 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/etnias_servicios */ "./resources/js/Servicios/etnias_servicios.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/enfermedadesCro_servicios */ "./resources/js/Servicios/enfermedadesCro_servicios.js");
 //
 //
 //
@@ -415,8 +303,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       bandera: false,
       entrarPorError: false,
       txtbusqueda: "",
-      etnias: [],
-      etniasData: {
+      enfermedadescro: [],
+      enfermedadData: {
         descripcion: "",
         observacion: "",
         id: 0
@@ -431,26 +319,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         hasta: 0
       },
       offset: 4,
-      LabelEtnia: "",
-      datos: [],
-      clasificacion: "",
-      idEtnia: 0,
       valG: true
     };
   },
   computed: {
     // CLASES Y ERRORES DE CAMPO IDENTIFICACION
-    etniaError: function etniaError() {
-      var valor = this.etniasData.descripcion.trim();
+    enfermedadescroError: function enfermedadescroError() {
+      var valor = this.enfermedadData.descripcion.trim();
 
       if (valor == "") {
         return "El campo es obligatorio";
       }
     },
-    etniaClases: function etniaClases() {
+    enfermedadesClases: function enfermedadesClases() {
       return [{
-        "is-invalid": this.etniaError,
-        "is-valid": !this.etniaError
+        "is-invalid": this.enfermedadescroError,
+        "is-valid": !this.enfermedadescroError
       }];
     },
     esActivo: function esActivo() {
@@ -510,8 +394,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context.prev = 1;
                 _context.next = 4;
-                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["listarEtnias"](parametros).then(function (respuesta) {
-                  _this.etnias = respuesta.data.etnias.data;
+                return _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
+                  _this.enfermedadescro = respuesta.data.enfermedadescro.data;
                   _this.paginacion = respuesta.data.paginacion;
                 });
 
@@ -549,18 +433,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return consultar;
     }(),
     abrirModal: function abrirModal() {
-      this.etniasData.descripcion = "";
-      this.etniasData.observacion = "";
-      this.etniasData.id = 0;
+      this.enfermedadData.descripcion = "";
+      this.enfermedadData.observacion = "";
+      this.enfermedadData.id = 0;
       this.errores = [];
       this.entrarPorError = false;
-      this.$refs.modalEtnias.show();
+      this.$refs.modalEnfermedad.show();
     },
     cerrarModal: function cerrarModal() {
-      this.$refs.modalEtnias.hide();
+      this.$refs.modalEnfermedad.hide();
     },
-    guardarEtnia: function () {
-      var _guardarEtnia = _asyncToGenerator(
+    guardar: function () {
+      var _guardar = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this2 = this;
@@ -583,19 +467,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 this.errores = [];
                 parametros = {
                   _token: this.csrf,
-                  descripcion: this.etniasData.descripcion,
-                  observacion: this.etniasData.observacion,
-                  id: this.etniasData.id
+                  descripcion: this.enfermedadData.descripcion,
+                  observacion: this.enfermedadData.observacion,
+                  id: this.enfermedadData.id
                 };
                 this.valG = false;
                 _context2.prev = 7;
                 _context2.next = 10;
-                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarEtnias"](parametros).then(function (respuesta) {
+                return _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function (respuesta) {
                   _this2.consultar(1);
 
-                  _this2.etniasData.descripcion = "";
-                  _this2.etniasData.observacion = "";
-                  _this2.etniasData.id = 0;
+                  _this2.enfermedadData.descripcion = "";
+                  _this2.enfermedadData.observacion = "";
+                  _this2.enfermedadData.id = 0;
 
                   _this2.cerrarModal();
 
@@ -638,16 +522,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2, this, [[7, 12]]);
       }));
 
-      function guardarEtnia() {
-        return _guardarEtnia.apply(this, arguments);
+      function guardar() {
+        return _guardar.apply(this, arguments);
       }
 
-      return guardarEtnia;
+      return guardar;
     }(),
     checkForm: function checkForm(e) {
       this.errores = [];
 
-      if (!this.etniasData.descripcion) {
+      if (!this.enfermedadData.descripcion) {
         this.errores.push("La descripción es obligatoria.");
       }
 
@@ -678,11 +562,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 titulo = "";
 
                 if (usu.estado == "Activo") {
-                  title = "¿Desea anular la etnia " + usu.descripcion + "?";
-                  titulo = "Etnia " + usu.descripcion + " anulada de manera exitosa";
+                  title = "¿Desea anular la enfermedad cronica " + usu.descripcion + "?";
+                  titulo = "Enfermedad cronica " + usu.descripcion + " anulada de manera exitosa";
                 } else {
-                  title = "¿Desea activar la etnia " + usu.descripcion + "?";
-                  titulo = "Etnia " + usu.descripcion + " activada de manera exitosa";
+                  title = "¿Desea activar la enfermedad cronica " + usu.descripcion + "?";
+                  titulo = "Enfermedad cronica " + usu.descripcion + " activada de manera exitosa";
                 }
 
                 this.$swal({
@@ -703,7 +587,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     };
 
                     try {
-                      _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminarEtnias"](parametros).then(function (respuesta) {
+                      _Servicios_enfermedadesCro_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function (respuesta) {
                         _this3.consultar(1);
 
                         _this3.$swal({
@@ -746,212 +630,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return eliminar;
     }(),
-    abrirModalClasi: function abrirModalClasi(etn) {
-      this.LabelEtnia = etn.descripcion;
-      this.idEtnia = etn.id;
-      this.consultarClasificacion();
-      this.$refs.modalClasificacion.show();
-    },
-    cerrarModalClasi: function cerrarModalClasi() {
-      this.idEtnia = 0;
-      this.$refs.modalClasificacion.hide();
-    },
-    agregar: function agregar() {
-      if (this.clasificacion == "") {
-        this.$swal("Error...!", "Por favor digite una clasificación!", "error");
-        return;
-      }
-
-      this.datos.push({
-        id: 0,
-        clasificacion: this.clasificacion,
-        estado: "Activo"
-      });
-      this.clasificacion = "";
-    },
-    eliminarItem: function eliminarItem(index, estado) {
-      var esta = "";
-
-      if (estado == "Activo") {
-        esta = "Inactivo";
-      } else {
-        esta = "Activo";
-      }
-
-      this.datos[index].estado = esta; // this.datos.splice(index, 1);
-    },
-    guardarClasificacion: function () {
-      var _guardarClasificacion = _asyncToGenerator(
+    editar: function () {
+      var _editar = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var _this4 = this;
-
-        var parametros;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(item) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                if (this.checkForm2()) {
-                  _context4.next = 4;
-                  break;
-                }
-
-                this.entrarPorError = false;
-                _context4.next = 23;
-                break;
+                this.enfermedadData.descripcion = item.descripcion;
+                this.enfermedadData.observacion = item.observacion;
+                this.enfermedadData.id = item.id;
+                this.$refs.modalEnfermedad.show();
 
               case 4:
-                this.errores = [];
-                parametros = {
-                  _token: this.csrf,
-                  clasificacion: this.datos,
-                  id_etnia: this.idEtnia
-                };
-                this.valG = false;
-                _context4.prev = 7;
-                _context4.next = 10;
-                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarClasificacion"](parametros).then(function (respuesta) {
-                  _this4.consultar(1);
-
-                  _this4.datos = [];
-                  _this4.clasificacion = "";
-                  _this4.bandera = false;
-
-                  _this4.cerrarModalClasi();
-
-                  _this4.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success");
-
-                  _this4.valG = true;
-                })["catch"](function (error) {
-                  _this4.errorDevuelto = error.response.data.errors;
-                  _this4.entrarPorError = true;
-                });
-
-              case 10:
-                _context4.next = 23;
-                break;
-
-              case 12:
-                _context4.prev = 12;
-                _context4.t0 = _context4["catch"](7);
-                _context4.t1 = _context4.t0.response.status;
-                _context4.next = _context4.t1 === 419 ? 17 : _context4.t1 === 422 ? 19 : 21;
-                break;
-
-              case 17:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 23);
-
-              case 19:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 23);
-
-              case 21:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context4.abrupt("break", 23);
-
-              case 23:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this, [[7, 12]]);
-      }));
-
-      function guardarClasificacion() {
-        return _guardarClasificacion.apply(this, arguments);
-      }
-
-      return guardarClasificacion;
-    }(),
-    checkForm2: function checkForm2(e) {
-      this.errores = [];
-
-      if (this.datos.length <= 0) {
-        this.errores.push("Agregue por lo menos una clasificación");
-      }
-
-      if (!this.errores.length) {
-        return true;
-      } else {
-        return false;
-      }
-
-      e.preventDefault();
-    },
-    consultarClasificacion: function () {
-      var _consultarClasificacion = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
-        var _this5 = this;
-
-        var parametros;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                parametros = {
-                  id_etnia: this.idEtnia,
-                  _token: this.csrf
-                };
-                _context5.prev = 1;
-                _context5.next = 4;
-                return _Servicios_etnias_servicios__WEBPACK_IMPORTED_MODULE_1__["listarClasificacion"](parametros).then(function (respuesta) {
-                  _this5.datos = respuesta.data.clasificacion;
-                });
-
-              case 4:
-                _context5.next = 15;
-                break;
-
-              case 6:
-                _context5.prev = 6;
-                _context5.t0 = _context5["catch"](1);
-                _context5.t1 = _context5.t0.response.status;
-                _context5.next = _context5.t1 === 422 ? 11 : 13;
-                break;
-
-              case 11:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context5.abrupt("break", 15);
-
-              case 13:
-                this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context5.abrupt("break", 15);
-
-              case 15:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5, this, [[1, 6]]);
-      }));
-
-      function consultarClasificacion() {
-        return _consultarClasificacion.apply(this, arguments);
-      }
-
-      return consultarClasificacion;
-    }(),
-    editar: function () {
-      var _editar = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(item) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
-          while (1) {
-            switch (_context6.prev = _context6.next) {
-              case 0:
-                this.etniasData.descripcion = item.descripcion;
-                this.etniasData.observacion = item.observacion;
-                this.etniasData.id = item.id;
-                this.$refs.modalEtnias.show();
-
-              case 4:
-              case "end":
-                return _context6.stop();
-            }
-          }
-        }, _callee6, this);
+        }, _callee4, this);
       }));
 
       function editar(_x3) {
@@ -965,10 +662,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -984,15 +681,15 @@ exports.push([module.i, "\n.modal-backdrop {\n  background-color: rgba(0, 0, 0, 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -1014,10 +711,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&":
-/*!************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544& ***!
-  \************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c& ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1052,7 +749,7 @@ var render = function() {
                             "data-skin": "dark",
                             "data-toggle": "kt-tooltip",
                             "data-placement": "top",
-                            title: "Nueva Etnia"
+                            title: "Nueva Enfermedad Cronica"
                           },
                           on: { click: _vm.abrirModal }
                         },
@@ -1118,7 +815,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.etnias, function(item, index) {
+                        _vm._l(_vm.enfermedadescro, function(item, index) {
                           return _c("tr", { key: index }, [
                             _c(
                               "td",
@@ -1190,24 +887,6 @@ var render = function() {
                                 }
                               },
                               [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-outline-success btn-icon btn-sm",
-                                    attrs: {
-                                      type: "button",
-                                      title: "Agregar Clasificación"
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.abrirModalClasi(item)
-                                      }
-                                    }
-                                  },
-                                  [_c("i", { staticClass: "fa fa-list" })]
-                                ),
-                                _vm._v(" "),
                                 _c(
                                   "button",
                                   {
@@ -1446,10 +1125,10 @@ var render = function() {
         _c(
           "b-modal",
           {
-            ref: "modalEtnias",
+            ref: "modalEnfermedad",
             attrs: {
               "hide-footer": "",
-              title: "Gestion de Etnias",
+              title: "Gestion de Enfermedades Cronicas",
               size: "xl",
               centered: "",
               "header-bg-variant": "danger",
@@ -1608,29 +1287,29 @@ var render = function() {
               _vm._v(" "),
               _c("form", [
                 _c("div", { staticClass: "form-group row" }, [
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("label", [_vm._v("Etnia:")]),
+                  _c("div", { staticClass: "col-lg-6" }, [
+                    _c("label", [_vm._v("Enfermedad Cronica:")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.etniasData.descripcion,
-                          expression: "etniasData.descripcion"
+                          value: _vm.enfermedadData.descripcion,
+                          expression: "enfermedadData.descripcion"
                         }
                       ],
                       staticClass: "form-control text-capitalize",
-                      class: _vm.etniaClases,
+                      class: _vm.enfermedadesClases,
                       attrs: { type: "text", placeholder: "Descripción" },
-                      domProps: { value: _vm.etniasData.descripcion },
+                      domProps: { value: _vm.enfermedadData.descripcion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.etniasData,
+                            _vm.enfermedadData,
                             "descripcion",
                             $event.target.value
                           )
@@ -1638,14 +1317,14 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm.etniaError
+                    _vm.enfermedadescroError
                       ? _c("div", { staticClass: "invalid-feedback" }, [
-                          _vm._v(_vm._s(_vm.etniaError))
+                          _vm._v(_vm._s(_vm.enfermedadescroError))
                         ])
                       : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-8" }, [
+                  _c("div", { staticClass: "col-lg-6" }, [
                     _c("label", [_vm._v("Observación:")]),
                     _vm._v(" "),
                     _c("input", {
@@ -1653,20 +1332,20 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.etniasData.observacion,
-                          expression: "etniasData.observacion"
+                          value: _vm.enfermedadData.observacion,
+                          expression: "enfermedadData.observacion"
                         }
                       ],
                       staticClass: "form-control text-capitalize",
                       attrs: { type: "text", placeholder: "Observación" },
-                      domProps: { value: _vm.etniasData.observacion },
+                      domProps: { value: _vm.enfermedadData.observacion },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
                           _vm.$set(
-                            _vm.etniasData,
+                            _vm.enfermedadData,
                             "observacion",
                             $event.target.value
                           )
@@ -1685,7 +1364,7 @@ var render = function() {
                       staticClass: "btn btn-success",
                       class: _vm.spinG,
                       attrs: { type: "button", disabled: !_vm.valG },
-                      on: { click: _vm.guardarEtnia }
+                      on: { click: _vm.guardar }
                     },
                     [
                       _c("i", { staticClass: "fa fa-edit" }),
@@ -1699,260 +1378,6 @@ var render = function() {
                       staticClass: "btn btn-warning",
                       attrs: { type: "button" },
                       on: { click: _vm.cerrarModal }
-                    },
-                    [
-                      _c("i", { staticClass: "fa fa-window-close" }),
-                      _vm._v(" Cancelar\n            ")
-                    ]
-                  )
-                ])
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "b-modal",
-          {
-            ref: "modalClasificacion",
-            attrs: {
-              "hide-footer": "",
-              title: "Gestion de Clasificación de Etnias",
-              size: "xl",
-              centered: "",
-              "header-bg-variant": "danger",
-              "header-text-variant": "light",
-              "no-close-on-backdrop": true
-            }
-          },
-          [
-            _c("div", { staticClass: "d-block" }, [
-              _c("form", [
-                _c("div", { staticClass: "form-group row" }, [
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "bold",
-                        staticStyle: { "font-size": "18px" }
-                      },
-                      [_vm._v("Etnia: " + _vm._s(_vm.LabelEtnia))]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c("div", { staticClass: "col-lg-11" }, [
-                    _c("label", [_vm._v("Clasificación:")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.clasificacion,
-                          expression: "clasificacion"
-                        }
-                      ],
-                      staticClass: "form-control text-capitalize",
-                      attrs: { type: "text", placeholder: "Clasificación" },
-                      domProps: { value: _vm.clasificacion },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.clasificacion = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-1" }, [
-                    _c("label", [_vm._v("   ")]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-outline-info btn-icon",
-                        attrs: {
-                          href: "javascript:;",
-                          "data-skin": "dark",
-                          "data-toggle": "kt-tooltip",
-                          "data-placement": "top",
-                          title: "Agregar Clasificación"
-                        },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.agregar($event)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fa fa-plus" })]
-                    ),
-                    _vm._v(" \n            ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c("div", { staticClass: "col-md-12" }, [
-                    _c("div", { staticClass: "table-responsive" }, [
-                      _c(
-                        "table",
-                        { staticClass: "table table-sm table-hover" },
-                        [
-                          _c("thead", {}, [
-                            _c("tr", { staticClass: "kt-bg-fill-brand" }, [
-                              _c("th", [_vm._v("No.")]),
-                              _vm._v(" "),
-                              _c("th", [_vm._v("Clasificación")]),
-                              _vm._v(" "),
-                              _c("th", [_vm._v("Estado")]),
-                              _vm._v(" "),
-                              _c("td", { staticClass: "text-center" }, [
-                                _vm._v("Opciones")
-                              ])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "tbody",
-                            _vm._l(_vm.datos, function(item, index) {
-                              return _c("tr", { key: index }, [
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [_vm._v(_vm._s(index + 1))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "left",
-                                      "text-transform": "capitalize"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "span",
-                                      { staticClass: "text-capitalize" },
-                                      [_vm._v(_vm._s(item.clasificacion))]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "font-weight": "normal",
-                                      "vertical-align": "middle",
-                                      "text-align": "center"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "span",
-                                      {
-                                        staticClass:
-                                          "kt-badge kt-badge--inline",
-                                        class:
-                                          item.estado == "Activo"
-                                            ? "kt-badge--success"
-                                            : "kt-badge--danger"
-                                      },
-                                      [_vm._v(_vm._s(item.estado))]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  {
-                                    staticStyle: {
-                                      "text-align": "center",
-                                      "vertical-align": "middle"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass: "btn btn-icon btn-sm",
-                                        class:
-                                          item.estado == "Activo"
-                                            ? "btn-outline-danger"
-                                            : "btn-outline-success",
-                                        attrs: {
-                                          type: "button",
-                                          title:
-                                            item.estado == "Activo"
-                                              ? "Anular"
-                                              : "Activar"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.eliminarItem(
-                                              index,
-                                              item.estado
-                                            )
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa",
-                                          class:
-                                            item.estado == "Activo"
-                                              ? "fa-trash"
-                                              : "fa-check"
-                                        })
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ])
-                            }),
-                            0
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-success",
-                      class: _vm.spinG,
-                      attrs: { type: "button", disabled: !_vm.valG },
-                      on: { click: _vm.guardarClasificacion }
-                    },
-                    [
-                      _c("i", { staticClass: "fa fa-edit" }),
-                      _vm._v(" Guardar\n            ")
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-warning",
-                      attrs: { type: "button" },
-                      on: { click: _vm.cerrarModalClasi }
                     },
                     [
                       _c("i", { staticClass: "fa fa-window-close" }),
@@ -1978,7 +1403,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "kt-portlet__head-label" }, [
         _c("h3", { staticClass: "kt-portlet__head-title" }, [
           _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
-            _vm._v("GESTIÓN DE ETNIAS")
+            _vm._v("GESTIÓN DE ENFERMEDADES CRONICAS")
           ])
         ])
       ])
@@ -1992,7 +1417,7 @@ var staticRenderFns = [
       _c("tr", { staticClass: "kt-bg-fill-brand" }, [
         _c("th", [_vm._v("No.")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Etnia")]),
+        _c("th", [_vm._v("Enfermedad")]),
         _vm._v(" "),
         _c("th", [_vm._v("Observación")]),
         _vm._v(" "),
@@ -2009,52 +1434,44 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Servicios/etnias_servicios.js":
-/*!****************************************************!*\
-  !*** ./resources/js/Servicios/etnias_servicios.js ***!
-  \****************************************************/
-/*! exports provided: listarEtnias, guardarEtnias, eliminarEtnias, guardarClasificacion, listarClasificacion */
+/***/ "./resources/js/Servicios/enfermedadesCro_servicios.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/Servicios/enfermedadesCro_servicios.js ***!
+  \*************************************************************/
+/*! exports provided: listar, guardar, eliminar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarEtnias", function() { return listarEtnias; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarEtnias", function() { return guardarEtnias; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarEtnias", function() { return eliminarEtnias; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarClasificacion", function() { return guardarClasificacion; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listarClasificacion", function() { return listarClasificacion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listar", function() { return listar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardar", function() { return guardar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
-function listarEtnias($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias', $data);
+function listar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro', $data);
 }
-function guardarEtnias($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/guardar', $data);
+function guardar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro/guardar', $data);
 }
-function eliminarEtnias($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/eliminar', $data);
-}
-function guardarClasificacion($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/guardarClasificacion', $data);
-}
-function listarClasificacion($data) {
-  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/etnias/listarClasificacion', $data);
+function eliminar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/enfermedadesCro/eliminar', $data);
 }
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Etnias/Etnias.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/Vistas/Etnias/Etnias.vue ***!
-  \***********************************************/
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue ***!
+  \**************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Etnias.vue?vue&type=template&id=6349f544& */ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&");
-/* harmony import */ var _Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Etnias.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Etnias.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=template&id=1860428c& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&");
+/* harmony import */ var _EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -2065,9 +1482,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -2077,54 +1494,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Vistas/Etnias/Etnias.vue"
+component.options.__file = "resources/js/Vistas/Enfermedades/EnfermedadesCro.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css& ***!
-  \********************************************************************************/
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--5-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--5-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_5_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_5_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544& ***!
-  \******************************************************************************/
+/***/ "./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c& ***!
+  \*********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Etnias.vue?vue&type=template&id=6349f544& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Etnias/Etnias.vue?vue&type=template&id=6349f544&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./EnfermedadesCro.vue?vue&type=template&id=1860428c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Enfermedades/EnfermedadesCro.vue?vue&type=template&id=1860428c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Etnias_vue_vue_type_template_id_6349f544___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EnfermedadesCro_vue_vue_type_template_id_1860428c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

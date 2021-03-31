@@ -15,7 +15,7 @@ class Integrante extends Model
         'colegio', 'grado', 'etnia', 'entiende', 'pyp', 'migrante',
         'id_compania', 'estado', 'clasificacion', 'puntaje_sisben', 'otra_eps',
         'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'excepciones',
-        'enfermedad_infecciosa', 'enfermedad_cronica', 'peso', 'talla',
+        'peso', 'talla',
     ];
     public static function guardar($data, $alias)
     {
@@ -34,9 +34,8 @@ class Integrante extends Model
         }
 
         $jefe = \App\Caracterizacion::buscar($data['jefe'], $alias);
-        return DB::connection('mysql')->table($alias . '.integrantes')->updateOrInsert([
+        return DB::connection('mysql')->table($alias . '.integrantes')->insertGetId([
             'id' => $data['id'],
-        ], [
             'id_hogar' => $data['id_hogar'],
             'tipo_id' => $data['tipo_id'],
             'identificacion' => $identi,
@@ -74,8 +73,67 @@ class Integrante extends Model
             'programa_icbf' => $data['programa_icbf'],
             'identi_auxi' => $data['identificacion'],
             'excepciones' => $data['excepciones'],
-            'enfermedad_infecciosa' => $data['enfermedad_infecciosa'],
-            'enfermedad_cronica' => $data['enfermedad_cronica'],
+            'peso' => $data['peso'],
+            'talla' => $data['talla'],
+        ]);
+    }
+
+    public static function modificar($data, $alias, $id)
+    {
+
+        $identi = $data['identificacion'];
+        if ($data['tipo_id'] == "MSI" || $data['tipo_id'] == "ASI") {
+            $count = DB::connection('mysql')->table($alias . '.integrantes')
+                ->count();
+            if ($count <= 0) {
+                $identi = str_pad(1, 7, "0", STR_PAD_LEFT);
+            } else {
+                $resp = DB::connection('mysql')->table($alias . '.integrantes')
+                    ->orderBy('id', 'desc')->first();
+                $identi = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
+            }
+        }
+
+        $jefe = \App\Caracterizacion::buscar($data['jefe'], $alias);
+        return DB::connection('mysql')->table($alias . '.integrantes')->where('id', $id)->update([
+            'id' => $data['id'],
+            'id_hogar' => $data['id_hogar'],
+            'tipo_id' => $data['tipo_id'],
+            'identificacion' => $identi,
+            'sexo' => $data['sexo'],
+            'parentesco' => $data['parentesco'],
+            'pnom' => $data['pnom'],
+            'snom' => $data['snom'],
+            'pape' => $data['pape'],
+            'sape' => $data['sape'],
+            'estado_civil' => $data['estado_civil'],
+            'fecha_nac' => $data['fecha_nac'],
+            'afi_entidad' => $data['afi_entidad'],
+            'otra_eps' => $data['otra_eps'],
+            'tipo_afiliacion' => $data['tipo_afiliacion'],
+            'embarazo' => $data['embarazo'],
+            'embarazo_multiple' => $data['embarazo_multiple'],
+            'discapacidad' => $data['discapacidad'],
+            'escolaridad' => $data['escolaridad'],
+            'ocupacion' => $data['ocupacion'],
+            'colegio' => $data['colegio'],
+            'grado' => $data['grado'],
+            'etnia' => $data['etnia'],
+            'entiende' => $data['entiende'],
+            'pyp' => $data['pyp'],
+            'migrante' => $data['migrante'],
+            'id_compania' => 1,
+            'estado' => $data['estado'],
+            'clasificacion' => $data['clasificacion'],
+            'puntaje_sisben' => $data['puntaje_sisben'],
+            'jefe' => $jefe->id,
+            'orientacion' => $data['orientacion'],
+            'identidad_genero' => $data['identidad_genero'],
+            'telefono' => $data['telefono'],
+            'perdida_peso' => $data['perdida_peso'],
+            'programa_icbf' => $data['programa_icbf'],
+            'identi_auxi' => $data['identificacion'],
+            'excepciones' => $data['excepciones'],
             'peso' => $data['peso'],
             'talla' => $data['talla'],
         ]);
@@ -129,8 +187,6 @@ class Integrante extends Model
             ->leftjoin($alias . '.etnias', 'etnias.id', 'integrantes.etnia')
             ->leftjoin($alias . '.clasificacion_etnia', 'clasificacion_etnia.id', 'integrantes.clasificacion')
 
-            ->leftjoin($alias . '.enfermedadescro', 'enfermedadescro.id', 'integrantes.enfermedad_cronica')
-            ->leftjoin($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'integrantes.enfermedad_infecciosa')
             ->where('integrantes.id_hogar', $id_hogar)
             ->where('integrantes.estado', 'Activo')
             ->select("integrantes.*",
@@ -141,9 +197,7 @@ class Integrante extends Model
                 "estadocivil.descripcion AS textoEstado",
                 "escolaridad.descripcion AS textoEscolaridad",
                 "etnias.descripcion AS textoEtnia",
-                "clasificacion_etnia.clasificacion AS textoClasificacion",
-                "enfermedadesinf.descripcion AS textoEnfermedad_infecciosa",
-                "enfermedadescro.descripcion AS textoEnfermedad_cronica"
+                "clasificacion_etnia.clasificacion AS textoClasificacion"
             )
             ->selectRaw("CASE "
                 . " WHEN integrantes.afi_entidad IS NULL THEN '' "
@@ -176,7 +230,7 @@ class Integrante extends Model
                 . " END textoExcepciones"
                 . " ")
             ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
-            ->orderBy("integrantes.id","ASC")
+            ->orderBy("integrantes.id", "ASC")
             ->get();
     }
 

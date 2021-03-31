@@ -94,13 +94,26 @@ class EstablecimientosController extends Controller
             $data = request()->all();
             $opcion = request()->get("opcion");
             $data = request()->get("datos");
+            $actividad_establecimientos = request()->get("actividad_establecimientos");
             if ($opcion == "guardar") {
                 $establecimientos = \App\Establecimientos::guardar($data, Session::get('alias'));
-                $gua = \App\Log::guardar("Guardar el establecimiento  con razón social= ".$data["razon"], Session::get('alias'));
+                if ($establecimientos) {
+                    for ($i = 0; $i < count($actividad_establecimientos); $i++) {
+                        $actividad_establecimientos[$i]['id_establecimiento'] = $establecimientos;
+                        $res = \App\ActividadEstablecimiento::guardar($actividad_establecimientos[$i], Session::get('alias'));
+                    }
+                    $gua = \App\Log::guardar("Guardar el establecimiento  con razón social= " . $data["razon"], Session::get('alias'));
+                }
+
             } else {
-                $id = request()->get("id");                
+                $id = request()->get("id");
                 $establecimientos = \App\Establecimientos::modificar($data, Session::get('alias'), $id);
-                $gua = \App\Log::guardar("Editar el establecimiento  con razón social= ".$data["razon"], Session::get('alias'));
+                for ($i = 0; $i < count($actividad_establecimientos); $i++) {
+                    $actividad_establecimientos[$i]['id_establecimiento'] = $id;
+                    $res = \App\ActividadEstablecimiento::guardar($actividad_establecimientos[$i], Session::get('alias'));
+                }
+                $gua = \App\Log::guardar("Editar el establecimiento  con razón social= " . $data["razon"], Session::get('alias'));
+                $establecimientos = true;
             }
             if ($establecimientos) {
                 $respuesta = [
@@ -126,7 +139,7 @@ class EstablecimientosController extends Controller
         if (Auth::check()) {
             $id = request()->get("id");
             $ParPost = \App\Establecimientos::editarestado("Inactivo", $id, Session::get('alias'));
-            $gua = \App\Log::guardar("Eliminar el establecimiento  con id = ".$id, Session::get('alias'));
+            $gua = \App\Log::guardar("Eliminar el establecimiento  con id = " . $id, Session::get('alias'));
             $OPC = "SI";
             $respuesta = [
                 'OPC' => $OPC,
@@ -177,12 +190,14 @@ class EstablecimientosController extends Controller
 
             $id = request()->get("id");
             $establecimientos = \App\Establecimientos::buscar(Session::get('alias'), $id);
+            $actividad_establecimientos = \App\ActividadEstablecimiento::buscar(Session::get('alias'), $id);
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
                 'arrayMuni' => $arrayMuni,
                 'arrayCorregi' => $arrayCorregi,
                 'arrayVeredas' => $arrayVeredas,
                 'establecimientos' => $establecimientos,
+                'actividad_establecimientos' => $actividad_establecimientos,
             ];
             return response()->json($respuesta, 200);
         } else {

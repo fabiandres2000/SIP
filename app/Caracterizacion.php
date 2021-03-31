@@ -14,8 +14,7 @@ class Caracterizacion extends Model
         'id_compania', 'estado', 'estado_civil', 'fecha_nacimiento', 'afiliacion_entidad',
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
-        'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf', 'identi_auxi',
-        'enfermedad_infecciosa', 'enfermedad_cronica', 'peso', 'talla',
+        'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'peso', 'talla',
     ];
 
     public static function listar($busqueda, $alias)
@@ -97,9 +96,8 @@ class Caracterizacion extends Model
             }
         }
 
-        return DB::connection('mysql')->table($alias . '.caracterizacion')->updateOrInsert([
+        return DB::connection('mysql')->table($alias . '.caracterizacion')->insertGetId([
             'id' => $data['id'],
-        ], [
             'id_hogar' => $data['id_hogar'],
             'telefono' => $data['telefono'],
             'puntaje_sisben' => $data['puntaje_sisben'],
@@ -136,13 +134,67 @@ class Caracterizacion extends Model
             'perdida_peso' => $data['perdida_peso'],
             'programa_icbf' => $data['programa_icbf'],
             'identi_auxi' => $data['identificacion'],
-            'enfermedad_infecciosa' => $data['enfermedad_infecciosa'],
-            'enfermedad_cronica' => $data['enfermedad_cronica'],
             'peso' => $data['peso'],
             'talla' => $data['talla'],
         ]);
     }
+    public static function modificar($data, $alias, $id)
+    {
 
+        $identi = $data['identificacion'];
+        if ($data['tipo_id'] == "MSI" || $data['tipo_id'] == "ASI") {
+            $count = DB::connection('mysql')->table($alias . '.caracterizacion')
+                ->count();
+            if ($count <= 0) {
+                $identi = str_pad(1, 7, "0", STR_PAD_LEFT);
+            } else {
+                $resp = DB::connection('mysql')->table($alias . '.caracterizacion')
+                    ->orderBy('id', 'desc')->first();
+                $identi = str_pad(1 + $resp->identificacion, 7, "0", STR_PAD_LEFT);
+            }
+        }
+
+        return DB::connection('mysql')->table($alias . '.caracterizacion')->where('id', $id)->update([            
+            'id_hogar' => $data['id_hogar'],
+            'telefono' => $data['telefono'],
+            'puntaje_sisben' => $data['puntaje_sisben'],
+            'afiliacion_entidad' => $data['afiliacion_entidad'],
+            'otra_eps' => $data['otra_eps'],
+            'tipo_id' => $data['tipo_id'],
+            'identificacion' => $identi,
+            'sexo' => $data['sexo'],
+            'parentesco' => $data['parentesco'],
+            'pnom' => $data['pnom'],
+            'snom' => $data['snom'],
+            'pape' => $data['pape'],
+            'sape' => $data['sape'],
+            'id_compania' => 1,
+            'estado' => $data['estado'],
+            'salario' => $data['salario'],
+            'estado_civil' => $data['estado_civil'],
+            'fecha_nacimiento' => $data['fecha_nacimiento'],
+            'tipo_afiliacion' => $data['tipo_afiliacion'],
+            'embarazo' => $data['embarazo'],
+            'embarazo_multiple' => $data['embarazo_multiple'],
+            'discapacidad' => $data['discapacidad'],
+            'nivel_escolaridad' => $data['nivel_escolaridad'],
+            'ocupacion' => $data['ocupacion'],
+            'colegio' => $data['colegio'],
+            'grado' => $data['grado'],
+            'etnia' => $data['etnia'],
+            'clasificacion' => $data['clasificacion'],
+            'entiende' => $data['entiende'],
+            'pyp' => $data['pyp'],
+            'migrante' => $data['migrante'],
+            'orientacion' => $data['orientacion'],
+            'identidad_genero' => $data['identidad_genero'],
+            'perdida_peso' => $data['perdida_peso'],
+            'programa_icbf' => $data['programa_icbf'],
+            'identi_auxi' => $data['identificacion'],
+            'peso' => $data['peso'],
+            'talla' => $data['talla'],
+        ]);
+    }
     public static function verificar($identificacion, $alias)
     {
         return DB::connection('mysql')->table($alias . '.caracterizacion')
@@ -229,9 +281,6 @@ class Caracterizacion extends Model
             ->leftjoin($alias . '.etnias', 'etnias.id', 'caracterizacion.etnia')
             ->leftjoin($alias . '.clasificacion_etnia', 'clasificacion_etnia.id', 'caracterizacion.clasificacion')
 
-            ->leftjoin($alias . '.enfermedadescro', 'enfermedadescro.id', 'caracterizacion.enfermedad_cronica')
-            ->leftjoin($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'caracterizacion.enfermedad_infecciosa')
-
             ->where('id_hogar', $id_hogar)
             ->where('caracterizacion.estado', 'Activo')
             ->select("caracterizacion.*",
@@ -242,8 +291,6 @@ class Caracterizacion extends Model
                 "escolaridad.descripcion AS textoNivel",
                 "etnias.descripcion AS textoEtnia",
                 "clasificacion_etnia.clasificacion AS textoClasificacion",
-                "enfermedadesinf.descripcion AS textoEnfermedad_infecciosa",
-                "enfermedadescro.descripcion AS textoEnfermedad_cronica"
             )
             ->selectRaw("CASE "
                 . " WHEN caracterizacion.afiliacion_entidad IS NULL THEN '' "

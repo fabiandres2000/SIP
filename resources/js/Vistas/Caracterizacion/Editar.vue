@@ -438,25 +438,11 @@
                   </b-form-select>
                 </div>
                 <div class="col-lg-4">
-                  <label>Orientación Sexual (*):</label>
-                  <b-form-select
-                    v-model.trim="caracData.orientacion"
-                    :class="caracData.orientacion==''?'':'is-valid'"
-                    ref="sexo"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
-                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
-                    <option value="BISEXUAL">BISEXUAL</option>
-                    <option value="NODECLARA">NO DECLARA</option>
-                    <option value="NA">NO APLICA</option>
-                  </b-form-select>
-                </div>
-                <div class="col-lg-4">
                   <label>Identidad de Genero (*):</label>
                   <b-form-select
                     v-model.trim="caracData.identidad_genero"
                     :class="caracData.identidad_genero==''?'':'is-valid'"
+                    @change="cambiarCombo('IdenGen1')"
                   >
                     <option value selected>Seleccione</option>
                     <option value="CISGENERO">CISGENERO</option>
@@ -466,6 +452,22 @@
                     <option value="NA">NO APLICA</option>
                   </b-form-select>
                 </div>
+                <div class="col-lg-4">
+                  <label>Orientación Sexual (*):</label>
+                  <b-form-select
+                    v-model.trim="caracData.orientacion"
+                    :class="caracData.orientacion==''?'':'is-valid'"
+                    ref="sexo"
+                    @change="cambiarCombo('Orienta1')"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                    <option value="BISEXUAL">BISEXUAL</option>
+                    <option value="NODECLARA">NO DECLARA</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
               </div>
               <div class="form-group row">
                 <div class="col-lg-3">
@@ -523,6 +525,31 @@
                     @change="formato('telefono1')"
                   />
                 </div>
+                <div class="col-lg-4">
+                  <label>Fecha de Nacimiento (*):</label>
+                  <input
+                    id="date"
+                    type="date"
+                    placeholder="Fecha de Nacimiento"
+                    v-model="caracData.fecha_nacimiento"
+                    :class="caracData.fecha_nacimiento==''?'':'is-valid'"
+                    class="form-control text-capitalize"
+                    ref="fecha_nacimiento"
+                    :max="hoy | moment"
+                    @change="calculosAedad"
+                  />
+                </div>
+                <div class="col-lg-2">
+                  <label>Edad:</label>
+                  <input
+                    type="text"
+                    v-model="calEdad2"
+                    class="form-control text-capitalize"
+                    placeholder="Edad"
+                    :class="caracData.edad==''?'':'is-valid'"
+                    readonly
+                  />
+                </div>
                 <div class="col-lg-3">
                   <label>Estado Civil (*):</label>
                   <b-form-select
@@ -537,31 +564,7 @@
                       :key="item.value"
                     >{{item.texto}}</option>
                   </b-form-select>
-                </div>
-                <div class="col-lg-4">
-                  <label>Fecha de Nacimiento (*):</label>
-                  <input
-                    id="date"
-                    type="date"
-                    placeholder="Fecha de Nacimiento"
-                    v-model="caracData.fecha_nacimiento"
-                    :class="caracData.fecha_nacimiento==''?'':'is-valid'"
-                    class="form-control text-capitalize"
-                    ref="fecha_nacimiento"
-                    :max="hoy | moment"
-                  />
-                </div>
-                <div class="col-lg-2">
-                  <label>Edad:</label>
-                  <input
-                    type="text"
-                    v-model="calEdad2"
-                    class="form-control text-capitalize"
-                    placeholder="Edad"
-                    :class="caracData.edad==''?'':'is-valid'"
-                    readonly
-                  />
-                </div>
+                </div>                
               </div>
               <div class="form-group row">
                 <div class="col-lg-2">
@@ -827,20 +830,8 @@
               </div>
               <div class="form-group row">
                 <div class="col-lg-4">
-                  <label>Pertenece a algún programa del ICBF:</label>
-                  <b-form-select
-                    v-model="caracData.programa_icbf"
-                    :class="caracData.programa_icbf==''?'':'is-valid'"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option value="SI">SI</option>
-                    <option value="NO">NO</option>
-                    <option value="NA">NO APLICA</option>
-                  </b-form-select>
-                </div>
-                <div class="col-lg-4">
                   <label>Enfermedad Infecciosa:</label>
-                  <b-form-select                  
+                  <b-form-select
                     v-model="caracData.enfermedad_infecciosa"
                     :class="caracData.enfermedad_infecciosa==''?'':'is-valid'"
                   > 
@@ -852,6 +843,21 @@
                     >{{item.texto}}</option>
                   </b-form-select>                  
                 </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-success btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar Enfermedades"
+                    @click.prevent="agregarEnfJef('Infecciosa')"
+                  >
+                    <i class="fa fa-plus"></i>                    
+                  </a>&nbsp;
+                </div>                
                 <div class="col-lg-4">
                   <label>Enfermedad Cronica:</label>
                   <b-form-select
@@ -865,9 +871,143 @@
                       :key="item.value"
                     >{{item.texto}}</option>
                   </b-form-select>                  
-                </div>                
+                </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-success btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar Enfermedades"
+                    @click.prevent="agregarEnfJef('Cronica')"
+                  >
+                    <i class="fa fa-plus"></i>                    
+                  </a>&nbsp;
+                </div>                                                               
+              </div>
+              <div class="row" v-show="caracData.enfermedades.length > 0">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <td class="kt-bg-fill-danger">No.</td>
+                          <td class="kt-bg-fill-info">Enfermedad</td>
+                          <td class="kt-bg-fill-success">Tipo Enfermedad</td>
+                          <td class="kt-bg-fill-info">Diagnosticado Hace cuanto tiempo</td>
+                          <td class="kt-bg-fill-info">Está en Tratamiento</td>                          
+                          <td class="kt-bg-fill-danger">Eliminar</td>                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in caracData.enfermedades" :key="index" v-show="item.estado=='Activo'">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1)"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              v-model="item.textoEnfermedad"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              v-model="item.tipo"
+                              readonly
+                            />                            
+                          </td>                          
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:300px;"
+                              v-model="item.tiempo"
+                              :class="item.tiempo==''?'is-invalid':'is-valid'"
+                              v-show="item.tipo=='Cronica'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">Menos de 6 Meses</option>
+                              <option value="2">Menos de 1 Años</option>
+                              <option value="3">Menos de 5 Años</option>
+                              <option value="4">Mas de 5 Años</option>
+                            </b-form-select>
+                            <b-form-select
+                              style="width:300px;"
+                              v-model="item.tiempo"
+                              :class="item.tiempo==''?'is-invalid':'is-valid'"
+                              v-show="item.tipo=='Infecciosa'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">Reciente</option>
+                              <option value="2">3 Meses</option>
+                              <option value="3">Entre 3 y 6 meses</option>
+                              <option value="4">Mas de 1 año</option>                            
+                            </b-form-select>                                                        
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tratamiento"
+                              :class="item.tratamiento==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <div style="width:70px;" >
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-danger"
+                                type="button"
+                                title="Eliminar"
+                                @click="eliminarItemEnfJef(index,item)"
+                              >
+                                <i class="fa fa-trash"></i>
+                              </button>                          
+                            </div>
+                          </td>                                                    
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
               </div>
               <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Pertenece a algún programa del ICBF:</label>
+                  <b-form-select
+                    v-model="caracData.programa_icbf"
+                    :class="caracData.programa_icbf==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
                 <div class="col-lg-2">
                   <label>Peso:</label>
                   <input
@@ -977,8 +1117,6 @@
                           <th>Migrante</th>
                           <th>Salario</th>
                           <th>Programa ICBF</th>
-                          <th>Enfermedad Infecciosa</th>
-                          <th>Enfermedad Cronica</th>
                           <th>Peso</th>
                           <th>Talla</th>                                             
                           <th class="text-center">Opciones</th>
@@ -1427,32 +1565,6 @@
                             <input
                               type="text"
                               class="form-control text-capitalize"
-                              placeholder="Enfermedad Infecciosa"
-                              v-model="item.textoEnfermedad_infecciosa"
-                              :class="item.textoEnfermedad_infecciosa==''?'':'is-valid'"
-                              style="width:200px;"
-                              readonly
-                            />                            
-                          </td>
-                          <td
-                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                          >
-                            <input
-                              type="text"
-                              class="form-control text-capitalize"
-                              placeholder="Enfermedad Cronica"
-                              v-model="item.textoEnfermedad_cronica"
-                              :class="item.textoEnfermedad_cronica==''?'':'is-valid'"
-                              style="width:200px;"
-                              readonly
-                            />                            
-                          </td>
-                          <td
-                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                          >
-                            <input
-                              type="text"
-                              class="form-control text-capitalize"
                               placeholder="Peso"
                               v-model="item.peso"
                               :class="item.peso==''?'':'is-valid'"
@@ -1559,31 +1671,33 @@
                   </b-form-select>
                 </div>
                 <div class="col-lg-4">
-                  <label>Orientación Sexual (*):</label>
-                  <b-form-select
-                    v-model.trim="CA1.orientacion"
-                    :class="CA1.orientacion=='0'?'':'is-valid'"
-                    ref="sexo"
-                  >
-                    <option value="0" selected>Seleccione</option>
-                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
-                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
-                    <option value="BISEXUAL">BISEXUAL</option>
-                    <option value="NODECLARA">NO DECLARA</option>
-                    <option value="NA">NO APLICA</option>
-                  </b-form-select>
-                </div>
-                <div class="col-lg-4">
                   <label>Identidad de Genero (*):</label>
                   <b-form-select
                     v-model.trim="CA1.identidad_genero"
                     :class="CA1.identidad_genero=='0'?'':'is-valid'"
+                    @change="cambiarCombo('IdenGen2')"
                   >
                     <option value="0" selected>Seleccione</option>
                     <option value="CISGENERO">CISGENERO</option>
                     <option value="TRANSGENERO">TRANSGENERO</option>
                     <option value="TRANSEXUAL">TRANSEXUAL</option>
                     <option value="TERCER GENERO Ó NO BINARIOS">TERCER GENERO Ó NO BINARIOS</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
+                <div class="col-lg-4">
+                  <label>Orientación Sexual (*):</label>
+                  <b-form-select
+                    v-model.trim="CA1.orientacion"
+                    :class="CA1.orientacion=='0'?'':'is-valid'"
+                    ref="sexo"
+                    @change="cambiarCombo('Orienta2')"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="HETEROSEXUAL">HETEROSEXUAL</option>
+                    <option value="HOMOSEXUAL">HOMOSEXUAL</option>
+                    <option value="BISEXUAL">BISEXUAL</option>
+                    <option value="NODECLARA">NO DECLARA</option>
                     <option value="NA">NO APLICA</option>
                   </b-form-select>
                 </div>
@@ -1641,20 +1755,6 @@
                     :class="CA1.telefono==''?'':'is-valid'"
                     @change="formato('telefono2')"
                   />
-                </div>
-                <div class="col-lg-3">
-                  <label>Estado Civil:</label>
-                  <b-form-select
-                    v-model="CA1.estado_civil"
-                    :class="CA1.estado_civil=='0'?'':'is-valid'"
-                  >
-                    <option value="0" selected>Seleccione</option>
-                    <option
-                      v-for="item in estado_options"
-                      :value="item.value"
-                      :key="item.value"
-                    >{{item.texto}}</option>
-                  </b-form-select>
                 </div>
                 <div class="col-lg-3">
                   <label>Puntaje Sisben:</label>
@@ -1715,6 +1815,20 @@
                     readonly
                   />
                 </div>
+                <div class="col-lg-3">
+                  <label>Estado Civil:</label>
+                  <b-form-select
+                    v-model="CA1.estado_civil"
+                    :class="CA1.estado_civil=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in estado_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>                
               </div>
               <div class="form-group row">
                 <div class="col-lg-8">
@@ -1864,7 +1978,7 @@
                   <b-form-select
                     v-model="CA1.etnia"
                     :class="CA1.etnia=='0'?'':'is-valid'"
-                    @change="cambiarCombo('etnia')"
+                    @change="cambiarCombo('etnia2')"
                   >
                     <option value="0" selected>Seleccione</option>
                     <option
@@ -1962,17 +2076,6 @@
               </div>
               <div class="form-group row">
                 <div class="col-lg-4">
-                  <label>Excepciones:</label>
-                  <b-form-select v-model="CA1.excepciones" :class="CA1.excepciones=='0'?'':'is-valid'">
-                    <option value="0" selected>Seleccione</option>
-                    <option
-                      v-for="item in opciones7"
-                      :value="item.value"
-                      :key="item.value"
-                    >{{item.texto}}</option>
-                  </b-form-select>
-                </div>
-                <div class="col-lg-4">
                   <label>Enfermedad Infecciosa:</label>
                   <b-form-select                  
                     v-model="CA1.enfermedad_infecciosa"
@@ -1986,6 +2089,21 @@
                     >{{item.texto}}</option>
                   </b-form-select>                  
                 </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-success btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar Enfermedades"
+                    @click.prevent="agregarEnfInt('Infecciosa')"
+                  >
+                    <i class="fa fa-plus"></i>                    
+                  </a>&nbsp;
+                </div>                
                 <div class="col-lg-4">
                   <label>Enfermedad Cronica:</label>
                   <b-form-select
@@ -1999,9 +2117,142 @@
                       :key="item.value"
                     >{{item.texto}}</option>
                   </b-form-select>                  
-                </div>                                
+                </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-success btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar Enfermedades"
+                    @click.prevent="agregarEnfInt('Cronica')"
+                  >
+                    <i class="fa fa-plus"></i>                    
+                  </a>&nbsp;
+                </div>                                               
               </div>
+              <div class="row" v-show="CA1.enfermedades.length > 0">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <td class="kt-bg-fill-danger">No.</td>
+                          <td class="kt-bg-fill-info">Enfermedad</td>
+                          <td class="kt-bg-fill-success">Tipo Enfermedad</td>
+                          <td class="kt-bg-fill-info">Diagnosticado Hace cuanto tiempo</td>
+                          <td class="kt-bg-fill-info">Está en Tratamiento</td>                          
+                          <td class="kt-bg-fill-danger">Eliminar</td>                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in CA1.enfermedades" :key="index" v-show="item.estado=='Activo'">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100px;background-color:white;"
+                              :value="(index+1)"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:300px;background-color:white;"
+                              v-model="item.textoEnfermedad"
+                              readonly
+                            />                            
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:200px;background-color:white;"
+                              v-model="item.tipo"
+                              readonly
+                            />                            
+                          </td>                          
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:300px;"
+                              v-model="item.tiempo"
+                              :class="item.tiempo==''?'is-invalid':'is-valid'"
+                              v-show="item.tipo=='Cronica'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">Menos de 6 Meses</option>
+                              <option value="2">Menos de 1 Años</option>
+                              <option value="3">Menos de 5 Años</option>
+                              <option value="4">Mas de 5 Años</option>
+                            </b-form-select>
+                            <b-form-select
+                              style="width:300px;"
+                              v-model="item.tiempo"
+                              :class="item.tiempo==''?'is-invalid':'is-valid'"
+                              v-show="item.tipo=='Infecciosa'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="1">Reciente</option>
+                              <option value="2">3 Meses</option>
+                              <option value="3">Entre 3 y 6 meses</option>
+                              <option value="4">Mas de 1 año</option>                            
+                            </b-form-select>                                                        
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <b-form-select
+                              style="width:150px;"
+                              v-model="item.tratamiento"
+                              :class="item.tratamiento==''?'is-invalid':'is-valid'"
+                            >
+                              <option value selected>Seleccione</option>
+                              <option value="SI">SI</option>
+                              <option value="NO">NO</option>
+                            </b-form-select>
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <div style="width:70px;" >
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-danger"
+                                type="button"
+                                title="Eliminar"
+                                @click="eliminarItemEnfInt(index,item)"
+                              >
+                                <i class="fa fa-trash"></i>
+                              </button>                          
+                            </div>
+                          </td>                                                    
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>              
               <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Excepciones:</label>
+                  <b-form-select v-model="CA1.excepciones" :class="CA1.excepciones=='0'?'':'is-valid'">
+                    <option value="0" selected>Seleccione</option>
+                    <option
+                      v-for="item in opciones7"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>
+                </div>                
                 <div class="col-lg-2">
                   <label>Peso:</label>
                   <input
@@ -2112,8 +2363,6 @@
                           <th>Programa ICBF</th>
                           <th>Jefe de Hogar</th>
                           <th>Excepciones</th>
-                          <th>Enfermedad Infecciosa</th>
-                          <th>Enfermedad Cronica</th>
                           <th>Peso</th>
                           <th>Talla</th>                                                    
                           <th class="text-center">Opciones</th>
@@ -2565,32 +2814,6 @@
                               placeholder="Excepciones"
                               v-model="item.textoExcepciones"
                               :class="item.textoExcepciones==''?'':'is-valid'"
-                              style="width:200px;"
-                              readonly
-                            />                            
-                          </td>
-                          <td
-                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                          >
-                            <input
-                              type="text"
-                              class="form-control text-capitalize"
-                              placeholder="Enfermedad Infecciosa"
-                              v-model="item.textoEnfermedad_infecciosa"
-                              :class="item.textoEnfermedad_infecciosa==''?'':'is-valid'"
-                              style="width:200px;"
-                              readonly
-                            />                            
-                          </td>
-                          <td
-                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
-                          >
-                            <input
-                              type="text"
-                              class="form-control text-capitalize"
-                              placeholder="Enfermedad Cronica"
-                              v-model="item.textoEnfermedad_cronica"
-                              :class="item.textoEnfermedad_cronica==''?'':'is-valid'"
                               style="width:200px;"
                               readonly
                             />                            
@@ -3469,39 +3692,48 @@
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-lg-12">
+                <div class="col-lg-10">
                   <label>Actividad Económica:</label>
-                  <!-- <b-form-select
-                    v-model.trim="$v.viviendaData.actividad_economica.$model"
-                    :class="{'is-invalid': $v.viviendaData.actividad_economica.$error,'is-valid':!$v.viviendaData.actividad_economica.$invalid}"
-                    @change="mostrarOtro('AE')"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option value="NA">No Aplica</option>
-                    <option value="1">Ganaderia</option>
-                    <option value="2">Agricola</option>
-                    <option value="3">Comerciante</option>
-                    <option value="4">Empleado</option>
-                    <option value="5">Emprendedor</option>
-                    <option value="CUAL">CUAL</option>
-                  </b-form-select>-->
                   <input
                     type="text"
                     class="form-control text-capitalize"
                     placeholder="Actividad Económica"
                     v-model="actividadesAuxiliar"
                     ref="ocupacion"
-                    :class="actividadesAuxiliar==''?'':'is-valid'"
                     @click="abrirModalActividades()"
                     :readonly="true"
                   />
-                  <!-- <div class="valid-feedback">Actividad Economica Valida</div>
-                  <div class="invalid-feedback">
-                    <span
-                      v-if="!$v.viviendaData.actividad_economica.required"
-                    >La Actividad Economica es obligatoria</span>
-                  </div>-->
                 </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-info btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar"
+                    @click.prevent="AgregarActividad"
+                  >
+                    <i class="fa fa-plus"></i>
+                  </a>&nbsp;
+                </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-danger btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Limpiar"
+                    @click.prevent="limpiarActividad"
+                  >
+                    <i class="fa fa-trash"></i>
+                  </a>&nbsp;
+                </div>                
                 <div class="col-lg-10" v-show="mOAE">
                   <label>Cual:</label>
                   <input
@@ -3513,6 +3745,46 @@
                   />
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>No.</th>
+                          <th>Actividad</th>
+                          <td class="text-center">Opciones</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          v-for="(item,index) in ActividadData"
+                          :key="index"
+                          v-show="item.estado=='Activo'"
+                        >
+                          <td style="font-weight: normal;vertical-align: middle;">{{ (index+1) }}</td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <span class="text-capitalize">{{item.actividad}}</span>
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-outline-danger"
+                              type="button"
+                              title="Eliminar"
+                              @click="eliminarItemActividad(item, index)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="kt-separator kt-separator--border-dashed"></div>
+                  </div>
+                </div>
+              </div>              
               <div class="form-group row">
                 <div class="col-lg-4">
                   <label>Evento que Puede Afectar la Vivienda:</label>
@@ -5797,7 +6069,7 @@
                           <th>Hemoclasificación</th>
                           <th>Complicaciones en el parto</th>
                           <th>Via de Parto</th>
-                          <th>Control de CyC</th>
+                          <th>Control de CyD</th>
                           <th class="kt-bg-fill-dark">2-3 meses</th>
                           <th class="kt-bg-fill-dark">6-8 meses</th>
                           <th class="kt-bg-fill-dark">9-11 meses</th>
@@ -6403,7 +6675,7 @@
                           <td>Sexo</td>
                           <td>Edad</td>
                           <td>Beneficiario de un Programa</td>
-                          <td>Control de CyC</td>
+                          <td>Control de CyD</td>
                           <td class="kt-bg-fill-dark">18-23 meses</td>
                           <td class="kt-bg-fill-dark">30-35 meses</td>
                           <td class="kt-bg-fill-dark">4 años</td>
@@ -7040,7 +7312,7 @@
                           <td>Nombre</td>
                           <td>Sexo</td>
                           <td>Edad</td>
-                          <td>Control de CyC</td>
+                          <td>Control de CyD</td>
                           <td class="kt-bg-fill-dark">Valoración Integral</td>
                           <td class="kt-bg-fill-danger">Peso(Kgs)</td>
                           <td class="kt-bg-fill-danger">Talla(cm)</td>
@@ -7559,7 +7831,7 @@
                           <td class="kt-bg-fill-danger">Hijos Nacidos Vivos</td>
                           <td class="kt-bg-fill-danger">Abortos</td>
                           <td class="kt-bg-fill-dark">Examen de Prostata</td>
-                          <td class="kt-bg-fill-dark">Biposia de Prostata</td>
+                          <td class="kt-bg-fill-dark">Biopsia de Prostata</td>
                         </tr>
                       </thead>
                       <tbody>
@@ -8637,7 +8909,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="11"
+                            colspan="12"
                           >Crecimiento y Desarrollo</th>
                           <th
                             class="kt-bg-fill-danger"
@@ -8658,7 +8930,7 @@
                             class="kt-bg-fill-danger"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                             colspan="4"
-                          ></th>
+                          >Relación Familiar</th>
                         </tr>
                         <tr class="kt-bg-fill-warning">
                           <td class="kt-bg-fill-success">No.</td>
@@ -10211,7 +10483,7 @@
                           <th
                             class="kt-bg-fill-warning"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="15"
+                            colspan="13"
                           ></th>
                         </tr>
                         <tr class="kt-bg-fill-warning">
@@ -10237,8 +10509,8 @@
                           <td class="kt-bg-fill-warning">Biposia de Prostata</td>
                           <td class="kt-bg-fill-warning">Examen de Agudeza Visual</td>
                           <td class="kt-bg-fill-warning">Subsidio de Entidad del Estado</td>
-                          <td class="kt-bg-fill-warning">Enfermedades Cronicas</td>
-                          <td class="kt-bg-fill-warning">Enfermedades Infecciosas</td>
+                          <td class="kt-bg-fill-warning"  style="display: none;">Enfermedades Cronicas</td>
+                          <td class="kt-bg-fill-warning"  style="display: none;">Enfermedades Infecciosas</td>
                           <td class="kt-bg-fill-warning">Empleo</td>
                         </tr>
                       </thead>
@@ -10547,7 +10819,7 @@
                             </b-form-select>
                           </td>
                           <td
-                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;display: none;"
                           >
                             <b-form-select
                               style="width:150px;"
@@ -10555,14 +10827,14 @@
                               @input="enfermedades_cronicas=>updateDe60(item,enfermedades_cronicas,'enfermedades_cronicas')"
                               :class="item.enfermedades_cronicas==''?'is-invalid':'is-valid'"
                             >
-                              <option value selected>Seleccione</option>
+                              <option value>Seleccione</option>
                               <option value="SI">SI</option>
-                              <option value="NO">NO</option>
+                              <option value="NO" selected>NO</option>
                             </b-form-select>
                           </td>
 
                           <td
-                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;display: none;"
                           >
                             <b-form-select
                               style="width:150px;"
@@ -10570,9 +10842,9 @@
                               @input="enfermedades_infecciosas=>updateDe60(item,enfermedades_infecciosas,'enfermedades_infecciosas')"
                               :class="item.enfermedades_infecciosas==''?'is-invalid':'is-valid'"
                             >
-                              <option value selected>Seleccione</option>
+                              <option value>Seleccione</option>
                               <option value="SI">SI</option>
-                              <option value="NO">NO</option>
+                              <option value="NO" selected>NO</option>
                             </b-form-select>
                           </td>
 
@@ -10588,7 +10860,7 @@
                               <option value selected>Seleccione</option>
                               <option value="SIF">SI FORMAL</option>
                               <option value="SII">SI INFORMAL</option>
-                              <option value="NO">NO</option>
+                              <option value="NO" >NO</option>
                             </b-form-select>
                           </td>                          
                         </tr>
@@ -10598,13 +10870,13 @@
                   <div class="kt-separator kt-separator--border-dashed"></div>
                 </div>
               </div>
-              <p>
+              <p style="display: none;">
                 <span class="kt-font-boldest" style="font-size: 14px;">V. MORBILIDAD GENERAL</span>
               </p>
-              <p>
+              <p style="display: none;">
                 <span class="kt-font-boldest" style="font-size: 10px;">ENFERMEDAD CRONICA</span>
               </p>
-              <div class="row">
+              <div class="row" style="display: none;">
                 <div class="col-md-12">
                   <div class="table-responsive">
                     <table class="table table-sm table-hover">
@@ -10742,10 +11014,10 @@
                   <div class="kt-separator kt-separator--border-dashed"></div>
                 </div>
               </div>
-              <p>
+              <p style="display: none;">
                 <span class="kt-font-boldest" style="font-size: 10px;">ENFERMEDADES INFECCIOSAS</span>
               </p>
-              <div class="row">
+              <div class="row" style="display: none;">
                 <div class="col-md-12">
                   <div class="table-responsive">
                     <table class="table table-sm table-hover">
@@ -11538,6 +11810,7 @@
           programa_icbf: "",
           enfermedad_infecciosa: "",
           enfermedad_cronica: "",
+          enfermedades: [],
           peso: "",
           talla: ""                    
         },
@@ -11582,6 +11855,7 @@
           dias: 0,
           enfermedad_infecciosa: "0",
           enfermedad_cronica: "0",
+          enfermedades: [],
           peso: "",
           talla: ""                   
         },
@@ -11596,7 +11870,7 @@
           material_predominante: "",
           tipo_cubierta: "",
           otro_tipo_cubierta: "",
-          actividad_economica: "",
+          // actividad_economica: "",
           cual_actividad_economica: "NA",
           evento_afecta_vivienda: "",
           familias_accion: "",
@@ -11774,6 +12048,7 @@
         txtbusquedaAct: "",
         actividadesVector: [],
         actividadesAuxiliar: "",
+        actividad_economica: "",
         SAPU: false,
         CODIGOGENE: "",
         valGIden: true,
@@ -11794,7 +12069,11 @@
         edadEditar: null,
         embarazoEditar: null, 
         identificacionJefe: null,
-        migrarEditar: null        
+        migrarEditar: null,
+        ActividadData: [],
+        EnfJef: [],
+        enfermedadesJefesVector: [],
+        vaEnfJef: []            
       };
     },
     validations: {
@@ -11912,13 +12191,14 @@
           this.CA1.embarazo = "NOAPLICA";
           this.CA1.embarazo_multiple = "NOAPLICA";
         } else {
-          // this.CA1.embarazo = "0";
-          // this.CA1.embarazo_multiple = "0";
           if (this.CA1.embarazo === "NO") {
             this.CA1.embarazo_multiple = "NO";
           } else {
-            // this.caracData.embarazo = "0";
-            this.CA1.embarazo_multiple = "0";
+            if (this.CA1.embarazo === "NOAPLICA") {
+              this.CA1.embarazo_multiple = "NOAPLICA";
+            }else{
+              this.CA1.embarazo_multiple = "0";
+            }
           }
         }
         return this.CA1.sexo === "MASCULINO";
@@ -12252,6 +12532,8 @@
 
               this.animalesData = respuesta.data.animales;
               this.estratificacion = respuesta.data.estratificacion;
+
+              this.ActividadData = respuesta.data.actividad_viviendas;
               // GESTION DE LAS VARIABLES DE LA VIVIENDA
 
               // GESTION DE LAS VARIABLES DE CART X CICLO
@@ -12871,14 +13153,14 @@
               );
               return;
             }
-            if (this.actividadesAuxiliar === "") {
+            if (this.ActividadData.length <= 0 ) {
               this.$swal(
                 "Error...!",
-                "Por favor agregue una actividad económica",
+                "Por favor agrege por lo menos una actividad economica!",
                 "error"
               );
               return;
-            }            
+            }                        
             //GUARDAR DATOS
             this.valGVivi = false;
             const parametros = {
@@ -12886,6 +13168,7 @@
               vivienda: this.viviendaData,
               estratificacion: this.estratificacion,
               Animales: this.animalesData,
+              actividad_viviendas: this.ActividadData,
               opcion: "MODIFICAR",
               opc: "GUAVIVI",
               IDHOGAR: this.IDHOGAR
@@ -12901,8 +13184,10 @@
                     this.viviendaData.id = respuesta.data.vivienda.id;
                     this.animalesData.length = 0;
                     this.estratificacion.length = 0;
+                    this.ActividadData.length = 0;
                     this.animalesData = respuesta.data.animales;
-                    this.estratificacion = respuesta.data.estratificacion;                    
+                    this.estratificacion = respuesta.data.estratificacion;
+                    this.ActividadData = respuesta.data.actividad_viviendas;                    
                   }
                 })
                 .catch(error => {
@@ -14708,8 +14993,20 @@
           }
         }
         if (caja === "etnia") {
-          this.CA1.clasificacion = "0";
+          if(this.caracData.etnia === 7){
+            this.caracData.clasificacion = "89";
+          }else{
+            this.caracData.clasificacion = "";
+          }
+          console.log(this.caracData.clasificacion);
         }
+        if (caja === "etnia2") {
+          if(this.CA1.etnia === 7){
+            this.CA1.clasificacion = "89";
+          }else{
+            this.CA1.clasificacion = "0";
+          }          
+        }        
         if (caja === "vereda"){
           this.hogar.id_barrio = "0";
           const parametros = {
@@ -14739,7 +15036,37 @@
               this.hogar.id_vereda="0";
             }
           }
+        }
+        if (caja === "IdenGen1"){
+          if (this.caracData.identidad_genero === "NA"){
+            this.caracData.orientacion = "NA";
+          }else{
+            this.caracData.orientacion = "";
+          }
+          if (this.caracData.identidad_genero === "CISGENERO"){
+            this.caracData.orientacion = "HETEROSEXUAL";
+          }           
+        }
+        if (caja === "IdenGen2"){
+          if (this.CA1.identidad_genero === "NA"){
+            this.CA1.orientacion = "NA";
+          }else{
+            this.CA1.orientacion = "0";
+          }
+          if (this.CA1.identidad_genero === "CISGENERO"){
+            this.CA1.orientacion = "HETEROSEXUAL";
+          }           
+        }
+        if (caja === "Orienta1"){
+          if (this.caracData.orientacion === "HETEROSEXUAL"){
+            this.caracData.identidad_genero = "CISGENERO";
+          }  
         }        
+        if (caja === "Orienta2"){
+          if (this.CA1.orientacion === "HETEROSEXUAL"){
+            this.CA1.identidad_genero = "CISGENERO";
+          }  
+        }                       
       },
       formato(caja) {
         if (caja == "id1") {
@@ -15184,6 +15511,33 @@
                       return false;
                     }
 
+                    //VALIDAR LA TABLA ENFERMEDADES JEFES
+                    if (this.caracData.enfermedades.length > 0) {
+                      for (let i = 0; i < this.caracData.enfermedades.length; i++) {
+                        if (this.caracData.enfermedades[i].tiempo === "") {
+                          this.$swal(
+                            "Error...!",
+                            "Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila " +
+                              (i + 1) +
+                              " de las enfermedades",
+                            "error"
+                          );
+                          return false;
+                        }
+                        if (this.caracData.enfermedades[i].tratamiento === "") {
+                          this.$swal(
+                            "Error...!",
+                            "Por favor seleccione si <b>Está en Tratamiento</b> en la fila " +
+                              (i + 1) +
+                              " de las enfermedades",
+                            "error"
+                          );
+                          return false;
+                        }                                                
+                      }
+                    }
+                    //VALIDAR LA TABLA ENFERMEDADES JEFES
+
                     let textoEps = "";
                     if(this.caracData.afiliacion_entidad === "OTRA"){
                       textoEps = "OTRA";
@@ -15262,19 +15616,26 @@
                       programa_icbf: this.caracData.programa_icbf,
                       identi_auxi: "",
                       estado: "Activo",
-                      enfermedad_infecciosa: this.caracData.enfermedad_infecciosa,
-                      textoEnfermedad_infecciosa: this.showText(
-                        this.caracData.enfermedad_infecciosa,
-                        this.enfinf_options
-                      ),
-                      enfermedad_cronica: this.caracData.enfermedad_cronica,
-                      textoEnfermedad_cronica: this.showText(
-                        this.caracData.enfermedad_cronica,
-                        this.enfcro_options
-                      ),
                       peso: this.caracData.peso,
-                      talla: this.caracData.talla,                                                                 
+                      talla: this.caracData.talla,
+                      enfermedades: []                                                                 
                     });
+                    for(let i=0;i<this.caracData.enfermedades.length;i++){
+                      this.datosJefe[this.datosJefe.length-1].enfermedades.push({
+                        id: this.caracData.enfermedades[i].id,
+                        id_hogar: this.caracData.enfermedades[i].id_hogar,
+                        id_jefe: this.caracData.enfermedades[i].id_jefe,
+                        textoEnfermedad: this.caracData.enfermedades[i].textoEnfermedad,
+                        id_enfermedad: this.caracData.enfermedades[i].id_enfermedad,
+                        tipo: this.caracData.enfermedades[i].tipo,
+                        tiempo: this.caracData.enfermedades[i].tiempo,
+                        tratamiento: this.caracData.enfermedades[i].tratamiento,
+                        estado: this.caracData.enfermedades[i].estado                      
+                      });
+                      this.datosJefe.splice(this.datosJefe.length-1, 1, this.datosJefe[this.datosJefe.length-1]);
+                    }
+                    
+                    this.caracData.enfermedades.length = [];
 
                     if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
                       this.SAPU=true;
@@ -15353,6 +15714,29 @@
             this.entrarPorError = true;
           }
         }
+      },
+      calculosAedad(){
+        var a = moment();
+        var b = moment(this.caracData.fecha_nacimiento);
+
+        var years = a.diff(b, "year");
+        b.add(years, "years");
+
+        var months = a.diff(b, "months");
+        b.add(months, "months");
+
+        var days = a.diff(b, "days");
+
+        if (years >=18){
+          this.caracData.programa_icbf = "NA";
+        }else{
+          this.caracData.programa_icbf = "";
+        }
+        if (years <=8 ){
+          this.caracData.estado_civil = 9;
+        }else{
+          this.caracData.estado_civil = "";
+        }                
       },
       checkForm(e) {
         let bande = true;
@@ -15501,17 +15885,7 @@
           );
           return;
         }
-        if (this.caracData.enfermedad_infecciosa === "") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
-          return;
-        }
-        if (this.caracData.enfermedad_cronica === "") {
-          bande = false;
-          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
-          return;
-        }
-        console.log("PESO="+this.caracData.peso);        
+
         if (this.caracData.peso === "") {
           bande = false;
           this.$swal("Error...!", "Por favor digite el peso!", "error");
@@ -15808,7 +16182,8 @@
         this.caracData.enfermedad_infecciosa = "";
         this.caracData.enfermedad_cronica = "";
         this.caracData.peso = "";
-        this.caracData.talla = "";               
+        this.caracData.talla = "";
+        this.caracData.enfermedades = [];               
       },
       updateJefe(item, valor, opcion, index) {
         if (opcion === "tipo_id") {
@@ -16674,8 +17049,9 @@
         this.caracData.programa_icbf = item.programa_icbf;
         this.ocupacionAuxiliar = item.textoOcupacion;
 
-        this.caracData.enfermedad_infecciosa = item.enfermedad_infecciosa;
-        this.caracData.enfermedad_cronica = item.enfermedad_cronica;
+        this.caracData.enfermedades = item.enfermedades;
+        this.vaEnfJef = item.enfermedades;
+
         this.caracData.peso = item.peso;
         this.caracData.talla = item.talla;    
         
@@ -16969,7 +17345,32 @@
           );
           return false;
         }
-
+        //VALIDAR LA TABLA ENFERMEDADES JEFES
+        if (this.caracData.enfermedades.length > 0) {
+          for (let i = 0; i < this.caracData.enfermedades.length; i++) {
+            if (this.caracData.enfermedades[i].tiempo === "") {
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila " +
+                  (i + 1) +
+                  " de las enfermedades",
+                "error"
+              );
+              return false;
+            }
+            if (this.caracData.enfermedades[i].tratamiento === "") {
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione si <b>Está en Tratamiento</b> en la fila " +
+                  (i + 1) +
+                  " de las enfermedades",
+                "error"
+              );
+              return false;
+            }                                                
+          }
+        }
+        //VALIDAR LA TABLA ENFERMEDADES JEFES
         let textoEps = "";
         if(this.caracData.afiliacion_entidad === "OTRA"){
           textoEps = "OTRA";
@@ -17499,7 +17900,7 @@
         this.datosJefe[this.indiceEditJefe].telefono = this.caracData.telefono;
         this.datosJefe[this.indiceEditJefe].puntaje_sisben = this.caracData.puntaje_sisben;
         this.datosJefe[this.indiceEditJefe].afiliacion_entidad = this.caracData.afiliacion_entidad;
-        this.datosJefe[this.indiceEditJefe].textoEps = this.showText(Number(this.caracData.afiliacion_entidad),this.admini_options);        
+        this.datosJefe[this.indiceEditJefe].textoEps = textoEps;        
         this.datosJefe[this.indiceEditJefe].otra_eps = this.caracData.otra_eps;
         this.datosJefe[this.indiceEditJefe].tipo_id = this.caracData.tipo_id;
         this.datosJefe[this.indiceEditJefe].identificacion = this.caracData.identificacion;
@@ -17542,14 +17943,15 @@
         this.datosJefe[this.indiceEditJefe].programa_icbf = this.caracData.programa_icbf;
         // this.datosJefe[this.indiceEditJefe].textoOcupacion = this.ocupacionAuxiliar;
         
-        this.datosJefe[this.indiceEditJefe].enfermedad_infecciosa = this.caracData.enfermedad_infecciosa;
-        this.datosJefe[this.indiceEditJefe].enfermedad_cronica = this.caracData.enfermedad_cronica;
+        // this.datosJefe[this.indiceEditJefe].enfermedad_infecciosa = this.caracData.enfermedad_infecciosa;
+        // this.datosJefe[this.indiceEditJefe].enfermedad_cronica = this.caracData.enfermedad_cronica;
         
         this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa = this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);
         this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica = this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);      
         
         this.datosJefe[this.indiceEditJefe].peso = this.caracData.peso;
-        this.datosJefe[this.indiceEditJefe].talla = this.caracData.talla;        
+        this.datosJefe[this.indiceEditJefe].talla = this.caracData.talla;    
+        this.datosJefe[this.indiceEditJefe].enfermedades = this.caracData.enfermedades;    
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         
         this.limpiar2();
@@ -17825,19 +18227,6 @@
           this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
           return;
         }
-        // if (this.CA1.excepciones === "0") {
-        //   bande = false;
-        //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
-        //   return;
-        // }       
-        if (this.CA1.enfermedad_infecciosa === "0") {
-          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
-          return;
-        }
-        if (this.CA1.enfermedad_cronica === "0") {
-          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
-          return;
-        }
         if (this.CA1.peso === "") {
           this.$swal("Error...!", "Por favor digite el peso!", "error");
           return;
@@ -17893,6 +18282,32 @@
                     edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
                   }
 
+                  //VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
+                  if (this.CA1.enfermedades.length > 0) {
+                    for (let i = 0; i < this.CA1.enfermedades.length; i++) {
+                      if (this.CA1.enfermedades[i].tiempo === "") {
+                        this.$swal(
+                          "Error...!",
+                          "Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila " +
+                            (i + 1) +
+                            " de las enfermedades",
+                          "error"
+                        );
+                        return false;
+                      }
+                      if (this.CA1.enfermedades[i].tratamiento === "") {
+                        this.$swal(
+                          "Error...!",
+                          "Por favor seleccione si <b>Está en Tratamiento</b> en la fila " +
+                            (i + 1) +
+                            " de las enfermedades",
+                          "error"
+                        );
+                        return false;
+                      }                                                
+                    }
+                  }
+                  //VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
                   let textoEps = "";
                   if(this.CA1.afi_entidad === "OTRA"){
                     textoEps = "OTRA";
@@ -17969,20 +18384,27 @@
                     textoExcepciones: this.showText(this.CA1.excepciones, this.opciones7),
                     identi_auxi: "",
                     estado: "Activo",
-                    enfermedad_infecciosa: this.CA1.enfermedad_infecciosa,
-                    textoEnfermedad_infecciosa: this.showText(
-                      this.CA1.enfermedad_infecciosa,
-                      this.enfinf_options
-                    ),
-                    enfermedad_cronica: this.CA1.enfermedad_cronica,
-                    textoEnfermedad_cronica: this.showText(
-                      this.CA1.enfermedad_cronica,
-                      this.enfcro_options
-                    ),
                     peso: this.CA1.peso,
-                    talla: this.CA1.talla,                                        
+                    talla: this.CA1.talla,
+                    enfermedades: []
                   });
-
+                  
+                  for(let i=0;i<this.CA1.enfermedades.length;i++){
+                    this.datos[this.datos.length-1].enfermedades.push({
+                      id: this.CA1.enfermedades[i].id,
+                      id_hogar: this.CA1.enfermedades[i].id_hogar,
+                      id_jefe: this.CA1.enfermedades[i].id_jefe,
+                      textoEnfermedad: this.CA1.enfermedades[i].textoEnfermedad,
+                      id_enfermedad: this.CA1.enfermedades[i].id_enfermedad,
+                      tipo: this.CA1.enfermedades[i].tipo,
+                      tiempo: this.CA1.enfermedades[i].tiempo,
+                      tratamiento: this.CA1.enfermedades[i].tratamiento,
+                      estado: this.CA1.enfermedades[i].estado                      
+                    });
+                    this.datos.splice(this.datos.length-1, 1, this.datos[this.datos.length-1]);                  
+                  }                  
+                  // this.CA1.enfermedades.length = [];
+                  
                   if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
                     this.SAPU=true;
                     this.estratificacionData.afiliacion_salud_privada="SI";        
@@ -18121,7 +18543,36 @@
         }else{
           this.CA1.meses = 0;
           this.CA1.dias = 0;          
-        }       
+        }
+        
+        if (years >=18){
+          this.CA1.programa_icbf = "NA";
+        }else{
+          this.CA1.programa_icbf = "0";
+        }
+        if (years < 8){
+          this.CA1.embarazo = "NOAPLICA";
+          this.CA1.embarazo_multiple = "NOAPLICA";
+          this.CA1.estado_civil = 9;
+        }else{
+          if (this.CA1.sexo === "MASCULINO") {
+            this.CA1.embarazo = "NOAPLICA";
+            this.CA1.embarazo_multiple = "NOAPLICA";
+          }else{
+            this.CA1.embarazo = "0";
+            this.CA1.embarazo_multiple = "0";          
+          }
+          this.CA1.estado_civil = "0";
+        }
+        if (years <= 2){
+          this.CA1.escolaridad = 22;
+          this.CA1.ocupacion = 9993;
+          this.ocupacionAuxiliar2 = "NO APLICA";
+        }else{
+          this.CA1.escolaridad = "0";
+          this.CA1.ocupacion = "0";
+          this.ocupacionAuxiliar2 = "";
+        }                        
       },
       updateIntegrante(item, valor, opcion, index) {
         if (opcion === "tipo_id") {
@@ -18797,6 +19248,7 @@
         this.CA1.enfermedad_cronica = "0";
         this.CA1.peso = "";
         this.CA1.talla = "";
+        this.CA1.enfermedades = [];
       },
       eliminarItem: function(index, item) {
         let nombre = " " + item.pnom + " " + item.snom + " " + item.pape + " " + item.sape;
@@ -19180,10 +19632,9 @@
         this.CA1.meses = item.meses;
         this.CA1.dias = item.dias
         this.ocupacionAuxiliar2 = item.textoOcupacion;        
-        this.CA1.enfermedad_infecciosa = item.enfermedad_infecciosa;
-        this.CA1.enfermedad_cronica = item.enfermedad_cronica;
+        this.CA1.enfermedades = item.enfermedades;
         this.CA1.peso = item.peso;
-        this.CA1.talla = item.talla;         
+        this.CA1.talla = item.talla;
         this.$refs.identificacionInte.focus();
 
         this.idEditar = item.id;
@@ -19576,14 +20027,14 @@
         //   this.$swal("Error...!", "Por favor seleccione si la opción excepciones!", "error");
         //   return;
         // }
-        if (this.CA1.enfermedad_infecciosa === "0") {
-          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
-          return;
-        }
-        if (this.CA1.enfermedad_cronica === "0") {
-          this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
-          return;
-        }
+        // if (this.CA1.enfermedad_infecciosa === "0") {
+        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
+        //   return;
+        // }
+        // if (this.CA1.enfermedad_cronica === "0") {
+        //   this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+        //   return;
+        // }
         if (this.CA1.peso === "") {
           this.$swal("Error...!", "Por favor digite el peso!", "error");
           return;
@@ -19672,6 +20123,33 @@
         if (nacimiento < hoy) {
           edad = hoy.diff(nacimiento, "years"); //Calculamos la diferencia en años
         }
+
+        //VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
+        if (this.CA1.enfermedades.length > 0) {
+          for (let i = 0; i < this.CA1.enfermedades.length; i++) {
+            if (this.CA1.enfermedades[i].tiempo === "") {
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila " +
+                  (i + 1) +
+                  " de las enfermedades",
+                "error"
+              );
+              return false;
+            }
+            if (this.CA1.enfermedades[i].tratamiento === "") {
+              this.$swal(
+                "Error...!",
+                "Por favor seleccione si <b>Está en Tratamiento</b> en la fila " +
+                  (i + 1) +
+                  " de las enfermedades",
+                "error"
+              );
+              return false;
+            }                                                
+          }
+        }
+        //VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 
         let textoEps = "";
         if(this.CA1.afi_entidad === "OTRA"){
@@ -20193,7 +20671,7 @@
         this.datos[this.indiceEditInte].edad = this.CA1.edad;
         this.datos[this.indiceEditInte].puntaje_sisben = this.CA1.puntaje_sisben;
         this.datos[this.indiceEditInte].afi_entidad = this.CA1.afi_entidad;
-        this.datos[this.indiceEditInte].textoEps = this.showText(Number(this.CA1.afi_entidad),this.admini_options);
+        this.datos[this.indiceEditInte].textoEps = textoEps;
         this.datos[this.indiceEditInte].otra_eps = this.CA1.otra_eps;
         this.datos[this.indiceEditInte].tipo_afiliacion = this.CA1.tipo_afiliacion;
         this.datos[this.indiceEditInte].embarazo = this.CA1.embarazo;
@@ -20224,15 +20702,11 @@
         this.datos[this.indiceEditInte].textoExcepciones = this.showText(this.CA1.excepciones, this.opciones7);
         this.datos[this.indiceEditInte].meses = this.CA1.meses;
         this.datos[this.indiceEditInte].dias = this.CA1.dias;                    
-        this.datos[this.indiceEditInte].ocupacionAuxiliar = this.CA1.textoOcupacion2;
-        
-        this.datos[this.indiceEditInte].enfermedad_infecciosa = this.CA1.enfermedad_infecciosa;        
-        this.datos[this.indiceEditInte].enfermedad_cronica = this.CA1.enfermedad_cronica;
-        this.datos[this.indiceEditInte].textoEnfermedad_infecciosa = this.showText(Number(this.CA1.enfermedad_infecciosa),this.enfinf_options);
-        this.datos[this.indiceEditInte].textoEnfermedad_cronica = this.showText(Number(this.CA1.enfermedad_cronica),this.enfcro_options);        
-                     
+        this.datos[this.indiceEditInte].ocupacionAuxiliar = this.CA1.textoOcupacion2;      
+                                         
         this.datos[this.indiceEditInte].peso = this.CA1.peso;
         this.datos[this.indiceEditInte].talla = this.CA1.talla;
+        this.datos[this.indiceEditInte].enfermedades = this.CA1.enfermedades;
         this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
         this.limpiar();        
       },                       
@@ -23409,26 +23883,26 @@
             );
             return false;
           }
-          if (this.De60[i].enfermedades_cronicas === "") {
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione la opcion <b>Enfermedades Cronicas</b> en la fila " +
-                (i + 1) +
-                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
-              "error"
-            );
-            return false;
-          }
-          if (this.De60[i].enfermedades_infecciosas === "") {
-            this.$swal(
-              "Error...!",
-              "Por favor seleccione la opcion <b>Enfermedades Infecciosas</b> en la fila " +
-                (i + 1) +
-                " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
-              "error"
-            );
-            return false;
-          }
+          // if (this.De60[i].enfermedades_cronicas === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor seleccione la opcion <b>Enfermedades Cronicas</b> en la fila " +
+          //       (i + 1) +
+          //       " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+          //     "error"
+          //   );
+          //   return false;
+          // }
+          // if (this.De60[i].enfermedades_infecciosas === "") {
+          //   this.$swal(
+          //     "Error...!",
+          //     "Por favor seleccione la opcion <b>Enfermedades Infecciosas</b> en la fila " +
+          //       (i + 1) +
+          //       " de la tabla adulto mayor hombres y mujeres de 60 años y mas",
+          //     "error"
+          //   );
+          //   return false;
+          // }
           if (this.De60[i].empleo === "") {
             this.$swal(
               "Error...!",
@@ -23648,10 +24122,40 @@
         }
       },
       seleccionarActividades(item) {
-        this.viviendaData.actividad_economica = item.id;
+        this.actividad_economica = item.id;
         this.actividadesAuxiliar = item.descripcion;
         this.$refs.modalActividad.hide();
       },
+      AgregarActividad() {
+        if (this.actividadesAuxiliar === "") {
+          this.$refs.actividadesAuxiliar.focus();
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione una actividad economica!",
+            "error"
+          );
+          return;
+        }
+        this.ActividadData.push({
+          id: 0,
+          id_actividad: this.actividad_economica,
+          actividad: this.actividadesAuxiliar,
+          estado: "Activo"
+        });
+        this.limpiarActividad();
+      },
+      limpiarActividad() {
+        this.actividadesAuxiliar = "";
+        this.actividad_economica = "";
+      },
+      eliminarItemActividad: function(item, index) {
+        if (item.id !== 0) {
+          this.ActividadData[index].estado = "Inactivo";
+          this.ActividadData.splice(index, 1, this.ActividadData[index]);
+        } else {
+          this.ActividadData.splice(index, 1);
+        }
+      },      
       llenarVivienda(data) {
         // this.viviendaData.id = data.vivienda[0].id;
         // this.viviendaData.id_hogar = data.vivienda[0].id_hogar;
@@ -24188,6 +24692,9 @@
         if (opcion === "otras") {
           item.otras = event.target.value.trim();
         }
+        if (opcion === "pcefalico") {
+          item.pcefalico = event.target.value.replace(/[^.\d]/g, "").trim();
+        }        
       },
       updateDe1A5(item, valor, opcion) {
         if (opcion === "beneficiario") {
@@ -24465,6 +24972,17 @@
         }
         if (opcion === "relaciones_sexuales") {
           item.relaciones_sexuales = valor;
+          if (valor === "NO"){
+            item.metodo = "NA";
+            item.tiempo_metodo = "NA";
+            item.controles = "NA";
+            item.motivo = 14;
+          }else{
+            item.metodo = "";
+            item.tiempo_metodo = "";
+            item.controles = "";
+            item.motivo = "";            
+          }
         }
         if (opcion === "usa_condon") {
           item.usa_condon = valor;
@@ -24664,6 +25182,13 @@
         }
         if (opcion === "control_prenatal") {
           item.control_prenatal = valor;
+          if(valor==="NO"){
+            item.carnet = "NO";
+            item.num_controles = "NA";
+          }else{
+            item.carnet = "";
+            item.num_controles = "";
+          }
         }
         if (opcion === "atencion_parto") {
           item.atencion_parto = valor;
@@ -25144,8 +25669,8 @@
           biposia_prostata: "",
           agudeza_visual: "",
           subsidio: "",
-          enfermedades_cronicas: "",
-          enfermedades_infecciosas: "",
+          enfermedades_cronicas: "NO",
+          enfermedades_infecciosas: "NO",
           opci: opcion,
           empleo: "",
           estado: "Activo"
@@ -25416,7 +25941,85 @@
           }
         }
         return "";
-      }      
+      },
+      agregarEnfJef(tipo){
+        let enfermedad = "", textoEnfermedad = "", id_enfermedad = "";
+        if(tipo === "Infecciosa"){
+          if (this.caracData.enfermedad_infecciosa === "") {
+            this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
+            return;
+          }
+          id_enfermedad = this.caracData.enfermedad_infecciosa;
+          textoEnfermedad = this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);
+          this.caracData.enfermedad_infecciosa = "";
+        }else{
+          if (this.caracData.enfermedad_cronica === "") {
+            this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+            return;
+          }
+          id_enfermedad = this.caracData.enfermedad_cronica;
+          textoEnfermedad = this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);
+          this.caracData.enfermedad_cronica = "";
+        }
+        this.caracData.enfermedades.push({
+          id: 0,
+          id_jefe: 0,
+          id_hogar: 0,          
+          textoEnfermedad: textoEnfermedad,
+          id_enfermedad: id_enfermedad,
+          tipo: tipo,
+          tiempo: "",
+          tratamiento: "",
+          estado: "Activo"
+        });          
+      },
+      eliminarItemEnfJef: function(index,item) {
+        if(item.id === 0){
+          this.caracData.enfermedades.splice(index, 1);
+        }else{
+          this.caracData.enfermedades[index].estado = "Inactivo";
+          this.caracData.enfermedades.splice(index, 1, this.caracData.enfermedades[index]);
+        }
+      },
+      agregarEnfInt(tipo){
+        let enfermedad = "", textoEnfermedad = "", id_enfermedad = "";
+        if(tipo === "Infecciosa"){
+          if (this.CA1.enfermedad_infecciosa === "") {
+            this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
+            return;
+          }
+          id_enfermedad = this.CA1.enfermedad_infecciosa;
+          textoEnfermedad = this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);
+          this.CA1.enfermedad_infecciosa = "0";
+        }else{
+          if (this.CA1.enfermedad_cronica === "") {
+            this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
+            return;
+          }
+          id_enfermedad = this.CA1.enfermedad_cronica;
+          textoEnfermedad = this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);
+          this.CA1.enfermedad_cronica = "0";
+        }
+        this.CA1.enfermedades.push({
+          id: 0,
+          id_jefe: 0,
+          id_hogar: 0,          
+          textoEnfermedad: textoEnfermedad,
+          id_enfermedad: id_enfermedad,
+          tipo: tipo,
+          tiempo: "",
+          tratamiento: "",
+          estado: "Activo"
+        });          
+      },
+      eliminarItemEnfInt: function(index,item) {
+        if(item.id === 0){
+          this.CA1.enfermedades.splice(index, 1);
+        }else{
+          this.CA1.enfermedades[index].estado = "Inactivo";
+          this.CA1.enfermedades.splice(index, 1, this.CA1.enfermedades[index]);
+        }
+      }                  
     }
   };
 </script>
