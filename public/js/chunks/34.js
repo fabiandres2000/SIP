@@ -4463,22 +4463,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       unidades2: [{
         value: 1,
-        texto: "Mensual"
+        texto: "Meses"
       }, {
         value: 2,
-        texto: "Bimensual"
+        texto: "Bimestres"
       }, {
         value: 3,
-        texto: "Trimestral"
+        texto: "Trimestres"
       }, {
         value: 4,
-        texto: "Semestral"
+        texto: "Semestres"
       }, {
         value: 5,
-        texto: "Anual"
-      }, {
-        value: 6,
-        texto: "Mas de un año"
+        texto: "Años"
       }],
       unidades3: [{
         value: 1,
@@ -11593,7 +11590,7 @@ var render = function() {
                   "div",
                   { staticClass: "col-lg-4", staticStyle: { display: "none" } },
                   [
-                    _c("label", [_vm._v("Precio promedio de venta:")]),
+                    _c("label", [_vm._v("Precio promedio de venta kg:")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -11613,7 +11610,7 @@ var render = function() {
                           : "is-valid",
                       attrs: {
                         type: "text",
-                        placeholder: "Precio promedio de venta"
+                        placeholder: "Precio promedio de venta kg"
                       },
                       domProps: {
                         value: _vm.datosCulAgri.precio_promedio_venta
@@ -14380,7 +14377,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-4" }, [
-                  _c("label", [_vm._v("Precio promedio de venta:")]),
+                  _c("label", [_vm._v("Precio promedio de venta kg:")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -14401,7 +14398,7 @@ var render = function() {
                         : "is-valid",
                     attrs: {
                       type: "text",
-                      placeholder: "Precio promedio de venta"
+                      placeholder: "Precio promedio de venta kg"
                     },
                     domProps: {
                       value: _vm.datosExpPec.precio_promedio_venta_pecuaria
@@ -17253,7 +17250,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-3" }, [
-                  _c("label", [_vm._v("Precio promedio de venta:")]),
+                  _c("label", [_vm._v("Precio promedio de venta kg:")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -17274,7 +17271,7 @@ var render = function() {
                         : "is-valid",
                     attrs: {
                       type: "text",
-                      placeholder: "Precio promedio de venta"
+                      placeholder: "Precio promedio de venta kg"
                     },
                     domProps: {
                       value: _vm.datosCulFor.precio_promedio_venta_forestales
@@ -19876,7 +19873,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center" }, [_vm._v("Compradores")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [
-          _vm._v("Precio promedio de venta")
+          _vm._v("Precio promedio de venta kg")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Método de pago")]),
@@ -19995,7 +19992,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center" }, [_vm._v("Compradores")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [
-          _vm._v("Precio promedio de venta")
+          _vm._v("Precio promedio de venta kg")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Método de pago")]),

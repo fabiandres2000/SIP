@@ -36,7 +36,7 @@ class Estratificacion extends Model
             'ingresos_zona_rural' => $data['ingresos_zona_rural'],
             'ingresos_ciudad' => $data['ingresos_ciudad'],
             'id_compania' => 1,
-            'estado' => 'Activo',
+            'estado' => $data['estado'],
         ]);
     }
 
@@ -44,9 +44,10 @@ class Estratificacion extends Model
     {
         return DB::connection('mysql')->table($alias . '.estratificacion')
             ->join($alias . '.caracterizacion', 'caracterizacion.id', 'estratificacion.id_jefe')
+            ->leftjoin($alias . '.escolaridad', 'escolaridad.id', 'estratificacion.nivel_instruccion')
             ->where('estratificacion.id_hogar', $id_hogar)
             ->where('estratificacion.estado', 'Activo')
-            ->select("estratificacion.*", "caracterizacion.identificacion AS id_jefe")
+            ->select("estratificacion.*", "caracterizacion.identificacion AS id_jefe", "escolaridad.descripcion AS texto_nivel_instruccion", )
             ->selectRaw("CASE "
                 . " WHEN estratificacion.cuantos_celulares IS NULL THEN '' "
                 . " WHEN estratificacion.cuantos_celulares='1' THEN 'Ninguno' "
@@ -75,19 +76,6 @@ class Estratificacion extends Model
                 . " WHEN estratificacion.cuantos_vehiculos='4' THEN '3 o mas Vehiculos' "
                 . " ELSE estratificacion.cuantos_vehiculos "
                 . " END AS texto_cuantos_vehiculos"
-                . " ")
-            ->selectRaw("CASE "
-                . " WHEN estratificacion.nivel_instruccion IS NULL THEN '' "
-                . " WHEN estratificacion.nivel_instruccion='1' THEN 'Sin estudios' "
-                . " WHEN estratificacion.nivel_instruccion='2' THEN 'Primaria incompleta' "
-                . " WHEN estratificacion.nivel_instruccion='3' THEN 'Prmaria Completa' "
-                . " WHEN estratificacion.nivel_instruccion='4' THEN 'Secundaria Incompleta' "
-                . " WHEN estratificacion.nivel_instruccion='5' THEN 'Secundaria completa' "
-                . " WHEN estratificacion.nivel_instruccion='6' THEN 'Educación superior incompleta' "
-                . " WHEN estratificacion.nivel_instruccion='7' THEN 'Educación superior completa' "
-                . " WHEN estratificacion.nivel_instruccion='8' THEN 'Posgrado' "
-                . " ELSE estratificacion.nivel_instruccion "
-                . " END AS texto_nivel_instruccion"
                 . " ")
             ->selectRaw("CASE "
                 . " WHEN estratificacion.ingresos_zona_rural IS NULL THEN '' "

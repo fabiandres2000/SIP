@@ -4532,22 +4532,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       unidades2: [{
         value: 1,
-        texto: "Mensual"
+        texto: "Meses"
       }, {
         value: 2,
-        texto: "Bimensual"
+        texto: "Bimestres"
       }, {
         value: 3,
-        texto: "Trimestral"
+        texto: "Trimestres"
       }, {
         value: 4,
-        texto: "Semestral"
+        texto: "Semestres"
       }, {
         value: 5,
-        texto: "Anual"
-      }, {
-        value: 6,
-        texto: "Mas de un año"
+        texto: "Años"
       }],
       unidades3: [{
         value: 1,
@@ -5703,6 +5700,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
+      var i = 0;
+
+      while (i < this.herramientasData.length) {
+        if (this.herramientasData[i].herramienta.toUpperCase() === this.herramienta.toUpperCase()) {
+          this.$swal("Validando...!", "la herramienta ya se encuentra agregada!", "warning");
+          return;
+        }
+
+        i++;
+      }
+
       this.herramientasData.push({
         id: 0,
         herramienta: this.herramienta,
@@ -5744,6 +5752,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (!this.isNumeric(this.cuantasUtensilio)) {
         this.$swal("Error...!", "Por favor Digite cuantos Utensilios Tiene!", "error");
         return;
+      }
+
+      var i = 0;
+
+      while (i < this.utensiliosData.length) {
+        if (this.utensiliosData[i].utensilio.toUpperCase() === this.utensilio.toUpperCase()) {
+          this.$swal("Validando...!", "El utensilio ya se encuentra agregado!", "warning");
+          return;
+        }
+
+        i++;
       }
 
       this.utensiliosData.push({
@@ -5792,6 +5811,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
+      var i = 0;
+
+      while (i < this.maquinasData.length) {
+        if (this.maquinasData[i].maquina.toUpperCase() === this.maquina.toUpperCase()) {
+          this.$swal("Validando...!", "La maquina ya se encuentra agregada!", "warning");
+          return;
+        }
+
+        i++;
+      }
+
       this.maquinasData.push({
         id: 0,
         maquina: this.maquina,
@@ -5835,6 +5865,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
+      var i = 0;
+
+      while (i < this.instalacionesData.length) {
+        if (this.instalacionesData[i].instalacion.toUpperCase() === this.instalacion.toUpperCase()) {
+          this.$swal("Validando...!", "La instalacion ya se encuentra agregada!", "warning");
+          return;
+        }
+
+        i++;
+      }
+
       this.instalacionesData.push({
         id: 0,
         instalacion: this.instalacion,
@@ -5876,6 +5917,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (!this.isNumeric(this.cuantasMedio)) {
         this.$swal("Error...!", "Por favor Digite cuantos Medios de Transporte tiene!", "error");
         return;
+      }
+
+      var i = 0;
+
+      while (i < this.mediosData.length) {
+        if (this.mediosData[i].medio.toUpperCase() === this.medio.toUpperCase()) {
+          this.$swal("Validando...!", "El medio ya se encuentra agregado!", "warning");
+          return;
+        }
+
+        i++;
       }
 
       this.mediosData.push({
@@ -11840,7 +11892,7 @@ var render = function() {
                   "div",
                   { staticClass: "col-lg-4", staticStyle: { display: "none" } },
                   [
-                    _c("label", [_vm._v("Precio promedio de venta:")]),
+                    _c("label", [_vm._v("Precio promedio de venta kg:")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -11860,7 +11912,7 @@ var render = function() {
                           : "is-valid",
                       attrs: {
                         type: "text",
-                        placeholder: "Precio promedio de venta"
+                        placeholder: "Precio promedio de venta kg"
                       },
                       domProps: {
                         value: _vm.datosCulAgri.precio_promedio_venta
@@ -14674,7 +14726,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-4" }, [
-                  _c("label", [_vm._v("Precio promedio de venta:")]),
+                  _c("label", [_vm._v("Precio promedio de venta kg:")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -14695,7 +14747,7 @@ var render = function() {
                         : "is-valid",
                     attrs: {
                       type: "text",
-                      placeholder: "Precio promedio de venta"
+                      placeholder: "Precio promedio de venta kg"
                     },
                     domProps: {
                       value: _vm.datosExpPec.precio_promedio_venta_pecuaria
@@ -17635,7 +17687,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-3" }, [
-                  _c("label", [_vm._v("Precio promedio de venta:")]),
+                  _c("label", [_vm._v("Precio promedio de venta kg:")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -17656,7 +17708,7 @@ var render = function() {
                         : "is-valid",
                     attrs: {
                       type: "text",
-                      placeholder: "Precio promedio de venta"
+                      placeholder: "Precio promedio de venta kg"
                     },
                     domProps: {
                       value: _vm.datosCulFor.precio_promedio_venta_forestales
@@ -20308,7 +20360,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center" }, [_vm._v("Compradores")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [
-          _vm._v("Precio promedio de venta")
+          _vm._v("Precio promedio de venta kg")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Método de pago")]),
@@ -20427,7 +20479,7 @@ var staticRenderFns = [
         _c("th", { staticClass: "text-center" }, [_vm._v("Compradores")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [
-          _vm._v("Precio promedio de venta")
+          _vm._v("Precio promedio de venta kg")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Método de pago")]),

@@ -981,7 +981,90 @@
                   </div>
                   <div class="kt-separator kt-separator--border-dashed"></div>
                 </div>
-              </div>                            
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Antecedentes:</label>
+                  <b-form-select
+                    v-model="caracData.antec"
+                    :class="caracData.antec==''?'':'is-valid'"
+                  > 
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in antec_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>                  
+                </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-success btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar Antecedentes"
+                    @click.prevent="agregarAntJef()"
+                  >
+                    <i class="fa fa-plus"></i>                    
+                  </a>&nbsp;
+                </div>                                
+              </div>
+              <div class="row" v-show="caracData.antecedentes.length > 0">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <td class="kt-bg-fill-danger" style="width: 10%;">No.</td>
+                          <td class="kt-bg-fill-info">Antecedente</td>                      
+                          <td class="kt-bg-fill-danger" style="width: 5%;">Eliminar</td>                      
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in caracData.antecedentes" :key="index" v-show="item.estado=='Activo'">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100%;background-color:white;"
+                              :value="(index+1)"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100%;background-color:white;"
+                              v-model="item.textoAntecedente"
+                              readonly
+                            />                            
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <div style="width:70px;" >
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-danger"
+                                type="button"
+                                title="Eliminar"
+                                @click="eliminarItemAntJef(index,item)"
+                              >
+                                <i class="fa fa-trash"></i>
+                              </button>                          
+                            </div>
+                          </td>                                                    
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>                                          
               <div class="form-group row">
                 <div class="col-lg-4">
                   <label>Pertenece a algún programa del ICBF:</label>
@@ -2249,7 +2332,90 @@
                   </div>
                   <div class="kt-separator kt-separator--border-dashed"></div>
                 </div>
-              </div>              
+              </div>
+              <div class="form-group row">
+                <div class="col-lg-4">
+                  <label>Antecedentes:</label>
+                  <b-form-select
+                    v-model="CA1.antec"
+                    :class="CA1.antec==''?'':'is-valid'"
+                  > 
+                    <option value selected>Seleccione</option>
+                    <option
+                      v-for="item in antec_options"
+                      :value="item.value"
+                      :key="item.value"
+                    >{{item.texto}}</option>
+                  </b-form-select>                  
+                </div>
+                <div class="col-lg-1">
+                  <br />
+                  <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  <a
+                    href="javascript:;"
+                    class="btn btn-outline-success btn-icon"
+                    data-skin="dark"
+                    data-toggle="kt-tooltip"
+                    data-placement="top"
+                    title="Agregar Antecedentes"
+                    @click.prevent="agregarAntInt()"
+                  >
+                    <i class="fa fa-plus"></i>                    
+                  </a>&nbsp;
+                </div>                                
+              </div>
+              <div class="row" v-show="CA1.antecedentes.length > 0">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead>
+                        <tr>
+                          <td class="kt-bg-fill-danger" style="width: 10%;">No.</td>
+                          <td class="kt-bg-fill-info">Antecedente</td>                      
+                          <td class="kt-bg-fill-danger" style="width: 5%;">Eliminar</td>                      
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="(item,index) in CA1.antecedentes" :key="index" v-show="item.estado=='Activo'">
+                          <td style="font-weight: normal;vertical-align: middle;">
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100%;background-color:white;"
+                              :value="(index+1)"
+                              readonly
+                            />
+                          </td>
+                          <td
+                            style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
+                          >
+                            <input
+                              type="text"
+                              class="form-control text-capitalize is-valid"
+                              style="width:100%;background-color:white;"
+                              v-model="item.textoAntecedente"
+                              readonly
+                            />                            
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <div style="width:70px;" >
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-danger"
+                                type="button"
+                                title="Eliminar"
+                                @click="eliminarItemAntInt(index,item)"
+                              >
+                                <i class="fa fa-trash"></i>
+                              </button>                          
+                            </div>
+                          </td>                                                    
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="kt-separator kt-separator--border-dashed"></div>
+                </div>
+              </div>                           
               <div class="form-group row">
                 <div class="col-lg-4">
                   <label>Excepciones:</label>
@@ -5885,14 +6051,24 @@
                             <span class="text-capitalize">{{item.id_jefe}}</span>
                           </td>
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
-                            <button
-                              class="btn btn-icon btn-sm btn-outline-danger"
-                              type="button"
-                              title="Eliminar"
-                              @click="eliminarItemEstratificacion(index)"
-                            >
-                              <i class="fa fa-trash"></i>
-                            </button>
+                            <div style="width:70px;">
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-warning"
+                                type="button"
+                                title="Editar"
+                                @click="editarItemEstratificacion(index,item)"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>                            
+                              <button
+                                class="btn btn-icon btn-sm btn-outline-danger"
+                                type="button"
+                                title="Eliminar"
+                                @click="eliminarItemEstratificacion(index,item)"
+                              >
+                                <i class="fa fa-trash"></i>
+                              </button>
+                            </div>  
                           </td>
                         </tr>
                       </tbody>
@@ -8849,11 +9025,11 @@
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                             colspan="12"
                           >Crecimiento y Desarrollo</th>
-                          <th
+                          <!-- <th
                             class="kt-bg-fill-danger"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                             colspan="1"
-                          ></th>
+                          ></th> -->
                           <th
                             class="kt-bg-fill-dark"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
@@ -8883,7 +9059,7 @@
                           <td class="kt-bg-fill-success">Visuales</td>
                           <td class="kt-bg-fill-success">Auditivos</td>
                           <td class="kt-bg-fill-success">De Conducta</td>
-                          <td class="kt-bg-fill-danger">Enfermedad Cronica</td>
+                          <!-- <td class="kt-bg-fill-danger">Enfermedad Cronica</td> -->
                           <td class="kt-bg-fill-dark">Dientes Sanos</td>
                           <td class="kt-bg-fill-dark">Consulta Odontologica (ultimos 6 meses)</td>
                           <td class="kt-bg-fill-dark">No. Cepillado Dia</td>
@@ -9052,7 +9228,7 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
-                          <td
+                          <!-- <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
@@ -9065,7 +9241,7 @@
                               <option value="SI">SI</option>
                               <option value="NO">NO</option>
                             </b-form-select>
-                          </td>
+                          </td> -->
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -9363,7 +9539,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="13"
+                            colspan="12"
                           ></th>
                           <th
                             class="kt-bg-fill-danger"
@@ -9398,11 +9574,11 @@
                             colspan="3"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           >Problemas</th>
-                          <th
+                          <!-- <th
                             class="kt-bg-fill-success"
                             colspan="1"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                          ></th>
+                          ></th> -->
                           <th
                             class="kt-bg-fill-danger"
                             colspan="3"
@@ -9438,7 +9614,7 @@
                           <td class="kt-bg-fill-info">Visuales</td>
                           <td class="kt-bg-fill-info">Auditivos</td>
                           <td class="kt-bg-fill-info">De Conducta</td>
-                          <td class="kt-bg-fill-success">Enfermedad Cronica</td>
+                          <!-- <td class="kt-bg-fill-success">Enfermedad Cronica</td> -->
                           <td class="kt-bg-fill-danger">Dientes Sanos</td>
                           <td class="kt-bg-fill-danger">Consulta Odontologica (ultimos 6 meses)</td>
                           <td class="kt-bg-fill-danger">No. Cepillado Dia</td>
@@ -9615,7 +9791,7 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
-                          <td
+                          <!-- <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
@@ -9628,7 +9804,7 @@
                               <option value="SI">SI</option>
                               <option value="NO">NO</option>
                             </b-form-select>
-                          </td>
+                          </td> -->
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -9841,7 +10017,7 @@
                           <th
                             class="kt-bg-fill-success"
                             style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                            colspan="13"
+                            colspan="12"
                           ></th>
                           <th
                             class="kt-bg-fill-danger"
@@ -9886,11 +10062,11 @@
                             colspan="3"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           >Problemas</th>
-                          <th
+                          <!-- <th
                             class="kt-bg-fill-success"
                             colspan="1"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
-                          ></th>
+                          ></th> -->
                           <th
                             class="kt-bg-fill-danger"
                             colspan="3"
@@ -9912,7 +10088,7 @@
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           ></th>
                           <th
-                            class="kt-bg-fill-dark"
+                            class="kt-bg-fill-success"
                             colspan="3"
                             style="padding: 0;font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;"
                           ></th>
@@ -9936,7 +10112,7 @@
                           <td class="kt-bg-fill-info">Visuales</td>
                           <td class="kt-bg-fill-info">Auditivos</td>
                           <td class="kt-bg-fill-info">De Conducta</td>
-                          <td class="kt-bg-fill-success">Enfermedad Cronica</td>
+                          <!-- <td class="kt-bg-fill-success">Enfermedad Cronica</td> -->
                           <td class="kt-bg-fill-danger">Dientes Sanos</td>
                           <td class="kt-bg-fill-danger">Consulta Odontologica (ultimos 6 meses)</td>
                           <td class="kt-bg-fill-danger">No. Cepillado Dia</td>
@@ -10116,7 +10292,7 @@
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
-                          <td
+                          <!-- <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
@@ -10129,7 +10305,7 @@
                               <option value="SI">SI</option>
                               <option value="NO">NO</option>
                             </b-form-select>
-                          </td>
+                          </td> -->
                           <td
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
@@ -10649,10 +10825,11 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
-                              style="width:150px;"
+                              style="width:150px;background-color:white;"
                               v-model="item.examen_seno"
                               @input="examen_seno=>updateDe60(item,examen_seno,'examen_seno')"
                               :class="item.examen_seno==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
@@ -10665,10 +10842,11 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
-                              style="width:150px;"
+                              style="width:150px;background-color:white;"
                               v-model="item.citologia"
                               @input="citologia=>updateDe60(item,citologia,'citologia')"
                               :class="item.citologia==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
@@ -10681,10 +10859,11 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
-                              style="width:150px;"
+                              style="width:150px;background-color:white;"
                               v-model="item.colposcopia"
                               @input="colposcopia=>updateDe60(item,colposcopia,'colposcopia')"
                               :class="item.colposcopia==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='MASCULINO'"
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
@@ -10697,10 +10876,11 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
-                              style="width:150px;"
+                              style="width:150px;background-color:white;"
                               v-model="item.examen_prostata"
                               @input="examen_prostata=>updateDe60(item,examen_prostata,'examen_prostata')"
                               :class="item.examen_prostata==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='FEMENINO'"
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
@@ -10713,10 +10893,11 @@
                             style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;"
                           >
                             <b-form-select
-                              style="width:150px;"
+                              style="width:150px;background-color:white;"
                               v-model="item.biposia_prostata"
                               @input="biposia_prostata=>updateDe60(item,biposia_prostata,'biposia_prostata')"
                               :class="item.biposia_prostata==''?'is-invalid':'is-valid'"
+                              :disabled="item.sexo=='FEMENINO'"
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
@@ -11729,6 +11910,7 @@
         enfinf_options: {},
         religion_options: {},
         colegio_options: {},
+        antec_options: {},
         opciones1: [
           { value: 1, texto: "Ninguno" },
           { value: 2, texto: "1 Celular" },
@@ -11743,7 +11925,7 @@
           { value: 4, texto: "3 o mas tv" }
         ],
         opciones3: [
-          { value: 1, texto: "No tene Vehiculos" },
+          { value: 1, texto: "No tiene Vehiculos" },
           { value: 2, texto: "1 Vehiculo" },
           { value: 3, texto: "2 Vehiculos" },
           { value: 4, texto: "3 o mas Vehiculos" }
@@ -11842,7 +12024,9 @@
           enfermedad_cronica: "",
           enfermedades: [],
           peso: "",
-          talla: ""
+          talla: "",
+          antecedentes: [],
+          antec: ""          
         },
         CA1: {
           id: 0,
@@ -11887,7 +12071,9 @@
           enfermedad_cronica: "0",
           peso: "",
           talla: "",
-          enfermedades: [],                  
+          enfermedades: [],
+          antecedentes: [],
+          antec: ""                           
         },
         viviendaData: {
           id: 0,
@@ -12004,6 +12190,8 @@
           residuos_no_aprovechables: ""
         },
         estratificacionData: {
+          id: 0,
+          id_hogar: 0,
           cuenta_internet: "",
           tiene_pc_escritorio: "",
           tiene_pc_portatil: "",
@@ -12015,7 +12203,8 @@
           afiliacion_salud_privada: "",
           ingresos_zona_rural: "",
           ingresos_ciudad: "",
-          id_jefe: "0"
+          id_jefe: "0",
+          estado: "Activo"
         },
         animalesData: [],
         estratificacion: [],
@@ -12103,7 +12292,9 @@
         ActividadData: [],
         EnfJef: [],
         enfermedadesJefesVector: [],
-        vaEnfJef: []
+        vaEnfJef: [],
+        bandeGuaEdiEstrati: true,
+        indiceEditEstrati: null
       };
     },
     validations: {
@@ -16829,6 +17020,7 @@
               this.CODIGOGENE = respuesta.data.codigo;
 
               this.paises_options = respuesta.data.arrayPaises;
+              this.antec_options = respuesta.data.arrayAnte;
             });
         } catch (error) {
           switch (error.response.status) {
@@ -17132,7 +17324,8 @@
                     estado: "Activo",
                     peso: this.CA1.peso,
                     talla: this.CA1.talla,
-                    enfermedades: []                                        
+                    enfermedades: [],
+                    antecedentes: []                                       
                   });
                   for(let i=0;i<this.CA1.enfermedades.length;i++){
                     this.datos[this.datos.length-1].enfermedades.push({
@@ -17148,7 +17341,18 @@
                     });
                     this.datos.splice(this.datos.length-1, 1, this.datos[this.datos.length-1]);                  
                   }
-                  // this.CA1.enfermedades.length = [];                  
+                  // this.CA1.enfermedades.length = [];
+                  for(let i=0;i<this.CA1.antecedentes.length;i++){
+                    this.datos[this.datos.length-1].antecedentes.push({
+                      id: this.CA1.antecedentes[i].id,
+                      id_hogar: this.CA1.antecedentes[i].id_hogar,
+                      id_jefe: this.CA1.antecedentes[i].id_jefe,
+                      textoAntecedente: this.CA1.antecedentes[i].textoAntecedente,
+                      id_antecedente: this.CA1.antecedentes[i].id_antecedente,
+                      estado: this.CA1.antecedentes[i].estado                      
+                    });
+                    this.datos.splice(this.datos.length-1, 1, this.datos[this.datos.length-1]);
+                  }                                   
                   if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO" || this.CA1.tipo_afiliacion==="ESPECIAL"){
                     this.SAPU=true;
                     this.estratificacionData.afiliacion_salud_privada="SI";        
@@ -17416,7 +17620,8 @@
                       estado: "Activo",
                       peso: this.caracData.peso,
                       talla: this.caracData.talla,
-                      enfermedades: []
+                      enfermedades: [],
+                      antecedentes: []
                     });
 
                     for(let i=0;i<this.caracData.enfermedades.length;i++){
@@ -17433,8 +17638,20 @@
                       });
                       this.datosJefe.splice(this.datosJefe.length-1, 1, this.datosJefe[this.datosJefe.length-1]);
                     }
-                    
+
+                    for(let i=0;i<this.caracData.antecedentes.length;i++){
+                      this.datosJefe[this.datosJefe.length-1].antecedentes.push({
+                        id: this.caracData.antecedentes[i].id,
+                        id_hogar: this.caracData.antecedentes[i].id_hogar,
+                        id_jefe: this.caracData.antecedentes[i].id_jefe,
+                        textoAntecedente: this.caracData.antecedentes[i].textoAntecedente,
+                        id_antecedente: this.caracData.antecedentes[i].id_antecedente,
+                        estado: this.caracData.antecedentes[i].estado                      
+                      });
+                      this.datosJefe.splice(this.datosJefe.length-1, 1, this.datosJefe[this.datosJefe.length-1]);
+                    }            
                     this.caracData.enfermedades.length = [];
+                    this.caracData.antecedentes.length = [];
                     if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO" || this.caracData.tipo_afiliacion==="ESPECIAL"){
                       this.SAPU=true;
                       this.estratificacionData.afiliacion_salud_privada="SI";        
@@ -18095,6 +18312,7 @@
 
         this.caracData.enfermedades = item.enfermedades;
         this.vaEnfJef = item.enfermedades;
+        this.caracData.antecedentes = item.antecedentes;
         
 
         this.caracData.peso = item.peso;
@@ -19010,6 +19228,7 @@
         this.datosJefe[this.indiceEditJefe].peso = this.caracData.peso;
         this.datosJefe[this.indiceEditJefe].talla = this.caracData.talla;
         this.datosJefe[this.indiceEditJefe].enfermedades = this.caracData.enfermedades;
+        this.datosJefe[this.indiceEditJefe].antecedentes = this.caracData.antecedentes;
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         this.EnfJef.length = 0; 
         
@@ -19194,6 +19413,7 @@
         this.ocupacionAuxiliar2 = item.textoOcupacion;
 
         this.CA1.enfermedades = item.enfermedades;
+        this.CA1.antecedentes = item.antecedentes;
         this.CA1.peso = item.peso;
         this.CA1.talla = item.talla;               
         this.$refs.identificacionInte.focus();
@@ -19960,7 +20180,7 @@
                   this.Migra[indice].estado = "Activo";
                   this.Migra.splice(indice, 1, this.Migra[indice]);
                 }else{
-                  this.AMigra(this.CA1, edad, "JEFE");
+                  this.AMigra(this.CA1, edad, "INTE");
                 }
               }
             }            
@@ -20201,7 +20421,7 @@
                 this.Migra[indice].estado = "Activo";
                 this.Migra.splice(indice, 1, this.Migra[indice]);
               }else{
-                this.AMigra(this.CA1, edad, "JEFE");
+                this.AMigra(this.CA1, edad, "INTE");
               }
             }
           }
@@ -20257,6 +20477,7 @@
         this.datos[this.indiceEditInte].ocupacionAuxiliar = this.CA1.textoOcupacion2;
         
         this.datos[this.indiceEditInte].enfermedades = this.CA1.enfermedades;
+        this.datos[this.indiceEditInte].antecedentes = this.CA1.antecedentes;
                      
         this.datos[this.indiceEditInte].peso = this.CA1.peso;
         this.datos[this.indiceEditInte].talla = this.CA1.talla;
@@ -22410,7 +22631,9 @@
         this.CA1.enfermedad_cronica = "0";
         this.CA1.peso = "";
         this.CA1.talla = "";
-        this.CA1.enfermedades = [];               
+        this.CA1.enfermedades = [];
+        this.CA1.antecedentes = [];
+        this.CA1.antec = "";                       
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -22463,6 +22686,8 @@
         this.caracData.peso = "";
         this.caracData.talla = "";
         this.caracData.enfermedades = [];
+        this.caracData.antecedentes = [];
+        this.caracData.antec = "";        
       },
       mostrarOtro(tipo) {
         if (tipo === "TE") {
@@ -22623,9 +22848,107 @@
       eliminarItemAnimales: function(index) {
         this.animalesData.splice(index, 1);
       },
-      eliminarItemEstratificacion: function(index) {
-        this.estratificacion.splice(index, 1);
+      eliminarItemEstratificacion: function(index,item) {
+        if(item.id===0){
+          this.estratificacion.splice(index, 1);
+        }else{
+          //INACTIVAR LA ESTRATIFICACION
+          this.estratificacion[index].estado = "Inactivo";
+          this.estratificacion.splice(index, 1, this.estratificacion[index]);
+          //INACTIVAR LA ESTRATIFICACION
+        }
       },
+      editarItemEstratificacion(index,item){
+        this.bandeGuaEdiEstrati = false;
+        this.indiceEditEstrati = index;
+        this.estratificacionData.id = item.id;
+        this.estratificacionData.id_hogar = item.id_hogar;
+        this.estratificacionData.cuenta_internet = item.cuenta_internet;
+        this.estratificacionData.tiene_pc_escritorio = item.tiene_pc_escritorio;
+        this.estratificacionData.tiene_pc_portatil = item.tiene_pc_portatil;
+        this.estratificacionData.cuantos_celulares = item.cuantos_celulares;
+        this.estratificacionData.tiene_equipo_sonido = item.tiene_equipo_sonido;
+        this.estratificacionData.cuantos_tv_color = item.cuantos_tv_color;
+        this.estratificacionData.cuantos_vehiculos = item.cuantos_vehiculos;
+        this.estratificacionData.nivel_instruccion = item.nivel_instruccion;
+        this.estratificacionData.afiliacion_salud_privada = item.afiliacion_salud_privada;
+        this.estratificacionData.ingresos_zona_rural = item.ingresos_zona_rural;
+        this.estratificacionData.ingresos_ciudad = item.ingresos_ciudad;
+        this.estratificacionData.id_jefe = item.id_jefe;
+        this.estratificacionData.estado = item.estado;
+
+        //INACTIVAR LA ESTRATIFICACION
+        this.estratificacion[index].estado = "Inactivo";
+        this.estratificacion.splice(index, 1, this.estratificacion[index]);
+        //INACTIVAR LA ESTRATIFICACION        
+      },
+      CancelarEditarEstratificacion(){
+        //INACTIVAR LA ESTRATIFICACION
+        this.estratificacion[this.indiceEditEstrati].estado = "Activo";
+        this.estratificacion.splice(this.indiceEditEstrati, 1, this.estratificacion[this.indiceEditEstrati]);
+        //INACTIVAR LA ESTRATIFICACION
+        this.bandeGuaEdiEstrati = true;
+        this.indiceEditEstrati = null;
+        this.estratificacionData.cuenta_internet = "";
+        this.estratificacionData.tiene_pc_escritorio = "";
+        this.estratificacionData.tiene_pc_portatil = "";
+        this.estratificacionData.cuantos_celulares = "";
+        this.estratificacionData.tiene_equipo_sonido = "";
+        this.estratificacionData.cuantos_tv_color = "";
+        this.estratificacionData.cuantos_vehiculos = "";
+        this.estratificacionData.nivel_instruccion = "";
+        if (this.SAPU === true) {
+          this.estratificacionData.afiliacion_salud_privada = "SI";
+        } else {
+          this.estratificacionData.afiliacion_salud_privada = "";
+        }
+        this.habilitar_zonas();
+        this.estratificacionData.id_jefe = "0";                
+      },
+      editarEstratificacion(){
+        this.estratificacion[this.indiceEditEstrati].id = this.estratificacionData.id;
+        this.estratificacion[this.indiceEditEstrati].id_hogar = this.estratificacionData.id_hogar;
+        this.estratificacion[this.indiceEditEstrati].cuenta_internet = this.estratificacionData.cuenta_internet;
+        this.estratificacion[this.indiceEditEstrati].tiene_pc_escritorio = this.estratificacionData.tiene_pc_escritorio;
+        this.estratificacion[this.indiceEditEstrati].tiene_pc_portatil = this.estratificacionData.tiene_pc_portatil;
+        this.estratificacion[this.indiceEditEstrati].cuantos_celulares = this.estratificacionData.cuantos_celulares;
+        this.estratificacion[this.indiceEditEstrati].tiene_equipo_sonido = this.estratificacionData.tiene_equipo_sonido;
+        this.estratificacion[this.indiceEditEstrati].cuantos_tv_color = this.estratificacionData.cuantos_tv_color;
+        this.estratificacion[this.indiceEditEstrati].cuantos_vehiculos = this.estratificacionData.cuantos_vehiculos;
+        this.estratificacion[this.indiceEditEstrati].nivel_instruccion = this.estratificacionData.nivel_instruccion;
+        this.estratificacion[this.indiceEditEstrati].afiliacion_salud_privada = this.estratificacionData.afiliacion_salud_privada;
+        this.estratificacion[this.indiceEditEstrati].ingresos_zona_rural = this.estratificacionData.ingresos_zona_rural;
+        this.estratificacion[this.indiceEditEstrati].ingresos_ciudad = this.estratificacionData.ingresos_ciudad;
+        this.estratificacion[this.indiceEditEstrati].id_jefe = this.estratificacionData.id_jefe;
+        this.estratificacion[this.indiceEditEstrati].estado = this.estratificacionData.estado;
+
+        this.estratificacion[this.indiceEditEstrati].texto_cuantos_celulares = this.showText(Number(this.estratificacionData.cuantos_celulares),this.opciones1);
+        this.estratificacion[this.indiceEditEstrati].texto_cuantos_tv_color = this.showText(Number(this.estratificacionData.cuantos_tv_color),this.opciones2);
+        this.estratificacion[this.indiceEditEstrati].texto_cuantos_vehiculos = this.showText(Number(this.estratificacionData.cuantos_vehiculos),this.opciones3);
+        this.estratificacion[this.indiceEditEstrati].texto_nivel_instruccion = this.showText(Number(this.estratificacionData.nivel_instruccion),this.escolaridad_options);
+        this.estratificacion[this.indiceEditEstrati].texto_ingresos_zona_rural = this.showText(Number(this.estratificacionData.ingresos_zona_rural),this.opciones5);
+        this.estratificacion[this.indiceEditEstrati].texto_ingresos_ciudad = this.showText(Number(this.estratificacionData.ingresos_ciudad),this.opciones6);
+
+        this.estratificacion.splice(this.indiceEditEstrati, 1, this.estratificacion[this.indiceEditEstrati]);
+
+        this.bandeGuaEdiEstrati = true;
+        this.indiceEditEstrati = null;
+        this.estratificacionData.cuenta_internet = "";
+        this.estratificacionData.tiene_pc_escritorio = "";
+        this.estratificacionData.tiene_pc_portatil = "";
+        this.estratificacionData.cuantos_celulares = "";
+        this.estratificacionData.tiene_equipo_sonido = "";
+        this.estratificacionData.cuantos_tv_color = "";
+        this.estratificacionData.cuantos_vehiculos = "";
+        this.estratificacionData.nivel_instruccion = "";
+        if (this.SAPU === true) {
+          this.estratificacionData.afiliacion_salud_privada = "SI";
+        } else {
+          this.estratificacionData.afiliacion_salud_privada = "";
+        }
+        this.habilitar_zonas();
+        this.estratificacionData.id_jefe = "0";        
+      },                  
       agregarAnimales: function() {
         if (this.animal === "") {
           this.$swal("Error...!", "Por favor Digite Un Animal!", "error");
@@ -23618,7 +23941,7 @@
           visuales: "",
           auditivos: "",
           conducta: "",
-          enfermedades_cronicas: "",
+          enfermedades_cronicas: "NO",
           dientes_sanos: "",
           consultaodon: "",
           nocepillado: "",
@@ -23744,7 +24067,7 @@
           visuales: "",
           auditivos: "",
           conducta: "",
-          enfermedades_cronicas: "",
+          enfermedades_cronicas: "NO",
           dientes_sanos: "",
           consultaodon: "",
           nocepillado: "",
@@ -23853,7 +24176,7 @@
           visuales: "",
           auditivos: "",
           conducta: "",
-          enfermedades_cronicas: "",
+          enfermedades_cronicas: "NO",
           dientes_sanos: "",
           consultaodon: "",
           nocepillado: "",
@@ -23956,39 +24279,76 @@
         }
       },
       Ade60Anio(vector, edad, opcion) {
-        this.De60.push({
-          id: 0,
-          tipo_id: vector.tipo_id,
-          identificacion: vector.identificacion,
-          pnom: vector.pnom,
-          snom: vector.snom,
-          pape: vector.pape,
-          sape: vector.sape,
-          sexo: vector.sexo,
-          edad: edad,
-          grupo_ayudas: "",
-          peso: vector.peso,
-          talla: vector.talla,
-          imc: this.calcularImc(vector.peso,vector.talla),
-          pa: "",
-          glicemia: "",
-          cigarrillo: "",
-          alcohol: "",
-          actividad_fisica: "",
-          sintomatico: "",
-          examen_seno: "",
-          citologia: "",
-          colposcopia: "",
-          examen_prostata: "",
-          biposia_prostata: "",
-          agudeza_visual: "",
-          subsidio: "",
-          enfermedades_cronicas: "NO",
-          enfermedades_infecciosas: "NO",
-          opci: opcion,
-          empleo: "",
-          estado: "Activo"
-        });
+        if(vector.sexo==="MASCULINO"){
+          this.De60.push({
+            id: 0,
+            tipo_id: vector.tipo_id,
+            identificacion: vector.identificacion,
+            pnom: vector.pnom,
+            snom: vector.snom,
+            pape: vector.pape,
+            sape: vector.sape,
+            sexo: vector.sexo,
+            edad: edad,
+            grupo_ayudas: "",
+            peso: vector.peso,
+            talla: vector.talla,
+            imc: this.calcularImc(vector.peso,vector.talla),
+            pa: "",
+            glicemia: "",
+            cigarrillo: "",
+            alcohol: "",
+            actividad_fisica: "",
+            sintomatico: "",
+            examen_seno: "NA",
+            citologia: "NA",
+            colposcopia: "NA",
+            examen_prostata: "",
+            biposia_prostata: "",
+            agudeza_visual: "",
+            subsidio: "",
+            enfermedades_cronicas: "NO",
+            enfermedades_infecciosas: "NO",
+            opci: opcion,
+            empleo: "",
+            estado: "Activo"
+          });
+        }else{
+          this.De60.push({
+            id: 0,
+            tipo_id: vector.tipo_id,
+            identificacion: vector.identificacion,
+            pnom: vector.pnom,
+            snom: vector.snom,
+            pape: vector.pape,
+            sape: vector.sape,
+            sexo: vector.sexo,
+            edad: edad,
+            grupo_ayudas: "",
+            peso: vector.peso,
+            talla: vector.talla,
+            imc: this.calcularImc(vector.peso,vector.talla),
+            pa: "",
+            glicemia: "",
+            cigarrillo: "",
+            alcohol: "",
+            actividad_fisica: "",
+            sintomatico: "",
+            examen_seno: "",
+            citologia: "",
+            colposcopia: "",
+            examen_prostata: "NA",
+            biposia_prostata: "NA",
+            agudeza_visual: "",
+            subsidio: "",
+            enfermedades_cronicas: "NO",
+            enfermedades_infecciosas: "NO",
+            opci: opcion,
+            empleo: "",
+            estado: "Activo"
+          });
+        }
+
       },
       changeupdateDe60(item, event, opcion) {
         if (opcion === "peso") {
@@ -25646,6 +26006,14 @@
           }
           id_enfermedad = this.caracData.enfermedad_infecciosa;
           textoEnfermedad = this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);
+          var i=0;
+          while(i<this.caracData.enfermedades.length){
+            if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){
+              this.$swal("Validando...!", "la enfermedad infecciosa ya se encuentra agregada!", "warning");
+              return;              
+            }            
+            i++;
+          }          
           this.caracData.enfermedad_infecciosa = "";
         }else{
           if (this.caracData.enfermedad_cronica === "") {
@@ -25654,6 +26022,14 @@
           }
           id_enfermedad = this.caracData.enfermedad_cronica;
           textoEnfermedad = this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);
+          var i=0;
+          while(i<this.caracData.enfermedades.length){
+            if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){
+              this.$swal("Validando...!", "la enfermedad cronica ya se encuentra agregada!", "warning");
+              return;              
+            }            
+            i++;
+          }          
           this.caracData.enfermedad_cronica = "";
         }
         this.caracData.enfermedades.push({
@@ -25679,20 +26055,36 @@
       agregarEnfInt(tipo){
         let enfermedad = "", textoEnfermedad = "", id_enfermedad = "";
         if(tipo === "Infecciosa"){
-          if (this.CA1.enfermedad_infecciosa === "") {
+          if (this.CA1.enfermedad_infecciosa === "0") {
             this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad infecciosa!", "error");
             return;
           }
           id_enfermedad = this.CA1.enfermedad_infecciosa;
           textoEnfermedad = this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);
+          var i=0;
+          while(i<this.CA1.enfermedades.length){
+            if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){
+              this.$swal("Validando...!", "la enfermedad infecciosa ya se encuentra agregada!", "warning");
+              return;              
+            }            
+            i++;
+          }          
           this.CA1.enfermedad_infecciosa = "0";
         }else{
-          if (this.CA1.enfermedad_cronica === "") {
+          if (this.CA1.enfermedad_cronica === "0") {
             this.$swal("Error...!", "Por favor seleccione si tiene alguna enfermedad cronica!", "error");
             return;
           }
           id_enfermedad = this.CA1.enfermedad_cronica;
           textoEnfermedad = this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);
+          var i=0;
+          while(i<this.CA1.enfermedades.length){
+            if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){
+              this.$swal("Validando...!", "la enfermedad cronica ya se encuentra agregada!", "warning");
+              return;              
+            }            
+            i++;
+          }          
           this.CA1.enfermedad_cronica = "0";
         }
         this.CA1.enfermedades.push({
@@ -25714,7 +26106,75 @@
           this.CA1.enfermedades[index].estado = "Inactivo";
           this.CA1.enfermedades.splice(index, 1, this.CA1.enfermedades[index]);
         }
-      }    
+      },
+      agregarAntJef(){
+        let textoAntecedente = "", id_antecedente = "";
+        if (this.caracData.antec === "") {
+          this.$swal("Error...!", "Por favor seleccione un antecedente de enfermedad!", "error");
+          return;
+        }
+        id_antecedente = this.caracData.antec;
+        textoAntecedente = this.showText(this.caracData.antec,this.antec_options);
+        var i=0;
+        while(i<this.caracData.antecedentes.length){
+          if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){
+            this.$swal("Validando...!", "el antecedente ya se encuentra agregado!", "warning");
+            return;              
+          }            
+          i++;
+        } 
+        this.caracData.antec = "";
+        this.caracData.antecedentes.push({
+          id: 0,
+          id_jefe: 0,
+          id_hogar: 0,          
+          textoAntecedente: textoAntecedente,
+          id_antecedente: id_antecedente,
+          estado: "Activo"
+        });         
+      },
+      eliminarItemAntJef: function(index,item) {
+        if(item.id === 0){
+          this.caracData.antecedentes.splice(index, 1);
+        }else{
+          this.caracData.antecedentes[index].estado = "Inactivo";
+          this.caracData.antecedentes.splice(index, 1, this.caracData.antecedentes[index]);
+        }
+      },
+      agregarAntInt(){
+        let textoAntecedente = "", id_antecedente = "";
+        if (this.CA1.antec === "") {
+          this.$swal("Error...!", "Por favor seleccione un antecedente de enfermedad!", "error");
+          return;
+        }
+        id_antecedente = this.CA1.antec;
+        textoAntecedente = this.showText(this.CA1.antec,this.antec_options);
+        var i=0;
+        while(i<this.CA1.antecedentes.length){
+          if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){
+            this.$swal("Validando...!", "el antecedente ya se encuentra agregado!", "warning");
+            return;              
+          }            
+          i++;
+        } 
+        this.CA1.antec = "";
+        this.CA1.antecedentes.push({
+          id: 0,
+          id_inte: 0,
+          id_hogar: 0,          
+          textoAntecedente: textoAntecedente,
+          id_antecedente: id_antecedente,
+          estado: "Activo"
+        });          
+      },
+      eliminarItemAntInt: function(index,item) {
+        if(item.id === 0){
+          this.CA1.antecedentes.splice(index, 1);
+        }else{
+          this.CA1.antecedentes[index].estado = "Inactivo";
+          this.CA1.antecedentes.splice(index, 1, this.CA1.antecedentes[index]);
+        }
+      },               
     }
   };
 </script>

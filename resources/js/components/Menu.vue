@@ -589,7 +589,7 @@
               aria-haspopup="true"
               data-ktmenu-submenu-toggle="hover"
             >
-              <a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+              <a href="javascript:;" @click="salir" class="kt-menu__link kt-menu__toggle">
                 <span class="kt-menu__link-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -632,3 +632,54 @@
     </div>
   </div>
 </template>
+<script>
+  "use strict";
+  import * as usuarioServicios from "../Servicios/usuarios_servicios";
+  export default {
+    mounted() {
+      
+    },
+    data() {
+      return {
+        nombreUsuario: "",
+        rolUsuario: "",
+        csrf: document
+          .querySelector('meta[name="csrf-token"]')
+          .getAttribute("content")
+      };
+    },
+    methods: {
+      salir: async function() {
+        const parametros = {
+          _token: this.csrf
+        };
+        try {
+          await usuarioServicios
+            .salir(parametros)
+            .then(respuesta => {
+              this.$swal(
+                "Cerrar...!",
+                "Sesion Cerrada de Manera Exitosa!",
+                "success"
+              );
+              setTimeout(() => {
+                // this.$router.go("/index");
+                window.location = "/index";
+                // window.location = "/SIP/public/index";
+              }, 2000);
+            })
+            .catch(error => {});
+        } catch (error) {
+          switch (error.response.status) {
+            case 422:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+            default:
+              this.$swal("Error...!", "Ocurrio un error!", "error");
+              break;
+          }
+        }
+      }
+    }
+  };
+</script>

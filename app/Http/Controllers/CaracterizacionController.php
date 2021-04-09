@@ -283,6 +283,14 @@ class CaracterizacionController extends Controller
                 ];
             }
 
+            $arrayAnte = [];
+            $consante = \App\Antecedentes::buscar(Session::get('alias'));
+            foreach ($consante as $item) {
+                $arrayAnte[] = [
+                    'value' => $item->id,
+                    'texto' => $item->descripcion,
+                ];
+            }
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
                 'arrayMuni' => $arrayMuni,
@@ -306,6 +314,7 @@ class CaracterizacionController extends Controller
                 'arrayReligion' => $arrayReligion,
                 'codigo' => $codigo,
                 'arrayPaises' => $arrayPaises,
+                'arrayAnte' => $arrayAnte,
             ];
             return response()->json($respuesta, 200);
         } else {
@@ -567,6 +576,12 @@ class CaracterizacionController extends Controller
                     $jef->enfermedades = $enfer;
                 }
             }
+            foreach ($jefes as $jef) {
+                $ante = \App\AntecedentesJefes::buscar(Session::get('alias'), $jef->id);
+                if ($ante) {
+                    $jef->antecedentes = $ante;
+                }
+            }            
             //TABLA JEFES DE HOGAR
 
             //TABLA INTEGRANTES
@@ -577,6 +592,12 @@ class CaracterizacionController extends Controller
                     $int->enfermedades = $integra;
                 }
             }
+            foreach ($integrantes as $int) {
+                $ante = \App\AntecedentesIntegrantes::buscar(Session::get('alias'), $int->id);
+                if ($ante) {
+                    $int->antecedentes = $ante;
+                }
+            }            
             //TABLA INTEGRANTES
 
             //DATOS GUARDADOS
@@ -785,7 +806,14 @@ class CaracterizacionController extends Controller
                     'texto' => strtoupper($item->nombre),
                 ];
             }
-
+            $arrayAnte = [];
+            $consante = \App\Antecedentes::buscar(Session::get('alias'));
+            foreach ($consante as $item) {
+                $arrayAnte[] = [
+                    'value' => $item->id,
+                    'texto' => $item->descripcion,
+                ];
+            }
             $respuesta = [
                 'arrayDpto' => $arrayDpto,
                 'arrayMuni' => $arrayMuni,
@@ -832,6 +860,7 @@ class CaracterizacionController extends Controller
                 'EnInf' => $EnInf,
                 'Migra' => $Migra,
                 'arrayPaises' => $arrayPaises,
+                'arrayAnte' => $arrayAnte,
             ];
             return response()->json($respuesta, 200);
         } else {
@@ -864,6 +893,13 @@ class CaracterizacionController extends Controller
                                 $enfjef[$j]["id_hogar"] = $hogarrespuesta;
                                 $enfermedadesjefes = \App\EnfermedadesJefes::guardar($enfjef[$j], Session::get('alias'));
                             }
+
+                            $antec = $datacaracterizacion[$i]['antecedentes'];
+                            for ($j = 0; $j < count($antec); $j++) {
+                                $antec[$j]["id_jefe"] = $caracterizacionrespuesta;
+                                $antec[$j]["id_hogar"] = $hogarrespuesta;
+                                $antecedentesjefes = \App\AntecedentesJefes::guardar($antec[$j], Session::get('alias'));
+                            }                            
                         }
 
                         for ($i = 0; $i < count($dataintegrantes); $i++) {
@@ -875,6 +911,12 @@ class CaracterizacionController extends Controller
                                 $enfint[$j]["id_inte"] = $integranterespuesta;
                                 $enfint[$j]["id_hogar"] = $hogarrespuesta;
                                 $enfermedadesinte = \App\EnfermedadesIntegrantes::guardar($enfint[$j], Session::get('alias'));
+                            }
+                            $antec = $dataintegrantes[$i]['antecedentes'];
+                            for ($j = 0; $j < count($antec); $j++) {
+                                $antec[$j]["id_inte"] = $integranterespuesta;
+                                $antec[$j]["id_hogar"] = $hogarrespuesta;
+                                $antecedentesinte = \App\AntecedentesIntegrantes::guardar($antec[$j], Session::get('alias'));
                             }                            
                         }
 
@@ -902,10 +944,20 @@ class CaracterizacionController extends Controller
                             //TABLA ENFERMEDADES JEFES
                             if ($enfermedades) {
                                 $jef->enfermedades = $enfermedades;
-                            }else{
+                            } else {
                                 $jef->enfermedades = [];
                             }
                         }
+                        foreach ($jefes as $jef) {
+                            //TABLA ENFERMEDADES JEFES
+                            $antecedentes = \App\AntecedentesJefes::buscar(Session::get('alias'), $jef->id);
+                            //TABLA ENFERMEDADES JEFES
+                            if ($antecedentes) {
+                                $jef->antecedentes = $antecedentes;
+                            } else {
+                                $jef->antecedentes = [];
+                            }
+                        }                        
                         //TABLA JEFES DE HOGAR
 
                         //TABLA INTEGRANTES
@@ -916,10 +968,20 @@ class CaracterizacionController extends Controller
                             //TABLA ENFERMEDADES JEFES
                             if ($enfermedades) {
                                 $int->enfermedades = $enfermedades;
-                            }else{
+                            } else {
                                 $int->enfermedades = [];
                             }
                         }
+                        foreach ($integrantes as $int) {
+                            //TABLA ENFERMEDADES JEFES
+                            $antecedentes = \App\AntecedentesIntegrantes::buscar(Session::get('alias'), $int->id);
+                            //TABLA ENFERMEDADES JEFES
+                            if ($antecedentes) {
+                                $int->antecedentes = $antecedentes;
+                            } else {
+                                $int->antecedentes = [];
+                            }
+                        }                        
                         //TABLA INTEGRANTES
 
                         //TABLA FACTORES
@@ -1239,6 +1301,12 @@ class CaracterizacionController extends Controller
                                 $enfjef[$j]["id_hogar"] = $id_hogar;
                                 $enfermedadesjefes = \App\EnfermedadesJefes::guardar($enfjef[$j], Session::get('alias'));
                             }
+                            $antec = $datacaracterizacion[$i]['antecedentes'];
+                            for ($j = 0; $j < count($antec); $j++) {
+                                $antec[$j]["id_jefe"] = $datacaracterizacion[$i]['id'];
+                                $antec[$j]["id_hogar"] = $id_hogar;
+                                $antecedentesjefes = \App\AntecedentesJefes::guardar($antec[$j], Session::get('alias'));
+                            }                            
                         }
 
                         for ($i = 0; $i < count($dataintegrantes); $i++) {
@@ -1256,6 +1324,13 @@ class CaracterizacionController extends Controller
                                 $enfint[$j]["id_hogar"] = $id_hogar;
                                 $enfermedadesinte = \App\EnfermedadesIntegrantes::guardar($enfint[$j], Session::get('alias'));
                             }
+
+                            $antec = $dataintegrantes[$i]['antecedentes'];
+                            for ($j = 0; $j < count($antec); $j++) {
+                                $antec[$j]["id_inte"] = $dataintegrantes[$i]['id'];
+                                $antec[$j]["id_hogar"] = $id_hogar;
+                                $antecedentesinte = \App\AntecedentesIntegrantes::guardar($antec[$j], Session::get('alias'));
+                            }                            
                         }
 
                         for ($i = 0; $i < count($datafactores); $i++) {
@@ -1281,10 +1356,20 @@ class CaracterizacionController extends Controller
                             //TABLA ENFERMEDADES JEFES
                             if ($enfermedades) {
                                 $jef->enfermedades = $enfermedades;
-                            }else{
+                            } else {
                                 $jef->enfermedades = [];
                             }
                         }
+                        foreach ($jefes as $jef) {
+                            //TABLA ENFERMEDADES JEFES
+                            $antecedentes = \App\AntecedentesJefes::buscar(Session::get('alias'), $jef->id);
+                            //TABLA ENFERMEDADES JEFES
+                            if ($antecedentes) {
+                                $jef->antecedentes = $antecedentes;
+                            } else {
+                                $jef->antecedentes = [];
+                            }
+                        }                        
                         //TABLA JEFES DE HOGAR
 
                         //TABLA INTEGRANTES
@@ -1295,10 +1380,20 @@ class CaracterizacionController extends Controller
                             //TABLA ENFERMEDADES JEFES
                             if ($enfermedades) {
                                 $int->enfermedades = $enfermedades;
-                            }else{
+                            } else {
                                 $int->enfermedades = [];
                             }
                         }
+                        foreach ($integrantes as $int) {
+                            //TABLA ENFERMEDADES JEFES
+                            $antecedentes = \App\AntecedentesIntegrantes::buscar(Session::get('alias'), $int->id);
+                            //TABLA ENFERMEDADES JEFES
+                            if ($antecedentes) {
+                                $int->antecedentes = $antecedentes;
+                            } else {
+                                $int->antecedentes = [];
+                            }
+                        }                        
                         //TABLA INTEGRANTES
 
                         //TABLA FACTORES

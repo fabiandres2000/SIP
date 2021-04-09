@@ -15,7 +15,7 @@ class Migra extends Model
     ];
 
     public static function guardar($data, $alias)
-    {
+    {        
         // BUSCAR ID INTEGRANTE
         if ($data['opci'] == "JEFE") {
             // BUSCAR ID JEFE

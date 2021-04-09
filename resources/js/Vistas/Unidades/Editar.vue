@@ -1319,11 +1319,11 @@
                 </b-form-select>
               </div>
               <div class="col-lg-4" style="display: none;">
-                <label>Precio promedio de venta:</label>
+                <label>Precio promedio de venta kg:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
-                  placeholder="Precio promedio de venta"
+                  placeholder="Precio promedio de venta kg"
                   v-model.trim="datosCulAgri.precio_promedio_venta"
                   :class="datosCulAgri.precio_promedio_venta==''?'':'is-valid'"
                   ref="precio_promedio_venta"
@@ -2161,11 +2161,11 @@
                 </b-form-select>
               </div>
               <div class="col-lg-4">
-                <label>Precio promedio de venta:</label>
+                <label>Precio promedio de venta kg:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
-                  placeholder="Precio promedio de venta"
+                  placeholder="Precio promedio de venta kg"
                   v-model.trim="datosExpPec.precio_promedio_venta_pecuaria"
                   :class="datosExpPec.precio_promedio_venta_pecuaria==''?'':'is-valid'"
                   ref="precio_promedio_venta_pecuaria"
@@ -2400,7 +2400,7 @@
                         <th class="text-center">Área destinada a esta producción</th>
                         <th class="text-center">Unidad de Medida</th>
                         <th class="text-center">Compradores</th>
-                        <th class="text-center">Precio promedio de venta</th>
+                        <th class="text-center">Precio promedio de venta kg</th>
                         <th class="text-center">Método de pago</th>
                         <th class="text-center">Subproductos de la producción</th>
                         <th class="text-center">Pertenencia a Programas de Asistencia Técnica</th>
@@ -3016,11 +3016,11 @@
                 </b-form-select>
               </div>
               <div class="col-lg-3">
-                <label>Precio promedio de venta:</label>
+                <label>Precio promedio de venta kg:</label>
                 <input
                   type="text"
                   class="form-control text-capitalize"
-                  placeholder="Precio promedio de venta"
+                  placeholder="Precio promedio de venta kg"
                   v-model.trim="datosCulFor.precio_promedio_venta_forestales"
                   :class="datosCulFor.precio_promedio_venta_forestales==''?'':'is-valid'"
                   ref="precio_promedio_venta_forestales"
@@ -3259,7 +3259,7 @@
                         <th class="text-center">Unidad de Medida</th>
                         <th class="text-center">Número de Arboles</th>
                         <th class="text-center">Compradores</th>
-                        <th class="text-center">Precio promedio de venta</th>
+                        <th class="text-center">Precio promedio de venta kg</th>
                         <th class="text-center">Método de pago</th>
                         <th class="text-center">Subproductos de la producción</th>
                         <th class="text-center">Pertenencia a Programas de Asistencia Técnica</th>
@@ -4135,12 +4135,11 @@
           ]
         },
         unidades2: [
-          { value: 1, texto: "Mensual" },
-          { value: 2, texto: "Bimensual" },
-          { value: 3, texto: "Trimestral" },
-          { value: 4, texto: "Semestral" },
-          { value: 5, texto: "Anual" },
-          { value: 6, texto: "Mas de un año" }
+          { value: 1, texto: "Meses" },
+          { value: 2, texto: "Bimestres" },
+          { value: 3, texto: "Trimestres" },
+          { value: 4, texto: "Semestres" },
+          { value: 5, texto: "Años" }
         ],
         unidades3: [
           { value: 1, texto: "kilogramos" },
@@ -5201,6 +5200,14 @@
           );
           return;
         }
+        var i=0;
+        while(i<this.herramientasData.length){
+          if(this.herramientasData[i].herramienta.toUpperCase() === this.herramienta.toUpperCase()){
+            this.$swal("Validando...!", "la herramienta ya se encuentra agregada!", "warning");
+            return;              
+          }            
+          i++;
+        }        
         this.herramientasData.push({
           id: 0,
           herramienta: this.herramienta,
@@ -5248,6 +5255,14 @@
           );
           return;
         }
+        var i=0;
+        while(i<this.utensiliosData.length){
+          if(this.utensiliosData[i].utensilio.toUpperCase() === this.utensilio.toUpperCase()){
+            this.$swal("Validando...!", "El utensilio ya se encuentra agregado!", "warning");
+            return;              
+          }            
+          i++;
+        }        
         this.utensiliosData.push({
           id: 0,
           utensilio: this.utensilio,
@@ -5298,6 +5313,14 @@
           );
           return;
         }
+        var i=0;
+        while(i<this.maquinasData.length){
+          if(this.maquinasData[i].maquina.toUpperCase() === this.maquina.toUpperCase()){
+            this.$swal("Validando...!", "La maquina ya se encuentra agregada!", "warning");
+            return;              
+          }            
+          i++;
+        }        
         this.maquinasData.push({
           id: 0,
           maquina: this.maquina,
@@ -5345,6 +5368,14 @@
           );
           return;
         }
+        var i=0;
+        while(i<this.instalacionesData.length){
+          if(this.instalacionesData[i].instalacion.toUpperCase() === this.instalacion.toUpperCase()){
+            this.$swal("Validando...!", "La instalacion ya se encuentra agregada!", "warning");
+            return;              
+          }            
+          i++;
+        }        
         this.instalacionesData.push({
           id: 0,
           instalacion: this.instalacion,
@@ -5400,6 +5431,14 @@
           );
           return;
         }
+        var i=0;
+        while(i<this.mediosData.length){
+          if(this.mediosData[i].medio.toUpperCase() === this.medio.toUpperCase()){
+            this.$swal("Validando...!", "El medio ya se encuentra agregado!", "warning");
+            return;              
+          }            
+          i++;
+        }        
         this.mediosData.push({
           id: 0,
           medio: this.medio,

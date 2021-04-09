@@ -11679,8 +11679,189 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"]},mounted:function mounted(){this.nuevo();this.hoy=moment();},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){return{hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),paises_options:[],dpto_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",peso:"",talla:"",enfermedades:[]},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
-cual_actividad_economica:"",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,errores:[],ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[]};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// actividad_economica: { required },
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"]},mounted:function mounted(){this.nuevo();this.hoy=moment();},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){return{hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),paises_options:[],dpto_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},antec_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tiene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",peso:"",talla:"",enfermedades:[],antecedentes:[],antec:""},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
+cual_actividad_economica:"",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{id:0,id_hogar:0,cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0",estado:"Activo"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,errores:[],ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[],bandeGuaEdiEstrati:true,indiceEditEstrati:null};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// actividad_economica: { required },
 evento_afecta_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},familias_accion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},promedio_ingresos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},promedio_gastos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},fuente_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},energia_electrica:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},gas_natural:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},acueducto:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},alcantarillado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},telefono_fijo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},aseo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},internet_subsidiado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},internet_privado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},donde_almacena_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},ubicacion_tanque:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_tratamiento_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},destino_final_basura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},porquerizas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},plagas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},industrias:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},malos_olores:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},rellenos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},contaminacion_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},rio:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},otro_cerca:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},avenidas_transitadas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lotes_abandonados:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},servicio_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},donde_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},excretas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},dormitorio_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},sala:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lavadero:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// iluminacion_adecuada: { required },
 // techo_adecuado: { required },
 // ventilacion_adecuada: { required },
@@ -11792,14 +11973,14 @@ if(this.De60[i].cigarrillo===""){this.$swal("Error...!","Por favor seleccione la
 if(this.De60[i].empleo===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Empleo</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}}return true;},valEnCro:function valEnCro(){for(var i=0;i<this.EnCro.length;i++){if(this.EnCro[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}}return true;},valEnInf:function valEnInf(){for(var i=0;i<this.EnInf.length;i++){if(this.EnInf[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}}return true;},valMigra:function valMigra(){for(var i=0;i<this.Migra.length;i++){if(this.Migra[i].pais===""){this.$swal("Error...!","Por favor digite la opción <b>Pais de Origen</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].registrado===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Registrado Como Migrante</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].cuantollego===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Hace Cuanto Llego Al Pais</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].futuro===""){this.$swal("Error...!","Por favor seleccione la opcion <b>En el Futuro Usted Piensa</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].recibido===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Usted a Recibido Ayudas del Gobierno</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].necesidad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Principal Necesidad en Estos Momentos</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].dependen===""){this.$swal("Error...!","Por favor digite la opción <b>Personas Que Dependen de Usted</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].ingreso===""){this.$swal("Error...!","Por favor digite la opción <b>Ingreso Mensual Actualmente</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}}return true;},//VALIDACIONES DE LOS CICLOS
 //VALIDACIONES
 allLetter:function allLetter(valor){var letters=/^([0-9])*$/;if(valor===""){return false;}else{if(valor.match(letters)){return true;}else{return false;}}},isNumeric:function isNumeric(n){return!isNaN(parseFloat(n))&&isFinite(n);},nuevo:function(){var _nuevo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var _this7=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context9){while(1){switch(_context9.prev=_context9.next){case 0:parametros={_token:this.csrf};_context9.prev=1;_context9.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["nuevaCaracterizacion"](parametros).then(function(respuesta){_this7.dpto_options=respuesta.data.arrayDpto;_this7.muni_options=respuesta.data.arrayMuni;_this7.corregi_options=respuesta.data.arrayCorregi;_this7.vereda_options=respuesta.data.arrayVeredas;// this.barrio_options = respuesta.data.arrayBarrios;
-_this7.parentesco_options=respuesta.data.arrayParentesco;_this7.estado_options=respuesta.data.arrayEstado;_this7.escolaridad_options=respuesta.data.arrayEscolaridad;_this7.ocupacion_options=respuesta.data.arrayOcupacion;_this7.etnia_options=respuesta.data.arrayEtnia;_this7.admini_options=respuesta.data.arrayAdmini;_this7.clasifi_options=respuesta.data.arrayCLasifi;_this7.grados_option=respuesta.data.arrayGrados;_this7.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this7.morbilidad_options=respuesta.data.arrayMorbilidad;_this7.metodos_options=respuesta.data.arrayMetodos;_this7.motivos_options=respuesta.data.arrayMotivos;_this7.grupos_options=respuesta.data.arrayGrupos;_this7.enfcro_options=respuesta.data.arrayEnfCro;_this7.enfinf_options=respuesta.data.arrayEnfInf;_this7.religion_options=respuesta.data.arrayReligion;_this7.CODIGOGENE=respuesta.data.codigo;_this7.paises_options=respuesta.data.arrayPaises;});case 4:_context9.next=15;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);_context9.t1=_context9.t0.response.status;_context9.next=_context9.t1===422?11:13;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 15:case"end":return _context9.stop();}}},_callee7,this,[[1,6]]);}));function nuevo(){return _nuevo.apply(this,arguments);}return nuevo;}(),agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:if(!(this.CA1.tipo_id=="0")){_context10.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context10.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context10.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context10.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context10.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context10.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context10.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context10.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context10.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context10.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context10.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context10.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context10.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context10.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context10.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context10.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context10.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context10.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context10.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context10.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context10.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context10.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context10.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context10.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context10.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context10.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context10.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context10.abrupt("return");case 44:if(!(this.CA1.etnia=="0")){_context10.next=47;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context10.abrupt("return");case 47:if(!(this.CA1.clasificacion=="0")){_context10.next=50;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context10.abrupt("return");case 50:if(!(this.CA1.entiende=="0")){_context10.next=53;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context10.abrupt("return");case 53:if(!(this.CA1.pyp=="0")){_context10.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context10.abrupt("return");case 56:if(!(this.CA1.migrante=="0")){_context10.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context10.abrupt("return");case 59:if(!(this.CA1.jefe=="0")){_context10.next=62;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context10.abrupt("return");case 62:if(!(this.CA1.perdida_peso==="")){_context10.next=66;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context10.abrupt("return");case 66:if(!(this.CA1.programa_icbf==="")){_context10.next=70;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context10.abrupt("return");case 70:if(!(this.CA1.peso==="")){_context10.next=73;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context10.abrupt("return");case 73:if(!(this.CA1.talla==="")){_context10.next=76;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context10.abrupt("return");case 76:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
+_this7.parentesco_options=respuesta.data.arrayParentesco;_this7.estado_options=respuesta.data.arrayEstado;_this7.escolaridad_options=respuesta.data.arrayEscolaridad;_this7.ocupacion_options=respuesta.data.arrayOcupacion;_this7.etnia_options=respuesta.data.arrayEtnia;_this7.admini_options=respuesta.data.arrayAdmini;_this7.clasifi_options=respuesta.data.arrayCLasifi;_this7.grados_option=respuesta.data.arrayGrados;_this7.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this7.morbilidad_options=respuesta.data.arrayMorbilidad;_this7.metodos_options=respuesta.data.arrayMetodos;_this7.motivos_options=respuesta.data.arrayMotivos;_this7.grupos_options=respuesta.data.arrayGrupos;_this7.enfcro_options=respuesta.data.arrayEnfCro;_this7.enfinf_options=respuesta.data.arrayEnfInf;_this7.religion_options=respuesta.data.arrayReligion;_this7.CODIGOGENE=respuesta.data.codigo;_this7.paises_options=respuesta.data.arrayPaises;_this7.antec_options=respuesta.data.arrayAnte;});case 4:_context9.next=15;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);_context9.t1=_context9.t0.response.status;_context9.next=_context9.t1===422?11:13;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 15:case"end":return _context9.stop();}}},_callee7,this,[[1,6]]);}));function nuevo(){return _nuevo.apply(this,arguments);}return nuevo;}(),agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:if(!(this.CA1.tipo_id=="0")){_context10.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context10.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context10.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context10.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context10.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context10.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context10.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context10.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context10.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context10.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context10.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context10.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context10.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context10.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context10.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context10.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context10.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context10.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context10.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context10.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context10.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context10.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context10.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context10.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context10.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context10.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context10.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context10.abrupt("return");case 44:if(!(this.CA1.etnia=="0")){_context10.next=47;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context10.abrupt("return");case 47:if(!(this.CA1.clasificacion=="0")){_context10.next=50;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context10.abrupt("return");case 50:if(!(this.CA1.entiende=="0")){_context10.next=53;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context10.abrupt("return");case 53:if(!(this.CA1.pyp=="0")){_context10.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context10.abrupt("return");case 56:if(!(this.CA1.migrante=="0")){_context10.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context10.abrupt("return");case 59:if(!(this.CA1.jefe=="0")){_context10.next=62;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context10.abrupt("return");case 62:if(!(this.CA1.perdida_peso==="")){_context10.next=66;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context10.abrupt("return");case 66:if(!(this.CA1.programa_icbf==="")){_context10.next=70;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context10.abrupt("return");case 70:if(!(this.CA1.peso==="")){_context10.next=73;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context10.abrupt("return");case 73:if(!(this.CA1.talla==="")){_context10.next=76;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context10.abrupt("return");case 76:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
 this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context10.prev=78;_context10.next=81;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this8.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this8.datos.filter(function(identi){return identi.identificacion==_this8.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>0){_this8.$swal("Validar...!","El Documento <b>"+_this8.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento=moment(_this8.CA1.fecha_nac);var _hoy=moment();var edad=0;if(_nacimiento<_hoy){edad=_hoy.diff(_nacimiento,"years");//Calculamos la diferencia en años
 }//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 if(_this8.CA1.enfermedades.length>0){for(var i=0;i<_this8.CA1.enfermedades.length;i++){if(_this8.CA1.enfermedades[i].tiempo===""){_this8.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this8.CA1.enfermedades[i].tratamiento===""){_this8.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
-var textoEps="";if(_this8.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.CA1.afi_entidad,_this8.admini_options);}}_this8.datos.push({id:0,tipo_id:_this8.CA1.tipo_id,identificacion:_this8.CA1.identificacion,sexo:_this8.CA1.sexo,parentesco:_this8.CA1.parentesco,textoParentesco:_this8.showText(_this8.CA1.parentesco,_this8.parentesco_options),pnom:_this8.CA1.pnom,snom:_this8.CA1.snom,pape:_this8.CA1.pape,sape:_this8.CA1.sape,estado_civil:_this8.CA1.estado_civil,textoEstado:_this8.showText(_this8.CA1.estado_civil,_this8.estado_options),fecha_nac:_this8.CA1.fecha_nac,edad:edad,afi_entidad:_this8.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this8.CA1.otra_eps,tipo_afiliacion:_this8.CA1.tipo_afiliacion,embarazo:_this8.CA1.embarazo,embarazo_multiple:_this8.CA1.embarazo_multiple,discapacidad:_this8.CA1.discapacidad,escolaridad:_this8.CA1.escolaridad,textoEscolaridad:_this8.showText(_this8.CA1.escolaridad,_this8.escolaridad_options),ocupacion:_this8.CA1.ocupacion,textoOcupacion:_this8.showText(_this8.CA1.ocupacion,_this8.ocupacion_options),colegio:_this8.CA1.colegio,textoColegio:_this8.showText(_this8.CA1.colegio,_this8.colegio_options),grado:_this8.CA1.grado,entiende:_this8.CA1.entiende,migrante:_this8.CA1.migrante,pyp:_this8.CA1.pyp,etnia:_this8.CA1.etnia,textoEtnia:_this8.showText(_this8.CA1.etnia,_this8.etnia_options),clasificacion:_this8.CA1.clasificacion,textoClasificacion:_this8.showText2(_this8.CA1.clasificacion,_this8.clasifi_options,_this8.CA1.etnia),puntaje_sisben:_this8.CA1.puntaje_sisben,jefe:_this8.CA1.jefe,orientacion:_this8.CA1.orientacion,identidad_genero:_this8.CA1.identidad_genero,telefono:_this8.CA1.telefono,perdida_peso:_this8.CA1.perdida_peso,programa_icbf:_this8.CA1.programa_icbf,excepciones:_this8.CA1.excepciones,textoExcepciones:_this8.showText(_this8.CA1.excepciones,_this8.opciones7),identi_auxi:"",estado:"Activo",peso:_this8.CA1.peso,talla:_this8.CA1.talla,enfermedades:[]});for(var _i=0;_i<_this8.CA1.enfermedades.length;_i++){_this8.datos[_this8.datos.length-1].enfermedades.push({id:_this8.CA1.enfermedades[_i].id,id_hogar:_this8.CA1.enfermedades[_i].id_hogar,id_jefe:_this8.CA1.enfermedades[_i].id_jefe,textoEnfermedad:_this8.CA1.enfermedades[_i].textoEnfermedad,id_enfermedad:_this8.CA1.enfermedades[_i].id_enfermedad,tipo:_this8.CA1.enfermedades[_i].tipo,tiempo:_this8.CA1.enfermedades[_i].tiempo,tratamiento:_this8.CA1.enfermedades[_i].tratamiento,estado:_this8.CA1.enfermedades[_i].estado});_this8.datos.splice(_this8.datos.length-1,1,_this8.datos[_this8.datos.length-1]);}// this.CA1.enfermedades.length = [];                  
-if(_this8.CA1.tipo_afiliacion==="CONTRIBUTIVO"||_this8.CA1.tipo_afiliacion==="ESPECIAL"){_this8.SAPU=true;_this8.estratificacionData.afiliacion_salud_privada="SI";}_this8.ocupacionAuxiliar2="";_this8.mOCOL2=false;var indice=_this8.datos.findIndex(function(identi){return identi.identificacion===_this8.CA1.identificacion;});_this8.vectorIntegrante.push({index:indice,identificacion:_this8.CA1.identificacion});// AGREGAR NIÑOS MENORES DE 1 AÑO
+var textoEps="";if(_this8.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.CA1.afi_entidad,_this8.admini_options);}}_this8.datos.push({id:0,tipo_id:_this8.CA1.tipo_id,identificacion:_this8.CA1.identificacion,sexo:_this8.CA1.sexo,parentesco:_this8.CA1.parentesco,textoParentesco:_this8.showText(_this8.CA1.parentesco,_this8.parentesco_options),pnom:_this8.CA1.pnom,snom:_this8.CA1.snom,pape:_this8.CA1.pape,sape:_this8.CA1.sape,estado_civil:_this8.CA1.estado_civil,textoEstado:_this8.showText(_this8.CA1.estado_civil,_this8.estado_options),fecha_nac:_this8.CA1.fecha_nac,edad:edad,afi_entidad:_this8.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this8.CA1.otra_eps,tipo_afiliacion:_this8.CA1.tipo_afiliacion,embarazo:_this8.CA1.embarazo,embarazo_multiple:_this8.CA1.embarazo_multiple,discapacidad:_this8.CA1.discapacidad,escolaridad:_this8.CA1.escolaridad,textoEscolaridad:_this8.showText(_this8.CA1.escolaridad,_this8.escolaridad_options),ocupacion:_this8.CA1.ocupacion,textoOcupacion:_this8.showText(_this8.CA1.ocupacion,_this8.ocupacion_options),colegio:_this8.CA1.colegio,textoColegio:_this8.showText(_this8.CA1.colegio,_this8.colegio_options),grado:_this8.CA1.grado,entiende:_this8.CA1.entiende,migrante:_this8.CA1.migrante,pyp:_this8.CA1.pyp,etnia:_this8.CA1.etnia,textoEtnia:_this8.showText(_this8.CA1.etnia,_this8.etnia_options),clasificacion:_this8.CA1.clasificacion,textoClasificacion:_this8.showText2(_this8.CA1.clasificacion,_this8.clasifi_options,_this8.CA1.etnia),puntaje_sisben:_this8.CA1.puntaje_sisben,jefe:_this8.CA1.jefe,orientacion:_this8.CA1.orientacion,identidad_genero:_this8.CA1.identidad_genero,telefono:_this8.CA1.telefono,perdida_peso:_this8.CA1.perdida_peso,programa_icbf:_this8.CA1.programa_icbf,excepciones:_this8.CA1.excepciones,textoExcepciones:_this8.showText(_this8.CA1.excepciones,_this8.opciones7),identi_auxi:"",estado:"Activo",peso:_this8.CA1.peso,talla:_this8.CA1.talla,enfermedades:[],antecedentes:[]});for(var _i=0;_i<_this8.CA1.enfermedades.length;_i++){_this8.datos[_this8.datos.length-1].enfermedades.push({id:_this8.CA1.enfermedades[_i].id,id_hogar:_this8.CA1.enfermedades[_i].id_hogar,id_jefe:_this8.CA1.enfermedades[_i].id_jefe,textoEnfermedad:_this8.CA1.enfermedades[_i].textoEnfermedad,id_enfermedad:_this8.CA1.enfermedades[_i].id_enfermedad,tipo:_this8.CA1.enfermedades[_i].tipo,tiempo:_this8.CA1.enfermedades[_i].tiempo,tratamiento:_this8.CA1.enfermedades[_i].tratamiento,estado:_this8.CA1.enfermedades[_i].estado});_this8.datos.splice(_this8.datos.length-1,1,_this8.datos[_this8.datos.length-1]);}// this.CA1.enfermedades.length = [];
+for(var _i2=0;_i2<_this8.CA1.antecedentes.length;_i2++){_this8.datos[_this8.datos.length-1].antecedentes.push({id:_this8.CA1.antecedentes[_i2].id,id_hogar:_this8.CA1.antecedentes[_i2].id_hogar,id_jefe:_this8.CA1.antecedentes[_i2].id_jefe,textoAntecedente:_this8.CA1.antecedentes[_i2].textoAntecedente,id_antecedente:_this8.CA1.antecedentes[_i2].id_antecedente,estado:_this8.CA1.antecedentes[_i2].estado});_this8.datos.splice(_this8.datos.length-1,1,_this8.datos[_this8.datos.length-1]);}if(_this8.CA1.tipo_afiliacion==="CONTRIBUTIVO"||_this8.CA1.tipo_afiliacion==="ESPECIAL"){_this8.SAPU=true;_this8.estratificacionData.afiliacion_salud_privada="SI";}_this8.ocupacionAuxiliar2="";_this8.mOCOL2=false;var indice=_this8.datos.findIndex(function(identi){return identi.identificacion===_this8.CA1.identificacion;});_this8.vectorIntegrante.push({index:indice,identificacion:_this8.CA1.identificacion});// AGREGAR NIÑOS MENORES DE 1 AÑO
 if(edad<=0){_this8.Amenores1Anio(_this8.CA1,_hoy.diff(_nacimiento,"months"),"INTE");}// AGREGAR NIÑOS MENORES DE 1 AÑO
 // AGREGAR DE 1 A 5 AÑOS
 if(edad>=1&&edad<=5){_this8.Ade1a5Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 1 A 5 AÑOS
@@ -11828,7 +12009,7 @@ var resultado=_this9.datosJefe.filter(function(identi){return identi.identificac
 if(resultado.length>0){_this9.$swal("Validar...!","El Documento <b>"+_this9.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento2=moment(_this9.caracData.fecha_nacimiento);var _hoy2=moment();var edad=0;if(_nacimiento2<_hoy2){edad=_hoy2.diff(_nacimiento2,"years");//Calculamos la diferencia en años
 }if(edad<14){_this9.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}//VALIDAR LA TABLA ENFERMEDADES JEFES
 if(_this9.caracData.enfermedades.length>0){for(var i=0;i<_this9.caracData.enfermedades.length;i++){if(_this9.caracData.enfermedades[i].tiempo===""){_this9.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this9.caracData.enfermedades[i].tratamiento===""){_this9.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES JEFES
-var textoEps="";if(_this9.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this9.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this9.showText(_this9.caracData.afiliacion_entidad,_this9.admini_options);}}_this9.datosJefe.push({id:0,id_hogar:0,telefono:_this9.caracData.telefono,puntaje_sisben:_this9.caracData.puntaje_sisben,afiliacion_entidad:_this9.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this9.caracData.otra_eps,tipo_id:_this9.caracData.tipo_id,identificacion:_this9.caracData.identificacion,sexo:_this9.caracData.sexo,parentesco:_this9.caracData.parentesco,textoParentesco:_this9.showText(_this9.caracData.parentesco,_this9.parentesco_options),pnom:_this9.caracData.pnom,snom:_this9.caracData.snom,pape:_this9.caracData.pape,sape:_this9.caracData.sape,salario:_this9.caracData.salario,estado_civil:_this9.caracData.estado_civil,textoEstado:_this9.showText(_this9.caracData.estado_civil,_this9.estado_options),fecha_nacimiento:_this9.caracData.fecha_nacimiento,tipo_afiliacion:_this9.caracData.tipo_afiliacion,embarazo:_this9.caracData.embarazo,embarazo_multiple:_this9.caracData.embarazo_multiple,discapacidad:_this9.caracData.discapacidad,nivel_escolaridad:_this9.caracData.nivel_escolaridad,textoNivel:_this9.showText(_this9.caracData.nivel_escolaridad,_this9.escolaridad_options),ocupacion:_this9.caracData.ocupacion,textoOcupacion:_this9.showText(_this9.caracData.ocupacion,_this9.ocupacion_options),colegio:_this9.caracData.colegio,textoColegio:_this9.showText(_this9.caracData.colegio,_this9.colegio_options),grado:_this9.caracData.grado,entiende:_this9.caracData.entiende,migrante:_this9.caracData.migrante,pyp:_this9.caracData.pyp,etnia:_this9.caracData.etnia,textoEtnia:_this9.showText(_this9.caracData.etnia,_this9.etnia_options),clasificacion:_this9.caracData.clasificacion,textoClasificacion:_this9.showText2(_this9.caracData.clasificacion,_this9.clasifi_options,_this9.caracData.etnia),edad:_this9.caracData.edad,orientacion:_this9.caracData.orientacion,identidad_genero:_this9.caracData.identidad_genero,perdida_peso:_this9.caracData.perdida_peso,programa_icbf:_this9.caracData.programa_icbf,identi_auxi:"",estado:"Activo",peso:_this9.caracData.peso,talla:_this9.caracData.talla,enfermedades:[]});for(var _i2=0;_i2<_this9.caracData.enfermedades.length;_i2++){_this9.datosJefe[_this9.datosJefe.length-1].enfermedades.push({id:_this9.caracData.enfermedades[_i2].id,id_hogar:_this9.caracData.enfermedades[_i2].id_hogar,id_jefe:_this9.caracData.enfermedades[_i2].id_jefe,textoEnfermedad:_this9.caracData.enfermedades[_i2].textoEnfermedad,id_enfermedad:_this9.caracData.enfermedades[_i2].id_enfermedad,tipo:_this9.caracData.enfermedades[_i2].tipo,tiempo:_this9.caracData.enfermedades[_i2].tiempo,tratamiento:_this9.caracData.enfermedades[_i2].tratamiento,estado:_this9.caracData.enfermedades[_i2].estado});_this9.datosJefe.splice(_this9.datosJefe.length-1,1,_this9.datosJefe[_this9.datosJefe.length-1]);}_this9.caracData.enfermedades.length=[];if(_this9.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this9.caracData.tipo_afiliacion==="ESPECIAL"){_this9.SAPU=true;_this9.estratificacionData.afiliacion_salud_privada="SI";}_this9.ocupacionAuxiliar="";_this9.mOCOL1=false;var indice=_this9.datosJefe.findIndex(function(identi){return identi.identificacion===_this9.caracData.identificacion;});_this9.vectorJefes.push({index:indice,identificacion:_this9.caracData.identificacion});// AGREGAR FACTORES
+var textoEps="";if(_this9.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this9.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this9.showText(_this9.caracData.afiliacion_entidad,_this9.admini_options);}}_this9.datosJefe.push({id:0,id_hogar:0,telefono:_this9.caracData.telefono,puntaje_sisben:_this9.caracData.puntaje_sisben,afiliacion_entidad:_this9.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this9.caracData.otra_eps,tipo_id:_this9.caracData.tipo_id,identificacion:_this9.caracData.identificacion,sexo:_this9.caracData.sexo,parentesco:_this9.caracData.parentesco,textoParentesco:_this9.showText(_this9.caracData.parentesco,_this9.parentesco_options),pnom:_this9.caracData.pnom,snom:_this9.caracData.snom,pape:_this9.caracData.pape,sape:_this9.caracData.sape,salario:_this9.caracData.salario,estado_civil:_this9.caracData.estado_civil,textoEstado:_this9.showText(_this9.caracData.estado_civil,_this9.estado_options),fecha_nacimiento:_this9.caracData.fecha_nacimiento,tipo_afiliacion:_this9.caracData.tipo_afiliacion,embarazo:_this9.caracData.embarazo,embarazo_multiple:_this9.caracData.embarazo_multiple,discapacidad:_this9.caracData.discapacidad,nivel_escolaridad:_this9.caracData.nivel_escolaridad,textoNivel:_this9.showText(_this9.caracData.nivel_escolaridad,_this9.escolaridad_options),ocupacion:_this9.caracData.ocupacion,textoOcupacion:_this9.showText(_this9.caracData.ocupacion,_this9.ocupacion_options),colegio:_this9.caracData.colegio,textoColegio:_this9.showText(_this9.caracData.colegio,_this9.colegio_options),grado:_this9.caracData.grado,entiende:_this9.caracData.entiende,migrante:_this9.caracData.migrante,pyp:_this9.caracData.pyp,etnia:_this9.caracData.etnia,textoEtnia:_this9.showText(_this9.caracData.etnia,_this9.etnia_options),clasificacion:_this9.caracData.clasificacion,textoClasificacion:_this9.showText2(_this9.caracData.clasificacion,_this9.clasifi_options,_this9.caracData.etnia),edad:_this9.caracData.edad,orientacion:_this9.caracData.orientacion,identidad_genero:_this9.caracData.identidad_genero,perdida_peso:_this9.caracData.perdida_peso,programa_icbf:_this9.caracData.programa_icbf,identi_auxi:"",estado:"Activo",peso:_this9.caracData.peso,talla:_this9.caracData.talla,enfermedades:[],antecedentes:[]});for(var _i3=0;_i3<_this9.caracData.enfermedades.length;_i3++){_this9.datosJefe[_this9.datosJefe.length-1].enfermedades.push({id:_this9.caracData.enfermedades[_i3].id,id_hogar:_this9.caracData.enfermedades[_i3].id_hogar,id_jefe:_this9.caracData.enfermedades[_i3].id_jefe,textoEnfermedad:_this9.caracData.enfermedades[_i3].textoEnfermedad,id_enfermedad:_this9.caracData.enfermedades[_i3].id_enfermedad,tipo:_this9.caracData.enfermedades[_i3].tipo,tiempo:_this9.caracData.enfermedades[_i3].tiempo,tratamiento:_this9.caracData.enfermedades[_i3].tratamiento,estado:_this9.caracData.enfermedades[_i3].estado});_this9.datosJefe.splice(_this9.datosJefe.length-1,1,_this9.datosJefe[_this9.datosJefe.length-1]);}for(var _i4=0;_i4<_this9.caracData.antecedentes.length;_i4++){_this9.datosJefe[_this9.datosJefe.length-1].antecedentes.push({id:_this9.caracData.antecedentes[_i4].id,id_hogar:_this9.caracData.antecedentes[_i4].id_hogar,id_jefe:_this9.caracData.antecedentes[_i4].id_jefe,textoAntecedente:_this9.caracData.antecedentes[_i4].textoAntecedente,id_antecedente:_this9.caracData.antecedentes[_i4].id_antecedente,estado:_this9.caracData.antecedentes[_i4].estado});_this9.datosJefe.splice(_this9.datosJefe.length-1,1,_this9.datosJefe[_this9.datosJefe.length-1]);}_this9.caracData.enfermedades.length=[];_this9.caracData.antecedentes.length=[];if(_this9.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this9.caracData.tipo_afiliacion==="ESPECIAL"){_this9.SAPU=true;_this9.estratificacionData.afiliacion_salud_privada="SI";}_this9.ocupacionAuxiliar="";_this9.mOCOL1=false;var indice=_this9.datosJefe.findIndex(function(identi){return identi.identificacion===_this9.caracData.identificacion;});_this9.vectorJefes.push({index:indice,identificacion:_this9.caracData.identificacion});// AGREGAR FACTORES
 _this9.AFactores(_this9.caracData,edad);// AGREGAR FACTORES
 // AGREGAR AFECTACION
 _this9.AAFECTACION(_this9.caracData,edad);// AGREGAR AFECTACION                    
@@ -11875,7 +12056,7 @@ indice=_this11.factores.findIndex(function(identi){return identi.identificacion=
 indice=_this11.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.afectacion[indice].estado="Inactivo";_this11.afectacion.splice(indice,1,_this11.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE afectacion
 //SABER EL INDICE DE LA IDENTIFICACION DE estratificacion
 indice=_this11.estratificacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.estratificacion[indice].estado="Inactivo";_this11.estratificacion.splice(indice,1,_this11.estratificacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE estratificacion              
-}_this11.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedades=item.enfermedades;this.vaEnfJef=item.enfermedades;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.identificacionJefe=item.identificacion;this.migrarEditar=item.migrante;// ELIMINAR LOS DATOS DE LAS TABLAS
+}_this11.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedades=item.enfermedades;this.vaEnfJef=item.enfermedades;this.caracData.antecedentes=item.antecedentes;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.identificacionJefe=item.identificacion;this.migrarEditar=item.migrante;// ELIMINAR LOS DATOS DE LAS TABLAS
 var identificacion=this.vectorJefes[this.indiceEditJefe].identificacion;// this.datosJefe.splice(this.indiceEditJefe, 1);
 // this.vectorJefes.splice(this.indiceEditJefe, 1);
 // this.factores = this.factores.filter(function(men) {
@@ -11931,7 +12112,7 @@ var resultado=_this12.datosJefe.filter(function(identi){return identi.identifica
 if(resultado.length){_this12.$swal("Validar...!","El Documento <b>"+_this12.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this12.ediJe();}}})["catch"](function(error){_this12.errorDevuelto=error.response.data.errors;_this12.entrarPorError=true;});case 11:_context12.next=17;break;case 13:_context12.prev=13;_context12.t0=_context12["catch"](8);this.errorDevuelto=_context12.t0.response.data.errors;this.entrarPorError=true;case 17:case"end":return _context12.stop();}}},_callee10,this,[[8,13]]);}));function editarJefe(){return _editarJefe.apply(this,arguments);}return editarJefe;}(),ediJe:function ediJe(){var nacimiento=moment(this.caracData.fecha_nacimiento);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
 }if(edad<14){this.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}//VALIDAR LA TABLA ENFERMEDADES JEFES
 if(this.caracData.enfermedades.length>0){for(var i=0;i<this.caracData.enfermedades.length;i++){if(this.caracData.enfermedades[i].tiempo===""){this.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(this.caracData.enfermedades[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES JEFES
-var textoEps="";if(this.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(this.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.caracData.afiliacion_entidad,this.admini_options);}}if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO"||this.caracData.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar="";this.mOCOL1=false;for(var _i3=0;_i3<this.datos.length;_i3++){if(this.datos[_i3].jefe===this.identificacionJefe){this.datos[_i3].jefe=this.caracData.identificacion;this.datos.splice(_i3,1,this.datos[_i3]);}}// let id = this.vectorJefes[this.indiceEditJefe].identificacion;
+var textoEps="";if(this.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(this.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.caracData.afiliacion_entidad,this.admini_options);}}if(this.caracData.tipo_afiliacion==="CONTRIBUTIVO"||this.caracData.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar="";this.mOCOL1=false;for(var _i5=0;_i5<this.datos.length;_i5++){if(this.datos[_i5].jefe===this.identificacionJefe){this.datos[_i5].jefe=this.caracData.identificacion;this.datos.splice(_i5,1,this.datos[_i5]);}}// let id = this.vectorJefes[this.indiceEditJefe].identificacion;
 var id=this.identificacionEditar;if(this.caracData.fecha_nacimiento!==this.fechaEditar){if(edad!==this.edadEditar){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.factores[indice].tipo_id=this.caracData.tipo_id;this.factores[indice].sexo=this.caracData.sexo;this.factores[indice].identificacion=this.caracData.identificacion;this.factores[indice].pnom=this.caracData.pnom;this.factores[indice].snom=this.caracData.snom;this.factores[indice].pape=this.caracData.pape;this.factores[indice].sape=this.caracData.sape;this.factores[indice].estado="Activo";this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 indice=this.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.afectacion[indice].tipo_id=this.caracData.tipo_id;this.afectacion[indice].sexo=this.caracData.sexo;this.afectacion[indice].identificacion=this.caracData.identificacion;this.afectacion[indice].pnom=this.caracData.pnom;this.afectacion[indice].snom=this.caracData.snom;this.afectacion[indice].pape=this.caracData.pape;this.afectacion[indice].sape=this.caracData.sape;this.afectacion[indice].estado="Activo";this.afectacion.splice(indice,1,this.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
@@ -11974,7 +12155,7 @@ this.datosJefe[this.indiceEditJefe].estado="Activo";this.datosJefe[this.indiceEd
 // this.datosJefe[this.indiceEditJefe].enfermedad_cronica = this.caracData.enfermedad_cronica;      
 // this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa = this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);
 // this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica = this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);
-this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe[this.indiceEditJefe].enfermedades=this.caracData.enfermedades;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.EnfJef.length=0;this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
+this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe[this.indiceEditJefe].enfermedades=this.caracData.enfermedades;this.datosJefe[this.indiceEditJefe].antecedentes=this.caracData.antecedentes;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.EnfJef.length=0;this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
 if(edad<=0){this.Amenores1Anio(vector,hoy.diff(nacimiento,"months"),opcion);}// AGREGAR NIÑOS MENORES DE 1 AÑO
 // AGREGAR DE 1 A 5 AÑOS
 if(edad>=1&&edad<=5){this.Ade1a5Anio(vector,edad,opcion);}// AGREGAR DE 1 A 5 AÑOS
@@ -11996,7 +12177,7 @@ if(edad>=29&&edad<=59){this.Ade29a59Anio(vector,edad,opcion);}// AGREGAR DE 29 A
 if(edad>=60){this.Ade60Anio(vector,edad,opcion);}// AGREGAR DE 60 ó MAS AÑOS
 // AGREGAR MIGRANTES
 if(vector.migrante==="SI"){this.AMigra(vector,edad,opcion);}// AGREGAR MIGRANTES               
-},editarItemInte:function editarItemInte(index,item){this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;this.CA1.embarazo_multiple=item.embarazo_multiple;this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedades=item.enfermedades;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;// this.datos.splice(this.indiceEditInte, 1);
+},editarItemInte:function editarItemInte(index,item){this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;this.CA1.embarazo_multiple=item.embarazo_multiple;this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedades=item.enfermedades;this.CA1.antecedentes=item.antecedentes;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;// this.datos.splice(this.indiceEditInte, 1);
 // this.vectorIntegrante.splice(this.indiceEditInte, 1);
 //INACTIVAR LA FILA DE INTEGRANTES
 this.datos[this.indiceEditInte].estado="Inactivo";this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);//INACTIVAR LA FILA DE INTEGRANTES        
@@ -12074,7 +12255,7 @@ indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;}
 indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].tipo_id=this.CA1.tipo_id;this.EnInf[indice].sexo=this.CA1.sexo;this.EnInf[indice].identificacion=this.CA1.identificacion;this.EnInf[indice].pnom=this.CA1.pnom;this.EnInf[indice].snom=this.CA1.snom;this.EnInf[indice].pape=this.CA1.pape;this.EnInf[indice].sape=this.CA1.sape;this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}if(this.migrarEditar==="SI"){indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
 if(indice>=0){this.Migra[indice].tipo_id=this.CA1.tipo_id;this.Migra[indice].sexo=this.CA1.sexo;this.Migra[indice].identificacion=this.CA1.identificacion;this.Migra[indice].pnom=this.CA1.pnom;this.Migra[indice].snom=this.CA1.snom;this.Migra[indice].pape=this.CA1.pape;this.Migra[indice].sape=this.CA1.sape;this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
 this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
-indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}else{this.AMigra(this.CA1,edad,"JEFE");}}}}}else{// let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
+indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}else{this.AMigra(this.CA1,edad,"INTE");}}}}}else{// let id = this.vectorIntegrante[this.indiceEditInte].identificacion;
 var _id=this.identificacionEditar;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 var _indice3=this.Men1A.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.Men1A[_indice3].tipo_id=this.CA1.tipo_id;this.Men1A[_indice3].sexo=this.CA1.sexo;this.Men1A[_indice3].identificacion=this.CA1.identificacion;this.Men1A[_indice3].pnom=this.CA1.pnom;this.Men1A[_indice3].snom=this.CA1.snom;this.Men1A[_indice3].pape=this.CA1.pape;this.Men1A[_indice3].sape=this.CA1.sape;this.Men1A[_indice3].peso_actual=this.CA1.peso;this.Men1A[_indice3].longitud_actual=this.CA1.talla;this.Men1A[_indice3].estado="Activo";this.Men1A.splice(_indice3,1,this.Men1A[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 _indice3=this.De1A5.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.De1A5[_indice3].tipo_id=this.CA1.tipo_id;this.De1A5[_indice3].sexo=this.CA1.sexo;this.De1A5[_indice3].identificacion=this.CA1.identificacion;this.De1A5[_indice3].pnom=this.CA1.pnom;this.De1A5[_indice3].snom=this.CA1.snom;this.De1A5[_indice3].pape=this.CA1.pape;this.De1A5[_indice3].sape=this.CA1.sape;this.De1A5[_indice3].peso=this.CA1.peso;this.De1A5[_indice3].talla=this.CA1.talla;this.De1A5[_indice3].imc=this.calcularImc(this.CA1.peso,this.CA1.talla);this.De1A5[_indice3].estado="Activo";this.De1A5.splice(_indice3,1,this.De1A5[_indice3]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
@@ -12092,7 +12273,7 @@ _indice3=this.EnInf.findIndex(function(identi){return identi.identificacion===_i
 if(this.migrarEditar==="SI"){_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
 if(_indice3>=0){this.Migra[_indice3].tipo_id=this.CA1.tipo_id;this.Migra[_indice3].sexo=this.CA1.sexo;this.Migra[_indice3].identificacion=this.CA1.identificacion;this.Migra[_indice3].pnom=this.CA1.pnom;this.Migra[_indice3].snom=this.CA1.snom;this.Migra[_indice3].pape=this.CA1.pape;this.Migra[_indice3].sape=this.CA1.sape;this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
 this.Migra[_indice3].estado="Inactivo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
-_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}else{this.AMigra(this.CA1,edad,"JEFE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=textoEps;this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].enfermedades=this.CA1.enfermedades;this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop3,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:_loop3=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context14.prev=1;_context14.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
+_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}else{this.AMigra(this.CA1,edad,"INTE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=textoEps;this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].enfermedades=this.CA1.enfermedades;this.datos[this.indiceEditInte].antecedentes=this.CA1.antecedentes;this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop3,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:_loop3=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context14.prev=1;_context14.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
 return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this14.datos.filter(function(identi){return identi.identificacion.includes(_this14.datos[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>1){_this14.$swal("Validar...!","El Documento <b>"+_this14.datos[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Integrantes","warning");// item.identificacion="";
@@ -12128,19 +12309,25 @@ parametros={_token:this.csrf,hogar:this.hogar,caracterizacion:this.datosJefe,int
 // if (this.caracData.puntaje_sisben == "0") {
 //   this.caracData.puntaje_sisben = "";
 // }
-}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}},volver:function volver(){var _this18=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee16(){var valid;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee16$(_context20){while(1){switch(_context20.prev=_context20.next){case 0:_context20.next=2;return _this18.validarVolver("Men1A");case 2:valid=_context20.sent;if(!(valid===false)){_context20.next=7;break;}return _context20.abrupt("return",false);case 7:if(!(valid===true)){_context20.next=10;break;}_context20.next=11;break;case 10:return _context20.abrupt("return",false);case 11:_context20.next=13;return _this18.validarVolver("De1A5");case 13:valid=_context20.sent;if(!(valid===false)){_context20.next=18;break;}return _context20.abrupt("return",false);case 18:if(!(valid===true)){_context20.next=21;break;}_context20.next=22;break;case 21:return _context20.abrupt("return",false);case 22:_context20.next=24;return _this18.validarVolver("De6A11");case 24:valid=_context20.sent;if(!(valid===false)){_context20.next=29;break;}return _context20.abrupt("return",false);case 29:if(!(valid===true)){_context20.next=32;break;}_context20.next=33;break;case 32:return _context20.abrupt("return",false);case 33:_context20.next=35;return _this18.validarVolver("De10A59");case 35:valid=_context20.sent;if(!(valid===false)){_context20.next=40;break;}return _context20.abrupt("return",false);case 40:if(!(valid===true)){_context20.next=43;break;}_context20.next=44;break;case 43:return _context20.abrupt("return",false);case 44:_context20.next=46;return _this18.validarVolver("ParPost");case 46:valid=_context20.sent;if(!(valid===false)){_context20.next=51;break;}return _context20.abrupt("return",false);case 51:if(!(valid===true)){_context20.next=54;break;}_context20.next=55;break;case 54:return _context20.abrupt("return",false);case 55:_context20.next=57;return _this18.validarVolver("De12A17");case 57:valid=_context20.sent;if(!(valid===false)){_context20.next=62;break;}return _context20.abrupt("return",false);case 62:if(!(valid===true)){_context20.next=65;break;}_context20.next=66;break;case 65:return _context20.abrupt("return",false);case 66:_context20.next=68;return _this18.validarVolver("De18A28");case 68:valid=_context20.sent;if(!(valid===false)){_context20.next=73;break;}return _context20.abrupt("return",false);case 73:if(!(valid===true)){_context20.next=76;break;}_context20.next=77;break;case 76:return _context20.abrupt("return",false);case 77:_context20.next=79;return _this18.validarVolver("De29A59");case 79:valid=_context20.sent;if(!(valid===false)){_context20.next=84;break;}return _context20.abrupt("return",false);case 84:if(!(valid===true)){_context20.next=87;break;}_context20.next=88;break;case 87:return _context20.abrupt("return",false);case 88:_context20.next=90;return _this18.validarVolver("De60");case 90:valid=_context20.sent;if(!(valid===false)){_context20.next=95;break;}return _context20.abrupt("return",false);case 95:if(!(valid===true)){_context20.next=98;break;}_context20.next=99;break;case 98:return _context20.abrupt("return",false);case 99:_context20.next=101;return _this18.validarVolver("EnCro");case 101:valid=_context20.sent;if(!(valid===false)){_context20.next=106;break;}return _context20.abrupt("return",false);case 106:if(!(valid===true)){_context20.next=109;break;}_context20.next=110;break;case 109:return _context20.abrupt("return",false);case 110:_context20.next=112;return _this18.validarVolver("EnInf");case 112:valid=_context20.sent;if(!(valid===false)){_context20.next=117;break;}return _context20.abrupt("return",false);case 117:if(!(valid===true)){_context20.next=120;break;}_context20.next=121;break;case 120:return _context20.abrupt("return",false);case 121:_context20.next=123;return _this18.validarVolver("Migra");case 123:valid=_context20.sent;if(!(valid===false)){_context20.next=128;break;}return _context20.abrupt("return",false);case 128:if(!(valid===true)){_context20.next=131;break;}_context20.next=132;break;case 131:return _context20.abrupt("return",false);case 132:_this18.$router.push("/gestion");case 133:case"end":return _context20.stop();}}},_callee16);}))();},validarVolver:function validarVolver(valor){var _this19=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(){var valid,i,alert,_i4,_alert,_i5,_alert2,_i6,_alert3,_i7,_alert4,_i8,_alert5,_i9,_alert6,_i10,_alert7,_i11,_alert8,_i12,_alert9,_i13,_alert10,_i14,_alert11;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:valid=false;_context21.t0=valor;_context21.next=_context21.t0==="Men1A"?4:_context21.t0==="De1A5"?19:_context21.t0==="De6A11"?34:_context21.t0==="De10A59"?49:_context21.t0==="ParPost"?64:_context21.t0==="De12A17"?79:_context21.t0==="De18A28"?94:_context21.t0==="De29A59"?109:_context21.t0==="De60"?124:_context21.t0==="EnCro"?139:_context21.t0==="EnInf"?154:_context21.t0==="Migra"?169:184;break;case 4:valid=false;// validar Men1A      
+}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}},volver:function volver(){var _this18=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee16(){var valid;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee16$(_context20){while(1){switch(_context20.prev=_context20.next){case 0:_context20.next=2;return _this18.validarVolver("Men1A");case 2:valid=_context20.sent;if(!(valid===false)){_context20.next=7;break;}return _context20.abrupt("return",false);case 7:if(!(valid===true)){_context20.next=10;break;}_context20.next=11;break;case 10:return _context20.abrupt("return",false);case 11:_context20.next=13;return _this18.validarVolver("De1A5");case 13:valid=_context20.sent;if(!(valid===false)){_context20.next=18;break;}return _context20.abrupt("return",false);case 18:if(!(valid===true)){_context20.next=21;break;}_context20.next=22;break;case 21:return _context20.abrupt("return",false);case 22:_context20.next=24;return _this18.validarVolver("De6A11");case 24:valid=_context20.sent;if(!(valid===false)){_context20.next=29;break;}return _context20.abrupt("return",false);case 29:if(!(valid===true)){_context20.next=32;break;}_context20.next=33;break;case 32:return _context20.abrupt("return",false);case 33:_context20.next=35;return _this18.validarVolver("De10A59");case 35:valid=_context20.sent;if(!(valid===false)){_context20.next=40;break;}return _context20.abrupt("return",false);case 40:if(!(valid===true)){_context20.next=43;break;}_context20.next=44;break;case 43:return _context20.abrupt("return",false);case 44:_context20.next=46;return _this18.validarVolver("ParPost");case 46:valid=_context20.sent;if(!(valid===false)){_context20.next=51;break;}return _context20.abrupt("return",false);case 51:if(!(valid===true)){_context20.next=54;break;}_context20.next=55;break;case 54:return _context20.abrupt("return",false);case 55:_context20.next=57;return _this18.validarVolver("De12A17");case 57:valid=_context20.sent;if(!(valid===false)){_context20.next=62;break;}return _context20.abrupt("return",false);case 62:if(!(valid===true)){_context20.next=65;break;}_context20.next=66;break;case 65:return _context20.abrupt("return",false);case 66:_context20.next=68;return _this18.validarVolver("De18A28");case 68:valid=_context20.sent;if(!(valid===false)){_context20.next=73;break;}return _context20.abrupt("return",false);case 73:if(!(valid===true)){_context20.next=76;break;}_context20.next=77;break;case 76:return _context20.abrupt("return",false);case 77:_context20.next=79;return _this18.validarVolver("De29A59");case 79:valid=_context20.sent;if(!(valid===false)){_context20.next=84;break;}return _context20.abrupt("return",false);case 84:if(!(valid===true)){_context20.next=87;break;}_context20.next=88;break;case 87:return _context20.abrupt("return",false);case 88:_context20.next=90;return _this18.validarVolver("De60");case 90:valid=_context20.sent;if(!(valid===false)){_context20.next=95;break;}return _context20.abrupt("return",false);case 95:if(!(valid===true)){_context20.next=98;break;}_context20.next=99;break;case 98:return _context20.abrupt("return",false);case 99:_context20.next=101;return _this18.validarVolver("EnCro");case 101:valid=_context20.sent;if(!(valid===false)){_context20.next=106;break;}return _context20.abrupt("return",false);case 106:if(!(valid===true)){_context20.next=109;break;}_context20.next=110;break;case 109:return _context20.abrupt("return",false);case 110:_context20.next=112;return _this18.validarVolver("EnInf");case 112:valid=_context20.sent;if(!(valid===false)){_context20.next=117;break;}return _context20.abrupt("return",false);case 117:if(!(valid===true)){_context20.next=120;break;}_context20.next=121;break;case 120:return _context20.abrupt("return",false);case 121:_context20.next=123;return _this18.validarVolver("Migra");case 123:valid=_context20.sent;if(!(valid===false)){_context20.next=128;break;}return _context20.abrupt("return",false);case 128:if(!(valid===true)){_context20.next=131;break;}_context20.next=132;break;case 131:return _context20.abrupt("return",false);case 132:_this18.$router.push("/gestion");case 133:case"end":return _context20.stop();}}},_callee16);}))();},validarVolver:function validarVolver(valor){var _this19=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(){var valid,i,alert,_i6,_alert,_i7,_alert2,_i8,_alert3,_i9,_alert4,_i10,_alert5,_i11,_alert6,_i12,_alert7,_i13,_alert8,_i14,_alert9,_i15,_alert10,_i16,_alert11;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:valid=false;_context21.t0=valor;_context21.next=_context21.t0==="Men1A"?4:_context21.t0==="De1A5"?19:_context21.t0==="De6A11"?34:_context21.t0==="De10A59"?49:_context21.t0==="ParPost"?64:_context21.t0==="De12A17"?79:_context21.t0==="De18A28"?94:_context21.t0==="De29A59"?109:_context21.t0==="De60"?124:_context21.t0==="EnCro"?139:_context21.t0==="EnInf"?154:_context21.t0==="Migra"?169:184;break;case 4:valid=false;// validar Men1A      
 for(i=0;i<_this19.Men1A.length;i++){if(_this19.Men1A[i].lugar_nacimiento===""){valid=true;}if(_this19.Men1A[i].hemoclasificacion===""){valid=true;}if(_this19.Men1A[i].compli_parto===""){valid=true;}if(_this19.Men1A[i].via_parto===""){valid=true;}if(_this19.Men1A[i].cyc===""){valid=true;}if(_this19.Men1A[i].valoracion_23===""){valid=true;}if(_this19.Men1A[i].valoracion_68===""){valid=true;}if(_this19.Men1A[i].valoracion_911===""){valid=true;}if(_this19.Men1A[i].lactancia===""){valid=true;}if(_this19.Men1A[i].peso_nacer===""){valid=true;}if(_this19.Men1A[i].peso_actual===""){valid=true;}if(_this19.Men1A[i].longitud_nacer===""){valid=true;}if(_this19.Men1A[i].longitud_actual===""){valid=true;}if(_this19.Men1A[i].longitud_actual===""){valid=true;}if(_this19.Men1A[i].cinta===""){valid=true;}if(_this19.Men1A[i].pb===""){valid=true;}if(_this19.Men1A[i].edemas===""){valid=true;}if(_this19.Men1A[i].lenguaje===""){valid=true;}if(_this19.Men1A[i].motora===""){valid=true;}if(_this19.Men1A[i].conducta===""){valid=true;}if(_this19.Men1A[i].visuales===""){valid=true;}if(_this19.Men1A[i].auditivos===""){valid=true;}if(_this19.Men1A[i].carnet===""){valid=true;}if(_this19.Men1A[i].bcg===""){valid=true;}if(_this19.Men1A[i].hepb===""){valid=true;}if(_this19.Men1A[i].polio===""){valid=true;}if(_this19.Men1A[i].pentavalente===""){valid=true;}if(_this19.Men1A[i].maltrato===""){valid=true;}if(_this19.Men1A[i].morbilidad===""){valid=true;}if(_this19.Men1A[i].tsh===""){valid=true;}if(valid){i=_this19.Men1A.length;}}if(!valid){_context21.next=17;break;}_context21.next=9;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 9:alert=_context21.sent;if(!alert.value){_context21.next=14;break;}_this19.$router.push("/gestion");_context21.next=15;break;case 14:return _context21.abrupt("return",false);case 15:_context21.next=18;break;case 17:return _context21.abrupt("return",true);case 18:return _context21.abrupt("break",186);case 19:valid=false;// validar De1A5
-for(_i4=0;_i4<_this19.De1A5.length;_i4++){if(_this19.De1A5[_i4].beneficiario===""){valid=true;}if(_this19.De1A5[_i4].cyc===""){valid=true;}if(_this19.De1A5[_i4].valoracion_1823===""){valid=true;}if(_this19.De1A5[_i4].valoracion_3035===""){valid=true;}if(_this19.De1A5[_i4].valoracion_4===""){valid=true;}if(_this19.De1A5[_i4].peso===""){valid=true;}if(_this19.De1A5[_i4].talla===""){valid=true;}if(_this19.De1A5[_i4].imc===""){valid=true;}if(_this19.De1A5[_i4].pb===""){valid=true;}if(_this19.De1A5[_i4].pt===""){valid=true;}if(_this19.De1A5[_i4].te===""){valid=true;}if(_this19.De1A5[_i4].pcefalico===""){valid=true;}if(_this19.De1A5[_i4].lenguaje===""){valid=true;}if(_this19.De1A5[_i4].motora===""){valid=true;}if(_this19.De1A5[_i4].conducta===""){valid=true;}if(_this19.De1A5[_i4].visuales===""){valid=true;}if(_this19.De1A5[_i4].auditivos===""){valid=true;}if(_this19.De1A5[_i4].caries===""){valid=true;}if(_this19.De1A5[_i4].nocepillado===""){valid=true;}if(_this19.De1A5[_i4].consultaodon===""){valid=true;}if(_this19.De1A5[_i4].carnet===""){valid=true;}if(_this19.De1A5[_i4].bcg===""){valid=true;}if(_this19.De1A5[_i4].polio===""){valid=true;}if(_this19.De1A5[_i4].dpt===""){valid=true;}if(_this19.De1A5[_i4].fiebrea===""){valid=true;}if(_this19.De1A5[_i4].tripleviral===""){valid=true;}if(_this19.De1A5[_i4].pentavalente===""){valid=true;}if(_this19.De1A5[_i4].desparacitado===""){valid=true;}if(_this19.De1A5[_i4].maltrato===""){valid=true;}if(_this19.De1A5[_i4].enfermedad===""){valid=true;}if(_this19.De1A5[_i4].medicamento===""){valid=true;}if(valid){_i4=_this19.De1A5.length;}}if(!valid){_context21.next=32;break;}_context21.next=24;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 24:_alert=_context21.sent;if(!_alert.value){_context21.next=29;break;}_this19.$router.push("/gestion");_context21.next=30;break;case 29:return _context21.abrupt("return",false);case 30:_context21.next=33;break;case 32:return _context21.abrupt("return",true);case 33:return _context21.abrupt("break",186);case 34:valid=false;// validar De6A11
-for(_i5=0;_i5<_this19.De6A11.length;_i5++){if(_this19.De6A11[_i5].cyc===""){valid=true;}if(_this19.De6A11[_i5].atencion===""){valid=true;}if(_this19.De6A11[_i5].peso===""){valid=true;}if(_this19.De6A11[_i5].talla===""){valid=true;}if(_this19.De6A11[_i5].imc===""){valid=true;}if(_this19.De6A11[_i5].pb===""){valid=true;}if(_this19.De6A11[_i5].te===""){valid=true;}if(_this19.De6A11[_i5].conducta===""){valid=true;}if(_this19.De6A11[_i5].visuales===""){valid=true;}if(_this19.De6A11[_i5].auditivos===""){valid=true;}if(_this19.De6A11[_i5].dientes_sanos===""){valid=true;}if(_this19.De6A11[_i5].consultaodon===""){valid=true;}if(_this19.De6A11[_i5].nofluor===""){valid=true;}if(_this19.De6A11[_i5].nocepillado===""){valid=true;}if(_this19.De6A11[_i5].maltrato===""){valid=true;}if(_this19.De6A11[_i5].sustanciaspsico===""){valid=true;}if(_this19.De6A11[_i5].desparacitado===""){valid=true;}if(_this19.De6A11[_i5].enfermedad===""){valid=true;}if(_this19.De6A11[_i5].medicamento===""){valid=true;}if(_this19.De6A11[_i5].padre===""){valid=true;}if(_this19.De6A11[_i5].madre===""){valid=true;}if(_this19.De6A11[_i5].hermanos===""){valid=true;}if(_this19.De6A11[_i5].conyuge===""){valid=true;}if(valid){_i5=_this19.De6A11.length;}}if(!valid){_context21.next=47;break;}_context21.next=39;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 39:_alert2=_context21.sent;if(!_alert2.value){_context21.next=44;break;}_this19.$router.push("/gestion");_context21.next=45;break;case 44:return _context21.abrupt("return",false);case 45:_context21.next=48;break;case 47:return _context21.abrupt("return",true);case 48:return _context21.abrupt("break",186);case 49:valid=false;// validar De10A59
-for(_i6=0;_i6<_this19.De10A59.length;_i6++){if(_this19.De10A59[_i6].primera_mes===""){valid=true;}if(_this19.De10A59[_i6].flujo_vaginal===""){valid=true;}if(_this19.De10A59[_i6].flujo_uretral===""){valid=true;}if(_this19.De10A59[_i6].relaciones_sexuales===""){valid=true;}if(_this19.De10A59[_i6].compa_sexuales===""){valid=true;}if(_this19.De10A59[_i6].usa_condon===""){valid=true;}if(_this19.De10A59[_i6].abortos_seis===""){valid=true;}if(_this19.De10A59[_i6].embarazo_adolecentes===""){valid=true;}if(_this19.De10A59[_i6].metodo===""){valid=true;}if(_this19.De10A59[_i6].tiempo_metodo===""){valid=true;}if(_this19.De10A59[_i6].controles===""){valid=true;}if(_this19.De10A59[_i6].motivo===""){valid=true;}if(_this19.De10A59[_i6].citologia===""){valid=true;}if(_this19.De10A59[_i6].colposcopia===""){valid=true;}if(_this19.De10A59[_i6].examen_seno===""){valid=true;}if(_this19.De10A59[_i6].violencia===""){valid=true;}if(_this19.De10A59[_i6].tdit===""){valid=true;}if(_this19.De10A59[_i6].tripleviral===""){valid=true;}if(_this19.De10A59[_i6].nacidos_vivos===""){valid=true;}if(_this19.De10A59[_i6].abortos===""){valid=true;}if(_this19.De10A59[_i6].examen_prostata===""){valid=true;}if(_this19.De10A59[_i6].biposia_prostata===""){valid=true;}if(valid){_i6=_this19.De10A59.length;}}if(!valid){_context21.next=62;break;}_context21.next=54;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 54:_alert3=_context21.sent;if(!_alert3.value){_context21.next=59;break;}_this19.$router.push("/gestion");_context21.next=60;break;case 59:return _context21.abrupt("return",false);case 60:_context21.next=63;break;case 62:return _context21.abrupt("return",true);case 63:return _context21.abrupt("break",186);case 64:valid=false;// validar ParPost
-for(_i7=0;_i7<_this19.ParPost.length;_i7++){if(_this19.ParPost[_i7].aceptacion===""){valid=true;}if(_this19.ParPost[_i7].control_prenatal===""){valid=true;}if(_this19.ParPost[_i7].atencion_parto===""){valid=true;}if(_this19.ParPost[_i7].carnet===""){valid=true;}if(_this19.ParPost[_i7].fecha_ultima===""){valid=true;}if(_this19.ParPost[_i7].fecha_probable===""){valid=true;}if(_this19.ParPost[_i7].peso===""){valid=true;}if(_this19.ParPost[_i7].talla===""){valid=true;}if(_this19.ParPost[_i7].imc===""){valid=true;}if(_this19.ParPost[_i7].semanas_ges===""){valid=true;}if(_this19.ParPost[_i7].num_controles===""){valid=true;}if(_this19.ParPost[_i7].vih===""){valid=true;}if(_this19.ParPost[_i7].toxoplasma===""){valid=true;}if(_this19.ParPost[_i7].vdrl===""){valid=true;}if(_this19.ParPost[_i7].odontologia===""){valid=true;}if(_this19.ParPost[_i7].vacunaciontdit===""){valid=true;}if(_this19.ParPost[_i7].suplementacion===""){valid=true;}if(_this19.ParPost[_i7].enfermedades_cronicas===""){valid=true;}if(_this19.ParPost[_i7].sedentarismo===""){valid=true;}if(_this19.ParPost[_i7].fuma===""){valid=true;}if(_this19.ParPost[_i7].consumo===""){valid=true;}if(_this19.ParPost[_i7].bebidas===""){valid=true;}if(_this19.ParPost[_i7].tipo_parto===""){valid=true;}if(_this19.ParPost[_i7].atencion_institucional===""){valid=true;}if(_this19.ParPost[_i7].cc18===""){valid=true;}if(_this19.ParPost[_i7].morgestacion===""){valid=true;}if(_this19.ParPost[_i7].morparto===""){valid=true;}if(_this19.ParPost[_i7].morposparto===""){valid=true;}if(valid){_i7=_this19.ParPost.length;}}if(!valid){_context21.next=77;break;}_context21.next=69;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 69:_alert4=_context21.sent;if(!_alert4.value){_context21.next=74;break;}_this19.$router.push("/gestion");_context21.next=75;break;case 74:return _context21.abrupt("return",false);case 75:_context21.next=78;break;case 77:return _context21.abrupt("return",true);case 78:return _context21.abrupt("break",186);case 79:valid=false;// validar De12A17
-for(_i8=0;_i8<_this19.De12A17.length;_i8++){if(_this19.De12A17[_i8].peso===""){valid=true;}if(_this19.De12A17[_i8].talla===""){valid=true;}if(_this19.De12A17[_i8].imc===""){valid=true;}if(_this19.De12A17[_i8].pb===""){valid=true;}if(_this19.De12A17[_i8].visuales===""){valid=true;}if(_this19.De12A17[_i8].auditivos===""){valid=true;}if(_this19.De12A17[_i8].conducta===""){valid=true;}if(_this19.De12A17[_i8].enfermedades_cronicas===""){valid=true;}if(_this19.De12A17[_i8].dientes_sanos===""){valid=true;}if(_this19.De12A17[_i8].consultaodon===""){valid=true;}if(_this19.De12A17[_i8].nocepillado===""){valid=true;}if(_this19.De12A17[_i8].maltrato===""){valid=true;}if(_this19.De12A17[_i8].alcohol===""){valid=true;}if(_this19.De12A17[_i8].fuma===""){valid=true;}if(_this19.De12A17[_i8].spa===""){valid=true;}if(_this19.De12A17[_i8].desparacitado===""){valid=true;}if(_this19.De12A17[_i8].empleo===""){valid=true;}if(_this19.De12A17[_i8].religion===""){valid=true;}if(_this19.De12A17[_i8].queesvih===""){valid=true;}if(_this19.De12A17[_i8].queescancerutero===""){valid=true;}if(_this19.De12A17[_i8].queespapiloma===""){valid=true;}if(_this19.De12A17[_i8].queescancerseno===""){valid=true;}if(_this19.De12A17[_i8].padre===""){valid=true;}if(_this19.De12A17[_i8].madre===""){valid=true;}if(_this19.De12A17[_i8].hermanos===""){valid=true;}if(_this19.De12A17[_i8].conyuge===""){valid=true;}if(valid){_i8=_this19.De12A17.length;}}if(!valid){_context21.next=92;break;}_context21.next=84;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 84:_alert5=_context21.sent;if(!_alert5.value){_context21.next=89;break;}_this19.$router.push("/gestion");_context21.next=90;break;case 89:return _context21.abrupt("return",false);case 90:_context21.next=93;break;case 92:return _context21.abrupt("return",true);case 93:return _context21.abrupt("break",186);case 94:valid=false;// validar De18A28
-for(_i9=0;_i9<_this19.De18A28.length;_i9++){if(_this19.De18A28[_i9].peso===""){valid=true;}if(_this19.De18A28[_i9].talla===""){valid=true;}if(_this19.De18A28[_i9].imc===""){valid=true;}if(_this19.De18A28[_i9].pcintura===""){valid=true;}if(_this19.De18A28[_i9].visuales===""){valid=true;}if(_this19.De18A28[_i9].auditivos===""){valid=true;}if(_this19.De18A28[_i9].conducta===""){valid=true;}if(_this19.De18A28[_i9].enfermedades_cronicas===""){valid=true;}if(_this19.De18A28[_i9].dientes_sanos===""){valid=true;}if(_this19.De18A28[_i9].consultaodon===""){valid=true;}if(_this19.De18A28[_i9].nocepillado===""){valid=true;}if(_this19.De18A28[_i9].maltrato===""){valid=true;}if(_this19.De18A28[_i9].alcohol===""){valid=true;}if(_this19.De18A28[_i9].fuma===""){valid=true;}if(_this19.De18A28[_i9].spa===""){valid=true;}if(_this19.De18A28[_i9].desparacitado===""){valid=true;}if(_this19.De18A28[_i9].empleo===""){valid=true;}if(_this19.De18A28[_i9].religion===""){valid=true;}if(_this19.De18A28[_i9].queesvih===""){valid=true;}if(_this19.De18A28[_i9].queescancerutero===""){valid=true;}if(_this19.De18A28[_i9].queespapiloma===""){valid=true;}if(valid){_i9=_this19.De18A28.length;}}if(!valid){_context21.next=107;break;}_context21.next=99;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 99:_alert6=_context21.sent;if(!_alert6.value){_context21.next=104;break;}_this19.$router.push("/gestion");_context21.next=105;break;case 104:return _context21.abrupt("return",false);case 105:_context21.next=108;break;case 107:return _context21.abrupt("return",true);case 108:return _context21.abrupt("break",186);case 109:valid=false;// validar De29A59
-for(_i10=0;_i10<_this19.De29A59.length;_i10++){if(_this19.De29A59[_i10].peso===""){valid=true;}if(_this19.De29A59[_i10].talla===""){valid=true;}if(_this19.De29A59[_i10].imc===""){valid=true;}if(_this19.De29A59[_i10].pcintura===""){valid=true;}if(_this19.De29A59[_i10].pb===""){valid=true;}if(_this19.De29A59[_i10].visuales===""){valid=true;}if(_this19.De29A59[_i10].auditivos===""){valid=true;}if(_this19.De29A59[_i10].conducta===""){valid=true;}if(_this19.De29A59[_i10].enfermedades_cronicas===""){valid=true;}if(_this19.De29A59[_i10].dientes_sanos===""){valid=true;}if(_this19.De29A59[_i10].consultaodon===""){valid=true;}if(_this19.De29A59[_i10].nocepillado===""){valid=true;}if(_this19.De29A59[_i10].maltrato===""){valid=true;}if(_this19.De29A59[_i10].alcohol===""){valid=true;}if(_this19.De29A59[_i10].fuma===""){valid=true;}if(_this19.De29A59[_i10].spa===""){valid=true;}if(_this19.De29A59[_i10].desparacitado===""){valid=true;}if(_this19.De29A59[_i10].empleo===""){valid=true;}if(_this19.De29A59[_i10].examen_prostata===""){valid=true;}if(_this19.De29A59[_i10].citologia===""){valid=true;}if(_this19.De29A59[_i10].examen_mama===""){valid=true;}if(_this19.De29A59[_i10].religion===""){valid=true;}if(_this19.De29A59[_i10].queesvih===""){valid=true;}if(_this19.De29A59[_i10].queescancerutero===""){valid=true;}if(_this19.De29A59[_i10].queespapiloma===""){valid=true;}if(valid){_i10=_this19.De29A59.length;}}if(!valid){_context21.next=122;break;}_context21.next=114;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 114:_alert7=_context21.sent;if(!_alert7.value){_context21.next=119;break;}_this19.$router.push("/gestion");_context21.next=120;break;case 119:return _context21.abrupt("return",false);case 120:_context21.next=123;break;case 122:return _context21.abrupt("return",true);case 123:return _context21.abrupt("break",186);case 124:valid=false;// validar De60
-for(_i11=0;_i11<_this19.De60.length;_i11++){if(_this19.De60[_i11].grupo_ayudas===""){valid=true;}if(_this19.De60[_i11].peso===""){valid=true;}if(_this19.De60[_i11].talla===""){valid=true;}if(_this19.De60[_i11].imc===""){valid=true;}if(_this19.De60[_i11].pa===""){valid=true;}if(_this19.De60[_i11].cigarrillo===""){valid=true;}if(_this19.De60[_i11].alcohol===""){valid=true;}if(_this19.De60[_i11].actividad_fisica===""){valid=true;}if(_this19.De60[_i11].sintomatico===""){valid=true;}if(_this19.De60[_i11].examen_seno===""){valid=true;}if(_this19.De60[_i11].citologia===""){valid=true;}if(_this19.De60[_i11].colposcopia===""){valid=true;}if(_this19.De60[_i11].examen_prostata===""){valid=true;}if(_this19.De60[_i11].biposia_prostata===""){valid=true;}if(_this19.De60[_i11].agudeza_visual===""){valid=true;}if(_this19.De60[_i11].subsidio===""){valid=true;}if(_this19.De60[_i11].enfermedades_cronicas===""){valid=true;}if(_this19.De60[_i11].enfermedades_infecciosas===""){valid=true;}if(_this19.De60[_i11].empleo===""){valid=true;}if(valid){_i11=_this19.De60.length;}}if(!valid){_context21.next=137;break;}_context21.next=129;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 129:_alert8=_context21.sent;if(!_alert8.value){_context21.next=134;break;}_this19.$router.push("/gestion");_context21.next=135;break;case 134:return _context21.abrupt("return",false);case 135:_context21.next=138;break;case 137:return _context21.abrupt("return",true);case 138:return _context21.abrupt("break",186);case 139:valid=false;// validar EnCro
-for(_i12=0;_i12<_this19.EnCro.length;_i12++){if(_this19.EnCro[_i12].enfermedad===""){valid=true;}if(_this19.EnCro[_i12].tiempo===""){valid=true;}if(_this19.EnCro[_i12].tratamiento===""){valid=true;}if(_this19.EnCro[_i12].complicaciones===""){valid=true;}if(valid){_i12=_this19.EnCro.length;}}if(!valid){_context21.next=152;break;}_context21.next=144;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 144:_alert9=_context21.sent;if(!_alert9.value){_context21.next=149;break;}_this19.$router.push("/gestion");_context21.next=150;break;case 149:return _context21.abrupt("return",false);case 150:_context21.next=153;break;case 152:return _context21.abrupt("return",true);case 153:return _context21.abrupt("break",186);case 154:valid=false;// validar EnInf
-for(_i13=0;_i13<_this19.EnInf.length;_i13++){if(_this19.EnInf[_i13].enfermedad===""){valid=true;}if(_this19.EnInf[_i13].tiempo===""){valid=true;}if(_this19.EnInf[_i13].tratamiento===""){valid=true;}if(_this19.EnInf[_i13].complicaciones===""){valid=true;}if(valid){_i13=_this19.EnInf.length;}}if(!valid){_context21.next=167;break;}_context21.next=159;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 159:_alert10=_context21.sent;if(!_alert10.value){_context21.next=164;break;}_this19.$router.push("/gestion");_context21.next=165;break;case 164:return _context21.abrupt("return",false);case 165:_context21.next=168;break;case 167:return _context21.abrupt("return",true);case 168:return _context21.abrupt("break",186);case 169:valid=false;// validar Migra
-for(_i14=0;_i14<_this19.Migra.length;_i14++){if(_this19.Migra[_i14].pais===""){valid=true;}if(_this19.Migra[_i14].registrado===""){valid=true;}if(_this19.Migra[_i14].cuantollego===""){valid=true;}if(_this19.Migra[_i14].futuro===""){valid=true;}if(_this19.Migra[_i14].recibido===""){valid=true;}if(_this19.Migra[_i14].necesidad===""){valid=true;}if(_this19.Migra[_i14].dependen===""){valid=true;}if(_this19.Migra[_i14].ingreso===""){valid=true;}if(valid){_i14=_this19.Migra.length;}}if(!valid){_context21.next=182;break;}_context21.next=174;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 174:_alert11=_context21.sent;if(!_alert11.value){_context21.next=179;break;}_this19.$router.push("/gestion");_context21.next=180;break;case 179:return _context21.abrupt("return",false);case 180:_context21.next=183;break;case 182:return _context21.abrupt("return",true);case 183:return _context21.abrupt("break",186);case 184:return _context21.abrupt("return",false);case 186:case"end":return _context21.stop();}}},_callee17);}))();},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.ocupacionAuxiliar2="";this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";this.CA1.enfermedades=[];},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.ocupacionAuxiliar="";this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";this.caracData.enfermedades=[];},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},eliminarItemAnimales:function eliminarItemAnimales(index){this.animalesData.splice(index,1);},eliminarItemEstratificacion:function eliminarItemEstratificacion(index){this.estratificacion.splice(index,1);},agregarAnimales:function agregarAnimales(){if(this.animal===""){this.$swal("Error...!","Por favor Digite Un Animal!","error");return;}if(this.vacunadoAnimal==="0"){this.$swal("Error...!","Por favor Seleccione Si El Animal Se Encuentra Vacunado!","error");return;}if(this.cuantosAnimal===""){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}if(!this.isNumeric(this.cuantosAnimal)){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}this.animalesData.push({id:0,animal:this.animal,cuantos:this.cuantosAnimal,vacunados:this.vacunadoAnimal,estado:"Activo"});this.animal="";this.cuantosAnimal="";this.vacunadoAnimal="0";},agregarEstratificacion:function agregarEstratificacion(){if(this.estratificacionData.cuenta_internet===""){this.$swal("Error...!","Por favor Seleccione Si Cuenta ese Hogar con Internet!","error");return;}if(this.estratificacionData.tiene_pc_escritorio===""){this.$swal("Error...!","Por favor Seleccione Si Tiene computador de Escritorío!","error");return;}if(this.estratificacionData.tiene_pc_portatil===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Computador Portatil!","error");return;}if(this.estratificacionData.cuantos_celulares===""){this.$swal("Error...!","Por favor Seleccione Cuantos celulares en uso hay en el Hogar!","error");return;}if(this.estratificacionData.tiene_equipo_sonido===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Equipo de sonido!","error");return;}if(this.estratificacionData.cuantos_tv_color===""){this.$swal("Error...!","Por favor Seleccione Cuantos Tv a Color!","error");return;}if(this.estratificacionData.cuantos_vehiculos===""){this.$swal("Error...!","Por favor Seleccione Cuantos Vehiculos de Uso exclusivo tiene el Hogar!","error");return;}if(this.estratificacionData.nivel_instruccion===""){this.$swal("Error...!","Por favor Seleccione Cual es el nivel de Instrucción del jefe del Hogar!","error");return;}if(this.estratificacionData.afiliacion_salud_privada===""){this.$swal("Error...!","Por favor Seleccione Si Alguien en el Hogar posee afiliación de salud Privada o contribituva, prepagada!","error");return;}if(this.estratificacionData.ingresos_zona_rural===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar zona rural!","error");return;}if(this.estratificacionData.ingresos_ciudad===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar en Ciudad!","error");return;}if(this.estratificacionData.id_jefe==="0"){this.$swal("Error...!","Por favor Seleccione El Jefe del Hogar!","error");return;}this.estratificacion.push({id:0,id_hogar:0,cuenta_internet:this.estratificacionData.cuenta_internet,tiene_pc_escritorio:this.estratificacionData.tiene_pc_escritorio,tiene_pc_portatil:this.estratificacionData.tiene_pc_portatil,cuantos_celulares:this.estratificacionData.cuantos_celulares,tiene_equipo_sonido:this.estratificacionData.tiene_equipo_sonido,cuantos_tv_color:this.estratificacionData.cuantos_tv_color,cuantos_vehiculos:this.estratificacionData.cuantos_vehiculos,nivel_instruccion:this.estratificacionData.nivel_instruccion,afiliacion_salud_privada:this.estratificacionData.afiliacion_salud_privada,ingresos_zona_rural:this.estratificacionData.ingresos_zona_rural,ingresos_ciudad:this.estratificacionData.ingresos_ciudad,id_jefe:this.estratificacionData.id_jefe,texto_cuantos_celulares:this.showText(this.estratificacionData.cuantos_celulares,this.opciones1),texto_cuantos_tv_color:this.showText(this.estratificacionData.cuantos_tv_color,this.opciones2),texto_cuantos_vehiculos:this.showText(this.estratificacionData.cuantos_vehiculos,this.opciones3),texto_nivel_instruccion:this.showText(this.estratificacionData.nivel_instruccion,this.escolaridad_options),texto_ingresos_zona_rural:this.showText(this.estratificacionData.ingresos_zona_rural,this.opciones5),texto_ingresos_ciudad:this.showText(this.estratificacionData.ingresos_ciudad,this.opciones6),estado:"Activo"});this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}// this.estratificacionData.ingresos_zona_rural = "";
+for(_i6=0;_i6<_this19.De1A5.length;_i6++){if(_this19.De1A5[_i6].beneficiario===""){valid=true;}if(_this19.De1A5[_i6].cyc===""){valid=true;}if(_this19.De1A5[_i6].valoracion_1823===""){valid=true;}if(_this19.De1A5[_i6].valoracion_3035===""){valid=true;}if(_this19.De1A5[_i6].valoracion_4===""){valid=true;}if(_this19.De1A5[_i6].peso===""){valid=true;}if(_this19.De1A5[_i6].talla===""){valid=true;}if(_this19.De1A5[_i6].imc===""){valid=true;}if(_this19.De1A5[_i6].pb===""){valid=true;}if(_this19.De1A5[_i6].pt===""){valid=true;}if(_this19.De1A5[_i6].te===""){valid=true;}if(_this19.De1A5[_i6].pcefalico===""){valid=true;}if(_this19.De1A5[_i6].lenguaje===""){valid=true;}if(_this19.De1A5[_i6].motora===""){valid=true;}if(_this19.De1A5[_i6].conducta===""){valid=true;}if(_this19.De1A5[_i6].visuales===""){valid=true;}if(_this19.De1A5[_i6].auditivos===""){valid=true;}if(_this19.De1A5[_i6].caries===""){valid=true;}if(_this19.De1A5[_i6].nocepillado===""){valid=true;}if(_this19.De1A5[_i6].consultaodon===""){valid=true;}if(_this19.De1A5[_i6].carnet===""){valid=true;}if(_this19.De1A5[_i6].bcg===""){valid=true;}if(_this19.De1A5[_i6].polio===""){valid=true;}if(_this19.De1A5[_i6].dpt===""){valid=true;}if(_this19.De1A5[_i6].fiebrea===""){valid=true;}if(_this19.De1A5[_i6].tripleviral===""){valid=true;}if(_this19.De1A5[_i6].pentavalente===""){valid=true;}if(_this19.De1A5[_i6].desparacitado===""){valid=true;}if(_this19.De1A5[_i6].maltrato===""){valid=true;}if(_this19.De1A5[_i6].enfermedad===""){valid=true;}if(_this19.De1A5[_i6].medicamento===""){valid=true;}if(valid){_i6=_this19.De1A5.length;}}if(!valid){_context21.next=32;break;}_context21.next=24;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 24:_alert=_context21.sent;if(!_alert.value){_context21.next=29;break;}_this19.$router.push("/gestion");_context21.next=30;break;case 29:return _context21.abrupt("return",false);case 30:_context21.next=33;break;case 32:return _context21.abrupt("return",true);case 33:return _context21.abrupt("break",186);case 34:valid=false;// validar De6A11
+for(_i7=0;_i7<_this19.De6A11.length;_i7++){if(_this19.De6A11[_i7].cyc===""){valid=true;}if(_this19.De6A11[_i7].atencion===""){valid=true;}if(_this19.De6A11[_i7].peso===""){valid=true;}if(_this19.De6A11[_i7].talla===""){valid=true;}if(_this19.De6A11[_i7].imc===""){valid=true;}if(_this19.De6A11[_i7].pb===""){valid=true;}if(_this19.De6A11[_i7].te===""){valid=true;}if(_this19.De6A11[_i7].conducta===""){valid=true;}if(_this19.De6A11[_i7].visuales===""){valid=true;}if(_this19.De6A11[_i7].auditivos===""){valid=true;}if(_this19.De6A11[_i7].dientes_sanos===""){valid=true;}if(_this19.De6A11[_i7].consultaodon===""){valid=true;}if(_this19.De6A11[_i7].nofluor===""){valid=true;}if(_this19.De6A11[_i7].nocepillado===""){valid=true;}if(_this19.De6A11[_i7].maltrato===""){valid=true;}if(_this19.De6A11[_i7].sustanciaspsico===""){valid=true;}if(_this19.De6A11[_i7].desparacitado===""){valid=true;}if(_this19.De6A11[_i7].enfermedad===""){valid=true;}if(_this19.De6A11[_i7].medicamento===""){valid=true;}if(_this19.De6A11[_i7].padre===""){valid=true;}if(_this19.De6A11[_i7].madre===""){valid=true;}if(_this19.De6A11[_i7].hermanos===""){valid=true;}if(_this19.De6A11[_i7].conyuge===""){valid=true;}if(valid){_i7=_this19.De6A11.length;}}if(!valid){_context21.next=47;break;}_context21.next=39;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 39:_alert2=_context21.sent;if(!_alert2.value){_context21.next=44;break;}_this19.$router.push("/gestion");_context21.next=45;break;case 44:return _context21.abrupt("return",false);case 45:_context21.next=48;break;case 47:return _context21.abrupt("return",true);case 48:return _context21.abrupt("break",186);case 49:valid=false;// validar De10A59
+for(_i8=0;_i8<_this19.De10A59.length;_i8++){if(_this19.De10A59[_i8].primera_mes===""){valid=true;}if(_this19.De10A59[_i8].flujo_vaginal===""){valid=true;}if(_this19.De10A59[_i8].flujo_uretral===""){valid=true;}if(_this19.De10A59[_i8].relaciones_sexuales===""){valid=true;}if(_this19.De10A59[_i8].compa_sexuales===""){valid=true;}if(_this19.De10A59[_i8].usa_condon===""){valid=true;}if(_this19.De10A59[_i8].abortos_seis===""){valid=true;}if(_this19.De10A59[_i8].embarazo_adolecentes===""){valid=true;}if(_this19.De10A59[_i8].metodo===""){valid=true;}if(_this19.De10A59[_i8].tiempo_metodo===""){valid=true;}if(_this19.De10A59[_i8].controles===""){valid=true;}if(_this19.De10A59[_i8].motivo===""){valid=true;}if(_this19.De10A59[_i8].citologia===""){valid=true;}if(_this19.De10A59[_i8].colposcopia===""){valid=true;}if(_this19.De10A59[_i8].examen_seno===""){valid=true;}if(_this19.De10A59[_i8].violencia===""){valid=true;}if(_this19.De10A59[_i8].tdit===""){valid=true;}if(_this19.De10A59[_i8].tripleviral===""){valid=true;}if(_this19.De10A59[_i8].nacidos_vivos===""){valid=true;}if(_this19.De10A59[_i8].abortos===""){valid=true;}if(_this19.De10A59[_i8].examen_prostata===""){valid=true;}if(_this19.De10A59[_i8].biposia_prostata===""){valid=true;}if(valid){_i8=_this19.De10A59.length;}}if(!valid){_context21.next=62;break;}_context21.next=54;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 54:_alert3=_context21.sent;if(!_alert3.value){_context21.next=59;break;}_this19.$router.push("/gestion");_context21.next=60;break;case 59:return _context21.abrupt("return",false);case 60:_context21.next=63;break;case 62:return _context21.abrupt("return",true);case 63:return _context21.abrupt("break",186);case 64:valid=false;// validar ParPost
+for(_i9=0;_i9<_this19.ParPost.length;_i9++){if(_this19.ParPost[_i9].aceptacion===""){valid=true;}if(_this19.ParPost[_i9].control_prenatal===""){valid=true;}if(_this19.ParPost[_i9].atencion_parto===""){valid=true;}if(_this19.ParPost[_i9].carnet===""){valid=true;}if(_this19.ParPost[_i9].fecha_ultima===""){valid=true;}if(_this19.ParPost[_i9].fecha_probable===""){valid=true;}if(_this19.ParPost[_i9].peso===""){valid=true;}if(_this19.ParPost[_i9].talla===""){valid=true;}if(_this19.ParPost[_i9].imc===""){valid=true;}if(_this19.ParPost[_i9].semanas_ges===""){valid=true;}if(_this19.ParPost[_i9].num_controles===""){valid=true;}if(_this19.ParPost[_i9].vih===""){valid=true;}if(_this19.ParPost[_i9].toxoplasma===""){valid=true;}if(_this19.ParPost[_i9].vdrl===""){valid=true;}if(_this19.ParPost[_i9].odontologia===""){valid=true;}if(_this19.ParPost[_i9].vacunaciontdit===""){valid=true;}if(_this19.ParPost[_i9].suplementacion===""){valid=true;}if(_this19.ParPost[_i9].enfermedades_cronicas===""){valid=true;}if(_this19.ParPost[_i9].sedentarismo===""){valid=true;}if(_this19.ParPost[_i9].fuma===""){valid=true;}if(_this19.ParPost[_i9].consumo===""){valid=true;}if(_this19.ParPost[_i9].bebidas===""){valid=true;}if(_this19.ParPost[_i9].tipo_parto===""){valid=true;}if(_this19.ParPost[_i9].atencion_institucional===""){valid=true;}if(_this19.ParPost[_i9].cc18===""){valid=true;}if(_this19.ParPost[_i9].morgestacion===""){valid=true;}if(_this19.ParPost[_i9].morparto===""){valid=true;}if(_this19.ParPost[_i9].morposparto===""){valid=true;}if(valid){_i9=_this19.ParPost.length;}}if(!valid){_context21.next=77;break;}_context21.next=69;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 69:_alert4=_context21.sent;if(!_alert4.value){_context21.next=74;break;}_this19.$router.push("/gestion");_context21.next=75;break;case 74:return _context21.abrupt("return",false);case 75:_context21.next=78;break;case 77:return _context21.abrupt("return",true);case 78:return _context21.abrupt("break",186);case 79:valid=false;// validar De12A17
+for(_i10=0;_i10<_this19.De12A17.length;_i10++){if(_this19.De12A17[_i10].peso===""){valid=true;}if(_this19.De12A17[_i10].talla===""){valid=true;}if(_this19.De12A17[_i10].imc===""){valid=true;}if(_this19.De12A17[_i10].pb===""){valid=true;}if(_this19.De12A17[_i10].visuales===""){valid=true;}if(_this19.De12A17[_i10].auditivos===""){valid=true;}if(_this19.De12A17[_i10].conducta===""){valid=true;}if(_this19.De12A17[_i10].enfermedades_cronicas===""){valid=true;}if(_this19.De12A17[_i10].dientes_sanos===""){valid=true;}if(_this19.De12A17[_i10].consultaodon===""){valid=true;}if(_this19.De12A17[_i10].nocepillado===""){valid=true;}if(_this19.De12A17[_i10].maltrato===""){valid=true;}if(_this19.De12A17[_i10].alcohol===""){valid=true;}if(_this19.De12A17[_i10].fuma===""){valid=true;}if(_this19.De12A17[_i10].spa===""){valid=true;}if(_this19.De12A17[_i10].desparacitado===""){valid=true;}if(_this19.De12A17[_i10].empleo===""){valid=true;}if(_this19.De12A17[_i10].religion===""){valid=true;}if(_this19.De12A17[_i10].queesvih===""){valid=true;}if(_this19.De12A17[_i10].queescancerutero===""){valid=true;}if(_this19.De12A17[_i10].queespapiloma===""){valid=true;}if(_this19.De12A17[_i10].queescancerseno===""){valid=true;}if(_this19.De12A17[_i10].padre===""){valid=true;}if(_this19.De12A17[_i10].madre===""){valid=true;}if(_this19.De12A17[_i10].hermanos===""){valid=true;}if(_this19.De12A17[_i10].conyuge===""){valid=true;}if(valid){_i10=_this19.De12A17.length;}}if(!valid){_context21.next=92;break;}_context21.next=84;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 84:_alert5=_context21.sent;if(!_alert5.value){_context21.next=89;break;}_this19.$router.push("/gestion");_context21.next=90;break;case 89:return _context21.abrupt("return",false);case 90:_context21.next=93;break;case 92:return _context21.abrupt("return",true);case 93:return _context21.abrupt("break",186);case 94:valid=false;// validar De18A28
+for(_i11=0;_i11<_this19.De18A28.length;_i11++){if(_this19.De18A28[_i11].peso===""){valid=true;}if(_this19.De18A28[_i11].talla===""){valid=true;}if(_this19.De18A28[_i11].imc===""){valid=true;}if(_this19.De18A28[_i11].pcintura===""){valid=true;}if(_this19.De18A28[_i11].visuales===""){valid=true;}if(_this19.De18A28[_i11].auditivos===""){valid=true;}if(_this19.De18A28[_i11].conducta===""){valid=true;}if(_this19.De18A28[_i11].enfermedades_cronicas===""){valid=true;}if(_this19.De18A28[_i11].dientes_sanos===""){valid=true;}if(_this19.De18A28[_i11].consultaodon===""){valid=true;}if(_this19.De18A28[_i11].nocepillado===""){valid=true;}if(_this19.De18A28[_i11].maltrato===""){valid=true;}if(_this19.De18A28[_i11].alcohol===""){valid=true;}if(_this19.De18A28[_i11].fuma===""){valid=true;}if(_this19.De18A28[_i11].spa===""){valid=true;}if(_this19.De18A28[_i11].desparacitado===""){valid=true;}if(_this19.De18A28[_i11].empleo===""){valid=true;}if(_this19.De18A28[_i11].religion===""){valid=true;}if(_this19.De18A28[_i11].queesvih===""){valid=true;}if(_this19.De18A28[_i11].queescancerutero===""){valid=true;}if(_this19.De18A28[_i11].queespapiloma===""){valid=true;}if(valid){_i11=_this19.De18A28.length;}}if(!valid){_context21.next=107;break;}_context21.next=99;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 99:_alert6=_context21.sent;if(!_alert6.value){_context21.next=104;break;}_this19.$router.push("/gestion");_context21.next=105;break;case 104:return _context21.abrupt("return",false);case 105:_context21.next=108;break;case 107:return _context21.abrupt("return",true);case 108:return _context21.abrupt("break",186);case 109:valid=false;// validar De29A59
+for(_i12=0;_i12<_this19.De29A59.length;_i12++){if(_this19.De29A59[_i12].peso===""){valid=true;}if(_this19.De29A59[_i12].talla===""){valid=true;}if(_this19.De29A59[_i12].imc===""){valid=true;}if(_this19.De29A59[_i12].pcintura===""){valid=true;}if(_this19.De29A59[_i12].pb===""){valid=true;}if(_this19.De29A59[_i12].visuales===""){valid=true;}if(_this19.De29A59[_i12].auditivos===""){valid=true;}if(_this19.De29A59[_i12].conducta===""){valid=true;}if(_this19.De29A59[_i12].enfermedades_cronicas===""){valid=true;}if(_this19.De29A59[_i12].dientes_sanos===""){valid=true;}if(_this19.De29A59[_i12].consultaodon===""){valid=true;}if(_this19.De29A59[_i12].nocepillado===""){valid=true;}if(_this19.De29A59[_i12].maltrato===""){valid=true;}if(_this19.De29A59[_i12].alcohol===""){valid=true;}if(_this19.De29A59[_i12].fuma===""){valid=true;}if(_this19.De29A59[_i12].spa===""){valid=true;}if(_this19.De29A59[_i12].desparacitado===""){valid=true;}if(_this19.De29A59[_i12].empleo===""){valid=true;}if(_this19.De29A59[_i12].examen_prostata===""){valid=true;}if(_this19.De29A59[_i12].citologia===""){valid=true;}if(_this19.De29A59[_i12].examen_mama===""){valid=true;}if(_this19.De29A59[_i12].religion===""){valid=true;}if(_this19.De29A59[_i12].queesvih===""){valid=true;}if(_this19.De29A59[_i12].queescancerutero===""){valid=true;}if(_this19.De29A59[_i12].queespapiloma===""){valid=true;}if(valid){_i12=_this19.De29A59.length;}}if(!valid){_context21.next=122;break;}_context21.next=114;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 114:_alert7=_context21.sent;if(!_alert7.value){_context21.next=119;break;}_this19.$router.push("/gestion");_context21.next=120;break;case 119:return _context21.abrupt("return",false);case 120:_context21.next=123;break;case 122:return _context21.abrupt("return",true);case 123:return _context21.abrupt("break",186);case 124:valid=false;// validar De60
+for(_i13=0;_i13<_this19.De60.length;_i13++){if(_this19.De60[_i13].grupo_ayudas===""){valid=true;}if(_this19.De60[_i13].peso===""){valid=true;}if(_this19.De60[_i13].talla===""){valid=true;}if(_this19.De60[_i13].imc===""){valid=true;}if(_this19.De60[_i13].pa===""){valid=true;}if(_this19.De60[_i13].cigarrillo===""){valid=true;}if(_this19.De60[_i13].alcohol===""){valid=true;}if(_this19.De60[_i13].actividad_fisica===""){valid=true;}if(_this19.De60[_i13].sintomatico===""){valid=true;}if(_this19.De60[_i13].examen_seno===""){valid=true;}if(_this19.De60[_i13].citologia===""){valid=true;}if(_this19.De60[_i13].colposcopia===""){valid=true;}if(_this19.De60[_i13].examen_prostata===""){valid=true;}if(_this19.De60[_i13].biposia_prostata===""){valid=true;}if(_this19.De60[_i13].agudeza_visual===""){valid=true;}if(_this19.De60[_i13].subsidio===""){valid=true;}if(_this19.De60[_i13].enfermedades_cronicas===""){valid=true;}if(_this19.De60[_i13].enfermedades_infecciosas===""){valid=true;}if(_this19.De60[_i13].empleo===""){valid=true;}if(valid){_i13=_this19.De60.length;}}if(!valid){_context21.next=137;break;}_context21.next=129;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 129:_alert8=_context21.sent;if(!_alert8.value){_context21.next=134;break;}_this19.$router.push("/gestion");_context21.next=135;break;case 134:return _context21.abrupt("return",false);case 135:_context21.next=138;break;case 137:return _context21.abrupt("return",true);case 138:return _context21.abrupt("break",186);case 139:valid=false;// validar EnCro
+for(_i14=0;_i14<_this19.EnCro.length;_i14++){if(_this19.EnCro[_i14].enfermedad===""){valid=true;}if(_this19.EnCro[_i14].tiempo===""){valid=true;}if(_this19.EnCro[_i14].tratamiento===""){valid=true;}if(_this19.EnCro[_i14].complicaciones===""){valid=true;}if(valid){_i14=_this19.EnCro.length;}}if(!valid){_context21.next=152;break;}_context21.next=144;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 144:_alert9=_context21.sent;if(!_alert9.value){_context21.next=149;break;}_this19.$router.push("/gestion");_context21.next=150;break;case 149:return _context21.abrupt("return",false);case 150:_context21.next=153;break;case 152:return _context21.abrupt("return",true);case 153:return _context21.abrupt("break",186);case 154:valid=false;// validar EnInf
+for(_i15=0;_i15<_this19.EnInf.length;_i15++){if(_this19.EnInf[_i15].enfermedad===""){valid=true;}if(_this19.EnInf[_i15].tiempo===""){valid=true;}if(_this19.EnInf[_i15].tratamiento===""){valid=true;}if(_this19.EnInf[_i15].complicaciones===""){valid=true;}if(valid){_i15=_this19.EnInf.length;}}if(!valid){_context21.next=167;break;}_context21.next=159;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 159:_alert10=_context21.sent;if(!_alert10.value){_context21.next=164;break;}_this19.$router.push("/gestion");_context21.next=165;break;case 164:return _context21.abrupt("return",false);case 165:_context21.next=168;break;case 167:return _context21.abrupt("return",true);case 168:return _context21.abrupt("break",186);case 169:valid=false;// validar Migra
+for(_i16=0;_i16<_this19.Migra.length;_i16++){if(_this19.Migra[_i16].pais===""){valid=true;}if(_this19.Migra[_i16].registrado===""){valid=true;}if(_this19.Migra[_i16].cuantollego===""){valid=true;}if(_this19.Migra[_i16].futuro===""){valid=true;}if(_this19.Migra[_i16].recibido===""){valid=true;}if(_this19.Migra[_i16].necesidad===""){valid=true;}if(_this19.Migra[_i16].dependen===""){valid=true;}if(_this19.Migra[_i16].ingreso===""){valid=true;}if(valid){_i16=_this19.Migra.length;}}if(!valid){_context21.next=182;break;}_context21.next=174;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 174:_alert11=_context21.sent;if(!_alert11.value){_context21.next=179;break;}_this19.$router.push("/gestion");_context21.next=180;break;case 179:return _context21.abrupt("return",false);case 180:_context21.next=183;break;case 182:return _context21.abrupt("return",true);case 183:return _context21.abrupt("break",186);case 184:return _context21.abrupt("return",false);case 186:case"end":return _context21.stop();}}},_callee17);}))();},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.ocupacionAuxiliar2="";this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";this.CA1.enfermedades=[];this.CA1.antecedentes=[];this.CA1.antec="";},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.ocupacionAuxiliar="";this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";this.caracData.enfermedades=[];this.caracData.antecedentes=[];this.caracData.antec="";},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},eliminarItemAnimales:function eliminarItemAnimales(index){this.animalesData.splice(index,1);},eliminarItemEstratificacion:function eliminarItemEstratificacion(index,item){if(item.id===0){this.estratificacion.splice(index,1);}else{//INACTIVAR LA ESTRATIFICACION
+this.estratificacion[index].estado="Inactivo";this.estratificacion.splice(index,1,this.estratificacion[index]);//INACTIVAR LA ESTRATIFICACION
+}},editarItemEstratificacion:function editarItemEstratificacion(index,item){this.bandeGuaEdiEstrati=false;this.indiceEditEstrati=index;this.estratificacionData.id=item.id;this.estratificacionData.id_hogar=item.id_hogar;this.estratificacionData.cuenta_internet=item.cuenta_internet;this.estratificacionData.tiene_pc_escritorio=item.tiene_pc_escritorio;this.estratificacionData.tiene_pc_portatil=item.tiene_pc_portatil;this.estratificacionData.cuantos_celulares=item.cuantos_celulares;this.estratificacionData.tiene_equipo_sonido=item.tiene_equipo_sonido;this.estratificacionData.cuantos_tv_color=item.cuantos_tv_color;this.estratificacionData.cuantos_vehiculos=item.cuantos_vehiculos;this.estratificacionData.nivel_instruccion=item.nivel_instruccion;this.estratificacionData.afiliacion_salud_privada=item.afiliacion_salud_privada;this.estratificacionData.ingresos_zona_rural=item.ingresos_zona_rural;this.estratificacionData.ingresos_ciudad=item.ingresos_ciudad;this.estratificacionData.id_jefe=item.id_jefe;this.estratificacionData.estado=item.estado;//INACTIVAR LA ESTRATIFICACION
+this.estratificacion[index].estado="Inactivo";this.estratificacion.splice(index,1,this.estratificacion[index]);//INACTIVAR LA ESTRATIFICACION        
+},CancelarEditarEstratificacion:function CancelarEditarEstratificacion(){//INACTIVAR LA ESTRATIFICACION
+this.estratificacion[this.indiceEditEstrati].estado="Activo";this.estratificacion.splice(this.indiceEditEstrati,1,this.estratificacion[this.indiceEditEstrati]);//INACTIVAR LA ESTRATIFICACION
+this.bandeGuaEdiEstrati=true;this.indiceEditEstrati=null;this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}this.habilitar_zonas();this.estratificacionData.id_jefe="0";},editarEstratificacion:function editarEstratificacion(){this.estratificacion[this.indiceEditEstrati].id=this.estratificacionData.id;this.estratificacion[this.indiceEditEstrati].id_hogar=this.estratificacionData.id_hogar;this.estratificacion[this.indiceEditEstrati].cuenta_internet=this.estratificacionData.cuenta_internet;this.estratificacion[this.indiceEditEstrati].tiene_pc_escritorio=this.estratificacionData.tiene_pc_escritorio;this.estratificacion[this.indiceEditEstrati].tiene_pc_portatil=this.estratificacionData.tiene_pc_portatil;this.estratificacion[this.indiceEditEstrati].cuantos_celulares=this.estratificacionData.cuantos_celulares;this.estratificacion[this.indiceEditEstrati].tiene_equipo_sonido=this.estratificacionData.tiene_equipo_sonido;this.estratificacion[this.indiceEditEstrati].cuantos_tv_color=this.estratificacionData.cuantos_tv_color;this.estratificacion[this.indiceEditEstrati].cuantos_vehiculos=this.estratificacionData.cuantos_vehiculos;this.estratificacion[this.indiceEditEstrati].nivel_instruccion=this.estratificacionData.nivel_instruccion;this.estratificacion[this.indiceEditEstrati].afiliacion_salud_privada=this.estratificacionData.afiliacion_salud_privada;this.estratificacion[this.indiceEditEstrati].ingresos_zona_rural=this.estratificacionData.ingresos_zona_rural;this.estratificacion[this.indiceEditEstrati].ingresos_ciudad=this.estratificacionData.ingresos_ciudad;this.estratificacion[this.indiceEditEstrati].id_jefe=this.estratificacionData.id_jefe;this.estratificacion[this.indiceEditEstrati].estado=this.estratificacionData.estado;this.estratificacion[this.indiceEditEstrati].texto_cuantos_celulares=this.showText(Number(this.estratificacionData.cuantos_celulares),this.opciones1);this.estratificacion[this.indiceEditEstrati].texto_cuantos_tv_color=this.showText(Number(this.estratificacionData.cuantos_tv_color),this.opciones2);this.estratificacion[this.indiceEditEstrati].texto_cuantos_vehiculos=this.showText(Number(this.estratificacionData.cuantos_vehiculos),this.opciones3);this.estratificacion[this.indiceEditEstrati].texto_nivel_instruccion=this.showText(Number(this.estratificacionData.nivel_instruccion),this.escolaridad_options);this.estratificacion[this.indiceEditEstrati].texto_ingresos_zona_rural=this.showText(Number(this.estratificacionData.ingresos_zona_rural),this.opciones5);this.estratificacion[this.indiceEditEstrati].texto_ingresos_ciudad=this.showText(Number(this.estratificacionData.ingresos_ciudad),this.opciones6);this.estratificacion.splice(this.indiceEditEstrati,1,this.estratificacion[this.indiceEditEstrati]);this.bandeGuaEdiEstrati=true;this.indiceEditEstrati=null;this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}this.habilitar_zonas();this.estratificacionData.id_jefe="0";},agregarAnimales:function agregarAnimales(){if(this.animal===""){this.$swal("Error...!","Por favor Digite Un Animal!","error");return;}if(this.vacunadoAnimal==="0"){this.$swal("Error...!","Por favor Seleccione Si El Animal Se Encuentra Vacunado!","error");return;}if(this.cuantosAnimal===""){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}if(!this.isNumeric(this.cuantosAnimal)){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}this.animalesData.push({id:0,animal:this.animal,cuantos:this.cuantosAnimal,vacunados:this.vacunadoAnimal,estado:"Activo"});this.animal="";this.cuantosAnimal="";this.vacunadoAnimal="0";},agregarEstratificacion:function agregarEstratificacion(){if(this.estratificacionData.cuenta_internet===""){this.$swal("Error...!","Por favor Seleccione Si Cuenta ese Hogar con Internet!","error");return;}if(this.estratificacionData.tiene_pc_escritorio===""){this.$swal("Error...!","Por favor Seleccione Si Tiene computador de Escritorío!","error");return;}if(this.estratificacionData.tiene_pc_portatil===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Computador Portatil!","error");return;}if(this.estratificacionData.cuantos_celulares===""){this.$swal("Error...!","Por favor Seleccione Cuantos celulares en uso hay en el Hogar!","error");return;}if(this.estratificacionData.tiene_equipo_sonido===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Equipo de sonido!","error");return;}if(this.estratificacionData.cuantos_tv_color===""){this.$swal("Error...!","Por favor Seleccione Cuantos Tv a Color!","error");return;}if(this.estratificacionData.cuantos_vehiculos===""){this.$swal("Error...!","Por favor Seleccione Cuantos Vehiculos de Uso exclusivo tiene el Hogar!","error");return;}if(this.estratificacionData.nivel_instruccion===""){this.$swal("Error...!","Por favor Seleccione Cual es el nivel de Instrucción del jefe del Hogar!","error");return;}if(this.estratificacionData.afiliacion_salud_privada===""){this.$swal("Error...!","Por favor Seleccione Si Alguien en el Hogar posee afiliación de salud Privada o contribituva, prepagada!","error");return;}if(this.estratificacionData.ingresos_zona_rural===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar zona rural!","error");return;}if(this.estratificacionData.ingresos_ciudad===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar en Ciudad!","error");return;}if(this.estratificacionData.id_jefe==="0"){this.$swal("Error...!","Por favor Seleccione El Jefe del Hogar!","error");return;}this.estratificacion.push({id:0,id_hogar:0,cuenta_internet:this.estratificacionData.cuenta_internet,tiene_pc_escritorio:this.estratificacionData.tiene_pc_escritorio,tiene_pc_portatil:this.estratificacionData.tiene_pc_portatil,cuantos_celulares:this.estratificacionData.cuantos_celulares,tiene_equipo_sonido:this.estratificacionData.tiene_equipo_sonido,cuantos_tv_color:this.estratificacionData.cuantos_tv_color,cuantos_vehiculos:this.estratificacionData.cuantos_vehiculos,nivel_instruccion:this.estratificacionData.nivel_instruccion,afiliacion_salud_privada:this.estratificacionData.afiliacion_salud_privada,ingresos_zona_rural:this.estratificacionData.ingresos_zona_rural,ingresos_ciudad:this.estratificacionData.ingresos_ciudad,id_jefe:this.estratificacionData.id_jefe,texto_cuantos_celulares:this.showText(this.estratificacionData.cuantos_celulares,this.opciones1),texto_cuantos_tv_color:this.showText(this.estratificacionData.cuantos_tv_color,this.opciones2),texto_cuantos_vehiculos:this.showText(this.estratificacionData.cuantos_vehiculos,this.opciones3),texto_nivel_instruccion:this.showText(this.estratificacionData.nivel_instruccion,this.escolaridad_options),texto_ingresos_zona_rural:this.showText(this.estratificacionData.ingresos_zona_rural,this.opciones5),texto_ingresos_ciudad:this.showText(this.estratificacionData.ingresos_ciudad,this.opciones6),estado:"Activo"});this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}// this.estratificacionData.ingresos_zona_rural = "";
 // this.estratificacionData.ingresos_ciudad = "";
 this.habilitar_zonas();this.estratificacionData.id_jefe="0";},Amenores1Anio:function Amenores1Anio(vector,meses,opcion){var pb="";if(meses>=3){pb="";}else{pb="No Aplica";}this.Men1A.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,lugar_nacimiento:"",hemoclasificacion:"",compli_parto:"",via_parto:"",cyc:"",valoracion_23:"",valoracion_68:"",valoracion_911:"",lactancia:"",peso_nacer:"",peso_actual:vector.peso,longitud_nacer:"",longitud_actual:vector.talla,peso_long:"",cinta:"",edemas:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",carnet:"",bcg:"",hepb:"",polio:"",pentavalente:"",maltrato:"",morbilidad:"",tsh:"",opci:opcion,pb:pb,estado:"Activo"});},changeupdateMenA1:function changeupdateMenA1(item,event,opcion){if(opcion==="peso_nacer"){item.peso_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_actual"){item.peso_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_nacer"){item.longitud_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_actual"){item.longitud_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_long"){item.peso_long=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="cinta"){item.cinta=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMenA1:function updateMenA1(item,valor,opcion){if(opcion==="hemoclasificacion"){item.hemoclasificacion=valor;}if(opcion==="lugar_nacimiento"){item.lugar_nacimiento=valor;}if(opcion==="compli_parto"){item.compli_parto=valor;}if(opcion==="via_parto"){item.via_parto=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_23"){item.valoracion_23=valor;}if(opcion==="valoracion_68"){item.valoracion_68=valor;}if(opcion==="valoracion_911"){item.valoracion_911=valor;}if(opcion==="lactancia"){item.lactancia=valor;}// if (opcion === "cinta") {
 //   item.cinta = valor;
@@ -12165,7 +12352,7 @@ lleva.setTime(hoy.getTime()-fecha_inicio.getTime());var llevasemanas=parseInt(ll
 }if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="semanas_ges"){item.semanas_ges=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="fecha_ultimo_parto"){// item.fecha_ultimo_parto = event.target.value
 //   .replace(/[^.\d]/g, "")
 //   .trim();
-}},updatePosparto:function updatePosparto(item,valor,opcion){if(opcion==="aceptacion"){item.aceptacion=valor;}if(opcion==="control_prenatal"){item.control_prenatal=valor;if(valor==="NO"){item.carnet="NO";item.num_controles="NA";}else{item.carnet="";item.num_controles="";}}if(opcion==="atencion_parto"){item.atencion_parto=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="num_controles"){item.num_controles=valor;}if(opcion==="vih"){item.vih=valor;}if(opcion==="toxoplasma"){item.toxoplasma=valor;}if(opcion==="vdrl"){item.vdrl=valor;}if(opcion==="odontologia"){item.odontologia=valor;}if(opcion==="vacunaciontdit"){item.vacunaciontdit=valor;}if(opcion==="suplementacion"){item.suplementacion=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="sedentarismo"){item.sedentarismo=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="consumo"){item.consumo=valor;}if(opcion==="bebidas"){item.bebidas=valor;}if(opcion==="tipo_parto"){item.tipo_parto=valor;}if(opcion==="atencion_institucional"){item.atencion_institucional=valor;}if(opcion==="cc18"){item.cc18=valor;}if(opcion==="morgestacion"){item.morgestacion=valor;}if(opcion==="morparto"){item.morparto=valor;}if(opcion==="morposparto"){item.morposparto=valor;}},Ade12a17Anio:function Ade12a17Anio(vector,edad,opcion){this.De12A17.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),te:"",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",queescancerseno:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe12A17:function changeupdateDe12A17(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="te"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe12A17:function updateDe12A17(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}if(opcion==="queescancerseno"){item.queescancerseno=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}},Ade18a28Anio:function Ade18a28Anio(vector,edad,opcion){this.De18A28.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe18A28:function changeupdateDe18A28(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe18A28:function updateDe18A28(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade29a59Anio:function Ade29a59Anio(vector,edad,opcion){this.De29A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",examen_prostata:"NA",citologia:"NA",examen_mama:"NA",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe29A59:function changeupdateDe29A59(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe29A59:function updateDe29A59(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="examen_mama"){item.examen_mama=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade60Anio:function Ade60Anio(vector,edad,opcion){this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"",citologia:"",colposcopia:"",examen_prostata:"",biposia_prostata:"",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});},changeupdateDe60:function changeupdateDe60(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pa"){item.pa=event.target.value.trim();}if(opcion==="glicemia"){item.glicemia=event.target.value.trim();}},updateDe60:function updateDe60(item,valor,opcion){if(opcion==="grupo_ayudas"){item.grupo_ayudas=valor;}if(opcion==="cigarrillo"){item.cigarrillo=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="actividad_fisica"){item.actividad_fisica=valor;}if(opcion==="sintomatico"){item.sintomatico=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="agudeza_visual"){item.agudeza_visual=valor;}if(opcion==="subsidio"){item.subsidio=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;if(valor==="SI"){// AGREGAR ENFERMEDADES CONTAGIOSAS
+}},updatePosparto:function updatePosparto(item,valor,opcion){if(opcion==="aceptacion"){item.aceptacion=valor;}if(opcion==="control_prenatal"){item.control_prenatal=valor;if(valor==="NO"){item.carnet="NO";item.num_controles="NA";}else{item.carnet="";item.num_controles="";}}if(opcion==="atencion_parto"){item.atencion_parto=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="num_controles"){item.num_controles=valor;}if(opcion==="vih"){item.vih=valor;}if(opcion==="toxoplasma"){item.toxoplasma=valor;}if(opcion==="vdrl"){item.vdrl=valor;}if(opcion==="odontologia"){item.odontologia=valor;}if(opcion==="vacunaciontdit"){item.vacunaciontdit=valor;}if(opcion==="suplementacion"){item.suplementacion=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="sedentarismo"){item.sedentarismo=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="consumo"){item.consumo=valor;}if(opcion==="bebidas"){item.bebidas=valor;}if(opcion==="tipo_parto"){item.tipo_parto=valor;}if(opcion==="atencion_institucional"){item.atencion_institucional=valor;}if(opcion==="cc18"){item.cc18=valor;}if(opcion==="morgestacion"){item.morgestacion=valor;}if(opcion==="morparto"){item.morparto=valor;}if(opcion==="morposparto"){item.morposparto=valor;}},Ade12a17Anio:function Ade12a17Anio(vector,edad,opcion){this.De12A17.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),te:"",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",queescancerseno:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe12A17:function changeupdateDe12A17(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="te"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe12A17:function updateDe12A17(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}if(opcion==="queescancerseno"){item.queescancerseno=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}},Ade18a28Anio:function Ade18a28Anio(vector,edad,opcion){this.De18A28.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe18A28:function changeupdateDe18A28(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe18A28:function updateDe18A28(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade29a59Anio:function Ade29a59Anio(vector,edad,opcion){this.De29A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",examen_prostata:"NA",citologia:"NA",examen_mama:"NA",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe29A59:function changeupdateDe29A59(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe29A59:function updateDe29A59(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="examen_mama"){item.examen_mama=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade60Anio:function Ade60Anio(vector,edad,opcion){if(vector.sexo==="MASCULINO"){this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"NA",citologia:"NA",colposcopia:"NA",examen_prostata:"",biposia_prostata:"",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});}else{this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"",citologia:"",colposcopia:"",examen_prostata:"NA",biposia_prostata:"NA",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});}},changeupdateDe60:function changeupdateDe60(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pa"){item.pa=event.target.value.trim();}if(opcion==="glicemia"){item.glicemia=event.target.value.trim();}},updateDe60:function updateDe60(item,valor,opcion){if(opcion==="grupo_ayudas"){item.grupo_ayudas=valor;}if(opcion==="cigarrillo"){item.cigarrillo=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="actividad_fisica"){item.actividad_fisica=valor;}if(opcion==="sintomatico"){item.sintomatico=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="agudeza_visual"){item.agudeza_visual=valor;}if(opcion==="subsidio"){item.subsidio=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;if(valor==="SI"){// AGREGAR ENFERMEDADES CONTAGIOSAS
 this.AEnCro(item);// AGREGAR ENFERMEDADES CONTAGIOSAS
 }else{// ELIMINAR ENFERMEDADES CONTAGIOSAS
 this.EEnCro(item);// ELIMINAR ENFERMEDADES CONTAGIOSAS
@@ -12489,7 +12676,7 @@ this.De29A59[_indice13].sape=item.sape;this.De29A59.splice(_indice13,1,this.De29
 _indice13=this.De60.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
 this.De60[_indice13].sape=item.sape;this.De60.splice(_indice13,1,this.De60[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 _indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice13].sape=item.sape;this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}},AFactores:function AFactores(vector,edad){this.factores.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,dialogos:"",sancion:"",castigo_verbal:"",castigo_fisico:"",alcohol:"",tabaco:"",sustancias_psico:"",apuestas:"",violencia_fisica:"",violencia_psico:"",violencia_economica:"",abuso_sexual:"",actividad_fisica:"",consumo_frutas:"",religiosos:"",sociales:"",culturales:"",recreativos:"",estado:"Activo"});},AAFECTACION:function AAFECTACION(vector,edad){this.afectacion.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,presentado:"",prueba:"",afectado:"",nivel:"",porcentaje:"",perdida:"",sobrelleva:"",percibe:"",principal:"",tiempo:"",estado:"Activo"});},datediff:function datediff(date1,date2){var fecha1=date1.split("-");var fecha2=date2.split("-");var y1=Number(fecha1[0]),m1=Number(fecha1[1]),d1=Number(fecha1[2]),y2=Number(fecha2[0]),m2=Number(fecha2[1]),d2=Number(fecha2[2]);if(d1<d2){m1--;d1=d1+this.DaysInMonth(y2,m2);}if(m1<m2){y1--;m1=m1+12;}var ano=y1-y2;var mes=m1-m2;var dia=d1-d2;if(ano<0){ano=ano*-1;}if(mes<0){mes=mes*-1;}if(dia<0){dia=dia*-1;}return[ano,mes,dia];},DaysInMonth:function DaysInMonth(Y,M){return new Date(Y,M,1,12).getDate();},cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}}}});
+this.Migra[_indice13].sape=item.sape;this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}},AFactores:function AFactores(vector,edad){this.factores.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,dialogos:"",sancion:"",castigo_verbal:"",castigo_fisico:"",alcohol:"",tabaco:"",sustancias_psico:"",apuestas:"",violencia_fisica:"",violencia_psico:"",violencia_economica:"",abuso_sexual:"",actividad_fisica:"",consumo_frutas:"",religiosos:"",sociales:"",culturales:"",recreativos:"",estado:"Activo"});},AAFECTACION:function AAFECTACION(vector,edad){this.afectacion.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,presentado:"",prueba:"",afectado:"",nivel:"",porcentaje:"",perdida:"",sobrelleva:"",percibe:"",principal:"",tiempo:"",estado:"Activo"});},datediff:function datediff(date1,date2){var fecha1=date1.split("-");var fecha2=date2.split("-");var y1=Number(fecha1[0]),m1=Number(fecha1[1]),d1=Number(fecha1[2]),y2=Number(fecha2[0]),m2=Number(fecha2[1]),d2=Number(fecha2[2]);if(d1<d2){m1--;d1=d1+this.DaysInMonth(y2,m2);}if(m1<m2){y1--;m1=m1+12;}var ano=y1-y2;var mes=m1-m2;var dia=d1-d2;if(ano<0){ano=ano*-1;}if(mes<0){mes=mes*-1;}if(dia<0){dia=dia*-1;}return[ano,mes,dia];},DaysInMonth:function DaysInMonth(Y,M){return new Date(Y,M,1,12).getDate();},cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}},agregarAntJef:function agregarAntJef(){var textoAntecedente="",id_antecedente="";if(this.caracData.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.caracData.antec;textoAntecedente=this.showText(this.caracData.antec,this.antec_options);var i=0;while(i<this.caracData.antecedentes.length){if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.caracData.antec="";this.caracData.antecedentes.push({id:0,id_jefe:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntJef:function eliminarItemAntJef(index,item){if(item.id===0){this.caracData.antecedentes.splice(index,1);}else{this.caracData.antecedentes[index].estado="Inactivo";this.caracData.antecedentes.splice(index,1,this.caracData.antecedentes[index]);}},agregarAntInt:function agregarAntInt(){var textoAntecedente="",id_antecedente="";if(this.CA1.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.CA1.antec;textoAntecedente=this.showText(this.CA1.antec,this.antec_options);var i=0;while(i<this.CA1.antecedentes.length){if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.CA1.antec="";this.CA1.antecedentes.push({id:0,id_inte:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntInt:function eliminarItemAntInt(index,item){if(item.id===0){this.CA1.antecedentes.splice(index,1);}else{this.CA1.antecedentes[index].estado="Inactivo";this.CA1.antecedentes.splice(index,1,this.CA1.antecedentes[index]);}}}});
 
 /***/ }),
 
@@ -15744,6 +15931,253 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
+                        _c("label", [_vm._v("Antecedentes:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.caracData.antec == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.antec,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "antec", $$v)
+                              },
+                              expression: "caracData.antec"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.antec_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-success btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar Antecedentes"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregarAntJef()
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.caracData.antecedentes.length > 0,
+                          expression: "caracData.antecedentes.length > 0"
+                        }
+                      ],
+                      staticClass: "row"
+                    },
+                    [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _vm._m(4),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.caracData.antecedentes, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c(
+                                    "tr",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: item.estado == "Activo",
+                                          expression: "item.estado=='Activo'"
+                                        }
+                                      ],
+                                      key: index
+                                    },
+                                    [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100%",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: index + 1 }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.textoAntecedente,
+                                                expression:
+                                                  "item.textoAntecedente"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100%",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value: item.textoAntecedente
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "textoAntecedente",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "text-align": "center",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticStyle: { width: "70px" } },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-icon btn-sm btn-outline-danger",
+                                                  attrs: {
+                                                    type: "button",
+                                                    title: "Eliminar"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.eliminarItemAntJef(
+                                                        index,
+                                                        item
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    staticClass: "fa fa-trash"
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
                         _c("label", [
                           _vm._v("Pertenece a algún programa del ICBF:")
                         ]),
@@ -15969,7 +16403,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(4),
+                            _vm._m(5),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -17900,7 +18334,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(5),
+                  _vm._m(6),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -19665,7 +20099,7 @@ var render = function() {
                             "table",
                             { staticClass: "table table-sm table-hover" },
                             [
-                              _vm._m(6),
+                              _vm._m(7),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -20073,6 +20507,253 @@ var render = function() {
                       "div",
                       { staticClass: "col-lg-4" },
                       [
+                        _c("label", [_vm._v("Antecedentes:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.CA1.antec == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.antec,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "antec", $$v)
+                              },
+                              expression: "CA1.antec"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.antec_options, function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-1" }, [
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("label", [_vm._v("      ")]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-success btn-icon",
+                          attrs: {
+                            href: "javascript:;",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Agregar Antecedentes"
+                          },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.agregarAntInt()
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fa fa-plus" })]
+                      ),
+                      _vm._v(" \n              ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.CA1.antecedentes.length > 0,
+                          expression: "CA1.antecedentes.length > 0"
+                        }
+                      ],
+                      staticClass: "row"
+                    },
+                    [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "table-responsive" }, [
+                          _c(
+                            "table",
+                            { staticClass: "table table-sm table-hover" },
+                            [
+                              _vm._m(8),
+                              _vm._v(" "),
+                              _c(
+                                "tbody",
+                                _vm._l(_vm.CA1.antecedentes, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c(
+                                    "tr",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: item.estado == "Activo",
+                                          expression: "item.estado=='Activo'"
+                                        }
+                                      ],
+                                      key: index
+                                    },
+                                    [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100%",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: { value: index + 1 }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.textoAntecedente,
+                                                expression:
+                                                  "item.textoAntecedente"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize is-valid",
+                                            staticStyle: {
+                                              width: "100%",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              type: "text",
+                                              readonly: ""
+                                            },
+                                            domProps: {
+                                              value: item.textoAntecedente
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "textoAntecedente",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "text-align": "center",
+                                            "vertical-align": "middle"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticStyle: { width: "70px" } },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-icon btn-sm btn-outline-danger",
+                                                  attrs: {
+                                                    type: "button",
+                                                    title: "Eliminar"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.eliminarItemAntInt(
+                                                        index,
+                                                        item
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    staticClass: "fa fa-trash"
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                }),
+                                0
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "kt-separator kt-separator--border-dashed"
+                        })
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-4" },
+                      [
                         _c("label", [_vm._v("Excepciones:")]),
                         _vm._v(" "),
                         _c(
@@ -20293,7 +20974,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(7),
+                            _vm._m(9),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -22273,7 +22954,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(8),
+                  _vm._m(10),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -22282,7 +22963,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(9),
+                            _vm._m(11),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -23615,7 +24296,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(10),
+                  _vm._m(12),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -23624,7 +24305,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(11),
+                            _vm._m(13),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -24612,7 +25293,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(12),
+                  _vm._m(14),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -25354,7 +26035,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(13),
+                            _vm._m(15),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -25912,7 +26593,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(14),
+                  _vm._m(16),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -26860,7 +27541,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(15),
+                  _vm._m(17),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -27546,7 +28227,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(16),
+                  _vm._m(18),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c("div", { staticClass: "col-lg-4" }, [
@@ -27678,7 +28359,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(17),
+                            _vm._m(19),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -28101,7 +28782,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(18),
+                  _vm._m(20),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -28412,7 +29093,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(19),
+                  _vm._m(21),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -28657,7 +29338,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(20),
+                  _vm._m(22),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -29827,7 +30508,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(21),
+                  _vm._m(23),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -31577,7 +32258,7 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _vm._m(22),
+                  _vm._m(24),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _c(
@@ -32301,7 +32982,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(23),
+                            _vm._m(25),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -32624,26 +33305,58 @@ var render = function() {
                                       },
                                       [
                                         _c(
-                                          "button",
-                                          {
-                                            staticClass:
-                                              "btn btn-icon btn-sm btn-outline-danger",
-                                            attrs: {
-                                              type: "button",
-                                              title: "Eliminar"
-                                            },
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.eliminarItemEstratificacion(
-                                                  index
-                                                )
-                                              }
-                                            }
-                                          },
+                                          "div",
+                                          { staticStyle: { width: "70px" } },
                                           [
-                                            _c("i", {
-                                              staticClass: "fa fa-trash"
-                                            })
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-outline-warning",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Editar"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.editarItemEstratificacion(
+                                                      index,
+                                                      item
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-outline-danger",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Eliminar"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.eliminarItemEstratificacion(
+                                                      index,
+                                                      item
+                                                    )
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-trash"
+                                                })
+                                              ]
+                                            )
                                           ]
                                         )
                                       ]
@@ -32701,9 +33414,9 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(24),
+                  _vm._m(26),
                   _vm._v(" "),
-                  _vm._m(25),
+                  _vm._m(27),
                   _vm._v(" "),
                   _c("div", {
                     staticClass: "kt-separator kt-separator--border-dashed"
@@ -32719,7 +33432,7 @@ var render = function() {
                             staticStyle: { width: "100%" }
                           },
                           [
-                            _vm._m(26),
+                            _vm._m(28),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -35000,7 +35713,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(27),
+                  _vm._m(29),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -35009,7 +35722,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(28),
+                            _vm._m(30),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -37443,7 +38156,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(29),
+                  _vm._m(31),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -37452,7 +38165,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(30),
+                            _vm._m(32),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -39110,7 +39823,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(31),
+                  _vm._m(33),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -39119,7 +39832,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(32),
+                            _vm._m(34),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -41121,7 +41834,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(33),
+                  _vm._m(35),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -41130,7 +41843,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(34),
+                            _vm._m(36),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -43298,7 +44011,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(35),
+                  _vm._m(37),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -43307,7 +44020,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(36),
+                            _vm._m(38),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -43838,78 +44551,6 @@ var render = function() {
                                                 _vm.$set(item, "conducta", $$v)
                                               },
                                               expression: "item.conducta"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "SI" } },
-                                              [_vm._v("SI")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "NO" } },
-                                              [_vm._v("NO")]
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.enfermedades_cronicas == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(
-                                                enfermedades_cronicas
-                                              ) {
-                                                return _vm.updateDe12A17(
-                                                  item,
-                                                  enfermedades_cronicas,
-                                                  "enfermedades_cronicas"
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: item.enfermedades_cronicas,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  item,
-                                                  "enfermedades_cronicas",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "item.enfermedades_cronicas"
                                             }
                                           },
                                           [
@@ -45228,7 +45869,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(37),
+                  _vm._m(39),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -45237,7 +45878,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(38),
+                            _vm._m(40),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -45768,78 +46409,6 @@ var render = function() {
                                                 _vm.$set(item, "conducta", $$v)
                                               },
                                               expression: "item.conducta"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "SI" } },
-                                              [_vm._v("SI")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "NO" } },
-                                              [_vm._v("NO")]
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.enfermedades_cronicas == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(
-                                                enfermedades_cronicas
-                                              ) {
-                                                return _vm.updateDe18A28(
-                                                  item,
-                                                  enfermedades_cronicas,
-                                                  "enfermedades_cronicas"
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: item.enfermedades_cronicas,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  item,
-                                                  "enfermedades_cronicas",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "item.enfermedades_cronicas"
                                             }
                                           },
                                           [
@@ -46757,7 +47326,7 @@ var render = function() {
                     staticClass: "kt-separator kt-separator--border-dashed"
                   }),
                   _vm._v(" "),
-                  _vm._m(39),
+                  _vm._m(41),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -46766,7 +47335,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(40),
+                            _vm._m(42),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -47297,78 +47866,6 @@ var render = function() {
                                                 _vm.$set(item, "conducta", $$v)
                                               },
                                               expression: "item.conducta"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "option",
-                                              {
-                                                attrs: {
-                                                  value: "",
-                                                  selected: ""
-                                                }
-                                              },
-                                              [_vm._v("Seleccione")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "SI" } },
-                                              [_vm._v("SI")]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "option",
-                                              { attrs: { value: "NO" } },
-                                              [_vm._v("NO")]
-                                            )
-                                          ]
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "td",
-                                      {
-                                        staticStyle: {
-                                          "font-weight": "normal",
-                                          "vertical-align": "middle",
-                                          "text-align": "left",
-                                          "text-transform": "capitalize"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "b-form-select",
-                                          {
-                                            class:
-                                              item.enfermedades_cronicas == ""
-                                                ? "is-invalid"
-                                                : "is-valid",
-                                            staticStyle: { width: "150px" },
-                                            on: {
-                                              input: function(
-                                                enfermedades_cronicas
-                                              ) {
-                                                return _vm.updateDe29A59(
-                                                  item,
-                                                  enfermedades_cronicas,
-                                                  "enfermedades_cronicas"
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: item.enfermedades_cronicas,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  item,
-                                                  "enfermedades_cronicas",
-                                                  $$v
-                                                )
-                                              },
-                                              expression:
-                                                "item.enfermedades_cronicas"
                                             }
                                           },
                                           [
@@ -48316,7 +48813,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(41),
+                  _vm._m(43),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -48325,7 +48822,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(42),
+                            _vm._m(44),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -49064,7 +49561,13 @@ var render = function() {
                                               item.examen_seno == ""
                                                 ? "is-invalid"
                                                 : "is-valid",
-                                            staticStyle: { width: "150px" },
+                                            staticStyle: {
+                                              width: "150px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              disabled: item.sexo == "MASCULINO"
+                                            },
                                             on: {
                                               input: function(examen_seno) {
                                                 return _vm.updateDe60(
@@ -49145,7 +49648,13 @@ var render = function() {
                                               item.citologia == ""
                                                 ? "is-invalid"
                                                 : "is-valid",
-                                            staticStyle: { width: "150px" },
+                                            staticStyle: {
+                                              width: "150px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              disabled: item.sexo == "MASCULINO"
+                                            },
                                             on: {
                                               input: function(citologia) {
                                                 return _vm.updateDe60(
@@ -49222,7 +49731,13 @@ var render = function() {
                                               item.colposcopia == ""
                                                 ? "is-invalid"
                                                 : "is-valid",
-                                            staticStyle: { width: "150px" },
+                                            staticStyle: {
+                                              width: "150px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              disabled: item.sexo == "MASCULINO"
+                                            },
                                             on: {
                                               input: function(colposcopia) {
                                                 return _vm.updateDe60(
@@ -49303,7 +49818,13 @@ var render = function() {
                                               item.examen_prostata == ""
                                                 ? "is-invalid"
                                                 : "is-valid",
-                                            staticStyle: { width: "150px" },
+                                            staticStyle: {
+                                              width: "150px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              disabled: item.sexo == "FEMENINO"
+                                            },
                                             on: {
                                               input: function(examen_prostata) {
                                                 return _vm.updateDe60(
@@ -49384,7 +49905,13 @@ var render = function() {
                                               item.biposia_prostata == ""
                                                 ? "is-invalid"
                                                 : "is-valid",
-                                            staticStyle: { width: "150px" },
+                                            staticStyle: {
+                                              width: "150px",
+                                              "background-color": "white"
+                                            },
+                                            attrs: {
+                                              disabled: item.sexo == "FEMENINO"
+                                            },
                                             on: {
                                               input: function(
                                                 biposia_prostata
@@ -49829,9 +50356,9 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(43),
+                  _vm._m(45),
                   _vm._v(" "),
-                  _vm._m(44),
+                  _vm._m(46),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -49843,7 +50370,7 @@ var render = function() {
                             "table",
                             { staticClass: "table table-sm table-hover" },
                             [
-                              _vm._m(45),
+                              _vm._m(47),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -50218,7 +50745,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._m(46),
+                  _vm._m(48),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -50230,7 +50757,7 @@ var render = function() {
                             "table",
                             { staticClass: "table table-sm table-hover" },
                             [
-                              _vm._m(47),
+                              _vm._m(49),
                               _vm._v(" "),
                               _c(
                                 "tbody",
@@ -50639,7 +51166,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(48),
+                  _vm._m(50),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-12" }, [
@@ -50648,7 +51175,7 @@ var render = function() {
                           "table",
                           { staticClass: "table table-sm table-hover" },
                           [
-                            _vm._m(49),
+                            _vm._m(51),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -52208,6 +52735,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c(
+          "td",
+          { staticClass: "kt-bg-fill-danger", staticStyle: { width: "10%" } },
+          [_vm._v("No.")]
+        ),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Antecedente")]),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticClass: "kt-bg-fill-danger", staticStyle: { width: "5%" } },
+          [_vm._v("Eliminar")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", {}, [
       _c("tr", { staticClass: "kt-bg-fill-brand" }, [
         _c("th", [_vm._v("No.")]),
@@ -52324,6 +52873,28 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-danger" }, [_vm._v("Eliminar")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c(
+          "td",
+          { staticClass: "kt-bg-fill-danger", staticStyle: { width: "10%" } },
+          [_vm._v("No.")]
+        ),
+        _vm._v(" "),
+        _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Antecedente")]),
+        _vm._v(" "),
+        _c(
+          "td",
+          { staticClass: "kt-bg-fill-danger", staticStyle: { width: "5%" } },
+          [_vm._v("Eliminar")]
+        )
       ])
     ])
   },
@@ -54178,17 +54749,6 @@ var staticRenderFns = [
           [_vm._v("Crecimiento y Desarrollo")]
         ),
         _vm._v(" "),
-        _c("th", {
-          staticClass: "kt-bg-fill-danger",
-          staticStyle: {
-            "font-weight": "normal",
-            "vertical-align": "middle",
-            "text-align": "center",
-            "text-transform": "capitalize"
-          },
-          attrs: { colspan: "1" }
-        }),
-        _vm._v(" "),
         _c(
           "th",
           {
@@ -54256,10 +54816,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-success" }, [
           _vm._v("De Conducta")
-        ]),
-        _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-danger" }, [
-          _vm._v("Enfermedad Cronica")
         ]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-dark" }, [_vm._v("Dientes Sanos")]),
@@ -54345,7 +54901,7 @@ var staticRenderFns = [
             "text-align": "center",
             "text-transform": "capitalize"
           },
-          attrs: { colspan: "13" }
+          attrs: { colspan: "12" }
         }),
         _vm._v(" "),
         _c(
@@ -54440,18 +54996,6 @@ var staticRenderFns = [
         ),
         _vm._v(" "),
         _c("th", {
-          staticClass: "kt-bg-fill-success",
-          staticStyle: {
-            padding: "0",
-            "font-weight": "normal",
-            "vertical-align": "middle",
-            "text-align": "center",
-            "text-transform": "capitalize"
-          },
-          attrs: { colspan: "1" }
-        }),
-        _vm._v(" "),
-        _c("th", {
           staticClass: "kt-bg-fill-danger",
           staticStyle: {
             padding: "0",
@@ -54528,10 +55072,6 @@ var staticRenderFns = [
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Auditivos")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("De Conducta")]),
-        _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-success" }, [
-          _vm._v("Enfermedad Cronica")
-        ]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-danger" }, [
           _vm._v("Dientes Sanos")
@@ -54598,7 +55138,7 @@ var staticRenderFns = [
             "text-align": "center",
             "text-transform": "capitalize"
           },
-          attrs: { colspan: "13" }
+          attrs: { colspan: "12" }
         }),
         _vm._v(" "),
         _c(
@@ -54704,18 +55244,6 @@ var staticRenderFns = [
         ),
         _vm._v(" "),
         _c("th", {
-          staticClass: "kt-bg-fill-success",
-          staticStyle: {
-            padding: "0",
-            "font-weight": "normal",
-            "vertical-align": "middle",
-            "text-align": "center",
-            "text-transform": "capitalize"
-          },
-          attrs: { colspan: "1" }
-        }),
-        _vm._v(" "),
-        _c("th", {
           staticClass: "kt-bg-fill-danger",
           staticStyle: {
             padding: "0",
@@ -54768,7 +55296,7 @@ var staticRenderFns = [
         }),
         _vm._v(" "),
         _c("th", {
-          staticClass: "kt-bg-fill-dark",
+          staticClass: "kt-bg-fill-success",
           staticStyle: {
             padding: "0",
             "font-weight": "normal",
@@ -54816,10 +55344,6 @@ var staticRenderFns = [
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("Auditivos")]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-info" }, [_vm._v("De Conducta")]),
-        _vm._v(" "),
-        _c("td", { staticClass: "kt-bg-fill-success" }, [
-          _vm._v("Enfermedad Cronica")
-        ]),
         _vm._v(" "),
         _c("td", { staticClass: "kt-bg-fill-danger" }, [
           _vm._v("Dientes Sanos")
