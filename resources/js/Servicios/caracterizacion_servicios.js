@@ -43,3 +43,7 @@ export function editarCaracterizacion($data) {
 export function eliminar($data) {
     return http().post('/caracterizacion/eliminar', $data);
 }
+
+export function controlesRA($data) {
+    return http().post('/caracterizacion/controlesRA', $data);
+}

@@ -581,7 +581,7 @@ class CaracterizacionController extends Controller
                 if ($ante) {
                     $jef->antecedentes = $ante;
                 }
-            }            
+            }
             //TABLA JEFES DE HOGAR
 
             //TABLA INTEGRANTES
@@ -597,7 +597,7 @@ class CaracterizacionController extends Controller
                 if ($ante) {
                     $int->antecedentes = $ante;
                 }
-            }            
+            }
             //TABLA INTEGRANTES
 
             //DATOS GUARDADOS
@@ -899,7 +899,7 @@ class CaracterizacionController extends Controller
                                 $antec[$j]["id_jefe"] = $caracterizacionrespuesta;
                                 $antec[$j]["id_hogar"] = $hogarrespuesta;
                                 $antecedentesjefes = \App\AntecedentesJefes::guardar($antec[$j], Session::get('alias'));
-                            }                            
+                            }
                         }
 
                         for ($i = 0; $i < count($dataintegrantes); $i++) {
@@ -917,7 +917,7 @@ class CaracterizacionController extends Controller
                                 $antec[$j]["id_inte"] = $integranterespuesta;
                                 $antec[$j]["id_hogar"] = $hogarrespuesta;
                                 $antecedentesinte = \App\AntecedentesIntegrantes::guardar($antec[$j], Session::get('alias'));
-                            }                            
+                            }
                         }
 
                         for ($i = 0; $i < count($datafactores); $i++) {
@@ -957,7 +957,7 @@ class CaracterizacionController extends Controller
                             } else {
                                 $jef->antecedentes = [];
                             }
-                        }                        
+                        }
                         //TABLA JEFES DE HOGAR
 
                         //TABLA INTEGRANTES
@@ -981,7 +981,7 @@ class CaracterizacionController extends Controller
                             } else {
                                 $int->antecedentes = [];
                             }
-                        }                        
+                        }
                         //TABLA INTEGRANTES
 
                         //TABLA FACTORES
@@ -1259,9 +1259,6 @@ class CaracterizacionController extends Controller
                     }
                     // GUARDAR DE MIGRA
 
-                    // CALCULOS FINALES
-                    $resultado = self::calcular($IDHOGAR);
-                    // CALCULOS FINALES
                     //TABLA Migra
                     $Migra = \App\Migra::buscar(Session::get('alias'), $IDHOGAR);
                     //TABLA Migra
@@ -1306,7 +1303,7 @@ class CaracterizacionController extends Controller
                                 $antec[$j]["id_jefe"] = $datacaracterizacion[$i]['id'];
                                 $antec[$j]["id_hogar"] = $id_hogar;
                                 $antecedentesjefes = \App\AntecedentesJefes::guardar($antec[$j], Session::get('alias'));
-                            }                            
+                            }
                         }
 
                         for ($i = 0; $i < count($dataintegrantes); $i++) {
@@ -1330,7 +1327,7 @@ class CaracterizacionController extends Controller
                                 $antec[$j]["id_inte"] = $dataintegrantes[$i]['id'];
                                 $antec[$j]["id_hogar"] = $id_hogar;
                                 $antecedentesinte = \App\AntecedentesIntegrantes::guardar($antec[$j], Session::get('alias'));
-                            }                            
+                            }
                         }
 
                         for ($i = 0; $i < count($datafactores); $i++) {
@@ -1369,7 +1366,7 @@ class CaracterizacionController extends Controller
                             } else {
                                 $jef->antecedentes = [];
                             }
-                        }                        
+                        }
                         //TABLA JEFES DE HOGAR
 
                         //TABLA INTEGRANTES
@@ -1393,7 +1390,7 @@ class CaracterizacionController extends Controller
                             } else {
                                 $int->antecedentes = [];
                             }
-                        }                        
+                        }
                         //TABLA INTEGRANTES
 
                         //TABLA FACTORES
@@ -1470,15 +1467,49 @@ class CaracterizacionController extends Controller
                         $actividad_viviendas = \App\ActividadVivienda::buscar(Session::get('alias'), $IDHOGAR);
                     }
                     //TABLA VIVIENDA
+                    //CALCULAR RIESGOS//
+                    $resultado = self::calcular($IDHOGAR);
+                    $riesgos_ambientales = \App\RiesgosAmbientales::buscar(Session::get('alias'), $IDHOGAR);
+                    if ($riesgos_ambientales) {
+                        $riesgos_ambientales->va_riesgos_derrumbes = self::valorizacion($riesgos_ambientales->riesgos_derrumbes);
+                        $riesgos_ambientales->color_riesgos_derrumbes = self::color($riesgos_ambientales->va_riesgos_derrumbes);
 
+                        $riesgos_ambientales->va_riesgos_inundacion = self::valorizacion($riesgos_ambientales->riesgos_inundacion);
+                        $riesgos_ambientales->color_riesgos_inundacion = self::color($riesgos_ambientales->va_riesgos_inundacion);
+
+                        $riesgos_ambientales->va_riesgos_insalubridad = self::valorizacion($riesgos_ambientales->riesgos_insalubridad);
+                        $riesgos_ambientales->color_riesgos_insalubridad = self::color($riesgos_ambientales->va_riesgos_insalubridad);
+
+                        $riesgos_ambientales->va_riesgos_atmosferico = self::valorizacion($riesgos_ambientales->riesgos_atmosferico);
+                        $riesgos_ambientales->color_riesgos_atmosferico = self::color($riesgos_ambientales->va_riesgos_atmosferico);
+                        
+                        $riesgos_ambientales->va_riesgos_recurso_suelo = self::valorizacion($riesgos_ambientales->riesgos_recurso_suelo);
+                        $riesgos_ambientales->color_riesgos_recurso_suelo = self::color($riesgos_ambientales->va_riesgos_recurso_suelo);
+
+                        $riesgos_ambientales->va_riesgos_quema = self::valorizacion($riesgos_ambientales->riesgos_quema);
+                        $riesgos_ambientales->color_riesgos_quema = self::color($riesgos_ambientales->va_riesgos_quema);
+
+                        $riesgos_ambientales->va_riesgos_auditivo = self::valorizacion($riesgos_ambientales->riesgos_auditivo);
+                        $riesgos_ambientales->color_riesgos_auditivo = self::color($riesgos_ambientales->va_riesgos_auditivo);
+
+                        $riesgos_ambientales->va_riesgos_recurso_hidrico = self::valorizacion($riesgos_ambientales->riesgos_recurso_hidrico);
+                        $riesgos_ambientales->color_riesgos_recurso_hidrico = self::color($riesgos_ambientales->va_riesgos_recurso_hidrico);
+
+                        $riesgos_ambientales->va_riesgos_acceso_agua = self::valorizacion($riesgos_ambientales->riesgos_acceso_agua);
+                        $riesgos_ambientales->color_riesgos_acceso_agua = self::color($riesgos_ambientales->va_riesgos_acceso_agua);                        
+                    }
+                    // dd($riesgos_ambientales)->die;
+                    //CALCULAR RIESGOS//
                     $respuesta = [
                         'OPC' => 'SI',
                         'vivienda' => $vivienda,
                         'animales' => $animales,
                         'estratificacion' => $estratificacion,
                         'actividad_viviendas' => $actividad_viviendas,
+                        'riesgos_ambientales' => $riesgos_ambientales,
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña viviendas con id_hogar  = " . $IDHOGAR, Session::get('alias'));
+
                     return response()->json($respuesta, 200);
                 }
                 if (request()->get("opc") == "GUACARCI") {
@@ -1664,6 +1695,7 @@ class CaracterizacionController extends Controller
                         'Migra' => $Migra,
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña Migrante con id_hogar  = " . $IDHOGAR, Session::get('alias'));
+
                     return response()->json($respuesta, 200);
                 }
             }
@@ -1992,6 +2024,5242 @@ class CaracterizacionController extends Controller
 
     public function calcular($id_hogar)
     {
+        // RIEZGOS AMBIENTALES
+        $resultado = self::riesgosAmbientales($id_hogar);
+        // RIEZGOS AMBIENTALES
+        return $resultado;
+    }
+
+    public function riesgosAmbientales($id_hogar)
+    {
+        $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $id_hogar);
+        $respuhogar = \App\Hogar::buscar(Session::get('alias'), $id_hogar);
+
+        // Riesgos de  Derrumbes
+        // Estructura de la vivienda y condiciones del entorno que facilitan el riesgos de derrumbes
+
+        $rTRD = 0;
+        // PREGUNTA 1
+        $rP1 = 0;
+        $pI1 = "";
+        switch ($respuvivi->tipo_vivienda) {
+            case "1":
+                // OPCION NO APLICA
+                $rP1 = 0;
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION CASA
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION CASA
+                break;
+            case "3":
+                // OPCION APARTAMENTO
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION APARTAMENTO
+                break;
+            case "4":
+                // OPCION FINCA
+                $impacto = 2;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION FINCA
+                break;
+            case "5":
+                // OPCION VIVIENDA INDIGENA
+                $impacto = 2;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION VIVIENDA INDIGENA
+                break;
+            case "6":
+                // OPCION IMPROVISADA
+                $impacto = 3;
+                $rP1 = 3;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION IMPROVISADA
+                break;
+            case "7":
+                // OPCION IMPROVISADA
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION IMPROVISADA
+                break;
+
+        }
+        // PREGUNTA 1
+
+        // PREGUNTA 2
+        $rP2 = 0;
+        $pI2 = "";
+        switch ($respuvivi->tipo_estructura) {
+            case "1":
+                // OPCION NO APLICA
+                $rP2 = 0;
+                $pI2 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION CONCRETO
+                $impacto = 1;
+                $rP2 = 1;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 2) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION CONCRETO
+                break;
+            case "3":
+                // OPCION LADRILLO Ó BLOQUE
+                $impacto = 1;
+                $rP2 = 2;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 2) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION LADRILLO Ó BLOQUE
+                break;
+            case "4":
+                // OPCION MADERA
+                $impacto = 1;
+                $rP2 = 2;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 2) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION MADERA
+                break;
+            case "5":
+                // OPCION OTRO
+                $impacto = 3;
+                $rP2 = 3;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 2) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION OTRO
+                break;
+        }
+        // PREGUNTA 2
+
+        // PREGUNTA 5
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->evento_afecta_vivienda) {
+            case "1":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION INUNDACION
+                $impacto = 2;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION INUNDACION
+                break;
+            case "3":
+                // OPCION ARROYO
+                $impacto = 1;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION ARROYO
+                break;
+            case "4":
+                // OPCION OLEAJE FUERTE
+                $impacto = 2;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION OLEAJE FUERTE
+                break;
+            case "5":
+                // OPCION DESLIZAMIENTO
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION DESLIZAMIENTO
+                break;
+            case "6":
+                // OPCION NINGUNO
+                $impacto = 0;
+                $rP3 = 0;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION NINGUNO
+                break;
+        }
+        // PREGUNTA 5
+
+        // PREGUNTA 36
+        $rP4 = 0;
+        $pI4 = "";
+        switch ($respuvivi->zona_alto_riesgo) {
+            case "0":
+                // OPCION NO APLICA
+                $rP4 = 0;
+                $pI4 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION LADERA
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION LADERA
+                break;
+            case "2":
+                // OPCION CUERPOS DE AGUA
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION CUERPOS DE AGUA
+                break;
+            case "3":
+                // OPCION SUELO
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION SUELO
+                break;
+            case "4":
+                // OPCION NINGUNA
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION NINGUNA
+                break;
+        }
+        // PREGUNTA 36
+
+        // PREGUNTA 51
+        $rP5 = 0;
+        $pI5 = "";
+        switch ($respuvivi->desplazamientos) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP5 = 0;
+                $pI5 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION MAS DE 2 VECES AL AÑO
+                $impacto = 3;
+                $rP5 = 3;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 2) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION MAS DE 2 VECES AL AÑO
+                break;
+            case "2":
+                // OPCION AL MENOS UNA VEZ AL AÑO
+                $impacto = 2;
+                $rP5 = 2;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 2) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION AL MENOS UNA VEZ AL AÑO
+                break;
+            case "3":
+                // OPCION UNA VEZ CADA DOS AÑOS
+                $impacto = 1;
+                $rP5 = 1;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 2) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION UNA VEZ CADA DOS AÑOS
+                break;
+            case "4":
+                // OPCION NUNCA
+                $impacto = 0;
+                $rP5 = 0;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 2) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION NUNCA
+                break;
+        }
+        // PREGUNTA 51
+
+        // TOTAL RIESGO
+        $rTRD = $rP1 + $rP2 + $rP3 + $rP4 + $rP5;
+        // TOTAL RIESGO
+
+        // Estructura de la vivienda y condiciones del entorno que facilitan el riesgos de derrumbes
+        // Riesgos de  Derrumbes
+
+        // Riesgos de inundación
+        // Ubicación de la vivienda en zona de inundacion o pasos de arroyos
+
+        $rTRI = 0;
+        // PREGUNTA 5
+        $rP1 = 0;
+        $pI1 = "";
+        switch ($respuvivi->evento_afecta_vivienda) {
+            case "1":
+                // OPCION NO APLICA
+                $rP1 = 0;
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION Inundación
+                $impacto = 3;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inundación
+                break;
+            case "3":
+                // OPCION Cuerpos de agua
+                $impacto = 3;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cuerpos de agua
+                break;
+            case "4":
+                // OPCION Oleaje Fuerte
+                $impacto = 0;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Oleaje Fuerte
+                break;
+            case "5":
+                // OPCION Deslizamiento
+                $impacto = 0;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Deslizamiento
+                break;
+            case "6":
+                // OPCION Ninguno
+                $impacto = 0;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 2.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Ninguno
+                break;
+
+        }
+        // PREGUNTA 5
+
+        // PREGUNTA 18
+        $rP2 = 0;
+        $pI2 = "";
+        switch ($respuvivi->rio) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP2 = 0;
+                $pI2 = "";
+                // OPCION NO APLICA
+                break;
+            case "SI":
+                // OPCION SI
+                $rP2 = 0;
+                $impacto = 3;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 2.5) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION SI
+                break;
+            case "NO":
+                // OPCION NO
+                $rP2 = 0;
+                $pI2 = "";
+                // OPCION NO
+                break;
+        }
+        // PREGUNTA 18
+
+        // PREGUNTA 36
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->zona_alto_riesgo) {
+            case "0":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Ladera
+                $rP3 = 0;
+                $impacto = 0;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2.5) / 9;
+                $rP3 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION Ladera
+                break;
+            case "2":
+                // OPCION Cuerpos de agua
+                $rP3 = 3;
+                $impacto = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2.5) / 9;
+                $rP3 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cuerpos de agua
+                break;
+            case "3":
+                // OPCION suelo inestable
+                $rP3 = 0;
+                $impacto = 0;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2.5) / 9;
+                $rP3 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION suelo inestable
+                break;
+            case "4":
+                // OPCION Ninguno
+                $rP3 = 0;
+                $impacto = 0;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2.5) / 9;
+                $rP3 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION Ninguno
+                break;
+        }
+        // PREGUNTA 36
+
+        // PREGUNTA 57
+        $rP4 = 0;
+        $pI4 = "";
+        switch ($respuvivi->veces_inundaciones) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP4 = 0;
+                $pI4 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION MAS DE 2 VECES AL AÑO
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION MAS DE 2 VECES AL AÑO
+                break;
+            case "2":
+                // OPCION AL MENOS UNA VEZ AL AÑO
+                $impacto = 2;
+                $rP4 = 2;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION AL MENOS UNA VEZ AL AÑO
+                break;
+            case "3":
+                // OPCION UNA VEZ CADA DOS AÑOS
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION UNA VEZ CADA DOS AÑOS
+                break;
+            case "4":
+                // OPCION NUNCA
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 2.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION NUNCA
+                break;
+        }
+        // PREGUNTA 57
+
+        // TOTAL RIESGO
+        $rTRI = $rP1 + $rP2 + $rP3 + $rP4;
+        // TOTAL RIESGO
+
+        // Ubicación de la vivienda en zona de inundacion o pasos de arroyos
+        // Riesgos de inundación
+
+        // Riesgos de insalubridad
+        // Viviendas que presentas condicones que generan riesgos de insalubridad para el hogar y para la comunidad
+
+        $rTRINSA = 0;
+        // PREGUNTA 1
+        $rP1 = 0;
+        $pI1 = "";
+        switch ($respuvivi->tipo_vivienda) {
+            case "1":
+                // OPCION NO APLICA
+                $rP1 = 0;
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION CASA
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.65) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION CASA
+                break;
+            case "3":
+                // OPCION APARTAMENTO
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.65) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION APARTAMENTO
+                break;
+            case "4":
+                // OPCION FINCA
+                $impacto = 2;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.65) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION FINCA
+                break;
+            case "5":
+                // OPCION VIVIENDA INDIGENA
+                $impacto = 2;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.65) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION VIVIENDA INDIGENA
+                break;
+            case "6":
+                // OPCION IMPROVISADA
+                $impacto = 3;
+                $rP1 = 3;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.65) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION IMPROVISADA
+                break;
+            case "7":
+                // OPCION LOTE
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.65) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION LOTE
+                break;
+
+        }
+        // PREGUNTA 1
+
+        // PREGUNTA 2
+        $rP2 = 0;
+        $pI2 = "";
+        switch ($respuvivi->tipo_estructura) {
+            case "1":
+                // OPCION NO APLICA
+                $rP2 = 0;
+                $pI2 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION CONCRETO
+                $impacto = 1;
+                $rP2 = 1;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 1.65) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION CONCRETO
+                break;
+            case "3":
+                // OPCION LADRILLO Ó BLOQUE
+                $impacto = 2;
+                $rP2 = 2;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 1.65) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION LADRILLO Ó BLOQUE
+                break;
+            case "4":
+                // OPCION MADERA
+                $impacto = 2;
+                $rP2 = 2;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 1.65) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION MADERA
+                break;
+            case "5":
+                // OPCION OTRO
+                $impacto = 3;
+                $rP2 = 3;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 1.65) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION OTRO
+                break;
+        }
+        // PREGUNTA 2
+
+        // PREGUNTA 3
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->material_predominante) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION marmol
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.65) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION marmol
+                break;
+            case "2":
+                // OPCION Cerámica
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.65) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cerámica
+                break;
+            case "3":
+                // OPCION Cemento
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.65) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cemento
+                break;
+            case "4":
+                // OPCION Madera
+                $impacto = 2;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.65) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Madera
+                break;
+            case "5":
+                // OPCION Tierra
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.65) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Tierra
+                break;
+            case "6":
+                // OPCION Bolsa
+                $impacto = 1;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.65) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Bolsa
+                break;
+            case "7":
+                // OPCION Otro
+                $impacto = 0;
+                $rP3 = 0;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.65) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 3
+
+        // PREGUNTA 4
+        $rP4 = 0;
+        $pI4 = "";
+        switch ($respuvivi->tipo_cubierta) {
+            case "1":
+                // OPCION NO APLICA
+                $rP4 = 0;
+                $pI4 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION Material de Desecho Plastico
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Material de Desecho Plastico
+                break;
+            case "3":
+                // OPCION Zinc
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Zinc
+                break;
+            case "4":
+                // OPCION Eternit
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Eternit
+                break;
+            case "5":
+                // OPCION Entre Piso
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Entre Piso
+                break;
+            case "6":
+                // OPCION Teja de Barro
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Teja de Barro
+                break;
+            case "7":
+                // OPCION Placa Definitiva
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Placa Definitiva
+                break;
+            case "8":
+                // OPCION Paja ó Palma
+                $impacto = 2;
+                $rP4 = 2;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Paja ó Palma
+                break;
+            case "9":
+                // OPCION Otro
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.65) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 4
+
+        // PREGUNTA 12
+        $rP5 = 0;
+        $pI5 = "";
+        if ($respuvivi->energia_electrica == "SI") {
+            $rP5 = $rP5 + 0.1;
+        }
+        if ($respuvivi->gas_natural == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+        if ($respuvivi->acueducto == "SI") {
+            $rP5 = $rP5 + 0.6;
+        }
+        if ($respuvivi->alcantarillado == "SI") {
+            $rP5 = $rP5 + 0.6;
+        }
+        if ($respuvivi->telefono_fijo == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+        if ($respuvivi->aseo == "SI") {
+            $rP5 = $rP5 + 0.5;
+        }
+        if ($respuvivi->internet_subsidiado == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+        if ($respuvivi->internet_privado == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+
+        if ($rP5 < 0.6) {
+            $rP5 = 1;
+        } else {
+            if ($rP5 >= 0.6 && $rP5 < 1.2) {
+                $rP5 = 2;
+            } else {
+                $rP5 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP5;
+        $rP5 = ($operacion * 1.8) / 9;
+        $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 12
+
+        // PREGUNTA 13
+        $rP6 = 0;
+        $pI6 = "";
+        switch ($respuvivi->fuente_agua) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP6 = 0;
+                $pI6 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Acueducto
+                $impacto = 1;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Acueducto
+                break;
+            case "2":
+                // OPCION Pozo con bomba
+                $impacto = 1;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Pozo con bomba
+                break;
+            case "3":
+                // OPCION Laguna o jaguey
+                $impacto = 3;
+                $rP6 = 3;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Laguna o jaguey
+                break;
+            case "4":
+                // OPCION Rio quebrada ó manantial
+                $impacto = 1;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Rio quebrada ó manantial
+                break;
+            case "5":
+                // OPCION Aguas lluvias
+                $impacto = 2;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Aguas lluvias
+                break;
+            case "6":
+                // OPCION Carro tanque
+                $impacto = 1;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Carro tanque
+                break;
+            case "7":
+                // OPCION Agua tratada envasada
+                $impacto = 1;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Agua tratada envasada
+                break;
+            case "9":
+                // OPCION Agua tratada envasada
+                $impacto = 0;
+                $rP6 = 0;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.65) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Agua tratada envasada
+                break;
+        }
+        // PREGUNTA 13
+
+        // PREGUNTA 16
+        $rP7 = 0;
+        $pI7 = "";
+        switch ($respuvivi->tipo_tratamiento_agua) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP7 = 0;
+                $pI7 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Clorada
+                $impacto = 1;
+                $rP7 = 1;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.65) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Clorada
+                break;
+            case "2":
+                // OPCION Filtrada
+                $impacto = 1;
+                $rP7 = 1;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.65) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Filtrada
+                break;
+            case "3":
+                // OPCION Hervida
+                $impacto = 2;
+                $rP7 = 2;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.65) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Hervida
+                break;
+            case "4":
+                // OPCION Consume sin tratamiento
+                $impacto = 3;
+                $rP7 = 3;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.65) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Consume sin tratamiento
+                break;
+        }
+        // PREGUNTA 16
+
+        // PREGUNTA 17
+        $rP8 = 0;
+        $pI8 = "";
+        switch ($respuvivi->destino_final_basura) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP8 = 0;
+                $pI8 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Recolección y dispocisión en el aseo municipal
+                $impacto = 1;
+                $rP8 = 1;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1.65) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Recolección y dispocisión en el aseo municipal
+                break;
+            case "2":
+                // OPCION Quemada
+                $impacto = 2;
+                $rP8 = 2;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1.65) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Quemada
+                break;
+            case "3":
+                // OPCION Cielo Abierto
+                $impacto = 2;
+                $rP8 = 2;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1.65) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cielo Abierto
+                break;
+            case "4":
+                // OPCION Enterrada
+                $impacto = 3;
+                $rP8 = 3;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1.65) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Enterrada
+                break;
+            case "5":
+                // OPCION Otro
+                $impacto = 0;
+                $rP8 = 0;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1.65) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 17
+
+        // PREGUNTA 18
+        $rP9 = 0;
+        $pI9 = "";
+        if ($respuvivi->porquerizas == "SI") {
+            $rP9 = $rP9 + 0.2;
+        }
+        if ($respuvivi->plagas == "SI") {
+            $rP9 = $rP9 + 0.4;
+        }
+        if ($respuvivi->industrias == "SI") {
+            $rP9 = $rP9 + 0.1;
+        }
+        if ($respuvivi->malos_olores == "SI") {
+            $rP9 = $rP9 + 0.3;
+        }
+        if ($respuvivi->rellenos == "SI") {
+            $rP9 = $rP9 + 0.4;
+        }
+        if ($respuvivi->contaminacion_a == "SI") {
+            $rP9 = $rP9 + 0;
+        }
+        if ($respuvivi->rio == "SI") {
+            $rP9 = $rP9 + 0.1;
+        }
+        if ($respuvivi->avenidas_transitadas == "SI") {
+            $rP9 = $rP9 + 0;
+        }
+        if ($respuvivi->lotes_abandonados == "SI") {
+            $rP9 = $rP9 + 0.25;
+        }
+
+        if ($rP9 < 0.6) {
+            $rP9 = 1;
+        } else {
+            if ($rP9 >= 0.6 && $rP9 < 1.2) {
+                $rP9 = 2;
+            } else {
+                $rP9 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP9;
+        $rP9 = ($operacion * 1.75) / 9;
+        $rP9 = round($rP9, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 18
+
+        // PREGUNTA 20
+        $rP10 = 0;
+        $pI10 = "";
+        switch ($respuvivi->servicio_sanitario) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP10 = 0;
+                $pI10 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION De Uso Exclusivo de las Personas de la Familia
+                $impacto = 1;
+                $rP10 = 1;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 1.65) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION De Uso Exclusivo de las Personas de la Familia
+                break;
+            case "2":
+                // OPCION Compartida con Personas de Otras Familias
+                $impacto = 3;
+                $rP10 = 3;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 1.65) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION Compartida con Personas de Otras Familias
+                break;
+            case "3":
+                // OPCION Sin servicio sanitario
+                $impacto = 0;
+                $rP10 = 0;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 1.65) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION Sin servicio sanitario
+                break;
+        }
+        // PREGUNTA 20
+
+        // PREGUNTA 22
+        $rP11 = 0;
+        $pI11 = "";
+        switch ($respuvivi->excretas) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP11 = 0;
+                $pI11 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Letrina
+                $impacto = 3;
+                $rP11 = 2;
+                $operacion = $impacto * $rP11;
+                if ($operacion < 3) {
+                    $pI11 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI11 = "MEDIO";
+                } else {
+                    $pI11 = "ALTO";
+                }
+
+                $rP11 = ($operacion * 1.65) / 9;
+                $rP11 = round($rP11, 2, PHP_ROUND_HALF_UP);
+                // OPCION Letrina
+                break;
+            case "3":
+                // OPCION Inodoro conectado a red de alcantarillado
+                $impacto = 1;
+                $rP11 = 1;
+                $operacion = $impacto * $rP11;
+                if ($operacion < 3) {
+                    $pI11 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI11 = "MEDIO";
+                } else {
+                    $pI11 = "ALTO";
+                }
+
+                $rP11 = ($operacion * 1.65) / 9;
+                $rP11 = round($rP11, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inodoro conectado a red de alcantarillado
+                break;
+            case "4":
+                // OPCION Cuerpos de aguas
+                $impacto = 3;
+                $rP11 = 3;
+                $operacion = $impacto * $rP11;
+                if ($operacion < 3) {
+                    $pI11 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI11 = "MEDIO";
+                } else {
+                    $pI11 = "ALTO";
+                }
+
+                $rP11 = ($operacion * 1.65) / 9;
+                $rP11 = round($rP11, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cuerpos de aguas
+                break;
+            case "5":
+                // OPCION Inododoro conectado a pozo séptico
+                $impacto = 1;
+                $rP11 = 1;
+                $operacion = $impacto * $rP11;
+                if ($operacion < 3) {
+                    $pI11 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI11 = "MEDIO";
+                } else {
+                    $pI11 = "ALTO";
+                }
+
+                $rP11 = ($operacion * 1.65) / 9;
+                $rP11 = round($rP11, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inododoro conectado a pozo séptico
+                break;
+            case "6":
+                // OPCION Campo abierto
+                $impacto = 3;
+                $rP11 = 3;
+                $operacion = $impacto * $rP11;
+                if ($operacion < 3) {
+                    $pI11 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI11 = "MEDIO";
+                } else {
+                    $pI11 = "ALTO";
+                }
+
+                $rP11 = ($operacion * 1.65) / 9;
+                $rP11 = round($rP11, 2, PHP_ROUND_HALF_UP);
+                // OPCION Campo abierto
+                break;
+            case "7":
+                // OPCION otro
+                $impacto = 0;
+                $rP11 = 0;
+                $operacion = $impacto * $rP11;
+                if ($operacion < 3) {
+                    $pI11 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI11 = "MEDIO";
+                } else {
+                    $pI11 = "ALTO";
+                }
+
+                $rP11 = ($operacion * 1.65) / 9;
+                $rP11 = round($rP11, 2, PHP_ROUND_HALF_UP);
+                // OPCION otro
+                break;
+        }
+        // PREGUNTA 22
+
+        // PREGUNTA 23
+        $rP12 = 0;
+        $pI12 = "";
+        if ($respuvivi->cocina == "NO") {
+            $rP12 = 3;
+        }
+        if ($respuvivi->dormitorio_a == "NO") {
+            $rP12 = 3;
+        }
+        if ($respuvivi->sala == "NO") {
+            $rP12 = 3;
+        }
+        if ($respuvivi->sanitario == "NO") {
+            $rP12 = 3;
+        }
+        if ($respuvivi->lavadero == "NO") {
+            $rP12 = 3;
+        }
+        $impacto = 2;
+        $operacion = $impacto * $rP12;
+        if ($operacion < 3) {
+            $pI11 = "BAJO";
+        } else if ($operacion >= 3 && $operacion < 7) {
+            $pI11 = "MEDIO";
+        } else {
+            $pI11 = "ALTO";
+        }
+
+        $rP12 = ($operacion * 1.65) / 9;
+        $rP12 = round($rP12, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 23
+
+        // PREGUNTA 28
+        $rP13 = 0;
+        $pI13 = "";
+        if ($respuvivi->residuos_aprovechables == "SI") {
+            $rP13 = $rP13 + 0.55;
+        }
+        if ($respuvivi->residuos_organicos == "SI") {
+            $rP13 = $rP13 + 0.55;
+        }
+        if ($respuvivi->residuos_no_aprovechables == "SI") {
+            $rP13 = $rP13 + 0.55;
+        }
+
+        if ($rP13 < 0.55) {
+            $rP13 = 1;
+        } else {
+            if ($rP13 >= 0.55 && $rP13 < 1.1) {
+                $rP13 = 2;
+            } else {
+                $rP13 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP13;
+        $rP13 = ($operacion * 1.65) / 9;
+        $rP13 = round($rP13, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 28
+
+        // PREGUNTA 37
+        $rP14 = 0;
+        $pI14 = "";
+        $impacto = 0;
+        if ($respuvivi->almacenamiento_residuos == "SI") {
+            $rP14 = 1;
+            $impacto = 1;
+        } else {
+            if ($respuvivi->almacenamiento_residuos == "NO") {
+                $rP14 = 3;
+                $impacto = 2;
+            } else {
+                $rP14 = 0;
+                $impacto = 0;
+            }
+        }
+        $operacion = $impacto * $rP14;
+        $rP14 = ($operacion * 1.65) / 9;
+        $rP14 = round($rP14, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 37
+
+        // PREGUNTA 39
+        $rP15 = 0;
+        $pI15 = "";
+        switch ($respuvivi->aguas_negras) {
+            case "NUNCA":
+                // OPCION NUNCA
+                $impacto = 2;
+                $pI15 = 1;
+                $operacion = $impacto * $pI15;
+                if ($operacion < 3) {
+                    $pI15 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI15 = "MEDIO";
+                } else {
+                    $pI15 = "ALTO";
+                }
+
+                $pI15 = ($operacion * 1.65) / 9;
+                $pI15 = round($pI15, 2, PHP_ROUND_HALF_UP);
+                // OPCION NUNCA
+                break;
+            case "FRECUENTE":
+                // OPCION FRECUENTE
+                $impacto = 3;
+                $pI15 = 3;
+                $operacion = $impacto * $pI15;
+                if ($operacion < 3) {
+                    $pI15 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI15 = "MEDIO";
+                } else {
+                    $pI15 = "ALTO";
+                }
+
+                $pI15 = ($operacion * 1.65) / 9;
+                $pI15 = round($pI15, 2, PHP_ROUND_HALF_UP);
+                // OPCION FRECUENTE
+                break;
+            case "OCASIONAL":
+                // OPCION OCASIONAL
+                $impacto = 2;
+                $pI15 = 2;
+                $operacion = $impacto * $pI15;
+                if ($operacion < 3) {
+                    $pI15 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI15 = "MEDIO";
+                } else {
+                    $pI15 = "ALTO";
+                }
+
+                $pI15 = ($operacion * 1.65) / 9;
+                $pI15 = round($pI15, 2, PHP_ROUND_HALF_UP);
+                // OPCION OCASIONAL
+                break;
+        }
+        // PREGUNTA 39
+
+        // TOTAL RIESGO
+        $rTRINSA = $rP1 + $rP2 + $rP3 + $rP4 + $rP5 + $rP6 + $rP7 + $rP8 + $rP9 + $rP10 + $rP11 + $rP12 + $rP13 + $rP14 + $rP15;
+        // TOTAL RIESGO
+
+        // Viviendas que presentas condicones que generan riesgos de insalubridad para el hogar y para la comunidad
+        // Riesgos de insalubridad
+
+        // Riesgo atmosferico
+        // Condiciones ambientales brinda una mala calidad de aire
+
+        $rTRATMO = 0;
+
+        // PREGUNTA 1
+        $rP1 = 0;
+        $pI1 = "";
+        switch ($respuvivi->material_predominante) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP1 = 0;
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION marmol
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION marmol
+                break;
+            case "2":
+                // OPCION Cerámica
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cerámica
+                break;
+            case "3":
+                // OPCION Cemento
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cemento
+                break;
+            case "4":
+                // OPCION Madera
+                $impacto = 1;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Madera
+                break;
+            case "5":
+                // OPCION Tierra
+                $impacto = 3;
+                $rP1 = 3;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Tierra
+                break;
+            case "6":
+                // OPCION Bolsa
+                $impacto = 1;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Bolsa
+                break;
+            case "7":
+                // OPCION Otro
+                $impacto = 0;
+                $rP1 = 0;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 1
+
+        // PREGUNTA 2
+        $rP2 = 0;
+        $pI2 = "";
+        if ($respuvivi->energia_electrica == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->gas_natural == "SI") {
+            $rP2 = $rP2 + 0.2;
+        }
+        if ($respuvivi->acueducto == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->alcantarillado == "SI") {
+            $rP2 = $rP2 + 0.4;
+        }
+        if ($respuvivi->telefono_fijo == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->aseo == "SI") {
+            $rP2 = $rP2 + 0.4;
+        }
+        if ($respuvivi->internet_subsidiado == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->internet_privado == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+
+        if ($rP2 < 0.33) {
+            $rP2 = 1;
+        } else {
+            if ($rP2 >= 0.33 && $rP2 < 0.66) {
+                $rP2 = 2;
+            } else {
+                $rP2 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP2;
+        $rP2 = ($operacion * 1) / 9;
+        $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 2
+
+        // PREGUNTA 3
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->destino_final_basura) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Recolección y dispocisión en el aseo municipal
+                $impacto = 3;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Recolección y dispocisión en el aseo municipal
+                break;
+            case "2":
+                // OPCION Quemada
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Quemada
+                break;
+            case "3":
+                // OPCION Cielo Abierto
+                $impacto = 2;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cielo Abierto
+                break;
+            case "4":
+                // OPCION Enterrada
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Enterrada
+                break;
+            case "5":
+                // OPCION Otro
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 3
+
+        // PREGUNTA 18
+        $rP4 = 0;
+        $pI4 = "";
+        if ($respuvivi->porquerizas == "SI") {
+            $rP4 = $rP4 + 0.2;
+        }
+        if ($respuvivi->plagas == "SI") {
+            $rP4 = $rP4 + 0;
+        }
+        if ($respuvivi->industrias == "SI") {
+            $rP4 = $rP4 + 0.5;
+        }
+        if ($respuvivi->malos_olores == "SI") {
+            $rP4 = $rP4 + 0;
+        }
+        if ($respuvivi->rellenos == "SI") {
+            $rP4 = $rP4 + 0.2;
+        }
+        if ($respuvivi->contaminacion_a == "SI") {
+            $rP4 = $rP4 + 0;
+        }
+        if ($respuvivi->rio == "SI") {
+            $rP4 = $rP4 + 0;
+        }
+        if ($respuvivi->avenidas_transitadas == "SI") {
+            $rP4 = $rP4 + 0;
+        }
+        if ($respuvivi->lotes_abandonados == "SI") {
+            $rP4 = $rP4 + 0.1;
+        }
+
+        if ($rP4 < 0.33) {
+            $rP4 = 1;
+        } else {
+            if ($rP4 >= 0.33 && $rP4 < 0.66) {
+                $rP4 = 2;
+            } else {
+                $rP4 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP4;
+        $rP4 = ($operacion * 1) / 9;
+        $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 18
+
+        // PREGUNTA 22
+        $rP5 = 0;
+        $pI5 = "";
+        switch ($respuvivi->excretas) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP5 = 0;
+                $pI5 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Letrina
+                $impacto = 2;
+                $rP5 = 2;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 1) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION Letrina
+                break;
+            case "3":
+                // OPCION Inodoro conectado a red de alcantarillado
+                $impacto = 1;
+                $rP5 = 1;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 1) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inodoro conectado a red de alcantarillado
+                break;
+            case "4":
+                // OPCION Cuerpos de aguas
+                $impacto = 2;
+                $rP5 = 2;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 1) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cuerpos de aguas
+                break;
+            case "5":
+                // OPCION Inododoro conectado a pozo séptico
+                $impacto = 1;
+                $rP5 = 1;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 1) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inododoro conectado a pozo séptico
+                break;
+            case "6":
+                // OPCION Campo abierto
+                $impacto = 3;
+                $rP5 = 3;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 1) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION Campo abierto
+                break;
+            case "7":
+                // OPCION otro
+                $impacto = 1;
+                $rP5 = 1;
+                $operacion = $impacto * $rP5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $rP5 = ($operacion * 1) / 9;
+                $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+                // OPCION otro
+                break;
+        }
+        // PREGUNTA 22
+
+        // PREGUNTA 26
+        $rP6 = 0;
+        $pI6 = "";
+        switch ($respuvivi->tipo_explotacion) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP6 = 0;
+                $pI6 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Forestal
+                $impacto = 2;
+                $rP6 = 3;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Forestal
+                break;
+            case "2":
+                // OPCION Ganadería
+                $impacto = 2;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Ganadería
+                break;
+            case "3":
+                // OPCION Agricultura
+                $impacto = 2;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Agricultura
+                break;
+            case "4":
+                // OPCION Urbanístico
+                $impacto = 2;
+                $rP6 = 0;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Urbanístico
+                break;
+            case "5":
+                // OPCION Otro
+                $impacto = 2;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+
+        }
+        // PREGUNTA 26
+
+        // PREGUNTA 28
+        $rP7 = 0;
+        $pI7 = "";
+        if ($respuvivi->residuos_aprovechables == "SI") {
+            $rP7 = $rP7 + 0.33;
+        }
+        if ($respuvivi->residuos_organicos == "SI") {
+            $rP7 = $rP7 + 0.33;
+        }
+        if ($respuvivi->residuos_no_aprovechables == "SI") {
+            $rP7 = $rP7 + 0.33;
+        }
+
+        if ($rP7 < 0.33) {
+            $rP7 = 1;
+        } else {
+            if ($rP7 >= 0.33 && $rP7 < 0.66) {
+                $rP7 = 2;
+            } else {
+                $rP7 = 3;
+            }
+        }
+        $impacto = 2;
+        $operacion = $impacto * $rP7;
+        $rP7 = ($operacion * 1) / 9;
+        $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 28
+
+        // PREGUNTA 29
+        $rP8 = 0;
+        $pI8 = "";
+        switch ($respuhogar->vias_acceso) {
+            case "0":
+                // OPCION NO APLICA
+                $rP8 = 0;
+                $pI8 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Pavimentadas
+                $impacto = 1;
+                $rP8 = 1;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Pavimentadas
+                break;
+            case "2":
+                // OPCION Placa huella
+                $impacto = 1;
+                $rP8 = 1;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Placa huella
+                break;
+            case "3":
+                // OPCION Sin pavimentar
+                $impacto = 3;
+                $rP8 = 3;
+                $operacion = $impacto * $rP8;
+                if ($operacion < 3) {
+                    $pI8 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI8 = "MEDIO";
+                } else {
+                    $pI8 = "ALTO";
+                }
+
+                $rP8 = ($operacion * 1) / 9;
+                $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Sin pavimentar
+                break;
+        }
+        // PREGUNTA 29
+
+        // PREGUNTA 33
+        $rP9 = 0;
+        $pI9 = "";
+        switch ($respuvivi->tipo_combustible) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP9 = 0;
+                $pI9 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Luz eléctrica
+                $impacto = 1;
+                $rP9 = 1;
+                $operacion = $impacto * $rP9;
+                if ($operacion < 3) {
+                    $pI9 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI9 = "MEDIO";
+                } else {
+                    $pI9 = "ALTO";
+                }
+
+                $rP9 = ($operacion * 1) / 9;
+                $rP9 = round($rP9, 2, PHP_ROUND_HALF_UP);
+                // OPCION Luz eléctrica
+                break;
+            case "2":
+                // OPCION Gasolina
+                $impacto = 2;
+                $rP9 = 2;
+                $operacion = $impacto * $rP9;
+                if ($operacion < 3) {
+                    $pI9 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI9 = "MEDIO";
+                } else {
+                    $pI9 = "ALTO";
+                }
+
+                $rP9 = ($operacion * 1) / 9;
+                $rP9 = round($rP9, 2, PHP_ROUND_HALF_UP);
+                // OPCION Gasolina
+                break;
+            case "3":
+                // OPCION Leña
+                $impacto = 3;
+                $rP9 = 3;
+                $operacion = $impacto * $rP9;
+                if ($operacion < 3) {
+                    $pI9 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI9 = "MEDIO";
+                } else {
+                    $pI9 = "ALTO";
+                }
+
+                $rP9 = ($operacion * 1) / 9;
+                $rP9 = round($rP9, 2, PHP_ROUND_HALF_UP);
+                // OPCION Leña
+                break;
+            case "4":
+                // OPCION Carbón
+                $impacto = 3;
+                $rP9 = 3;
+                $operacion = $impacto * $rP9;
+                if ($operacion < 3) {
+                    $pI9 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI9 = "MEDIO";
+                } else {
+                    $pI9 = "ALTO";
+                }
+
+                $rP9 = ($operacion * 1) / 9;
+                $rP9 = round($rP9, 2, PHP_ROUND_HALF_UP);
+                // OPCION Carbón
+                break;
+            case "5":
+                // OPCION Gas natural
+                $impacto = 0;
+                $rP9 = 0;
+                $operacion = $impacto * $rP9;
+                if ($operacion < 3) {
+                    $pI9 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI9 = "MEDIO";
+                } else {
+                    $pI9 = "ALTO";
+                }
+
+                $rP9 = ($operacion * 1) / 9;
+                $rP9 = round($rP9, 2, PHP_ROUND_HALF_UP);
+                // OPCION Gas natural
+                break;
+        }
+        // PREGUNTA 33
+
+        // PREGUNTA 39
+        $rP10 = 0;
+        $pI10 = "";
+        switch ($respuvivi->aguas_negras) {
+            case "NUNCA":
+                // OPCION NUNCA
+                $impacto = 1;
+                $pI10 = 1;
+                $operacion = $impacto * $pI10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $pI10 = ($operacion * 1) / 9;
+                $pI10 = round($pI10, 2, PHP_ROUND_HALF_UP);
+                // OPCION NUNCA
+                break;
+            case "FRECUENTE":
+                // OPCION FRECUENTE
+                $impacto = 3;
+                $pI10 = 3;
+                $operacion = $impacto * $pI10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $pI10 = ($operacion * 1) / 9;
+                $pI10 = round($pI10, 2, PHP_ROUND_HALF_UP);
+                // OPCION FRECUENTE
+                break;
+            case "OCASIONAL":
+                // OPCION OCASIONAL
+                $impacto = 2;
+                $pI10 = 1;
+                $operacion = $impacto * $pI10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $pI10 = ($operacion * 1) / 9;
+                $pI10 = round($pI10, 2, PHP_ROUND_HALF_UP);
+                // OPCION OCASIONAL
+                break;
+        }
+        // PREGUNTA 39
+
+        // TOTAL RIESGO
+        $rTRATMO = $rP1 + $rP2 + $rP3 + $rP4 + $rP5 + $rP6 + $rP7 + $rP8 + $rP9 + $rP10;
+        // TOTAL RIESGO
+        // Condiciones ambientales brinda una mala calidad de aire
+        // Riesgo atmosferico
+
+        // Riesgos Recurso suelo
+        // Actividades que generan la presencia de sustancias en el suelo que ocasionan  contaminación o alteracion y erosión del mismo
+
+        $rTRrs = 0;
+
+        // PREGUNTA 17
+        $rP1 = 0;
+        $pI1 = "";
+        switch ($respuvivi->destino_final_basura) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP1 = 0;
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Recolección y dispocisión en el aseo municipal
+                $impacto = 3;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Recolección y dispocisión en el aseo municipal
+                break;
+            case "2":
+                // OPCION Quemada
+                $impacto = 3;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Quemada
+                break;
+            case "3":
+                // OPCION Cielo Abierto
+                $impacto = 3;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cielo Abierto
+                break;
+            case "4":
+                // OPCION Enterrada
+                $impacto = 3;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.5) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Enterrada
+                break;
+            case "5":
+                // OPCION Otro
+                $impacto = 3;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.5) / 9;
+                $rP1 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 17
+
+        // PREGUNTA 18
+        $rP2 = 0;
+        $pI2 = "";
+        if ($respuvivi->porquerizas == "SI") {
+            $rP2 = $rP2 + 0.2;
+        }
+        if ($respuvivi->plagas == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->industrias == "SI") {
+            $rP2 = $rP2 + 0.4;
+        }
+        if ($respuvivi->malos_olores == "SI") {
+            $rP2 = $rP2 + 0.2;
+        }
+        if ($respuvivi->rellenos == "SI") {
+            $rP2 = $rP2 + 0.3;
+        }
+        if ($respuvivi->contaminacion_a == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->rio == "SI") {
+            $rP2 = $rP2 + 0.15;
+        }
+        if ($respuvivi->avenidas_transitadas == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->lotes_abandonados == "SI") {
+            $rP2 = $rP2 + 0.15;
+        }
+
+        if ($rP2 < 0.46) {
+            $rP2 = 1;
+        } else {
+            if ($rP2 >= 0.46 && $rP2 < 0.9) {
+                $rP2 = 2;
+            } else {
+                $rP2 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP2;
+        $rP2 = ($operacion * 1.4) / 9;
+        $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 18
+
+        // PREGUNTA 22
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->excretas) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Letrina
+                $impacto = 2;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.4) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Letrina
+                break;
+            case "3":
+                // OPCION Inodoro conectado a red de alcantarillado
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.4) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inodoro conectado a red de alcantarillado
+                break;
+            case "4":
+                // OPCION Cuerpos de aguas
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.4) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cuerpos de aguas
+                break;
+            case "5":
+                // OPCION Inododoro conectado a pozo séptico
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.4) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inododoro conectado a pozo séptico
+                break;
+            case "6":
+                // OPCION Campo abierto
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.4) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Campo abierto
+                break;
+            case "7":
+                // OPCION otro
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.4) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION otro
+                break;
+        }
+        // PREGUNTA 22
+
+        // PREGUNTA 26
+        $rP4 = 0;
+        $pI4 = "";
+        switch ($respuvivi->tipo_explotacion) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP4 = 0;
+                $pI4 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Forestal
+                $impacto = 1;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Forestal
+                break;
+            case "2":
+                // OPCION Ganadería
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Ganadería
+                break;
+            case "3":
+                // OPCION Agricultura
+                $impacto = 2;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Agricultura
+                break;
+            case "4":
+                // OPCION Urbanístico
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Urbanístico
+                break;
+            case "5":
+                // OPCION Otro
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.5) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+
+        }
+        // PREGUNTA 26
+
+        // PREGUNTA 28
+        $rP5 = 0;
+        $pI5 = "";
+        if ($respuvivi->residuos_aprovechables == "SI") {
+            $rP5 = $rP5 + 0.35;
+        }
+        if ($respuvivi->residuos_organicos == "SI") {
+            $rP5 = $rP5 + 0.35;
+        }
+        if ($respuvivi->residuos_no_aprovechables == "SI") {
+            $rP5 = $rP5 + 0.35;
+        }
+
+        if ($rP5 < 0.35) {
+            $rP5 = 1;
+        } else {
+            if ($rP5 >= 0.35 && $rP5 < 0.7) {
+                $rP5 = 2;
+            } else {
+                $rP5 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP5;
+        $rP5 = ($operacion * 1.4) / 9;
+        $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 28
+
+        // PREGUNTA 53
+        $rP6 = 0;
+        $pI6 = "";
+        if ($respuvivi->emplea_fertilizantes == "SI") {
+            $rP6 = 3;
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP6;
+        $rP6 = ($operacion * 1.4) / 9;
+        $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 53
+
+        // PREGUNTA 52
+        $rP7 = 0;
+        $pI7 = "";
+        switch ($respuvivi->rotacion_cultivo) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP7 = 0;
+                $pI7 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Permanentemente
+                $impacto = 1;
+                $rP7 = 1;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.4) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Permanentemente
+                break;
+            case "2":
+                // OPCION Nunca
+                $impacto = 3;
+                $rP7 = 3;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.4) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Nunca
+                break;
+            case "3":
+                // OPCION Ocasional
+                $impacto = 2;
+                $rP7 = 2;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.4) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Ocasional
+                break;
+            case "4":
+                // OPCION Periódicamente
+                $impacto = 1;
+                $rP7 = 1;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.4) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Periódicamente
+                break;
+        }
+        // PREGUNTA 52
+
+        // TOTAL RIESGO
+        $rTRrs = $rP1 + $rP2 + $rP3 + $rP4 + $rP5 + $rP6 + $rP7;
+        // TOTAL RIESGO
+
+        // Actividades que generan la presencia de sustancias en el suelo que ocasionan  contaminación o alteracion y erosión del mismo
+        // Riesgos Recurso suelo
+
+        // Riesgo por quemas o incendio
+        // Actividadades que generan Riesgos de incendios en las viviendas
+
+        $rTqi = 0;
+
+        // PREGUNTA 1
+        $rP1 = 0;
+        $pI1 = "";
+        switch ($respuvivi->tipo_vivienda) {
+            case "1":
+                // OPCION NO APLICA
+                $rP1 = 0;
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION CASA
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 0.9) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION CASA
+                break;
+            case "3":
+                // OPCION APARTAMENTO
+                $impacto = 1;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 0.9) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION APARTAMENTO
+                break;
+            case "4":
+                // OPCION FINCA
+                $impacto = 2;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 0.9) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION FINCA
+                break;
+            case "5":
+                // OPCION VIVIENDA INDIGENA
+                $impacto = 2;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 0.9) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION VIVIENDA INDIGENA
+                break;
+            case "6":
+                // OPCION IMPROVISADA
+                $impacto = 3;
+                $rP1 = 3;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 0.9) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION IMPROVISADA
+                break;
+            case "7":
+                // OPCION LOTE
+                $impacto = 3;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 0.9) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION LOTE
+                break;
+
+        }
+        // PREGUNTA 1
+
+        // PREGUNTA 2
+        $rP2 = 0;
+        $pI2 = "";
+        switch ($respuvivi->tipo_estructura) {
+            case "1":
+                // OPCION NO APLICA
+                $rP2 = 0;
+                $pI2 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION CONCRETO
+                $impacto = 1;
+                $rP2 = 1;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 0.9) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION CONCRETO
+                break;
+            case "3":
+                // OPCION LADRILLO Ó BLOQUE
+                $impacto = 1;
+                $rP2 = 1;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 0.9) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION LADRILLO Ó BLOQUE
+                break;
+            case "4":
+                // OPCION MADERA
+                $impacto = 3;
+                $rP2 = 3;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 0.9) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION MADERA
+                break;
+            case "5":
+                // OPCION OTRO
+                $impacto = 1;
+                $rP2 = 1;
+                $operacion = $impacto * $rP2;
+                if ($operacion < 3) {
+                    $pI2 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI2 = "MEDIO";
+                } else {
+                    $pI2 = "ALTO";
+                }
+
+                $rP2 = ($operacion * 0.9) / 9;
+                $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+                // OPCION OTRO
+                break;
+        }
+        // PREGUNTA 2
+
+        // PREGUNTA 3
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->material_predominante) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION marmol
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 0.9) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION marmol
+                break;
+            case "2":
+                // OPCION Cerámica
+                $impacto = 2;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 0.9) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cerámica
+                break;
+            case "3":
+                // OPCION Cemento
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 0.9) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cemento
+                break;
+            case "4":
+                // OPCION Madera
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 0.9) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Madera
+                break;
+            case "5":
+                // OPCION Tierra
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 0.9) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Tierra
+                break;
+            case "6":
+                // OPCION Bolsa
+                $impacto = 2;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 0.9) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Bolsa
+                break;
+            case "7":
+                // OPCION Otro
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 0.9) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 3
+
+        // PREGUNTA 4
+        $rP4 = 0;
+        $pI4 = "";
+        switch ($respuvivi->tipo_cubierta) {
+            case "1":
+                // OPCION NO APLICA
+                $rP4 = 0;
+                $pI4 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION Material de Desecho Plastico
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Material de Desecho Plastico
+                break;
+            case "3":
+                // OPCION Zinc
+                $impacto = 2;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Zinc
+                break;
+            case "4":
+                // OPCION Eternit
+                $impacto = 2;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Eternit
+                break;
+            case "5":
+                // OPCION Entre Piso
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Entre Piso
+                break;
+            case "6":
+                // OPCION Teja de Barro
+                $impacto = 2;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Teja de Barro
+                break;
+            case "7":
+                // OPCION Placa Definitiva
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Placa Definitiva
+                break;
+            case "8":
+                // OPCION Paja ó Palma
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Paja ó Palma
+                break;
+            case "9":
+                // OPCION Otro
+                $impacto = 0;
+                $rP4 = 0;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 4
+
+        // PREGUNTA 12
+        $rP5 = 0;
+        $pI5 = "";
+        if ($respuvivi->energia_electrica == "SI") {
+            $rP5 = $rP5 + 0.3;
+        }
+        if ($respuvivi->gas_natural == "SI") {
+            $rP5 = $rP5 + 0.3;
+        }
+        if ($respuvivi->acueducto == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+        if ($respuvivi->alcantarillado == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+        if ($respuvivi->telefono_fijo == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+        if ($respuvivi->aseo == "SI") {
+            $rP5 = $rP5 + 0.3;
+        }
+        if ($respuvivi->internet_subsidiado == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+        if ($respuvivi->internet_privado == "SI") {
+            $rP5 = $rP5 + 0;
+        }
+
+        if ($rP5 < 0.3) {
+            $rP5 = 1;
+        } else {
+            if ($rP5 >= 0.3 && $rP5 < 0.6) {
+                $rP5 = 2;
+            } else {
+                $rP5 = 3;
+            }
+        }
+        $impacto = 2;
+        $operacion = $impacto * $rP5;
+        $rP5 = ($operacion * 0.9) / 9;
+        $rP5 = round($rP5, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 12
+
+        // PREGUNTA 17
+        $rP6 = 0;
+        $pI6 = "";
+        switch ($respuvivi->destino_final_basura) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP6 = 0;
+                $pI6 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Recolección y dispocisión en el aseo municipal
+                $impacto = 2;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 0.9) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Recolección y dispocisión en el aseo municipal
+                break;
+            case "2":
+                // OPCION Quemada
+                $impacto = 3;
+                $rP6 = 3;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 0.9) / 9;
+                $rP6 = round($rP8, 2, PHP_ROUND_HALF_UP);
+                // OPCION Quemada
+                break;
+            case "3":
+                // OPCION Cielo Abierto
+                $impacto = 2;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 0.9) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cielo Abierto
+                break;
+            case "4":
+                // OPCION Enterrada
+                $impacto = 1;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 0.9) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Enterrada
+                break;
+            case "5":
+                // OPCION Otro
+                $impacto = 1;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 0.9) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 17
+
+        // PREGUNTA 23
+        $rP7 = 0;
+        $pI7 = "";
+        if ($respuvivi->cocina == "NO") {
+            $rP7 = $rP7 + 0.5;
+        }
+        if ($respuvivi->dormitorio_a == "NO") {
+            $rP7 = $rP7 + 0.2;
+        }
+        if ($respuvivi->sala == "NO") {
+            $rP7 = $rP7 + 0.2;
+        }
+        if ($respuvivi->sanitario == "NO") {
+            $rP7 = $rP7 + 0;
+        }
+        if ($respuvivi->lavadero == "NO") {
+            $rP7 = $rP7 + 0;
+        }
+
+        if ($rP7 < 0.2) {
+            $rP7 = 1;
+        } else {
+            if ($rP7 >= 0.2 && $rP7 < 0.4) {
+                $rP7 = 2;
+            } else {
+                $rP7 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP7;
+        if ($operacion < 3) {
+            $pI7 = "BAJO";
+        } else if ($operacion >= 3 && $operacion < 7) {
+            $pI7 = "MEDIO";
+        } else {
+            $pI7 = "ALTO";
+        }
+
+        $rP7 = ($operacion * 0.9) / 9;
+        $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 23
+
+        // PREGUNTA 25
+        $rP8 = 0;
+        $pI8 = "";
+        if ($respuvivi->gasolina == "SI") {
+            $rP8 = $rP8 + 0.4;
+        }
+        if ($respuvivi->plaguicidas == "SI") {
+            $rP8 = $rP8 + 0.2;
+        }
+        if ($respuvivi->detergentes == "SI") {
+            $rP8 = $rP8 + 0.1;
+        }
+        if ($respuvivi->plaguicidas_insectos == "SI") {
+            $rP8 = $rP8 + 0.2;
+        }
+
+        if ($rP8 < 0.1) {
+            $rP8 = 1;
+        } else {
+            if ($rP8 >= 0.1 && $rP8 < 0.3) {
+                $rP8 = 2;
+            } else {
+                $rP8 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP8;
+        if ($operacion < 3) {
+            $pI8 = "BAJO";
+        } else if ($operacion >= 3 && $operacion < 7) {
+            $pI8 = "MEDIO";
+        } else {
+            $pI8 = "ALTO";
+        }
+
+        $rP8 = ($operacion * 0.9) / 9;
+        $rP8 = round($rP8, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 25
+
+        // PREGUNTA 28
+        $rP9 = 0;
+        $pI9 = "";
+        if ($respuvivi->residuos_aprovechables == "SI") {
+            $rP9 = $rP9 + 0.2;
+        }
+        if ($respuvivi->residuos_organicos == "SI") {
+            $rP9 = $rP9 + 0.2;
+        }
+        if ($respuvivi->residuos_no_aprovechables == "SI") {
+            $rP9 = $rP9 + 0.2;
+        }
+
+        if ($rP9 >= 0.2 && $rP9 < 0.4) {
+            $rP9 = 1;
+        } else {
+            if ($rP9 >= 0.4 && $rP9 < 0.6) {
+                $rP9 = 2;
+            } else {
+                $rP9 = 3;
+            }
+        }
+        $impacto = 2;
+        $operacion = $impacto * $rP9;
+        $rP9 = ($operacion * 0.9) / 9;
+        $rP9 = round($rP9, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 28
+
+        // PREGUNTA 33
+        $rP10 = 0;
+        $pI10 = "";
+        switch ($respuvivi->tipo_combustible) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP10 = 0;
+                $pI10 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Luz eléctrica
+                $impacto = 2;
+                $rP10 = 2;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 0.9) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION Luz eléctrica
+                break;
+            case "2":
+                // OPCION Gasolina
+                $impacto = 3;
+                $rP10 = 3;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 0.9) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION Gasolina
+                break;
+            case "3":
+                // OPCION Leña
+                $impacto = 3;
+                $rP10 = 3;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 0.9) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION Leña
+                break;
+            case "4":
+                // OPCION Carbón
+                $impacto = 3;
+                $rP10 = 3;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 0.9) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION Carbón
+                break;
+            case "5":
+                // OPCION Gas natural
+                $impacto = 2;
+                $rP10 = 2;
+                $operacion = $impacto * $rP10;
+                if ($operacion < 3) {
+                    $pI10 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI10 = "MEDIO";
+                } else {
+                    $pI10 = "ALTO";
+                }
+
+                $rP10 = ($operacion * 0.9) / 9;
+                $rP10 = round($rP10, 2, PHP_ROUND_HALF_UP);
+                // OPCION Gas natural
+                break;
+        }
+        // PREGUNTA 33
+
+        // PREGUNTA 55
+        $rP11 = 0;
+        $pI11 = "";
+        $impacto = 0;
+        if ($respuvivi->quema_cultivo == "SI") {
+            $rP11 = 3;
+            $impacto = 3;
+        } else {
+            $rP11 = 1;
+            $impacto = 1;
+        }
+
+        $operacion = $impacto * $rP11;
+        if ($operacion < 3) {
+            $pI11 = "BAJO";
+        } else if ($operacion >= 3 && $operacion < 7) {
+            $pI11 = "MEDIO";
+        } else {
+            $pI11 = "ALTO";
+        }
+
+        $rP11 = ($operacion * 0.9) / 9;
+        $rP11 = round($rP11, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 55
+
+        // TOTAL RIESGO
+        $rTqi = $rP1 + $rP2 + $rP3 + $rP4 + $rP5 + $rP6 + $rP7 + $rP8 + $rP9 + $rP10 + $rP11;
+        // TOTAL RIESGO
+        // Actividadades que generan Riesgos de incendios en las viviendas
+        // Riesgo por quemas o incendio
+
+        // Riesgo Auditivo
+        $rTa = 0;
+        // PREGUNTA 13
+        $rP1 = 0;
+        $pI1 = "";
+        $impacto = 0;
+
+        if ($respuvivi->fuente_agua == "2") {
+            $rP1 = 1;
+            $impacto = 3;
+        } else {
+            if ($respuvivi->fuente_agua == "6") {
+                $rP1 = 0.6;
+                $impacto = 2;
+            } else {
+                $rP1 = 0;
+                $impacto = 1;
+            }
+        }
+
+        if ($rP1 < 0.8) {
+            $rP1 = 1;
+        } else {
+            if ($rP1 >= 0.8 && $rP1 < 1) {
+                $rP1 = 2;
+            } else {
+                $rP1 = 3;
+            }
+        }
+        $operacion = $impacto * $rP1;
+        if ($operacion < 3) {
+            $pI1 = "BAJO";
+        } else if ($operacion >= 3 && $operacion < 7) {
+            $pI1 = "MEDIO";
+        } else {
+            $pI1 = "ALTO";
+        }
+        $rP1 = ($operacion * 1.6) / 9;
+        $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 13
+
+        // PREGUNTA 18
+        $rP2 = 0;
+        $pI2 = "";
+        if ($respuvivi->porquerizas == "SI") {
+            $rP2 = $rP2 + 0.4;
+        }
+        if ($respuvivi->plagas == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->industrias == "SI") {
+            $rP2 = $rP2 + 0.5;
+        }
+        if ($respuvivi->malos_olores == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->rellenos == "SI") {
+            $rP2 = $rP2 + 0.5;
+        }
+        if ($respuvivi->contaminacion_a == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->rio == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->avenidas_transitadas == "SI") {
+            $rP2 = $rP2 + 0.5;
+        }
+        if ($respuvivi->lotes_abandonados == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+
+        if ($rP2 < 0.6) {
+            $rP2 = 1;
+        } else {
+            if ($rP2 >= 0.68 && $rP2 < 1.34) {
+                $rP2 = 2;
+            } else {
+                $rP2 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP2;
+        $rP2 = ($operacion * 3.4) / 9;
+        $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 18
+
+        // TOTAL RIESGO
+        $rTa = $rP1 + $rP2;
+        // TOTAL RIESGO
+        // Riesgo Auditivo
+
+        // Riesgo recurso Hidrico
+        // Vertimiento o derrame de agua residuales
+        $rTrh = 0;
+
+        // PREGUNTA 12
+        $rP1 = 0;
+        $pI1 = "";
+        if ($respuvivi->energia_electrica == "SI") {
+            $rP1 = $rP1 + 0;
+        }
+        if ($respuvivi->gas_natural == "SI") {
+            $rP1 = $rP1 + 0;
+        }
+        if ($respuvivi->acueducto == "SI") {
+            $rP1 = $rP1 + 0.6;
+        }
+        if ($respuvivi->alcantarillado == "SI") {
+            $rP1 = $rP1 + 0.6;
+        }
+        if ($respuvivi->telefono_fijo == "SI") {
+            $rP1 = $rP1 + 0;
+        }
+        if ($respuvivi->aseo == "SI") {
+            $rP1 = $rP1 + 0.4;
+        }
+        if ($respuvivi->internet_subsidiado == "SI") {
+            $rP1 = $rP1 + 0;
+        }
+        if ($respuvivi->internet_privado == "SI") {
+            $rP1 = $rP1 + 0;
+        }
+
+        if ($rP1 < 0.53) {
+            $rP1 = 1;
+        } else {
+            if ($rP1 >= 0.53 && $rP1 < 1) {
+                $rP1 = 2;
+            } else {
+                $rP1 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP1;
+        $rP1 = ($operacion * 1.6) / 9;
+        $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 12
+
+        // PREGUNTA 18
+        $rP2 = 0;
+        $pI2 = "";
+        if ($respuvivi->porquerizas == "SI") {
+            $rP2 = $rP2 + 0.2;
+        }
+        if ($respuvivi->plagas == "SI") {
+            $rP2 = $rP2 + 0.1;
+        }
+        if ($respuvivi->industrias == "SI") {
+            $rP2 = $rP2 + 0.4;
+        }
+        if ($respuvivi->malos_olores == "SI") {
+            $rP2 = $rP2 + 0.2;
+        }
+        if ($respuvivi->rellenos == "SI") {
+            $rP2 = $rP2 + 0.2;
+        }
+        if ($respuvivi->contaminacion_a == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->rio == "SI") {
+            $rP2 = $rP2 + 0.4;
+        }
+        if ($respuvivi->avenidas_transitadas == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->lotes_abandonados == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+
+        if ($rP2 < 0.53) {
+            $rP2 = 1;
+        } else {
+            if ($rP2 >= 0.53 && $rP2 < 1) {
+                $rP2 = 2;
+            } else {
+                $rP2 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP2;
+        $rP2 = ($operacion * 1.6) / 9;
+        $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 18
+
+        // PREGUNTA 22
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->excretas) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Letrina
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Letrina
+                break;
+            case "3":
+                // OPCION Inodoro conectado a red de alcantarillado
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inodoro conectado a red de alcantarillado
+                break;
+            case "4":
+                // OPCION Cuerpos de aguas
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Cuerpos de aguas
+                break;
+            case "5":
+                // OPCION Inododoro conectado a pozo séptico
+                $impacto = 1;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Inododoro conectado a pozo séptico
+                break;
+            case "6":
+                // OPCION Campo abierto
+                $impacto = 3;
+                $rP3 = 3;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Campo abierto
+                break;
+            case "7":
+                // OPCION otro
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 2) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION otro
+                break;
+        }
+        // PREGUNTA 22
+
+        // PREGUNTA 28
+        $rP4 = 0;
+        $pI4 = "";
+        if ($respuvivi->residuos_aprovechables == "SI") {
+            $rP4 = $rP4 + 0.2;
+        }
+        if ($respuvivi->residuos_organicos == "SI") {
+            $rP4 = $rP4 + 0.2;
+        }
+        if ($respuvivi->residuos_no_aprovechables == "SI") {
+            $rP4 = $rP4 + 0.2;
+        }
+
+        if ($rP4 < 0.2) {
+            $rP4 = 1;
+        } else {
+            if ($rP4 >= 0.2 && $rP4 < 0.4) {
+                $rP4 = 2;
+            } else {
+                $rP4 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP4;
+        $rP4 = ($operacion * 1.6) / 9;
+        $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 28
+
+        // PREGUNTA 39
+        $rP5 = 0;
+        $pI5 = "";
+        switch ($respuvivi->aguas_negras) {
+            case "NUNCA":
+                // OPCION NUNCA
+                $impacto = 1;
+                $pI5 = 1;
+                $operacion = $impacto * $pI5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $pI5 = ($operacion * 1.6) / 9;
+                $pI5 = round($pI5, 2, PHP_ROUND_HALF_UP);
+                // OPCION NUNCA
+                break;
+            case "FRECUENTE":
+                // OPCION FRECUENTE
+                $impacto = 3;
+                $pI5 = 3;
+                $operacion = $impacto * $pI5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $pI5 = ($operacion * 1.6) / 9;
+                $pI5 = round($pI5, 2, PHP_ROUND_HALF_UP);
+                // OPCION FRECUENTE
+                break;
+            case "OCASIONAL":
+                // OPCION OCASIONAL
+                $impacto = 2;
+                $pI5 = 2;
+                $operacion = $impacto * $pI5;
+                if ($operacion < 3) {
+                    $pI5 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI5 = "MEDIO";
+                } else {
+                    $pI5 = "ALTO";
+                }
+
+                $pI5 = ($operacion * 1.6) / 9;
+                $pI5 = round($pI5, 2, PHP_ROUND_HALF_UP);
+                // OPCION OCASIONAL
+                break;
+        }
+        // PREGUNTA 39
+
+        // PREGUNTA 56
+        $rP6 = 0;
+        $pI6 = "";
+        switch ($respuvivi->mantenimiento_preventivo) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP6 = 0;
+                $pI6 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Permanentemente
+                $impacto = 3;
+                $pI6 = 2;
+                $operacion = $impacto * $pI6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $pI6 = ($operacion * 1.6) / 9;
+                $pI6 = round($pI6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Permanentemente
+                break;
+            case "2":
+                // OPCION Nunca
+                $impacto = 1;
+                $pI6 = 1;
+                $operacion = $impacto * $pI6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $pI6 = ($operacion * 1.6) / 9;
+                $pI6 = round($pI6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Nunca
+                break;
+            case "3":
+                // OPCION Ocasional
+                $impacto = 2;
+                $pI6 = 2;
+                $operacion = $impacto * $pI6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $pI6 = ($operacion * 1.6) / 9;
+                $pI6 = round($pI6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Ocasional
+                break;
+            case "4":
+                // OPCION Periódicamente
+                $impacto = 1;
+                $pI6 = 1;
+                $operacion = $impacto * $pI6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $pI6 = ($operacion * 1.6) / 9;
+                $pI6 = round($pI6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Periódicamente
+                break;
+        }
+        // PREGUNTA 56
+        // TOTAL RIESGO
+        $rTrh = $rP1 + $rP2 + $rP3 + $rP4 + $rP5 + $rP6;
+        // TOTAL RIESGO
+        // Vertimiento o derrame de agua residuales k
+        // Riesgo recurso Hidrico
+
+        // Acceso a Agua Segura
+        $rTAas = 0;
+        // PREGUNTA 1
+        $rP1 = 0;
+        $pI1 = "";
+        switch ($respuvivi->tipo_vivienda) {
+            case "1":
+                // OPCION NO APLICA
+                $rP1 = 0;
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "2":
+                // OPCION CASA
+                $impacto = 3;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION CASA
+                break;
+            case "3":
+                // OPCION APARTAMENTO
+                $impacto = 3;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION APARTAMENTO
+                break;
+            case "4":
+                // OPCION FINCA
+                $impacto = 3;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION FINCA
+                break;
+            case "5":
+                // OPCION VIVIENDA INDIGENA
+                $impacto = 3;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION VIVIENDA INDIGENA
+                break;
+            case "6":
+                // OPCION IMPROVISADA
+                $impacto = 3;
+                $rP1 = 3;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION IMPROVISADA
+                break;
+            case "7":
+                // OPCION lote
+                $impacto = 3;
+                $rP1 = 1;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION lote
+                break;
+
+        }
+        // PREGUNTA 1
+
+        // PREGUNTA 12
+        $rP2 = 0;
+        $pI2 = "";
+        if ($respuvivi->energia_electrica == "SI") {
+            $rP2 = $rP2 + 0.1;
+        }
+        if ($respuvivi->gas_natural == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->acueducto == "SI") {
+            $rP2 = $rP2 + 1.2;
+        }
+        if ($respuvivi->alcantarillado == "SI") {
+            $rP2 = $rP2 + 0.4;
+        }
+        if ($respuvivi->telefono_fijo == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->aseo == "SI") {
+            $rP2 = $rP2 + 0.3;
+        }
+        if ($respuvivi->internet_subsidiado == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+        if ($respuvivi->internet_privado == "SI") {
+            $rP2 = $rP2 + 0;
+        }
+
+        if ($rP2 < 0.53) {
+            $rP2 = 1;
+        } else {
+            if ($rP2 >= 0.53 && $rP2 < 1) {
+                $rP2 = 2;
+            } else {
+                $rP2 = 3;
+            }
+        }
+        $impacto = 3;
+        $operacion = $impacto * $rP2;
+        $rP2 = ($operacion * 2) / 9;
+        $rP2 = round($rP2, 2, PHP_ROUND_HALF_UP);
+        // PREGUNTA 12
+
+        // PREGUNTA 13
+        $rP3 = 0;
+        $pI3 = "";
+        switch ($respuvivi->fuente_agua) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP3 = 0;
+                $pI3 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Acueducto
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Acueducto
+                break;
+            case "2":
+                // OPCION Pozo con bomba
+                $impacto = 2;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Pozo con bomba
+                break;
+            case "3":
+                // OPCION Laguna o jaguey
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Laguna o jaguey
+                break;
+            case "4":
+                // OPCION Rio quebrada ó manantial
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Rio quebrada ó manantial
+                break;
+            case "5":
+                // OPCION Aguas lluvias
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Aguas lluvias
+                break;
+            case "6":
+                // OPCION Carro tanque
+                $impacto = 2;
+                $rP3 = 2;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Carro tanque
+                break;
+            case "7":
+                // OPCION Agua tratada envasada
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Agua tratada envasada
+                break;
+            case "9":
+                // OPCION Agua tratada envasada
+                $impacto = 1;
+                $rP3 = 1;
+                $operacion = $impacto * $rP3;
+                if ($operacion < 3) {
+                    $pI3 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI3 = "MEDIO";
+                } else {
+                    $pI3 = "ALTO";
+                }
+
+                $rP3 = ($operacion * 1.6) / 9;
+                $rP3 = round($rP3, 2, PHP_ROUND_HALF_UP);
+                // OPCION Agua tratada envasada
+                break;
+        }
+        // PREGUNTA 13
+
+        // PREGUNTA 14
+        $rP4 = 0;
+        $pI4 = "";
+        switch ($respuvivi->donde_almacena_agua) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP4 = 0;
+                $pI4 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION No almacenan
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.6) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION No almacenan
+                break;
+            case "2":
+                // OPCION Tanque
+                $impacto = 1;
+                $rP4 = 2;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.6) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Tanque
+                break;
+            case "3":
+                // OPCION Alberca
+                $impacto = 3;
+                $rP4 = 3;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.6) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Alberca
+                break;
+            case "4":
+                // OPCION Planta acuatica
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.6) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Planta acuatica
+                break;
+            case "5":
+                // OPCION Otro
+                $impacto = 1;
+                $rP4 = 1;
+                $operacion = $impacto * $rP4;
+                if ($operacion < 3) {
+                    $pI4 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI4 = "MEDIO";
+                } else {
+                    $pI4 = "ALTO";
+                }
+
+                $rP4 = ($operacion * 1.6) / 9;
+                $rP4 = round($rP4, 2, PHP_ROUND_HALF_UP);
+                // OPCION Otro
+                break;
+        }
+        // PREGUNTA 14
+
+        // PREGUNTA 15
+        $rP6 = 0;
+        $pI6 = "";
+        switch ($respuvivi->ubicacion_tanque) {
+            case "1":
+                // OPCION Interior de la vivienda
+                $impacto = 1;
+                $rP6 = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.6) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Interior de la vivienda
+                break;
+            case "2":
+                // OPCION Exterior de la vivienda bajo techo
+                $impacto = 2;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.6) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Exterior de la vivienda bajo techo
+                break;
+            case "3":
+                // OPCION Exterior de la vivienda sin techo
+                $impacto = 3;
+                $rP6 = 3;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.6) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Exterior de la vivienda sin techo
+                break;
+            case "4":
+                // OPCION Sobre el techo
+                $impacto = 3;
+                $rP6 = 2;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.6) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION Sobre el techo
+                break;
+            case "5":
+                // OPCION NO APLICA
+                $rP6 = 1;
+                $pI6 = "";
+                $impacto = 1;
+                $operacion = $impacto * $rP6;
+                if ($operacion < 3) {
+                    $pI6 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI6 = "MEDIO";
+                } else {
+                    $pI6 = "ALTO";
+                }
+
+                $rP6 = ($operacion * 1.6) / 9;
+                $rP6 = round($rP6, 2, PHP_ROUND_HALF_UP);
+                // OPCION NO APLICA
+                break;
+        }
+        // PREGUNTA 15
+
+        // PREGUNTA 16
+        $rP7 = 0;
+        $pI7 = "";
+        switch ($respuvivi->tipo_tratamiento_agua) {
+            case "NA":
+                // OPCION NO APLICA
+                $rP7 = 0;
+                $pI7 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Clorada
+                $impacto = 1;
+                $rP7 = 1;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.6) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Clorada
+                break;
+            case "2":
+                // OPCION Filtrada
+                $impacto = 1;
+                $rP7 = 1;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.6) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Filtrada
+                break;
+            case "3":
+                // OPCION Hervida
+                $impacto = 2;
+                $rP7 = 2;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.6) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Hervida
+                break;
+            case "4":
+                // OPCION Consume sin tratamiento
+                $impacto = 3;
+                $rP7 = 3;
+                $operacion = $impacto * $rP7;
+                if ($operacion < 3) {
+                    $pI7 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI7 = "MEDIO";
+                } else {
+                    $pI7 = "ALTO";
+                }
+
+                $rP7 = ($operacion * 1.6) / 9;
+                $rP7 = round($rP7, 2, PHP_ROUND_HALF_UP);
+                // OPCION Consume sin tratamiento
+                break;
+        }
+        // PREGUNTA 16
+        // TOTAL RIESGO
+        $rTAas = $rP1 + $rP2 + $rP3 + $rP4 + $rP6 + $rP7;
+        // TOTAL RIESGO
+
+        // dd($rTAas)->die;
+        // Acceso a Agua Segura
+
+        // GUARDAR DATOS
+        $datos["riesgos_derrumbes"] = $rTRD;
+        $datos["riesgos_inundacion"] = $rTRI;
+        $datos["riesgos_insalubridad"] = $rTRINSA;
+        $datos["riesgos_atmosferico"] = $rTRATMO;
+        $datos["riesgos_recurso_suelo"] = $rTRrs;
+        $datos["riesgos_quema"] = $rTqi;
+        $datos["riesgos_auditivo"] = $rTa;
+        $datos["riesgos_recurso_hidrico"] = $rTrh;
+        $datos["riesgos_acceso_agua"] = $rTAas;
+        $datos["id_hogar"] = $id_hogar;
+        $datos["estado"] = 'Activo';
+        $guardar = \App\RiesgosAmbientales::guardar($datos, Session::get('alias'));
+        // GUARDAR DATOS
+
+        if ($guardar) {
+            return 1;
+        } else {
+            return 1;
+        }
 
     }
 
@@ -2046,5 +7314,32 @@ class CaracterizacionController extends Controller
         } else {
             return redirect("/login")->with("error", "Su sesion ha terminado");
         }
+    }
+
+    public function valorizacion($valor)
+    {
+        $valorizacion = "";
+        if ($valor < 3) {
+            $valorizacion = "Bajo";
+        } else if ($valor >= 3 && $valor < 7) {
+            $valorizacion = "Medio";
+        } else {
+            $valorizacion = "Alto";
+        }
+        return $valorizacion;
+    }
+
+    public function color($valor){
+        $color = "";
+        if($valor=="Bajo"){
+            $color = "kt-badge--success";
+        }else{
+            if($valor=="Medio"){
+                $color = "kt-badge--warning";
+            }else{
+                $color = "kt-badge--danger";
+            }
+        }
+        return $color;       
     }
 }

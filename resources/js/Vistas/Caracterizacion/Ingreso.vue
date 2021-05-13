@@ -3724,7 +3724,8 @@
                     <option value="3">Apartamento</option>
                     <option value="4">Finca</option>
                     <option value="5">Vivienda Indigena</option>
-                    <option value="6">Improvisada - Lote</option>
+                    <option value="6">Improvisada</option>
+                    <option value="7">Lote</option>
                   </b-form-select>
                   <div class="valid-feedback">Tipo de Vivienda Valido</div>
                   <div class="invalid-feedback">
@@ -3819,7 +3820,7 @@
                     <option value="4">Madera</option>
                     <option value="5">Tierra</option>
                     <option value="6">Bolsa ó Vinilo</option>
-                    <option value="6">Otros</option>
+                    <option value="7">Otros</option>
                   </b-form-select>
                   <div class="valid-feedback">Materia Predominante Piso Valido</div>
                   <div class="invalid-feedback">
@@ -3971,9 +3972,10 @@
                     <option value selected>Seleccione</option>
                     <option value="1">No aplica</option>
                     <option value="2">Inundación</option>
-                    <option value="3">Arroyo</option>
+                    <option value="3">Cuerpos de agua</option>
                     <option value="4">Oleaje Fuerte</option>
                     <option value="5">Deslizamiento</option>
+                    <option value="6">Ninguno</option>
                   </b-form-select>
                   <div class="valid-feedback">Evento que Puede Afectar la Vivienda Valido</div>
                   <div class="invalid-feedback">
@@ -4053,12 +4055,12 @@
                     <option value selected>Seleccione</option>
                     <option value="NA">No Aplica</option>
                     <option value="1">Acueducto</option>
-                    <option value="3">Pozo con bomba</option>
-                    <option value="4">Laguna o jaguey</option>
-                    <option value="5">Rio quebrada ó manantial</option>
-                    <option value="6">Aguas lluvias</option>
-                    <option value="7">Carro tanque</option>
-                    <option value="8">Agua tratada envasada</option>
+                    <option value="2">Pozo con bomba</option>
+                    <option value="3">Laguna o jaguey</option>
+                    <option value="4">Rio quebrada ó manantial</option>
+                    <option value="5">Aguas lluvias</option>
+                    <option value="6">Carro tanque</option>
+                    <option value="7">Agua tratada envasada</option>
                     <option value="9">Otro</option>
                   </b-form-select>
                   <div class="valid-feedback">Fuente de Agua para Consumo Valido</div>
@@ -5369,6 +5371,7 @@
                     <option value="1">Ladera</option>
                     <option value="2">Cuerpos de agua</option>
                     <option value="3">suelo inestable, derrumbes</option>
+                    <option value="4">Ninguno</option>
                   </b-form-select>
                   <div
                     class="valid-feedback"
@@ -5501,7 +5504,6 @@
                     <option value="2">Nunca</option>
                     <option value="3">Ocasional</option>
                     <option value="4">Periódicamente</option>
-                    <option value="5">No aplica</option>
                   </b-form-select>
                   <div class="valid-feedback">Realiza usted rotación del cultivo Valido</div>
                   <div class="invalid-feedback">
@@ -5520,7 +5522,6 @@
                     <option value="NA">No Aplica</option>
                     <option value="SI">SI</option>
                     <option value="NO">NO</option>
-                    <option value="NA">No aplica</option>
                   </b-form-select>
                   <div
                     class="valid-feedback"
@@ -6170,7 +6171,7 @@
                           <th class="kt-bg-fill-dark">2-3 meses</th>
                           <th class="kt-bg-fill-dark">6-8 meses</th>
                           <th class="kt-bg-fill-dark">9-11 meses</th>
-                          <th class="kt-bg-fill-danger">Lactancia Exclusiva</th>
+                          <th class="kt-bg-fill-danger">Lactancia</th>
                           <th class="kt-bg-fill-danger">Peso al Nacer (Kgs)</th>
                           <th class="kt-bg-fill-danger">Peso Actual (Kgs)</th>
                           <th class="kt-bg-fill-danger">Longitud al Nacer (cm)</th>
@@ -6371,7 +6372,8 @@
                               :class="item.lactancia==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="Exclusiva">Exclusiva</option>
+                              <option value="Mixta">Mixta</option>
                               <option value="NO">NO</option>
                               <option value="NA">No Aplica</option>
                             </b-form-select>
@@ -7730,7 +7732,9 @@
                               :class="item.sustanciaspsico==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="Alcohol">Alcohol</option>
+                              <option value="Tabaco">Tabaco</option>
+                              <option value="Spa">Spa</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>

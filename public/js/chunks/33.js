@@ -5700,6 +5700,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
+      var i = 0;
+
+      while (i < this.herramientasData.length) {
+        if (this.herramientasData[i].herramienta.toUpperCase() === this.herramienta.toUpperCase()) {
+          this.$swal("Validando...!", "la herramienta ya se encuentra agregada!", "warning");
+          return;
+        }
+
+        i++;
+      }
+
       this.herramientasData.push({
         id: 0,
         herramienta: this.herramienta,
@@ -5741,6 +5752,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (!this.isNumeric(this.cuantasUtensilio)) {
         this.$swal("Error...!", "Por favor Digite cuantos Utensilios Tiene!", "error");
         return;
+      }
+
+      var i = 0;
+
+      while (i < this.utensiliosData.length) {
+        if (this.utensiliosData[i].utensilio.toUpperCase() === this.utensilio.toUpperCase()) {
+          this.$swal("Validando...!", "El utensilio ya se encuentra agregado!", "warning");
+          return;
+        }
+
+        i++;
       }
 
       this.utensiliosData.push({
@@ -5789,6 +5811,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
+      var i = 0;
+
+      while (i < this.maquinasData.length) {
+        if (this.maquinasData[i].maquina.toUpperCase() === this.maquina.toUpperCase()) {
+          this.$swal("Validando...!", "La maquina ya se encuentra agregada!", "warning");
+          return;
+        }
+
+        i++;
+      }
+
       this.maquinasData.push({
         id: 0,
         maquina: this.maquina,
@@ -5832,6 +5865,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return;
       }
 
+      var i = 0;
+
+      while (i < this.instalacionesData.length) {
+        if (this.instalacionesData[i].instalacion.toUpperCase() === this.instalacion.toUpperCase()) {
+          this.$swal("Validando...!", "La instalacion ya se encuentra agregada!", "warning");
+          return;
+        }
+
+        i++;
+      }
+
       this.instalacionesData.push({
         id: 0,
         instalacion: this.instalacion,
@@ -5873,6 +5917,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (!this.isNumeric(this.cuantasMedio)) {
         this.$swal("Error...!", "Por favor Digite cuantos Medios de Transporte tiene!", "error");
         return;
+      }
+
+      var i = 0;
+
+      while (i < this.mediosData.length) {
+        if (this.mediosData[i].medio.toUpperCase() === this.medio.toUpperCase()) {
+          this.$swal("Validando...!", "El medio ya se encuentra agregado!", "warning");
+          return;
+        }
+
+        i++;
       }
 
       this.mediosData.push({

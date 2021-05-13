@@ -31,10 +31,11 @@ class Caracterizacion extends Model
                 ->where(function ($query) use ($busqueda) {
                     $query->where('caracterizacion.identificacion', 'LIKE', '%' . $busqueda . '%')
                         ->orWhere('corregimientos.descripcion', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('caracterizacion.pnom', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('caracterizacion.snom', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('caracterizacion.pape', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('caracterizacion.sape', 'LIKE', '%' . $busqueda . '%')
+                        // ->orWhere('caracterizacion.pnom', 'LIKE', '%' . $busqueda . '%')
+                        // ->orWhere('caracterizacion.snom', 'LIKE', '%' . $busqueda . '%')
+                        // ->orWhere('caracterizacion.pape', 'LIKE', '%' . $busqueda . '%')
+                        // ->orWhere('caracterizacion.sape', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhereRaw("CONCAT_WS(' ',caracterizacion.pnom,caracterizacion.snom,caracterizacion.pape,caracterizacion.sape) LIKE '%" . $busqueda . "%'")
                         ->orWhere('muni.descripcion', 'LIKE', '%' . $busqueda . '%')
                         ->orWhere('dptos.descripcion', 'LIKE', '%' . $busqueda . '%');
                 })

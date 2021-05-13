@@ -11850,10 +11850,1303 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};// Import component
 // Import stylesheet
 /* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"],Loading:vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8___default.a},mounted:function mounted(){this.hoy=moment();this.IDHOGAR=this.$route.params.IDHOGAR;if(this.IDHOGAR==null){this.$router.push("/gestion");}else{this.nuevo(this.IDHOGAR);}},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){return{isLoading:false,fullPage:true,hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),dpto_options:[],paises_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},antec_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tiene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:""},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
-cual_actividad_economica:"NA",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{id:0,id_hogar:0,cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0",estado:"Activo"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,valGEst:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[],bandeGuaEdiEstrati:true,indiceEditEstrati:null};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// actividad_economica: { required },
+cual_actividad_economica:"NA",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{id:0,id_hogar:0,cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0",estado:"Activo"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,valGEst:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[],bandeGuaEdiEstrati:true,indiceEditEstrati:null,RieAmbInh:{id_hogar:0,riesgos_derrumbes:0,riesgos_inundacion:0,riesgos_insalubridad:0,riesgos_atmosferico:0,riesgos_recurso_suelo:0,riesgos_quema:0,riesgos_auditivo:0,riesgos_recurso_hidrico:0,riesgos_acceso_agua:0,estado:"",id_compania:0,va_riesgos_derrumbes:"",va_riesgos_inundacion:"",va_riesgos_insalubridad:"",va_riesgos_atmosferico:"",va_riesgos_recurso_suelo:"",va_riesgos_quema:"",va_riesgos_auditivo:"",va_riesgos_recurso_hidrico:"",va_riesgos_acceso_agua:"",color_riesgos_derrumbes:"",color_riesgos_inundacion:"",color_riesgos_insalubridad:"",color_riesgos_atmosferico:"",color_riesgos_recurso_suelo:"",color_riesgos_quema:"",color_riesgos_auditivo:"",color_riesgos_recurso_hidrico:"",color_riesgos_acceso_agua:"",control_riesgos_derrumbes:0,control_riesgos_inundacion:0,control_riesgos_insalubridad:0,control_riesgos_atmosferico:0,control_riesgos_recurso_suelo:0,control_riesgos_quema:0,control_riesgos_auditivo:0,control_riesgos_recurso_hidrico:0,control_riesgos_acceso_agua:0},banderaControles:true,banConRieAmb:"",datosRA:{// Riesgos de  Derrumbes
+control_entes_RD:"",obras_ingenieria_RD:"",proteccion_RD:"",zona_vivienda_RD:"",cual_RD:"",// Riesgos de  Derrumbes
+// Riesgos de inundación 
+control_entes_RI:"",gaviones_RI:"",dragado_RI:"",barreras_RI:"",zona_vivienda_RI:"",cual_RI:"",// Riesgos de inundación 
+// Riesgos de insalubridad 
+sistema_recoleccion_RIN:"",control_entes_RIN:"",control_plagas_RIN:"",limpieza_RIN:"",tipo_tratamiento_RIN:"",clasificacion_residuos_RIN:"",cual_RIN:"",// Riesgos de insalubridad
+// Riesgo atmosferico
+control_entes_RA:"",humectacion_RA:"",sistema_RA:"",concientizacion_RA:"",cual_RA:"",// Riesgo atmosferico
+// Riesgos Recurso suelo
+control_entes_RRS:"",concientizacion_RRS:"",mantenimiento_RRS:"",mantenimiento_solicitado_RRS:"",fertilizantes_RRS:"",clasificacion_RRS:"",cual_RRS:"",// Riesgos Recurso suelo
+// Riesgo por quemas o incendio
+control_entes_RQ:"",concientizacion_RQ:"",bomberos_RQ:"",servicio_programado_RQ:"",servicio_solicitud_RQ:"",aprovechamiento_RQ:"",cual_RQ:"",// Riesgo por quemas o incendio
+// Riesgo Auditivo
+control_entes_RAU:"",regulacion_RAU:"",mediciones_RAU:"",zona_RAU:"",decibeles_RAU:"",cual_RAU:"",// Riesgo Auditivo
+// Riesgo recurso Hidrico
+control_entes_RRH:"",concientizacion_RRH:"",manejo_aguas_RRH:"",programa_RRH:"",control_industrias_RRH:"",mantenimiento_RRH:"",mantenimiento_captacion_RRH:"",cual_RRH:"",// Riesgo recurso Hidrico
+// Riesgo Acceso a Agua Segura
+control_entes_RAA:"",tratamiento_RAA:"",concientizacion_RAA:"",sistema_RAA:"",programa_RAA:"",cual_RRA:""// Riesgo Acceso a Agua Segura
+}};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// actividad_economica: { required },
 evento_afecta_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},familias_accion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},promedio_ingresos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},promedio_gastos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},fuente_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},energia_electrica:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},gas_natural:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},acueducto:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},alcantarillado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},telefono_fijo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},aseo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},internet_subsidiado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},internet_privado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},donde_almacena_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},ubicacion_tanque:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_tratamiento_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},destino_final_basura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},porquerizas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},plagas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},industrias:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},malos_olores:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},rellenos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},contaminacion_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},rio:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},otro_cerca:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},avenidas_transitadas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lotes_abandonados:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},servicio_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},donde_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},excretas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},dormitorio_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},sala:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lavadero:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// iluminacion_adecuada: { required },
 // techo_adecuado: { required },
 // ventilacion_adecuada: { required },
@@ -11922,7 +13215,17 @@ if(_this.datos[_i3].edad>=60){var _banderin16=false;var _j16=0;while(_j16<_this.
 if(_this.datos[_i3].migrante==="SI"){var _banderin17=false;var _j17=0;while(_j17<_this.Migra.length&&_banderin17===false){if(_this.datos[_i3].identificacion===_this.Migra[_j17].identificacion){_banderin17=true;}_j17++;}if(_banderin17===false){_this.AMigra(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// AGREGAR MIGRANTES                
 }_this.isLoading=false;});case 5:_context.next=16;break;case 7:_context.prev=7;_context.t0=_context["catch"](2);_context.t1=_context.t0.response.status;_context.next=_context.t1===422?12:14;break;case 12:this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",16);case 14:this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",16);case 16:case"end":return _context.stop();}}},_callee,this,[[2,7]]);}));function nuevo(_x2){return _nuevo.apply(this,arguments);}return nuevo;}(),Actualizar:function Actualizar(){var _this2=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(){var id,opcion,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:id=0;opcion="";if(_this2.hogar.id_corre!=""){opcion="CORRE";id=_this2.hogar.id_corre;}else{opcion="MUN";id=_this2.hogar.id_mun;}parametros={_token:_this2.csrf,id:id,opcion:opcion};_this2.valGActu=false;_context2.prev=5;_context2.next=8;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function(respuesta){_this2.corregi_options=respuesta.data.arrayCorregi;_this2.vereda_options=respuesta.data.arrayVeredas;_this2.parentesco_options=respuesta.data.arrayParentesco;_this2.estado_options=respuesta.data.arrayEstado;_this2.escolaridad_options=respuesta.data.arrayEscolaridad;_this2.ocupacion_options=respuesta.data.arrayOcupacion;_this2.etnia_options=respuesta.data.arrayEtnia;_this2.admini_options=respuesta.data.arrayAdmini;_this2.clasifi_options=respuesta.data.arrayCLasifi;_this2.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this2.morbilidad_options=respuesta.data.arrayMorbilidad;_this2.metodos_options=respuesta.data.arrayMetodos;_this2.motivos_options=respuesta.data.arrayMotivos;_this2.grupos_options=respuesta.data.arrayGrupos;_this2.enfcro_options=respuesta.data.arrayEnfCro;_this2.enfinf_options=respuesta.data.arrayEnfInf;_this2.religion_options=respuesta.data.arrayReligion;_this2.colegio_options=respuesta.data.arrayColegios;_this2.barrio_options=respuesta.data.arrayBarrios;_this2.valGActu=true;});case 8:_context2.next=19;break;case 10:_context2.prev=10;_context2.t0=_context2["catch"](5);_context2.t1=_context2.t0.response.status;_context2.next=_context2.t1===422?15:17;break;case 15:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",19);case 17:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",19);case 19:case"end":return _context2.stop();}}},_callee2,null,[[5,10]]);}))();},cambiarTab1:function cambiarTab1(opcion,actual){var _this3=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(){var bandera,resul,_resul,_resul2,_resul3,parametros,isInvalid,_parametros,auxi,_resul4,_resul5,_resul6,_resul7,_resul8,_parametros2,_auxi,_resul9,_resul10,_resul11,_parametros3,_auxi2,_resul12,_resul13,_resul14,_parametros4,_auxi3,_resul15,_parametros5;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:bandera=false;if(!(actual==="tabIdentificacion")){_context3.next=89;break;}if(!(_this3.hogar.id_dpto==="")){_context3.next=6;break;}_this3.$refs.id_dpto.focus();_this3.$swal("Error...!","Por favor seleccione el departamento!","error");return _context3.abrupt("return");case 6:if(!(_this3.hogar.id_mun==="")){_context3.next=10;break;}_this3.$refs.id_mun.focus();_this3.$swal("Error...!","Por favor seleccione el municipio!","error");return _context3.abrupt("return");case 10:if(!(_this3.hogar.tenencia_vivienda==="")){_context3.next=14;break;}_this3.$refs.tenencia_vivienda.focus();_this3.$swal("Error...!","Por favor seleccione la tenencia de vivienda!","error");return _context3.abrupt("return");case 14:if(!(_this3.allLetter(_this3.hogar.numero_hogares)===false)){_context3.next=19;break;}_this3.$refs.numero_hogares.focus();_this3.hogar.numero_hogares="";_this3.$swal("Error...!","Por favor digite solo numero en el numero de hogares!","error");return _context3.abrupt("return");case 19:if(!(_this3.hogar.numero_hogares==="")){_context3.next=23;break;}_this3.$refs.numero_hogares.focus();_this3.$swal("Error...!","Por favor digite el numero de hogares!","error");return _context3.abrupt("return");case 23:if(!(_this3.hogar.poblacion_especial==="")){_context3.next=27;break;}_this3.$refs.poblacion_especial.focus();_this3.$swal("Error...!","Por favor seleccione la población especial!","error");return _context3.abrupt("return");case 27:if(!(_this3.hogar.vias_acceso==="")){_context3.next=31;break;}_this3.$refs.vias_acceso.focus();_this3.$swal("Error...!","Por favor seleccione si la comunidad presenta vías de acceso!","error");return _context3.abrupt("return");case 31:if(!(_this3.hogar.servicios_publicos==="")){_context3.next=35;break;}_this3.$refs.servicios_publicos.focus();_this3.$swal("Error...!","Por favor seleccione si presenta acceso fácil a los servicios públicos!","error");return _context3.abrupt("return");case 35:if(!(_this3.hogar.direccion==="")){_context3.next=39;break;}_this3.$refs.direccion.focus();_this3.$swal("Error...!","Por favor digite la dirección!","error");return _context3.abrupt("return");case 39:if(!(_this3.datosJefe.length<=0)){_context3.next=44;break;}_this3.$swal("Error...!","Por favor agregue por lo menos un jefe de hogar","error");return _context3.abrupt("return");case 44:resul=_this3.valJef1();if(!resul){_context3.next=49;break;}bandera=true;_context3.next=50;break;case 49:return _context3.abrupt("return",false);case 50:if(!(_this3.datos.length>0)){_context3.next=57;break;}_resul=_this3.valInt1();if(!_resul){_context3.next=56;break;}bandera=true;_context3.next=57;break;case 56:return _context3.abrupt("return",false);case 57:if(!(_this3.factores.length>0)){_context3.next=64;break;}_resul2=_this3.valFactores();if(!_resul2){_context3.next=63;break;}bandera=true;_context3.next=64;break;case 63:return _context3.abrupt("return",false);case 64:if(!(_this3.afectacion.length>0)){_context3.next=71;break;}_resul3=_this3.valAfectacion();if(!_resul3){_context3.next=70;break;}bandera=true;_context3.next=71;break;case 70:return _context3.abrupt("return",false);case 71://VALIDAR LA TABLA AFECTACION
 parametros={_token:_this3.csrf,hogar:_this3.hogar,caracterizacion:_this3.datosJefe,integrantes:_this3.datos,factores:_this3.factores,CODIGOGENE:_this3.CODIGOGENE,afectacion:_this3.afectacion,opcion:"MODIFICAR",opc:"GUAINDEN",id_hogar:_this3.IDHOGAR};_this3.valGIden=false;_context3.prev=73;_context3.next=76;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="E"){_this3.GIDEN=true;_this3.IDHOGAR=respuesta.data.IDHOGAR;_this3.valGIden=true;bandera=true;_this3.datosJefe.length=0;_this3.datos.length=0;_this3.factores.length=0;_this3.afectacion.length=0;_this3.datosJefe=respuesta.data.jefes;_this3.datos=respuesta.data.integrantes;_this3.factores=respuesta.data.factores;_this3.afectacion=respuesta.data.afectacion;}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña identificación","error");return;});case 76:_context3.next=89;break;case 78:_context3.prev=78;_context3.t0=_context3["catch"](73);_context3.t1=_context3.t0.response.status;_context3.next=_context3.t1===419?83:_context3.t1===422?85:87;break;case 83:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 85:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 87:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 89:if(!(actual==="tabVivienda")){_context3.next=125;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=94;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 94:_this3.$v.$touch();isInvalid=_this3.$v.$invalid;if(!isInvalid){_context3.next=101;break;}_this3.$swal("Error...!","Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda","error");return _context3.abrupt("return",false);case 101:if(!(_this3.estratificacion.length<=0)){_context3.next=104;break;}_this3.$swal("Error...!","Por favor agregue por lo menos una estratificación","error");return _context3.abrupt("return");case 104:if(!(_this3.ActividadData.length<=0)){_context3.next=107;break;}_this3.$swal("Error...!","Por favor agrege por lo menos una actividad economica!","error");return _context3.abrupt("return");case 107://GUARDAR DATOS
-_this3.valGVivi=false;_parametros={_token:_this3.csrf,vivienda:_this3.viviendaData,estratificacion:_this3.estratificacion,Animales:_this3.animalesData,actividad_viviendas:_this3.ActividadData,opcion:"MODIFICAR",opc:"GUAVIVI",IDHOGAR:_this3.IDHOGAR};_context3.prev=109;_context3.next=112;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GVIVI=true;bandera=true;_this3.valGVivi=true;_this3.viviendaData.id=respuesta.data.vivienda.id;_this3.animalesData.length=0;_this3.estratificacion.length=0;_this3.ActividadData.length=0;_this3.animalesData=respuesta.data.animales;_this3.estratificacion=respuesta.data.estratificacion;_this3.ActividadData=respuesta.data.actividad_viviendas;}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 112:_context3.next=125;break;case 114:_context3.prev=114;_context3.t2=_context3["catch"](109);_context3.t3=_context3.t2.response.status;_context3.next=_context3.t3===419?119:_context3.t3===422?121:123;break;case 119:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 121:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 123:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 125:if(!(actual==="cartxciclo")){_context3.next=193;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=130;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 130:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
+_this3.valGVivi=false;_parametros={_token:_this3.csrf,vivienda:_this3.viviendaData,estratificacion:_this3.estratificacion,Animales:_this3.animalesData,actividad_viviendas:_this3.ActividadData,opcion:"MODIFICAR",opc:"GUAVIVI",IDHOGAR:_this3.IDHOGAR};_context3.prev=109;_context3.next=112;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GVIVI=true;bandera=true;_this3.valGVivi=true;_this3.viviendaData.id=respuesta.data.vivienda.id;_this3.animalesData.length=0;_this3.estratificacion.length=0;_this3.ActividadData.length=0;_this3.animalesData=respuesta.data.animales;_this3.estratificacion=respuesta.data.estratificacion;_this3.ActividadData=respuesta.data.actividad_viviendas;// this.RieAmbInh = respuesta.data.riesgos_ambientales;
+_this3.RieAmbInh.id_hogar=respuesta.data.riesgos_ambientales.id_hogar;_this3.RieAmbInh.riesgos_derrumbes=respuesta.data.riesgos_ambientales.riesgos_derrumbes;_this3.RieAmbInh.riesgos_inundacion=respuesta.data.riesgos_ambientales.riesgos_inundacion;_this3.RieAmbInh.riesgos_insalubridad=respuesta.data.riesgos_ambientales.riesgos_insalubridad;_this3.RieAmbInh.riesgos_atmosferico=respuesta.data.riesgos_ambientales.riesgos_atmosferico;_this3.RieAmbInh.riesgos_recurso_suelo=respuesta.data.riesgos_ambientales.riesgos_recurso_suelo;_this3.RieAmbInh.riesgos_quema=respuesta.data.riesgos_ambientales.riesgos_quema;_this3.RieAmbInh.riesgos_auditivo=respuesta.data.riesgos_ambientales.riesgos_auditivo;_this3.RieAmbInh.riesgos_recurso_hidrico=respuesta.data.riesgos_ambientales.riesgos_recurso_hidrico;_this3.RieAmbInh.riesgos_acceso_agua=respuesta.data.riesgos_ambientales.riesgos_acceso_agua;_this3.RieAmbInh.estado=respuesta.data.riesgos_ambientales.estado;_this3.RieAmbInh.id_compania=respuesta.data.riesgos_ambientales.id_compania;_this3.RieAmbInh.va_riesgos_derrumbes=respuesta.data.riesgos_ambientales.va_riesgos_derrumbes;_this3.RieAmbInh.va_riesgos_inundacion=respuesta.data.riesgos_ambientales.va_riesgos_inundacion;_this3.RieAmbInh.va_riesgos_insalubridad=respuesta.data.riesgos_ambientales.va_riesgos_insalubridad;_this3.RieAmbInh.va_riesgos_atmosferico=respuesta.data.riesgos_ambientales.va_riesgos_atmosferico;_this3.RieAmbInh.va_riesgos_recurso_suelo=respuesta.data.riesgos_ambientales.va_riesgos_recurso_suelo;_this3.RieAmbInh.va_riesgos_quema=respuesta.data.riesgos_ambientales.va_riesgos_quema;_this3.RieAmbInh.va_riesgos_auditivo=respuesta.data.riesgos_ambientales.va_riesgos_auditivo;_this3.RieAmbInh.va_riesgos_recurso_hidrico=respuesta.data.riesgos_ambientales.va_riesgos_recurso_hidrico;_this3.RieAmbInh.va_riesgos_acceso_agua=respuesta.data.riesgos_ambientales.va_riesgos_acceso_agua;_this3.RieAmbInh.color_riesgos_derrumbes=respuesta.data.riesgos_ambientales.color_riesgos_derrumbes;_this3.RieAmbInh.color_riesgos_inundacion=respuesta.data.riesgos_ambientales.color_riesgos_inundacion;_this3.RieAmbInh.color_riesgos_insalubridad=respuesta.data.riesgos_ambientales.color_riesgos_insalubridad;_this3.RieAmbInh.color_riesgos_atmosferico=respuesta.data.riesgos_ambientales.color_riesgos_atmosferico;_this3.RieAmbInh.color_riesgos_recurso_suelo=respuesta.data.riesgos_ambientales.color_riesgos_recurso_suelo;_this3.RieAmbInh.color_riesgos_quema=respuesta.data.riesgos_ambientales.color_riesgos_quema;_this3.RieAmbInh.color_riesgos_auditivo=respuesta.data.riesgos_ambientales.color_riesgos_auditivo;_this3.RieAmbInh.color_riesgos_recurso_hidrico=respuesta.data.riesgos_ambientales.color_riesgos_recurso_hidrico;_this3.RieAmbInh.color_riesgos_acceso_agua=respuesta.data.riesgos_ambientales.color_riesgos_acceso_agua;// this.RieAmbInh.control_riesgos_derrumbes = 0;
+// this.RieAmbInh.control_riesgos_inundacion = 0;
+// this.RieAmbInh.control_riesgos_insalubridad = 0;
+// this.RieAmbInh.control_riesgos_atmosferico = 0;
+// this.RieAmbInh.control_riesgos_recurso_suelo = 0;
+// this.RieAmbInh.control_riesgos_quema = 0;
+// this.RieAmbInh.control_riesgos_auditivo = 0;
+// this.RieAmbInh.control_riesgos_recurso_hidrico = 0;
+// this.RieAmbInh.control_riesgos_acceso_agua = 0;
+console.log(_this3.RieAmbInh);_this3.$refs.modalRieAmb.show();}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 112:_context3.next=125;break;case 114:_context3.prev=114;_context3.t2=_context3["catch"](109);_context3.t3=_context3.t2.response.status;_context3.next=_context3.t3===419?119:_context3.t3===422?121:123;break;case 119:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 121:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 123:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 125:if(!(actual==="cartxciclo")){_context3.next=193;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=130;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 130:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
 if(!(_this3.Men1A.length>0)){_context3.next=139;break;}_resul4=_this3.valMen1();if(!_resul4){_context3.next=138;break;}bandera=true;auxi=true;_context3.next=139;break;case 138:return _context3.abrupt("return",false);case 139:if(!(_this3.De1A5.length>0)){_context3.next=147;break;}_resul5=_this3.valDe1A5();if(!_resul5){_context3.next=146;break;}bandera=true;auxi=true;_context3.next=147;break;case 146:return _context3.abrupt("return",false);case 147:if(!(_this3.De6A11.length>0)){_context3.next=155;break;}_resul6=_this3.valDe6A11();if(!_resul6){_context3.next=154;break;}bandera=true;auxi=true;_context3.next=155;break;case 154:return _context3.abrupt("return",false);case 155:if(!(_this3.De10A59.length>0)){_context3.next=163;break;}_resul7=_this3.valDe10A59();if(!_resul7){_context3.next=162;break;}bandera=true;auxi=true;_context3.next=163;break;case 162:return _context3.abrupt("return",false);case 163:if(!(_this3.ParPost.length>0)){_context3.next=171;break;}_resul8=_this3.valParPost();if(!_resul8){_context3.next=170;break;}bandera=true;auxi=true;_context3.next=171;break;case 170:return _context3.abrupt("return",false);case 171:if(!auxi){_context3.next=192;break;}//GUARDAR DATOS
 _parametros2={_token:_this3.csrf,Men1A:_this3.Men1A,De1A5:_this3.De1A5,De6A11:_this3.De6A11,De10A59:_this3.De10A59,ParPost:_this3.ParPost,opcion:"MODIFICAR",opc:"GUACARCI",IDHOGAR:_this3.IDHOGAR};_this3.valGCart=false;_context3.prev=174;_context3.next=177;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GCARXCI=true;bandera=true;_this3.valGCart=true;// GESTION DE LAS VARIABLES DE CART X CICLO
 _this3.Men1A.length=0;_this3.De1A5.length=0;_this3.De6A11.length=0;_this3.De10A59.length=0;_this3.ParPost.length=0;_this3.Men1A=respuesta.data.Men1A;_this3.De1A5=respuesta.data.De1A5;_this3.De6A11=respuesta.data.De6A11;_this3.De10A59=respuesta.data.De10A59;_this3.ParPost=respuesta.data.ParPost;// GESTION DE LAS VARIABLES DE CART X CICLO                    
@@ -11952,7 +13255,7 @@ for(_i14=0;_i14<_this5.Migra.length;_i14++){if(_this5.Migra[_i14].pais===""){val
 //   this.caracData.salario = "";
 // }
 }if(caja=="tipoid"){this.caracData.identificacion="";if(this.caracData.tipo_id!="CC"){if(this.caracData.tipo_id==="ASI"||this.caracData.tipo_id==="MSI"){this.caracData.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val2=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=_val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}}if(caja=="id2"){if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val3=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}if(caja=="tipoid2"){this.CA1.identificacion="";if(this.CA1.tipo_id!="CC"){if(this.CA1.tipo_id==="ASI"||this.CA1.tipo_id==="MSI"){this.CA1.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val4=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}}if(caja=="telefono1"){this.caracData.telefono=this.caracData.telefono.replace(/[^.\d]/g,"").trim();if(this.caracData.telefono=="NaN"){this.caracData.telefono="";}if(this.caracData.telefono=="0"){this.caracData.telefono="";}}if(caja=="telefono2"){this.CA1.telefono=this.CA1.telefono.replace(/[^.\d]/g,"").trim();if(this.CA1.telefono=="NaN"){this.CA1.telefono="";}if(this.CA1.telefono=="0"){this.CA1.telefono="";}}if(caja=="puntaje"){}if(caja=="puntaje1"){}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},// OPCIONES DE LAS OCUPACIONES
-abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this7=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:parametros={txtbusqueda:_this7.txtbusqueda.trim(),_token:_this7.csrf,page:pagina};_context7.prev=1;_context7.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this7.ocupacionesVector=respuesta.data.ocupaciones.data;_this7.paginacionVector=respuesta.data.paginacion;});case 4:_context7.next=15;break;case 6:_context7.prev=6;_context7.t0=_context7["catch"](1);_context7.t1=_context7.t0.response.status;_context7.next=_context7.t1===422?11:13;break;case 11:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 13:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 15:case"end":return _context7.stop();}}},_callee7,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},// OPCIONES DE LAS OCUPACIONES
+abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();this.$refs.modalRieAmb.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this7=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:parametros={txtbusqueda:_this7.txtbusqueda.trim(),_token:_this7.csrf,page:pagina};_context7.prev=1;_context7.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this7.ocupacionesVector=respuesta.data.ocupaciones.data;_this7.paginacionVector=respuesta.data.paginacion;});case 4:_context7.next=15;break;case 6:_context7.prev=6;_context7.t0=_context7["catch"](1);_context7.t1=_context7.t0.response.status;_context7.next=_context7.t1===422?11:13;break;case 11:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 13:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 15:case"end":return _context7.stop();}}},_callee7,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},// OPCIONES DE LAS OCUPACIONES
 //OPCIONES DEL JEFE DE HOGAR
 agregarJefe:function(){var _agregarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:if(!(this.checkForm()===true)){_context8.next=12;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
 this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.caracData.identificacion};_context8.prev=3;_context8.next=6;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this8.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
@@ -12710,7 +14013,7 @@ this.AEnInf(item);// AGREGAR ENFERMEDADES INFECCIOSAS
 }else{// ELIMINAR ENFERMEDADES INFECCIOSAS
 this.EEnInf(item);// ELIMINAR ENFERMEDADES INFECCIOSAS
 }}},AEnCro:function AEnCro(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnCro.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnCro:function changeupdateEnCro(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnCro:function updateEnCro(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnCro:function EEnCro(item){var identificacion=item.identificacion;if(item.id===0){this.EnCro=this.EnCro.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnCro.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}}},AEnInf:function AEnInf(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnInf.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnInf:function changeupdateEnInf(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnInf:function updateEnInf(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnInf:function EEnInf(item){var identificacion=item.identificacion;if(item.id===0){this.EnInf=this.EnInf.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnInf.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}}},AMigra:function AMigra(vector,edad,opcion){this.Migra.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,pais:"",registrado:"",cuantollego:"",futuro:"",recibido:"",necesidad:"",dependen:"",ingreso:"",opci:opcion,estado:"Activo"});},changeupdateMigra:function changeupdateMigra(item,event,opcion){if(opcion==="pais"){item.pais=event.target.value.trim();}if(opcion==="dependen"){item.dependen=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMigra:function updateMigra(item,valor,opcion){if(opcion==="registrado"){item.registrado=valor;}if(opcion==="cuantollego"){item.cuantollego=valor;}if(opcion==="futuro"){item.futuro=valor;}if(opcion==="recibido"){item.recibido=valor;}if(opcion==="necesidad"){item.necesidad=valor;}if(opcion==="ingreso"){item.ingreso=valor;}},calcularImc:function calcularImc(peso,talla){if(peso===""){peso=0;}if(talla===""){talla=1;}talla=talla/100;var imc=peso/(talla*talla);return imc.toFixed(2);},//OPCIONES DE LOS CICLOS DE VIDA
-cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}},agregarAntJef:function agregarAntJef(){var textoAntecedente="",id_antecedente="";if(this.caracData.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.caracData.antec;textoAntecedente=this.showText(this.caracData.antec,this.antec_options);var i=0;while(i<this.caracData.antecedentes.length){if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.caracData.antec="";this.caracData.antecedentes.push({id:0,id_jefe:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntJef:function eliminarItemAntJef(index,item){if(item.id===0){this.caracData.antecedentes.splice(index,1);}else{this.caracData.antecedentes[index].estado="Inactivo";this.caracData.antecedentes.splice(index,1,this.caracData.antecedentes[index]);}},agregarAntInt:function agregarAntInt(){var textoAntecedente="",id_antecedente="";if(this.CA1.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.CA1.antec;textoAntecedente=this.showText(this.CA1.antec,this.antec_options);var i=0;while(i<this.CA1.antecedentes.length){if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.CA1.antec="";this.CA1.antecedentes.push({id:0,id_inte:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntInt:function eliminarItemAntInt(index,item){if(item.id===0){this.CA1.antecedentes.splice(index,1);}else{this.CA1.antecedentes[index].estado="Inactivo";this.CA1.antecedentes.splice(index,1,this.CA1.antecedentes[index]);}}}});
+cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}},agregarAntJef:function agregarAntJef(){var textoAntecedente="",id_antecedente="";if(this.caracData.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.caracData.antec;textoAntecedente=this.showText(this.caracData.antec,this.antec_options);var i=0;while(i<this.caracData.antecedentes.length){if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.caracData.antec="";this.caracData.antecedentes.push({id:0,id_jefe:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntJef:function eliminarItemAntJef(index,item){if(item.id===0){this.caracData.antecedentes.splice(index,1);}else{this.caracData.antecedentes[index].estado="Inactivo";this.caracData.antecedentes.splice(index,1,this.caracData.antecedentes[index]);}},agregarAntInt:function agregarAntInt(){var textoAntecedente="",id_antecedente="";if(this.CA1.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.CA1.antec;textoAntecedente=this.showText(this.CA1.antec,this.antec_options);var i=0;while(i<this.CA1.antecedentes.length){if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.CA1.antec="";this.CA1.antecedentes.push({id:0,id_inte:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntInt:function eliminarItemAntInt(index,item){if(item.id===0){this.CA1.antecedentes.splice(index,1);}else{this.CA1.antecedentes[index].estado="Inactivo";this.CA1.antecedentes.splice(index,1,this.CA1.antecedentes[index]);}},controlRA:function controlRA(opcion){console.log(opcion);this.banderaControles=false;this.banConRieAmb=opcion;},cerrarControlRA:function cerrarControlRA(){this.banderaControles=true;},GuardarRA:function GuardarRA(opcion){}}});
 
 /***/ }),
 
@@ -25441,7 +26744,11 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "6" } }, [
-                              _vm._v("Improvisada - Lote")
+                              _vm._v("Improvisada")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "7" } }, [
+                              _vm._v("Lote")
                             ])
                           ]
                         ),
@@ -25798,7 +27105,7 @@ var render = function() {
                               _vm._v("Bolsa ó Vinilo")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "6" } }, [
+                            _c("option", { attrs: { value: "7" } }, [
                               _vm._v("Otros")
                             ])
                           ]
@@ -26274,7 +27581,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "3" } }, [
-                              _vm._v("Arroyo")
+                              _vm._v("Cuerpos de agua")
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "4" } }, [
@@ -26283,6 +27590,10 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "5" } }, [
                               _vm._v("Deslizamiento")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "6" } }, [
+                              _vm._v("Ninguno")
                             ])
                           ]
                         ),
@@ -26580,27 +27891,27 @@ var render = function() {
                               _vm._v("Acueducto")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "3" } }, [
+                            _c("option", { attrs: { value: "2" } }, [
                               _vm._v("Pozo con bomba")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "4" } }, [
+                            _c("option", { attrs: { value: "3" } }, [
                               _vm._v("Laguna o jaguey")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "5" } }, [
+                            _c("option", { attrs: { value: "4" } }, [
                               _vm._v("Rio quebrada ó manantial")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "6" } }, [
+                            _c("option", { attrs: { value: "5" } }, [
                               _vm._v("Aguas lluvias")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "7" } }, [
+                            _c("option", { attrs: { value: "6" } }, [
                               _vm._v("Carro tanque")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "8" } }, [
+                            _c("option", { attrs: { value: "7" } }, [
                               _vm._v("Agua tratada envasada")
                             ]),
                             _vm._v(" "),
@@ -31071,6 +32382,10 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "3" } }, [
                               _vm._v("suelo inestable, derrumbes")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("Ninguno")
                             ])
                           ]
                         ),
@@ -31457,10 +32772,6 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "4" } }, [
                               _vm._v("Periódicamente")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "5" } }, [
-                              _vm._v("No aplica")
                             ])
                           ]
                         ),
@@ -31532,10 +32843,6 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "NO" } }, [
                               _vm._v("NO")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "NA" } }, [
-                              _vm._v("No aplica")
                             ])
                           ]
                         ),
@@ -34368,8 +35675,14 @@ var render = function() {
                                             _vm._v(" "),
                                             _c(
                                               "option",
-                                              { attrs: { value: "SI" } },
-                                              [_vm._v("SI")]
+                                              { attrs: { value: "Exclusiva" } },
+                                              [_vm._v("Exclusiva")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Mixta" } },
+                                              [_vm._v("Mixta")]
                                             ),
                                             _vm._v(" "),
                                             _c(
@@ -39404,8 +40717,20 @@ var render = function() {
                                             _vm._v(" "),
                                             _c(
                                               "option",
-                                              { attrs: { value: "SI" } },
-                                              [_vm._v("SI")]
+                                              { attrs: { value: "Alcohol" } },
+                                              [_vm._v("Alcohol")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Tabaco" } },
+                                              [_vm._v("Tabaco")]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "option",
+                                              { attrs: { value: "Spa" } },
+                                              [_vm._v("Spa")]
                                             ),
                                             _vm._v(" "),
                                             _c(
@@ -52499,6 +53824,6239 @@ var render = function() {
                 ])
               ])
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              ref: "modalRieAmb",
+              attrs: {
+                "hide-footer": "",
+                title: "Controles de los riesgos ambientales",
+                size: "xl",
+                centered: "",
+                "header-bg-variant": "danger",
+                "header-text-variant": "light",
+                "no-close-on-backdrop": true
+              }
+            },
+            [
+              _c("div", { staticClass: "d-block" }, [
+                _c("form", [
+                  _vm.banderaControles
+                    ? _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6" },
+                          [
+                            _c("center", [
+                              _c("p", [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-font-boldest text",
+                                    staticStyle: { "font-size": "18px" }
+                                  },
+                                  [_vm._v("Identificación de riesgos")]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "table-responsive" }, [
+                              _c(
+                                "table",
+                                { staticClass: "table table-sm table-hover" },
+                                [
+                                  _c("thead", {}, [
+                                    _c(
+                                      "tr",
+                                      { staticClass: "kt-bg-fill-brand" },
+                                      [
+                                        _c("th", [_vm._v("No.")]),
+                                        _vm._v(" "),
+                                        _c("th", [_vm._v("Riesgo")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Puntuación")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Valorización")]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tbody", [
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("1")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos de  Derrumbes")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_derrumbes
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_derrumbes
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_derrumbes
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("2")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos de inundación")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_inundacion
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_inundacion
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_inundacion
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("3")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos de insalubridad")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_insalubridad
+                                            ) + " / 25"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_insalubridad
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_insalubridad
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("4")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo atmosferico")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_atmosferico
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_atmosferico
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_atmosferico
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("5")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos Recurso suelo")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh
+                                                .riesgos_recurso_suelo
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_recurso_suelo
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_recurso_suelo
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("6")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo por quemas o incendio")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_quema
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_quema
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh.va_riesgos_quema
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("7")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo Auditivo")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_auditivo
+                                            ) + " / 5"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_auditivo
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_auditivo
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("8")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo recurso Hidrico")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh
+                                                .riesgos_recurso_hidrico
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_recurso_hidrico
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_recurso_hidrico
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("9")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo Acceso a Agua Segura")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_acceso_agua
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_acceso_agua
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_acceso_agua
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6" },
+                          [
+                            _c("center", [
+                              _c("p", [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-font-boldest text",
+                                    staticStyle: { "font-size": "18px" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Tratamiento de riesgos (medios y altos)"
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "table-responsive" }, [
+                              _c(
+                                "table",
+                                { staticClass: "table table-sm table-hover" },
+                                [
+                                  _c("thead", {}, [
+                                    _c(
+                                      "tr",
+                                      { staticClass: "kt-bg-fill-brand" },
+                                      [
+                                        _c("th", [_vm._v("Riesgo Inherente")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Puntuación")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo Residual")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Opción")]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tbody", [
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_derrumbes != "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_derrumbes!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos de  Derrumbes")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_derrumbes
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_derrumbes
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_quema
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RD")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_inundacion !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_inundacion!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos de inundación")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_inundacion
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_inundacion
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_inundacion
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RI")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_insalubridad !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_insalubridad!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos de insalubridad")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_insalubridad
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_insalubridad
+                                                  ) + " / 25"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_insalubridad
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RIN")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_atmosferico !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_atmosferico!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo atmosferico")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_atmosferico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_atmosferico
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_atmosferico
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RA")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_recurso_suelo !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_recurso_suelo!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos Recurso suelo")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_recurso_suelo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_recurso_suelo
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_recurso_suelo
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RRS")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh.va_riesgos_quema !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_quema!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Riesgo por quemas o incendio"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_quema
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh.riesgos_quema
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_quema
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RQ")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_auditivo != "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_auditivo!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo Auditivo")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_auditivo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_auditivo
+                                                  ) + " / 5"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_auditivo
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RAU")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_recurso_hidrico !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_recurso_hidrico!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo recurso Hidrico")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_recurso_hidrico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_recurso_hidrico
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_recurso_hidrico
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RRH")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_acceso_agua !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_acceso_agua!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Riesgo Acceso a Agua Segura"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_acceso_agua
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_acceso_agua
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.RieAmbInh
+                                                  .control_riesgos_acceso_agua
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RAA")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ])
+                    : _c("div", { staticClass: "form-group row" }, [
+                        _vm.banConRieAmb == "RD"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [_vm._v("Controles riesgos de derrumbes")]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RD == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Existen obra de ingenieria en la laderas? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.obras_ingenieria_RD ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.obras_ingenieria_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "obras_ingenieria_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.obras_ingenieria_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RD !== "NO" &&
+                                _vm.datosRA.control_entes_RD !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RD,
+                                                expression: "datosRA.cual_RD",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RD == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RD
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RD",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Protección estructural :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.proteccion_RD == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.proteccion_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "proteccion_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.proteccion_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "La Zona de vivienda se encuentra dentro del mapa de riesgos :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.zona_vivienda_RD == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.zona_vivienda_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "zona_vivienda_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.zona_vivienda_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RD")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RI"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgos de inundación"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Construcción de gaviones para fuente hidrica :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.gaviones_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.gaviones_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "gaviones_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.gaviones_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RI !== "NO" &&
+                                _vm.datosRA.control_entes_RI !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RI,
+                                                expression: "datosRA.cual_RI",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RI == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RI
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RI",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se ha evidenciao el dragado del rio :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.dragado_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.dragado_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "dragado_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.dragado_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Barreras en las casas :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.barreras_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.barreras_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "barreras_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.barreras_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se encuentra la zona de la vivienda dentro del mapa de riesgo de inundacion :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.zona_vivienda_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.zona_vivienda_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "zona_vivienda_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.zona_vivienda_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RI")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RIN"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgos de insalubridad"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Sistema de recolección de residuos :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .sistema_recoleccion_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .sistema_recoleccion_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "sistema_recoleccion_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.sistema_recoleccion_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RIN !== "NO" &&
+                                _vm.datosRA.control_entes_RIN !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RIN,
+                                                expression: "datosRA.cual_RIN",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RIN == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RIN
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RIN",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Control de plagas y vectores por fumigación :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_plagas_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_plagas_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_plagas_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_plagas_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Limpieza y  mantenimiento programado de lotes emontados y afluentes de agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.limpieza_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.limpieza_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "limpieza_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.limpieza_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realiza algun tipo de tratamiento del agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.tipo_tratamiento_RIN ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.tipo_tratamiento_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "tipo_tratamiento_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.tipo_tratamiento_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Clasificacion de residuos :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .clasificacion_residuos_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .clasificacion_residuos_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "clasificacion_residuos_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.clasificacion_residuos_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RIN")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RA"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [_vm._v("Controles riesgo atmosferico")]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Se realiza humectacion de la via? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.humectacion_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.humectacion_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "humectacion_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.humectacion_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RA !== "NO" &&
+                                _vm.datosRA.control_entes_RA !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RA,
+                                                expression: "datosRA.cual_RA",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RA == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RA
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RA",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene algun sistema de monitoreo de calidad del aire :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.sistema_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.sistema_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "sistema_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.sistema_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Concientización y educación a la comunidad :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RA")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RRS"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgos recurso suelo"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Concientización y educación de la comunidad :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RRS ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RRS !== "NO" &&
+                                _vm.datosRA.control_entes_RRS !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RRS,
+                                                expression: "datosRA.cual_RRS",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RRS == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RRS
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RRS",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento programado de redes de alcantarillado :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.mantenimiento_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.mantenimiento_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento solicitado de redes de alcantarillado  :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .mantenimiento_solicitado_RRS ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .mantenimiento_solicitado_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_solicitado_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_solicitado_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Utiliza usted fertilizantes o plaguicidas biodegradables ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.fertilizantes_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.fertilizantes_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "fertilizantes_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.fertilizantes_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realiza clasficacion de los residuos:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.clasificacion_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.clasificacion_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "clasificacion_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.clasificacion_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RRS")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RQ"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles Riesgo por quemas o incendio"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Concientización y educación a la población :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RQ !== "NO" &&
+                                _vm.datosRA.control_entes_RQ !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RQ,
+                                                expression: "datosRA.cual_RQ",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RQ == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RQ
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RQ",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Cuerpo de bomberos :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.bomberos_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.bomberos_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "bomberos_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.bomberos_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Servicio programado de recolección de las basuras :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .servicio_programado_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .servicio_programado_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "servicio_programado_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.servicio_programado_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Servicio a solicitud  de recolección de las basuras :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.servicio_solicitud_RQ ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.servicio_solicitud_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "servicio_solicitud_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.servicio_solicitud_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realizan aprovechamiento forestal :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.aprovechamiento_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.aprovechamiento_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "aprovechamiento_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.aprovechamiento_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RQ")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RAU"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [_vm._v("Controles Riesgo Auditivo")]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Regulación de indutrias contaminantes:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.regulacion_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.regulacion_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "regulacion_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.regulacion_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RAU !== "NO" &&
+                                _vm.datosRA.control_entes_RAU !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RAU,
+                                                expression: "datosRA.cual_RAU",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RAU == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RAU
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RAU",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realizan mediciones ambientales de ruido :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.mediciones_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.mediciones_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mediciones_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.mediciones_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "La zona esta incliuda en el mapa de ruido ambientales:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.zona_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.zona_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "zona_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.zona_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene establecido los decibeles permitidos:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.decibeles_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.decibeles_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "decibeles_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.decibeles_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RAU")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RRH"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgo recurso hidrico"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Campañas de concientizacion y educación de la comunidad :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RRH ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RRH !== "NO" &&
+                                _vm.datosRA.control_entes_RRH !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RRH,
+                                                expression: "datosRA.cual_RRH",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RRH == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RRH
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RRH",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Manejo de agua residuales sistema de drenaje :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.manejo_aguas_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.manejo_aguas_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "manejo_aguas_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.manejo_aguas_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene programa de uso eficiente y adecuado del agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.programa_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.programa_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "programa_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.programa_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Control a industrias vertedoras de aguas residuales :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .control_industrias_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .control_industrias_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_industrias_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_industrias_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento de Alcantarillado publico :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.mantenimiento_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.mantenimiento_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento del sistema de capatacion del agua para consumo :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .mantenimiento_captacion_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .mantenimiento_captacion_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_captacion_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_captacion_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RRH")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RAA"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgo acceso a agua segura"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Tratamiento en casa del agua para el consumo :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.tratamiento_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.tratamiento_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "tratamiento_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.tratamiento_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RAA !== "NO" &&
+                                _vm.datosRA.control_entes_RAA !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RRA,
+                                                expression: "datosRA.cual_RRA",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RRA == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RRA
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RRA",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ])
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Campañas de concientización y educación de la población :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RAA ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Sistema de manejo de agua residuales :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.sistema_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.sistema_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "sistema_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.sistema_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene programa de uso eficiente y adecuado del agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.programa_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.programa_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "programa_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.programa_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RAA")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-right" }, [
+                    _vm.banderaControles
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-warning",
+                            attrs: { type: "button" },
+                            on: { click: _vm.cerrarModal }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-window-close" }),
+                            _vm._v(" Cerrar\n              ")
+                          ]
+                        )
+                      : _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-brand",
+                            attrs: { type: "button" },
+                            on: { click: _vm.cerrarControlRA }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-arrow-left" }),
+                            _vm._v(" Volver\n              ")
+                          ]
+                        )
+                  ])
+                ])
+              ])
+            ]
           )
         ],
         1
@@ -53462,9 +61020,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "kt-bg-fill-dark" }, [_vm._v("9-11 meses")]),
         _vm._v(" "),
-        _c("th", { staticClass: "kt-bg-fill-danger" }, [
-          _vm._v("Lactancia Exclusiva")
-        ]),
+        _c("th", { staticClass: "kt-bg-fill-danger" }, [_vm._v("Lactancia")]),
         _vm._v(" "),
         _c("th", { staticClass: "kt-bg-fill-danger" }, [
           _vm._v("Peso al Nacer (Kgs)")
@@ -55711,7 +63267,7 @@ function comboBarrios($data) {
 /*!*************************************************************!*\
   !*** ./resources/js/Servicios/caracterizacion_servicios.js ***!
   \*************************************************************/
-/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar */
+/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55727,6 +63283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actualizar", function() { return actualizar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editarCaracterizacion", function() { return editarCaracterizacion; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlesRA", function() { return controlesRA; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarCaracterizacion($data) {
@@ -55761,6 +63318,9 @@ function editarCaracterizacion($data) {
 }
 function eliminar($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/eliminar', $data);
+}
+function controlesRA($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/controlesRA', $data);
 }
 
 /***/ }),
