@@ -13125,28 +13125,737 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};// Import component
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};// Import component
 // Import stylesheet
-/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"],Loading:vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8___default.a},mounted:function mounted(){this.hoy=moment();this.IDHOGAR=this.$route.params.IDHOGAR;if(this.IDHOGAR==null){this.$router.push("/gestion");}else{this.nuevo(this.IDHOGAR);}},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){return{isLoading:false,fullPage:true,hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),dpto_options:[],paises_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},antec_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tiene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:""},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
-cual_actividad_economica:"NA",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{id:0,id_hogar:0,cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0",estado:"Activo"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,valGEst:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[],bandeGuaEdiEstrati:true,indiceEditEstrati:null,RieAmbInh:{id_hogar:0,riesgos_derrumbes:0,riesgos_inundacion:0,riesgos_insalubridad:0,riesgos_atmosferico:0,riesgos_recurso_suelo:0,riesgos_quema:0,riesgos_auditivo:0,riesgos_recurso_hidrico:0,riesgos_acceso_agua:0,estado:"",id_compania:0,va_riesgos_derrumbes:"",va_riesgos_inundacion:"",va_riesgos_insalubridad:"",va_riesgos_atmosferico:"",va_riesgos_recurso_suelo:"",va_riesgos_quema:"",va_riesgos_auditivo:"",va_riesgos_recurso_hidrico:"",va_riesgos_acceso_agua:"",color_riesgos_derrumbes:"",color_riesgos_inundacion:"",color_riesgos_insalubridad:"",color_riesgos_atmosferico:"",color_riesgos_recurso_suelo:"",color_riesgos_quema:"",color_riesgos_auditivo:"",color_riesgos_recurso_hidrico:"",color_riesgos_acceso_agua:"",control_riesgos_derrumbes:0,control_riesgos_inundacion:0,control_riesgos_insalubridad:0,control_riesgos_atmosferico:0,control_riesgos_recurso_suelo:0,control_riesgos_quema:0,control_riesgos_auditivo:0,control_riesgos_recurso_hidrico:0,control_riesgos_acceso_agua:0},banderaControles:true,banConRieAmb:"",datosRA:{// Riesgos de  Derrumbes
-control_entes_RD:"",obras_ingenieria_RD:"",proteccion_RD:"",zona_vivienda_RD:"",cual_RD:"",// Riesgos de  Derrumbes
+/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"],Loading:vue_loading_overlay__WEBPACK_IMPORTED_MODULE_8___default.a},mounted:function mounted(){this.hoy=moment();this.IDHOGAR=this.$route.params.IDHOGAR;if(this.IDHOGAR==null){this.$router.push("/gestion");}else{this.nuevo(this.IDHOGAR);}},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){var _RieAmbInh;return{isLoading:false,fullPage:true,hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),dpto_options:[],paises_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},antec_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tiene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:"",tipo_empleo:"",percargo:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:"",tipo_empleo:"0"},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
+cual_actividad_economica:"NA",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{id:0,id_hogar:0,cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0",estado:"Activo"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,valGEst:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[],bandeGuaEdiEstrati:true,indiceEditEstrati:null,RieAmbInh:(_RieAmbInh={id_hogar:0,riesgos_derrumbes:0,riesgos_inundacion:0,riesgos_insalubridad:0,riesgos_atmosferico:0,riesgos_recurso_suelo:0,riesgos_quema:0,riesgos_auditivo:0,riesgos_recurso_hidrico:0,riesgos_acceso_agua:0,estado:"",id_compania:0,va_riesgos_derrumbes:"",va_riesgos_inundacion:"",va_riesgos_insalubridad:"",va_riesgos_atmosferico:"",va_riesgos_recurso_suelo:"",va_riesgos_quema:"",va_riesgos_auditivo:"",va_riesgos_recurso_hidrico:"",va_riesgos_acceso_agua:"",color_riesgos_derrumbes:"",color_riesgos_inundacion:"",color_riesgos_insalubridad:"",color_riesgos_atmosferico:"",color_riesgos_recurso_suelo:"",color_riesgos_quema:"",color_riesgos_auditivo:"",color_riesgos_recurso_hidrico:"",color_riesgos_acceso_agua:"",control_riesgos_derrumbes:0,control_riesgos_inundacion:0,control_riesgos_insalubridad:0,control_riesgos_atmosferico:0,control_riesgos_recurso_suelo:0,control_riesgos_quema:0,control_riesgos_auditivo:0,control_riesgos_recurso_hidrico:0,control_riesgos_acceso_agua:0,color_residual_riesgos_derrumbes:"",color_residual_riesgos_inundacion:"",color_residual_riesgos_insalubridad:"",color_residual_riesgos_atmosferico:""},_defineProperty(_RieAmbInh,"color_riesgos_recurso_suelo",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_quema",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_auditivo",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_recurso_hidrico",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_acceso_agua",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_derrumbes",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_inundacion",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_insalubridad",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_atmosferico",""),_defineProperty(_RieAmbInh,"val_riesgos_recurso_suelo",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_auditivo",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_quema",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_recurso_hidrico",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_acceso_agua",""),_RieAmbInh),banderaControles:true,banConRieAmb:"",datosRA:{// Riesgos de  Derrumbes
+control_entes_RD:"",obras_ingenieria_RD:"",proteccion_RD:"",zona_vivienda_RD:"",cual_RD:"",tipo_RD:"",// Riesgos de  Derrumbes
 // Riesgos de inundación 
-control_entes_RI:"",gaviones_RI:"",dragado_RI:"",barreras_RI:"",zona_vivienda_RI:"",cual_RI:"",// Riesgos de inundación 
+control_entes_RI:"",gaviones_RI:"",dragado_RI:"",barreras_RI:"",zona_vivienda_RI:"",cual_RI:"",tipo_RI:"",// Riesgos de inundación 
 // Riesgos de insalubridad 
-sistema_recoleccion_RIN:"",control_entes_RIN:"",control_plagas_RIN:"",limpieza_RIN:"",tipo_tratamiento_RIN:"",clasificacion_residuos_RIN:"",cual_RIN:"",// Riesgos de insalubridad
+sistema_recoleccion_RIN:"",control_entes_RIN:"",control_plagas_RIN:"",limpieza_RIN:"",tipo_tratamiento_RIN:"",clasificacion_residuos_RIN:"",cual_RIN:"",tipo_RIN:"",// Riesgos de insalubridad
 // Riesgo atmosferico
-control_entes_RA:"",humectacion_RA:"",sistema_RA:"",concientizacion_RA:"",cual_RA:"",// Riesgo atmosferico
+control_entes_RA:"",humectacion_RA:"",sistema_RA:"",concientizacion_RA:"",cual_RA:"",tipo_RA:"",// Riesgo atmosferico
 // Riesgos Recurso suelo
-control_entes_RRS:"",concientizacion_RRS:"",mantenimiento_RRS:"",mantenimiento_solicitado_RRS:"",fertilizantes_RRS:"",clasificacion_RRS:"",cual_RRS:"",// Riesgos Recurso suelo
+control_entes_RRS:"",concientizacion_RRS:"",mantenimiento_RRS:"",mantenimiento_solicitado_RRS:"",fertilizantes_RRS:"",clasificacion_RRS:"",cual_RRS:"",tipo_RRS:"",// Riesgos Recurso suelo
 // Riesgo por quemas o incendio
-control_entes_RQ:"",concientizacion_RQ:"",bomberos_RQ:"",servicio_programado_RQ:"",servicio_solicitud_RQ:"",aprovechamiento_RQ:"",cual_RQ:"",// Riesgo por quemas o incendio
+control_entes_RQ:"",concientizacion_RQ:"",bomberos_RQ:"",servicio_programado_RQ:"",servicio_solicitud_RQ:"",aprovechamiento_RQ:"",cual_RQ:"",tipo_RQ:"",// Riesgo por quemas o incendio
 // Riesgo Auditivo
-control_entes_RAU:"",regulacion_RAU:"",mediciones_RAU:"",zona_RAU:"",decibeles_RAU:"",cual_RAU:"",// Riesgo Auditivo
+control_entes_RAU:"",regulacion_RAU:"",mediciones_RAU:"",zona_RAU:"",decibeles_RAU:"",cual_RAU:"",tipo_RAU:"",// Riesgo Auditivo
 // Riesgo recurso Hidrico
-control_entes_RRH:"",concientizacion_RRH:"",manejo_aguas_RRH:"",programa_RRH:"",control_industrias_RRH:"",mantenimiento_RRH:"",mantenimiento_captacion_RRH:"",cual_RRH:"",// Riesgo recurso Hidrico
+control_entes_RRH:"",concientizacion_RRH:"",manejo_aguas_RRH:"",programa_RRH:"",control_industrias_RRH:"",mantenimiento_RRH:"",mantenimiento_captacion_RRH:"",cual_RRH:"",tipo_RRH:"",// Riesgo recurso Hidrico
 // Riesgo Acceso a Agua Segura
-control_entes_RAA:"",tratamiento_RAA:"",concientizacion_RAA:"",sistema_RAA:"",programa_RAA:"",cual_RRA:""// Riesgo Acceso a Agua Segura
-}};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// actividad_economica: { required },
+control_entes_RAA:"",tratamiento_RAA:"",concientizacion_RAA:"",sistema_RAA:"",programa_RAA:"",cual_RRA:"",tipo_RRA:""// Riesgo Acceso a Agua Segura
+},datosRSMEN1A:[],indiceRSMEN1A:0,vectorAuxRSMEN1A:[]// datosRSMEN1A: {
+//   id_hogar: 0,
+//   id_inte: 0,
+// }
+};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// actividad_economica: { required },
 evento_afecta_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},familias_accion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},promedio_ingresos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},promedio_gastos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},fuente_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},energia_electrica:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},gas_natural:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},acueducto:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},alcantarillado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},telefono_fijo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},aseo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},internet_subsidiado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},internet_privado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},donde_almacena_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},ubicacion_tanque:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},tipo_tratamiento_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},destino_final_basura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},porquerizas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},plagas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},industrias:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},malos_olores:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},rellenos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},contaminacion_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},rio:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},otro_cerca:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},avenidas_transitadas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lotes_abandonados:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},servicio_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},donde_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},excretas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},dormitorio_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},sala:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},lavadero:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_10__["required"]},// iluminacion_adecuada: { required },
 // techo_adecuado: { required },
 // ventilacion_adecuada: { required },
@@ -13215,21 +13924,68 @@ if(_this.datos[_i3].edad>=60){var _banderin16=false;var _j16=0;while(_j16<_this.
 if(_this.datos[_i3].migrante==="SI"){var _banderin17=false;var _j17=0;while(_j17<_this.Migra.length&&_banderin17===false){if(_this.datos[_i3].identificacion===_this.Migra[_j17].identificacion){_banderin17=true;}_j17++;}if(_banderin17===false){_this.AMigra(_this.datos[_i3],_this.datos[_i3].edad,"INTE");}}// AGREGAR MIGRANTES                
 }_this.isLoading=false;});case 5:_context.next=16;break;case 7:_context.prev=7;_context.t0=_context["catch"](2);_context.t1=_context.t0.response.status;_context.next=_context.t1===422?12:14;break;case 12:this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",16);case 14:this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",16);case 16:case"end":return _context.stop();}}},_callee,this,[[2,7]]);}));function nuevo(_x2){return _nuevo.apply(this,arguments);}return nuevo;}(),Actualizar:function Actualizar(){var _this2=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(){var id,opcion,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:id=0;opcion="";if(_this2.hogar.id_corre!=""){opcion="CORRE";id=_this2.hogar.id_corre;}else{opcion="MUN";id=_this2.hogar.id_mun;}parametros={_token:_this2.csrf,id:id,opcion:opcion};_this2.valGActu=false;_context2.prev=5;_context2.next=8;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function(respuesta){_this2.corregi_options=respuesta.data.arrayCorregi;_this2.vereda_options=respuesta.data.arrayVeredas;_this2.parentesco_options=respuesta.data.arrayParentesco;_this2.estado_options=respuesta.data.arrayEstado;_this2.escolaridad_options=respuesta.data.arrayEscolaridad;_this2.ocupacion_options=respuesta.data.arrayOcupacion;_this2.etnia_options=respuesta.data.arrayEtnia;_this2.admini_options=respuesta.data.arrayAdmini;_this2.clasifi_options=respuesta.data.arrayCLasifi;_this2.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this2.morbilidad_options=respuesta.data.arrayMorbilidad;_this2.metodos_options=respuesta.data.arrayMetodos;_this2.motivos_options=respuesta.data.arrayMotivos;_this2.grupos_options=respuesta.data.arrayGrupos;_this2.enfcro_options=respuesta.data.arrayEnfCro;_this2.enfinf_options=respuesta.data.arrayEnfInf;_this2.religion_options=respuesta.data.arrayReligion;_this2.colegio_options=respuesta.data.arrayColegios;_this2.barrio_options=respuesta.data.arrayBarrios;_this2.valGActu=true;});case 8:_context2.next=19;break;case 10:_context2.prev=10;_context2.t0=_context2["catch"](5);_context2.t1=_context2.t0.response.status;_context2.next=_context2.t1===422?15:17;break;case 15:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",19);case 17:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",19);case 19:case"end":return _context2.stop();}}},_callee2,null,[[5,10]]);}))();},cambiarTab1:function cambiarTab1(opcion,actual){var _this3=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(){var bandera,resul,_resul,_resul2,_resul3,parametros,isInvalid,_parametros,auxi,_resul4,_resul5,_resul6,_resul7,_resul8,_parametros2,_auxi,_resul9,_resul10,_resul11,_parametros3,_auxi2,_resul12,_resul13,_resul14,_parametros4,_auxi3,_resul15,_parametros5;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:bandera=false;if(!(actual==="tabIdentificacion")){_context3.next=89;break;}if(!(_this3.hogar.id_dpto==="")){_context3.next=6;break;}_this3.$refs.id_dpto.focus();_this3.$swal("Error...!","Por favor seleccione el departamento!","error");return _context3.abrupt("return");case 6:if(!(_this3.hogar.id_mun==="")){_context3.next=10;break;}_this3.$refs.id_mun.focus();_this3.$swal("Error...!","Por favor seleccione el municipio!","error");return _context3.abrupt("return");case 10:if(!(_this3.hogar.tenencia_vivienda==="")){_context3.next=14;break;}_this3.$refs.tenencia_vivienda.focus();_this3.$swal("Error...!","Por favor seleccione la tenencia de vivienda!","error");return _context3.abrupt("return");case 14:if(!(_this3.allLetter(_this3.hogar.numero_hogares)===false)){_context3.next=19;break;}_this3.$refs.numero_hogares.focus();_this3.hogar.numero_hogares="";_this3.$swal("Error...!","Por favor digite solo numero en el numero de hogares!","error");return _context3.abrupt("return");case 19:if(!(_this3.hogar.numero_hogares==="")){_context3.next=23;break;}_this3.$refs.numero_hogares.focus();_this3.$swal("Error...!","Por favor digite el numero de hogares!","error");return _context3.abrupt("return");case 23:if(!(_this3.hogar.poblacion_especial==="")){_context3.next=27;break;}_this3.$refs.poblacion_especial.focus();_this3.$swal("Error...!","Por favor seleccione la población especial!","error");return _context3.abrupt("return");case 27:if(!(_this3.hogar.vias_acceso==="")){_context3.next=31;break;}_this3.$refs.vias_acceso.focus();_this3.$swal("Error...!","Por favor seleccione si la comunidad presenta vías de acceso!","error");return _context3.abrupt("return");case 31:if(!(_this3.hogar.servicios_publicos==="")){_context3.next=35;break;}_this3.$refs.servicios_publicos.focus();_this3.$swal("Error...!","Por favor seleccione si presenta acceso fácil a los servicios públicos!","error");return _context3.abrupt("return");case 35:if(!(_this3.hogar.direccion==="")){_context3.next=39;break;}_this3.$refs.direccion.focus();_this3.$swal("Error...!","Por favor digite la dirección!","error");return _context3.abrupt("return");case 39:if(!(_this3.datosJefe.length<=0)){_context3.next=44;break;}_this3.$swal("Error...!","Por favor agregue por lo menos un jefe de hogar","error");return _context3.abrupt("return");case 44:resul=_this3.valJef1();if(!resul){_context3.next=49;break;}bandera=true;_context3.next=50;break;case 49:return _context3.abrupt("return",false);case 50:if(!(_this3.datos.length>0)){_context3.next=57;break;}_resul=_this3.valInt1();if(!_resul){_context3.next=56;break;}bandera=true;_context3.next=57;break;case 56:return _context3.abrupt("return",false);case 57:if(!(_this3.factores.length>0)){_context3.next=64;break;}_resul2=_this3.valFactores();if(!_resul2){_context3.next=63;break;}bandera=true;_context3.next=64;break;case 63:return _context3.abrupt("return",false);case 64:if(!(_this3.afectacion.length>0)){_context3.next=71;break;}_resul3=_this3.valAfectacion();if(!_resul3){_context3.next=70;break;}bandera=true;_context3.next=71;break;case 70:return _context3.abrupt("return",false);case 71://VALIDAR LA TABLA AFECTACION
 parametros={_token:_this3.csrf,hogar:_this3.hogar,caracterizacion:_this3.datosJefe,integrantes:_this3.datos,factores:_this3.factores,CODIGOGENE:_this3.CODIGOGENE,afectacion:_this3.afectacion,opcion:"MODIFICAR",opc:"GUAINDEN",id_hogar:_this3.IDHOGAR};_this3.valGIden=false;_context3.prev=73;_context3.next=76;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="E"){_this3.GIDEN=true;_this3.IDHOGAR=respuesta.data.IDHOGAR;_this3.valGIden=true;bandera=true;_this3.datosJefe.length=0;_this3.datos.length=0;_this3.factores.length=0;_this3.afectacion.length=0;_this3.datosJefe=respuesta.data.jefes;_this3.datos=respuesta.data.integrantes;_this3.factores=respuesta.data.factores;_this3.afectacion=respuesta.data.afectacion;}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña identificación","error");return;});case 76:_context3.next=89;break;case 78:_context3.prev=78;_context3.t0=_context3["catch"](73);_context3.t1=_context3.t0.response.status;_context3.next=_context3.t1===419?83:_context3.t1===422?85:87;break;case 83:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 85:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 87:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",89);case 89:if(!(actual==="tabVivienda")){_context3.next=125;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=94;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 94:_this3.$v.$touch();isInvalid=_this3.$v.$invalid;if(!isInvalid){_context3.next=101;break;}_this3.$swal("Error...!","Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda","error");return _context3.abrupt("return",false);case 101:if(!(_this3.estratificacion.length<=0)){_context3.next=104;break;}_this3.$swal("Error...!","Por favor agregue por lo menos una estratificación","error");return _context3.abrupt("return");case 104:if(!(_this3.ActividadData.length<=0)){_context3.next=107;break;}_this3.$swal("Error...!","Por favor agrege por lo menos una actividad economica!","error");return _context3.abrupt("return");case 107://GUARDAR DATOS
-_this3.valGVivi=false;_parametros={_token:_this3.csrf,vivienda:_this3.viviendaData,estratificacion:_this3.estratificacion,Animales:_this3.animalesData,actividad_viviendas:_this3.ActividadData,opcion:"MODIFICAR",opc:"GUAVIVI",IDHOGAR:_this3.IDHOGAR};_context3.prev=109;_context3.next=112;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GVIVI=true;bandera=true;_this3.valGVivi=true;_this3.viviendaData.id=respuesta.data.vivienda.id;_this3.animalesData.length=0;_this3.estratificacion.length=0;_this3.ActividadData.length=0;_this3.animalesData=respuesta.data.animales;_this3.estratificacion=respuesta.data.estratificacion;_this3.ActividadData=respuesta.data.actividad_viviendas;// this.RieAmbInh = respuesta.data.riesgos_ambientales;
-_this3.RieAmbInh.id_hogar=respuesta.data.riesgos_ambientales.id_hogar;_this3.RieAmbInh.riesgos_derrumbes=respuesta.data.riesgos_ambientales.riesgos_derrumbes;_this3.RieAmbInh.riesgos_inundacion=respuesta.data.riesgos_ambientales.riesgos_inundacion;_this3.RieAmbInh.riesgos_insalubridad=respuesta.data.riesgos_ambientales.riesgos_insalubridad;_this3.RieAmbInh.riesgos_atmosferico=respuesta.data.riesgos_ambientales.riesgos_atmosferico;_this3.RieAmbInh.riesgos_recurso_suelo=respuesta.data.riesgos_ambientales.riesgos_recurso_suelo;_this3.RieAmbInh.riesgos_quema=respuesta.data.riesgos_ambientales.riesgos_quema;_this3.RieAmbInh.riesgos_auditivo=respuesta.data.riesgos_ambientales.riesgos_auditivo;_this3.RieAmbInh.riesgos_recurso_hidrico=respuesta.data.riesgos_ambientales.riesgos_recurso_hidrico;_this3.RieAmbInh.riesgos_acceso_agua=respuesta.data.riesgos_ambientales.riesgos_acceso_agua;_this3.RieAmbInh.estado=respuesta.data.riesgos_ambientales.estado;_this3.RieAmbInh.id_compania=respuesta.data.riesgos_ambientales.id_compania;_this3.RieAmbInh.va_riesgos_derrumbes=respuesta.data.riesgos_ambientales.va_riesgos_derrumbes;_this3.RieAmbInh.va_riesgos_inundacion=respuesta.data.riesgos_ambientales.va_riesgos_inundacion;_this3.RieAmbInh.va_riesgos_insalubridad=respuesta.data.riesgos_ambientales.va_riesgos_insalubridad;_this3.RieAmbInh.va_riesgos_atmosferico=respuesta.data.riesgos_ambientales.va_riesgos_atmosferico;_this3.RieAmbInh.va_riesgos_recurso_suelo=respuesta.data.riesgos_ambientales.va_riesgos_recurso_suelo;_this3.RieAmbInh.va_riesgos_quema=respuesta.data.riesgos_ambientales.va_riesgos_quema;_this3.RieAmbInh.va_riesgos_auditivo=respuesta.data.riesgos_ambientales.va_riesgos_auditivo;_this3.RieAmbInh.va_riesgos_recurso_hidrico=respuesta.data.riesgos_ambientales.va_riesgos_recurso_hidrico;_this3.RieAmbInh.va_riesgos_acceso_agua=respuesta.data.riesgos_ambientales.va_riesgos_acceso_agua;_this3.RieAmbInh.color_riesgos_derrumbes=respuesta.data.riesgos_ambientales.color_riesgos_derrumbes;_this3.RieAmbInh.color_riesgos_inundacion=respuesta.data.riesgos_ambientales.color_riesgos_inundacion;_this3.RieAmbInh.color_riesgos_insalubridad=respuesta.data.riesgos_ambientales.color_riesgos_insalubridad;_this3.RieAmbInh.color_riesgos_atmosferico=respuesta.data.riesgos_ambientales.color_riesgos_atmosferico;_this3.RieAmbInh.color_riesgos_recurso_suelo=respuesta.data.riesgos_ambientales.color_riesgos_recurso_suelo;_this3.RieAmbInh.color_riesgos_quema=respuesta.data.riesgos_ambientales.color_riesgos_quema;_this3.RieAmbInh.color_riesgos_auditivo=respuesta.data.riesgos_ambientales.color_riesgos_auditivo;_this3.RieAmbInh.color_riesgos_recurso_hidrico=respuesta.data.riesgos_ambientales.color_riesgos_recurso_hidrico;_this3.RieAmbInh.color_riesgos_acceso_agua=respuesta.data.riesgos_ambientales.color_riesgos_acceso_agua;// this.RieAmbInh.control_riesgos_derrumbes = 0;
-// this.RieAmbInh.control_riesgos_inundacion = 0;
-// this.RieAmbInh.control_riesgos_insalubridad = 0;
-// this.RieAmbInh.control_riesgos_atmosferico = 0;
-// this.RieAmbInh.control_riesgos_recurso_suelo = 0;
-// this.RieAmbInh.control_riesgos_quema = 0;
-// this.RieAmbInh.control_riesgos_auditivo = 0;
-// this.RieAmbInh.control_riesgos_recurso_hidrico = 0;
-// this.RieAmbInh.control_riesgos_acceso_agua = 0;
-console.log(_this3.RieAmbInh);_this3.$refs.modalRieAmb.show();}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 112:_context3.next=125;break;case 114:_context3.prev=114;_context3.t2=_context3["catch"](109);_context3.t3=_context3.t2.response.status;_context3.next=_context3.t3===419?119:_context3.t3===422?121:123;break;case 119:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 121:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 123:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 125:if(!(actual==="cartxciclo")){_context3.next=193;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=130;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 130:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
+_this3.valGVivi=false;_parametros={_token:_this3.csrf,vivienda:_this3.viviendaData,estratificacion:_this3.estratificacion,Animales:_this3.animalesData,actividad_viviendas:_this3.ActividadData,opcion:"MODIFICAR",opc:"GUAVIVI",IDHOGAR:_this3.IDHOGAR};_context3.prev=109;_context3.next=112;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GVIVI=true;bandera=true;_this3.valGVivi=true;_this3.viviendaData.id=respuesta.data.vivienda.id;_this3.animalesData.length=0;_this3.estratificacion.length=0;_this3.ActividadData.length=0;_this3.animalesData=respuesta.data.animales;_this3.estratificacion=respuesta.data.estratificacion;_this3.ActividadData=respuesta.data.actividad_viviendas;_this3.RieAmbInh=respuesta.data.riesgos_ambientales;// this.RieAmbInh.id_hogar = respuesta.data.riesgos_ambientales.id_hogar;
+// this.RieAmbInh.riesgos_derrumbes = respuesta.data.riesgos_ambientales.riesgos_derrumbes;
+// this.RieAmbInh.riesgos_inundacion = respuesta.data.riesgos_ambientales.riesgos_inundacion;
+// this.RieAmbInh.riesgos_insalubridad = respuesta.data.riesgos_ambientales.riesgos_insalubridad;
+// this.RieAmbInh.riesgos_atmosferico = respuesta.data.riesgos_ambientales.riesgos_atmosferico;
+// this.RieAmbInh.riesgos_recurso_suelo = respuesta.data.riesgos_ambientales.riesgos_recurso_suelo;
+// this.RieAmbInh.riesgos_quema = respuesta.data.riesgos_ambientales.riesgos_quema;
+// this.RieAmbInh.riesgos_auditivo = respuesta.data.riesgos_ambientales.riesgos_auditivo;
+// this.RieAmbInh.riesgos_recurso_hidrico = respuesta.data.riesgos_ambientales.riesgos_recurso_hidrico;
+// this.RieAmbInh.riesgos_acceso_agua = respuesta.data.riesgos_ambientales.riesgos_acceso_agua;
+// this.RieAmbInh.estado = respuesta.data.riesgos_ambientales.estado;
+// this.RieAmbInh.id_compania = respuesta.data.riesgos_ambientales.id_compania;
+// this.RieAmbInh.va_riesgos_derrumbes = respuesta.data.riesgos_ambientales.va_riesgos_derrumbes;
+// this.RieAmbInh.va_riesgos_inundacion = respuesta.data.riesgos_ambientales.va_riesgos_inundacion;
+// this.RieAmbInh.va_riesgos_insalubridad = respuesta.data.riesgos_ambientales.va_riesgos_insalubridad;
+// this.RieAmbInh.va_riesgos_atmosferico = respuesta.data.riesgos_ambientales.va_riesgos_atmosferico;
+// this.RieAmbInh.va_riesgos_recurso_suelo = respuesta.data.riesgos_ambientales.va_riesgos_recurso_suelo;
+// this.RieAmbInh.va_riesgos_quema = respuesta.data.riesgos_ambientales.va_riesgos_quema;
+// this.RieAmbInh.va_riesgos_auditivo = respuesta.data.riesgos_ambientales.va_riesgos_auditivo;
+// this.RieAmbInh.va_riesgos_recurso_hidrico = respuesta.data.riesgos_ambientales.va_riesgos_recurso_hidrico;
+// this.RieAmbInh.va_riesgos_acceso_agua = respuesta.data.riesgos_ambientales.va_riesgos_acceso_agua;
+// this.RieAmbInh.color_riesgos_derrumbes = respuesta.data.riesgos_ambientales.color_riesgos_derrumbes;
+// this.RieAmbInh.color_riesgos_inundacion = respuesta.data.riesgos_ambientales.color_riesgos_inundacion;
+// this.RieAmbInh.color_riesgos_insalubridad = respuesta.data.riesgos_ambientales.color_riesgos_insalubridad;
+// this.RieAmbInh.color_riesgos_atmosferico = respuesta.data.riesgos_ambientales.color_riesgos_atmosferico;
+// this.RieAmbInh.color_riesgos_recurso_suelo = respuesta.data.riesgos_ambientales.color_riesgos_recurso_suelo;
+// this.RieAmbInh.color_riesgos_quema = respuesta.data.riesgos_ambientales.color_riesgos_quema;
+// this.RieAmbInh.color_riesgos_auditivo = respuesta.data.riesgos_ambientales.color_riesgos_auditivo;
+// this.RieAmbInh.color_riesgos_recurso_hidrico = respuesta.data.riesgos_ambientales.color_riesgos_recurso_hidrico;
+// this.RieAmbInh.color_riesgos_acceso_agua = respuesta.data.riesgos_ambientales.color_riesgos_acceso_agua;
+// this.RieAmbInh.control_riesgos_derrumbes = respuesta.data.riesgos_ambientales.control_riesgos_derrumbes;
+// this.RieAmbInh.control_riesgos_inundacion = respuesta.data.riesgos_ambientales.control_riesgos_inundacion;
+// this.RieAmbInh.control_riesgos_insalubridad = respuesta.data.riesgos_ambientales.control_riesgos_insalubridad;
+// this.RieAmbInh.control_riesgos_atmosferico = respuesta.data.riesgos_ambientales.control_riesgos_atmosferico;
+// this.RieAmbInh.control_riesgos_recurso_suelo = respuesta.data.riesgos_ambientales.control_riesgos_recurso_suelo;
+// this.RieAmbInh.control_riesgos_quema = respuesta.data.riesgos_ambientales.control_riesgos_quema;
+// this.RieAmbInh.control_riesgos_auditivo = respuesta.data.riesgos_ambientales.control_riesgos_auditivo;
+// this.RieAmbInh.control_riesgos_recurso_hidrico = respuesta.data.riesgos_ambientales.control_riesgos_recurso_hidrico;
+// this.RieAmbInh.control_riesgos_acceso_agua = respuesta.data.riesgos_ambientales.control_riesgos_acceso_agua;
+// this.RieAmbInh.val_residual_riesgos_derrumbes = respuesta.data.riesgos_ambientales.val_residual_riesgos_derrumbes;
+// this.RieAmbInh.val_residual_riesgos_inundacion = respuesta.data.riesgos_ambientales.val_residual_riesgos_inundacion;
+// this.RieAmbInh.val_residual_riesgos_insalubridad = respuesta.data.riesgos_ambientales.val_residual_riesgos_insalubridad;
+// this.RieAmbInh.val_residual_riesgos_atmosferico = respuesta.data.riesgos_ambientales.val_residual_riesgos_atmosferico;
+// this.RieAmbInh.val_residual_riesgos_recurso_suelo = respuesta.data.riesgos_ambientales.val_residual_riesgos_recurso_suelo;
+// this.RieAmbInh.val_residual_riesgos_quema = respuesta.data.riesgos_ambientales.val_residual_riesgos_quema;
+// this.RieAmbInh.val_residual_riesgos_auditivo = respuesta.data.riesgos_ambientales.val_residual_riesgos_auditivo;
+// this.RieAmbInh.val_residual_riesgos_recurso_hidrico = respuesta.data.riesgos_ambientales.val_residual_riesgos_recurso_hidrico;
+// this.RieAmbInh.val_residual_riesgos_acceso_agua = respuesta.data.riesgos_ambientales.val_residual_riesgos_acceso_agua;
+// this.RieAmbInh.color_residual_riesgos_derrumbes = respuesta.data.riesgos_ambientales.color_residual_riesgos_derrumbes;
+// this.RieAmbInh.color_residual_riesgos_inundacion = respuesta.data.riesgos_ambientales.color_residual_riesgos_inundacion;
+// this.RieAmbInh.color_residual_riesgos_insalubridad = respuesta.data.riesgos_ambientales.color_residual_riesgos_insalubridad;
+// this.RieAmbInh.color_residual_riesgos_atmosferico = respuesta.data.riesgos_ambientales.color_residual_riesgos_atmosferico;
+// this.RieAmbInh.color_residual_riesgos_recurso_suelo = respuesta.data.riesgos_ambientales.color_residual_riesgos_recurso_suelo;
+// this.RieAmbInh.color_residual_riesgos_quema = respuesta.data.riesgos_ambientales.color_residual_riesgos_quema;
+// this.RieAmbInh.color_residual_riesgos_auditivo = respuesta.data.riesgos_ambientales.color_residual_riesgos_auditivo;
+// this.RieAmbInh.color_residual_riesgos_recurso_hidrico = respuesta.data.riesgos_ambientales.color_residual_riesgos_recurso_hidrico;
+// this.RieAmbInh.color_residual_riesgos_acceso_agua = respuesta.data.riesgos_ambientales.color_residual_riesgos_acceso_agua;
+if(respuesta.data.ValoresRiesgosAmbientales!==null){_this3.datosRA=respuesta.data.ValoresRiesgosAmbientales;}_this3.$refs.modalRieAmb.show();}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 112:_context3.next=125;break;case 114:_context3.prev=114;_context3.t2=_context3["catch"](109);_context3.t3=_context3.t2.response.status;_context3.next=_context3.t3===419?119:_context3.t3===422?121:123;break;case 119:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 121:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 123:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",125);case 125:if(!(actual==="cartxciclo")){_context3.next=193;break;}bandera=true;if(!(_this3.IDHOGAR===0)){_context3.next=130;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 130:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
 if(!(_this3.Men1A.length>0)){_context3.next=139;break;}_resul4=_this3.valMen1();if(!_resul4){_context3.next=138;break;}bandera=true;auxi=true;_context3.next=139;break;case 138:return _context3.abrupt("return",false);case 139:if(!(_this3.De1A5.length>0)){_context3.next=147;break;}_resul5=_this3.valDe1A5();if(!_resul5){_context3.next=146;break;}bandera=true;auxi=true;_context3.next=147;break;case 146:return _context3.abrupt("return",false);case 147:if(!(_this3.De6A11.length>0)){_context3.next=155;break;}_resul6=_this3.valDe6A11();if(!_resul6){_context3.next=154;break;}bandera=true;auxi=true;_context3.next=155;break;case 154:return _context3.abrupt("return",false);case 155:if(!(_this3.De10A59.length>0)){_context3.next=163;break;}_resul7=_this3.valDe10A59();if(!_resul7){_context3.next=162;break;}bandera=true;auxi=true;_context3.next=163;break;case 162:return _context3.abrupt("return",false);case 163:if(!(_this3.ParPost.length>0)){_context3.next=171;break;}_resul8=_this3.valParPost();if(!_resul8){_context3.next=170;break;}bandera=true;auxi=true;_context3.next=171;break;case 170:return _context3.abrupt("return",false);case 171:if(!auxi){_context3.next=192;break;}//GUARDAR DATOS
 _parametros2={_token:_this3.csrf,Men1A:_this3.Men1A,De1A5:_this3.De1A5,De6A11:_this3.De6A11,De10A59:_this3.De10A59,ParPost:_this3.ParPost,opcion:"MODIFICAR",opc:"GUACARCI",IDHOGAR:_this3.IDHOGAR};_this3.valGCart=false;_context3.prev=174;_context3.next=177;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros2).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GCARXCI=true;bandera=true;_this3.valGCart=true;// GESTION DE LAS VARIABLES DE CART X CICLO
-_this3.Men1A.length=0;_this3.De1A5.length=0;_this3.De6A11.length=0;_this3.De10A59.length=0;_this3.ParPost.length=0;_this3.Men1A=respuesta.data.Men1A;_this3.De1A5=respuesta.data.De1A5;_this3.De6A11=respuesta.data.De6A11;_this3.De10A59=respuesta.data.De10A59;_this3.ParPost=respuesta.data.ParPost;// GESTION DE LAS VARIABLES DE CART X CICLO                    
-}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña ciclos","error");return;});case 177:_context3.next=190;break;case 179:_context3.prev=179;_context3.t4=_context3["catch"](174);_context3.t5=_context3.t4.response.status;_context3.next=_context3.t5===419?184:_context3.t5===422?186:188;break;case 184:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 186:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 188:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 190:_context3.next=193;break;case 192:bandera=true;case 193:if(!(actual==="adolescente")){_context3.next=245;break;}bandera=true;_auxi=false;if(!(_this3.IDHOGAR===0)){_context3.next=199;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 199:if(!(_this3.De12A17.length>0)){_context3.next=207;break;}_resul9=_this3.valDe12A17();if(!_resul9){_context3.next=206;break;}bandera=true;_auxi=true;_context3.next=207;break;case 206:return _context3.abrupt("return",false);case 207:if(!(_this3.De18A28.length>0)){_context3.next=215;break;}_resul10=_this3.valDe18A28();if(!_resul10){_context3.next=214;break;}bandera=true;_auxi=true;_context3.next=215;break;case 214:return _context3.abrupt("return",false);case 215:if(!(_this3.De29A59.length>0)){_context3.next=223;break;}_resul11=_this3.valDe29A59();if(!_resul11){_context3.next=222;break;}bandera=true;_auxi=true;_context3.next=223;break;case 222:return _context3.abrupt("return",false);case 223:if(!_auxi){_context3.next=244;break;}//GUARDAR DATOS
+_this3.Men1A.length=0;_this3.De1A5.length=0;_this3.De6A11.length=0;_this3.De10A59.length=0;_this3.ParPost.length=0;_this3.Men1A=respuesta.data.Men1A;_this3.De1A5=respuesta.data.De1A5;_this3.De6A11=respuesta.data.De6A11;_this3.De10A59=respuesta.data.De10A59;_this3.ParPost=respuesta.data.ParPost;// GESTION DE LAS VARIABLES DE CART X CICLO      
+if(respuesta.data.riesgos_salud_men1a!==null){_this3.datosRSMEN1A=respuesta.data.riesgos_salud_men1a;}_this3.vectorAuxRSMEN1A=[];_this3.$refs.modalRieSal1.show();}})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña ciclos","error");return;});case 177:_context3.next=190;break;case 179:_context3.prev=179;_context3.t4=_context3["catch"](174);_context3.t5=_context3.t4.response.status;_context3.next=_context3.t5===419?184:_context3.t5===422?186:188;break;case 184:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 186:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 188:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",190);case 190:_context3.next=193;break;case 192:bandera=true;case 193:if(!(actual==="adolescente")){_context3.next=245;break;}bandera=true;_auxi=false;if(!(_this3.IDHOGAR===0)){_context3.next=199;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 199:if(!(_this3.De12A17.length>0)){_context3.next=207;break;}_resul9=_this3.valDe12A17();if(!_resul9){_context3.next=206;break;}bandera=true;_auxi=true;_context3.next=207;break;case 206:return _context3.abrupt("return",false);case 207:if(!(_this3.De18A28.length>0)){_context3.next=215;break;}_resul10=_this3.valDe18A28();if(!_resul10){_context3.next=214;break;}bandera=true;_auxi=true;_context3.next=215;break;case 214:return _context3.abrupt("return",false);case 215:if(!(_this3.De29A59.length>0)){_context3.next=223;break;}_resul11=_this3.valDe29A59();if(!_resul11){_context3.next=222;break;}bandera=true;_auxi=true;_context3.next=223;break;case 222:return _context3.abrupt("return",false);case 223:if(!_auxi){_context3.next=244;break;}//GUARDAR DATOS
 _parametros3={_token:_this3.csrf,De12A17:_this3.De12A17,De18A28:_this3.De18A28,De29A59:_this3.De29A59,opcion:"MODIFICAR",opc:"GUADOLE",IDHOGAR:_this3.IDHOGAR};_this3.valGAdole=false;_context3.prev=226;_context3.next=229;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](_parametros3).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this3.GADOLE=true;bandera=true;_this3.valGAdole=true;_this3.De12A17.length=0;_this3.De18A28.length=0;_this3.De29A59.length=0;// GESTION DE LAS VARIABLES DE ADOLESCENTES
 _this3.De12A17=respuesta.data.De12A17;_this3.De18A28=respuesta.data.De18A28;_this3.De29A59=respuesta.data.De29A59;// GESTION DE LAS VARIABLES DE ADOLESCENTES                    
 }})["catch"](function(error){_this3.errorDevuelto=error.response.data.errors;_this3.entrarPorError=true;_this3.$swal("Error...!","No se pudo guardar los datos de la pestaña adolescentes","error");return;});case 229:_context3.next=242;break;case 231:_context3.prev=231;_context3.t6=_context3["catch"](226);_context3.t7=_context3.t6.response.status;_context3.next=_context3.t7===419?236:_context3.t7===422?238:240;break;case 236:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",242);case 238:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",242);case 240:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",242);case 242:_context3.next=245;break;case 244:bandera=true;case 245:if(!(actual==="adultomayor")){_context3.next=296;break;}_auxi2=false;if(!(_this3.IDHOGAR===0)){_context3.next=250;break;}_this3.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context3.abrupt("return",false);case 250:if(!(_this3.De60.length>0)){_context3.next=258;break;}_resul12=_this3.valDe60();if(!_resul12){_context3.next=257;break;}bandera=true;_auxi2=true;_context3.next=258;break;case 257:return _context3.abrupt("return",false);case 258:if(!(_this3.EnCro.length>0)){_context3.next=266;break;}_resul13=_this3.valEnCro();if(!_resul13){_context3.next=265;break;}bandera=true;_auxi2=true;_context3.next=266;break;case 265:return _context3.abrupt("return",false);case 266:if(!(_this3.EnInf.length>0)){_context3.next=274;break;}_resul14=_this3.valEnInf();if(!_resul14){_context3.next=273;break;}bandera=true;_auxi2=true;_context3.next=274;break;case 273:return _context3.abrupt("return",false);case 274:if(!_auxi2){_context3.next=295;break;}//GUARDAR DATOS
@@ -13251,11 +14007,11 @@ for(_i11=0;_i11<_this5.De60.length;_i11++){if(_this5.De60[_i11].grupo_ayudas==="
 for(_i12=0;_i12<_this5.EnCro.length;_i12++){if(_this5.EnCro[_i12].enfermedad===""){valid=true;}if(_this5.EnCro[_i12].tiempo===""){valid=true;}if(_this5.EnCro[_i12].tratamiento===""){valid=true;}if(_this5.EnCro[_i12].complicaciones===""){valid=true;}if(valid){_i12=_this5.EnCro.length;}}if(!valid){_context5.next=152;break;}_context5.next=144;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 144:_alert9=_context5.sent;if(!_alert9.value){_context5.next=149;break;}_this5.$router.push("/gestion");_context5.next=150;break;case 149:return _context5.abrupt("return",false);case 150:_context5.next=153;break;case 152:return _context5.abrupt("return",true);case 153:return _context5.abrupt("break",186);case 154:valid=false;// validar EnInf
 for(_i13=0;_i13<_this5.EnInf.length;_i13++){if(_this5.EnInf[_i13].enfermedad===""){valid=true;}if(_this5.EnInf[_i13].tiempo===""){valid=true;}if(_this5.EnInf[_i13].tratamiento===""){valid=true;}if(_this5.EnInf[_i13].complicaciones===""){valid=true;}if(valid){_i13=_this5.EnInf.length;}}if(!valid){_context5.next=167;break;}_context5.next=159;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 159:_alert10=_context5.sent;if(!_alert10.value){_context5.next=164;break;}_this5.$router.push("/gestion");_context5.next=165;break;case 164:return _context5.abrupt("return",false);case 165:_context5.next=168;break;case 167:return _context5.abrupt("return",true);case 168:return _context5.abrupt("break",186);case 169:valid=false;// validar Migra
 for(_i14=0;_i14<_this5.Migra.length;_i14++){if(_this5.Migra[_i14].pais===""){valid=true;}if(_this5.Migra[_i14].registrado===""){valid=true;}if(_this5.Migra[_i14].cuantollego===""){valid=true;}if(_this5.Migra[_i14].futuro===""){valid=true;}if(_this5.Migra[_i14].recibido===""){valid=true;}if(_this5.Migra[_i14].necesidad===""){valid=true;}if(_this5.Migra[_i14].dependen===""){valid=true;}if(_this5.Migra[_i14].ingreso===""){valid=true;}if(valid){_i14=_this5.Migra.length;}}if(!valid){_context5.next=182;break;}_context5.next=174;return _this5.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 174:_alert11=_context5.sent;if(!_alert11.value){_context5.next=179;break;}_this5.$router.push("/gestion");_context5.next=180;break;case 179:return _context5.abrupt("return",false);case 180:_context5.next=183;break;case 182:return _context5.abrupt("return",true);case 183:return _context5.abrupt("break",186);case 184:return _context5.abrupt("return",false);case 186:case"end":return _context5.stop();}}},_callee5);}))();},habilitar_zonas:function habilitar_zonas(){if(this.hogar.id_zona===""){this.estratificacionData.ingresos_zona_rural="";this.estratificacionData.ingresos_ciudad="";}if(this.hogar.id_zona==="0"){this.estratificacionData.ingresos_zona_rural=8;this.estratificacionData.ingresos_ciudad=8;}if(this.hogar.id_zona==="1"){this.estratificacionData.ingresos_zona_rural=8;this.estratificacionData.ingresos_ciudad="";}if(this.hogar.id_zona==="2"||this.hogar.id_zona==="3"){this.estratificacionData.ingresos_zona_rural="";this.estratificacionData.ingresos_ciudad=8;}},allLetter:function allLetter(valor){var letters=/^([0-9])*$/;if(valor===""){return false;}else{if(valor.match(letters)){return true;}else{return false;}}},isNumeric:function isNumeric(n){return!isNaN(parseFloat(n))&&isFinite(n);},validarNumHog:function validarNumHog(){if(this.hogar.numero_hogares<=0){this.hogar.numero_hogares="";}},SoloNumeros:function SoloNumeros(event){if(event.keyCode<48||event.keyCode>57){return false;// this.caracData.salario = 0;
-}},cambiarCombo:function(){var _cambiarCombo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(caja){var _this6=this;var parametros,_parametros6,_parametros7,vere;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:if(caja==="dpto"){this.hogar.id_mun="";this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";}if(!(caja==="muni")){_context6.next=34;break;}this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";parametros={_token:this.csrf,id:this.hogar.id_mun,opcion:"MUN"};_context6.prev=6;_context6.next=9;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 9:_context6.next=20;break;case 11:_context6.prev=11;_context6.t0=_context6["catch"](6);_context6.t1=_context6.t0.response.status;_context6.next=_context6.t1===422?16:18;break;case 16:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",20);case 18:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",20);case 20:_context6.prev=20;_context6.next=23;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](parametros).then(function(respuesta){_this6.colegio_options=respuesta.data.arrayColegios;});case 23:_context6.next=34;break;case 25:_context6.prev=25;_context6.t2=_context6["catch"](20);_context6.t3=_context6.t2.response.status;_context6.next=_context6.t3===422?30:32;break;case 30:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",34);case 32:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",34);case 34:if(!(caja==="corregi")){_context6.next=70;break;}this.hogar.id_vereda="";this.hogar.id_barrio="";if(!(this.hogar.id_corre!=="0"&&this.hogar.id_corre!=="")){_context6.next=69;break;}_parametros6={_token:this.csrf,id:this.hogar.id_corre,opcion:"CORRE"};_context6.prev=39;_context6.next=42;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros6).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 42:_context6.next=53;break;case 44:_context6.prev=44;_context6.t4=_context6["catch"](39);_context6.t5=_context6.t4.response.status;_context6.next=_context6.t5===422?49:51;break;case 49:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",53);case 51:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",53);case 53:_context6.prev=53;_context6.next=56;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](_parametros6).then(function(respuesta){_this6.colegio_options=respuesta.data.arrayColegios;});case 56:_context6.next=67;break;case 58:_context6.prev=58;_context6.t6=_context6["catch"](53);_context6.t7=_context6.t6.response.status;_context6.next=_context6.t7===422?63:65;break;case 63:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",67);case 65:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",67);case 67:_context6.next=70;break;case 69:if(this.hogar.id_corre==="0"){this.cambiarCombo("muni");this.hogar.id_corre="0";}else{this.cambiarCombo("muni");}case 70:if(caja==="etnia"){if(this.caracData.etnia===7){this.caracData.clasificacion="89";}else{this.caracData.clasificacion="";}console.log(this.caracData.clasificacion);}if(caja==="etnia2"){if(this.CA1.etnia===7){this.CA1.clasificacion="89";}else{this.CA1.clasificacion="0";}}if(!(caja==="vereda")){_context6.next=91;break;}this.hogar.id_barrio="0";_parametros7={_token:this.csrf,id:this.hogar.id_corre,opcion:"VERE"};_context6.prev=75;_context6.next=78;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros7).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 78:_context6.next=89;break;case 80:_context6.prev=80;_context6.t8=_context6["catch"](75);_context6.t9=_context6.t8.response.status;_context6.next=_context6.t9===422?85:87;break;case 85:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",89);case 87:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",89);case 89:vere="";if(this.hogar.id_vereda===""||this.hogar.id_vereda==="0"){vere=this.hogar.id_vereda;this.cambiarCombo("corregi");if(vere==="0"){this.hogar.id_vereda="0";}}case 91:if(caja==="IdenGen1"){if(this.caracData.identidad_genero==="NA"){this.caracData.orientacion="NA";}else{this.caracData.orientacion="";}if(this.caracData.identidad_genero==="CISGENERO"){this.caracData.orientacion="HETEROSEXUAL";}}if(caja==="IdenGen2"){if(this.CA1.identidad_genero==="NA"){this.CA1.orientacion="NA";}else{this.CA1.orientacion="0";}if(this.CA1.identidad_genero==="CISGENERO"){this.CA1.orientacion="HETEROSEXUAL";}}if(caja==="Orienta1"){if(this.caracData.orientacion==="HETEROSEXUAL"){this.caracData.identidad_genero="CISGENERO";}}if(caja==="Orienta2"){if(this.CA1.orientacion==="HETEROSEXUAL"){this.CA1.identidad_genero="CISGENERO";}}case 95:case"end":return _context6.stop();}}},_callee6,this,[[6,11],[20,25],[39,44],[53,58],[75,80]]);}));function cambiarCombo(_x3){return _cambiarCombo.apply(this,arguments);}return cambiarCombo;}(),formato:function formato(caja){if(caja=="id1"){if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var val=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}if(caja=="salario"){this.caracData.salario=this.caracData.salario.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val=(this.caracData.salario/1).toFixed(0).replace(".",",");this.caracData.salario=_val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.salario=="NaN"){this.caracData.salario="";}// if (this.caracData.salario == "0") {
+}},cambiarCombo:function(){var _cambiarCombo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(caja){var _this6=this;var parametros,_parametros6,_parametros7,vere;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6){while(1){switch(_context6.prev=_context6.next){case 0:if(caja==="dpto"){this.hogar.id_mun="";this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";}if(!(caja==="muni")){_context6.next=34;break;}this.hogar.id_corre="";this.hogar.id_vereda="";this.hogar.id_barrio="";parametros={_token:this.csrf,id:this.hogar.id_mun,opcion:"MUN"};_context6.prev=6;_context6.next=9;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](parametros).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 9:_context6.next=20;break;case 11:_context6.prev=11;_context6.t0=_context6["catch"](6);_context6.t1=_context6.t0.response.status;_context6.next=_context6.t1===422?16:18;break;case 16:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",20);case 18:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",20);case 20:_context6.prev=20;_context6.next=23;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](parametros).then(function(respuesta){_this6.colegio_options=respuesta.data.arrayColegios;});case 23:_context6.next=34;break;case 25:_context6.prev=25;_context6.t2=_context6["catch"](20);_context6.t3=_context6.t2.response.status;_context6.next=_context6.t3===422?30:32;break;case 30:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",34);case 32:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",34);case 34:if(!(caja==="corregi")){_context6.next=70;break;}this.hogar.id_vereda="";this.hogar.id_barrio="";if(!(this.hogar.id_corre!=="0"&&this.hogar.id_corre!=="")){_context6.next=69;break;}_parametros6={_token:this.csrf,id:this.hogar.id_corre,opcion:"CORRE"};_context6.prev=39;_context6.next=42;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros6).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 42:_context6.next=53;break;case 44:_context6.prev=44;_context6.t4=_context6["catch"](39);_context6.t5=_context6.t4.response.status;_context6.next=_context6.t5===422?49:51;break;case 49:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",53);case 51:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",53);case 53:_context6.prev=53;_context6.next=56;return _Servicios_colegios_servicios__WEBPACK_IMPORTED_MODULE_3__["combo"](_parametros6).then(function(respuesta){_this6.colegio_options=respuesta.data.arrayColegios;});case 56:_context6.next=67;break;case 58:_context6.prev=58;_context6.t6=_context6["catch"](53);_context6.t7=_context6.t6.response.status;_context6.next=_context6.t7===422?63:65;break;case 63:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",67);case 65:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",67);case 67:_context6.next=70;break;case 69:if(this.hogar.id_corre==="0"){this.cambiarCombo("muni");this.hogar.id_corre="0";}else{this.cambiarCombo("muni");}case 70:if(caja==="etnia"){if(this.caracData.etnia===7){this.caracData.clasificacion="89";}else{this.caracData.clasificacion="";}}if(caja==="etnia2"){if(this.CA1.etnia===7){this.CA1.clasificacion="89";}else{this.CA1.clasificacion="0";}}if(!(caja==="vereda")){_context6.next=91;break;}this.hogar.id_barrio="0";_parametros7={_token:this.csrf,id:this.hogar.id_corre,opcion:"VERE"};_context6.prev=75;_context6.next=78;return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_2__["comboBarrios"](_parametros7).then(function(respuesta){_this6.barrio_options=respuesta.data.arrayBarrios;});case 78:_context6.next=89;break;case 80:_context6.prev=80;_context6.t8=_context6["catch"](75);_context6.t9=_context6.t8.response.status;_context6.next=_context6.t9===422?85:87;break;case 85:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",89);case 87:this.$swal("Error...!","Ocurrio un error!","error");return _context6.abrupt("break",89);case 89:vere="";if(this.hogar.id_vereda===""||this.hogar.id_vereda==="0"){vere=this.hogar.id_vereda;this.cambiarCombo("corregi");if(vere==="0"){this.hogar.id_vereda="0";}}case 91:if(caja==="IdenGen1"){if(this.caracData.identidad_genero==="NA"){this.caracData.orientacion="NA";}else{this.caracData.orientacion="";}if(this.caracData.identidad_genero==="CISGENERO"){this.caracData.orientacion="HETEROSEXUAL";}}if(caja==="IdenGen2"){if(this.CA1.identidad_genero==="NA"){this.CA1.orientacion="NA";}else{this.CA1.orientacion="0";}if(this.CA1.identidad_genero==="CISGENERO"){this.CA1.orientacion="HETEROSEXUAL";}}if(caja==="Orienta1"){if(this.caracData.orientacion==="HETEROSEXUAL"){this.caracData.identidad_genero="CISGENERO";}}if(caja==="Orienta2"){if(this.CA1.orientacion==="HETEROSEXUAL"){this.CA1.identidad_genero="CISGENERO";}}case 95:case"end":return _context6.stop();}}},_callee6,this,[[6,11],[20,25],[39,44],[53,58],[75,80]]);}));function cambiarCombo(_x3){return _cambiarCombo.apply(this,arguments);}return cambiarCombo;}(),formato:function formato(caja){if(caja=="id1"){if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var val=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}if(caja=="salario"){this.caracData.salario=this.caracData.salario.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val=(this.caracData.salario/1).toFixed(0).replace(".",",");this.caracData.salario=_val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.salario=="NaN"){this.caracData.salario="";}// if (this.caracData.salario == "0") {
 //   this.caracData.salario = "";
 // }
-}if(caja=="tipoid"){this.caracData.identificacion="";if(this.caracData.tipo_id!="CC"){if(this.caracData.tipo_id==="ASI"||this.caracData.tipo_id==="MSI"){this.caracData.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val2=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=_val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}}if(caja=="id2"){if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val3=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}if(caja=="tipoid2"){this.CA1.identificacion="";if(this.CA1.tipo_id!="CC"){if(this.CA1.tipo_id==="ASI"||this.CA1.tipo_id==="MSI"){this.CA1.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val4=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}}if(caja=="telefono1"){this.caracData.telefono=this.caracData.telefono.replace(/[^.\d]/g,"").trim();if(this.caracData.telefono=="NaN"){this.caracData.telefono="";}if(this.caracData.telefono=="0"){this.caracData.telefono="";}}if(caja=="telefono2"){this.CA1.telefono=this.CA1.telefono.replace(/[^.\d]/g,"").trim();if(this.CA1.telefono=="NaN"){this.CA1.telefono="";}if(this.CA1.telefono=="0"){this.CA1.telefono="";}}if(caja=="puntaje"){}if(caja=="puntaje1"){}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},// OPCIONES DE LAS OCUPACIONES
-abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();this.$refs.modalRieAmb.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this7=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:parametros={txtbusqueda:_this7.txtbusqueda.trim(),_token:_this7.csrf,page:pagina};_context7.prev=1;_context7.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this7.ocupacionesVector=respuesta.data.ocupaciones.data;_this7.paginacionVector=respuesta.data.paginacion;});case 4:_context7.next=15;break;case 6:_context7.prev=6;_context7.t0=_context7["catch"](1);_context7.t1=_context7.t0.response.status;_context7.next=_context7.t1===422?11:13;break;case 11:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 13:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 15:case"end":return _context7.stop();}}},_callee7,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},// OPCIONES DE LAS OCUPACIONES
+}if(caja=="tipoid"){this.caracData.identificacion="";if(this.caracData.tipo_id!="CC"){if(this.caracData.tipo_id==="ASI"||this.caracData.tipo_id==="MSI"){this.caracData.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.caracData.tipo_id=="CC"){this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val2=(this.caracData.identificacion/1).toFixed(0).replace(".",",");this.caracData.identificacion=_val2.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.caracData.identificacion=="NaN"){this.caracData.identificacion="";}if(this.caracData.identificacion=="0"){this.caracData.identificacion="";}}}}if(caja=="id2"){if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val3=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val3.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}if(caja=="tipoid2"){this.CA1.identificacion="";if(this.CA1.tipo_id!="CC"){if(this.CA1.tipo_id==="ASI"||this.CA1.tipo_id==="MSI"){this.CA1.identificacion=this.CODIGOGENE+Math.floor(Math.random()*100+1);}else{this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");}}else{if(this.CA1.tipo_id=="CC"){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var _val4=(this.CA1.identificacion/1).toFixed(0).replace(".",",");this.CA1.identificacion=_val4.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");if(this.CA1.identificacion=="NaN"){this.CA1.identificacion="";}if(this.CA1.identificacion=="0"){this.CA1.identificacion="";}}}}if(caja=="telefono1"){this.caracData.telefono=this.caracData.telefono.replace(/[^.\d]/g,"").trim();if(this.caracData.telefono=="NaN"){this.caracData.telefono="";}if(this.caracData.telefono=="0"){this.caracData.telefono="";}}if(caja=="telefono2"){this.CA1.telefono=this.CA1.telefono.replace(/[^.\d]/g,"").trim();if(this.CA1.telefono=="NaN"){this.CA1.telefono="";}if(this.CA1.telefono=="0"){this.CA1.telefono="";}}if(caja=="puntaje"){}if(caja=="puntaje1"){}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}if(caja=="percargo"){this.caracData.percargo=this.caracData.percargo.replace(/[^.\d]/g,"").trim();if(this.caracData.percargo=="NaN"){this.caracData.percargo="0";}}},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15||this.caracData.nivel_escolaridad===1||this.caracData.nivel_escolaridad===4){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15||this.CA1.escolaridad===1||this.CA1.escolaridad===4){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},// OPCIONES DE LAS OCUPACIONES
+abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();this.$refs.modalRieAmb.hide();this.$refs.modalRieSal1.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this7=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7){while(1){switch(_context7.prev=_context7.next){case 0:parametros={txtbusqueda:_this7.txtbusqueda.trim(),_token:_this7.csrf,page:pagina};_context7.prev=1;_context7.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this7.ocupacionesVector=respuesta.data.ocupaciones.data;_this7.paginacionVector=respuesta.data.paginacion;});case 4:_context7.next=15;break;case 6:_context7.prev=6;_context7.t0=_context7["catch"](1);_context7.t1=_context7.t0.response.status;_context7.next=_context7.t1===422?11:13;break;case 11:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 13:_this7.$swal("Error...!","Ocurrio un error!","error");return _context7.abrupt("break",15);case 15:case"end":return _context7.stop();}}},_callee7,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},// OPCIONES DE LAS OCUPACIONES
 //OPCIONES DEL JEFE DE HOGAR
 agregarJefe:function(){var _agregarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8){while(1){switch(_context8.prev=_context8.next){case 0:if(!(this.checkForm()===true)){_context8.next=12;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
 this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.caracData.identificacion};_context8.prev=3;_context8.next=6;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this8.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
@@ -13263,7 +14019,7 @@ var resultado=_this8.datosJefe.filter(function(identi){return identi.identificac
 if(resultado.length){_this8.$swal("Validar...!","El Documento <b>"+_this8.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento3=moment(_this8.caracData.fecha_nacimiento);var _hoy3=moment();var edad=0;if(_nacimiento3<_hoy3){edad=_hoy3.diff(_nacimiento3,"years");//Calculamos la diferencia en años
 }if(edad<14){_this8.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}//VALIDAR LA TABLA ENFERMEDADES JEFES
 if(_this8.caracData.enfermedades.length>0){for(var i=0;i<_this8.caracData.enfermedades.length;i++){if(_this8.caracData.enfermedades[i].tiempo===""){_this8.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this8.caracData.enfermedades[i].tratamiento===""){_this8.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES JEFES
-var textoEps="";if(_this8.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.caracData.afiliacion_entidad,_this8.admini_options);}}_this8.datosJefe.push({id:0,id_hogar:0,telefono:_this8.caracData.telefono,puntaje_sisben:_this8.caracData.puntaje_sisben,afiliacion_entidad:_this8.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this8.caracData.otra_eps,tipo_id:_this8.caracData.tipo_id,identificacion:_this8.caracData.identificacion,sexo:_this8.caracData.sexo,parentesco:_this8.caracData.parentesco,textoParentesco:_this8.showText(_this8.caracData.parentesco,_this8.parentesco_options),pnom:_this8.caracData.pnom,snom:_this8.caracData.snom,pape:_this8.caracData.pape,sape:_this8.caracData.sape,salario:_this8.caracData.salario,estado_civil:_this8.caracData.estado_civil,textoEstado:_this8.showText(_this8.caracData.estado_civil,_this8.estado_options),fecha_nacimiento:_this8.caracData.fecha_nacimiento,tipo_afiliacion:_this8.caracData.tipo_afiliacion,embarazo:_this8.caracData.embarazo,embarazo_multiple:_this8.caracData.embarazo_multiple,discapacidad:_this8.caracData.discapacidad,nivel_escolaridad:_this8.caracData.nivel_escolaridad,textoNivel:_this8.showText(_this8.caracData.nivel_escolaridad,_this8.escolaridad_options),ocupacion:_this8.caracData.ocupacion,textoOcupacion:_this8.showText(_this8.caracData.ocupacion,_this8.ocupacion_options),colegio:_this8.caracData.colegio,textoColegio:_this8.showText(_this8.caracData.colegio,_this8.colegio_options),grado:_this8.caracData.grado,entiende:_this8.caracData.entiende,migrante:_this8.caracData.migrante,pyp:_this8.caracData.pyp,etnia:_this8.caracData.etnia,textoEtnia:_this8.showText(_this8.caracData.etnia,_this8.etnia_options),clasificacion:_this8.caracData.clasificacion,textoClasificacion:_this8.showText2(_this8.caracData.clasificacion,_this8.clasifi_options,_this8.caracData.etnia),edad:_this8.caracData.edad,orientacion:_this8.caracData.orientacion,identidad_genero:_this8.caracData.identidad_genero,perdida_peso:_this8.caracData.perdida_peso,programa_icbf:_this8.caracData.programa_icbf,identi_auxi:"",estado:"Activo",peso:_this8.caracData.peso,talla:_this8.caracData.talla,enfermedades:[],antecedentes:[]});for(var _i15=0;_i15<_this8.caracData.enfermedades.length;_i15++){_this8.datosJefe[_this8.datosJefe.length-1].enfermedades.push({id:_this8.caracData.enfermedades[_i15].id,id_hogar:_this8.caracData.enfermedades[_i15].id_hogar,id_jefe:_this8.caracData.enfermedades[_i15].id_jefe,textoEnfermedad:_this8.caracData.enfermedades[_i15].textoEnfermedad,id_enfermedad:_this8.caracData.enfermedades[_i15].id_enfermedad,tipo:_this8.caracData.enfermedades[_i15].tipo,tiempo:_this8.caracData.enfermedades[_i15].tiempo,tratamiento:_this8.caracData.enfermedades[_i15].tratamiento,estado:_this8.caracData.enfermedades[_i15].estado});_this8.datosJefe.splice(_this8.datosJefe.length-1,1,_this8.datosJefe[_this8.datosJefe.length-1]);}for(var _i16=0;_i16<_this8.caracData.antecedentes.length;_i16++){_this8.datosJefe[_this8.datosJefe.length-1].antecedentes.push({id:_this8.caracData.antecedentes[_i16].id,id_hogar:_this8.caracData.antecedentes[_i16].id_hogar,id_jefe:_this8.caracData.antecedentes[_i16].id_jefe,textoAntecedente:_this8.caracData.antecedentes[_i16].textoAntecedente,id_antecedente:_this8.caracData.antecedentes[_i16].id_antecedente,estado:_this8.caracData.antecedentes[_i16].estado});_this8.datosJefe.splice(_this8.datosJefe.length-1,1,_this8.datosJefe[_this8.datosJefe.length-1]);}_this8.caracData.enfermedades.length=[];_this8.caracData.antecedentes.length=[];if(_this8.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this8.caracData.tipo_afiliacion==="ESPECIAL"){_this8.SAPU=true;_this8.estratificacionData.afiliacion_salud_privada="SI";}_this8.ocupacionAuxiliar="";_this8.mOCOL1=false;var indice=_this8.datosJefe.findIndex(function(identi){return identi.identificacion===_this8.caracData.identificacion;});_this8.vectorJefes.push({index:indice,identificacion:_this8.caracData.identificacion});// AGREGAR FACTORES
+var textoEps="";if(_this8.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.caracData.afiliacion_entidad,_this8.admini_options);}}_this8.datosJefe.push({id:0,id_hogar:0,telefono:_this8.caracData.telefono,puntaje_sisben:_this8.caracData.puntaje_sisben,afiliacion_entidad:_this8.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this8.caracData.otra_eps,tipo_id:_this8.caracData.tipo_id,identificacion:_this8.caracData.identificacion,sexo:_this8.caracData.sexo,parentesco:_this8.caracData.parentesco,textoParentesco:_this8.showText(_this8.caracData.parentesco,_this8.parentesco_options),pnom:_this8.caracData.pnom,snom:_this8.caracData.snom,pape:_this8.caracData.pape,sape:_this8.caracData.sape,salario:_this8.caracData.salario,estado_civil:_this8.caracData.estado_civil,textoEstado:_this8.showText(_this8.caracData.estado_civil,_this8.estado_options),fecha_nacimiento:_this8.caracData.fecha_nacimiento,tipo_afiliacion:_this8.caracData.tipo_afiliacion,embarazo:_this8.caracData.embarazo,embarazo_multiple:_this8.caracData.embarazo_multiple,discapacidad:_this8.caracData.discapacidad,nivel_escolaridad:_this8.caracData.nivel_escolaridad,textoNivel:_this8.showText(_this8.caracData.nivel_escolaridad,_this8.escolaridad_options),ocupacion:_this8.caracData.ocupacion,textoOcupacion:_this8.showText(_this8.caracData.ocupacion,_this8.ocupacion_options),colegio:_this8.caracData.colegio,textoColegio:_this8.showText(_this8.caracData.colegio,_this8.colegio_options),grado:_this8.caracData.grado,entiende:_this8.caracData.entiende,migrante:_this8.caracData.migrante,pyp:_this8.caracData.pyp,etnia:_this8.caracData.etnia,textoEtnia:_this8.showText(_this8.caracData.etnia,_this8.etnia_options),clasificacion:_this8.caracData.clasificacion,textoClasificacion:_this8.showText2(_this8.caracData.clasificacion,_this8.clasifi_options,_this8.caracData.etnia),edad:_this8.caracData.edad,orientacion:_this8.caracData.orientacion,identidad_genero:_this8.caracData.identidad_genero,perdida_peso:_this8.caracData.perdida_peso,programa_icbf:_this8.caracData.programa_icbf,identi_auxi:"",estado:"Activo",peso:_this8.caracData.peso,talla:_this8.caracData.talla,enfermedades:[],antecedentes:[],tipo_empleo:_this8.caracData.tipo_empleo,percargo:_this8.caracData.percargo});for(var _i15=0;_i15<_this8.caracData.enfermedades.length;_i15++){_this8.datosJefe[_this8.datosJefe.length-1].enfermedades.push({id:_this8.caracData.enfermedades[_i15].id,id_hogar:_this8.caracData.enfermedades[_i15].id_hogar,id_jefe:_this8.caracData.enfermedades[_i15].id_jefe,textoEnfermedad:_this8.caracData.enfermedades[_i15].textoEnfermedad,id_enfermedad:_this8.caracData.enfermedades[_i15].id_enfermedad,tipo:_this8.caracData.enfermedades[_i15].tipo,tiempo:_this8.caracData.enfermedades[_i15].tiempo,tratamiento:_this8.caracData.enfermedades[_i15].tratamiento,estado:_this8.caracData.enfermedades[_i15].estado});_this8.datosJefe.splice(_this8.datosJefe.length-1,1,_this8.datosJefe[_this8.datosJefe.length-1]);}for(var _i16=0;_i16<_this8.caracData.antecedentes.length;_i16++){_this8.datosJefe[_this8.datosJefe.length-1].antecedentes.push({id:_this8.caracData.antecedentes[_i16].id,id_hogar:_this8.caracData.antecedentes[_i16].id_hogar,id_jefe:_this8.caracData.antecedentes[_i16].id_jefe,textoAntecedente:_this8.caracData.antecedentes[_i16].textoAntecedente,id_antecedente:_this8.caracData.antecedentes[_i16].id_antecedente,estado:_this8.caracData.antecedentes[_i16].estado});_this8.datosJefe.splice(_this8.datosJefe.length-1,1,_this8.datosJefe[_this8.datosJefe.length-1]);}_this8.caracData.enfermedades.length=[];_this8.caracData.antecedentes.length=[];if(_this8.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this8.caracData.tipo_afiliacion==="ESPECIAL"){_this8.SAPU=true;_this8.estratificacionData.afiliacion_salud_privada="SI";}_this8.ocupacionAuxiliar="";_this8.mOCOL1=false;var indice=_this8.datosJefe.findIndex(function(identi){return identi.identificacion===_this8.caracData.identificacion;});_this8.vectorJefes.push({index:indice,identificacion:_this8.caracData.identificacion});// AGREGAR FACTORES
 _this8.AFactores(_this8.caracData,edad);// AGREGAR FACTORES
 // AGREGAR AFECTACION
 _this8.AAFECTACION(_this8.caracData,edad);// AGREGAR AFECTACION                    
@@ -13281,7 +14037,7 @@ if(edad>=29&&edad<=59){_this8.Ade29a59Anio(_this8.caracData,edad,"JEFE");}// AGR
 if(edad>=60){_this8.Ade60Anio(_this8.caracData,edad,"JEFE");}// AGREGAR DE 60 ó MAS AÑOS
 // AGREGAR MIGRANTES
 if(_this8.caracData.migrante==="SI"){_this8.AMigra(_this8.caracData,edad,"JEFE");}// AGREGAR MIGRANTES
-_this8.limpiar2();}}})["catch"](function(error){_this8.errorDevuelto=error.response.data.errors;_this8.entrarPorError=true;});case 6:_context8.next=12;break;case 8:_context8.prev=8;_context8.t0=_context8["catch"](3);this.errorDevuelto=_context8.t0.response.data.errors;this.entrarPorError=true;case 12:case"end":return _context8.stop();}}},_callee8,this,[[3,8]]);}));function agregarJefe(){return _agregarJefe.apply(this,arguments);}return agregarJefe;}(),calculosAedad:function calculosAedad(){var a=moment();var b=moment(this.caracData.fecha_nacimiento);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years>=18){this.caracData.programa_icbf="NA";}else{this.caracData.programa_icbf="";}if(years<=8){this.caracData.estado_civil=9;}else{this.caracData.estado_civil="";}},checkForm:function checkForm(e){var bande=true;if(this.caracData.tipo_id===""){this.$refs.tipo_id.focus();bande=false;this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return;}if(this.caracData.identificacion===""){this.$refs.identificacion.focus();bande=false;this.$swal("Error...!","Por favor digite una identificación!","error");return;}if(this.caracData.sexo===""){this.$refs.sexo.focus();bande=false;this.$swal("Error...!","Por favor seleccione el sexo!","error");return;}if(this.caracData.orientacion===""){bande=false;this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return;}if(this.caracData.identidad_genero===""){bande=false;this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return;}if(this.caracData.parentesco===""){this.$refs.parentesco.focus();bande=false;this.$swal("Error...!","Por favor seleccione el parentesco!","error");return;}if(this.caracData.pnom===""){this.$refs.pnom.focus();bande=false;this.$swal("Error...!","Por favor digite el primer nombre!","error");return;}if(this.caracData.pape===""){this.$refs.pape.focus();bande=false;this.$swal("Error...!","Por favor digite el primer apellido!","error");return;}if(this.caracData.estado_civil===""){this.$refs.estado_civil.focus();bande=false;this.$swal("Error...!","Por favor seleccione el estado civil!","error");return;}if(this.caracData.fecha_nacimiento===""){this.$refs.fecha_nacimiento.focus();bande=false;this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return;}if(this.caracData.afiliacion_entidad===""){this.$refs.afiliacion_entidad.focus();bande=false;this.$swal("Error...!","Por favor seleccione la eps!","error");return;}if(this.caracData.tipo_afiliacion===""){this.$refs.tipo_afiliacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return;}if(this.caracData.ocupacion===""){this.$refs.ocupacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la ocupación!","error");return;}if(this.caracData.etnia===""){this.$refs.etnia.focus();bande=false;this.$swal("Error...!","Por favor seleccione la etnia!","error");return;}if(this.caracData.clasificacion===""){this.$refs.clasificacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return;}if(this.caracData.salario===""){this.$refs.salario.focus();bande=false;this.$swal("Error...!","Por favor digite el salario!","error");return;}if(this.caracData.perdida_peso===""){this.$refs.perdida_peso.focus();bande=false;this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return;}if(this.caracData.programa_icbf===""){bande=false;this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return;}if(this.caracData.peso===""){bande=false;this.$swal("Error...!","Por favor digite el peso!","error");return;}if(this.caracData.talla===""){bande=false;this.$swal("Error...!","Por favor digite la talla!","error");return;}return bande;e.preventDefault();},showText:function showText(val,vectorAux){for(var i=0;i<vectorAux.length;i++){if(vectorAux[i].value===val){return vectorAux[i].texto;}}return"";},showText2:function showText2(val,vectorAux,id){if(id===""){return"";}for(var i=0;i<vectorAux[id].length;i++){if(vectorAux[id][i].value===val){return vectorAux[id][i].texto;}}return"";},eliminarItemJefe:function eliminarItemJefe(index,item){var _this9=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el jefe de hogar  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this9.datosJefe.splice(index,1);_this9.vectorJefes.splice(index,1);var identificacion=item.identificacion;_this9.factores=_this9.factores.filter(function(men){return men.identificacion!=identificacion;});_this9.afectacion=_this9.afectacion.filter(function(men){return men.identificacion!=identificacion;});_this9.estratificacion=_this9.estratificacion.filter(function(men){return men.id_jefe!=identificacion;});_this9.Men1A=_this9.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this9.De1A5=_this9.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this9.De6A11=_this9.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this9.De10A59=_this9.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this9.ParPost=_this9.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this9.De12A17=_this9.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this9.De18A28=_this9.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this9.De29A59=_this9.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this9.De60=_this9.De60.filter(function(men){return men.identificacion!=identificacion;});_this9.EnCro=_this9.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this9.EnInf=_this9.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this9.Migra=_this9.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion=item.identificacion;// TABLA datos
+_this8.limpiar2();}}})["catch"](function(error){_this8.errorDevuelto=error.response.data.errors;_this8.entrarPorError=true;});case 6:_context8.next=12;break;case 8:_context8.prev=8;_context8.t0=_context8["catch"](3);this.errorDevuelto=_context8.t0.response.data.errors;this.entrarPorError=true;case 12:case"end":return _context8.stop();}}},_callee8,this,[[3,8]]);}));function agregarJefe(){return _agregarJefe.apply(this,arguments);}return agregarJefe;}(),calculosAedad:function calculosAedad(){var a=moment();var b=moment(this.caracData.fecha_nacimiento);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years>=18){this.caracData.programa_icbf="NA";}else{this.caracData.programa_icbf="";}if(years<=8){this.caracData.estado_civil=9;}else{this.caracData.estado_civil="";}},checkForm:function checkForm(e){var bande=true;if(this.caracData.tipo_id===""){this.$refs.tipo_id.focus();bande=false;this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return;}if(this.caracData.identificacion===""){this.$refs.identificacion.focus();bande=false;this.$swal("Error...!","Por favor digite una identificación!","error");return;}if(this.caracData.sexo===""){this.$refs.sexo.focus();bande=false;this.$swal("Error...!","Por favor seleccione el sexo!","error");return;}if(this.caracData.orientacion===""){bande=false;this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return;}if(this.caracData.identidad_genero===""){bande=false;this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return;}if(this.caracData.parentesco===""){this.$refs.parentesco.focus();bande=false;this.$swal("Error...!","Por favor seleccione el parentesco!","error");return;}if(this.caracData.pnom===""){this.$refs.pnom.focus();bande=false;this.$swal("Error...!","Por favor digite el primer nombre!","error");return;}if(this.caracData.pape===""){this.$refs.pape.focus();bande=false;this.$swal("Error...!","Por favor digite el primer apellido!","error");return;}if(this.caracData.estado_civil===""){this.$refs.estado_civil.focus();bande=false;this.$swal("Error...!","Por favor seleccione el estado civil!","error");return;}if(this.caracData.fecha_nacimiento===""){this.$refs.fecha_nacimiento.focus();bande=false;this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return;}if(this.caracData.afiliacion_entidad===""){this.$refs.afiliacion_entidad.focus();bande=false;this.$swal("Error...!","Por favor seleccione la eps!","error");return;}if(this.caracData.tipo_afiliacion===""){this.$refs.tipo_afiliacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return;}if(this.caracData.ocupacion===""){this.$refs.ocupacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la ocupación!","error");return;}if(this.caracData.tipo_empleo==""){this.$swal("Error...!","Por favor seleccione el tipo de empleo!","error");return;}if(this.caracData.etnia===""){this.$refs.etnia.focus();bande=false;this.$swal("Error...!","Por favor seleccione la etnia!","error");return;}if(this.caracData.clasificacion===""){this.$refs.clasificacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return;}if(this.caracData.salario===""){this.$refs.salario.focus();bande=false;this.$swal("Error...!","Por favor digite el salario!","error");return;}if(this.caracData.perdida_peso===""){this.$refs.perdida_peso.focus();bande=false;this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return;}if(this.caracData.programa_icbf===""){bande=false;this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return;}if(this.caracData.peso===""){bande=false;this.$swal("Error...!","Por favor digite el peso!","error");return;}if(this.caracData.talla===""){bande=false;this.$swal("Error...!","Por favor digite la talla!","error");return;}if(this.caracData.percargo===""){bande=false;this.$swal("Error...!","Por favor digite el numero de personas a cargo!","error");return;}return bande;e.preventDefault();},showText:function showText(val,vectorAux){for(var i=0;i<vectorAux.length;i++){if(vectorAux[i].value===val){return vectorAux[i].texto;}}return"";},showText2:function showText2(val,vectorAux,id){if(id===""){return"";}for(var i=0;i<vectorAux[id].length;i++){if(vectorAux[id][i].value===val){return vectorAux[id][i].texto;}}return"";},eliminarItemJefe:function eliminarItemJefe(index,item){var _this9=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el jefe de hogar  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this9.datosJefe.splice(index,1);_this9.vectorJefes.splice(index,1);var identificacion=item.identificacion;_this9.factores=_this9.factores.filter(function(men){return men.identificacion!=identificacion;});_this9.afectacion=_this9.afectacion.filter(function(men){return men.identificacion!=identificacion;});_this9.estratificacion=_this9.estratificacion.filter(function(men){return men.id_jefe!=identificacion;});_this9.Men1A=_this9.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this9.De1A5=_this9.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this9.De6A11=_this9.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this9.De10A59=_this9.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this9.ParPost=_this9.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this9.De12A17=_this9.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this9.De18A28=_this9.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this9.De29A59=_this9.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this9.De60=_this9.De60.filter(function(men){return men.identificacion!=identificacion;});_this9.EnCro=_this9.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this9.EnInf=_this9.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this9.Migra=_this9.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion=item.identificacion;// TABLA datos
 for(var i=0;i<_this9.datos.length;i++){if(_this9.datos[i].jefe===_identificacion){_this9.$swal("Advertencia...!","El jefe de hogar "+nombre+" tiene integrantes asociados asociados !","warning");return;}}// TABLA datos
 var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
 _this9.datosJefe[index].estado="Inactivo";_this9.datosJefe.splice(index,1,_this9.datosJefe[index]);//INACTIVAR LA FILA DE JEFES
@@ -13309,7 +14065,7 @@ indice=_this9.factores.findIndex(function(identi){return identi.identificacion==
 indice=_this9.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.afectacion[indice].estado="Inactivo";_this9.afectacion.splice(indice,1,_this9.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE afectacion
 //SABER EL INDICE DE LA IDENTIFICACION DE estratificacion
 indice=_this9.estratificacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this9.estratificacion[indice].estado="Inactivo";_this9.estratificacion.splice(indice,1,_this9.estratificacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE estratificacion              
-}_this9.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.ocupacionAuxiliar="";this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";this.caracData.enfermedades=[];this.caracData.antecedentes=[];this.caracData.antec="";},updateJefe:function updateJefe(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
+}_this9.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.ocupacionAuxiliar="";this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";this.caracData.enfermedades=[];this.caracData.antecedentes=[];this.caracData.antec="";this.caracData.tipo_empleo="";this.caracData.percargo="";},updateJefe:function updateJefe(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE JEFES SEGUN EL INDICE Q
 //VIENE DE LA TABLA
 var id=this.vectorJefes[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 var indice=this.factores.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.factores[indice].tipo_id=valor;this.factores.splice(indice,1,this.factores[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
@@ -13426,7 +14182,7 @@ this.Migra[_indice5].sape=item.sape;this.Migra.splice(_indice5,1,this.Migra[_ind
 return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this10.datosJefe.filter(function(identi){return identi.identificacion.includes(_this10.datosJefe[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>1){_this10.$swal("Validar...!","El Documento <b>"+_this10.datosJefe[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Jefes de Hogar","warning");// item.identificacion="";
-return false;}else{if(_this10.datosJefe[i].tipo_id===""){_this10.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].identificacion===""){_this10.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].pnom===""){_this10.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].pape===""){_this10.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].sexo===""){_this10.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].parentesco===""){_this10.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].estado_civil===""){_this10.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].fecha_nacimiento===""){_this10.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].afiliacion_entidad===""){_this10.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].tipo_afiliacion===""){_this10.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].nivel_escolaridad===""){_this10.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].ocupacion===""){_this10.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].etnia===""){_this10.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].clasificacion===""){_this10.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].salario===""){_this10.$swal("Error...!","Por favor digite el <b>salario</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}return true;}}})["catch"](function(error){});case 4:_context9.next=8;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);case 8:case"end":return _context9.stop();}}},_loop3,null,[[1,6]]);});i=0;case 2:if(!(i<this.datosJefe.length)){_context10.next=7;break;}return _context10.delegateYield(_loop3(i),"t0",4);case 4:i++;_context10.next=2;break;case 7:case"end":return _context10.stop();}}},_callee9,this);}));function validarTablaJefes(){return _validarTablaJefes.apply(this,arguments);}return validarTablaJefes;}(),editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedades=item.enfermedades;this.vaEnfJef=item.enfermedades;this.caracData.antecedentes=item.antecedentes;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;this.identificacionJefe=item.identificacion;var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
+return false;}else{if(_this10.datosJefe[i].tipo_id===""){_this10.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].identificacion===""){_this10.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].pnom===""){_this10.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].pape===""){_this10.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].sexo===""){_this10.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].parentesco===""){_this10.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].estado_civil===""){_this10.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].fecha_nacimiento===""){_this10.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].afiliacion_entidad===""){_this10.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].tipo_afiliacion===""){_this10.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].nivel_escolaridad===""){_this10.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].ocupacion===""){_this10.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].etnia===""){_this10.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].clasificacion===""){_this10.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(_this10.datosJefe[i].salario===""){_this10.$swal("Error...!","Por favor digite el <b>salario</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}return true;}}})["catch"](function(error){});case 4:_context9.next=8;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);case 8:case"end":return _context9.stop();}}},_loop3,null,[[1,6]]);});i=0;case 2:if(!(i<this.datosJefe.length)){_context10.next=7;break;}return _context10.delegateYield(_loop3(i),"t0",4);case 4:i++;_context10.next=2;break;case 7:case"end":return _context10.stop();}}},_callee9,this);}));function validarTablaJefes(){return _validarTablaJefes.apply(this,arguments);}return validarTablaJefes;}(),editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.mostrarOtro('mOCOL1');this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedades=item.enfermedades;this.vaEnfJef=item.enfermedades;this.caracData.antecedentes=item.antecedentes;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.caracData.tipo_empleo=item.tipo_empleo;this.caracData.percargo=item.percargo;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;this.identificacionJefe=item.identificacion;var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
 this.datosJefe[this.indiceEditJefe].estado="Inactivo";this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);//INACTIVAR LA FILA DE JEFES
 //SABER EL INDICE DE LA IDENTIFICACION DE De10A59
 var indice=this.De10A59.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE De10A59
@@ -13511,7 +14267,7 @@ _indice7=this.Migra.findIndex(function(identi){return identi.identificacion===id
 this.datosJefe[this.indiceEditJefe].estado="Activo";this.datosJefe[this.indiceEditJefe].estado_civil=this.caracData.estado_civil;this.datosJefe[this.indiceEditJefe].textoEstado=this.showText(Number(this.caracData.estado_civil),this.estado_options);this.datosJefe[this.indiceEditJefe].fecha_nacimiento=this.caracData.fecha_nacimiento;this.datosJefe[this.indiceEditJefe].tipo_afiliacion=this.caracData.tipo_afiliacion;this.datosJefe[this.indiceEditJefe].embarazo=this.caracData.embarazo;this.datosJefe[this.indiceEditJefe].embarazo_multiple=this.caracData.embarazo_multiple;this.datosJefe[this.indiceEditJefe].discapacidad=this.caracData.discapacidad;this.datosJefe[this.indiceEditJefe].nivel_escolaridad=this.caracData.nivel_escolaridad;this.datosJefe[this.indiceEditJefe].textoNivel=this.showText(Number(this.caracData.nivel_escolaridad),this.escolaridad_options);this.datosJefe[this.indiceEditJefe].ocupacion=this.caracData.ocupacion;this.datosJefe[this.indiceEditJefe].textoOcupacion=this.showText(Number(this.caracData.ocupacion),this.ocupacion_options);this.datosJefe[this.indiceEditJefe].colegio=this.caracData.colegio;this.datosJefe[this.indiceEditJefe].textoColegio=this.showText(Number(this.caracData.colegio),this.colegio_options);this.datosJefe[this.indiceEditJefe].grado=this.caracData.grado;this.datosJefe[this.indiceEditJefe].etnia=this.caracData.etnia;this.datosJefe[this.indiceEditJefe].textoEtnia=this.showText(Number(this.caracData.etnia),this.etnia_options);this.datosJefe[this.indiceEditJefe].clasificacion=this.caracData.clasificacion;this.datosJefe[this.indiceEditJefe].textoClasificacion=this.showText2(Number(this.caracData.clasificacion),this.clasifi_options,this.caracData.etnia);this.datosJefe[this.indiceEditJefe].entiende=this.caracData.entiende;this.datosJefe[this.indiceEditJefe].pyp=this.caracData.pyp;this.datosJefe[this.indiceEditJefe].migrante=this.caracData.migrante;this.datosJefe[this.indiceEditJefe].edad=this.caracData.edad;this.datosJefe[this.indiceEditJefe].orientacion=this.caracData.orientacion;this.datosJefe[this.indiceEditJefe].identidad_genero=this.caracData.identidad_genero;this.datosJefe[this.indiceEditJefe].perdida_peso=this.caracData.perdida_peso;this.datosJefe[this.indiceEditJefe].programa_icbf=this.caracData.programa_icbf;// this.datosJefe[this.indiceEditJefe].textoOcupacion = this.ocupacionAuxiliar;
 // this.datosJefe[this.indiceEditJefe].enfermedad_infecciosa = this.caracData.enfermedad_infecciosa;
 // this.datosJefe[this.indiceEditJefe].enfermedad_cronica = this.caracData.enfermedad_cronica;
-this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa=this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica=this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe[this.indiceEditJefe].enfermedades=this.caracData.enfermedades;this.datosJefe[this.indiceEditJefe].antecedentes=this.caracData.antecedentes;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
+this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa=this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica=this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe[this.indiceEditJefe].enfermedades=this.caracData.enfermedades;this.datosJefe[this.indiceEditJefe].antecedentes=this.caracData.antecedentes;this.datosJefe[this.indiceEditJefe].tipo_empleo=this.caracData.tipo_empleo;this.datosJefe[this.indiceEditJefe].percargo=this.caracData.percargo;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
 if(edad<=0){this.Amenores1Anio(vector,hoy.diff(nacimiento,"months"),opcion);}// AGREGAR NIÑOS MENORES DE 1 AÑO
 // AGREGAR DE 1 A 5 AÑOS
 if(edad>=1&&edad<=5){this.Ade1a5Anio(vector,edad,opcion);}// AGREGAR DE 1 A 5 AÑOS
@@ -13535,18 +14291,18 @@ if(edad>=60){this.Ade60Anio(vector,edad,opcion);}// AGREGAR DE 60 ó MAS AÑOS
 if(vector.migrante==="SI"){this.AMigra(vector,edad,opcion);}// AGREGAR MIGRANTES               
 },//OPCIONES DEL JEFE DE HOGAR
 //OPCIONES DE LOS INTEGRANTES
-agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11(){var _this12=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context12){while(1){switch(_context12.prev=_context12.next){case 0:if(!(this.CA1.tipo_id=="0")){_context12.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context12.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context12.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context12.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context12.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context12.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context12.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context12.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context12.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context12.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context12.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context12.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context12.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context12.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context12.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context12.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context12.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context12.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context12.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context12.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context12.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context12.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context12.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context12.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context12.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context12.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context12.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context12.abrupt("return");case 44:if(!(this.CA1.etnia=="0")){_context12.next=47;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context12.abrupt("return");case 47:if(!(this.CA1.clasificacion=="0")){_context12.next=50;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context12.abrupt("return");case 50:if(!(this.CA1.entiende=="0")){_context12.next=53;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context12.abrupt("return");case 53:if(!(this.CA1.pyp=="0")){_context12.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context12.abrupt("return");case 56:if(!(this.CA1.migrante=="0")){_context12.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context12.abrupt("return");case 59:if(!(this.CA1.jefe=="0")){_context12.next=62;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context12.abrupt("return");case 62:if(!(this.CA1.perdida_peso==="")){_context12.next=66;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context12.abrupt("return");case 66:if(!(this.CA1.programa_icbf==="")){_context12.next=70;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context12.abrupt("return");case 70:if(!(this.CA1.peso==="")){_context12.next=73;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context12.abrupt("return");case 73:if(!(this.CA1.talla==="")){_context12.next=76;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context12.abrupt("return");case 76:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
-this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context12.prev=78;_context12.next=81;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this12.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11(){var _this12=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context12){while(1){switch(_context12.prev=_context12.next){case 0:if(!(this.CA1.tipo_id=="0")){_context12.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context12.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context12.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context12.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context12.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context12.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context12.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context12.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context12.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context12.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context12.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context12.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context12.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context12.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context12.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context12.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context12.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context12.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context12.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context12.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context12.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context12.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context12.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context12.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context12.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context12.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context12.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context12.abrupt("return");case 44:if(!(this.CA1.tipo_empleo=="0")){_context12.next=47;break;}this.$swal("Error...!","Por favor seleccione el tipo de empleo!","error");return _context12.abrupt("return");case 47:if(!(this.CA1.etnia=="0")){_context12.next=50;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context12.abrupt("return");case 50:if(!(this.CA1.clasificacion=="0")){_context12.next=53;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context12.abrupt("return");case 53:if(!(this.CA1.entiende=="0")){_context12.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context12.abrupt("return");case 56:if(!(this.CA1.pyp=="0")){_context12.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context12.abrupt("return");case 59:if(!(this.CA1.migrante=="0")){_context12.next=62;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context12.abrupt("return");case 62:if(!(this.CA1.jefe=="0")){_context12.next=65;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context12.abrupt("return");case 65:if(!(this.CA1.perdida_peso==="")){_context12.next=69;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context12.abrupt("return");case 69:if(!(this.CA1.programa_icbf==="")){_context12.next=73;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context12.abrupt("return");case 73:if(!(this.CA1.peso==="")){_context12.next=76;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context12.abrupt("return");case 76:if(!(this.CA1.talla==="")){_context12.next=79;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context12.abrupt("return");case 79:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
+this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context12.prev=81;_context12.next=84;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this12.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this12.datos.filter(function(identi){return identi.identificacion==_this12.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>0){_this12.$swal("Validar...!","El Documento <b>"+_this12.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento4=moment(_this12.CA1.fecha_nac);var _hoy4=moment();var edad=0;if(_nacimiento4<_hoy4){edad=_hoy4.diff(_nacimiento4,"years");//Calculamos la diferencia en años
 }//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 if(_this12.CA1.enfermedades.length>0){for(var i=0;i<_this12.CA1.enfermedades.length;i++){if(_this12.CA1.enfermedades[i].tiempo===""){_this12.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this12.CA1.enfermedades[i].tratamiento===""){_this12.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
-var textoEps="";if(_this12.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this12.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this12.showText(_this12.CA1.afi_entidad,_this12.admini_options);}}_this12.datos.push({id:0,tipo_id:_this12.CA1.tipo_id,identificacion:_this12.CA1.identificacion,sexo:_this12.CA1.sexo,parentesco:_this12.CA1.parentesco,textoParentesco:_this12.showText(_this12.CA1.parentesco,_this12.parentesco_options),pnom:_this12.CA1.pnom,snom:_this12.CA1.snom,pape:_this12.CA1.pape,sape:_this12.CA1.sape,estado_civil:_this12.CA1.estado_civil,textoEstado:_this12.showText(_this12.CA1.estado_civil,_this12.estado_options),fecha_nac:_this12.CA1.fecha_nac,edad:edad,afi_entidad:_this12.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this12.CA1.otra_eps,tipo_afiliacion:_this12.CA1.tipo_afiliacion,embarazo:_this12.CA1.embarazo,embarazo_multiple:_this12.CA1.embarazo_multiple,discapacidad:_this12.CA1.discapacidad,escolaridad:_this12.CA1.escolaridad,textoEscolaridad:_this12.showText(_this12.CA1.escolaridad,_this12.escolaridad_options),ocupacion:_this12.CA1.ocupacion,textoOcupacion:_this12.showText(_this12.CA1.ocupacion,_this12.ocupacion_options),colegio:_this12.CA1.colegio,textoColegio:_this12.showText(_this12.CA1.colegio,_this12.colegio_options),grado:_this12.CA1.grado,entiende:_this12.CA1.entiende,migrante:_this12.CA1.migrante,pyp:_this12.CA1.pyp,etnia:_this12.CA1.etnia,textoEtnia:_this12.showText(_this12.CA1.etnia,_this12.etnia_options),clasificacion:_this12.CA1.clasificacion,textoClasificacion:_this12.showText2(_this12.CA1.clasificacion,_this12.clasifi_options,_this12.CA1.etnia),puntaje_sisben:_this12.CA1.puntaje_sisben,jefe:_this12.CA1.jefe,orientacion:_this12.CA1.orientacion,identidad_genero:_this12.CA1.identidad_genero,telefono:_this12.CA1.telefono,perdida_peso:_this12.CA1.perdida_peso,programa_icbf:_this12.CA1.programa_icbf,excepciones:_this12.CA1.excepciones,textoExcepciones:_this12.showText(_this12.CA1.excepciones,_this12.opciones7),identi_auxi:"",estado:"Activo",peso:_this12.CA1.peso,talla:_this12.CA1.talla,enfermedades:[],antecedentes:[]});for(var _i18=0;_i18<_this12.CA1.enfermedades.length;_i18++){_this12.datos[_this12.datos.length-1].enfermedades.push({id:_this12.CA1.enfermedades[_i18].id,id_hogar:_this12.CA1.enfermedades[_i18].id_hogar,id_jefe:_this12.CA1.enfermedades[_i18].id_jefe,textoEnfermedad:_this12.CA1.enfermedades[_i18].textoEnfermedad,id_enfermedad:_this12.CA1.enfermedades[_i18].id_enfermedad,tipo:_this12.CA1.enfermedades[_i18].tipo,tiempo:_this12.CA1.enfermedades[_i18].tiempo,tratamiento:_this12.CA1.enfermedades[_i18].tratamiento,estado:_this12.CA1.enfermedades[_i18].estado});_this12.datos.splice(_this12.datos.length-1,1,_this12.datos[_this12.datos.length-1]);}// this.CA1.enfermedades.length = [];
+var textoEps="";if(_this12.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this12.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this12.showText(_this12.CA1.afi_entidad,_this12.admini_options);}}_this12.datos.push({id:0,tipo_id:_this12.CA1.tipo_id,identificacion:_this12.CA1.identificacion,sexo:_this12.CA1.sexo,parentesco:_this12.CA1.parentesco,textoParentesco:_this12.showText(_this12.CA1.parentesco,_this12.parentesco_options),pnom:_this12.CA1.pnom,snom:_this12.CA1.snom,pape:_this12.CA1.pape,sape:_this12.CA1.sape,estado_civil:_this12.CA1.estado_civil,textoEstado:_this12.showText(_this12.CA1.estado_civil,_this12.estado_options),fecha_nac:_this12.CA1.fecha_nac,edad:edad,afi_entidad:_this12.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this12.CA1.otra_eps,tipo_afiliacion:_this12.CA1.tipo_afiliacion,embarazo:_this12.CA1.embarazo,embarazo_multiple:_this12.CA1.embarazo_multiple,discapacidad:_this12.CA1.discapacidad,escolaridad:_this12.CA1.escolaridad,textoEscolaridad:_this12.showText(_this12.CA1.escolaridad,_this12.escolaridad_options),ocupacion:_this12.CA1.ocupacion,textoOcupacion:_this12.showText(_this12.CA1.ocupacion,_this12.ocupacion_options),colegio:_this12.CA1.colegio,textoColegio:_this12.showText(_this12.CA1.colegio,_this12.colegio_options),grado:_this12.CA1.grado,entiende:_this12.CA1.entiende,migrante:_this12.CA1.migrante,pyp:_this12.CA1.pyp,etnia:_this12.CA1.etnia,textoEtnia:_this12.showText(_this12.CA1.etnia,_this12.etnia_options),clasificacion:_this12.CA1.clasificacion,textoClasificacion:_this12.showText2(_this12.CA1.clasificacion,_this12.clasifi_options,_this12.CA1.etnia),puntaje_sisben:_this12.CA1.puntaje_sisben,jefe:_this12.CA1.jefe,orientacion:_this12.CA1.orientacion,identidad_genero:_this12.CA1.identidad_genero,telefono:_this12.CA1.telefono,perdida_peso:_this12.CA1.perdida_peso,programa_icbf:_this12.CA1.programa_icbf,excepciones:_this12.CA1.excepciones,textoExcepciones:_this12.showText(_this12.CA1.excepciones,_this12.opciones7),identi_auxi:"",estado:"Activo",peso:_this12.CA1.peso,talla:_this12.CA1.talla,enfermedades:[],antecedentes:[],tipo_empleo:_this12.CA1.tipo_empleo});for(var _i18=0;_i18<_this12.CA1.enfermedades.length;_i18++){_this12.datos[_this12.datos.length-1].enfermedades.push({id:_this12.CA1.enfermedades[_i18].id,id_hogar:_this12.CA1.enfermedades[_i18].id_hogar,id_jefe:_this12.CA1.enfermedades[_i18].id_jefe,textoEnfermedad:_this12.CA1.enfermedades[_i18].textoEnfermedad,id_enfermedad:_this12.CA1.enfermedades[_i18].id_enfermedad,tipo:_this12.CA1.enfermedades[_i18].tipo,tiempo:_this12.CA1.enfermedades[_i18].tiempo,tratamiento:_this12.CA1.enfermedades[_i18].tratamiento,estado:_this12.CA1.enfermedades[_i18].estado});_this12.datos.splice(_this12.datos.length-1,1,_this12.datos[_this12.datos.length-1]);}// this.CA1.enfermedades.length = [];
 for(var _i19=0;_i19<_this12.CA1.antecedentes.length;_i19++){_this12.datos[_this12.datos.length-1].antecedentes.push({id:_this12.CA1.antecedentes[_i19].id,id_hogar:_this12.CA1.antecedentes[_i19].id_hogar,id_jefe:_this12.CA1.antecedentes[_i19].id_jefe,textoAntecedente:_this12.CA1.antecedentes[_i19].textoAntecedente,id_antecedente:_this12.CA1.antecedentes[_i19].id_antecedente,estado:_this12.CA1.antecedentes[_i19].estado});_this12.datos.splice(_this12.datos.length-1,1,_this12.datos[_this12.datos.length-1]);}if(_this12.CA1.tipo_afiliacion==="CONTRIBUTIVO"||_this12.CA1.tipo_afiliacion==="ESPECIAL"){_this12.SAPU=true;_this12.estratificacionData.afiliacion_salud_privada="SI";}_this12.ocupacionAuxiliar2="";_this12.mOCOL2=false;var indice=_this12.datos.findIndex(function(identi){return identi.identificacion===_this12.CA1.identificacion;});_this12.vectorIntegrante.push({index:indice,identificacion:_this12.CA1.identificacion});// AGREGAR NIÑOS MENORES DE 1 AÑO
 if(edad<=0){_this12.Amenores1Anio(_this12.CA1,_hoy4.diff(_nacimiento4,"months"),"INTE");}// AGREGAR NIÑOS MENORES DE 1 AÑO
 // AGREGAR DE 1 A 5 AÑOS
 if(edad>=1&&edad<=5){_this12.Ade1a5Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 1 A 5 AÑOS
-// AGREGAR DE 6 A 11 AÑOS
+return;// AGREGAR DE 6 A 11 AÑOS
 if(edad>=6&&edad<=11){_this12.Ade6a11Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 6 A 11 AÑOS
 // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
 if(edad<10){if(_this12.CA1.excepciones==="1"){_this12.Ade10a59Anio(_this12.CA1,edad,"INTE");}}// AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
@@ -13565,7 +14321,7 @@ if(edad>=29&&edad<=59){_this12.Ade29a59Anio(_this12.CA1,edad,"INTE");}// AGREGAR
 if(edad>=60){_this12.Ade60Anio(_this12.CA1,edad,"INTE");}// AGREGAR DE 60 ó MAS AÑOS
 // AGREGAR MIGRANTES
 if(_this12.CA1.migrante==="SI"){_this12.AMigra(_this12.CA1,edad,"INTE");}// AGREGAR MIGRANTES
-_this12.limpiar();}}})["catch"](function(error){_this12.errorDevuelto=error.response.data.errors;_this12.entrarPorError=true;});case 81:_context12.next=94;break;case 83:_context12.prev=83;_context12.t0=_context12["catch"](78);_context12.t1=_context12.t0.response.status;_context12.next=_context12.t1===419?88:_context12.t1===422?90:92;break;case 88:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",94);case 90:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",94);case 92:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",94);case 94:case"end":return _context12.stop();}}},_callee11,this,[[78,83]]);}));function agregar(){return _agregar.apply(this,arguments);}return agregar;}(),calculaEdad:function calculaEdad(){var a=moment();var b=moment(this.CA1.fecha_nac);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years==0){if(months<=1){if(days<=1){this.CA1.meses=months+" MES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MES";this.CA1.dias=days+" DIAS";}}else{if(days<=1){this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIAS";}}}else{this.CA1.meses=0;this.CA1.dias=0;}if(years>=18){this.CA1.programa_icbf="NA";}else{this.CA1.programa_icbf="0";}if(years<8){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";this.CA1.estado_civil=9;}else{if(this.CA1.sexo==="MASCULINO"){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";}else{this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";}this.CA1.estado_civil="0";}if(years<=2){this.CA1.escolaridad=22;this.CA1.ocupacion=9993;this.ocupacionAuxiliar2="NO APLICA";}else{this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.ocupacionAuxiliar2="";}},updateIntegrante:function updateIntegrante(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
+_this12.limpiar();}}})["catch"](function(error){_this12.errorDevuelto=error.response.data.errors;_this12.entrarPorError=true;});case 84:_context12.next=97;break;case 86:_context12.prev=86;_context12.t0=_context12["catch"](81);_context12.t1=_context12.t0.response.status;_context12.next=_context12.t1===419?91:_context12.t1===422?93:95;break;case 91:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",97);case 93:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",97);case 95:this.$swal("Error...!","Ocurrio un error!","error");return _context12.abrupt("break",97);case 97:case"end":return _context12.stop();}}},_callee11,this,[[81,86]]);}));function agregar(){return _agregar.apply(this,arguments);}return agregar;}(),calculaEdad:function calculaEdad(){var a=moment();var b=moment(this.CA1.fecha_nac);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years==0){if(months<=1){if(days<=1){this.CA1.meses=months+" MES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MES";this.CA1.dias=days+" DIAS";}}else{if(days<=1){this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIAS";}}}else{this.CA1.meses=0;this.CA1.dias=0;}if(years>=18){this.CA1.programa_icbf="NA";}else{this.CA1.programa_icbf="0";}if(years<8){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";this.CA1.estado_civil=9;}else{if(this.CA1.sexo==="MASCULINO"){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";}else{this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";}this.CA1.estado_civil="0";}if(years<=2){this.CA1.escolaridad=22;this.CA1.ocupacion=9993;this.ocupacionAuxiliar2="NO APLICA";}else{this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.ocupacionAuxiliar2="";}},updateIntegrante:function updateIntegrante(item,valor,opcion,index){if(opcion==="tipo_id"){//SABER LA IDENTIFICACION EN EL VECTOR DE INTEGRANTES SEGUN EL INDICE Q
 //VIENE DE LA TABLA
 var id=this.vectorIntegrante[index].identificacion;//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].tipo_id=valor;this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
@@ -13687,11 +14443,11 @@ this.De29A59[_indice12].sape=item.sape;this.De29A59.splice(_indice12,1,this.De29
 _indice12=this.De60.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
 this.De60[_indice12].sape=item.sape;this.De60.splice(_indice12,1,this.De60[_indice12]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 _indice12=this.Migra.findIndex(function(identi){return identi.identificacion===_id10;});if(_indice12>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice12].sape=item.sape;this.Migra.splice(_indice12,1,this.Migra[_indice12]);}}},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.ocupacionAuxiliar2="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";this.CA1.enfermedades=[];this.CA1.antecedentes=[];this.CA1.antec="";},eliminarItem:function eliminarItem(index,item){var _this13=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el integrante  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this13.datos.splice(index,1);_this13.vectorIntegrante.splice(index,1);var identificacion=item.identificacion;_this13.Men1A=_this13.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this13.De1A5=_this13.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this13.De6A11=_this13.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this13.De10A59=_this13.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this13.ParPost=_this13.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this13.De12A17=_this13.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this13.De18A28=_this13.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this13.De29A59=_this13.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this13.De60=_this13.De60.filter(function(men){return men.identificacion!=identificacion;});_this13.EnCro=_this13.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this13.EnInf=_this13.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this13.Migra=_this13.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion2=item.identificacion;var indice=_this13.datos.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.datos[indice].estado="Inactivo";_this13.datos.splice(indice,1,_this13.datos[indice]);}indice=_this13.Men1A.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.Men1A[indice].estado="Inactivo";_this13.Men1A.splice(indice,1,_this13.Men1A[indice]);}indice=_this13.De1A5.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De1A5[indice].estado="Inactivo";_this13.De1A5.splice(indice,1,_this13.De1A5[indice]);}indice=_this13.De6A11.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De6A11[indice].estado="Inactivo";_this13.De6A11.splice(indice,1,_this13.De6A11[indice]);}indice=_this13.De10A59.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De10A59[indice].estado="Inactivo";_this13.De10A59.splice(indice,1,_this13.De10A59[indice]);}indice=_this13.De12A17.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De12A17[indice].estado="Inactivo";_this13.De12A17.splice(indice,1,_this13.De12A17[indice]);}indice=_this13.De18A28.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De18A28[indice].estado="Inactivo";_this13.De18A28.splice(indice,1,_this13.De18A28[indice]);}indice=_this13.De29A59.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De29A59[indice].estado="Inactivo";_this13.De29A59.splice(indice,1,_this13.De29A59[indice]);}indice=_this13.De60.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De60[indice].estado="Inactivo";_this13.De60.splice(indice,1,_this13.De60[indice]);}indice=_this13.EnCro.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.EnCro[indice].estado="Inactivo";_this13.EnCro.splice(indice,1,_this13.EnCro[indice]);}indice=_this13.EnInf.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.EnInf[indice].estado="Inactivo";_this13.EnInf.splice(indice,1,_this13.EnInf[indice]);}indice=_this13.Migra.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.Migra[indice].estado="Inactivo";_this13.Migra.splice(indice,1,_this13.Migra[indice]);}}_this13.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop4,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:_loop4=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop4(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop4$(_context13){while(1){switch(_context13.prev=_context13.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context13.prev=1;_context13.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
+this.Migra[_indice12].sape=item.sape;this.Migra.splice(_indice12,1,this.Migra[_indice12]);}}},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.ocupacionAuxiliar2="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";this.CA1.enfermedades=[];this.CA1.antecedentes=[];this.CA1.antec="";this.CA1.tipo_empleo="";},eliminarItem:function eliminarItem(index,item){var _this13=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el integrante  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this13.datos.splice(index,1);_this13.vectorIntegrante.splice(index,1);var identificacion=item.identificacion;_this13.Men1A=_this13.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this13.De1A5=_this13.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this13.De6A11=_this13.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this13.De10A59=_this13.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this13.ParPost=_this13.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this13.De12A17=_this13.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this13.De18A28=_this13.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this13.De29A59=_this13.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this13.De60=_this13.De60.filter(function(men){return men.identificacion!=identificacion;});_this13.EnCro=_this13.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this13.EnInf=_this13.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this13.Migra=_this13.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion2=item.identificacion;var indice=_this13.datos.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.datos[indice].estado="Inactivo";_this13.datos.splice(indice,1,_this13.datos[indice]);}indice=_this13.Men1A.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.Men1A[indice].estado="Inactivo";_this13.Men1A.splice(indice,1,_this13.Men1A[indice]);}indice=_this13.De1A5.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De1A5[indice].estado="Inactivo";_this13.De1A5.splice(indice,1,_this13.De1A5[indice]);}indice=_this13.De6A11.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De6A11[indice].estado="Inactivo";_this13.De6A11.splice(indice,1,_this13.De6A11[indice]);}indice=_this13.De10A59.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De10A59[indice].estado="Inactivo";_this13.De10A59.splice(indice,1,_this13.De10A59[indice]);}indice=_this13.De12A17.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De12A17[indice].estado="Inactivo";_this13.De12A17.splice(indice,1,_this13.De12A17[indice]);}indice=_this13.De18A28.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De18A28[indice].estado="Inactivo";_this13.De18A28.splice(indice,1,_this13.De18A28[indice]);}indice=_this13.De29A59.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De29A59[indice].estado="Inactivo";_this13.De29A59.splice(indice,1,_this13.De29A59[indice]);}indice=_this13.De60.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.De60[indice].estado="Inactivo";_this13.De60.splice(indice,1,_this13.De60[indice]);}indice=_this13.EnCro.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.EnCro[indice].estado="Inactivo";_this13.EnCro.splice(indice,1,_this13.EnCro[indice]);}indice=_this13.EnInf.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.EnInf[indice].estado="Inactivo";_this13.EnInf.splice(indice,1,_this13.EnInf[indice]);}indice=_this13.Migra.findIndex(function(identi){return identi.identificacion===_identificacion2;});if(indice>=0){_this13.Migra[indice].estado="Inactivo";_this13.Migra.splice(indice,1,_this13.Migra[indice]);}}_this13.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop4,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:_loop4=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop4(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop4$(_context13){while(1){switch(_context13.prev=_context13.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context13.prev=1;_context13.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
 return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this14.datos.filter(function(identi){return identi.identificacion.includes(_this14.datos[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>1){_this14.$swal("Validar...!","El Documento <b>"+_this14.datos[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Integrantes","warning");// item.identificacion="";
-return false;}else{if(_this14.datos[i].tipo_id==="0"){_this14.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].identificacion===""){_this14.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pnom===""){_this14.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pape===""){_this14.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].sexo==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].parentesco==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].estado_civil==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].fecha_nac===""){_this14.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].afi_entidad==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].tipo_afiliacion==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].escolaridad==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].ocupacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].etnia==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].clasificacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].jefe==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>jefe de hogar</b> en la fila "+(i+1)+" de los integrantes","error");return false;}return true;}}})["catch"](function(error){});case 4:_context13.next=8;break;case 6:_context13.prev=6;_context13.t0=_context13["catch"](1);case 8:case"end":return _context13.stop();}}},_loop4,null,[[1,6]]);});i=0;case 2:if(!(i<this.datos.length)){_context14.next=7;break;}return _context14.delegateYield(_loop4(i),"t0",4);case 4:i++;_context14.next=2;break;case 7:case"end":return _context14.stop();}}},_callee12,this);}));function validarTablaIntegrantes(){return _validarTablaIntegrantes.apply(this,arguments);}return validarTablaIntegrantes;}(),editarItemInte:function editarItemInte(index,item){var _this15=this;this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;setTimeout(function(){_this15.CA1.embarazo_multiple=item.embarazo_multiple;},1000);this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedades=item.enfermedades;this.CA1.antecedentes=item.antecedentes;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;var id=item.identificacion;//INACTIVAR LA FILA DE INTEGRANTES
+return false;}else{if(_this14.datos[i].tipo_id==="0"){_this14.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].identificacion===""){_this14.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pnom===""){_this14.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].pape===""){_this14.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].sexo==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].parentesco==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].estado_civil==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].fecha_nac===""){_this14.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].afi_entidad==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].tipo_afiliacion==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].escolaridad==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].ocupacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].etnia==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].clasificacion==="0"){_this14.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los integrantes","error");return false;}if(_this14.datos[i].jefe==="0"){_this14.$swal("Error...!","Por favor seleccione el <b>jefe de hogar</b> en la fila "+(i+1)+" de los integrantes","error");return false;}return true;}}})["catch"](function(error){});case 4:_context13.next=8;break;case 6:_context13.prev=6;_context13.t0=_context13["catch"](1);case 8:case"end":return _context13.stop();}}},_loop4,null,[[1,6]]);});i=0;case 2:if(!(i<this.datos.length)){_context14.next=7;break;}return _context14.delegateYield(_loop4(i),"t0",4);case 4:i++;_context14.next=2;break;case 7:case"end":return _context14.stop();}}},_callee12,this);}));function validarTablaIntegrantes(){return _validarTablaIntegrantes.apply(this,arguments);}return validarTablaIntegrantes;}(),editarItemInte:function editarItemInte(index,item){var _this15=this;this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;setTimeout(function(){_this15.CA1.embarazo_multiple=item.embarazo_multiple;},1000);this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.mostrarOtro('mOCOL2');this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedades=item.enfermedades;this.CA1.antecedentes=item.antecedentes;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.CA1.tipo_empleo=item.tipo_empleo;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;var id=item.identificacion;//INACTIVAR LA FILA DE INTEGRANTES
 this.datos[this.indiceEditInte].estado="Inactivo";this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);//INACTIVAR LA FILA DE INTEGRANTES
 //SABER EL INDICE DE LA IDENTIFICACION DE Men1A
 var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Men1A
@@ -13741,9 +14497,9 @@ indice=this.EnCro.findIndex(function(identi){return identi.identificacion===id;}
 indice=this.EnInf.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.EnInf[indice].estado="Activo";this.EnInf.splice(indice,1,this.EnInf[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE EnInf
 //SABER EL INDICE DE LA IDENTIFICACION DE Migra
 indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){this.Migra[indice].estado="Activo";this.Migra.splice(indice,1,this.Migra[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE Migra        
-this.limpiar();},editarInte:function(){var _editarInte=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(){var _this16=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:if(!(this.CA1.tipo_id=="0")){_context15.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context15.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context15.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context15.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context15.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context15.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context15.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context15.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context15.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context15.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context15.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context15.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context15.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context15.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context15.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context15.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context15.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context15.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context15.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context15.abrupt("return");case 30:if(!(this.CA1.escolaridad=="0")){_context15.next=33;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context15.abrupt("return");case 33:if(!(this.CA1.ocupacion=="0")){_context15.next=36;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context15.abrupt("return");case 36:if(!(this.CA1.etnia=="0")){_context15.next=39;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context15.abrupt("return");case 39:if(!(this.CA1.clasificacion=="0")){_context15.next=42;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context15.abrupt("return");case 42:if(!(this.CA1.entiende=="0")){_context15.next=45;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context15.abrupt("return");case 45:if(!(this.CA1.pyp=="0")){_context15.next=48;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context15.abrupt("return");case 48:if(!(this.CA1.migrante=="0")){_context15.next=51;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context15.abrupt("return");case 51:if(!(this.CA1.jefe=="0")){_context15.next=54;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context15.abrupt("return");case 54:if(!(this.CA1.perdida_peso==="")){_context15.next=58;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context15.abrupt("return");case 58:if(!(this.CA1.programa_icbf==="")){_context15.next=62;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context15.abrupt("return");case 62:if(!(this.CA1.peso==="")){_context15.next=65;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context15.abrupt("return");case 65:if(!(this.CA1.talla==="")){_context15.next=68;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context15.abrupt("return");case 68:this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.CA1.identificacion)){_context15.next=74;break;}this.ediIn();_context15.next=91;break;case 74:parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context15.prev=75;_context15.next=78;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this16.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+this.limpiar();},editarInte:function(){var _editarInte=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee13(){var _this16=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee13$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:if(!(this.CA1.tipo_id=="0")){_context15.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context15.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context15.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context15.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context15.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context15.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context15.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context15.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context15.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context15.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context15.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context15.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context15.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context15.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context15.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context15.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context15.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context15.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context15.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context15.abrupt("return");case 30:if(!(this.CA1.escolaridad=="0")){_context15.next=33;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context15.abrupt("return");case 33:if(!(this.CA1.ocupacion=="0")){_context15.next=36;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context15.abrupt("return");case 36:if(!(this.CA1.tipo_empleo=="0")){_context15.next=39;break;}this.$swal("Error...!","Por favor seleccione el tipo de empleo!","error");return _context15.abrupt("return");case 39:if(!(this.CA1.etnia=="0")){_context15.next=42;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context15.abrupt("return");case 42:if(!(this.CA1.clasificacion=="0")){_context15.next=45;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context15.abrupt("return");case 45:if(!(this.CA1.entiende=="0")){_context15.next=48;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context15.abrupt("return");case 48:if(!(this.CA1.pyp=="0")){_context15.next=51;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context15.abrupt("return");case 51:if(!(this.CA1.migrante=="0")){_context15.next=54;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context15.abrupt("return");case 54:if(!(this.CA1.jefe=="0")){_context15.next=57;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context15.abrupt("return");case 57:if(!(this.CA1.perdida_peso==="")){_context15.next=61;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context15.abrupt("return");case 61:if(!(this.CA1.programa_icbf==="")){_context15.next=65;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context15.abrupt("return");case 65:if(!(this.CA1.peso==="")){_context15.next=68;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context15.abrupt("return");case 68:if(!(this.CA1.talla==="")){_context15.next=71;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context15.abrupt("return");case 71:this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.CA1.identificacion)){_context15.next=77;break;}this.ediIn();_context15.next=94;break;case 77:parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context15.prev=78;_context15.next=81;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this16.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this16.datos.filter(function(identi){return identi.identificacion==_this16.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length>0){_this16.$swal("Validar...!","El Documento <b>"+_this16.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this16.ediIn();}}})["catch"](function(error){_this16.errorDevuelto=error.response.data.errors;_this16.entrarPorError=true;});case 78:_context15.next=91;break;case 80:_context15.prev=80;_context15.t0=_context15["catch"](75);_context15.t1=_context15.t0.response.status;_context15.next=_context15.t1===419?85:_context15.t1===422?87:89;break;case 85:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",91);case 87:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",91);case 89:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",91);case 91:case"end":return _context15.stop();}}},_callee13,this,[[75,80]]);}));function editarInte(){return _editarInte.apply(this,arguments);}return editarInte;}(),ediIn:function ediIn(){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
+if(resultado.length>0){_this16.$swal("Validar...!","El Documento <b>"+_this16.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this16.ediIn();}}})["catch"](function(error){_this16.errorDevuelto=error.response.data.errors;_this16.entrarPorError=true;});case 81:_context15.next=94;break;case 83:_context15.prev=83;_context15.t0=_context15["catch"](78);_context15.t1=_context15.t0.response.status;_context15.next=_context15.t1===419?88:_context15.t1===422?90:92;break;case 88:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",94);case 90:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",94);case 92:this.$swal("Error...!","Ocurrio un error!","error");return _context15.abrupt("break",94);case 94:case"end":return _context15.stop();}}},_callee13,this,[[78,83]]);}));function editarInte(){return _editarInte.apply(this,arguments);}return editarInte;}(),ediIn:function ediIn(){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
 }//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 if(this.CA1.enfermedades.length>0){for(var i=0;i<this.CA1.enfermedades.length;i++){if(this.CA1.enfermedades[i].tiempo===""){this.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(this.CA1.enfermedades[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 var textoEps="";if(this.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(this.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.CA1.afi_entidad,this.admini_options);}}if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO"||this.CA1.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar2="";this.mOCOL2=false;if(this.CA1.fecha_nac!==this.fechaEditar){if(edad!==this.edadEditar){// ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
@@ -13781,7 +14537,7 @@ _indice13=this.EnCro.findIndex(function(identi){return identi.identificacion===_
 _indice13=this.EnInf.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.EnInf[_indice13].tipo_id=this.CA1.tipo_id;this.EnInf[_indice13].sexo=this.CA1.sexo;this.EnInf[_indice13].identificacion=this.CA1.identificacion;this.EnInf[_indice13].pnom=this.CA1.pnom;this.EnInf[_indice13].snom=this.CA1.snom;this.EnInf[_indice13].pape=this.CA1.pape;this.EnInf[_indice13].sape=this.CA1.sape;this.EnInf[_indice13].estado="Activo";this.EnInf.splice(_indice13,1,this.EnInf[_indice13]);}if(this.migrarEditar==="SI"){_indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
 if(_indice13>=0){this.Migra[_indice13].tipo_id=this.CA1.tipo_id;this.Migra[_indice13].sexo=this.CA1.sexo;this.Migra[_indice13].identificacion=this.CA1.identificacion;this.Migra[_indice13].pnom=this.CA1.pnom;this.Migra[_indice13].snom=this.CA1.snom;this.Migra[_indice13].pape=this.CA1.pape;this.Migra[_indice13].sape=this.CA1.sape;this.Migra[_indice13].estado="Activo";this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
 this.Migra[_indice13].estado="Inactivo";this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
-_indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.Migra[_indice13].estado="Activo";this.Migra.splice(_indice13,1,this.Migra[_indice13]);}else{this.AMigra(this.CA1,edad,"INTE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=textoEps;this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos[this.indiceEditInte].enfermedades=this.CA1.enfermedades;this.datos[this.indiceEditInte].antecedentes=this.CA1.antecedentes;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},//OPCIONES DE LOS INTEGRANTES
+_indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){this.Migra[_indice13].estado="Activo";this.Migra.splice(_indice13,1,this.Migra[_indice13]);}else{this.AMigra(this.CA1,edad,"INTE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=textoEps;this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos[this.indiceEditInte].enfermedades=this.CA1.enfermedades;this.datos[this.indiceEditInte].antecedentes=this.CA1.antecedentes;this.datos[this.indiceEditInte].tipo_empleo=this.CA1.tipo_empleo;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},//OPCIONES DE LOS INTEGRANTES
 //VALIDACIONES DE IDENTIFICACION
 valJef1:function valJef1(){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].tipo_id===""){this.$swal("Error...!","Por favor seleccione un <b>tipo de identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].identificacion===""){this.$swal("Error...!","Por favor digite una <b>identificación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].pnom===""){this.$swal("Error...!","Por favor digite el <b>primer nombre</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].pape===""){this.$swal("Error...!","Por favor digite el <b>primer apellido</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].sexo===""){this.$swal("Error...!","Por favor seleccione el <b>sexo</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].orientacion===""){this.$swal("Error...!","Por favor seleccione la <b>Orientación Sexual</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].identidad_genero===""){this.$swal("Error...!","Por favor seleccione la <b>Identidad de Genero</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].parentesco===""){this.$swal("Error...!","Por favor seleccione el <b>parentesco</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].estado_civil===""){this.$swal("Error...!","Por favor seleccione el <b>estado civil</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].fecha_nacimiento===""){this.$swal("Error...!","Por favor seleccione la <b>fecha de nacimiento</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].afiliacion_entidad===""){this.$swal("Error...!","Por favor seleccione la <b>eps</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].tipo_afiliacion===""){this.$swal("Error...!","Por favor seleccione el <b>tipo de afiliación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].nivel_escolaridad===""){this.$swal("Error...!","Por favor seleccione el <b>nivel de escolaridad</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].ocupacion===""){this.$swal("Error...!","Por favor seleccione la <b>ocupación</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].etnia===""){this.$swal("Error...!","Por favor seleccione la <b>etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].clasificacion===""){this.$swal("Error...!","Por favor seleccione la <b>clasificacion de la etnia</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].salario===""){this.$swal("Error...!","Por favor digite el <b>salario</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].perdida_peso===""){this.$swal("Error...!","Por favor seleccione la opción <b>perdida de peso en los ultimos 3 meses</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].programa_icbf===""){this.$swal("Error...!","Por favor seleccione el <b>Pertenece a algún programa del ICBF</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna <b>enfermedad infecciosa</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna <b>enfermedad cronica</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].peso===""){this.$swal("Error...!","Por favor digite el <b>peso</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}if(this.datosJefe[i].talla===""){this.$swal("Error...!","Por favor digite la <b>talla</b> en la fila "+(i+1)+" de los jefes de hogar","error");return false;}// VERIFICAR SI ESTA EN LA TABLA
 var resultado=this.buscarIguales(this.datosJefe,this.datosJefe[i].identificacion);// VERIFICAR SI ESTA EN LA TABLA
@@ -13981,10 +14737,10 @@ this.bandeGuaEdiEstrati=true;this.indiceEditEstrati=null;this.estratificacionDat
 // this.estratificacionData.ingresos_ciudad = "";
 this.habilitar_zonas();this.estratificacionData.id_jefe="0";},//OPCIONES DE LA VIVIENDA
 //OPCIONES DE LOS CICLOS DE VIDA
-Amenores1Anio:function Amenores1Anio(vector,meses,opcion){var pb="";if(meses>=3){pb="";}else{pb="No Aplica";}this.Men1A.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,lugar_nacimiento:"",hemoclasificacion:"",compli_parto:"",via_parto:"",cyc:"",valoracion_23:"",valoracion_68:"",valoracion_911:"",lactancia:"",peso_nacer:"",peso_actual:vector.peso,longitud_nacer:"",longitud_actual:vector.talla,peso_long:"",cinta:"",edemas:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",carnet:"",bcg:"",hepb:"",polio:"",pentavalente:"",maltrato:"",morbilidad:"",tsh:"",opci:opcion,pb:pb,estado:"Activo"});},changeupdateMenA1:function changeupdateMenA1(item,event,opcion){if(opcion==="peso_nacer"){item.peso_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_actual"){item.peso_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_nacer"){item.longitud_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_actual"){item.longitud_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_long"){item.peso_long=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="cinta"){item.cinta=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMenA1:function updateMenA1(item,valor,opcion){if(opcion==="hemoclasificacion"){item.hemoclasificacion=valor;}if(opcion==="lugar_nacimiento"){item.lugar_nacimiento=valor;}if(opcion==="compli_parto"){item.compli_parto=valor;}if(opcion==="via_parto"){item.via_parto=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_23"){item.valoracion_23=valor;}if(opcion==="valoracion_68"){item.valoracion_68=valor;}if(opcion==="valoracion_911"){item.valoracion_911=valor;}if(opcion==="lactancia"){item.lactancia=valor;}// if (opcion === "cinta") {
+Amenores1Anio:function(){var _Amenores1Anio=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(vector,meses,opcion){var pb,pes_lon,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:pb="";if(meses>=3){pb="";}else{pb="No Aplica";}pes_lon="NA";parametros={_token:this.csrf,datos:vector,opcion:"MENA1_PL"};_context21.prev=4;_context21.next=7;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["buscarTablas"](parametros).then(function(respuesta){pes_lon=respuesta.data.pes_lon;})["catch"](function(error){});case 7:_context21.next=11;break;case 9:_context21.prev=9;_context21.t0=_context21["catch"](4);case 11:this.Men1A.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,lugar_nacimiento:"",hemoclasificacion:"",compli_parto:"",via_parto:"",cyc:"",valoracion_23:"",valoracion_68:"",valoracion_911:"",lactancia:"",peso_nacer:"",peso_actual:vector.peso,longitud_nacer:"",longitud_actual:vector.talla,peso_long:pes_lon,cinta:"",edemas:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",carnet:"",bcg:"",hepb:"",polio:"",pentavalente:"",maltrato:"",morbilidad:"",tsh:"",opci:opcion,pb:pb,estado:"Activo"});case 12:case"end":return _context21.stop();}}},_callee17,this,[[4,9]]);}));function Amenores1Anio(_x4,_x5,_x6){return _Amenores1Anio.apply(this,arguments);}return Amenores1Anio;}(),changeupdateMenA1:function changeupdateMenA1(item,event,opcion){if(opcion==="peso_nacer"){item.peso_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_actual"){item.peso_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_nacer"){item.longitud_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_actual"){item.longitud_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_long"){item.peso_long=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="cinta"){item.cinta=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMenA1:function updateMenA1(item,valor,opcion){if(opcion==="hemoclasificacion"){item.hemoclasificacion=valor;}if(opcion==="lugar_nacimiento"){item.lugar_nacimiento=valor;}if(opcion==="compli_parto"){item.compli_parto=valor;}if(opcion==="via_parto"){item.via_parto=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_23"){item.valoracion_23=valor;}if(opcion==="valoracion_68"){item.valoracion_68=valor;}if(opcion==="valoracion_911"){item.valoracion_911=valor;}if(opcion==="lactancia"){item.lactancia=valor;}// if (opcion === "cinta") {
 //   item.cinta = valor;
 // }
-if(opcion==="edemas"){item.edemas=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="hepb"){item.hepb=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="morbilidad"){item.morbilidad=valor;}if(opcion==="tsh"){item.tsh=valor;}},Ade1a5Anio:function Ade1a5Anio(vector,edad,opcion){this.De1A5.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,beneficiario:"",cyc:"",valoracion_1823:"",valoracion_3035:"",valoracion_4:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"",pt:"",te:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",caries:"",nocepillado:"",consultaodon:"",carnet:"",bcg:"",polio:"",dpt:"",fiebrea:"",tripleviral:"",pentavalente:"",otras:"",desparacitado:"",maltrato:"",enfermedad:"",medicamento:"",opci:opcion,pcefalico:"",estado:"Activo"});},changeupdateDe1A5:function changeupdateDe1A5(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}// if (opcion === "imc") {
+if(opcion==="edemas"){item.edemas=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="hepb"){item.hepb=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="morbilidad"){item.morbilidad=valor;}if(opcion==="tsh"){item.tsh=valor;}},Ade1a5Anio:function(){var _Ade1a5Anio=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee18(vector,edad,opcion){var tal_eda,pes_tal,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee18$(_context22){while(1){switch(_context22.prev=_context22.next){case 0:tal_eda="NA";pes_tal="NA";parametros={_token:this.csrf,datos:vector,opcion:"1A5ANI"};_context22.prev=3;_context22.next=6;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["buscarTablas"](parametros).then(function(respuesta){tal_eda=respuesta.data.tal_eda;pes_tal=respuesta.data.pes_tal;})["catch"](function(error){});case 6:_context22.next=10;break;case 8:_context22.prev=8;_context22.t0=_context22["catch"](3);case 10:this.De1A5.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,beneficiario:"",cyc:"",valoracion_1823:"",valoracion_3035:"",valoracion_4:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"",pt:pes_tal,te:tal_eda,lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",caries:"",nocepillado:"",consultaodon:"",carnet:"",bcg:"",polio:"",dpt:"",fiebrea:"",tripleviral:"",pentavalente:"",otras:"",desparacitado:"",maltrato:"",enfermedad:"",medicamento:"",opci:opcion,pcefalico:"",estado:"Activo"});case 11:case"end":return _context22.stop();}}},_callee18,this,[[3,8]]);}));function Ade1a5Anio(_x7,_x8,_x9){return _Ade1a5Anio.apply(this,arguments);}return Ade1a5Anio;}(),changeupdateDe1A5:function changeupdateDe1A5(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}// if (opcion === "imc") {
 //   item.imc = event.target.value.replace( /[^.\d]/g, '' ).trim();;
 // }
 if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="otras"){item.otras=event.target.value.trim();}if(opcion==="pcefalico"){item.pcefalico=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe1A5:function updateDe1A5(item,valor,opcion){if(opcion==="beneficiario"){item.beneficiario=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_1823"){item.valoracion_1823=valor;}if(opcion==="valoracion_3035"){item.valoracion_3035=valor;}if(opcion==="valoracion_4"){item.valoracion_4=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="caries"){item.caries=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="dpt"){item.dpt=valor;}if(opcion==="fiebrea"){item.fiebrea=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}},Ade6a11Anio:function Ade6a11Anio(vector,edad,opcion){this.De6A11.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,cyc:"",atencion:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"NA",pt:"NA",te:"",conducta:"",visuales:"",auditivos:"",dientes_sanos:"",consultaodon:"",nofluor:"",nocepillado:"",maltrato:"",sustanciaspsico:"",desparacitado:"",enfermedad:"",medicamento:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe6A11:function changeupdateDe6A11(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe6A11:function updateDe6A11(item,valor,opcion){if(opcion==="cyc"){item.cyc=valor;}if(opcion==="atencion"){item.atencion=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="sustanciaspsico"){item.sustanciaspsico=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}if(opcion==="nofluor"){item.nofluor=valor;}},Ade10a59Anio:function Ade10a59Anio(vector,edad,opcion){if(vector.sexo==="MASCULINO"){this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"NA",flujo_vaginal:"NA",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"NA",embarazo_adolecentes:"NA",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"NA",colposcopia:"NA",examen_seno:"NA",violencia:"",tdit:"NA",tripleviral:"NA",nacidos_vivos:"NA",abortos:"NA",examen_prostata:"",biposia_prostata:"",opci:opcion,estado:"Activo"});}else{this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"",flujo_vaginal:"",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"",embarazo_adolecentes:"",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"",colposcopia:"",examen_seno:"",violencia:"",tdit:"",tripleviral:"",nacidos_vivos:"",abortos:"",examen_prostata:"NA",biposia_prostata:"NA",opci:opcion,estado:"Activo"});}},changeupdateDe10A59:function changeupdateDe10A59(item,event,opcion){},updateDe10A59:function updateDe10A59(item,valor,opcion){if(opcion==="flujo_vaginal"){item.flujo_vaginal=valor;}if(opcion==="flujo_uretral"){item.flujo_uretral=valor;}if(opcion==="relaciones_sexuales"){item.relaciones_sexuales=valor;if(valor==="NO"){item.metodo="NA";item.tiempo_metodo="NA";item.controles="NA";item.motivo=14;}else{item.metodo="";item.tiempo_metodo="";item.controles="";item.motivo="";}}if(opcion==="usa_condon"){item.usa_condon=valor;}if(opcion==="abortos_seis"){item.abortos_seis=valor;}if(opcion==="embarazo_adolecentes"){item.embarazo_adolecentes=valor;}if(opcion==="metodo"){item.metodo=valor;}if(opcion==="motivo"){item.motivo=valor;}if(opcion==="controles"){item.controles=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="violencia"){item.violencia=valor;}if(opcion==="tdit"){item.tdit=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="abortos"){item.abortos=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="tiempo_metodo"){item.tiempo_metodo=valor;}if(opcion==="primera_mes"){if(item.sexo==="MASCULINO"){item.primera_mes="NA";}else{item.primera_mes=valor;}}if(opcion==="compa_sexuales"){if(item.sexo==="MASCULINO"){item.compa_sexuales="NA";}else{item.compa_sexuales=valor;}}if(opcion==="nacidos_vivos"){if(item.sexo==="MASCULINO"){item.nacidos_vivos="NA";}else{item.nacidos_vivos=valor;}}},AParPost:function AParPost(vector,edad,opcion){this.ParPost.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,aceptacion:"",control_prenatal:"",atencion_parto:"",carnet:"",fecha_ultima:"",fecha_probable:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),semanas_ges:"",num_controles:"",vih:"",toxoplasma:"",vdrl:"",odontologia:"",vacunaciontdit:"",fecha_ultimo_parto:"",suplementacion:"",enfermedades_cronicas:"",sedentarismo:"",fuma:"",consumo:"",bebidas:"",tipo_parto:"",atencion_institucional:"",cc18:"NA",morgestacion:"",morparto:"",morposparto:"",opci:opcion,estado:"Activo"});},changeupdatePosparto:function changeupdatePosparto(item,event,opcion){moment.locale("es");if(opcion==="fecha_ultima"){var fecha=moment.utc(item.fecha_ultima,"YYYY-MM-DD");var suma=fecha.add(9,"months");suma=suma.add(7,"days");item.fecha_probable=suma.format("YYYY-MM-DD");// let hoy = moment();
@@ -14004,7 +14760,7 @@ lleva.setTime(hoy.getTime()-fecha_inicio.getTime());var llevasemanas=parseInt(ll
 }if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="semanas_ges"){item.semanas_ges=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="fecha_ultimo_parto"){// item.fecha_ultimo_parto = event.target.value
 //   .replace(/[^.\d]/g, "")
 //   .trim();
-}},updatePosparto:function updatePosparto(item,valor,opcion){if(opcion==="aceptacion"){item.aceptacion=valor;}if(opcion==="control_prenatal"){item.control_prenatal=valor;if(valor==="NO"){item.carnet="NO";item.num_controles="NA";}else{item.carnet="";item.num_controles="";}}if(opcion==="atencion_parto"){item.atencion_parto=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="num_controles"){item.num_controles=valor;}if(opcion==="vih"){item.vih=valor;}if(opcion==="toxoplasma"){item.toxoplasma=valor;}if(opcion==="vdrl"){item.vdrl=valor;}if(opcion==="odontologia"){item.odontologia=valor;}if(opcion==="vacunaciontdit"){item.vacunaciontdit=valor;}if(opcion==="suplementacion"){item.suplementacion=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="sedentarismo"){item.sedentarismo=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="consumo"){item.consumo=valor;}if(opcion==="bebidas"){item.bebidas=valor;}if(opcion==="tipo_parto"){item.tipo_parto=valor;}if(opcion==="atencion_institucional"){item.atencion_institucional=valor;}if(opcion==="cc18"){item.cc18=valor;}if(opcion==="morgestacion"){item.morgestacion=valor;}if(opcion==="morparto"){item.morparto=valor;}if(opcion==="morposparto"){item.morposparto=valor;}},eliminarParpost:function(){var _eliminarParpost=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(identificacion,tabla){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:parametros={_token:this.csrf,identificacion:identificacion,id_hogar:this.IDHOGAR,opcion:"PARPOST",tabla:tabla};_context21.prev=1;_context21.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function(respuesta){if(respuesta.OPC==="SI"){return true;}else{return false;}})["catch"](function(error){});case 4:_context21.next=17;break;case 6:_context21.prev=6;_context21.t0=_context21["catch"](1);_context21.t1=_context21.t0.response.status;_context21.next=_context21.t1===419?11:_context21.t1===422?13:15;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context21.abrupt("break",17);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context21.abrupt("break",17);case 15:this.$swal("Error...!","Ocurrio un error!","error");return _context21.abrupt("break",17);case 17:case"end":return _context21.stop();}}},_callee17,this,[[1,6]]);}));function eliminarParpost(_x4,_x5){return _eliminarParpost.apply(this,arguments);}return eliminarParpost;}(),Ade12a17Anio:function Ade12a17Anio(vector,edad,opcion){this.De12A17.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),te:"",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",queescancerseno:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe12A17:function changeupdateDe12A17(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="te"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe12A17:function updateDe12A17(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}if(opcion==="queescancerseno"){item.queescancerseno=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}},Ade18a28Anio:function Ade18a28Anio(vector,edad,opcion){this.De18A28.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe18A28:function changeupdateDe18A28(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe18A28:function updateDe18A28(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade29a59Anio:function Ade29a59Anio(vector,edad,opcion){this.De29A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",examen_prostata:"NA",citologia:"NA",examen_mama:"NA",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe29A59:function changeupdateDe29A59(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe29A59:function updateDe29A59(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="examen_mama"){item.examen_mama=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade60Anio:function Ade60Anio(vector,edad,opcion){if(vector.sexo==="MASCULINO"){this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"NA",citologia:"NA",colposcopia:"NA",examen_prostata:"",biposia_prostata:"",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});}else{this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"",citologia:"",colposcopia:"",examen_prostata:"NA",biposia_prostata:"NA",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});}},changeupdateDe60:function changeupdateDe60(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pa"){item.pa=event.target.value.trim();}if(opcion==="glicemia"){item.glicemia=event.target.value.trim();}},updateDe60:function updateDe60(item,valor,opcion){if(opcion==="grupo_ayudas"){item.grupo_ayudas=valor;}if(opcion==="cigarrillo"){item.cigarrillo=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="actividad_fisica"){item.actividad_fisica=valor;}if(opcion==="sintomatico"){item.sintomatico=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="agudeza_visual"){item.agudeza_visual=valor;}if(opcion==="subsidio"){item.subsidio=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;if(valor==="SI"){// AGREGAR ENFERMEDADES CONTAGIOSAS
+}},updatePosparto:function updatePosparto(item,valor,opcion){if(opcion==="aceptacion"){item.aceptacion=valor;}if(opcion==="control_prenatal"){item.control_prenatal=valor;if(valor==="NO"){item.carnet="NO";item.num_controles="NA";}else{item.carnet="";item.num_controles="";}}if(opcion==="atencion_parto"){item.atencion_parto=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="num_controles"){item.num_controles=valor;}if(opcion==="vih"){item.vih=valor;}if(opcion==="toxoplasma"){item.toxoplasma=valor;}if(opcion==="vdrl"){item.vdrl=valor;}if(opcion==="odontologia"){item.odontologia=valor;}if(opcion==="vacunaciontdit"){item.vacunaciontdit=valor;}if(opcion==="suplementacion"){item.suplementacion=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="sedentarismo"){item.sedentarismo=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="consumo"){item.consumo=valor;}if(opcion==="bebidas"){item.bebidas=valor;}if(opcion==="tipo_parto"){item.tipo_parto=valor;}if(opcion==="atencion_institucional"){item.atencion_institucional=valor;}if(opcion==="cc18"){item.cc18=valor;}if(opcion==="morgestacion"){item.morgestacion=valor;}if(opcion==="morparto"){item.morparto=valor;}if(opcion==="morposparto"){item.morposparto=valor;}},eliminarParpost:function(){var _eliminarParpost=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee19(identificacion,tabla){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee19$(_context23){while(1){switch(_context23.prev=_context23.next){case 0:parametros={_token:this.csrf,identificacion:identificacion,id_hogar:this.IDHOGAR,opcion:"PARPOST",tabla:tabla};_context23.prev=1;_context23.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminar"](parametros).then(function(respuesta){if(respuesta.OPC==="SI"){return true;}else{return false;}})["catch"](function(error){});case 4:_context23.next=17;break;case 6:_context23.prev=6;_context23.t0=_context23["catch"](1);_context23.t1=_context23.t0.response.status;_context23.next=_context23.t1===419?11:_context23.t1===422?13:15;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context23.abrupt("break",17);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context23.abrupt("break",17);case 15:this.$swal("Error...!","Ocurrio un error!","error");return _context23.abrupt("break",17);case 17:case"end":return _context23.stop();}}},_callee19,this,[[1,6]]);}));function eliminarParpost(_x10,_x11){return _eliminarParpost.apply(this,arguments);}return eliminarParpost;}(),Ade12a17Anio:function Ade12a17Anio(vector,edad,opcion){this.De12A17.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),te:"",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",queescancerseno:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe12A17:function changeupdateDe12A17(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="te"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe12A17:function updateDe12A17(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}if(opcion==="queescancerseno"){item.queescancerseno=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}},Ade18a28Anio:function Ade18a28Anio(vector,edad,opcion){this.De18A28.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe18A28:function changeupdateDe18A28(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe18A28:function updateDe18A28(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade29a59Anio:function Ade29a59Anio(vector,edad,opcion){this.De29A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pcintura:"",pb:"NA",visuales:"",auditivos:"",conducta:"",enfermedades_cronicas:"NO",dientes_sanos:"",consultaodon:"",nocepillado:"",maltrato:"",alcohol:"",fuma:"",spa:"",desparacitado:"",empleo:"",examen_prostata:"NA",citologia:"NA",examen_mama:"NA",religion:"",queesvih:"",queescancerutero:"",queespapiloma:"",opci:opcion,estado:"Activo"});},changeupdateDe29A59:function changeupdateDe29A59(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pcintura"){item.pcintura=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe29A59:function updateDe29A59(item,valor,opcion){if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="fuma"){item.fuma=valor;}if(opcion==="spa"){item.spa=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="empleo"){item.empleo=valor;}if(opcion==="religion"){item.religion=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="examen_mama"){item.examen_mama=valor;}if(opcion==="queesvih"){item.queesvih=valor;}if(opcion==="queescancerutero"){item.queescancerutero=valor;}if(opcion==="queespapiloma"){item.queespapiloma=valor;}},Ade60Anio:function Ade60Anio(vector,edad,opcion){if(vector.sexo==="MASCULINO"){this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"NA",citologia:"NA",colposcopia:"NA",examen_prostata:"",biposia_prostata:"",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});}else{this.De60.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,grupo_ayudas:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pa:"",glicemia:"",cigarrillo:"",alcohol:"",actividad_fisica:"",sintomatico:"",examen_seno:"",citologia:"",colposcopia:"",examen_prostata:"NA",biposia_prostata:"NA",agudeza_visual:"",subsidio:"",enfermedades_cronicas:"NO",enfermedades_infecciosas:"NO",opci:opcion,empleo:"",estado:"Activo"});}},changeupdateDe60:function changeupdateDe60(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pa"){item.pa=event.target.value.trim();}if(opcion==="glicemia"){item.glicemia=event.target.value.trim();}},updateDe60:function updateDe60(item,valor,opcion){if(opcion==="grupo_ayudas"){item.grupo_ayudas=valor;}if(opcion==="cigarrillo"){item.cigarrillo=valor;}if(opcion==="alcohol"){item.alcohol=valor;}if(opcion==="actividad_fisica"){item.actividad_fisica=valor;}if(opcion==="sintomatico"){item.sintomatico=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="agudeza_visual"){item.agudeza_visual=valor;}if(opcion==="subsidio"){item.subsidio=valor;}if(opcion==="enfermedades_cronicas"){item.enfermedades_cronicas=valor;if(valor==="SI"){// AGREGAR ENFERMEDADES CONTAGIOSAS
 this.AEnCro(item);// AGREGAR ENFERMEDADES CONTAGIOSAS
 }else{// ELIMINAR ENFERMEDADES CONTAGIOSAS
 this.EEnCro(item);// ELIMINAR ENFERMEDADES CONTAGIOSAS
@@ -14013,7 +14769,26 @@ this.AEnInf(item);// AGREGAR ENFERMEDADES INFECCIOSAS
 }else{// ELIMINAR ENFERMEDADES INFECCIOSAS
 this.EEnInf(item);// ELIMINAR ENFERMEDADES INFECCIOSAS
 }}},AEnCro:function AEnCro(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnCro.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnCro:function changeupdateEnCro(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnCro:function updateEnCro(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnCro:function EEnCro(item){var identificacion=item.identificacion;if(item.id===0){this.EnCro=this.EnCro.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnCro.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}}},AEnInf:function AEnInf(vector){var opcion="";if(vector.opci==="JEFE"){opcion="JEFE";}else{opcion="INTE";}this.EnInf.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,enfermedad:"",tiempo:"",tratamiento:"",complicaciones:"0",opci:opcion,estado:"Activo"});},changeupdateEnInf:function changeupdateEnInf(item,event,opcion){if(opcion==="complicaciones"){item.complicaciones=event.target.value.trim();}},updateEnInf:function updateEnInf(item,valor,opcion){if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="tratamiento"){item.tratamiento=valor;}if(opcion==="tiempo"){item.tiempo=valor;}},EEnInf:function EEnInf(item){var identificacion=item.identificacion;if(item.id===0){this.EnInf=this.EnInf.filter(function(men){return men.identificacion!=identificacion;});}else{var indice=this.EnInf.findIndex(function(identi){return identi.id===item.id;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}}},AMigra:function AMigra(vector,edad,opcion){this.Migra.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,pais:"",registrado:"",cuantollego:"",futuro:"",recibido:"",necesidad:"",dependen:"",ingreso:"",opci:opcion,estado:"Activo"});},changeupdateMigra:function changeupdateMigra(item,event,opcion){if(opcion==="pais"){item.pais=event.target.value.trim();}if(opcion==="dependen"){item.dependen=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMigra:function updateMigra(item,valor,opcion){if(opcion==="registrado"){item.registrado=valor;}if(opcion==="cuantollego"){item.cuantollego=valor;}if(opcion==="futuro"){item.futuro=valor;}if(opcion==="recibido"){item.recibido=valor;}if(opcion==="necesidad"){item.necesidad=valor;}if(opcion==="ingreso"){item.ingreso=valor;}},calcularImc:function calcularImc(peso,talla){if(peso===""){peso=0;}if(talla===""){talla=1;}talla=talla/100;var imc=peso/(talla*talla);return imc.toFixed(2);},//OPCIONES DE LOS CICLOS DE VIDA
-cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}},agregarAntJef:function agregarAntJef(){var textoAntecedente="",id_antecedente="";if(this.caracData.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.caracData.antec;textoAntecedente=this.showText(this.caracData.antec,this.antec_options);var i=0;while(i<this.caracData.antecedentes.length){if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.caracData.antec="";this.caracData.antecedentes.push({id:0,id_jefe:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntJef:function eliminarItemAntJef(index,item){if(item.id===0){this.caracData.antecedentes.splice(index,1);}else{this.caracData.antecedentes[index].estado="Inactivo";this.caracData.antecedentes.splice(index,1,this.caracData.antecedentes[index]);}},agregarAntInt:function agregarAntInt(){var textoAntecedente="",id_antecedente="";if(this.CA1.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.CA1.antec;textoAntecedente=this.showText(this.CA1.antec,this.antec_options);var i=0;while(i<this.CA1.antecedentes.length){if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.CA1.antec="";this.CA1.antecedentes.push({id:0,id_inte:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntInt:function eliminarItemAntInt(index,item){if(item.id===0){this.CA1.antecedentes.splice(index,1);}else{this.CA1.antecedentes[index].estado="Inactivo";this.CA1.antecedentes.splice(index,1,this.CA1.antecedentes[index]);}},controlRA:function controlRA(opcion){console.log(opcion);this.banderaControles=false;this.banConRieAmb=opcion;},cerrarControlRA:function cerrarControlRA(){this.banderaControles=true;},GuardarRA:function GuardarRA(opcion){}}});
+cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}},agregarAntJef:function agregarAntJef(){var textoAntecedente="",id_antecedente="";if(this.caracData.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.caracData.antec;textoAntecedente=this.showText(this.caracData.antec,this.antec_options);var i=0;while(i<this.caracData.antecedentes.length){if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.caracData.antec="";this.caracData.antecedentes.push({id:0,id_jefe:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntJef:function eliminarItemAntJef(index,item){if(item.id===0){this.caracData.antecedentes.splice(index,1);}else{this.caracData.antecedentes[index].estado="Inactivo";this.caracData.antecedentes.splice(index,1,this.caracData.antecedentes[index]);}},agregarAntInt:function agregarAntInt(){var textoAntecedente="",id_antecedente="";if(this.CA1.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.CA1.antec;textoAntecedente=this.showText(this.CA1.antec,this.antec_options);var i=0;while(i<this.CA1.antecedentes.length){if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.CA1.antec="";this.CA1.antecedentes.push({id:0,id_inte:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntInt:function eliminarItemAntInt(index,item){if(item.id===0){this.CA1.antecedentes.splice(index,1);}else{this.CA1.antecedentes[index].estado="Inactivo";this.CA1.antecedentes.splice(index,1,this.CA1.antecedentes[index]);}},controlRA:function controlRA(opcion){this.banderaControles=false;this.banConRieAmb=opcion;},cerrarControlRA:function cerrarControlRA(){this.banderaControles=true;},GuardarRA:function GuardarRA(opcion){var _this20=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee20(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee20$(_context24){while(1){switch(_context24.prev=_context24.next){case 0:if(!(opcion==="RD")){_context24.next=20;break;}if(!(_this20.datosRA.control_entes_RD==="")){_context24.next=4;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 4:if(!(_this20.datosRA.obras_ingenieria_RD==="")){_context24.next=7;break;}_this20.$swal("Error...!","Por Favor seleccione la opción existen obras de ingenieria en las laderas","error");return _context24.abrupt("return",false);case 7:if(!(_this20.datosRA.control_entes_RD!==""&&_this20.datosRA.control_entes_RD!=="NO")){_context24.next=14;break;}if(!(_this20.datosRA.cual_RD==="")){_context24.next=11;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 11:if(!(_this20.datosRA.tipo_RD==="")){_context24.next=14;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 14:if(!(_this20.datosRA.proteccion_RD==="")){_context24.next=17;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Protección estructural","error");return _context24.abrupt("return",false);case 17:if(!(_this20.datosRA.zona_vivienda_RD==="")){_context24.next=20;break;}_this20.$swal("Error...!","Por Favor seleccione la opción La Zona de vivienda se encuentra dentro del mapa de riesgos","error");return _context24.abrupt("return",false);case 20:if(!(opcion==="RI")){_context24.next=43;break;}if(!(_this20.datosRA.control_entes_RI==="")){_context24.next=24;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 24:if(!(_this20.datosRA.gaviones_RI==="")){_context24.next=27;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Construcción de gaviones para fuente hidrica","error");return _context24.abrupt("return",false);case 27:if(!(_this20.datosRA.control_entes_RI!==""&&_this20.datosRA.control_entes_RI!=="NO")){_context24.next=34;break;}if(!(_this20.datosRA.cual_RI==="")){_context24.next=31;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 31:if(!(_this20.datosRA.tipo_RI==="")){_context24.next=34;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 34:if(!(_this20.datosRA.dragado_RI==="")){_context24.next=37;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Se ha evidenciao el dragado del rio","error");return _context24.abrupt("return",false);case 37:if(!(_this20.datosRA.barreras_RI==="")){_context24.next=40;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Barreras en las casas","error");return _context24.abrupt("return",false);case 40:if(!(_this20.datosRA.zona_vivienda_RI==="")){_context24.next=43;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Se encuentra la zona de la vivienda dentro del mapa de riesgo de inundacion","error");return _context24.abrupt("return",false);case 43:if(!(opcion==="RIN")){_context24.next=69;break;}if(!(_this20.datosRA.sistema_recoleccion_RIN==="")){_context24.next=47;break;}_this20.$swal("Error...!","Por Favor seleccione la opción sistema de recolección de residuos ","error");return _context24.abrupt("return",false);case 47:if(!(_this20.datosRA.control_entes_RIN==="")){_context24.next=50;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 50:if(!(_this20.datosRA.control_entes_RIN!==""&&_this20.datosRA.control_entes_RIN!=="NO")){_context24.next=57;break;}if(!(_this20.datosRA.cual_RIN==="")){_context24.next=54;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 54:if(!(_this20.datosRA.tipo_RIN==="")){_context24.next=57;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 57:if(!(_this20.datosRA.control_plagas_RIN==="")){_context24.next=60;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Control de plagas y vectores por fumigación","error");return _context24.abrupt("return",false);case 60:if(!(_this20.datosRA.limpieza_RIN==="")){_context24.next=63;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Limpieza y mantenimiento programado de lotes emontados y afluentes de agua","error");return _context24.abrupt("return",false);case 63:if(!(_this20.datosRA.tipo_tratamiento_RIN==="")){_context24.next=66;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Realiza algun tipo de tratamiento del agua","error");return _context24.abrupt("return",false);case 66:if(!(_this20.datosRA.clasificacion_residuos_RIN==="")){_context24.next=69;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Clasificacion de residuos","error");return _context24.abrupt("return",false);case 69:if(!(opcion==="RA")){_context24.next=89;break;}if(!(_this20.datosRA.control_entes_RA==="")){_context24.next=73;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 73:if(!(_this20.datosRA.humectacion_RA==="")){_context24.next=76;break;}_this20.$swal("Error...!","Por Favor seleccione la opción se realiza humectacion de la via","error");return _context24.abrupt("return",false);case 76:if(!(_this20.datosRA.control_entes_RA!==""&&_this20.datosRA.control_entes_RA!=="NO")){_context24.next=83;break;}if(!(_this20.datosRA.cual_RA==="")){_context24.next=80;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 80:if(!(_this20.datosRA.tipo_RA==="")){_context24.next=83;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 83:if(!(_this20.datosRA.sistema_RA==="")){_context24.next=86;break;}_this20.$swal("Error...!","Por Favor seleccione la opción se tiene algun sistema de monitoreo de calidad del aire","error");return _context24.abrupt("return",false);case 86:if(!(_this20.datosRA.concientizacion_RA==="")){_context24.next=89;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Concientización y educación a la comunidad","error");return _context24.abrupt("return",false);case 89:if(!(opcion==="RRS")){_context24.next=115;break;}if(!(_this20.datosRA.control_entes_RRS==="")){_context24.next=93;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 93:if(!(_this20.datosRA.concientizacion_RRS==="")){_context24.next=96;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Concientización y educación de la comunidad","error");return _context24.abrupt("return",false);case 96:if(!(_this20.datosRA.control_entes_RRS!==""&&_this20.datosRA.control_entes_RRS!=="NO")){_context24.next=103;break;}if(!(_this20.datosRA.cual_RRS==="")){_context24.next=100;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 100:if(!(_this20.datosRA.tipo_RRS==="")){_context24.next=103;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 103:if(!(_this20.datosRA.mantenimiento_RRS==="")){_context24.next=106;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Mantenimiento programado de redes de alcantarillado ","error");return _context24.abrupt("return",false);case 106:if(!(_this20.datosRA.mantenimiento_solicitado_RRS==="")){_context24.next=109;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Mantenimiento solicitado de redes de alcantarillado","error");return _context24.abrupt("return",false);case 109:if(!(_this20.datosRA.fertilizantes_RRS==="")){_context24.next=112;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Utiliza usted fertilizantes o plaguicidas biodegradables","error");return _context24.abrupt("return",false);case 112:if(!(_this20.datosRA.clasificacion_RRS==="")){_context24.next=115;break;}_this20.$swal("Error...!","Por Favor seleccione la opción realiza clasficación de los residuos","error");return _context24.abrupt("return",false);case 115:if(!(opcion==="RQ")){_context24.next=141;break;}if(!(_this20.datosRA.control_entes_RQ==="")){_context24.next=119;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 119:if(!(_this20.datosRA.concientizacion_RQ==="")){_context24.next=122;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Concientización y educación a la población ","error");return _context24.abrupt("return",false);case 122:if(!(_this20.datosRA.control_entes_RQ!==""&&_this20.datosRA.control_entes_RQ!=="NO")){_context24.next=129;break;}if(!(_this20.datosRA.cual_RQ==="")){_context24.next=126;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 126:if(!(_this20.datosRA.tipo_RQ==="")){_context24.next=129;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 129:if(!(_this20.datosRA.bomberos_RQ==="")){_context24.next=132;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Cuerpo de bomberos ","error");return _context24.abrupt("return",false);case 132:if(!(_this20.datosRA.servicio_programado_RQ==="")){_context24.next=135;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Servicio programado de recolección de las basuras.","error");return _context24.abrupt("return",false);case 135:if(!(_this20.datosRA.servicio_solicitud_RQ==="")){_context24.next=138;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Servicio a solicitud de recolección de las basuras","error");return _context24.abrupt("return",false);case 138:if(!(_this20.datosRA.aprovechamiento_RQ==="")){_context24.next=141;break;}_this20.$swal("Error...!","Por Favor seleccione la opción realizan aprovechamiento forestal","error");return _context24.abrupt("return",false);case 141:if(!(opcion==="RAU")){_context24.next=164;break;}if(!(_this20.datosRA.control_entes_RAU==="")){_context24.next=145;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 145:if(!(_this20.datosRA.regulacion_RAU==="")){_context24.next=148;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Regulación de indutrias contaminantes","error");return _context24.abrupt("return",false);case 148:if(!(_this20.datosRA.control_entes_RAU!==""&&_this20.datosRA.control_entes_RAU!=="NO")){_context24.next=155;break;}if(!(_this20.datosRA.cual_RAU==="")){_context24.next=152;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 152:if(!(_this20.datosRA.tipo_RAU==="")){_context24.next=155;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 155:if(!(_this20.datosRA.mediciones_RAU==="")){_context24.next=158;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay realizan mediciones ambientales de ruido","error");return _context24.abrupt("return",false);case 158:if(!(_this20.datosRA.zona_RAU==="")){_context24.next=161;break;}_this20.$swal("Error...!","Por Favor seleccione la opción la zona esta incliuda en el mapa de ruido ambientales","error");return _context24.abrupt("return",false);case 161:if(!(_this20.datosRA.decibeles_RAU==="")){_context24.next=164;break;}_this20.$swal("Error...!","Por Favor seleccione la opción se tiene establecido los decibeles permitidos","error");return _context24.abrupt("return",false);case 164:if(!(opcion==="RRH")){_context24.next=193;break;}if(!(_this20.datosRA.control_entes_RRH==="")){_context24.next=168;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 168:if(!(_this20.datosRA.concientizacion_RRH==="")){_context24.next=171;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Campañas de concientizacion y educación de la comunidad","error");return _context24.abrupt("return",false);case 171:if(!(_this20.datosRA.control_entes_RRH!==""&&_this20.datosRA.control_entes_RRH!=="NO")){_context24.next=178;break;}if(!(_this20.datosRA.cual_RRH==="")){_context24.next=175;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 175:if(!(_this20.datosRA.tipo_RRH==="")){_context24.next=178;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 178:if(!(_this20.datosRA.manejo_aguas_RRH==="")){_context24.next=181;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Manejo de agua residuales sistema de drenaje","error");return _context24.abrupt("return",false);case 181:if(!(_this20.datosRA.programa_RRH==="")){_context24.next=184;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Se tiene programa de uso eficiente y adecuado del agua ","error");return _context24.abrupt("return",false);case 184:if(!(_this20.datosRA.control_industrias_RRH==="")){_context24.next=187;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Control a industrias vertedoras de aguas residuales","error");return _context24.abrupt("return",false);case 187:if(!(_this20.datosRA.mantenimiento_RRH==="")){_context24.next=190;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Mantenimiento de Alcantarillado publico","error");return _context24.abrupt("return",false);case 190:if(!(_this20.datosRA.mantenimiento_captacion_RRH==="")){_context24.next=193;break;}_this20.$swal("Error...!","Por Favor seleccione la opción mantenimiento del sistema de capatacion del agua para consumo","error");return _context24.abrupt("return",false);case 193:if(!(opcion==="RAA")){_context24.next=216;break;}if(!(_this20.datosRA.control_entes_RAA==="")){_context24.next=197;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 197:if(!(_this20.datosRA.tratamiento_RAA==="")){_context24.next=200;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Tratamiento en casa del agua para el consumo","error");return _context24.abrupt("return",false);case 200:if(!(_this20.datosRA.control_entes_RAA!==""&&_this20.datosRA.control_entes_RAA!=="NO")){_context24.next=207;break;}if(!(_this20.datosRA.cual_RRA==="")){_context24.next=204;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 204:if(!(_this20.datosRA.tipo_RRA==="")){_context24.next=207;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 207:if(!(_this20.datosRA.concientizacion_RAA==="")){_context24.next=210;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Campañas de concientización y educación de la población","error");return _context24.abrupt("return",false);case 210:if(!(_this20.datosRA.sistema_RAA==="")){_context24.next=213;break;}_this20.$swal("Error...!","Por Favor seleccione la opción sistema de manejo de agua residuales ","error");return _context24.abrupt("return",false);case 213:if(!(_this20.datosRA.programa_RAA==="")){_context24.next=216;break;}_this20.$swal("Error...!","Por Favor seleccione la opción  se tiene programa de uso eficiente y adecuado del agua","error");return _context24.abrupt("return",false);case 216:// Acceso a Agua Segura
+parametros={_token:_this20.csrf,datosRA:_this20.datosRA,RieAmbInh:_this20.RieAmbInh,opcion:opcion,IDHOGAR:_this20.IDHOGAR};_context24.next=219;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["controlesRA"](parametros).then(function(respuesta){// Riesgos de  Derrumbes
+if(opcion==="RD"){_this20.RieAmbInh.control_riesgos_derrumbes=respuesta.data.residual_riesgos_derrumbes;_this20.RieAmbInh.color_residual_riesgos_derrumbes=respuesta.data.color_residual_riesgos_derrumbes;_this20.RieAmbInh.val_residual_riesgos_derrumbes=respuesta.data.val_residual_riesgos_derrumbes;}// Riesgos de  Derrumbes
+// Riesgos de inundación
+if(opcion==="RI"){_this20.RieAmbInh.control_riesgos_inundacion=respuesta.data.residual_riesgos_inundacion;_this20.RieAmbInh.color_residual_riesgos_inundacion=respuesta.data.color_residual_riesgos_inundacion;_this20.RieAmbInh.val_residual_riesgos_inundacion=respuesta.data.val_residual_riesgos_inundacion;}// Riesgos de inundación            
+// Riesgos de insalubridad
+if(opcion==="RIN"){_this20.RieAmbInh.control_riesgos_insalubridad=respuesta.data.residual_riesgos_insalubridad;_this20.RieAmbInh.color_residual_riesgos_insalubridad=respuesta.data.color_residual_riesgos_insalubridad;_this20.RieAmbInh.val_residual_riesgos_insalubridad=respuesta.data.val_residual_riesgos_insalubridad;}// Riesgos de insalubridad
+// Riesgo atmosferico
+if(opcion==="RA"){_this20.RieAmbInh.control_riesgos_atmosferico=respuesta.data.residual_riesgos_atmosferico;_this20.RieAmbInh.color_residual_riesgos_atmosferico=respuesta.data.color_residual_riesgos_atmosferico;_this20.RieAmbInh.val_residual_riesgos_atmosferico=respuesta.data.val_residual_riesgos_atmosferico;}// Riesgo atmosferico
+// Riesgos Recurso suelo
+if(opcion==="RRS"){_this20.RieAmbInh.control_riesgos_recurso_suelo=respuesta.data.residual_riesgos_recurso_suelo;_this20.RieAmbInh.color_residual_riesgos_recurso_suelo=respuesta.data.color_residual_riesgos_recurso_suelo;_this20.RieAmbInh.val_residual_riesgos_recurso_suelo=respuesta.data.val_residual_riesgos_recurso_suelo;}// Riesgos Recurso suelo            
+// Riesgo por quemas o incendio
+if(opcion==="RQ"){_this20.RieAmbInh.control_riesgos_quema=respuesta.data.residual_riesgos_quema;_this20.RieAmbInh.color_residual_riesgos_quema=respuesta.data.color_residual_riesgos_quema;_this20.RieAmbInh.val_residual_riesgos_quema=respuesta.data.val_residual_riesgos_quema;}// Riesgo por quemas o incendio
+// Riesgo Auditivo
+if(opcion==="RAU"){_this20.RieAmbInh.control_riesgos_auditivo=respuesta.data.residual_riesgos_auditivo;_this20.RieAmbInh.color_residual_riesgos_auditivo=respuesta.data.color_residual_riesgos_auditivo;_this20.RieAmbInh.val_residual_riesgos_auditivo=respuesta.data.val_residual_riesgos_auditivo;}// Riesgo Auditivo            
+// Riesgo recurso Hidrico
+if(opcion==="RRH"){_this20.RieAmbInh.control_riesgos_recurso_hidrico=respuesta.data.residual_riesgos_recurso_hidrico;_this20.RieAmbInh.color_residual_riesgos_recurso_hidrico=respuesta.data.color_residual_riesgos_recurso_hidrico;_this20.RieAmbInh.val_residual_riesgos_recurso_hidrico=respuesta.data.val_residual_riesgos_recurso_hidrico;}// Riesgo recurso Hidrico
+// Acceso a Agua Segura
+if(opcion==="RAA"){_this20.RieAmbInh.control_riesgos_acceso_agua=respuesta.data.residual_riesgos_acceso_agua;_this20.RieAmbInh.color_residual_riesgos_acceso_agua=respuesta.data.color_residual_riesgos_acceso_agua;_this20.RieAmbInh.val_residual_riesgos_acceso_agua=respuesta.data.val_residual_riesgos_acceso_agua;}// Acceso a Agua Segura
+_this20.banderaControles=true;})["catch"](function(error){_this20.$swal("Error...!","No se pudo ejecutar los controles","error");return;});case 219:case"end":return _context24.stop();}}},_callee20);}))();},cambioComboRA:function cambioComboRA(opcion){if(opcion==='RD'){this.datosRA.cual_RD="";this.datosRA.tipo_RD="";}if(opcion==='RI'){this.datosRA.cual_RI="";this.datosRA.tipo_RI="";}if(opcion==='RIN'){this.datosRA.cual_RIN="";this.datosRA.tipo_RIN="";}if(opcion==='RA'){this.datosRA.cual_RA="";this.datosRA.tipo_RA="";}if(opcion==='RRS'){this.datosRA.cual_RRS="";this.datosRA.tipo_RRS="";}if(opcion==='RQ'){this.datosRA.cual_RQ="";this.datosRA.tipo_RQ="";}if(opcion==='RAU'){this.datosRA.cual_RAU="";this.datosRA.tipo_RAU="";}if(opcion==='RRH'){this.datosRA.cual_RRH="";this.datosRA.tipo_RRH="";}if(opcion==='RAA'){this.datosRA.cual_RAA="";this.datosRA.tipo_RAA="";}},mostrarRiesgoSalMen1a:function mostrarRiesgoSalMen1a(index){this.indiceRSMEN1A=index;this.vectorAuxRSMEN1A=[];this.vectorAuxRSMEN1A.push({enfermedades_infecciosas_I:this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_infecciosas_I"],transtornos_asociados_spa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["transtornos_asociados_spa_I"],enfermedad_cardiovascular_I:this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedad_cardiovascular_I"],cancer_I:this.datosRSMEN1A[this.indiceRSMEN1A]["cancer_I"],alteraciones_transtornos_visuales_I:this.datosRSMEN1A[this.indiceRSMEN1A]["alteraciones_transtornos_visuales_I"],alteraciones_transtornos_audicion_I:this.datosRSMEN1A[this.indiceRSMEN1A]["alteraciones_transtornos_audicion_I"],salud_bucal_I:this.datosRSMEN1A[this.indiceRSMEN1A]["salud_bucal_I"],problemas_salud_mental_I:this.datosRSMEN1A[this.indiceRSMEN1A]["problemas_salud_mental_I"],violencias_I:this.datosRSMEN1A[this.indiceRSMEN1A]["violencias_I"],enfermedades_respiratorias_I:this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_respiratorias_I"],enfermedades_zoonoticas_I:this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_zoonoticas_I"],transtornos_degenartivos_I:this.datosRSMEN1A[this.indiceRSMEN1A]["transtornos_degenartivos_I"],consumo_spa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["consumo_spa_I"],riesgos_desnutricion_aguda_I:this.datosRSMEN1A[this.indiceRSMEN1A]["riesgos_desnutricion_aguda_I"],riesgos_desnutricion_global_I:this.datosRSMEN1A[this.indiceRSMEN1A]["riesgos_desnutricion_global_I"],desnutricion_global_I:this.datosRSMEN1A[this.indiceRSMEN1A]["desnutricion_global_I"],riesgo_talla_baja_I:this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_talla_baja_I"],talla_baja_retraso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["talla_baja_retraso_I"],desnutricion_aguda_moderada_I:this.datosRSMEN1A[this.indiceRSMEN1A]["desnutricion_aguda_moderada_I"],desnutricion_aguda_severa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["desnutricion_aguda_severa_I"],riesgo_muerte_I:this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_muerte_I"],riesgo_sobrepeso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_sobrepeso_I"],sobrepeso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["sobrepeso_I"],obesidad_I:this.datosRSMEN1A[this.indiceRSMEN1A]["obesidad_I"],v_enfermedades_infecciosas_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_infecciosas_I"],v_transtornos_asociados_spa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_transtornos_asociados_spa_I"],v_enfermedad_cardiovascular_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedad_cardiovascular_I"],v_cancer_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_cancer_I"],v_alteraciones_transtornos_visuales_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_alteraciones_transtornos_visuales_I"],v_alteraciones_transtornos_audicion_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_alteraciones_transtornos_audicion_I"],v_salud_bucal_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_salud_bucal_I"],v_problemas_salud_mental_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_problemas_salud_mental_I"],v_violencias_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_violencias_I"],v_enfermedades_respiratorias_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_respiratorias_I"],v_enfermedades_zoonoticas_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_zoonoticas_I"],v_transtornos_degenartivos_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_transtornos_degenartivos_I"],v_consumo_spa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_consumo_spa_I"],v_riesgos_desnutricion_aguda_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgos_desnutricion_aguda_I"],v_riesgos_desnutricion_global_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgos_desnutricion_global_I"],v_desnutricion_global_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_desnutricion_global_I"],v_riesgo_talla_baja_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_talla_baja_I"],v_talla_baja_retraso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_talla_baja_retraso_I"],v_desnutricion_aguda_moderada_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_desnutricion_aguda_moderada_I"],v_desnutricion_aguda_severa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_desnutricion_aguda_severa_I"],v_riesgo_muerte_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_muerte_I"],v_riesgo_sobrepeso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_sobrepeso_I"],v_sobrepeso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_sobrepeso_I"],v_obesidad_I:this.datosRSMEN1A[this.indiceRSMEN1A]["v_obesidad_I"],c_enfermedades_infecciosas_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_infecciosas_I"],c_transtornos_asociados_spa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_transtornos_asociados_spa_I"],c_enfermedad_cardiovascular_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedad_cardiovascular_I"],c_cancer_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_cancer_I"],c_alteraciones_transtornos_visuales_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_alteraciones_transtornos_visuales_I"],c_alteraciones_transtornos_audicion_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_alteraciones_transtornos_audicion_I"],c_salud_bucal_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_salud_bucal_I"],c_problemas_salud_mental_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_problemas_salud_mental_I"],c_violencias_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_violencias_I"],c_enfermedades_respiratorias_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_respiratorias_I"],c_enfermedades_zoonoticas_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_zoonoticas_I"],c_transtornos_degenartivos_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_transtornos_degenartivos_I"],c_consumo_spa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_consumo_spa_I"],c_riesgos_desnutricion_aguda_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgos_desnutricion_aguda_I"],c_riesgos_desnutricion_global_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgos_desnutricion_global_I"],c_desnutricion_global_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_desnutricion_global_I"],c_riesgo_talla_baja_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_talla_baja_I"],c_talla_baja_retraso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_talla_baja_retraso_I"],c_desnutricion_aguda_moderada_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_desnutricion_aguda_moderada_I"],c_desnutricion_aguda_severa_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_desnutricion_aguda_severa_I"],c_riesgo_muerte_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_muerte_I"],c_riesgo_sobrepeso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_sobrepeso_I"],c_sobrepeso_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_sobrepeso_I"],c_obesidad_I:this.datosRSMEN1A[this.indiceRSMEN1A]["c_obesidad_I"]});},controlS:function controlS(opcion){}}});
 
 /***/ }),
 
@@ -16374,7 +17149,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "col-lg-10" }, [
                       _c("label", [_vm._v("Ocupación (*):")]),
                       _vm._v(" "),
                       _c("input", {
@@ -16407,7 +17182,58 @@ var render = function() {
                           }
                         }
                       })
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-2" },
+                      [
+                        _c("label", [_vm._v("Tipo de empleo:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.tipo_empleo == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.tipo_empleo,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "tipo_empleo", $$v)
+                              },
+                              expression: "caracData.tipo_empleo"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("SIN EMPLEO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("SI FORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "3" } }, [
+                              _vm._v("SI INFORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("INDEPENDIENTE")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -17679,6 +18505,47 @@ var render = function() {
                             _vm.$set(
                               _vm.caracData,
                               "talla",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-2" }, [
+                      _c("label", [_vm._v("Personas a cargo:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.percargo,
+                            expression: "caracData.percargo",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.percargo == "" ? "" : "is-valid",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Personas a cargo"
+                        },
+                        domProps: { value: _vm.caracData.percargo },
+                        on: {
+                          change: function($event) {
+                            return _vm.formato("percargo")
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "percargo",
                               $event.target.value.trim()
                             )
                           },
@@ -20907,7 +21774,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "col-lg-10" }, [
                       _c("label", [_vm._v("Ocupación:")]),
                       _vm._v(" "),
                       _c("input", {
@@ -20940,7 +21807,57 @@ var render = function() {
                           }
                         }
                       })
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-2" },
+                      [
+                        _c("label", [_vm._v("Tipo de empleo:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.CA1.tipo_empleo == "0" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.tipo_empleo,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "tipo_empleo", $$v)
+                              },
+                              expression: "CA1.tipo_empleo"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("SIN EMPLEO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("SI FORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "3" } }, [
+                              _vm._v("SI INFORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("INDEPENDIENTE")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -35949,7 +36866,7 @@ var render = function() {
                                               ? "is-invalid"
                                               : "is-valid",
                                           staticStyle: { width: "160px" },
-                                          attrs: { type: "text" },
+                                          attrs: { type: "text", readonly: "" },
                                           domProps: { value: item.peso_long },
                                           on: {
                                             input: [
@@ -37977,7 +38894,7 @@ var render = function() {
                                               ? "is-invalid"
                                               : "is-valid",
                                           staticStyle: { width: "150px" },
-                                          attrs: { type: "text" },
+                                          attrs: { type: "text", readonly: "" },
                                           domProps: { value: item.pt },
                                           on: {
                                             input: [
@@ -38031,7 +38948,7 @@ var render = function() {
                                               ? "is-invalid"
                                               : "is-valid",
                                           staticStyle: { width: "150px" },
-                                          attrs: { type: "text" },
+                                          attrs: { type: "text", readonly: "" },
                                           domProps: { value: item.te },
                                           on: {
                                             input: [
@@ -54754,11 +55671,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_quema
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_derrumbes
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_derrumbes
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_derrumbes
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -54871,11 +55805,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_inundacion
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_inundacion
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_inundacion
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_inundacion
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -54988,11 +55939,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_insalubridad
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_insalubridad
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_insalubridad
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_insalubridad
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -55105,11 +56073,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_atmosferico
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_atmosferico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_atmosferico
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_atmosferico
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -55222,11 +56207,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_recurso_suelo
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_recurso_suelo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_recurso_suelo
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_recurso_suelo
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -55341,11 +56343,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_quema
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_quema
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_quema
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_quema
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -55457,11 +56476,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_auditivo
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_auditivo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_auditivo
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_auditivo
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -55574,11 +56610,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_recurso_hidrico
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_recurso_hidrico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_recurso_hidrico
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_recurso_hidrico
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -55695,11 +56748,28 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _vm._v(
-                                              _vm._s(
-                                                _vm.RieAmbInh
-                                                  .control_riesgos_acceso_agua
-                                              )
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_acceso_agua
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_acceso_agua
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_acceso_agua
+                                                    )
+                                                )
+                                              ]
                                             )
                                           ]
                                         ),
@@ -55783,6 +56853,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RD == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RD")
+                                            }
+                                          },
                                           model: {
                                             value: _vm.datosRA.control_entes_RD,
                                             callback: function($$v) {
@@ -55953,7 +57028,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RD == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RD,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RD",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RD"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -56164,6 +57303,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RI == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RI")
+                                            }
+                                          },
                                           model: {
                                             value: _vm.datosRA.control_entes_RI,
                                             callback: function($$v) {
@@ -56331,7 +57475,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RI == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RI,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RI",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RI"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -56682,6 +57890,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RIN == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RIN")
+                                            }
+                                          },
                                           model: {
                                             value:
                                               _vm.datosRA.control_entes_RIN,
@@ -56783,7 +57996,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RIN == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RIN,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RIN",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RIN"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -57134,6 +58411,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RA == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RA")
+                                            }
+                                          },
                                           model: {
                                             value: _vm.datosRA.control_entes_RA,
                                             callback: function($$v) {
@@ -57301,7 +58583,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RA == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RA,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RA",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RA"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -57515,6 +58861,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RRS == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RRS")
+                                            }
+                                          },
                                           model: {
                                             value:
                                               _vm.datosRA.control_entes_RRS,
@@ -57686,7 +59037,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RRS == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RRS,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RRS",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RRS"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -58045,6 +59460,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RQ == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RQ")
+                                            }
+                                          },
                                           model: {
                                             value: _vm.datosRA.control_entes_RQ,
                                             callback: function($$v) {
@@ -58214,7 +59634,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RQ == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RQ,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RQ",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RQ"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -58565,6 +60049,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RAU == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RAU")
+                                            }
+                                          },
                                           model: {
                                             value:
                                               _vm.datosRA.control_entes_RAU,
@@ -58733,7 +60222,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RAU == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RAU,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RAU",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RAU"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -59014,6 +60567,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RRH == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RRH")
+                                            }
+                                          },
                                           model: {
                                             value:
                                               _vm.datosRA.control_entes_RRH,
@@ -59185,7 +60743,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RRH == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RRH,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RRH",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RRH"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -59613,6 +61235,11 @@ var render = function() {
                                             _vm.datosRA.control_entes_RAA == ""
                                               ? ""
                                               : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RRA")
+                                            }
+                                          },
                                           model: {
                                             value:
                                               _vm.datosRA.control_entes_RAA,
@@ -59782,7 +61409,71 @@ var render = function() {
                                               }
                                             }
                                           })
-                                        ])
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RRA == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RRA,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RRA",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RRA"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
                                       ]
                                     )
                                   : _vm._e(),
@@ -60054,6 +61745,2847 @@ var render = function() {
                           ]
                         )
                   ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              ref: "modalRieSal1",
+              attrs: {
+                "hide-footer": "",
+                title: "Controles de los riesgos salud",
+                size: "xl",
+                centered: "",
+                "header-bg-variant": "danger",
+                "header-text-variant": "light",
+                "no-close-on-backdrop": true
+              }
+            },
+            [
+              _c("div", { staticClass: "d-block" }, [
+                _c(
+                  "ul",
+                  {
+                    staticClass:
+                      "nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success",
+                    attrs: { role: "tablist" }
+                  },
+                  [
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link active",
+                          attrs: {
+                            "data-toggle": "tab",
+                            href: "#tabMen1a",
+                            role: "tab"
+                          }
+                        },
+                        [_vm._v("PRIMERA INFANCIA NIÑOS(AS) MENORES DE UN AÑO")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            "data-toggle": "tab",
+                            href: "#tabDe1a5",
+                            role: "tab"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "PRIMERA INFANCIA NIÑOS(AS) DE 1 A 5 AÑOS (12 a 60 Meses)"
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "nav-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link",
+                          attrs: {
+                            "data-toggle": "tab",
+                            href: "#tabDe6a11",
+                            role: "tab"
+                          }
+                        },
+                        [_vm._v("INFANCIA NIÑOS(AS) DE 6 A 11 AÑOS")]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "tab-content" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane active",
+                      attrs: { id: "tabMen1a", role: "tabpanel" }
+                    },
+                    [
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-4" },
+                          [
+                            _c("center", [
+                              _c("p", [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-font-boldest text",
+                                    staticStyle: { "font-size": "18px" }
+                                  },
+                                  [_vm._v("Datos de los integrantes")]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "table-responsive" }, [
+                              _c(
+                                "table",
+                                { staticClass: "table table-sm table-hover" },
+                                [
+                                  _c("thead", {}, [
+                                    _c(
+                                      "tr",
+                                      { staticClass: "kt-bg-fill-brand" },
+                                      [
+                                        _c("th", [_vm._v("No.")]),
+                                        _vm._v(" "),
+                                        _c("th", [_vm._v("Integrante")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Opción")]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "tbody",
+                                    _vm._l(_vm.datosRSMEN1A, function(
+                                      item,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "tr",
+                                        {
+                                          key: item.value,
+                                          attrs: { value: item.value }
+                                        },
+                                        [
+                                          _c(
+                                            "td",
+                                            {
+                                              staticStyle: {
+                                                "font-weight": "bold",
+                                                "vertical-align": "middle",
+                                                "text-align": "center",
+                                                "text-transform": "capitalize"
+                                              }
+                                            },
+                                            [_vm._v(_vm._s(index + 1))]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            {
+                                              staticStyle: {
+                                                "font-weight": "none",
+                                                "vertical-align": "middle",
+                                                "text-align": "left",
+                                                "text-transform": "capitalize"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(item.tipo_id) +
+                                                  ":" +
+                                                  _vm._s(item.identificacion) +
+                                                  " - " +
+                                                  _vm._s(item.pnom) +
+                                                  " " +
+                                                  _vm._s(item.snom) +
+                                                  " " +
+                                                  _vm._s(item.pape) +
+                                                  " " +
+                                                  _vm._s(item.sape)
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "td",
+                                            {
+                                              staticStyle: {
+                                                "text-align": "center",
+                                                "vertical-align": "middle"
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "btn btn-icon btn-sm btn-success",
+                                                  attrs: {
+                                                    type: "button",
+                                                    title: "Controles"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.mostrarRiesgoSalMen1a(
+                                                        index
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    staticClass: "fa fa-check"
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    }),
+                                    0
+                                  )
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-md-8" },
+                          [
+                            _c("center", [
+                              _c("p", [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-font-boldest text",
+                                    staticStyle: { "font-size": "18px" }
+                                  },
+                                  [_vm._v("Datos de los riesgos")]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "table-responsive",
+                                staticStyle: { height: "370px" }
+                              },
+                              [
+                                _c(
+                                  "table",
+                                  { staticClass: "table table-sm table-hover" },
+                                  [
+                                    _c("thead", [
+                                      _c(
+                                        "tr",
+                                        { staticClass: "kt-bg-fill-brand" },
+                                        [
+                                          _c(
+                                            "th",
+                                            {
+                                              staticStyle: {
+                                                "vertical-align": "middle",
+                                                "text-align": "left"
+                                              }
+                                            },
+                                            [_vm._v("Riesgo")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "th",
+                                            {
+                                              staticStyle: {
+                                                "vertical-align": "middle",
+                                                "text-align": "center"
+                                              }
+                                            },
+                                            [_vm._v("Valorización I.")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "th",
+                                            {
+                                              staticStyle: {
+                                                "vertical-align": "middle",
+                                                "text-align": "center"
+                                              }
+                                            },
+                                            [_vm._v("Valorización R.")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "th",
+                                            {
+                                              staticStyle: {
+                                                "vertical-align": "middle",
+                                                "text-align": "center"
+                                              }
+                                            },
+                                            [_vm._v("Opción")]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tbody",
+                                      [
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Enfermedades Infeccisosas."
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_enfermedades_infecciosas_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.enfermedades_infecciosas_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_enfermedades_infecciosas_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Trastornos Asociados al uso de SPA"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_transtornos_asociados_spa_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.transtornos_asociados_spa_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_transtornos_asociados_spa_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Enfermedad Cardiovascular Aterogénica"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_enfermedad_cardiovascular_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.enfermedad_cardiovascular_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_enfermedad_cardiovascular_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Cancer")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class: item.c_cancer_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(item.cancer_I) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_cancer_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Alteraciones y Transtornos Visuales"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_alteraciones_transtornos_visuales_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.alteraciones_transtornos_visuales_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_alteraciones_transtornos_visuales_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Alteraciones y Transtornos de la Audición y comunicación"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_alteraciones_transtornos_audicion_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.alteraciones_transtornos_audicion_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_alteraciones_transtornos_audicion_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Salud Bucal")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_salud_bucal_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.salud_bucal_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_salud_bucal_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Problemas en salud mental"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_problemas_salud_mental_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.problemas_salud_mental_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_problemas_salud_mental_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Violencias")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class: item.c_violencias_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.violencias_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_violencias_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Enfermedades Respiratorias crónicas"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_enfermedades_respiratorias_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.enfermedades_respiratorias_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_enfermedades_respiratorias_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Enfermedades Zoonoticas"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_enfermedades_zoonoticas_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.enfermedades_zoonoticas_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_enfermedades_zoonoticas_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_transtornos_degenartivos_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.transtornos_degenartivos_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_transtornos_degenartivos_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Consumo de SPA")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_consumo_spa_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.consumo_spa_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_consumo_spa_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Riesgo Desnutrición Aguda"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_riesgos_desnutricion_aguda_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.riesgos_desnutricion_aguda_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_riesgos_desnutricion_aguda_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Riesgo Desnutrición Global"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_riesgos_desnutricion_global_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.riesgos_desnutricion_global_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_riesgos_desnutricion_global_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Desnutrición Global")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_desnutricion_global_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.desnutricion_global_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_desnutricion_global_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Riesgo de Talla Baja")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_riesgo_talla_baja_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.riesgo_talla_baja_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_riesgo_talla_baja_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Talla Baja o retraso de la edad"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_talla_baja_retraso_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.talla_baja_retraso_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_talla_baja_retraso_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Desnutrición Aguda Moderada"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_desnutricion_aguda_moderada_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.desnutricion_aguda_moderada_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_desnutricion_aguda_moderada_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Desnutrición Aguda Severa"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_desnutricion_aguda_severa_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.desnutricion_aguda_severa_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_desnutricion_aguda_severa_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "Riesgo de Muerte por Desnutrición"
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_riesgo_muerte_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.riesgo_muerte_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_riesgo_muerte_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Riesgo Sobrepeso")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class:
+                                                        item.c_riesgo_sobrepeso_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.riesgo_sobrepeso_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_riesgo_sobrepeso_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Sobrepeso")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class: item.c_sobrepeso_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.sobrepeso_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_sobrepeso_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._l(_vm.vectorAuxRSMEN1A, function(
+                                          item
+                                        ) {
+                                          return _c(
+                                            "tr",
+                                            {
+                                              key: item.value,
+                                              attrs: { value: item.value }
+                                            },
+                                            [
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "none",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "left",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [_vm._v("Obesidad")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "font-weight": "bold",
+                                                    "vertical-align": "middle",
+                                                    "text-align": "center",
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      staticClass:
+                                                        "kt-badge kt-badge--inline",
+                                                      class: item.c_obesidad_I
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          item.obesidad_I
+                                                        ) +
+                                                          " - " +
+                                                          _vm._s(
+                                                            item.v_obesidad_I
+                                                          )
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("td"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "td",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center",
+                                                    "vertical-align": "middle"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "button",
+                                                    {
+                                                      staticClass:
+                                                        "btn btn-icon btn-sm btn-primary",
+                                                      attrs: {
+                                                        type: "button",
+                                                        title: "Controles"
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.controlS(
+                                                            "SALUD"
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass:
+                                                          "fa fa-edit"
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        })
+                                      ],
+                                      2
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-warning",
+                      attrs: { type: "button" },
+                      on: { click: _vm.cerrarModal }
+                    },
+                    [
+                      _c("i", { staticClass: "fa fa-window-close" }),
+                      _vm._v(" Cerrar\n            ")
+                    ]
+                  )
                 ])
               ])
             ]
@@ -63267,7 +67799,7 @@ function comboBarrios($data) {
 /*!*************************************************************!*\
   !*** ./resources/js/Servicios/caracterizacion_servicios.js ***!
   \*************************************************************/
-/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA */
+/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA, buscarTablas */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -63284,6 +67816,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editarCaracterizacion", function() { return editarCaracterizacion; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlesRA", function() { return controlesRA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buscarTablas", function() { return buscarTablas; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarCaracterizacion($data) {
@@ -63321,6 +67854,9 @@ function eliminar($data) {
 }
 function controlesRA($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/controlesRA', $data);
+}
+function buscarTablas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/buscarTablas', $data);
 }
 
 /***/ }),

@@ -691,21 +691,8 @@
                 </div>
               </div>              
               <div class="form-group row">
-                <div class="col-lg-12">
+                <div class="col-lg-10">
                   <label>Ocupación (*):</label>
-                  <!-- <b-form-select
-                    v-model="caracData.ocupacion"
-                    ref="ocupacion"
-                    :class="caracData.ocupacion==''?'':'is-valid'"
-                  >
-                    <option value selected>Seleccione</option>
-                    <option value="0">No Aplica</option>
-                    <option
-                      v-for="item in ocupacion_options"
-                      :value="item.value"
-                      :key="item.value"
-                    >{{item.texto}}</option>
-                  </b-form-select> -->
                   <input
                     type="text"
                     class="form-control text-capitalize"
@@ -717,6 +704,20 @@
                     :readonly="true"
                   />                  
                 </div>
+                <div class="col-lg-2">
+                  <label>Tipo de empleo:</label>
+                  <b-form-select
+                    v-model="caracData.tipo_empleo"
+                    :class="caracData.tipo_empleo==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="1" >SIN EMPLEO</option>
+                    <option value="2" >SI FORMAL</option>
+                    <option value="3" >SI INFORMAL</option>
+                    <option value="4" >INDEPENDIENTE</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
               </div>  
               <div class="form-group row">
                 <div class="col-lg-4">
@@ -1100,6 +1101,17 @@
                     @change="formato('talla1')"
                   />
                 </div>
+                <div class="col-lg-2">
+                  <label>Personas a cargo:</label>
+                  <input
+                    type="text"
+                    class="form-control text-capitalize"
+                    placeholder="Personas a cargo"
+                    v-model.trim="caracData.percargo"
+                    :class="caracData.percargo==''?'':'is-valid'"
+                    @change="formato('percargo')"
+                  />
+                </div>                
                 <div class="col-lg-1" v-if="bandeGuaEdiJefe==true">
                   <br />
                   <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -2041,17 +2053,8 @@
                 </div>
               </div>              
               <div class="form-group row">
-                <div class="col-lg-12">
+                <div class="col-lg-10">
                   <label>Ocupación:</label>
-                  <!-- <b-form-select v-model="CA1.ocupacion" :class="CA1.ocupacion=='0'?'':'is-valid'">
-                    <option value="0" selected>Seleccione</option>
-                    <option value="NA">No Aplica</option>
-                    <option
-                      v-for="item in ocupacion_options"
-                      :value="item.value"
-                      :key="item.value"
-                    >{{item.texto}}</option>
-                  </b-form-select> -->
                   <input
                     type="text"
                     class="form-control text-capitalize"
@@ -2063,6 +2066,20 @@
                     :readonly="true"
                   />                  
                 </div>
+                <div class="col-lg-2">
+                  <label>Tipo de empleo:</label>
+                  <b-form-select
+                    v-model="CA1.tipo_empleo"
+                    :class="CA1.tipo_empleo=='0'?'':'is-valid'"
+                  >
+                    <option value="0" selected>Seleccione</option>
+                    <option value="1" >SIN EMPLEO</option>
+                    <option value="2" >SI FORMAL</option>
+                    <option value="3" >SI INFORMAL</option>
+                    <option value="4" >INDEPENDIENTE</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                
               </div>
               <div class="form-group row">
                 <div class="col-lg-4">
@@ -6438,6 +6455,7 @@
                               v-model="item.peso_long"
                               @input="changeupdateMenA1(item,$event,'peso_long')"
                               :class="item.peso_long==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -7015,6 +7033,7 @@
                               v-model="item.pt"
                               @input="changeupdateDe1A5(item,$event,'pt')"
                               :class="item.pt==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -7027,6 +7046,7 @@
                               v-model="item.te"
                               @input="changeupdateDe1A5(item,$event,'te')"
                               :class="item.te==''?'is-invalid':'is-valid'"
+                              readonly
                             />
                           </td>
                           <td
@@ -11835,7 +11855,1404 @@
             </div>
           </div>
         </b-modal>
-        <!--begin::Modal Exportar2-->         
+        <!--begin::Modal Exportar2--> 
+
+        <!--begin::Modal RIESGOS AMBIENTALES-->
+        <b-modal
+          ref="modalRieAmb"
+          hide-footer
+          title="Controles de los riesgos ambientales"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block">
+            <form>
+              <div class="form-group row" v-if="banderaControles">
+                <div class="col-md-6">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 18px;">Identificación de riesgos</span>
+                    </p>
+                  </center>
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>No.</th>
+                          <th>Riesgo</th>
+                          <th style="vertical-align: middle;text-align: center;">Puntuación</th>
+                          <th style="vertical-align: middle;text-align: center;">Valorización</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">1</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de  Derrumbes</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_derrumbes }} / 10</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_derrumbes">{{ RieAmbInh.va_riesgos_derrumbes }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">2</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de inundación</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_inundacion }} / 10</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_inundacion">{{ RieAmbInh.va_riesgos_inundacion }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">3</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de insalubridad</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_insalubridad }} / 25</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_insalubridad">{{ RieAmbInh.va_riesgos_insalubridad }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">4</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo atmosferico</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_atmosferico }} / 10</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_atmosferico">{{ RieAmbInh.va_riesgos_atmosferico }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">5</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos Recurso suelo</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_recurso_suelo }} / 10</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_recurso_suelo">{{ RieAmbInh.va_riesgos_recurso_suelo }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">6</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo por quemas o incendio</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_quema }} / 10</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_quema">{{ RieAmbInh.va_riesgos_quema }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">7</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo Auditivo</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_auditivo }} / 5</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_auditivo">{{ RieAmbInh.va_riesgos_auditivo }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">8</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hidrico</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_recurso_hidrico }} / 10</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_recurso_hidrico">{{ RieAmbInh.va_riesgos_recurso_hidrico }}</span>
+                          </td>                          
+                        </tr>
+
+                        <tr>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">9</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo Acceso a Agua Segura</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_acceso_agua }} / 10</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_acceso_agua">{{ RieAmbInh.va_riesgos_acceso_agua }}</span>
+                          </td>                          
+                        </tr>                                                                                                                                                                                             
+                      </tbody>                      
+                    </table>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 18px;">Tratamiento de riesgos (medios y altos)</span>
+                    </p>
+                  </center>
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>Riesgo Inherente</th>
+                          <th style="vertical-align: middle;text-align: center;">Puntuación</th>
+                          <th style="vertical-align: middle;text-align: center;">Riesgo Residual</th>
+                          <th style="vertical-align: middle;text-align: center;">Opción</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-show="RieAmbInh.va_riesgos_derrumbes!='Bajo'">                          
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de  Derrumbes</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_derrumbes">{{ RieAmbInh.riesgos_derrumbes }} / 10</span>
+                          </td>                          
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_derrumbes">{{ RieAmbInh.control_riesgos_derrumbes }} - {{RieAmbInh.val_residual_riesgos_derrumbes}}</span>                            
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RD')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                                                    
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_inundacion!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de inundación</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_inundacion">{{ RieAmbInh.riesgos_inundacion }} / 10</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_inundacion">{{ RieAmbInh.control_riesgos_inundacion }} - {{RieAmbInh.val_residual_riesgos_inundacion}}</span>
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RI')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_insalubridad!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de insalubridad</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_insalubridad">{{ RieAmbInh.riesgos_insalubridad }} / 25</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_insalubridad">{{ RieAmbInh.control_riesgos_insalubridad }} - {{RieAmbInh.val_residual_riesgos_insalubridad}}</span>                            
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RIN')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_atmosferico!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo atmosferico</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_atmosferico">{{ RieAmbInh.riesgos_atmosferico }} / 10</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_atmosferico">{{ RieAmbInh.control_riesgos_atmosferico }} - {{RieAmbInh.val_residual_riesgos_atmosferico}}</span>
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RA')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_recurso_suelo!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos Recurso suelo</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_recurso_suelo">{{ RieAmbInh.riesgos_recurso_suelo }} / 10</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_recurso_suelo">{{ RieAmbInh.control_riesgos_recurso_suelo }} - {{RieAmbInh.val_residual_riesgos_recurso_suelo}}</span>
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RRS')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_quema!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo por quemas o incendio</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_quema">{{ RieAmbInh.riesgos_quema }} / 10</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_quema">{{ RieAmbInh.control_riesgos_quema }} - {{RieAmbInh.val_residual_riesgos_quema}}</span>                            
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RQ')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_auditivo!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo Auditivo</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_auditivo">{{ RieAmbInh.riesgos_auditivo }} / 5</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_auditivo">{{ RieAmbInh.control_riesgos_auditivo }} - {{RieAmbInh.val_residual_riesgos_auditivo}}</span>                            
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RAU')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_recurso_hidrico!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hidrico</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_recurso_hidrico">{{ RieAmbInh.riesgos_recurso_hidrico }} / 10</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_recurso_hidrico">{{ RieAmbInh.control_riesgos_recurso_hidrico }} - {{RieAmbInh.val_residual_riesgos_recurso_hidrico}}</span>                            
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RRH')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>
+
+                        <tr v-show="RieAmbInh.va_riesgos_acceso_agua!='Bajo'">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo Acceso a Agua Segura</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_acceso_agua">{{ RieAmbInh.riesgos_acceso_agua }} / 10</span>
+                          </td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                            <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_acceso_agua">{{ RieAmbInh.control_riesgos_acceso_agua }} - {{RieAmbInh.val_residual_riesgos_acceso_agua}}</span>                            
+                          </td>                          
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-primary"
+                              type="button"
+                              title="Controles"
+                              @click="controlRA('RAA')"
+                            >
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </td>                          
+                        </tr>                                                                                                                                                                                             
+                      </tbody>                      
+                    </table>
+                  </div>                  
+                </div>
+              </div>
+              <div class="form-group row" v-else>
+                <!-- Riesgos de  Derrumbes -->
+                <div class="col-md-12" v-if="banConRieAmb=='RD'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de derrumbes</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RD"
+                        :class="datosRA.control_entes_RD==''?'':'is-valid'"
+                        @change="cambioComboRA('RD')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>¿Existen obra de ingenieria en la laderas? :</label>
+                      <b-form-select
+                        v-model="datosRA.obras_ingenieria_RD"
+                        :class="datosRA.obras_ingenieria_RD==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RD!=='NO' && datosRA.control_entes_RD!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RD"
+                        :class="datosRA.cual_RD==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RD"
+                        :class="datosRA.tipo_RD==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                                                      
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Protección estructural :</label>
+                      <b-form-select
+                        v-model="datosRA.proteccion_RD"
+                        :class="datosRA.proteccion_RD==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>La Zona de vivienda se encuentra dentro del mapa de riesgos :</label>
+                      <b-form-select
+                        v-model="datosRA.zona_vivienda_RD"
+                        :class="datosRA.zona_vivienda_RD==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RD')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                                                     
+                </div>
+                <!-- Riesgos de  Derrumbes -->
+
+                <!-- Riesgos de inundación  -->
+                <div class="col-md-12" v-if="banConRieAmb=='RI'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de inundación</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RI"
+                        :class="datosRA.control_entes_RI==''?'':'is-valid'"
+                        @change="cambioComboRA('RI')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Construcción de gaviones para fuente hidrica :</label>
+                      <b-form-select
+                        v-model="datosRA.gaviones_RI"
+                        :class="datosRA.gaviones_RI==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RI!=='NO' && datosRA.control_entes_RI!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RI"
+                        :class="datosRA.cual_RI==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RI"
+                        :class="datosRA.tipo_RI==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Se ha evidenciao el dragado del rio :</label>
+                      <b-form-select
+                        v-model="datosRA.dragado_RI"
+                        :class="datosRA.dragado_RI==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Barreras en las casas :</label>
+                      <b-form-select
+                        v-model="datosRA.barreras_RI"
+                        :class="datosRA.barreras_RI==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Se encuentra la zona de la vivienda dentro del mapa de riesgo de inundacion :</label>
+                      <b-form-select
+                        v-model="datosRA.zona_vivienda_RI"
+                        :class="datosRA.zona_vivienda_RI==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RI')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                                                                        
+                </div>
+                <!-- Riesgos de inundación  -->
+
+                <!-- Riesgos de insalubridad -->
+                <div class="col-md-12" v-if="banConRieAmb=='RIN'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de insalubridad</span>
+                    </p>
+                  </center>                                    
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Sistema de recolección de residuos :</label>
+                      <b-form-select
+                        v-model="datosRA.sistema_recoleccion_RIN"
+                        :class="datosRA.sistema_recoleccion_RIN==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RIN"
+                        :class="datosRA.control_entes_RIN==''?'':'is-valid'"
+                        @change="cambioComboRA('RIN')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RIN!=='NO' && datosRA.control_entes_RIN!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RIN"
+                        :class="datosRA.cual_RIN==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RIN"
+                        :class="datosRA.tipo_RIN==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Control de plagas y vectores por fumigación :</label>
+                      <b-form-select
+                        v-model="datosRA.control_plagas_RIN"
+                        :class="datosRA.control_plagas_RIN==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Limpieza y  mantenimiento programado de lotes emontados y afluentes de agua :</label>
+                      <b-form-select
+                        v-model="datosRA.limpieza_RIN"
+                        :class="datosRA.limpieza_RIN==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Realiza algun tipo de tratamiento del agua :</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_tratamiento_RIN"
+                        :class="datosRA.tipo_tratamiento_RIN==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                    <div class="col-md-6">
+                      <label>Clasificacion de residuos :</label>
+                      <b-form-select
+                        v-model="datosRA.clasificacion_residuos_RIN"
+                        :class="datosRA.clasificacion_residuos_RIN==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>  
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RIN')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                  
+                </div>
+                <!-- Riesgos de insalubridad -->
+
+                <!-- Riesgo atmosferico -->
+                <div class="col-md-12" v-if="banConRieAmb=='RA'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgo atmosferico</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RA"
+                        :class="datosRA.control_entes_RA==''?'':'is-valid'"
+                        @change="cambioComboRA('RA')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>¿Se realiza humectacion de la via? :</label>
+                      <b-form-select
+                        v-model="datosRA.humectacion_RA"
+                        :class="datosRA.humectacion_RA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RA!=='NO' && datosRA.control_entes_RA!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RA"
+                        :class="datosRA.cual_RA==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RA"
+                        :class="datosRA.tipo_RA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Se tiene algun sistema de monitoreo de calidad del aire :</label>
+                      <b-form-select
+                        v-model="datosRA.sistema_RA"
+                        :class="datosRA.sistema_RA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Concientización y educación a la comunidad :</label>
+                      <b-form-select
+                        v-model="datosRA.concientizacion_RA"
+                        :class="datosRA.concientizacion_RA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RA')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                                                                         
+                </div>
+                <!-- Riesgo atmosferico -->
+
+                <!-- Riesgos Recurso suelo -->
+                <div class="col-md-12" v-if="banConRieAmb=='RRS'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos recurso suelo</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RRS"
+                        :class="datosRA.control_entes_RRS==''?'':'is-valid'"
+                        @change="cambioComboRA('RRS')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Concientización y educación de la comunidad :</label>
+                      <b-form-select
+                        v-model="datosRA.concientizacion_RRS"
+                        :class="datosRA.concientizacion_RRS==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RRS!=='NO' && datosRA.control_entes_RRS!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RRS"
+                        :class="datosRA.cual_RRS==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RRS"
+                        :class="datosRA.tipo_RRS==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Mantenimiento programado de redes de alcantarillado :</label>
+                      <b-form-select
+                        v-model="datosRA.mantenimiento_RRS"
+                        :class="datosRA.mantenimiento_RRS==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Mantenimiento solicitado de redes de alcantarillado  :</label>
+                      <b-form-select
+                        v-model="datosRA.mantenimiento_solicitado_RRS"
+                        :class="datosRA.mantenimiento_solicitado_RRS==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Utiliza usted fertilizantes o plaguicidas biodegradables ? :</label>
+                      <b-form-select
+                        v-model="datosRA.fertilizantes_RRS"
+                        :class="datosRA.fertilizantes_RRS==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Realiza clasficacion de los residuos:</label>
+                      <b-form-select
+                        v-model="datosRA.clasificacion_RRS"
+                        :class="datosRA.clasificacion_RRS==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RRS')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                                                                                          
+                </div>  
+                <!-- Riesgos Recurso suelo -->
+
+                <!-- Riesgo por quemas o incendio -->
+                <div class="col-md-12" v-if="banConRieAmb=='RQ'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles Riesgo por quemas o incendio</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RQ"
+                        :class="datosRA.control_entes_RQ==''?'':'is-valid'"
+                        @change="cambioComboRA('RQ')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Concientización y educación a la población :</label>
+                      <b-form-select
+                        v-model="datosRA.concientizacion_RQ"
+                        :class="datosRA.concientizacion_RQ==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RQ!=='NO' && datosRA.control_entes_RQ!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RQ"
+                        :class="datosRA.cual_RQ==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RQ"
+                        :class="datosRA.tipo_RQ==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>                    
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Cuerpo de bomberos :</label>
+                      <b-form-select
+                        v-model="datosRA.bomberos_RQ"
+                        :class="datosRA.bomberos_RQ==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Servicio programado de recolección de las basuras :</label>
+                      <b-form-select
+                        v-model="datosRA.servicio_programado_RQ"
+                        :class="datosRA.servicio_programado_RQ==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Servicio a solicitud  de recolección de las basuras :</label>
+                      <b-form-select
+                        v-model="datosRA.servicio_solicitud_RQ"
+                        :class="datosRA.servicio_solicitud_RQ==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Realizan aprovechamiento forestal :</label>
+                      <b-form-select
+                        v-model="datosRA.aprovechamiento_RQ"
+                        :class="datosRA.aprovechamiento_RQ==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RQ')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                                                                          
+                </div>                  
+                <!-- Riesgo por quemas o incendio -->
+
+                <!-- Riesgo Auditivo -->
+                <div class="col-md-12" v-if="banConRieAmb=='RAU'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles Riesgo Auditivo</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RAU"
+                        :class="datosRA.control_entes_RAU==''?'':'is-valid'"
+                        @change="cambioComboRA('RAU')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Regulación de indutrias contaminantes:</label>
+                      <b-form-select
+                        v-model="datosRA.regulacion_RAU"
+                        :class="datosRA.regulacion_RAU==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RAU!=='NO' && datosRA.control_entes_RAU!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RAU"
+                        :class="datosRA.cual_RAU==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RAU"
+                        :class="datosRA.tipo_RAU==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>                    
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Realizan mediciones ambientales de ruido :</label>
+                      <b-form-select
+                        v-model="datosRA.mediciones_RAU"
+                        :class="datosRA.mediciones_RAU==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>La zona esta incliuda en el mapa de ruido ambientales:</label>
+                      <b-form-select
+                        v-model="datosRA.zona_RAU"
+                        :class="datosRA.zona_RAU==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Se tiene establecido los decibeles permitidos:</label>
+                      <b-form-select
+                        v-model="datosRA.decibeles_RAU"
+                        :class="datosRA.decibeles_RAU==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RAU')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                                                                                           
+                </div>
+                <!-- Riesgo Auditivo -->
+
+                <!-- Riesgo recurso Hidrico -->
+                <div class="col-md-12" v-if="banConRieAmb=='RRH'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgo recurso hidrico</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RRH"
+                        :class="datosRA.control_entes_RRH==''?'':'is-valid'"
+                        @change="cambioComboRA('RRH')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Campañas de concientizacion y educación de la comunidad :</label>
+                      <b-form-select
+                        v-model="datosRA.concientizacion_RRH"
+                        :class="datosRA.concientizacion_RRH==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RRH!=='NO' && datosRA.control_entes_RRH!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RRH"
+                        :class="datosRA.cual_RRH==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RRH"
+                        :class="datosRA.tipo_RRH==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>                    
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Manejo de agua residuales sistema de drenaje :</label>
+                      <b-form-select
+                        v-model="datosRA.manejo_aguas_RRH"
+                        :class="datosRA.manejo_aguas_RRH==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Se tiene programa de uso eficiente y adecuado del agua :</label>
+                      <b-form-select
+                        v-model="datosRA.programa_RRH"
+                        :class="datosRA.programa_RRH==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Control a industrias vertedoras de aguas residuales :</label>
+                      <b-form-select
+                        v-model="datosRA.control_industrias_RRH"
+                        :class="datosRA.control_industrias_RRH==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Mantenimiento de Alcantarillado publico :</label>
+                      <b-form-select
+                        v-model="datosRA.mantenimiento_RRH"
+                        :class="datosRA.mantenimiento_RRH==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Mantenimiento del sistema de capatacion del agua para consumo :</label>
+                      <b-form-select
+                        v-model="datosRA.mantenimiento_captacion_RRH"
+                        :class="datosRA.mantenimiento_captacion_RRH==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                                    
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RRH')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                   
+                </div>
+                <!-- Riesgo recurso Hidrico -->
+
+                <!-- Riesgo Acceso a Agua Segura -->
+                <div class="col-md-12" v-if="banConRieAmb=='RAA'">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgo acceso a agua segura</span>
+                    </p>
+                  </center>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>¿Hay algún control por arte de los entes gubernamentales ? :</label>
+                      <b-form-select
+                        v-model="datosRA.control_entes_RAA"
+                        :class="datosRA.control_entes_RAA==''?'':'is-valid'"
+                        @change="cambioComboRA('RRA')"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Tratamiento en casa del agua para el consumo :</label>
+                      <b-form-select
+                        v-model="datosRA.tratamiento_RAA"
+                        :class="datosRA.tratamiento_RAA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row" v-if="datosRA.control_entes_RAA!=='NO' && datosRA.control_entes_RAA!==''">
+                    <div class="col-md-6">
+                      <label>Cual:</label>
+                      <input
+                        type="text"
+                        class="form-control text-capitalize"
+                        placeholder="Cual"
+                        v-model.trim="datosRA.cual_RRA"
+                        :class="datosRA.cual_RRA==''?'':'is-valid'"
+                      />                    
+                    </div>
+                    <div class="col-md-6">
+                      <label>Tipo de control:</label>
+                      <b-form-select
+                        v-model="datosRA.tipo_RRA"
+                        :class="datosRA.tipo_RRA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="CORRECTIVO">CORRECTIVO</option>
+                        <option value="PREVENTIVO">PREVENTIVO</option>
+                      </b-form-select>
+                    </div>                    
+                  </div>                  
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Campañas de concientización y educación de la población :</label>
+                      <b-form-select
+                        v-model="datosRA.concientizacion_RAA"
+                        :class="datosRA.concientizacion_RAA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>                    
+                    <div class="col-md-6">
+                      <label>Sistema de manejo de agua residuales :</label>
+                      <b-form-select
+                        v-model="datosRA.sistema_RAA"
+                        :class="datosRA.sistema_RAA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <label>Se tiene programa de uso eficiente y adecuado del agua :</label>
+                      <b-form-select
+                        v-model="datosRA.programa_RAA"
+                        :class="datosRA.programa_RAA==''?'':'is-valid'"
+                      >
+                        <option value selected>Seleccione</option>
+                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="PERIODICO">PERIODICO</option>
+                        <option value="PERMANENTE">PERMANENTE</option>
+                        <option value="NO">NO</option>
+                      </b-form-select>
+                    </div>
+                  </div>                                    
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <div class="text-center">                
+                        <button type="button" class="btn btn-success" @click="GuardarRA('RAA')">
+                          <i class="fa fa-edit"></i> Guardar
+                        </button>          
+                      </div>                      
+                    </div>
+                  </div>                                   
+                </div>
+                <!-- Riesgo Acceso a Agua Segura -->
+              </div>  
+              <div class="text-right">                
+                <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-brand" @click="cerrarControlRA" v-else>
+                  <i class="fa fa-arrow-left"></i> Volver
+                </button>                
+              </div>
+            </form>
+          </div>
+        </b-modal>
+        <!--begin::Modal RIESGOS AMBIENTALES-->                
       </div>
     </div>
   </div>
@@ -12030,7 +13447,9 @@
           peso: "",
           talla: "",
           antecedentes: [],
-          antec: ""          
+          antec: "",
+          tipo_empleo: "",
+          percargo: ""         
         },
         CA1: {
           id: 0,
@@ -12077,7 +13496,8 @@
           talla: "",
           enfermedades: [],
           antecedentes: [],
-          antec: ""                           
+          antec: "",
+          tipo_empleo: ""                           
         },
         viviendaData: {
           id: 0,
@@ -12298,7 +13718,167 @@
         enfermedadesJefesVector: [],
         vaEnfJef: [],
         bandeGuaEdiEstrati: true,
-        indiceEditEstrati: null
+        indiceEditEstrati: null,
+
+        RieAmbInh: {
+          id_hogar: 0,
+          riesgos_derrumbes: 0,
+          riesgos_inundacion: 0,
+          riesgos_insalubridad: 0,
+          riesgos_atmosferico: 0,
+          riesgos_recurso_suelo: 0,
+          riesgos_quema: 0,
+          riesgos_auditivo: 0,
+          riesgos_recurso_hidrico: 0,
+          riesgos_acceso_agua: 0,
+          estado: "",
+          id_compania: 0,
+          va_riesgos_derrumbes: "",
+          va_riesgos_inundacion: "",
+          va_riesgos_insalubridad: "",
+          va_riesgos_atmosferico: "",
+          va_riesgos_recurso_suelo: "",
+          va_riesgos_quema: "",
+          va_riesgos_auditivo: "",
+          va_riesgos_recurso_hidrico: "",
+          va_riesgos_acceso_agua: "",
+
+          color_riesgos_derrumbes: "",
+          color_riesgos_inundacion: "",
+          color_riesgos_insalubridad: "",
+          color_riesgos_atmosferico: "",
+          color_riesgos_recurso_suelo: "",
+          color_riesgos_quema: "",
+          color_riesgos_auditivo: "",
+          color_riesgos_recurso_hidrico: "",
+          color_riesgos_acceso_agua: "",
+
+          control_riesgos_derrumbes: 0,
+          control_riesgos_inundacion: 0,
+          control_riesgos_insalubridad: 0,
+          control_riesgos_atmosferico: 0,
+          control_riesgos_recurso_suelo: 0,
+          control_riesgos_quema: 0,
+          control_riesgos_auditivo: 0,
+          control_riesgos_recurso_hidrico: 0,
+          control_riesgos_acceso_agua: 0,
+          
+          color_residual_riesgos_derrumbes: "",
+          color_residual_riesgos_inundacion: "",
+          color_residual_riesgos_insalubridad: "",
+          color_residual_riesgos_atmosferico: "",
+          color_riesgos_recurso_suelo: "",
+          color_residual_riesgos_quema: "",
+          color_residual_riesgos_auditivo: "",
+          color_residual_riesgos_recurso_hidrico: "",
+          color_residual_riesgos_acceso_agua: "",
+
+          val_residual_riesgos_derrumbes: "",
+          val_residual_riesgos_inundacion: "",
+          val_residual_riesgos_insalubridad: "",
+          val_residual_riesgos_atmosferico: "",
+          val_riesgos_recurso_suelo: "",
+          val_residual_riesgos_auditivo: "",
+          val_residual_riesgos_quema: "",
+          val_residual_riesgos_recurso_hidrico: "",
+          val_residual_riesgos_acceso_agua: "",
+        },
+        banderaControles: true,
+        banConRieAmb: "",
+        datosRA: {
+          // Riesgos de  Derrumbes
+          control_entes_RD: "",
+          obras_ingenieria_RD: "",
+          proteccion_RD: "",
+          zona_vivienda_RD: "",
+          cual_RD: "",
+          tipo_RD: "",
+          // Riesgos de  Derrumbes
+
+          // Riesgos de inundación 
+          control_entes_RI: "",
+          gaviones_RI: "",
+          dragado_RI: "",
+          barreras_RI: "",
+          zona_vivienda_RI: "",
+          cual_RI: "",
+          tipo_RI: "",
+          // Riesgos de inundación 
+
+          // Riesgos de insalubridad 
+          sistema_recoleccion_RIN: "",
+          control_entes_RIN: "",
+          control_plagas_RIN: "",
+          limpieza_RIN: "",
+          tipo_tratamiento_RIN: "",
+          clasificacion_residuos_RIN: "",
+          cual_RIN: "",
+          tipo_RIN: "",
+          // Riesgos de insalubridad
+
+          // Riesgo atmosferico
+          control_entes_RA: "",
+          humectacion_RA: "",
+          sistema_RA: "",
+          concientizacion_RA: "",
+          cual_RA: "",
+          tipo_RA: "",
+          // Riesgo atmosferico
+
+          // Riesgos Recurso suelo
+          control_entes_RRS: "",
+          concientizacion_RRS: "",
+          mantenimiento_RRS: "",
+          mantenimiento_solicitado_RRS: "",
+          fertilizantes_RRS: "",
+          clasificacion_RRS: "",
+          cual_RRS: "",
+          tipo_RRS: "",
+          // Riesgos Recurso suelo
+
+          // Riesgo por quemas o incendio
+          control_entes_RQ: "",
+          concientizacion_RQ: "",
+          bomberos_RQ: "",
+          servicio_programado_RQ: "",
+          servicio_solicitud_RQ: "",
+          aprovechamiento_RQ: "",
+          cual_RQ: "",
+          tipo_RQ: "",
+          // Riesgo por quemas o incendio
+
+          // Riesgo Auditivo
+          control_entes_RAU: "",
+          regulacion_RAU: "",
+          mediciones_RAU: "",
+          zona_RAU: "",
+          decibeles_RAU: "",
+          cual_RAU: "",
+          tipo_RAU: "",
+          // Riesgo Auditivo
+
+          // Riesgo recurso Hidrico
+          control_entes_RRH: "",
+          concientizacion_RRH: "",
+          manejo_aguas_RRH: "",
+          programa_RRH: "",
+          control_industrias_RRH: "",
+          mantenimiento_RRH: "",
+          mantenimiento_captacion_RRH: "",
+          cual_RRH: "",
+          tipo_RRH: "",
+          // Riesgo recurso Hidrico
+
+          // Riesgo Acceso a Agua Segura
+          control_entes_RAA: "",
+          tratamiento_RAA: "",
+          concientizacion_RAA: "",
+          sistema_RAA: "",
+          programa_RAA: "",
+          cual_RRA: "",
+          tipo_RRA: "",
+          // Riesgo Acceso a Agua Segura
+        }
       };
     },
     validations: {
@@ -12573,7 +14153,8 @@
       },
       cerrarModal(){
         this.$refs.modalOcupaciones.hide();
-        this.$refs.modalActividad.hide();            
+        this.$refs.modalActividad.hide();
+        this.$refs.modalRieAmb.hide();         
       },       
       async consultarOcupaciones(pagina){
         const parametros = {
@@ -13085,7 +14666,13 @@
                     this.ActividadData.length = 0;
                     this.animalesData = respuesta.data.animales;
                     this.estratificacion = respuesta.data.estratificacion;
-                    this.ActividadData = respuesta.data.actividad_viviendas;                                     
+                    this.ActividadData = respuesta.data.actividad_viviendas;
+                    
+                    this.RieAmbInh = respuesta.data.riesgos_ambientales;
+                    if(respuesta.data.ValoresRiesgosAmbientales !== null){
+                      this.datosRA = respuesta.data.ValoresRiesgosAmbientales;
+                    }
+                    this.$refs.modalRieAmb.show();                    
                   }
                 })
                 .catch(error => {
@@ -17120,6 +18707,10 @@
           this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
           return;
         }
+        if (this.CA1.tipo_empleo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el tipo de empleo!", "error");
+          return;
+        }        
         if (this.CA1.etnia == "0") {
           this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
           return;
@@ -17329,7 +18920,8 @@
                     peso: this.CA1.peso,
                     talla: this.CA1.talla,
                     enfermedades: [],
-                    antecedentes: []                                       
+                    antecedentes: [],
+                    tipo_empleo: this.CA1.tipo_empleo,                                       
                   });
                   for(let i=0;i<this.CA1.enfermedades.length;i++){
                     this.datos[this.datos.length-1].enfermedades.push({
@@ -17625,7 +19217,9 @@
                       peso: this.caracData.peso,
                       talla: this.caracData.talla,
                       enfermedades: [],
-                      antecedentes: []
+                      antecedentes: [],
+                      tipo_empleo: this.caracData.tipo_empleo,
+                      percargo: this.caracData.percargo,
                     });
 
                     for(let i=0;i<this.caracData.enfermedades.length;i++){
@@ -17857,6 +19451,10 @@
           this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
           return;
         }
+        if (this.caracData.tipo_empleo == "") {
+          this.$swal("Error...!", "Por favor seleccione el tipo de empleo!", "error");
+          return;
+        }        
         if (this.caracData.etnia === "") {
           this.$refs.etnia.focus();
           bande = false;
@@ -17899,7 +19497,12 @@
           bande = false;
           this.$swal("Error...!", "Por favor digite la talla!", "error");
           return;
-        }                                               
+        }
+        if (this.caracData.percargo === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor digite el numero de personas a cargo!", "error");
+          return;
+        }                                                       
         return bande;
         e.preventDefault();
       },
@@ -18299,6 +19902,7 @@
         this.caracData.embarazo_multiple = item.embarazo_multiple;
         this.caracData.discapacidad = item.discapacidad;
         this.caracData.nivel_escolaridad = item.nivel_escolaridad;
+        this.mostrarOtro('mOCOL1');
         this.caracData.ocupacion = item.ocupacion;
         this.caracData.colegio = item.colegio;
         this.caracData.grado = item.grado;
@@ -18320,7 +19924,9 @@
         
 
         this.caracData.peso = item.peso;
-        this.caracData.talla = item.talla;        
+        this.caracData.talla = item.talla;
+        this.caracData.tipo_empleo = item.tipo_empleo; 
+        this.caracData.percargo = item.percargo;       
         this.$refs.identificacionJefe.focus();
 
         this.idEditar = item.id;
@@ -19233,6 +20839,8 @@
         this.datosJefe[this.indiceEditJefe].talla = this.caracData.talla;
         this.datosJefe[this.indiceEditJefe].enfermedades = this.caracData.enfermedades;
         this.datosJefe[this.indiceEditJefe].antecedentes = this.caracData.antecedentes;
+        this.datosJefe[this.indiceEditJefe].tipo_empleo = this.caracData.tipo_empleo;
+        this.datosJefe[this.indiceEditJefe].percargo = this.caracData.percargo;
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         this.EnfJef.length = 0; 
         
@@ -19396,6 +21004,7 @@
         this.CA1.embarazo_multiple = item.embarazo_multiple;
         this.CA1.discapacidad = item.discapacidad;
         this.CA1.escolaridad = item.escolaridad;
+        this.mostrarOtro('mOCOL2');
         this.CA1.ocupacion = item.ocupacion;
         this.CA1.colegio = item.colegio;
         this.CA1.grado = item.grado;
@@ -19419,7 +21028,8 @@
         this.CA1.enfermedades = item.enfermedades;
         this.CA1.antecedentes = item.antecedentes;
         this.CA1.peso = item.peso;
-        this.CA1.talla = item.talla;               
+        this.CA1.talla = item.talla;
+        this.CA1.tipo_empleo = item.tipo_empleo;           
         this.$refs.identificacionInte.focus();
 
         this.idEditar = item.id;
@@ -19763,6 +21373,10 @@
           this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
           return;
         }
+        if (this.CA1.tipo_empleo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el tipo de empleo!", "error");
+          return;
+        }        
         if (this.CA1.etnia == "0") {
           this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
           return;
@@ -20485,6 +22099,7 @@
                      
         this.datos[this.indiceEditInte].peso = this.CA1.peso;
         this.datos[this.indiceEditInte].talla = this.CA1.talla;
+        this.datos[this.indiceEditInte].tipo_empleo = this.CA1.tipo_empleo;
         this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
         this.limpiar();        
       },                
@@ -21377,7 +22992,15 @@
           if (this.CA1.talla == "NaN") {
             this.CA1.talla = "0";
           }
-        }                               
+        }
+        if (caja == "percargo") {
+          this.caracData.percargo = this.caracData.percargo
+            .replace(/[^.\d]/g, "")
+            .trim();
+          if (this.caracData.percargo == "NaN") {
+            this.caracData.percargo = "0";
+          }
+        }                                       
       },
       async volver() {
         let valid = await this.validarVolver("Men1A");
@@ -22637,7 +24260,8 @@
         this.CA1.talla = "";
         this.CA1.enfermedades = [];
         this.CA1.antecedentes = [];
-        this.CA1.antec = "";                       
+        this.CA1.antec = "";
+        this.CA1.tipo_empleo = "";                       
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -22691,7 +24315,9 @@
         this.caracData.talla = "";
         this.caracData.enfermedades = [];
         this.caracData.antecedentes = [];
-        this.caracData.antec = "";        
+        this.caracData.antec = "";
+        this.caracData.tipo_empleo = "";
+        this.caracData.percargo = "";       
       },
       mostrarOtro(tipo) {
         if (tipo === "TE") {
@@ -22826,7 +24452,9 @@
           if (
             this.caracData.nivel_escolaridad === 3 ||
             this.caracData.nivel_escolaridad === 14 ||
-            this.caracData.nivel_escolaridad === 15
+            this.caracData.nivel_escolaridad === 15 ||
+            this.caracData.nivel_escolaridad === 1  ||
+            this.caracData.nivel_escolaridad === 4
           ) {
             this.mOCOL1 = true;
           } else {
@@ -22839,7 +24467,9 @@
           if (
             this.CA1.escolaridad === 3 ||
             this.CA1.escolaridad === 14 ||
-            this.CA1.escolaridad === 15
+            this.CA1.escolaridad === 15 ||
+            this.CA1.escolaridad === 1  ||
+            this.CA1.escolaridad === 4
           ) {
             this.mOCOL2 = true;
           } else {
@@ -23151,13 +24781,28 @@
         this.habilitar_zonas();
         this.estratificacionData.id_jefe = "0";
       },
-      Amenores1Anio(vector,meses, opcion) {
+      Amenores1Anio: async function(vector,meses, opcion) {
         let pb="";
         if(meses>=3){
           pb="";
         }else{
           pb="No Aplica";
         }
+        let pes_lon = "NA";
+        const parametros = {
+          _token: this.csrf,
+          datos: vector,
+          opcion: "MENA1_PL"
+        };
+        try {
+          await caracterizacionServicios
+            .buscarTablas(parametros)
+            .then(respuesta => {
+              pes_lon = respuesta.data.pes_lon;
+            })
+            .catch(error => {});
+        } catch (error) {}
+                
         this.Men1A.push({
           id: 0,
           tipo_id: vector.tipo_id,
@@ -23180,7 +24825,7 @@
           peso_actual: vector.peso,
           longitud_nacer: "",
           longitud_actual: vector.talla,
-          peso_long: "",
+          peso_long: pes_lon,
           cinta: "",
           edemas: "",
           lenguaje: "",
@@ -23295,7 +24940,23 @@
           item.tsh = valor;
         }
       },
-      Ade1a5Anio(vector, edad, opcion) {
+      Ade1a5Anio: async function(vector, edad, opcion) {
+        let tal_eda = "NA";
+        let pes_tal = "NA";
+        const parametros = {
+          _token: this.csrf,
+          datos: vector,
+          opcion: "1A5ANI"
+        };
+        try {
+          await caracterizacionServicios
+            .buscarTablas(parametros)
+            .then(respuesta => {
+              tal_eda = respuesta.data.tal_eda;
+              pes_tal = respuesta.data.pes_tal;
+            })
+            .catch(error => {});
+        } catch (error) {}        
         this.De1A5.push({
           id: 0,
           tipo_id: vector.tipo_id,
@@ -23315,8 +24976,8 @@
           talla: vector.talla,
           imc: this.calcularImc(vector.peso,vector.talla),
           pb: "",
-          pt: "",
-          te: "",
+          pt: pes_tal,
+          te: tal_eda,
           lenguaje: "",
           motora: "",
           conducta: "",
@@ -26178,7 +27839,737 @@
           this.CA1.antecedentes[index].estado = "Inactivo";
           this.CA1.antecedentes.splice(index, 1, this.CA1.antecedentes[index]);
         }
-      },               
+      },
+      
+      controlRA(opcion){
+        this.banderaControles = false;
+        this.banConRieAmb = opcion;
+      },
+      cerrarControlRA(){
+        this.banderaControles = true;
+      },
+      async GuardarRA(opcion){
+        // Riesgos de  Derrumbes
+        if(opcion === "RD"){
+          if(this.datosRA.control_entes_RD === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.obras_ingenieria_RD === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción existen obras de ingenieria en las laderas",
+              "error"
+            );
+            return false;
+          }          
+          if(this.datosRA.control_entes_RD !== "" && this.datosRA.control_entes_RD !== "NO"){
+            if(this.datosRA.cual_RD === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RD === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.proteccion_RD === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Protección estructural",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.zona_vivienda_RD === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción La Zona de vivienda se encuentra dentro del mapa de riesgos",
+              "error"
+            );
+            return false;
+          }                              
+        }
+        // Riesgos de  Derrumbes
+
+        // Riesgos de inundación
+        if(opcion === "RI"){
+          if(this.datosRA.control_entes_RI === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.gaviones_RI === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Construcción de gaviones para fuente hidrica",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RI !== "" && this.datosRA.control_entes_RI !== "NO"){
+            if(this.datosRA.cual_RI === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RI === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.dragado_RI === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Se ha evidenciao el dragado del rio",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.barreras_RI === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Barreras en las casas",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.zona_vivienda_RI === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Se encuentra la zona de la vivienda dentro del mapa de riesgo de inundacion",
+              "error"
+            );
+            return false;
+          }                                                 
+        }
+        // Riesgos de inundación
+
+        // Riesgos de insalubridad
+        if(opcion === "RIN"){
+          if(this.datosRA.sistema_recoleccion_RIN === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción sistema de recolección de residuos ",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RIN === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RIN !== "" && this.datosRA.control_entes_RIN !== "NO"){
+            if(this.datosRA.cual_RIN === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RIN === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.control_plagas_RIN === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Control de plagas y vectores por fumigación",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.limpieza_RIN === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Limpieza y mantenimiento programado de lotes emontados y afluentes de agua",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.tipo_tratamiento_RIN === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Realiza algun tipo de tratamiento del agua",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.clasificacion_residuos_RIN === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Clasificacion de residuos",
+              "error"
+            );
+            return false;
+          }                                                            
+        }
+        // Riesgos de insalubridad
+
+        // Riesgo atmosferico
+        if(opcion === "RA"){
+          if(this.datosRA.control_entes_RA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.humectacion_RA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción se realiza humectacion de la via",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RA !== "" && this.datosRA.control_entes_RA !== "NO"){
+            if(this.datosRA.cual_RA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.sistema_RA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción se tiene algun sistema de monitoreo de calidad del aire",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.concientizacion_RA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Concientización y educación a la comunidad",
+              "error"
+            );
+            return false;
+          }                                        
+        }
+        // Riesgo atmosferico
+
+        // Riesgos Recurso suelo
+        if(opcion === "RRS"){
+          if(this.datosRA.control_entes_RRS === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.concientizacion_RRS === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Concientización y educación de la comunidad",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RRS !== "" && this.datosRA.control_entes_RRS !== "NO"){
+            if(this.datosRA.cual_RRS === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RRS === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.mantenimiento_RRS === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Mantenimiento programado de redes de alcantarillado ",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.mantenimiento_solicitado_RRS === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Mantenimiento solicitado de redes de alcantarillado",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.fertilizantes_RRS === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Utiliza usted fertilizantes o plaguicidas biodegradables",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.clasificacion_RRS === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción realiza clasficación de los residuos",
+              "error"
+            );
+            return false;
+          }                                                            
+        }
+        // Riesgos Recurso suelo
+
+        // Riesgo por quemas o incendio
+        if(opcion === "RQ"){
+          if(this.datosRA.control_entes_RQ === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.concientizacion_RQ === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Concientización y educación a la población ",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RQ !== "" && this.datosRA.control_entes_RQ !== "NO"){
+            if(this.datosRA.cual_RQ === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RQ === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.bomberos_RQ === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Cuerpo de bomberos ",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.servicio_programado_RQ === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Servicio programado de recolección de las basuras.",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.servicio_solicitud_RQ === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Servicio a solicitud de recolección de las basuras",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.aprovechamiento_RQ === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción realizan aprovechamiento forestal",
+              "error"
+            );
+            return false;
+          }                                                                     
+        }  
+        // Riesgo por quemas o incendio
+
+        // Riesgo Auditivo
+        if(opcion === "RAU"){
+          if(this.datosRA.control_entes_RAU === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.regulacion_RAU === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Regulación de indutrias contaminantes",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RAU !== "" && this.datosRA.control_entes_RAU !== "NO"){
+            if(this.datosRA.cual_RAU === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RAU === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.mediciones_RAU === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay realizan mediciones ambientales de ruido",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.zona_RAU === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción la zona esta incliuda en el mapa de ruido ambientales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.decibeles_RAU === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción se tiene establecido los decibeles permitidos",
+              "error"
+            );
+            return false;
+          }                                                         
+        }
+        // Riesgo Auditivo
+
+        // Riesgo recurso Hidrico
+        if(opcion === "RRH"){
+          if(this.datosRA.control_entes_RRH === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.concientizacion_RRH === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Campañas de concientizacion y educación de la comunidad",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RRH !== "" && this.datosRA.control_entes_RRH !== "NO"){
+            if(this.datosRA.cual_RRH === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RRH === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.manejo_aguas_RRH === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Manejo de agua residuales sistema de drenaje",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.programa_RRH === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Se tiene programa de uso eficiente y adecuado del agua ",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_industrias_RRH === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Control a industrias vertedoras de aguas residuales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.mantenimiento_RRH === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Mantenimiento de Alcantarillado publico",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.mantenimiento_captacion_RRH === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción mantenimiento del sistema de capatacion del agua para consumo",
+              "error"
+            );
+            return false;
+          }                                                                      
+        }
+        // Riesgo recurso Hidrico
+
+        // Acceso a Agua Segura
+        if(opcion === "RAA"){
+          if(this.datosRA.control_entes_RAA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.tratamiento_RAA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Tratamiento en casa del agua para el consumo",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.control_entes_RAA !== "" && this.datosRA.control_entes_RAA !== "NO"){
+            if(this.datosRA.cual_RRA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor digite cual ente",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRA.tipo_RRA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione el tipo de control",
+                "error"
+              );
+              return false;
+            }            
+          }
+          if(this.datosRA.concientizacion_RAA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción Campañas de concientización y educación de la población",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.sistema_RAA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción sistema de manejo de agua residuales ",
+              "error"
+            );
+            return false;
+          }
+          if(this.datosRA.programa_RAA === ""){
+            this.$swal(
+              "Error...!",
+              "Por Favor seleccione la opción  se tiene programa de uso eficiente y adecuado del agua",
+              "error"
+            );
+            return false;
+          }                                                  
+        }
+        // Acceso a Agua Segura
+
+        const parametros = {
+          _token: this.csrf,
+          datosRA: this.datosRA,
+          RieAmbInh: this.RieAmbInh,
+          opcion: opcion,
+          IDHOGAR: this.IDHOGAR
+        };
+        await caracterizacionServicios
+          .controlesRA(parametros)
+          .then(respuesta => {
+            // Riesgos de  Derrumbes
+            if(opcion === "RD"){
+              this.RieAmbInh.control_riesgos_derrumbes = respuesta.data.residual_riesgos_derrumbes;
+              this.RieAmbInh.color_residual_riesgos_derrumbes = respuesta.data.color_residual_riesgos_derrumbes;
+              this.RieAmbInh.val_residual_riesgos_derrumbes = respuesta.data.val_residual_riesgos_derrumbes;
+            }
+            // Riesgos de  Derrumbes
+
+            // Riesgos de inundación
+            if(opcion === "RI"){
+              this.RieAmbInh.control_riesgos_inundacion = respuesta.data.residual_riesgos_inundacion;
+              this.RieAmbInh.color_residual_riesgos_inundacion = respuesta.data.color_residual_riesgos_inundacion;
+              this.RieAmbInh.val_residual_riesgos_inundacion = respuesta.data.val_residual_riesgos_inundacion;
+            }
+            // Riesgos de inundación            
+            
+            // Riesgos de insalubridad
+            if(opcion === "RIN"){
+              this.RieAmbInh.control_riesgos_insalubridad = respuesta.data.residual_riesgos_insalubridad;
+              this.RieAmbInh.color_residual_riesgos_insalubridad = respuesta.data.color_residual_riesgos_insalubridad;
+              this.RieAmbInh.val_residual_riesgos_insalubridad = respuesta.data.val_residual_riesgos_insalubridad;
+            }
+            // Riesgos de insalubridad
+
+            // Riesgo atmosferico
+            if(opcion === "RA"){
+              this.RieAmbInh.control_riesgos_atmosferico = respuesta.data.residual_riesgos_atmosferico;
+              this.RieAmbInh.color_residual_riesgos_atmosferico = respuesta.data.color_residual_riesgos_atmosferico;
+              this.RieAmbInh.val_residual_riesgos_atmosferico = respuesta.data.val_residual_riesgos_atmosferico;
+            }
+            // Riesgo atmosferico
+
+            // Riesgos Recurso suelo
+            if(opcion === "RRS"){
+              this.RieAmbInh.control_riesgos_recurso_suelo = respuesta.data.residual_riesgos_recurso_suelo;
+              this.RieAmbInh.color_residual_riesgos_recurso_suelo = respuesta.data.color_residual_riesgos_recurso_suelo;
+              this.RieAmbInh.val_residual_riesgos_recurso_suelo = respuesta.data.val_residual_riesgos_recurso_suelo;
+            }
+            // Riesgos Recurso suelo            
+
+            // Riesgo por quemas o incendio
+            if(opcion === "RQ"){
+              this.RieAmbInh.control_riesgos_quema = respuesta.data.residual_riesgos_quema;
+              this.RieAmbInh.color_residual_riesgos_quema = respuesta.data.color_residual_riesgos_quema;
+              this.RieAmbInh.val_residual_riesgos_quema = respuesta.data.val_residual_riesgos_quema;
+            }
+            // Riesgo por quemas o incendio
+
+            // Riesgo Auditivo
+            if(opcion === "RAU"){
+              this.RieAmbInh.control_riesgos_auditivo = respuesta.data.residual_riesgos_auditivo;
+              this.RieAmbInh.color_residual_riesgos_auditivo = respuesta.data.color_residual_riesgos_auditivo;
+              this.RieAmbInh.val_residual_riesgos_auditivo = respuesta.data.val_residual_riesgos_auditivo;
+            }
+            // Riesgo Auditivo            
+
+            // Riesgo recurso Hidrico
+            if(opcion === "RRH"){
+              this.RieAmbInh.control_riesgos_recurso_hidrico = respuesta.data.residual_riesgos_recurso_hidrico;
+              this.RieAmbInh.color_residual_riesgos_recurso_hidrico = respuesta.data.color_residual_riesgos_recurso_hidrico;
+              this.RieAmbInh.val_residual_riesgos_recurso_hidrico = respuesta.data.val_residual_riesgos_recurso_hidrico;
+            }
+            // Riesgo recurso Hidrico
+            
+            // Acceso a Agua Segura
+            if(opcion === "RAA"){
+              this.RieAmbInh.control_riesgos_acceso_agua = respuesta.data.residual_riesgos_acceso_agua;
+              this.RieAmbInh.color_residual_riesgos_acceso_agua = respuesta.data.color_residual_riesgos_acceso_agua;
+              this.RieAmbInh.val_residual_riesgos_acceso_agua = respuesta.data.val_residual_riesgos_acceso_agua;
+            }
+            // Acceso a Agua Segura
+            this.banderaControles = true;
+          })
+          .catch(error => {
+            this.$swal(
+              "Error...!",
+              "No se pudo ejecutar los controles",
+              "error"
+            );
+            return;
+          });                  
+      },
+      cambioComboRA(opcion){
+        if(opcion === 'RD'){
+          this.datosRA.cual_RD = "";
+          this.datosRA.tipo_RD = "";
+        }
+        if(opcion === 'RI'){
+          this.datosRA.cual_RI = "";
+          this.datosRA.tipo_RI = "";
+        }
+        if(opcion === 'RIN'){
+          this.datosRA.cual_RIN = "";
+          this.datosRA.tipo_RIN = "";
+        }
+        if(opcion === 'RA'){
+          this.datosRA.cual_RA = "";
+          this.datosRA.tipo_RA = "";
+        }
+        if(opcion === 'RRS'){
+          this.datosRA.cual_RRS = "";
+          this.datosRA.tipo_RRS = "";
+        }
+        if(opcion === 'RQ'){
+          this.datosRA.cual_RQ = "";
+          this.datosRA.tipo_RQ = "";
+        }
+        if(opcion === 'RAU'){
+          this.datosRA.cual_RAU = "";
+          this.datosRA.tipo_RAU = "";
+        }
+        if(opcion === 'RRH'){
+          this.datosRA.cual_RRH = "";
+          this.datosRA.tipo_RRH = "";
+        }
+        if(opcion === 'RAA'){
+          this.datosRA.cual_RAA = "";
+          this.datosRA.tipo_RAA = "";
+        }                                                              
+      }      
     }
   };
 </script>

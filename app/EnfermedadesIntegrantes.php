@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
@@ -51,5 +52,56 @@ class EnfermedadesIntegrantes extends Model
             ->select("enfermedades_integrantes.*", "enfermedadesinf.descripcion AS textoEnfermedad");
         return $enfC->unionAll($enfI)->get();
 
-    }    
+    }
+
+    public static function buscarEnfer($alias, $id, $opcion)
+    {
+
+        if ($opcion == "VIH") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+                ->where('enfermedades_integrantes.id_inte', $id)
+                ->where('enfermedades_integrantes.id_enfermedad', 2)
+                ->where('enfermedades_integrantes.tipo', 'Infecciosa')
+                ->where('enfermedades_integrantes.estado', 'Activo')
+                ->count();
+        }
+        if ($opcion == "HIPERTENSION") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+                ->where('enfermedades_integrantes.id_inte', $id)
+                ->where('enfermedades_integrantes.id_enfermedad', 1)
+                ->where('enfermedades_integrantes.tipo', 'Cronica')
+                ->where('enfermedades_integrantes.estado', 'Activo')
+                ->count();
+        }
+        if ($opcion == "DIABETES") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+                ->where('enfermedades_integrantes.id_inte', $id)
+                ->where('enfermedades_integrantes.id_enfermedad', 1)
+                ->where('enfermedades_integrantes.tipo', 'Cronica')
+                ->where('enfermedades_integrantes.estado', 'Activo')
+                ->count();
+        }
+        if ($opcion == "CONDUCTA") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+                ->where('enfermedades_integrantes.id_inte', $id)
+                ->where('enfermedades_integrantes.id_enfermedad', 15)
+                ->orWhere('enfermedades_integrantes.id_enfermedad', 8)
+                ->where('enfermedades_integrantes.tipo', 'Cronica')
+                ->where('enfermedades_integrantes.estado', 'Activo')
+                ->count();
+        }
+    }
+
+    public static function buscarInfecciosas($alias, $id_inte)
+    {
+
+        return DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+            ->join($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'enfermedades_integrantes.id_enfermedad')
+            ->where('enfermedades_integrantes.id_inte', $id_inte)
+            ->where('enfermedades_integrantes.tipo', 'Infecciosa')
+            ->where('enfermedades_integrantes.estado', 'Activo')
+            ->select("enfermedades_integrantes.*", "enfermedadesinf.descripcion AS textoEnfermedad")
+            ->get();
+
+    }
 }

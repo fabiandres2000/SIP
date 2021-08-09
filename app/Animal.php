@@ -33,4 +33,13 @@ class Animal extends Model
             ->where('animales.estado', 'Activo')
             ->get();
     }
+
+    public static function buscarVacunados($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.animales')
+            ->where('animales.id_hogar', $id_hogar)
+            ->where('animales.vacunados', "NO")
+            ->where('animales.estado', 'Activo')
+            ->get();
+    }    
 }

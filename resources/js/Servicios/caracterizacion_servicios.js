@@ -47,3 +47,7 @@ export function eliminar($data) {
 export function controlesRA($data) {
     return http().post('/caracterizacion/controlesRA', $data);
 }
+
+export function buscarTablas($data) {
+    return http().post('/caracterizacion/buscarTablas', $data);
+}

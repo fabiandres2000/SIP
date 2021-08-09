@@ -81565,25 +81565,25 @@ var routes = [{
   path: '/establecimientos',
   name: 'Establecimientos',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(32), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Establecimientos.vue */ "./resources/js/Vistas/Establecimientos/Establecimientos.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Establecimientos.vue */ "./resources/js/Vistas/Establecimientos/Establecimientos.vue"));
   }
 }, {
   path: '/establecimientos/editar',
   name: 'EditarEstablecimientos',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(32), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Editar.vue */ "./resources/js/Vistas/Establecimientos/Editar.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./Vistas/Establecimientos/Editar.vue */ "./resources/js/Vistas/Establecimientos/Editar.vue"));
   }
 }, {
   path: '/unidades',
   name: 'Unidades',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(32), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Unidades.vue */ "./resources/js/Vistas/Unidades/Unidades.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Unidades.vue */ "./resources/js/Vistas/Unidades/Unidades.vue"));
   }
 }, {
   path: '/unidades/editar',
   name: 'EditarUnidades',
   component: function component() {
-    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(32), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Editar.vue */ "./resources/js/Vistas/Unidades/Editar.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./Vistas/Unidades/Editar.vue */ "./resources/js/Vistas/Unidades/Editar.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

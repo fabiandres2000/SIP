@@ -135,4 +135,13 @@ class Factores extends Model
             'estado' => $estado,
         ]);
     }
+
+    public static function buscarFact($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.factores')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'factores.id_jefe')
+            ->where('factores.id_hogar', $id_hogar)
+            ->where('factores.estado', 'Activo')
+            ->first();
+    }
 }

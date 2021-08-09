@@ -15,6 +15,7 @@ class Caracterizacion extends Model
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
         'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'peso', 'talla',
+        'tipo_empleo','percargo'
     ];
 
     public static function listar($busqueda, $alias)
@@ -137,6 +138,8 @@ class Caracterizacion extends Model
             'identi_auxi' => $data['identificacion'],
             'peso' => $data['peso'],
             'talla' => $data['talla'],
+            'tipo_empleo' => $data['tipo_empleo'],
+            'percargo' => $data['percargo'],            
         ]);
     }
     public static function modificar($data, $alias, $id)
@@ -194,6 +197,8 @@ class Caracterizacion extends Model
             'identi_auxi' => $data['identificacion'],
             'peso' => $data['peso'],
             'talla' => $data['talla'],
+            'tipo_empleo' => $data['tipo_empleo'],
+            'percargo' => $data['percargo'],
         ]);
     }
     public static function verificar($identificacion, $alias)
@@ -322,6 +327,24 @@ class Caracterizacion extends Model
             ->count();
     }
 
+    public static function totalJefes($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.caracterizacion')
+            ->where('caracterizacion.id_hogar', $id_hogar)
+            ->where('estado', 'Activo')
+            ->count();
+    }
+    
+    public static function totalJefesTrabajando($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.caracterizacion')            
+            ->where('estado', 'Activo')
+            ->where('tipo_empleo', '!=' , "1")
+            ->where('tipo_empleo', '!=' , "4")
+            ->where('id_hogar', $id_hogar)
+            ->get();
+    }    
+
     public static function totalHogares($alias)
     {
         return DB::connection('mysql')->table($alias . '.caracterizacion')
@@ -336,4 +359,5 @@ class Caracterizacion extends Model
             'estado' => $estado,
         ]);
     }
+
 }

@@ -11864,8 +11864,1443 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"]},mounted:function mounted(){this.nuevo();this.hoy=moment();},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){return{hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),paises_options:[],dpto_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},antec_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tiene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",peso:"",talla:"",enfermedades:[],antecedentes:[],antec:""},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
-cual_actividad_economica:"",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{id:0,id_hogar:0,cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0",estado:"Activo"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,errores:[],ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[],bandeGuaEdiEstrati:true,indiceEditEstrati:null};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// actividad_economica: { required },
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+function asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{Promise.resolve(value).then(_next,_throw);}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"next",value);}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,"throw",err);}_next(undefined);});};}function _defineProperty(obj,key,value){if(key in obj){Object.defineProperty(obj,key,{value:value,enumerable:true,configurable:true,writable:true});}else{obj[key]=value;}return obj;}var isPhoneNumber=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("numeric",/^3[0-9]{9}$/);var alpha=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alpha",/^[a-zA-Z]*$/);var alphaNumAndDotValidator=vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["helpers"].regex("alphaNumAndDot",/^[a-z\d.]*$/i);var entero=function entero(value){return /^[0-9]*$/.test(value);};/* harmony default export */ __webpack_exports__["default"] = ({components:{Datepicker:vuejs_datepicker__WEBPACK_IMPORTED_MODULE_6__["default"]},mounted:function mounted(){this.nuevo();this.hoy=moment();},filters:{moneda:function moneda(val){var number=+val.replace(/[^\d.]/g,"");return isNaN(number)?0:number;},moment:function(_moment){function moment(_x){return _moment.apply(this,arguments);}moment.toString=function(){return _moment.toString();};return moment;}(function(date){return moment(date).format("YYYY-MM-DD");})},data:function data(){var _RieAmbInh;return{hoy:"",csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),paises_options:[],dpto_options:[],muni_options:{},corregi_options:{},barrio_options:{},parentesco_options:{},estado_options:{},escolaridad_options:{},ocupacion_options:{},etnia_options:{},admini_options:{},clasifi_options:{},vereda_options:{},grados_option:{},morbilidadNacer_options:{},morbilidad_options:{},metodos_options:{},motivos_options:{},grupos_options:{},enfcro_options:{},enfinf_options:{},religion_options:{},colegio_options:{},antec_options:{},opciones1:[{value:1,texto:"Ninguno"},{value:2,texto:"1 Celular"},{value:3,texto:"2 Celulares"},{value:4,texto:"Tiene 3 Celulares"},{value:5,texto:"Tiene 4 o mas Celulares"}],opciones2:[{value:1,texto:"No Tiene"},{value:2,texto:"1 Tv"},{value:3,texto:"2 Tv"},{value:4,texto:"3 o mas tv"}],opciones3:[{value:1,texto:"No tiene Vehiculos"},{value:2,texto:"1 Vehiculo"},{value:3,texto:"2 Vehiculos"},{value:4,texto:"3 o mas Vehiculos"}],opciones4:[{value:1,texto:"Sin estudios"},{value:2,texto:"Primaria incompleta"},{value:3,texto:"Prmaria Completa"},{value:4,texto:"Secundaria Incompleta"},{value:5,texto:"Secundaria completa"},{value:6,texto:"Educación superior incompleta"},{value:7,texto:"Educación superior completa"},{value:8,texto:"Posgrado"}],opciones5:[{value:1,texto:"Entre $0  y $500.000 pesos"},{value:2,texto:"Entre $500.001 Y $1.100.000 pesos"},{value:3,texto:"Entre $1.100.001 a $2.069.000"},{value:4,texto:"Entre $2.070.000 y $3.269.000"},{value:5,texto:"Entre $3.270.000 y $4.780.000"},{value:6,texto:"Entre $4,780.001 y $5.150.000"},{value:7,texto:"Más de $5.150.000"},{value:8,texto:"No aplica"}],opciones6:[{value:1,texto:"Entre $ 0 y $ 980.000"},{value:2,texto:"Entre $981.000  y $ 1.890.000"},{value:3,texto:"Entre $1.890,001  y $3.305.000"},{value:4,texto:"Entre $ 3.305.001  y  $ 5.050.000"},{value:5,texto:"Entre $ 5.050.001 y  $ 7.650.000"},{value:6,texto:"Entre $ 7.650.001 y $ 10.170.000"},{value:7,texto:"Mas de $ 10.170.001"},{value:8,texto:"No aplica"}],opciones7:[{value:'1',texto:"Vida sexual prematura"},{value:'2',texto:"Consumo de tabaco"},{value:'3',texto:"Consumo de SPA"},{value:'4',texto:"Consumo de alcohol"},{value:'NA',texto:"NO APLICA"}],hogar:{id:0,id_dpto:"",id_mun:"",id_corre:"",id_vereda:"",id_barrio:"",id_zona:"",tenencia_vivienda:"",numero_hogares:"",poblacion_especial:"",vias_acceso:"",servicios_publicos:"",direccion:""},caracData:{id:0,id_hogar:0,telefono:"",puntaje_sisben:"",afiliacion_entidad:"",otra_eps:"",tipo_id:"",identificacion:"",sexo:"",parentesco:"33",pnom:"",snom:"",pape:"",sape:"",salario:"",id_compania:"",estado:"",estado_civil:"",fecha_nacimiento:"",tipo_afiliacion:"",embarazo:"",embarazo_multiple:"",discapacidad:"",nivel_escolaridad:"",ocupacion:"",colegio:"",grado:"",etnia:"",clasificacion:"",entiende:"",pyp:"",migrante:"",edad:"",orientacion:"",identidad_genero:"",perdida_peso:"",programa_icbf:"",enfermedad_infecciosa:"",enfermedad_cronica:"",enfermedades:[],peso:"",talla:"",antecedentes:[],antec:"",tipo_empleo:"",percargo:""},CA1:{id:0,tipo_id:"0",identificacion:"",sexo:"0",parentesco:"0",pnom:"",snom:"",pape:"",sape:"",estado_civil:"0",fecha_nac:"",edad:0,puntaje_sisben:"",afi_entidad:"0",otra_eps:"",tipo_afiliacion:"0",embarazo:"0",embarazo_multiple:"0",discapacidad:"0",escolaridad:"0",ocupacion:"0",colegio:"",grado:"0",entiende:"0",migrante:"0",pyp:"0",etnia:"0",clasificacion:"0",id_hogar:0,jefe:"0",orientacion:"0",identidad_genero:"0",telefono:"",perdida_peso:"0",programa_icbf:"0",excepciones:"0",meses:0,dias:0,enfermedad_infecciosa:"0",enfermedad_cronica:"0",peso:"",talla:"",enfermedades:[],antecedentes:[],antec:"",tipo_empleo:""},viviendaData:{id:0,id_hogar:0,tipo_vivienda:"",tipo_estructura:"",otro_tipo_estructura:"",numero_cuartos:"",personas_por_cuartos:"0",material_predominante:"",tipo_cubierta:"",otro_tipo_cubierta:"",// actividad_economica: "",
+cual_actividad_economica:"",evento_afecta_vivienda:"",familias_accion:"",promedio_ingresos:"",promedio_gastos:"",fuente_agua:"",energia_electrica:"",gas_natural:"",acueducto:"",alcantarillado:"",telefono_fijo:"",aseo:"",internet_subsidiado:"",internet_privado:"",cual_fuente:"",donde_almacena_agua:"",otro_almacena_agua:"",ubicacion_tanque:"",tipo_tratamiento_agua:"",destino_final_basura:"",otro_destino_final_basura:"",porquerizas:"",plagas:"",industrias:"",malos_olores:"",rellenos:"",contaminacion_a:"",contaminacion_v:"NA",rio:"",otro_cerca:"",cual_cerca:"",aereopuertos:"NA",avenidas_transitadas:"",lotes_abandonados:"",servicio_sanitario:"",donde_sanitario:"",excretas:"",otro_depositan_excretas:"",cocina:"",dormitorio_a:"",sala:"",dormitorio_n:"NA",sanitario:"",lavadero:"",iluminacion_adecuada:"NA",techo_adecuado:"NA",ventilacion_adecuada:"NA",pisos_adecuado:"NA",paredes_adecuadas:"NA",gasolina:"",plaguicidas:"",detergentes:"",plaguicidas_insectos:"",envases_vacios:"",otro_envases_vacios:"",elementos_protecion:"",otro_elementos_protecion:"",metodos_coccion:"",otro_metodos_coccion:"",lugares_preparan_alimentos:"",lugares_almacenan_alimentos:"",otro_lugares_almacenan_alimentos:"",lava_frutas:"",tipo_explotacion:"",otro_tipo_explotacion:"",flora_afectados:"NA",fauna_afectados:"NA",suelo_afectados:"NA",aire_afectados:"NA",agua_afectados:"NA",residuos_solidos_genera:"NA",aguas_servidas_genera:"NA",desechos_cocina_genera:"NA",heces_animales_genera:"NA",quimicos_genera:"NA",otros_genera:"",cual_genera:"",tipo_combustible:"",mantenimiento_red:"NA",zona_alto_riesgo:"",almacenamiento_residuos:"",fuente_contaminacion:"NA",aguas_negras:"",zonas_verdes:"",desplazamientos:"",rotacion_cultivo:"",emplea_fertilizantes:"",suministro_energia_ilegal:"NA",quema_cultivo:"",mantenimiento_preventivo:"",veces_inundaciones:"",fachada:"",cuantos_baños:"",estado_conservacion_baños:"",acabados_externos:"",estado_conservacion_estructuras:"",mobiliario_cocina:"",andenes:"",residuos_aprovechables:"",residuos_organicos:"",residuos_no_aprovechables:""},estratificacionData:{id:0,id_hogar:0,cuenta_internet:"",tiene_pc_escritorio:"",tiene_pc_portatil:"",cuantos_celulares:"",tiene_equipo_sonido:"",cuantos_tv_color:"",cuantos_vehiculos:"",nivel_instruccion:"",afiliacion_salud_privada:"",ingresos_zona_rural:"",ingresos_ciudad:"",id_jefe:"0",estado:"Activo"},animalesData:[],estratificacion:[],animal:"",nombreAnimal:"",cuantosAnimal:"",vacunadoAnimal:"0",mOTE:false,mOTC:false,mOAE:false,mOFA:false,mODA:false,mOFB:false,mOOC:false,mOEV:false,mOEP:false,mOMC:false,mOAA:false,mODH:false,mOES:false,mOOG:false,mOEPS1:false,mOEPS2:false,mOCOL1:false,mOCOL2:false,format:"yyyy-MM-dd",lenguaje:vuejs_datepicker_dist_locale__WEBPACK_IMPORTED_MODULE_7__["es"],claseAyuda:"form-control",datos:[],datosJefe:[],Men1A:[],De1A5:[],De6A11:[],De10A59:[],ParPost:[],De12A17:[],De18A28:[],De29A59:[],De60:[],EnCro:[],EnInf:[],Migra:[],vectorJefes:[],vectorIntegrante:[],vectorAyuda:[],factores:[],afectacion:[],GIDEN:false,GVIVI:false,GCARXCI:false,GADOLE:false,GADULT:false,GMIGRA:false,IDHOGAR:0,ocupacionesVector:[],txtbusqueda:"",ocupacionAuxiliar:"",ocupacionAuxiliar2:"",opcionOcupaciones:"",txtbusquedaAct:"",actividadesVector:[],actividadesAuxiliar:"",actividad_economica:"",SAPU:false,CODIGOGENE:"",valGIden:true,valGVivi:true,valGCart:true,valGAdole:true,valGAdul:true,valGMig:true,valGActu:true,bandeGuaEdiJefe:true,indiceEditJefe:null,bandeGuaEdiInte:true,indiceEditInte:null,idEditar:null,identificacionEditar:null,fechaEditar:null,edadEditar:null,embarazoEditar:null,identificacionJefe:null,migrarEditar:null,errores:[],ActividadData:[],EnfJef:[],enfermedadesJefesVector:[],vaEnfJef:[],bandeGuaEdiEstrati:true,indiceEditEstrati:null,RieAmbInh:(_RieAmbInh={id_hogar:0,riesgos_derrumbes:0,riesgos_inundacion:0,riesgos_insalubridad:0,riesgos_atmosferico:0,riesgos_recurso_suelo:0,riesgos_quema:0,riesgos_auditivo:0,riesgos_recurso_hidrico:0,riesgos_acceso_agua:0,estado:"",id_compania:0,va_riesgos_derrumbes:"",va_riesgos_inundacion:"",va_riesgos_insalubridad:"",va_riesgos_atmosferico:"",va_riesgos_recurso_suelo:"",va_riesgos_quema:"",va_riesgos_auditivo:"",va_riesgos_recurso_hidrico:"",va_riesgos_acceso_agua:"",color_riesgos_derrumbes:"",color_riesgos_inundacion:"",color_riesgos_insalubridad:"",color_riesgos_atmosferico:"",color_riesgos_recurso_suelo:"",color_riesgos_quema:"",color_riesgos_auditivo:"",color_riesgos_recurso_hidrico:"",color_riesgos_acceso_agua:"",control_riesgos_derrumbes:0,control_riesgos_inundacion:0,control_riesgos_insalubridad:0,control_riesgos_atmosferico:0,control_riesgos_recurso_suelo:0,control_riesgos_quema:0,control_riesgos_auditivo:0,control_riesgos_recurso_hidrico:0,control_riesgos_acceso_agua:0,color_residual_riesgos_derrumbes:"",color_residual_riesgos_inundacion:"",color_residual_riesgos_insalubridad:"",color_residual_riesgos_atmosferico:""},_defineProperty(_RieAmbInh,"color_riesgos_recurso_suelo",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_quema",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_auditivo",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_recurso_hidrico",""),_defineProperty(_RieAmbInh,"color_residual_riesgos_acceso_agua",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_derrumbes",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_inundacion",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_insalubridad",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_atmosferico",""),_defineProperty(_RieAmbInh,"val_riesgos_recurso_suelo",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_auditivo",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_quema",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_recurso_hidrico",""),_defineProperty(_RieAmbInh,"val_residual_riesgos_acceso_agua",""),_RieAmbInh),banderaControles:true,banConRieAmb:"",datosRA:{// Riesgos de  Derrumbes
+control_entes_RD:"",obras_ingenieria_RD:"",proteccion_RD:"",zona_vivienda_RD:"",cual_RD:"",tipo_RD:"",// Riesgos de  Derrumbes
+// Riesgos de inundación 
+control_entes_RI:"",gaviones_RI:"",dragado_RI:"",barreras_RI:"",zona_vivienda_RI:"",cual_RI:"",tipo_RI:"",// Riesgos de inundación 
+// Riesgos de insalubridad 
+sistema_recoleccion_RIN:"",control_entes_RIN:"",control_plagas_RIN:"",limpieza_RIN:"",tipo_tratamiento_RIN:"",clasificacion_residuos_RIN:"",cual_RIN:"",tipo_RIN:"",// Riesgos de insalubridad
+// Riesgo atmosferico
+control_entes_RA:"",humectacion_RA:"",sistema_RA:"",concientizacion_RA:"",cual_RA:"",tipo_RA:"",// Riesgo atmosferico
+// Riesgos Recurso suelo
+control_entes_RRS:"",concientizacion_RRS:"",mantenimiento_RRS:"",mantenimiento_solicitado_RRS:"",fertilizantes_RRS:"",clasificacion_RRS:"",cual_RRS:"",tipo_RRS:"",// Riesgos Recurso suelo
+// Riesgo por quemas o incendio
+control_entes_RQ:"",concientizacion_RQ:"",bomberos_RQ:"",servicio_programado_RQ:"",servicio_solicitud_RQ:"",aprovechamiento_RQ:"",cual_RQ:"",tipo_RQ:"",// Riesgo por quemas o incendio
+// Riesgo Auditivo
+control_entes_RAU:"",regulacion_RAU:"",mediciones_RAU:"",zona_RAU:"",decibeles_RAU:"",cual_RAU:"",tipo_RAU:"",// Riesgo Auditivo
+// Riesgo recurso Hidrico
+control_entes_RRH:"",concientizacion_RRH:"",manejo_aguas_RRH:"",programa_RRH:"",control_industrias_RRH:"",mantenimiento_RRH:"",mantenimiento_captacion_RRH:"",cual_RRH:"",tipo_RRH:"",// Riesgo recurso Hidrico
+// Riesgo Acceso a Agua Segura
+control_entes_RAA:"",tratamiento_RAA:"",concientizacion_RAA:"",sistema_RAA:"",programa_RAA:"",cual_RRA:"",tipo_RRA:""// Riesgo Acceso a Agua Segura
+}};},validations:{viviendaData:{tipo_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_estructura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},numero_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},personas_por_cuartos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"],numeric:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["numeric"]},material_predominante:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_cubierta:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// actividad_economica: { required },
 evento_afecta_vivienda:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},familias_accion:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},promedio_ingresos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},promedio_gastos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},fuente_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},energia_electrica:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},gas_natural:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},acueducto:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},alcantarillado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},telefono_fijo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},aseo:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},internet_subsidiado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},internet_privado:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},donde_almacena_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},ubicacion_tanque:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},tipo_tratamiento_agua:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},destino_final_basura:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},porquerizas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},plagas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},industrias:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},malos_olores:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},rellenos:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},contaminacion_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},rio:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},otro_cerca:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},avenidas_transitadas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lotes_abandonados:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},servicio_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},donde_sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},excretas:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},cocina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},dormitorio_a:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},sala:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},sanitario:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},lavadero:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["required"]},// iluminacion_adecuada: { required },
 // techo_adecuado: { required },
 // ventilacion_adecuada: { required },
@@ -11878,13 +13313,13 @@ gasolina:{required:vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_8__["requir
 if(this.caracData.embarazo==="NO"){this.caracData.embarazo_multiple="NO";}else{// this.caracData.embarazo = "0";
 this.caracData.embarazo_multiple="";}}return this.caracData.sexo==="MASCULINO";},soloNum:function soloNum(){// alert(this.Men1A.peso_nacer);
 // return this.Men1A.peso_nacer.replace( /[^\d]/g, '' ).trim();
-},calHoy:function calHoy(){var hoy=moment();return hoy;},spinGIden:function spinGIden(){if(this.valGIden){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGVivi:function spinGVivi(){if(this.valGVivi){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGCart:function spinGCart(){if(this.valGCart){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGAdole:function spinGAdole(){if(this.valGAdole){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGAdul:function spinGAdul(){if(this.valGAdul){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGMig:function spinGMig(){if(this.valGMig){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGActu:function spinGActu(){if(this.valGActu){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}}},methods:{calculaEdad:function calculaEdad(){var a=moment();var b=moment(this.CA1.fecha_nac);var years=a.diff(b,'year');b.add(years,'years');var months=a.diff(b,'months');b.add(months,'months');var days=a.diff(b,'days');if(years==0){if(months<=1){if(days<=1){this.CA1.meses=months+" MES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MES";this.CA1.dias=days+" DIAS";}}else{if(days<=1){this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIAS";}}}else{this.CA1.meses=0;this.CA1.dias=0;}if(years>=18){this.CA1.programa_icbf="NA";}else{this.CA1.programa_icbf="0";}if(years<8){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";this.CA1.estado_civil=9;}else{if(this.CA1.sexo==="MASCULINO"){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";}else{this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";}this.CA1.estado_civil="0";}if(years<=2){this.CA1.escolaridad=22;this.CA1.ocupacion=9993;this.ocupacionAuxiliar2="NO APLICA";}else{this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.ocupacionAuxiliar2="";}},abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:parametros={txtbusqueda:_this.txtbusqueda.trim(),_token:_this.csrf,page:pagina};_context.prev=1;_context.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this.ocupacionesVector=respuesta.data.ocupaciones.data;_this.paginacionVector=respuesta.data.paginacion;});case 4:_context.next=15;break;case 6:_context.prev=6;_context.t0=_context["catch"](1);_context.t1=_context.t0.response.status;_context.next=_context.t1===422?11:13;break;case 11:_this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",15);case 13:_this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",15);case 15:case"end":return _context.stop();}}},_callee,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},abrirModalActividades:function abrirModalActividades(){this.txtbusquedaAct="";this.consultarActividades(1);this.$refs.modalActividad.show();},consultarActividades:function consultarActividades(pagina){var _this2=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:parametros={txtbusqueda:_this2.txtbusquedaAct.trim(),_token:_this2.csrf,page:pagina};_context2.prev=1;_context2.next=4;return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_5__["listar"](parametros).then(function(respuesta){_this2.actividadesVector=respuesta.data.actividades.data;});case 4:_context2.next=15;break;case 6:_context2.prev=6;_context2.t0=_context2["catch"](1);_context2.t1=_context2.t0.response.status;_context2.next=_context2.t1===422?11:13;break;case 11:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",15);case 13:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",15);case 15:case"end":return _context2.stop();}}},_callee2,null,[[1,6]]);}))();},seleccionarActividades:function seleccionarActividades(item){this.actividad_economica=item.id;this.actividadesAuxiliar=item.descripcion;this.$refs.modalActividad.hide();},AgregarActividad:function AgregarActividad(){if(this.actividadesAuxiliar===""){this.$refs.actividadesAuxiliar.focus();this.$swal("Error...!","Por favor seleccione una actividad economica!","error");return;}this.ActividadData.push({id:0,id_actividad:this.actividad_economica,actividad:this.actividadesAuxiliar,estado:"Activo"});this.limpiarActividad();},limpiarActividad:function limpiarActividad(){this.actividadesAuxiliar="";this.actividad_economica="";},eliminarItemActividad:function eliminarItemActividad(item,index){if(item.id!==0){this.ActividadData[index].estado="Inactivo";this.ActividadData.splice(index,1,this.ActividadData[index]);}else{this.ActividadData.splice(index,1);}},Actualizar:function Actualizar(){var _this3=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(){var id,opcion,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:id=0;opcion="";if(_this3.hogar.id_corre!=""){opcion="CORRE";id=_this3.hogar.id_corre;}else{opcion="MUN";id=_this3.hogar.id_mun;}parametros={_token:_this3.csrf,id:id,opcion:opcion};_this3.valGActu=false;_context3.prev=5;_context3.next=8;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function(respuesta){_this3.corregi_options=respuesta.data.arrayCorregi;_this3.vereda_options=respuesta.data.arrayVeredas;_this3.parentesco_options=respuesta.data.arrayParentesco;_this3.estado_options=respuesta.data.arrayEstado;_this3.escolaridad_options=respuesta.data.arrayEscolaridad;_this3.ocupacion_options=respuesta.data.arrayOcupacion;_this3.etnia_options=respuesta.data.arrayEtnia;_this3.admini_options=respuesta.data.arrayAdmini;_this3.clasifi_options=respuesta.data.arrayCLasifi;_this3.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this3.morbilidad_options=respuesta.data.arrayMorbilidad;_this3.metodos_options=respuesta.data.arrayMetodos;_this3.motivos_options=respuesta.data.arrayMotivos;_this3.grupos_options=respuesta.data.arrayGrupos;_this3.enfcro_options=respuesta.data.arrayEnfCro;_this3.enfinf_options=respuesta.data.arrayEnfInf;_this3.religion_options=respuesta.data.arrayReligion;_this3.colegio_options=respuesta.data.arrayColegios;_this3.barrio_options=respuesta.data.arrayBarrios;_this3.valGActu=true;});case 8:_context3.next=19;break;case 10:_context3.prev=10;_context3.t0=_context3["catch"](5);_context3.t1=_context3.t0.response.status;_context3.next=_context3.t1===422?15:17;break;case 15:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",19);case 17:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",19);case 19:case"end":return _context3.stop();}}},_callee3,null,[[5,10]]);}))();},cambiarTab2:function cambiarTab2(opcion){if(this.GIDEN===false){// $('.nav-tabs a[href="#' + opcion + '"]').tab('show');
+},calHoy:function calHoy(){var hoy=moment();return hoy;},spinGIden:function spinGIden(){if(this.valGIden){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGVivi:function spinGVivi(){if(this.valGVivi){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGCart:function spinGCart(){if(this.valGCart){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGAdole:function spinGAdole(){if(this.valGAdole){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGAdul:function spinGAdul(){if(this.valGAdul){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGMig:function spinGMig(){if(this.valGMig){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}},spinGActu:function spinGActu(){if(this.valGActu){return{};}else{return['kt-spinner','kt-spinner--right','kt-spinner--sm','kt-spinner--light'];}}},methods:{calculaEdad:function calculaEdad(){var a=moment();var b=moment(this.CA1.fecha_nac);var years=a.diff(b,'year');b.add(years,'years');var months=a.diff(b,'months');b.add(months,'months');var days=a.diff(b,'days');if(years==0){if(months<=1){if(days<=1){this.CA1.meses=months+" MES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MES";this.CA1.dias=days+" DIAS";}}else{if(days<=1){this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIA";}else{this.CA1.meses=months+" MESES";this.CA1.dias=days+" DIAS";}}}else{this.CA1.meses=0;this.CA1.dias=0;}if(years>=18){this.CA1.programa_icbf="NA";}else{this.CA1.programa_icbf="0";}if(years<8){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";this.CA1.estado_civil=9;}else{if(this.CA1.sexo==="MASCULINO"){this.CA1.embarazo="NOAPLICA";this.CA1.embarazo_multiple="NOAPLICA";}else{this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";}this.CA1.estado_civil="0";}if(years<=2){this.CA1.escolaridad=22;this.CA1.ocupacion=9993;this.ocupacionAuxiliar2="NO APLICA";}else{this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.ocupacionAuxiliar2="";}},abrirModalOcupaciones:function abrirModalOcupaciones(opcion){this.opcionOcupaciones=opcion;this.txtbusqueda="";this.consultarOcupaciones(1);this.$refs.modalOcupaciones.show();},cerrarModal:function cerrarModal(){this.$refs.modalOcupaciones.hide();this.$refs.modalActividad.hide();this.$refs.modalRieAmb.hide();},consultarOcupaciones:function consultarOcupaciones(pagina){var _this=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:parametros={txtbusqueda:_this.txtbusqueda.trim(),_token:_this.csrf,page:pagina};_context.prev=1;_context.next=4;return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_4__["listarOcupaciones"](parametros).then(function(respuesta){_this.ocupacionesVector=respuesta.data.ocupaciones.data;_this.paginacionVector=respuesta.data.paginacion;});case 4:_context.next=15;break;case 6:_context.prev=6;_context.t0=_context["catch"](1);_context.t1=_context.t0.response.status;_context.next=_context.t1===422?11:13;break;case 11:_this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",15);case 13:_this.$swal("Error...!","Ocurrio un error!","error");return _context.abrupt("break",15);case 15:case"end":return _context.stop();}}},_callee,null,[[1,6]]);}))();},seleccionarOcupaciones:function seleccionarOcupaciones(item){if(this.opcionOcupaciones==="jefe"){this.caracData.ocupacion=item.id;this.ocupacionAuxiliar=item.descripcion;}else{this.CA1.ocupacion=item.id;this.ocupacionAuxiliar2=item.descripcion;}this.$refs.modalOcupaciones.hide();},abrirModalActividades:function abrirModalActividades(){this.txtbusquedaAct="";this.consultarActividades(1);this.$refs.modalActividad.show();},consultarActividades:function consultarActividades(pagina){var _this2=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2){while(1){switch(_context2.prev=_context2.next){case 0:parametros={txtbusqueda:_this2.txtbusquedaAct.trim(),_token:_this2.csrf,page:pagina};_context2.prev=1;_context2.next=4;return _Servicios_actividad_servicios__WEBPACK_IMPORTED_MODULE_5__["listar"](parametros).then(function(respuesta){_this2.actividadesVector=respuesta.data.actividades.data;});case 4:_context2.next=15;break;case 6:_context2.prev=6;_context2.t0=_context2["catch"](1);_context2.t1=_context2.t0.response.status;_context2.next=_context2.t1===422?11:13;break;case 11:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",15);case 13:_this2.$swal("Error...!","Ocurrio un error!","error");return _context2.abrupt("break",15);case 15:case"end":return _context2.stop();}}},_callee2,null,[[1,6]]);}))();},seleccionarActividades:function seleccionarActividades(item){this.actividad_economica=item.id;this.actividadesAuxiliar=item.descripcion;this.$refs.modalActividad.hide();},AgregarActividad:function AgregarActividad(){if(this.actividadesAuxiliar===""){this.$refs.actividadesAuxiliar.focus();this.$swal("Error...!","Por favor seleccione una actividad economica!","error");return;}this.ActividadData.push({id:0,id_actividad:this.actividad_economica,actividad:this.actividadesAuxiliar,estado:"Activo"});this.limpiarActividad();},limpiarActividad:function limpiarActividad(){this.actividadesAuxiliar="";this.actividad_economica="";},eliminarItemActividad:function eliminarItemActividad(item,index){if(item.id!==0){this.ActividadData[index].estado="Inactivo";this.ActividadData.splice(index,1,this.ActividadData[index]);}else{this.ActividadData.splice(index,1);}},Actualizar:function Actualizar(){var _this3=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(){var id,opcion,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3){while(1){switch(_context3.prev=_context3.next){case 0:id=0;opcion="";if(_this3.hogar.id_corre!=""){opcion="CORRE";id=_this3.hogar.id_corre;}else{opcion="MUN";id=_this3.hogar.id_mun;}parametros={_token:_this3.csrf,id:id,opcion:opcion};_this3.valGActu=false;_context3.prev=5;_context3.next=8;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["actualizar"](parametros).then(function(respuesta){_this3.corregi_options=respuesta.data.arrayCorregi;_this3.vereda_options=respuesta.data.arrayVeredas;_this3.parentesco_options=respuesta.data.arrayParentesco;_this3.estado_options=respuesta.data.arrayEstado;_this3.escolaridad_options=respuesta.data.arrayEscolaridad;_this3.ocupacion_options=respuesta.data.arrayOcupacion;_this3.etnia_options=respuesta.data.arrayEtnia;_this3.admini_options=respuesta.data.arrayAdmini;_this3.clasifi_options=respuesta.data.arrayCLasifi;_this3.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this3.morbilidad_options=respuesta.data.arrayMorbilidad;_this3.metodos_options=respuesta.data.arrayMetodos;_this3.motivos_options=respuesta.data.arrayMotivos;_this3.grupos_options=respuesta.data.arrayGrupos;_this3.enfcro_options=respuesta.data.arrayEnfCro;_this3.enfinf_options=respuesta.data.arrayEnfInf;_this3.religion_options=respuesta.data.arrayReligion;_this3.colegio_options=respuesta.data.arrayColegios;_this3.barrio_options=respuesta.data.arrayBarrios;_this3.valGActu=true;});case 8:_context3.next=19;break;case 10:_context3.prev=10;_context3.t0=_context3["catch"](5);_context3.t1=_context3.t0.response.status;_context3.next=_context3.t1===422?15:17;break;case 15:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",19);case 17:_this3.$swal("Error...!","Ocurrio un error!","error");return _context3.abrupt("break",19);case 19:case"end":return _context3.stop();}}},_callee3,null,[[5,10]]);}))();},cambiarTab2:function cambiarTab2(opcion){if(this.GIDEN===false){// $('.nav-tabs a[href="#' + opcion + '"]').tab('show');
 $('.nav-tabs a[href="#tabIdentificacion"]').tab('show');return false;}else{}},cambiarTab1:function cambiarTab1(opcion,actual){var _this4=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(){var bandera,resul,_resul,_resul2,_resul3,parametros,isInvalid,auxi,_resul4,_resul5,_resul6,_resul7,_resul8,_auxi,_resul9,_resul10,_resul11,_auxi2,_resul12,_resul13,_resul14,_auxi3,_resul15;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4){while(1){switch(_context4.prev=_context4.next){case 0:bandera=false;if(!(actual==="tabIdentificacion")){_context4.next=90;break;}if(!(_this4.hogar.id_dpto==="")){_context4.next=6;break;}_this4.$refs.id_dpto.focus();_this4.$swal("Error...!","Por favor seleccione el departamento!","error");return _context4.abrupt("return");case 6:if(!(_this4.hogar.id_mun==="")){_context4.next=10;break;}_this4.$refs.id_mun.focus();_this4.$swal("Error...!","Por favor seleccione el municipio!","error");return _context4.abrupt("return");case 10:if(!(_this4.hogar.tenencia_vivienda==="")){_context4.next=14;break;}_this4.$refs.tenencia_vivienda.focus();_this4.$swal("Error...!","Por favor seleccione la tenencia de vivienda!","error");return _context4.abrupt("return");case 14:if(!(_this4.allLetter(_this4.hogar.numero_hogares)===false)){_context4.next=19;break;}_this4.$refs.numero_hogares.focus();_this4.hogar.numero_hogares="";_this4.$swal("Error...!","Por favor digite solo numero en el numero de hogares!","error");return _context4.abrupt("return");case 19:if(!(_this4.hogar.numero_hogares==="")){_context4.next=23;break;}_this4.$refs.numero_hogares.focus();_this4.$swal("Error...!","Por favor digite el numero de hogares!","error");return _context4.abrupt("return");case 23:if(!(_this4.hogar.poblacion_especial==="")){_context4.next=27;break;}_this4.$refs.poblacion_especial.focus();_this4.$swal("Error...!","Por favor seleccione la población especial!","error");return _context4.abrupt("return");case 27:if(!(_this4.hogar.vias_acceso==="")){_context4.next=31;break;}_this4.$refs.vias_acceso.focus();_this4.$swal("Error...!","Por favor seleccione si la comunidad presenta vías de acceso!","error");return _context4.abrupt("return");case 31:if(!(_this4.hogar.servicios_publicos==="")){_context4.next=35;break;}_this4.$refs.servicios_publicos.focus();_this4.$swal("Error...!","Por favor seleccione si presenta acceso fácil a los servicios públicos!","error");return _context4.abrupt("return");case 35:if(!(_this4.hogar.direccion==="")){_context4.next=39;break;}_this4.$refs.direccion.focus();_this4.$swal("Error...!","Por favor digite la dirección!","error");return _context4.abrupt("return");case 39:if(!(_this4.datosJefe.length<=0)){_context4.next=44;break;}_this4.$swal("Error...!","Por favor agregue por lo menos un jefe de hogar","error");return _context4.abrupt("return");case 44:resul=_this4.valJef1();if(!resul){_context4.next=49;break;}bandera=true;_context4.next=50;break;case 49:return _context4.abrupt("return",false);case 50:if(!(_this4.datos.length>0)){_context4.next=57;break;}_resul=_this4.valInt1();if(!_resul){_context4.next=56;break;}bandera=true;_context4.next=57;break;case 56:return _context4.abrupt("return",false);case 57:if(!(_this4.factores.length>0)){_context4.next=64;break;}_resul2=_this4.valFactores();if(!_resul2){_context4.next=63;break;}bandera=true;_context4.next=64;break;case 63:return _context4.abrupt("return",false);case 64:if(!(_this4.afectacion.length>0)){_context4.next=71;break;}_resul3=_this4.valAfectacion();if(!_resul3){_context4.next=70;break;}bandera=true;_context4.next=71;break;case 70:return _context4.abrupt("return",false);case 71://VALIDAR LA TABLA AFECTACION
 //GUARDAR DATOS
 parametros="";if(_this4.GIDEN===false){parametros={_token:_this4.csrf,hogar:_this4.hogar,caracterizacion:_this4.datosJefe,integrantes:_this4.datos,factores:_this4.factores,CODIGOGENE:_this4.CODIGOGENE,afectacion:_this4.afectacion,opcion:"GUARDAR",opc:"GUAINDEN"};}else{parametros={_token:_this4.csrf,hogar:_this4.hogar,caracterizacion:_this4.datosJefe,integrantes:_this4.datos,factores:_this4.factores,CODIGOGENE:_this4.CODIGOGENE,afectacion:_this4.afectacion,opcion:"MODIFICAR",opc:"GUAINDEN",id_hogar:_this4.IDHOGAR};}_this4.valGIden=false;_context4.prev=74;_context4.next=77;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="G"){_this4.GIDEN=true;_this4.IDHOGAR=respuesta.data.IDHOGAR;_this4.valGIden=true;_this4.hogar.id=_this4.IDHOGAR;bandera=true;_this4.datosJefe.length=0;_this4.datos.length=0;_this4.factores.length=0;_this4.afectacion.length=0;_this4.datosJefe=respuesta.data.jefes;_this4.datos=respuesta.data.integrantes;_this4.factores=respuesta.data.factores;_this4.afectacion=respuesta.data.afectacion;}if(respuesta.data.OPC=="E"){_this4.GIDEN=true;_this4.IDHOGAR=respuesta.data.IDHOGAR;_this4.valGIden=true;bandera=true;_this4.datosJefe.length=0;_this4.datos.length=0;_this4.factores.length=0;_this4.afectacion.length=0;_this4.datosJefe=respuesta.data.jefes;_this4.datos=respuesta.data.integrantes;_this4.factores=respuesta.data.factores;_this4.afectacion=respuesta.data.afectacion;}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña identificación","error");return;});case 77:_context4.next=90;break;case 79:_context4.prev=79;_context4.t0=_context4["catch"](74);_context4.t1=_context4.t0.response.status;_context4.next=_context4.t1===419?84:_context4.t1===422?86:88;break;case 84:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",90);case 86:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",90);case 88:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",90);case 90:if(!(actual==="tabVivienda")){_context4.next=127;break;}bandera=true;// this.GIDEN=true;
 // this.IDHOGAR=1;
 if(!(_this4.GIDEN===false)){_context4.next=95;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 95:_this4.$v.$touch();isInvalid=_this4.$v.$invalid;if(!isInvalid){_context4.next=102;break;}_this4.$swal("Error...!","Por Favor Complete Los Campos Obligatorios de la Pestaña Vivienda","error");return _context4.abrupt("return",false);case 102:if(!(_this4.estratificacion.length<=0)){_context4.next=105;break;}_this4.$swal("Error...!","Por favor agregue por lo menos una estratificación","error");return _context4.abrupt("return");case 105:if(!(_this4.ActividadData.length<=0)){_context4.next=108;break;}_this4.$swal("Error...!","Por favor agrege por lo menos una actividad economica!","error");return _context4.abrupt("return");case 108:parametros="";if(_this4.GVIVI===false){parametros={_token:_this4.csrf,vivienda:_this4.viviendaData,estratificacion:_this4.estratificacion,Animales:_this4.animalesData,actividad_viviendas:_this4.ActividadData,opcion:"GUARDAR",opc:"GUAVIVI",IDHOGAR:_this4.IDHOGAR};}else{parametros={_token:_this4.csrf,vivienda:_this4.viviendaData,estratificacion:_this4.estratificacion,Animales:_this4.animalesData,actividad_viviendas:_this4.ActividadData,opcion:"MODIFICAR",opc:"GUAVIVI",IDHOGAR:_this4.IDHOGAR};}//GUARDAR DATOS
-_this4.valGVivi=false;_context4.prev=111;_context4.next=114;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.GVIVI=true;bandera=true;_this4.valGVivi=true;_this4.viviendaData.id=respuesta.data.vivienda.id;_this4.animalesData.length=0;_this4.estratificacion.length=0;_this4.ActividadData.length=0;_this4.animalesData=respuesta.data.animales;_this4.estratificacion=respuesta.data.estratificacion;_this4.ActividadData=respuesta.data.actividad_viviendas;}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 114:_context4.next=127;break;case 116:_context4.prev=116;_context4.t2=_context4["catch"](111);_context4.t3=_context4.t2.response.status;_context4.next=_context4.t3===419?121:_context4.t3===422?123:125;break;case 121:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",127);case 123:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",127);case 125:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",127);case 127:if(!(actual==="cartxciclo")){_context4.next=196;break;}bandera=true;if(!(_this4.IDHOGAR===0)){_context4.next=132;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 132:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
+_this4.valGVivi=false;_context4.prev=111;_context4.next=114;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.GVIVI=true;bandera=true;_this4.valGVivi=true;_this4.viviendaData.id=respuesta.data.vivienda.id;_this4.animalesData.length=0;_this4.estratificacion.length=0;_this4.ActividadData.length=0;_this4.animalesData=respuesta.data.animales;_this4.estratificacion=respuesta.data.estratificacion;_this4.ActividadData=respuesta.data.actividad_viviendas;_this4.RieAmbInh=respuesta.data.riesgos_ambientales;if(respuesta.data.ValoresRiesgosAmbientales!==null){_this4.datosRA=respuesta.data.ValoresRiesgosAmbientales;}_this4.$refs.modalRieAmb.show();}})["catch"](function(error){_this4.errorDevuelto=error.response.data.errors;_this4.entrarPorError=true;_this4.$swal("Error...!","No se pudo guardar los datos de la pestaña vivienda","error");return;});case 114:_context4.next=127;break;case 116:_context4.prev=116;_context4.t2=_context4["catch"](111);_context4.t3=_context4.t2.response.status;_context4.next=_context4.t3===419?121:_context4.t3===422?123:125;break;case 121:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",127);case 123:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",127);case 125:_this4.$swal("Error...!","Ocurrio un error!","error");return _context4.abrupt("break",127);case 127:if(!(actual==="cartxciclo")){_context4.next=196;break;}bandera=true;if(!(_this4.IDHOGAR===0)){_context4.next=132;break;}_this4.$swal("Error...!","Por Favor Complete y Guarde Los Campos Obligatorios de la Pestaña Hogar","error");return _context4.abrupt("return",false);case 132:auxi=false;//VALIDAR LA TABLA MENORES DE 1 AÑO
 if(!(_this4.Men1A.length>0)){_context4.next=141;break;}_resul4=_this4.valMen1();if(!_resul4){_context4.next=140;break;}bandera=true;auxi=true;_context4.next=141;break;case 140:return _context4.abrupt("return",false);case 141:if(!(_this4.De1A5.length>0)){_context4.next=149;break;}_resul5=_this4.valDe1A5();if(!_resul5){_context4.next=148;break;}bandera=true;auxi=true;_context4.next=149;break;case 148:return _context4.abrupt("return",false);case 149:if(!(_this4.De6A11.length>0)){_context4.next=157;break;}_resul6=_this4.valDe6A11();if(!_resul6){_context4.next=156;break;}bandera=true;auxi=true;_context4.next=157;break;case 156:return _context4.abrupt("return",false);case 157:if(!(_this4.De10A59.length>0)){_context4.next=165;break;}_resul7=_this4.valDe10A59();if(!_resul7){_context4.next=164;break;}bandera=true;auxi=true;_context4.next=165;break;case 164:return _context4.abrupt("return",false);case 165:if(!(_this4.ParPost.length>0)){_context4.next=173;break;}_resul8=_this4.valParPost();if(!_resul8){_context4.next=172;break;}bandera=true;auxi=true;_context4.next=173;break;case 172:return _context4.abrupt("return",false);case 173:if(!auxi){_context4.next=195;break;}//GUARDAR DATOS
 parametros="";if(_this4.GCARXCI===false){parametros={_token:_this4.csrf,Men1A:_this4.Men1A,De1A5:_this4.De1A5,De6A11:_this4.De6A11,De10A59:_this4.De10A59,ParPost:_this4.ParPost,opcion:"GUARDAR",opc:"GUACARCI",IDHOGAR:_this4.IDHOGAR};}else{parametros={_token:_this4.csrf,Men1A:_this4.Men1A,De1A5:_this4.De1A5,De6A11:_this4.De6A11,De10A59:_this4.De10A59,ParPost:_this4.ParPost,opcion:"MODIFICAR",opc:"GUACARCI",IDHOGAR:_this4.IDHOGAR};}_this4.valGCart=false;_context4.prev=177;_context4.next=180;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["guardar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="SI"){_this4.GCARXCI=true;bandera=true;_this4.valGCart=true;// GESTION DE LAS VARIABLES DE CART X CICLO
 _this4.Men1A.length=0;_this4.De1A5.length=0;_this4.De6A11.length=0;_this4.De10A59.length=0;_this4.ParPost.length=0;_this4.Men1A=respuesta.data.Men1A;_this4.De1A5=respuesta.data.De1A5;_this4.De6A11=respuesta.data.De6A11;_this4.De10A59=respuesta.data.De10A59;_this4.ParPost=respuesta.data.ParPost;// GESTION DE LAS VARIABLES DE CART X CICLO                    
@@ -11977,13 +13412,13 @@ if(this.De60[i].cigarrillo===""){this.$swal("Error...!","Por favor seleccione la
 if(this.De60[i].empleo===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Empleo</b> en la fila "+(i+1)+" de la tabla adulto mayor hombres y mujeres de 60 años y mas","error");return false;}}return true;},valEnCro:function valEnCro(){for(var i=0;i<this.EnCro.length;i++){if(this.EnCro[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}if(this.EnCro[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades cronicas","error");return false;}}return true;},valEnInf:function valEnInf(){for(var i=0;i<this.EnInf.length;i++){if(this.EnInf[i].enfermedad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Nombre de la Enfermedad</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tiempo===""){this.$swal("Error...!","Por favor digite la opcion <b>Diagnosticado Hace cuanto tiempo</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Está en Tratamiento</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}if(this.EnInf[i].complicaciones===""){this.$swal("Error...!","Por favor digite la opcion <b>Complicaciones</b> en la fila "+(i+1)+" de la tabla enfermedades infecciosas","error");return false;}}return true;},valMigra:function valMigra(){for(var i=0;i<this.Migra.length;i++){if(this.Migra[i].pais===""){this.$swal("Error...!","Por favor digite la opción <b>Pais de Origen</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].registrado===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Registrado Como Migrante</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].cuantollego===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Hace Cuanto Llego Al Pais</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].futuro===""){this.$swal("Error...!","Por favor seleccione la opcion <b>En el Futuro Usted Piensa</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].recibido===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Usted a Recibido Ayudas del Gobierno</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].necesidad===""){this.$swal("Error...!","Por favor seleccione la opcion <b>Principal Necesidad en Estos Momentos</b> en la fila "+(i+1)+" de la tabla migrantes","error");return false;}if(this.Migra[i].dependen===""){this.$swal("Error...!","Por favor digite la opción <b>Personas Que Dependen de Usted</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}if(this.Migra[i].ingreso===""){this.$swal("Error...!","Por favor digite la opción <b>Ingreso Mensual Actualmente</b> en la fila "+(i+1)+" de la tabla migrante","error");return false;}}return true;},//VALIDACIONES DE LOS CICLOS
 //VALIDACIONES
 allLetter:function allLetter(valor){var letters=/^([0-9])*$/;if(valor===""){return false;}else{if(valor.match(letters)){return true;}else{return false;}}},isNumeric:function isNumeric(n){return!isNaN(parseFloat(n))&&isFinite(n);},nuevo:function(){var _nuevo=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(){var _this7=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context9){while(1){switch(_context9.prev=_context9.next){case 0:parametros={_token:this.csrf};_context9.prev=1;_context9.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["nuevaCaracterizacion"](parametros).then(function(respuesta){_this7.dpto_options=respuesta.data.arrayDpto;_this7.muni_options=respuesta.data.arrayMuni;_this7.corregi_options=respuesta.data.arrayCorregi;_this7.vereda_options=respuesta.data.arrayVeredas;// this.barrio_options = respuesta.data.arrayBarrios;
-_this7.parentesco_options=respuesta.data.arrayParentesco;_this7.estado_options=respuesta.data.arrayEstado;_this7.escolaridad_options=respuesta.data.arrayEscolaridad;_this7.ocupacion_options=respuesta.data.arrayOcupacion;_this7.etnia_options=respuesta.data.arrayEtnia;_this7.admini_options=respuesta.data.arrayAdmini;_this7.clasifi_options=respuesta.data.arrayCLasifi;_this7.grados_option=respuesta.data.arrayGrados;_this7.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this7.morbilidad_options=respuesta.data.arrayMorbilidad;_this7.metodos_options=respuesta.data.arrayMetodos;_this7.motivos_options=respuesta.data.arrayMotivos;_this7.grupos_options=respuesta.data.arrayGrupos;_this7.enfcro_options=respuesta.data.arrayEnfCro;_this7.enfinf_options=respuesta.data.arrayEnfInf;_this7.religion_options=respuesta.data.arrayReligion;_this7.CODIGOGENE=respuesta.data.codigo;_this7.paises_options=respuesta.data.arrayPaises;_this7.antec_options=respuesta.data.arrayAnte;});case 4:_context9.next=15;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);_context9.t1=_context9.t0.response.status;_context9.next=_context9.t1===422?11:13;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 15:case"end":return _context9.stop();}}},_callee7,this,[[1,6]]);}));function nuevo(){return _nuevo.apply(this,arguments);}return nuevo;}(),agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:if(!(this.CA1.tipo_id=="0")){_context10.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context10.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context10.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context10.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context10.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context10.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context10.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context10.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context10.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context10.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context10.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context10.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context10.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context10.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context10.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context10.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context10.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context10.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context10.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context10.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context10.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context10.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context10.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context10.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context10.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context10.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context10.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context10.abrupt("return");case 44:if(!(this.CA1.etnia=="0")){_context10.next=47;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context10.abrupt("return");case 47:if(!(this.CA1.clasificacion=="0")){_context10.next=50;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context10.abrupt("return");case 50:if(!(this.CA1.entiende=="0")){_context10.next=53;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context10.abrupt("return");case 53:if(!(this.CA1.pyp=="0")){_context10.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context10.abrupt("return");case 56:if(!(this.CA1.migrante=="0")){_context10.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context10.abrupt("return");case 59:if(!(this.CA1.jefe=="0")){_context10.next=62;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context10.abrupt("return");case 62:if(!(this.CA1.perdida_peso==="")){_context10.next=66;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context10.abrupt("return");case 66:if(!(this.CA1.programa_icbf==="")){_context10.next=70;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context10.abrupt("return");case 70:if(!(this.CA1.peso==="")){_context10.next=73;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context10.abrupt("return");case 73:if(!(this.CA1.talla==="")){_context10.next=76;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context10.abrupt("return");case 76:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
-this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context10.prev=78;_context10.next=81;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this8.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+_this7.parentesco_options=respuesta.data.arrayParentesco;_this7.estado_options=respuesta.data.arrayEstado;_this7.escolaridad_options=respuesta.data.arrayEscolaridad;_this7.ocupacion_options=respuesta.data.arrayOcupacion;_this7.etnia_options=respuesta.data.arrayEtnia;_this7.admini_options=respuesta.data.arrayAdmini;_this7.clasifi_options=respuesta.data.arrayCLasifi;_this7.grados_option=respuesta.data.arrayGrados;_this7.morbilidadNacer_options=respuesta.data.arrayMorbilidadNacer;_this7.morbilidad_options=respuesta.data.arrayMorbilidad;_this7.metodos_options=respuesta.data.arrayMetodos;_this7.motivos_options=respuesta.data.arrayMotivos;_this7.grupos_options=respuesta.data.arrayGrupos;_this7.enfcro_options=respuesta.data.arrayEnfCro;_this7.enfinf_options=respuesta.data.arrayEnfInf;_this7.religion_options=respuesta.data.arrayReligion;_this7.CODIGOGENE=respuesta.data.codigo;_this7.paises_options=respuesta.data.arrayPaises;_this7.antec_options=respuesta.data.arrayAnte;});case 4:_context9.next=15;break;case 6:_context9.prev=6;_context9.t0=_context9["catch"](1);_context9.t1=_context9.t0.response.status;_context9.next=_context9.t1===422?11:13;break;case 11:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 13:this.$swal("Error...!","Ocurrio un error!","error");return _context9.abrupt("break",15);case 15:case"end":return _context9.stop();}}},_callee7,this,[[1,6]]);}));function nuevo(){return _nuevo.apply(this,arguments);}return nuevo;}(),agregar:function(){var _agregar=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8(){var _this8=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context10){while(1){switch(_context10.prev=_context10.next){case 0:if(!(this.CA1.tipo_id=="0")){_context10.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context10.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context10.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context10.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context10.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context10.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context10.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context10.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context10.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context10.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context10.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context10.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context10.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context10.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context10.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context10.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context10.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context10.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context10.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context10.abrupt("return");case 30:if(!(this.CA1.afi_entidad==="")){_context10.next=34;break;}this.$refs.afi_entidad.focus();this.$swal("Error...!","Por favor seleccione la eps!","error");return _context10.abrupt("return");case 34:if(!(this.CA1.tipo_afiliacion==="")){_context10.next=38;break;}this.$refs.tipo_afiliacion.focus();this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return _context10.abrupt("return");case 38:if(!(this.CA1.escolaridad=="0")){_context10.next=41;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context10.abrupt("return");case 41:if(!(this.CA1.ocupacion=="0")){_context10.next=44;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context10.abrupt("return");case 44:if(!(this.CA1.tipo_empleo=="0")){_context10.next=47;break;}this.$swal("Error...!","Por favor seleccione el tipo de empleo!","error");return _context10.abrupt("return");case 47:if(!(this.CA1.etnia=="0")){_context10.next=50;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context10.abrupt("return");case 50:if(!(this.CA1.clasificacion=="0")){_context10.next=53;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context10.abrupt("return");case 53:if(!(this.CA1.entiende=="0")){_context10.next=56;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context10.abrupt("return");case 56:if(!(this.CA1.pyp=="0")){_context10.next=59;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context10.abrupt("return");case 59:if(!(this.CA1.migrante=="0")){_context10.next=62;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context10.abrupt("return");case 62:if(!(this.CA1.jefe=="0")){_context10.next=65;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context10.abrupt("return");case 65:if(!(this.CA1.perdida_peso==="")){_context10.next=69;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context10.abrupt("return");case 69:if(!(this.CA1.programa_icbf==="")){_context10.next=73;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context10.abrupt("return");case 73:if(!(this.CA1.peso==="")){_context10.next=76;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context10.abrupt("return");case 76:if(!(this.CA1.talla==="")){_context10.next=79;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context10.abrupt("return");case 79:// VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
+this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context10.prev=81;_context10.next=84;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this8.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this8.datos.filter(function(identi){return identi.identificacion==_this8.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>0){_this8.$swal("Validar...!","El Documento <b>"+_this8.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento=moment(_this8.CA1.fecha_nac);var _hoy=moment();var edad=0;if(_nacimiento<_hoy){edad=_hoy.diff(_nacimiento,"years");//Calculamos la diferencia en años
 }//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 if(_this8.CA1.enfermedades.length>0){for(var i=0;i<_this8.CA1.enfermedades.length;i++){if(_this8.CA1.enfermedades[i].tiempo===""){_this8.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this8.CA1.enfermedades[i].tratamiento===""){_this8.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
-var textoEps="";if(_this8.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.CA1.afi_entidad,_this8.admini_options);}}_this8.datos.push({id:0,tipo_id:_this8.CA1.tipo_id,identificacion:_this8.CA1.identificacion,sexo:_this8.CA1.sexo,parentesco:_this8.CA1.parentesco,textoParentesco:_this8.showText(_this8.CA1.parentesco,_this8.parentesco_options),pnom:_this8.CA1.pnom,snom:_this8.CA1.snom,pape:_this8.CA1.pape,sape:_this8.CA1.sape,estado_civil:_this8.CA1.estado_civil,textoEstado:_this8.showText(_this8.CA1.estado_civil,_this8.estado_options),fecha_nac:_this8.CA1.fecha_nac,edad:edad,afi_entidad:_this8.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this8.CA1.otra_eps,tipo_afiliacion:_this8.CA1.tipo_afiliacion,embarazo:_this8.CA1.embarazo,embarazo_multiple:_this8.CA1.embarazo_multiple,discapacidad:_this8.CA1.discapacidad,escolaridad:_this8.CA1.escolaridad,textoEscolaridad:_this8.showText(_this8.CA1.escolaridad,_this8.escolaridad_options),ocupacion:_this8.CA1.ocupacion,textoOcupacion:_this8.showText(_this8.CA1.ocupacion,_this8.ocupacion_options),colegio:_this8.CA1.colegio,textoColegio:_this8.showText(_this8.CA1.colegio,_this8.colegio_options),grado:_this8.CA1.grado,entiende:_this8.CA1.entiende,migrante:_this8.CA1.migrante,pyp:_this8.CA1.pyp,etnia:_this8.CA1.etnia,textoEtnia:_this8.showText(_this8.CA1.etnia,_this8.etnia_options),clasificacion:_this8.CA1.clasificacion,textoClasificacion:_this8.showText2(_this8.CA1.clasificacion,_this8.clasifi_options,_this8.CA1.etnia),puntaje_sisben:_this8.CA1.puntaje_sisben,jefe:_this8.CA1.jefe,orientacion:_this8.CA1.orientacion,identidad_genero:_this8.CA1.identidad_genero,telefono:_this8.CA1.telefono,perdida_peso:_this8.CA1.perdida_peso,programa_icbf:_this8.CA1.programa_icbf,excepciones:_this8.CA1.excepciones,textoExcepciones:_this8.showText(_this8.CA1.excepciones,_this8.opciones7),identi_auxi:"",estado:"Activo",peso:_this8.CA1.peso,talla:_this8.CA1.talla,enfermedades:[],antecedentes:[]});for(var _i=0;_i<_this8.CA1.enfermedades.length;_i++){_this8.datos[_this8.datos.length-1].enfermedades.push({id:_this8.CA1.enfermedades[_i].id,id_hogar:_this8.CA1.enfermedades[_i].id_hogar,id_jefe:_this8.CA1.enfermedades[_i].id_jefe,textoEnfermedad:_this8.CA1.enfermedades[_i].textoEnfermedad,id_enfermedad:_this8.CA1.enfermedades[_i].id_enfermedad,tipo:_this8.CA1.enfermedades[_i].tipo,tiempo:_this8.CA1.enfermedades[_i].tiempo,tratamiento:_this8.CA1.enfermedades[_i].tratamiento,estado:_this8.CA1.enfermedades[_i].estado});_this8.datos.splice(_this8.datos.length-1,1,_this8.datos[_this8.datos.length-1]);}// this.CA1.enfermedades.length = [];
+var textoEps="";if(_this8.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(_this8.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this8.showText(_this8.CA1.afi_entidad,_this8.admini_options);}}_this8.datos.push({id:0,tipo_id:_this8.CA1.tipo_id,identificacion:_this8.CA1.identificacion,sexo:_this8.CA1.sexo,parentesco:_this8.CA1.parentesco,textoParentesco:_this8.showText(_this8.CA1.parentesco,_this8.parentesco_options),pnom:_this8.CA1.pnom,snom:_this8.CA1.snom,pape:_this8.CA1.pape,sape:_this8.CA1.sape,estado_civil:_this8.CA1.estado_civil,textoEstado:_this8.showText(_this8.CA1.estado_civil,_this8.estado_options),fecha_nac:_this8.CA1.fecha_nac,edad:edad,afi_entidad:_this8.CA1.afi_entidad,textoEps:textoEps,otra_eps:_this8.CA1.otra_eps,tipo_afiliacion:_this8.CA1.tipo_afiliacion,embarazo:_this8.CA1.embarazo,embarazo_multiple:_this8.CA1.embarazo_multiple,discapacidad:_this8.CA1.discapacidad,escolaridad:_this8.CA1.escolaridad,textoEscolaridad:_this8.showText(_this8.CA1.escolaridad,_this8.escolaridad_options),ocupacion:_this8.CA1.ocupacion,textoOcupacion:_this8.showText(_this8.CA1.ocupacion,_this8.ocupacion_options),colegio:_this8.CA1.colegio,textoColegio:_this8.showText(_this8.CA1.colegio,_this8.colegio_options),grado:_this8.CA1.grado,entiende:_this8.CA1.entiende,migrante:_this8.CA1.migrante,pyp:_this8.CA1.pyp,etnia:_this8.CA1.etnia,textoEtnia:_this8.showText(_this8.CA1.etnia,_this8.etnia_options),clasificacion:_this8.CA1.clasificacion,textoClasificacion:_this8.showText2(_this8.CA1.clasificacion,_this8.clasifi_options,_this8.CA1.etnia),puntaje_sisben:_this8.CA1.puntaje_sisben,jefe:_this8.CA1.jefe,orientacion:_this8.CA1.orientacion,identidad_genero:_this8.CA1.identidad_genero,telefono:_this8.CA1.telefono,perdida_peso:_this8.CA1.perdida_peso,programa_icbf:_this8.CA1.programa_icbf,excepciones:_this8.CA1.excepciones,textoExcepciones:_this8.showText(_this8.CA1.excepciones,_this8.opciones7),identi_auxi:"",estado:"Activo",peso:_this8.CA1.peso,talla:_this8.CA1.talla,enfermedades:[],antecedentes:[],tipo_empleo:_this8.CA1.tipo_empleo});for(var _i=0;_i<_this8.CA1.enfermedades.length;_i++){_this8.datos[_this8.datos.length-1].enfermedades.push({id:_this8.CA1.enfermedades[_i].id,id_hogar:_this8.CA1.enfermedades[_i].id_hogar,id_jefe:_this8.CA1.enfermedades[_i].id_jefe,textoEnfermedad:_this8.CA1.enfermedades[_i].textoEnfermedad,id_enfermedad:_this8.CA1.enfermedades[_i].id_enfermedad,tipo:_this8.CA1.enfermedades[_i].tipo,tiempo:_this8.CA1.enfermedades[_i].tiempo,tratamiento:_this8.CA1.enfermedades[_i].tratamiento,estado:_this8.CA1.enfermedades[_i].estado});_this8.datos.splice(_this8.datos.length-1,1,_this8.datos[_this8.datos.length-1]);}// this.CA1.enfermedades.length = [];
 for(var _i2=0;_i2<_this8.CA1.antecedentes.length;_i2++){_this8.datos[_this8.datos.length-1].antecedentes.push({id:_this8.CA1.antecedentes[_i2].id,id_hogar:_this8.CA1.antecedentes[_i2].id_hogar,id_jefe:_this8.CA1.antecedentes[_i2].id_jefe,textoAntecedente:_this8.CA1.antecedentes[_i2].textoAntecedente,id_antecedente:_this8.CA1.antecedentes[_i2].id_antecedente,estado:_this8.CA1.antecedentes[_i2].estado});_this8.datos.splice(_this8.datos.length-1,1,_this8.datos[_this8.datos.length-1]);}if(_this8.CA1.tipo_afiliacion==="CONTRIBUTIVO"||_this8.CA1.tipo_afiliacion==="ESPECIAL"){_this8.SAPU=true;_this8.estratificacionData.afiliacion_salud_privada="SI";}_this8.ocupacionAuxiliar2="";_this8.mOCOL2=false;var indice=_this8.datos.findIndex(function(identi){return identi.identificacion===_this8.CA1.identificacion;});_this8.vectorIntegrante.push({index:indice,identificacion:_this8.CA1.identificacion});// AGREGAR NIÑOS MENORES DE 1 AÑO
 if(edad<=0){_this8.Amenores1Anio(_this8.CA1,_hoy.diff(_nacimiento,"months"),"INTE");}// AGREGAR NIÑOS MENORES DE 1 AÑO
 // AGREGAR DE 1 A 5 AÑOS
@@ -12007,13 +13442,13 @@ if(edad>=29&&edad<=59){_this8.Ade29a59Anio(_this8.CA1,edad,"INTE");}// AGREGAR D
 if(edad>=60){_this8.Ade60Anio(_this8.CA1,edad,"INTE");}// AGREGAR DE 60 ó MAS AÑOS
 // AGREGAR MIGRANTES
 if(_this8.CA1.migrante==="SI"){_this8.AMigra(_this8.CA1,edad,"INTE");}// AGREGAR MIGRANTES
-_this8.limpiar();}}})["catch"](function(error){_this8.errorDevuelto=error.response.data.errors;_this8.entrarPorError=true;});case 81:_context10.next=94;break;case 83:_context10.prev=83;_context10.t0=_context10["catch"](78);_context10.t1=_context10.t0.response.status;_context10.next=_context10.t1===419?88:_context10.t1===422?90:92;break;case 88:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",94);case 90:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",94);case 92:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",94);case 94:case"end":return _context10.stop();}}},_callee8,this,[[78,83]]);}));function agregar(){return _agregar.apply(this,arguments);}return agregar;}(),agregarJefe:function(){var _agregarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(){var _this9=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context11){while(1){switch(_context11.prev=_context11.next){case 0:if(!(this.checkForm()===true)){_context11.next=12;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
+_this8.limpiar();}}})["catch"](function(error){_this8.errorDevuelto=error.response.data.errors;_this8.entrarPorError=true;});case 84:_context10.next=97;break;case 86:_context10.prev=86;_context10.t0=_context10["catch"](81);_context10.t1=_context10.t0.response.status;_context10.next=_context10.t1===419?91:_context10.t1===422?93:95;break;case 91:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",97);case 93:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",97);case 95:this.$swal("Error...!","Ocurrio un error!","error");return _context10.abrupt("break",97);case 97:case"end":return _context10.stop();}}},_callee8,this,[[81,86]]);}));function agregar(){return _agregar.apply(this,arguments);}return agregar;}(),agregarJefe:function(){var _agregarJefe=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9(){var _this9=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context11){while(1){switch(_context11.prev=_context11.next){case 0:if(!(this.checkForm()===true)){_context11.next=12;break;}// VALIDAR SI EL JEFE DE HOGAR SE ENCUENTRA AGREGADO
 this.caracData.identificacion=this.caracData.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");parametros={_token:this.csrf,identificacion:this.caracData.identificacion};_context11.prev=3;_context11.next=6;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this9.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this9.datosJefe.filter(function(identi){return identi.identificacion==_this9.caracData.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>0){_this9.$swal("Validar...!","El Documento <b>"+_this9.caracData.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{var _nacimiento2=moment(_this9.caracData.fecha_nacimiento);var _hoy2=moment();var edad=0;if(_nacimiento2<_hoy2){edad=_hoy2.diff(_nacimiento2,"years");//Calculamos la diferencia en años
 }if(edad<14){_this9.$swal("Validar...!","El Valor de la edad introducido no es aceptable, debe ser mayor ó igual a 14 años","warning");return false;}//VALIDAR LA TABLA ENFERMEDADES JEFES
 if(_this9.caracData.enfermedades.length>0){for(var i=0;i<_this9.caracData.enfermedades.length;i++){if(_this9.caracData.enfermedades[i].tiempo===""){_this9.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(_this9.caracData.enfermedades[i].tratamiento===""){_this9.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES JEFES
-var textoEps="";if(_this9.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this9.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this9.showText(_this9.caracData.afiliacion_entidad,_this9.admini_options);}}_this9.datosJefe.push({id:0,id_hogar:0,telefono:_this9.caracData.telefono,puntaje_sisben:_this9.caracData.puntaje_sisben,afiliacion_entidad:_this9.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this9.caracData.otra_eps,tipo_id:_this9.caracData.tipo_id,identificacion:_this9.caracData.identificacion,sexo:_this9.caracData.sexo,parentesco:_this9.caracData.parentesco,textoParentesco:_this9.showText(_this9.caracData.parentesco,_this9.parentesco_options),pnom:_this9.caracData.pnom,snom:_this9.caracData.snom,pape:_this9.caracData.pape,sape:_this9.caracData.sape,salario:_this9.caracData.salario,estado_civil:_this9.caracData.estado_civil,textoEstado:_this9.showText(_this9.caracData.estado_civil,_this9.estado_options),fecha_nacimiento:_this9.caracData.fecha_nacimiento,tipo_afiliacion:_this9.caracData.tipo_afiliacion,embarazo:_this9.caracData.embarazo,embarazo_multiple:_this9.caracData.embarazo_multiple,discapacidad:_this9.caracData.discapacidad,nivel_escolaridad:_this9.caracData.nivel_escolaridad,textoNivel:_this9.showText(_this9.caracData.nivel_escolaridad,_this9.escolaridad_options),ocupacion:_this9.caracData.ocupacion,textoOcupacion:_this9.showText(_this9.caracData.ocupacion,_this9.ocupacion_options),colegio:_this9.caracData.colegio,textoColegio:_this9.showText(_this9.caracData.colegio,_this9.colegio_options),grado:_this9.caracData.grado,entiende:_this9.caracData.entiende,migrante:_this9.caracData.migrante,pyp:_this9.caracData.pyp,etnia:_this9.caracData.etnia,textoEtnia:_this9.showText(_this9.caracData.etnia,_this9.etnia_options),clasificacion:_this9.caracData.clasificacion,textoClasificacion:_this9.showText2(_this9.caracData.clasificacion,_this9.clasifi_options,_this9.caracData.etnia),edad:_this9.caracData.edad,orientacion:_this9.caracData.orientacion,identidad_genero:_this9.caracData.identidad_genero,perdida_peso:_this9.caracData.perdida_peso,programa_icbf:_this9.caracData.programa_icbf,identi_auxi:"",estado:"Activo",peso:_this9.caracData.peso,talla:_this9.caracData.talla,enfermedades:[],antecedentes:[]});for(var _i3=0;_i3<_this9.caracData.enfermedades.length;_i3++){_this9.datosJefe[_this9.datosJefe.length-1].enfermedades.push({id:_this9.caracData.enfermedades[_i3].id,id_hogar:_this9.caracData.enfermedades[_i3].id_hogar,id_jefe:_this9.caracData.enfermedades[_i3].id_jefe,textoEnfermedad:_this9.caracData.enfermedades[_i3].textoEnfermedad,id_enfermedad:_this9.caracData.enfermedades[_i3].id_enfermedad,tipo:_this9.caracData.enfermedades[_i3].tipo,tiempo:_this9.caracData.enfermedades[_i3].tiempo,tratamiento:_this9.caracData.enfermedades[_i3].tratamiento,estado:_this9.caracData.enfermedades[_i3].estado});_this9.datosJefe.splice(_this9.datosJefe.length-1,1,_this9.datosJefe[_this9.datosJefe.length-1]);}for(var _i4=0;_i4<_this9.caracData.antecedentes.length;_i4++){_this9.datosJefe[_this9.datosJefe.length-1].antecedentes.push({id:_this9.caracData.antecedentes[_i4].id,id_hogar:_this9.caracData.antecedentes[_i4].id_hogar,id_jefe:_this9.caracData.antecedentes[_i4].id_jefe,textoAntecedente:_this9.caracData.antecedentes[_i4].textoAntecedente,id_antecedente:_this9.caracData.antecedentes[_i4].id_antecedente,estado:_this9.caracData.antecedentes[_i4].estado});_this9.datosJefe.splice(_this9.datosJefe.length-1,1,_this9.datosJefe[_this9.datosJefe.length-1]);}_this9.caracData.enfermedades.length=[];_this9.caracData.antecedentes.length=[];if(_this9.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this9.caracData.tipo_afiliacion==="ESPECIAL"){_this9.SAPU=true;_this9.estratificacionData.afiliacion_salud_privada="SI";}_this9.ocupacionAuxiliar="";_this9.mOCOL1=false;var indice=_this9.datosJefe.findIndex(function(identi){return identi.identificacion===_this9.caracData.identificacion;});_this9.vectorJefes.push({index:indice,identificacion:_this9.caracData.identificacion});// AGREGAR FACTORES
+var textoEps="";if(_this9.caracData.afiliacion_entidad==="OTRA"){textoEps="OTRA";}else{if(_this9.caracData.afiliacion_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=_this9.showText(_this9.caracData.afiliacion_entidad,_this9.admini_options);}}_this9.datosJefe.push({id:0,id_hogar:0,telefono:_this9.caracData.telefono,puntaje_sisben:_this9.caracData.puntaje_sisben,afiliacion_entidad:_this9.caracData.afiliacion_entidad,textoEps:textoEps,otra_eps:_this9.caracData.otra_eps,tipo_id:_this9.caracData.tipo_id,identificacion:_this9.caracData.identificacion,sexo:_this9.caracData.sexo,parentesco:_this9.caracData.parentesco,textoParentesco:_this9.showText(_this9.caracData.parentesco,_this9.parentesco_options),pnom:_this9.caracData.pnom,snom:_this9.caracData.snom,pape:_this9.caracData.pape,sape:_this9.caracData.sape,salario:_this9.caracData.salario,estado_civil:_this9.caracData.estado_civil,textoEstado:_this9.showText(_this9.caracData.estado_civil,_this9.estado_options),fecha_nacimiento:_this9.caracData.fecha_nacimiento,tipo_afiliacion:_this9.caracData.tipo_afiliacion,embarazo:_this9.caracData.embarazo,embarazo_multiple:_this9.caracData.embarazo_multiple,discapacidad:_this9.caracData.discapacidad,nivel_escolaridad:_this9.caracData.nivel_escolaridad,textoNivel:_this9.showText(_this9.caracData.nivel_escolaridad,_this9.escolaridad_options),ocupacion:_this9.caracData.ocupacion,textoOcupacion:_this9.showText(_this9.caracData.ocupacion,_this9.ocupacion_options),colegio:_this9.caracData.colegio,textoColegio:_this9.showText(_this9.caracData.colegio,_this9.colegio_options),grado:_this9.caracData.grado,entiende:_this9.caracData.entiende,migrante:_this9.caracData.migrante,pyp:_this9.caracData.pyp,etnia:_this9.caracData.etnia,textoEtnia:_this9.showText(_this9.caracData.etnia,_this9.etnia_options),clasificacion:_this9.caracData.clasificacion,textoClasificacion:_this9.showText2(_this9.caracData.clasificacion,_this9.clasifi_options,_this9.caracData.etnia),edad:_this9.caracData.edad,orientacion:_this9.caracData.orientacion,identidad_genero:_this9.caracData.identidad_genero,perdida_peso:_this9.caracData.perdida_peso,programa_icbf:_this9.caracData.programa_icbf,identi_auxi:"",estado:"Activo",peso:_this9.caracData.peso,talla:_this9.caracData.talla,enfermedades:[],antecedentes:[],tipo_empleo:_this9.caracData.tipo_empleo,percargo:_this9.caracData.percargo});for(var _i3=0;_i3<_this9.caracData.enfermedades.length;_i3++){_this9.datosJefe[_this9.datosJefe.length-1].enfermedades.push({id:_this9.caracData.enfermedades[_i3].id,id_hogar:_this9.caracData.enfermedades[_i3].id_hogar,id_jefe:_this9.caracData.enfermedades[_i3].id_jefe,textoEnfermedad:_this9.caracData.enfermedades[_i3].textoEnfermedad,id_enfermedad:_this9.caracData.enfermedades[_i3].id_enfermedad,tipo:_this9.caracData.enfermedades[_i3].tipo,tiempo:_this9.caracData.enfermedades[_i3].tiempo,tratamiento:_this9.caracData.enfermedades[_i3].tratamiento,estado:_this9.caracData.enfermedades[_i3].estado});_this9.datosJefe.splice(_this9.datosJefe.length-1,1,_this9.datosJefe[_this9.datosJefe.length-1]);}for(var _i4=0;_i4<_this9.caracData.antecedentes.length;_i4++){_this9.datosJefe[_this9.datosJefe.length-1].antecedentes.push({id:_this9.caracData.antecedentes[_i4].id,id_hogar:_this9.caracData.antecedentes[_i4].id_hogar,id_jefe:_this9.caracData.antecedentes[_i4].id_jefe,textoAntecedente:_this9.caracData.antecedentes[_i4].textoAntecedente,id_antecedente:_this9.caracData.antecedentes[_i4].id_antecedente,estado:_this9.caracData.antecedentes[_i4].estado});_this9.datosJefe.splice(_this9.datosJefe.length-1,1,_this9.datosJefe[_this9.datosJefe.length-1]);}_this9.caracData.enfermedades.length=[];_this9.caracData.antecedentes.length=[];if(_this9.caracData.tipo_afiliacion==="CONTRIBUTIVO"||_this9.caracData.tipo_afiliacion==="ESPECIAL"){_this9.SAPU=true;_this9.estratificacionData.afiliacion_salud_privada="SI";}_this9.ocupacionAuxiliar="";_this9.mOCOL1=false;var indice=_this9.datosJefe.findIndex(function(identi){return identi.identificacion===_this9.caracData.identificacion;});_this9.vectorJefes.push({index:indice,identificacion:_this9.caracData.identificacion});// AGREGAR FACTORES
 _this9.AFactores(_this9.caracData,edad);// AGREGAR FACTORES
 // AGREGAR AFECTACION
 _this9.AAFECTACION(_this9.caracData,edad);// AGREGAR AFECTACION                    
@@ -12032,7 +13467,7 @@ if(edad>=29&&edad<=59){_this9.Ade29a59Anio(_this9.caracData,edad,"JEFE");}// AGR
 if(edad>=60){_this9.Ade60Anio(_this9.caracData,edad,"JEFE");}// AGREGAR DE 60 ó MAS AÑOS
 // AGREGAR MIGRANTES
 if(_this9.caracData.migrante==="SI"){_this9.AMigra(_this9.caracData,edad,"JEFE");}// AGREGAR MIGRANTES
-_this9.limpiar2();}}})["catch"](function(error){_this9.errorDevuelto=error.response.data.errors;_this9.entrarPorError=true;});case 6:_context11.next=12;break;case 8:_context11.prev=8;_context11.t0=_context11["catch"](3);this.errorDevuelto=_context11.t0.response.data.errors;this.entrarPorError=true;case 12:case"end":return _context11.stop();}}},_callee9,this,[[3,8]]);}));function agregarJefe(){return _agregarJefe.apply(this,arguments);}return agregarJefe;}(),calculosAedad:function calculosAedad(){var a=moment();var b=moment(this.caracData.fecha_nacimiento);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years>=18){this.caracData.programa_icbf="NA";}else{this.caracData.programa_icbf="";}if(years<=8){this.caracData.estado_civil=9;}else{this.caracData.estado_civil="";}},checkForm:function checkForm(e){var bande=true;if(this.caracData.tipo_id===""){this.$refs.tipo_id.focus();bande=false;this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return;}if(this.caracData.identificacion===""){this.$refs.identificacion.focus();bande=false;this.$swal("Error...!","Por favor digite una identificación!","error");return;}if(this.caracData.sexo===""){this.$refs.sexo.focus();bande=false;this.$swal("Error...!","Por favor seleccione el sexo!","error");return;}if(this.caracData.orientacion===""){bande=false;this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return;}if(this.caracData.identidad_genero===""){bande=false;this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return;}if(this.caracData.parentesco===""){this.$refs.parentesco.focus();bande=false;this.$swal("Error...!","Por favor seleccione el parentesco!","error");return;}if(this.caracData.pnom===""){this.$refs.pnom.focus();bande=false;this.$swal("Error...!","Por favor digite el primer nombre!","error");return;}if(this.caracData.pape===""){this.$refs.pape.focus();bande=false;this.$swal("Error...!","Por favor digite el primer apellido!","error");return;}if(this.caracData.estado_civil===""){this.$refs.estado_civil.focus();bande=false;this.$swal("Error...!","Por favor seleccione el estado civil!","error");return;}if(this.caracData.fecha_nacimiento===""){this.$refs.fecha_nacimiento.focus();bande=false;this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return;}if(this.caracData.afiliacion_entidad===""){this.$refs.afiliacion_entidad.focus();bande=false;this.$swal("Error...!","Por favor seleccione la eps!","error");return;}if(this.caracData.tipo_afiliacion===""){this.$refs.tipo_afiliacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return;}if(this.caracData.ocupacion===""){this.$refs.ocupacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la ocupación!","error");return;}if(this.caracData.etnia===""){this.$refs.etnia.focus();bande=false;this.$swal("Error...!","Por favor seleccione la etnia!","error");return;}if(this.caracData.clasificacion===""){this.$refs.clasificacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return;}if(this.caracData.salario===""){this.$refs.salario.focus();bande=false;this.$swal("Error...!","Por favor digite el salario!","error");return;}if(this.caracData.perdida_peso===""){this.$refs.perdida_peso.focus();bande=false;this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return;}if(this.caracData.programa_icbf===""){bande=false;this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return;}if(this.caracData.peso===""){bande=false;this.$swal("Error...!","Por favor digite el peso!","error");return;}if(this.caracData.talla===""){bande=false;this.$swal("Error...!","Por favor digite la talla!","error");return;}return bande;e.preventDefault();},showText:function showText(val,vectorAux){for(var i=0;i<vectorAux.length;i++){if(vectorAux[i].value===val){return vectorAux[i].texto;}}return"";},showText2:function showText2(val,vectorAux,id){if(id===""){return"";}for(var i=0;i<vectorAux[id].length;i++){if(vectorAux[id][i].value===val){return vectorAux[id][i].texto;}}return"";},eliminarItem:function eliminarItem(index,item){var _this10=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el integrante  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this10.datos.splice(index,1);_this10.vectorIntegrante.splice(index,1);var identificacion=item.identificacion;_this10.Men1A=_this10.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this10.De1A5=_this10.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this10.De6A11=_this10.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this10.De10A59=_this10.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this10.ParPost=_this10.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this10.De12A17=_this10.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this10.De18A28=_this10.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this10.De29A59=_this10.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this10.De60=_this10.De60.filter(function(men){return men.identificacion!=identificacion;});_this10.EnCro=_this10.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this10.EnInf=_this10.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this10.Migra=_this10.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion=item.identificacion;var indice=_this10.datos.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.datos[indice].estado="Inactivo";_this10.datos.splice(indice,1,_this10.datos[indice]);}indice=_this10.Men1A.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.Men1A[indice].estado="Inactivo";_this10.Men1A.splice(indice,1,_this10.Men1A[indice]);}indice=_this10.De1A5.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De1A5[indice].estado="Inactivo";_this10.De1A5.splice(indice,1,_this10.De1A5[indice]);}indice=_this10.De6A11.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De6A11[indice].estado="Inactivo";_this10.De6A11.splice(indice,1,_this10.De6A11[indice]);}indice=_this10.De10A59.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De10A59[indice].estado="Inactivo";_this10.De10A59.splice(indice,1,_this10.De10A59[indice]);}indice=_this10.De12A17.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De12A17[indice].estado="Inactivo";_this10.De12A17.splice(indice,1,_this10.De12A17[indice]);}indice=_this10.De18A28.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De18A28[indice].estado="Inactivo";_this10.De18A28.splice(indice,1,_this10.De18A28[indice]);}indice=_this10.De29A59.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De29A59[indice].estado="Inactivo";_this10.De29A59.splice(indice,1,_this10.De29A59[indice]);}indice=_this10.De60.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De60[indice].estado="Inactivo";_this10.De60.splice(indice,1,_this10.De60[indice]);}indice=_this10.EnCro.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.EnCro[indice].estado="Inactivo";_this10.EnCro.splice(indice,1,_this10.EnCro[indice]);}indice=_this10.EnInf.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.EnInf[indice].estado="Inactivo";_this10.EnInf.splice(indice,1,_this10.EnInf[indice]);}indice=_this10.Migra.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.Migra[indice].estado="Inactivo";_this10.Migra.splice(indice,1,_this10.Migra[indice]);}}_this10.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},eliminarItemJefe:function eliminarItemJefe(index,item){var _this11=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el jefe de hogar  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this11.datosJefe.splice(index,1);_this11.vectorJefes.splice(index,1);var identificacion=item.identificacion;_this11.factores=_this11.factores.filter(function(men){return men.identificacion!=identificacion;});_this11.afectacion=_this11.afectacion.filter(function(men){return men.identificacion!=identificacion;});_this11.estratificacion=_this11.estratificacion.filter(function(men){return men.id_jefe!=identificacion;});_this11.Men1A=_this11.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this11.De1A5=_this11.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this11.De6A11=_this11.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this11.De10A59=_this11.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this11.ParPost=_this11.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this11.De12A17=_this11.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this11.De18A28=_this11.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this11.De29A59=_this11.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this11.De60=_this11.De60.filter(function(men){return men.identificacion!=identificacion;});_this11.EnCro=_this11.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this11.EnInf=_this11.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this11.Migra=_this11.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion2=item.identificacion;// TABLA datos
+_this9.limpiar2();}}})["catch"](function(error){_this9.errorDevuelto=error.response.data.errors;_this9.entrarPorError=true;});case 6:_context11.next=12;break;case 8:_context11.prev=8;_context11.t0=_context11["catch"](3);this.errorDevuelto=_context11.t0.response.data.errors;this.entrarPorError=true;case 12:case"end":return _context11.stop();}}},_callee9,this,[[3,8]]);}));function agregarJefe(){return _agregarJefe.apply(this,arguments);}return agregarJefe;}(),calculosAedad:function calculosAedad(){var a=moment();var b=moment(this.caracData.fecha_nacimiento);var years=a.diff(b,"year");b.add(years,"years");var months=a.diff(b,"months");b.add(months,"months");var days=a.diff(b,"days");if(years>=18){this.caracData.programa_icbf="NA";}else{this.caracData.programa_icbf="";}if(years<=8){this.caracData.estado_civil=9;}else{this.caracData.estado_civil="";}},checkForm:function checkForm(e){var bande=true;if(this.caracData.tipo_id===""){this.$refs.tipo_id.focus();bande=false;this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return;}if(this.caracData.identificacion===""){this.$refs.identificacion.focus();bande=false;this.$swal("Error...!","Por favor digite una identificación!","error");return;}if(this.caracData.sexo===""){this.$refs.sexo.focus();bande=false;this.$swal("Error...!","Por favor seleccione el sexo!","error");return;}if(this.caracData.orientacion===""){bande=false;this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return;}if(this.caracData.identidad_genero===""){bande=false;this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return;}if(this.caracData.parentesco===""){this.$refs.parentesco.focus();bande=false;this.$swal("Error...!","Por favor seleccione el parentesco!","error");return;}if(this.caracData.pnom===""){this.$refs.pnom.focus();bande=false;this.$swal("Error...!","Por favor digite el primer nombre!","error");return;}if(this.caracData.pape===""){this.$refs.pape.focus();bande=false;this.$swal("Error...!","Por favor digite el primer apellido!","error");return;}if(this.caracData.estado_civil===""){this.$refs.estado_civil.focus();bande=false;this.$swal("Error...!","Por favor seleccione el estado civil!","error");return;}if(this.caracData.fecha_nacimiento===""){this.$refs.fecha_nacimiento.focus();bande=false;this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return;}if(this.caracData.afiliacion_entidad===""){this.$refs.afiliacion_entidad.focus();bande=false;this.$swal("Error...!","Por favor seleccione la eps!","error");return;}if(this.caracData.tipo_afiliacion===""){this.$refs.tipo_afiliacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione el tipo de afiliación!","error");return;}if(this.caracData.ocupacion===""){this.$refs.ocupacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la ocupación!","error");return;}if(this.caracData.tipo_empleo==""){this.$swal("Error...!","Por favor seleccione el tipo de empleo!","error");return;}if(this.caracData.etnia===""){this.$refs.etnia.focus();bande=false;this.$swal("Error...!","Por favor seleccione la etnia!","error");return;}if(this.caracData.clasificacion===""){this.$refs.clasificacion.focus();bande=false;this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return;}if(this.caracData.salario===""){this.$refs.salario.focus();bande=false;this.$swal("Error...!","Por favor digite el salario!","error");return;}if(this.caracData.perdida_peso===""){this.$refs.perdida_peso.focus();bande=false;this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return;}if(this.caracData.programa_icbf===""){bande=false;this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return;}if(this.caracData.peso===""){bande=false;this.$swal("Error...!","Por favor digite el peso!","error");return;}if(this.caracData.talla===""){bande=false;this.$swal("Error...!","Por favor digite la talla!","error");return;}if(this.caracData.percargo===""){bande=false;this.$swal("Error...!","Por favor digite el numero de personas a cargo!","error");return;}return bande;e.preventDefault();},showText:function showText(val,vectorAux){for(var i=0;i<vectorAux.length;i++){if(vectorAux[i].value===val){return vectorAux[i].texto;}}return"";},showText2:function showText2(val,vectorAux,id){if(id===""){return"";}for(var i=0;i<vectorAux[id].length;i++){if(vectorAux[id][i].value===val){return vectorAux[id][i].texto;}}return"";},eliminarItem:function eliminarItem(index,item){var _this10=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el integrante  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this10.datos.splice(index,1);_this10.vectorIntegrante.splice(index,1);var identificacion=item.identificacion;_this10.Men1A=_this10.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this10.De1A5=_this10.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this10.De6A11=_this10.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this10.De10A59=_this10.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this10.ParPost=_this10.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this10.De12A17=_this10.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this10.De18A28=_this10.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this10.De29A59=_this10.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this10.De60=_this10.De60.filter(function(men){return men.identificacion!=identificacion;});_this10.EnCro=_this10.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this10.EnInf=_this10.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this10.Migra=_this10.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion=item.identificacion;var indice=_this10.datos.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.datos[indice].estado="Inactivo";_this10.datos.splice(indice,1,_this10.datos[indice]);}indice=_this10.Men1A.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.Men1A[indice].estado="Inactivo";_this10.Men1A.splice(indice,1,_this10.Men1A[indice]);}indice=_this10.De1A5.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De1A5[indice].estado="Inactivo";_this10.De1A5.splice(indice,1,_this10.De1A5[indice]);}indice=_this10.De6A11.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De6A11[indice].estado="Inactivo";_this10.De6A11.splice(indice,1,_this10.De6A11[indice]);}indice=_this10.De10A59.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De10A59[indice].estado="Inactivo";_this10.De10A59.splice(indice,1,_this10.De10A59[indice]);}indice=_this10.De12A17.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De12A17[indice].estado="Inactivo";_this10.De12A17.splice(indice,1,_this10.De12A17[indice]);}indice=_this10.De18A28.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De18A28[indice].estado="Inactivo";_this10.De18A28.splice(indice,1,_this10.De18A28[indice]);}indice=_this10.De29A59.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De29A59[indice].estado="Inactivo";_this10.De29A59.splice(indice,1,_this10.De29A59[indice]);}indice=_this10.De60.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.De60[indice].estado="Inactivo";_this10.De60.splice(indice,1,_this10.De60[indice]);}indice=_this10.EnCro.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.EnCro[indice].estado="Inactivo";_this10.EnCro.splice(indice,1,_this10.EnCro[indice]);}indice=_this10.EnInf.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.EnInf[indice].estado="Inactivo";_this10.EnInf.splice(indice,1,_this10.EnInf[indice]);}indice=_this10.Migra.findIndex(function(identi){return identi.identificacion===_identificacion;});if(indice>=0){_this10.Migra[indice].estado="Inactivo";_this10.Migra.splice(indice,1,_this10.Migra[indice]);}}_this10.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},eliminarItemJefe:function eliminarItemJefe(index,item){var _this11=this;var nombre=" "+item.pnom+" "+item.snom+" "+item.pape+" "+item.sape;this.$swal({title:"¿Desea anular el jefe de hogar  "+nombre+"?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then(function(result){if(result.value){if(item.id===0){_this11.datosJefe.splice(index,1);_this11.vectorJefes.splice(index,1);var identificacion=item.identificacion;_this11.factores=_this11.factores.filter(function(men){return men.identificacion!=identificacion;});_this11.afectacion=_this11.afectacion.filter(function(men){return men.identificacion!=identificacion;});_this11.estratificacion=_this11.estratificacion.filter(function(men){return men.id_jefe!=identificacion;});_this11.Men1A=_this11.Men1A.filter(function(men){return men.identificacion!=identificacion;});_this11.De1A5=_this11.De1A5.filter(function(men){return men.identificacion!=identificacion;});_this11.De6A11=_this11.De6A11.filter(function(men){return men.identificacion!=identificacion;});_this11.De10A59=_this11.De10A59.filter(function(men){return men.identificacion!=identificacion;});_this11.ParPost=_this11.ParPost.filter(function(men){return men.identificacion!=identificacion;});_this11.De12A17=_this11.De12A17.filter(function(men){return men.identificacion!=identificacion;});_this11.De18A28=_this11.De18A28.filter(function(men){return men.identificacion!=identificacion;});_this11.De29A59=_this11.De29A59.filter(function(men){return men.identificacion!=identificacion;});_this11.De60=_this11.De60.filter(function(men){return men.identificacion!=identificacion;});_this11.EnCro=_this11.EnCro.filter(function(men){return men.identificacion!=identificacion;});_this11.EnInf=_this11.EnInf.filter(function(men){return men.identificacion!=identificacion;});_this11.Migra=_this11.Migra.filter(function(men){return men.identificacion!=identificacion;});}else{var _identificacion2=item.identificacion;// TABLA datos
 for(var i=0;i<_this11.datos.length;i++){if(_this11.datos[i].jefe===_identificacion2){_this11.$swal("Advertencia...!","El jefe de hogar "+nombre+" tiene integrantes asociados asociados !","warning");return;}}// TABLA datos
 var id=item.identificacion;//INACTIVAR LA FILA DE JEFES
 _this11.datosJefe[index].estado="Inactivo";_this11.datosJefe.splice(index,1,_this11.datosJefe[index]);//INACTIVAR LA FILA DE JEFES
@@ -12060,7 +13495,7 @@ indice=_this11.factores.findIndex(function(identi){return identi.identificacion=
 indice=_this11.afectacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.afectacion[indice].estado="Inactivo";_this11.afectacion.splice(indice,1,_this11.afectacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE afectacion
 //SABER EL INDICE DE LA IDENTIFICACION DE estratificacion
 indice=_this11.estratificacion.findIndex(function(identi){return identi.identificacion===id;});if(indice>=0){_this11.estratificacion[indice].estado="Inactivo";_this11.estratificacion.splice(indice,1,_this11.estratificacion[indice]);}//SABER EL INDICE DE LA IDENTIFICACION DE estratificacion              
-}_this11.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedades=item.enfermedades;this.vaEnfJef=item.enfermedades;this.caracData.antecedentes=item.antecedentes;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.identificacionJefe=item.identificacion;this.migrarEditar=item.migrante;// ELIMINAR LOS DATOS DE LAS TABLAS
+}_this11.$swal("Eliminar...!","Datos En Proceso de Eliminación!","success");}});},editarItemJefe:function editarItemJefe(index,item){this.bandeGuaEdiJefe=false;this.indiceEditJefe=index;this.caracData.id=item.id;this.caracData.id_hogar=item.id_hogar;this.caracData.telefono=item.telefono;this.caracData.puntaje_sisben=item.puntaje_sisben;this.caracData.afiliacion_entidad=item.afiliacion_entidad;this.caracData.otra_eps=item.otra_eps;this.caracData.tipo_id=item.tipo_id;this.caracData.identificacion=item.identificacion;this.caracData.sexo=item.sexo;this.caracData.parentesco=item.parentesco;this.caracData.pnom=item.pnom;this.caracData.snom=item.snom;this.caracData.pape=item.pape;this.caracData.sape=item.sape;this.caracData.salario=item.salario;this.caracData.id_compania=item.id_compania;this.caracData.estado=item.estado;this.caracData.estado_civil=item.estado_civil;this.caracData.fecha_nacimiento=item.fecha_nacimiento;this.caracData.tipo_afiliacion=item.tipo_afiliacion;this.caracData.embarazo=item.embarazo;this.caracData.embarazo_multiple=item.embarazo_multiple;this.caracData.discapacidad=item.discapacidad;this.caracData.nivel_escolaridad=item.nivel_escolaridad;this.mostrarOtro('mOCOL1');this.caracData.ocupacion=item.ocupacion;this.caracData.colegio=item.colegio;this.caracData.grado=item.grado;this.caracData.etnia=item.etnia;this.caracData.clasificacion=item.clasificacion;this.caracData.entiende=item.entiende;this.caracData.pyp=item.pyp;this.caracData.migrante=item.migrante;this.caracData.edad=item.edad;this.caracData.orientacion=item.orientacion;this.caracData.identidad_genero=item.identidad_genero;this.caracData.perdida_peso=item.perdida_peso;this.caracData.programa_icbf=item.programa_icbf;this.ocupacionAuxiliar=item.textoOcupacion;this.caracData.enfermedades=item.enfermedades;this.vaEnfJef=item.enfermedades;this.caracData.antecedentes=item.antecedentes;this.caracData.peso=item.peso;this.caracData.talla=item.talla;this.caracData.tipo_empleo=item.tipo_empleo;this.caracData.percargo=item.percargo;this.$refs.identificacionJefe.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nacimiento;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.identificacionJefe=item.identificacion;this.migrarEditar=item.migrante;// ELIMINAR LOS DATOS DE LAS TABLAS
 var identificacion=this.vectorJefes[this.indiceEditJefe].identificacion;// this.datosJefe.splice(this.indiceEditJefe, 1);
 // this.vectorJefes.splice(this.indiceEditJefe, 1);
 // this.factores = this.factores.filter(function(men) {
@@ -12159,7 +13594,7 @@ this.datosJefe[this.indiceEditJefe].estado="Activo";this.datosJefe[this.indiceEd
 // this.datosJefe[this.indiceEditJefe].enfermedad_cronica = this.caracData.enfermedad_cronica;      
 // this.datosJefe[this.indiceEditJefe].textoEnfermedad_infecciosa = this.showText(Number(this.caracData.enfermedad_infecciosa),this.enfinf_options);
 // this.datosJefe[this.indiceEditJefe].textoEnfermedad_cronica = this.showText(Number(this.caracData.enfermedad_cronica),this.enfcro_options);
-this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe[this.indiceEditJefe].enfermedades=this.caracData.enfermedades;this.datosJefe[this.indiceEditJefe].antecedentes=this.caracData.antecedentes;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.EnfJef.length=0;this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
+this.datosJefe[this.indiceEditJefe].peso=this.caracData.peso;this.datosJefe[this.indiceEditJefe].talla=this.caracData.talla;this.datosJefe[this.indiceEditJefe].enfermedades=this.caracData.enfermedades;this.datosJefe[this.indiceEditJefe].antecedentes=this.caracData.antecedentes;this.datosJefe[this.indiceEditJefe].tipo_empleo=this.caracData.tipo_empleo;this.datosJefe[this.indiceEditJefe].percargo=this.caracData.percargo;this.datosJefe.splice(this.indiceEditJefe,1,this.datosJefe[this.indiceEditJefe]);this.EnfJef.length=0;this.limpiar2();},eliEdad:function eliEdad(identificacion,vector,edad,opcion){var indice=this.Men1A.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Men1A[indice].estado="Inactivo";this.Men1A.splice(indice,1,this.Men1A[indice]);}indice=this.De1A5.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De1A5[indice].estado="Inactivo";this.De1A5.splice(indice,1,this.De1A5[indice]);}indice=this.De6A11.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De6A11[indice].estado="Inactivo";this.De6A11.splice(indice,1,this.De6A11[indice]);}indice=this.De10A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De10A59[indice].estado="Inactivo";this.De10A59.splice(indice,1,this.De10A59[indice]);}indice=this.De12A17.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De12A17[indice].estado="Inactivo";this.De12A17.splice(indice,1,this.De12A17[indice]);}indice=this.De18A28.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De18A28[indice].estado="Inactivo";this.De18A28.splice(indice,1,this.De18A28[indice]);}indice=this.De29A59.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De29A59[indice].estado="Inactivo";this.De29A59.splice(indice,1,this.De29A59[indice]);}indice=this.De60.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.De60[indice].estado="Inactivo";this.De60.splice(indice,1,this.De60[indice]);}indice=this.EnCro.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnCro[indice].estado="Inactivo";this.EnCro.splice(indice,1,this.EnCro[indice]);}indice=this.EnInf.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.EnInf[indice].estado="Inactivo";this.EnInf.splice(indice,1,this.EnInf[indice]);}indice=this.Migra.findIndex(function(identi){return identi.identificacion===identificacion;});if(indice>=0){this.Migra[indice].estado="Inactivo";this.Migra.splice(indice,1,this.Migra[indice]);}// AGREGAR NIÑOS MENORES DE 1 AÑO
 if(edad<=0){this.Amenores1Anio(vector,hoy.diff(nacimiento,"months"),opcion);}// AGREGAR NIÑOS MENORES DE 1 AÑO
 // AGREGAR DE 1 A 5 AÑOS
 if(edad>=1&&edad<=5){this.Ade1a5Anio(vector,edad,opcion);}// AGREGAR DE 1 A 5 AÑOS
@@ -12181,7 +13616,7 @@ if(edad>=29&&edad<=59){this.Ade29a59Anio(vector,edad,opcion);}// AGREGAR DE 29 A
 if(edad>=60){this.Ade60Anio(vector,edad,opcion);}// AGREGAR DE 60 ó MAS AÑOS
 // AGREGAR MIGRANTES
 if(vector.migrante==="SI"){this.AMigra(vector,edad,opcion);}// AGREGAR MIGRANTES               
-},editarItemInte:function editarItemInte(index,item){this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;this.CA1.embarazo_multiple=item.embarazo_multiple;this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedades=item.enfermedades;this.CA1.antecedentes=item.antecedentes;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;// this.datos.splice(this.indiceEditInte, 1);
+},editarItemInte:function editarItemInte(index,item){this.bandeGuaEdiInte=false;this.indiceEditInte=index;this.CA1.id=item.id;this.CA1.tipo_id=item.tipo_id;this.CA1.identificacion=item.identificacion;this.CA1.sexo=item.sexo;this.CA1.parentesco=item.parentesco;this.CA1.pnom=item.pnom;this.CA1.snom=item.snom;this.CA1.pape=item.pape;this.CA1.sape=item.sape;this.CA1.estado_civil=item.estado_civil;this.CA1.fecha_nac=item.fecha_nac;this.CA1.edad=item.edad;this.CA1.puntaje_sisben=item.puntaje_sisben;this.CA1.afi_entidad=item.afi_entidad;this.CA1.otra_eps=item.otra_eps;this.CA1.tipo_afiliacion=item.tipo_afiliacion;this.CA1.embarazo=item.embarazo;this.CA1.embarazo_multiple=item.embarazo_multiple;this.CA1.discapacidad=item.discapacidad;this.CA1.escolaridad=item.escolaridad;this.mostrarOtro('mOCOL2');this.CA1.ocupacion=item.ocupacion;this.CA1.colegio=item.colegio;this.CA1.grado=item.grado;this.CA1.entiende=item.entiende;this.CA1.migrante=item.migrante;this.CA1.pyp=item.pyp;this.CA1.etnia=item.etnia;this.CA1.clasificacion=item.clasificacion;this.CA1.id_hogar=item.id_hogar;this.CA1.jefe=item.jefe;this.CA1.orientacion=item.orientacion;this.CA1.identidad_genero=item.identidad_genero;this.CA1.telefono=item.telefono;this.CA1.perdida_peso=item.perdida_peso;this.CA1.programa_icbf=item.programa_icbf;this.CA1.excepciones=item.excepciones;this.CA1.meses=item.meses;this.CA1.dias=item.dias;this.ocupacionAuxiliar2=item.textoOcupacion;this.CA1.enfermedades=item.enfermedades;this.CA1.antecedentes=item.antecedentes;this.CA1.peso=item.peso;this.CA1.talla=item.talla;this.CA1.tipo_empleo=item.tipo_empleo;this.$refs.identificacionInte.focus();this.idEditar=item.id;this.identificacionEditar=item.identificacion;this.fechaEditar=item.fecha_nac;this.edadEditar=item.edad;this.embarazoEditar=item.embarazo;this.migrarEditar=item.migrante;// this.datos.splice(this.indiceEditInte, 1);
 // this.vectorIntegrante.splice(this.indiceEditInte, 1);
 //INACTIVAR LA FILA DE INTEGRANTES
 this.datos[this.indiceEditInte].estado="Inactivo";this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);//INACTIVAR LA FILA DE INTEGRANTES        
@@ -12236,9 +13671,9 @@ indice=this.Migra.findIndex(function(identi){return identi.identificacion===id;}
 this.limpiar();// // AGREGAR LOS DATOS
 // this.agregar();
 // // AGREGAR LOS DATOS
-},editarInte:function(){var _editarInte=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11(){var _this13=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context13){while(1){switch(_context13.prev=_context13.next){case 0:if(!(this.CA1.tipo_id=="0")){_context13.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context13.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context13.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context13.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context13.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context13.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context13.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context13.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context13.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context13.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context13.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context13.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context13.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context13.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context13.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context13.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context13.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context13.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context13.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context13.abrupt("return");case 30:if(!(this.CA1.escolaridad=="0")){_context13.next=33;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context13.abrupt("return");case 33:if(!(this.CA1.ocupacion=="0")){_context13.next=36;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context13.abrupt("return");case 36:if(!(this.CA1.etnia=="0")){_context13.next=39;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context13.abrupt("return");case 39:if(!(this.CA1.clasificacion=="0")){_context13.next=42;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context13.abrupt("return");case 42:if(!(this.CA1.entiende=="0")){_context13.next=45;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context13.abrupt("return");case 45:if(!(this.CA1.pyp=="0")){_context13.next=48;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context13.abrupt("return");case 48:if(!(this.CA1.migrante=="0")){_context13.next=51;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context13.abrupt("return");case 51:if(!(this.CA1.jefe=="0")){_context13.next=54;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context13.abrupt("return");case 54:if(!(this.CA1.perdida_peso==="")){_context13.next=58;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context13.abrupt("return");case 58:if(!(this.CA1.programa_icbf==="")){_context13.next=62;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context13.abrupt("return");case 62:if(!(this.CA1.peso==="")){_context13.next=65;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context13.abrupt("return");case 65:if(!(this.CA1.talla==="")){_context13.next=68;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context13.abrupt("return");case 68:this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.CA1.identificacion)){_context13.next=74;break;}this.ediIn();_context13.next=91;break;case 74:parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context13.prev=75;_context13.next=78;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this13.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
+},editarInte:function(){var _editarInte=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee11(){var _this13=this;var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee11$(_context13){while(1){switch(_context13.prev=_context13.next){case 0:if(!(this.CA1.tipo_id=="0")){_context13.next=3;break;}this.$swal("Error...!","Por favor seleccione un tipo de identificación!","error");return _context13.abrupt("return");case 3:if(!(this.CA1.identificacion=="")){_context13.next=6;break;}this.$swal("Error...!","Por favor digite el documento de identificación!","error");return _context13.abrupt("return");case 6:if(!(this.CA1.sexo=="0")){_context13.next=9;break;}this.$swal("Error...!","Por favor seleccione el sexo!","error");return _context13.abrupt("return");case 9:if(!(this.CA1.orientacion==="0")){_context13.next=12;break;}this.$swal("Error...!","Por favor seleccione la orientación sexual!","error");return _context13.abrupt("return");case 12:if(!(this.CA1.identidad_genero==="0")){_context13.next=15;break;}this.$swal("Error...!","Por favor seleccione la identidad de genero!","error");return _context13.abrupt("return");case 15:if(!(this.CA1.parentesco=="0")){_context13.next=18;break;}this.$swal("Error...!","Por favor seleccione el parentesco!","error");return _context13.abrupt("return");case 18:if(!(this.CA1.pnom=="0")){_context13.next=21;break;}this.$swal("Error...!","Por favor digite el primer nombre!","error");return _context13.abrupt("return");case 21:if(!(this.CA1.pape=="0")){_context13.next=24;break;}this.$swal("Error...!","Por favor digite el primer apellido!","error");return _context13.abrupt("return");case 24:if(!(this.CA1.estado_civil=="0")){_context13.next=27;break;}this.$swal("Error...!","Por favor seleccione el estado civil!","error");return _context13.abrupt("return");case 27:if(!(this.CA1.fecha_nac=="")){_context13.next=30;break;}this.$swal("Error...!","Por favor seleccione la fecha de nacimiento!","error");return _context13.abrupt("return");case 30:if(!(this.CA1.escolaridad=="0")){_context13.next=33;break;}this.$swal("Error...!","Por favor seleccione el nivel de escolaridad!","error");return _context13.abrupt("return");case 33:if(!(this.CA1.ocupacion=="0")){_context13.next=36;break;}this.$swal("Error...!","Por favor seleccione la ocupación!","error");return _context13.abrupt("return");case 36:if(!(this.CA1.tipo_empleo=="0")){_context13.next=39;break;}this.$swal("Error...!","Por favor seleccione el tipo de empleo!","error");return _context13.abrupt("return");case 39:if(!(this.CA1.etnia=="0")){_context13.next=42;break;}this.$swal("Error...!","Por favor seleccione la etnia!","error");return _context13.abrupt("return");case 42:if(!(this.CA1.clasificacion=="0")){_context13.next=45;break;}this.$swal("Error...!","Por favor seleccione la clasificacion de la etnia!","error");return _context13.abrupt("return");case 45:if(!(this.CA1.entiende=="0")){_context13.next=48;break;}this.$swal("Error...!","Por favor seleccione la opción entiende español!","error");return _context13.abrupt("return");case 48:if(!(this.CA1.pyp=="0")){_context13.next=51;break;}this.$swal("Error...!","Por favor seleccione la opción PYP!","error");return _context13.abrupt("return");case 51:if(!(this.CA1.migrante=="0")){_context13.next=54;break;}this.$swal("Error...!","Por favor seleccione la opción migrante!","error");return _context13.abrupt("return");case 54:if(!(this.CA1.jefe=="0")){_context13.next=57;break;}this.$swal("Error...!","Por favor seleccione el un jefe de hogar!","error");return _context13.abrupt("return");case 57:if(!(this.CA1.perdida_peso==="")){_context13.next=61;break;}this.$refs.perdida_peso.focus();this.$swal("Error...!","Por favor seleccione la perdida de peso en los ultimos 3 meses!","error");return _context13.abrupt("return");case 61:if(!(this.CA1.programa_icbf==="")){_context13.next=65;break;}this.$refs.programa_icbf.focus();this.$swal("Error...!","Por favor seleccione si Pertenece a algún programa del ICBF!","error");return _context13.abrupt("return");case 65:if(!(this.CA1.peso==="")){_context13.next=68;break;}this.$swal("Error...!","Por favor digite el peso!","error");return _context13.abrupt("return");case 68:if(!(this.CA1.talla==="")){_context13.next=71;break;}this.$swal("Error...!","Por favor digite la talla!","error");return _context13.abrupt("return");case 71:this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");this.identificacionEditar=this.identificacionEditar.replace(/[.*+\-?^${}()|[\]\\]/g,"");if(!(this.identificacionEditar===this.CA1.identificacion)){_context13.next=77;break;}this.ediIn();_context13.next=94;break;case 77:parametros={_token:this.csrf,identificacion:this.CA1.identificacion};_context13.prev=78;_context13.next=81;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validar"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this13.$swal("Validar...!","El Documento <b>"+iden+"</b> Se Encuentra Registrado","warning");return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this13.datos.filter(function(identi){return identi.identificacion==_this13.CA1.identificacion;});// VERIFICAR SI ESTA EN LA TABLA
-if(resultado.length>0){_this13.$swal("Validar...!","El Documento <b>"+_this13.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this13.ediIn();}}})["catch"](function(error){_this13.errorDevuelto=error.response.data.errors;_this13.entrarPorError=true;});case 78:_context13.next=91;break;case 80:_context13.prev=80;_context13.t0=_context13["catch"](75);_context13.t1=_context13.t0.response.status;_context13.next=_context13.t1===419?85:_context13.t1===422?87:89;break;case 85:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",91);case 87:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",91);case 89:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",91);case 91:case"end":return _context13.stop();}}},_callee11,this,[[75,80]]);}));function editarInte(){return _editarInte.apply(this,arguments);}return editarInte;}(),ediIn:function ediIn(){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
+if(resultado.length>0){_this13.$swal("Validar...!","El Documento <b>"+_this13.CA1.identificacion+"</b> Se Encuentra Agregado","warning");return false;}else{_this13.ediIn();}}})["catch"](function(error){_this13.errorDevuelto=error.response.data.errors;_this13.entrarPorError=true;});case 81:_context13.next=94;break;case 83:_context13.prev=83;_context13.t0=_context13["catch"](78);_context13.t1=_context13.t0.response.status;_context13.next=_context13.t1===419?88:_context13.t1===422?90:92;break;case 88:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",94);case 90:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",94);case 92:this.$swal("Error...!","Ocurrio un error!","error");return _context13.abrupt("break",94);case 94:case"end":return _context13.stop();}}},_callee11,this,[[78,83]]);}));function editarInte(){return _editarInte.apply(this,arguments);}return editarInte;}(),ediIn:function ediIn(){this.CA1.identificacion=this.CA1.identificacion.replace(/[.*+\-?^${}()|[\]\\]/g,"");var nacimiento=moment(this.CA1.fecha_nac);var hoy=moment();var edad=0;if(nacimiento<hoy){edad=hoy.diff(nacimiento,"years");//Calculamos la diferencia en años
 }//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 if(this.CA1.enfermedades.length>0){for(var i=0;i<this.CA1.enfermedades.length;i++){if(this.CA1.enfermedades[i].tiempo===""){this.$swal("Error...!","Por favor seleccione <b>Diagnosticado hace cuanto tiempo</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}if(this.CA1.enfermedades[i].tratamiento===""){this.$swal("Error...!","Por favor seleccione si <b>Está en Tratamiento</b> en la fila "+(i+1)+" de las enfermedades","error");return false;}}}//VALIDAR LA TABLA ENFERMEDADES INTEGRANTES
 var textoEps="";if(this.CA1.afi_entidad==="OTRA"){textoEps="OTRA";}else{if(this.CA1.afi_entidad==="NINGUNA"){textoEps="NINGUNA";}else{textoEps=this.showText(this.CA1.afi_entidad,this.admini_options);}}if(this.CA1.tipo_afiliacion==="CONTRIBUTIVO"||this.CA1.tipo_afiliacion==="ESPECIAL"){this.SAPU=true;this.estratificacionData.afiliacion_salud_privada="SI";}this.ocupacionAuxiliar2="";this.mOCOL2=false;if(this.CA1.fecha_nac!==this.fechaEditar){if(edad!==this.edadEditar){// ELIMINO EN LOS CICLOS ESTA IDENTIFICACION Y LUEGO AGREGO EN LA EDAD CORRESPONDIENTE
@@ -12277,7 +13712,7 @@ _indice3=this.EnInf.findIndex(function(identi){return identi.identificacion===_i
 if(this.migrarEditar==="SI"){_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(this.CA1.migrante==="SI"){//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY            
 if(_indice3>=0){this.Migra[_indice3].tipo_id=this.CA1.tipo_id;this.Migra[_indice3].sexo=this.CA1.sexo;this.Migra[_indice3].identificacion=this.CA1.identificacion;this.Migra[_indice3].pnom=this.CA1.pnom;this.Migra[_indice3].snom=this.CA1.snom;this.Migra[_indice3].pape=this.CA1.pape;this.Migra[_indice3].sape=this.CA1.sape;this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}}else if(this.CA1.migrante==="NO"){//ELIMINO
 this.Migra[_indice3].estado="Inactivo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}}else{if(this.CA1.migrante==="SI"){//AGREGO
-_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}else{this.AMigra(this.CA1,edad,"INTE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=textoEps;this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].enfermedades=this.CA1.enfermedades;this.datos[this.indiceEditInte].antecedentes=this.CA1.antecedentes;this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop3,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:_loop3=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context14.prev=1;_context14.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
+_indice3=this.Migra.findIndex(function(identi){return identi.identificacion===_id;});if(_indice3>=0){this.Migra[_indice3].estado="Activo";this.Migra.splice(_indice3,1,this.Migra[_indice3]);}else{this.AMigra(this.CA1,edad,"INTE");}}}}this.datos[this.indiceEditInte].id=this.CA1.id;this.datos[this.indiceEditInte].estado="Activo";this.datos[this.indiceEditInte].tipo_id=this.CA1.tipo_id;this.datos[this.indiceEditInte].identificacion=this.CA1.identificacion;this.datos[this.indiceEditInte].sexo=this.CA1.sexo;this.datos[this.indiceEditInte].parentesco=this.CA1.parentesco;this.datos[this.indiceEditInte].textoParentesco=this.showText(Number(this.CA1.parentesco),this.parentesco_options);this.datos[this.indiceEditInte].pnom=this.CA1.pnom;this.datos[this.indiceEditInte].snom=this.CA1.snom;this.datos[this.indiceEditInte].pape=this.CA1.pape;this.datos[this.indiceEditInte].sape=this.CA1.sape;this.datos[this.indiceEditInte].estado_civil=this.CA1.estado_civil;this.datos[this.indiceEditInte].textoEstado=this.showText(Number(this.CA1.estado_civil),this.estado_options);this.datos[this.indiceEditInte].fecha_nac=this.CA1.fecha_nac;this.datos[this.indiceEditInte].edad=this.CA1.edad;this.datos[this.indiceEditInte].puntaje_sisben=this.CA1.puntaje_sisben;this.datos[this.indiceEditInte].afi_entidad=this.CA1.afi_entidad;this.datos[this.indiceEditInte].textoEps=textoEps;this.datos[this.indiceEditInte].otra_eps=this.CA1.otra_eps;this.datos[this.indiceEditInte].tipo_afiliacion=this.CA1.tipo_afiliacion;this.datos[this.indiceEditInte].embarazo=this.CA1.embarazo;this.datos[this.indiceEditInte].embarazo_multiple=this.CA1.embarazo_multiple;this.datos[this.indiceEditInte].discapacidad=this.CA1.discapacidad;this.datos[this.indiceEditInte].escolaridad=this.CA1.escolaridad;this.datos[this.indiceEditInte].textoEscolaridad=this.showText(Number(this.CA1.escolaridad),this.escolaridad_options);this.datos[this.indiceEditInte].ocupacion=this.CA1.ocupacion;this.datos[this.indiceEditInte].textoOcupacion=this.showText(Number(this.CA1.ocupacion),this.ocupacion_options);this.datos[this.indiceEditInte].colegio=this.CA1.colegio;this.datos[this.indiceEditInte].textoColegio=this.showText(Number(this.CA1.colegio),this.colegio_options);this.datos[this.indiceEditInte].grado=this.CA1.grado;this.datos[this.indiceEditInte].entiende=this.CA1.entiende;this.datos[this.indiceEditInte].migrante=this.CA1.migrante;this.datos[this.indiceEditInte].pyp=this.CA1.pyp;this.datos[this.indiceEditInte].etnia=this.CA1.etnia;this.datos[this.indiceEditInte].textoEtnia=this.showText(Number(this.CA1.etnia),this.etnia_options);this.datos[this.indiceEditInte].clasificacion=this.CA1.clasificacion;this.datos[this.indiceEditInte].textoClasificacion=this.showText2(Number(this.CA1.clasificacion),this.clasifi_options,this.CA1.etnia);this.datos[this.indiceEditInte].id_hogar=this.CA1.id_hogar;this.datos[this.indiceEditInte].jefe=this.CA1.jefe;this.datos[this.indiceEditInte].orientacion=this.CA1.orientacion;this.datos[this.indiceEditInte].identidad_genero=this.CA1.identidad_genero;this.datos[this.indiceEditInte].telefono=this.CA1.telefono;this.datos[this.indiceEditInte].perdida_peso=this.CA1.perdida_peso;this.datos[this.indiceEditInte].programa_icbf=this.CA1.programa_icbf;this.datos[this.indiceEditInte].excepciones=this.CA1.excepciones;this.datos[this.indiceEditInte].textoExcepciones=this.showText(this.CA1.excepciones,this.opciones7);this.datos[this.indiceEditInte].meses=this.CA1.meses;this.datos[this.indiceEditInte].dias=this.CA1.dias;this.datos[this.indiceEditInte].ocupacionAuxiliar=this.CA1.textoOcupacion2;this.datos[this.indiceEditInte].enfermedades=this.CA1.enfermedades;this.datos[this.indiceEditInte].antecedentes=this.CA1.antecedentes;this.datos[this.indiceEditInte].peso=this.CA1.peso;this.datos[this.indiceEditInte].talla=this.CA1.talla;this.datos[this.indiceEditInte].tipo_empleo=this.CA1.tipo_empleo;this.datos.splice(this.indiceEditInte,1,this.datos[this.indiceEditInte]);this.limpiar();},validarTablaIntegrantes:function(){var _validarTablaIntegrantes=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee12(){var _this14=this;var _loop3,i;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee12$(_context15){while(1){switch(_context15.prev=_context15.next){case 0:_loop3=/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _loop3(i){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _loop3$(_context14){while(1){switch(_context14.prev=_context14.next){case 0:parametros={_token:_this14.csrf,identificacion:_this14.datos[i].identificacion};_context14.prev=1;_context14.next=4;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["validarJefe"](parametros).then(function(respuesta){if(respuesta.data.OPC=="EXISTE"){var val=(respuesta.data.identificacion/1).toFixed(0).replace(".",",");var iden=val.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");_this14.$swal("Validar...!","El Documento <b>"+iden+"</b> De La Fila <b>"+(i+1)+"</b> Se Encuentra Registrado","warning");// item.identificacion="";
 return false;}else{// VERIFICAR SI ESTA EN LA TABLA
 var resultado=_this14.datos.filter(function(identi){return identi.identificacion.includes(_this14.datos[i].identificacion);});// VERIFICAR SI ESTA EN LA TABLA
 if(resultado.length>1){_this14.$swal("Validar...!","El Documento <b>"+_this14.datos[i].identificacion+"</b> De La Fila <b>"+(i+1)+"</b>  Se Encuentra Agregado En La Tabla de Integrantes","warning");// item.identificacion="";
@@ -12313,7 +13748,7 @@ parametros={_token:this.csrf,hogar:this.hogar,caracterizacion:this.datosJefe,int
 // if (this.caracData.puntaje_sisben == "0") {
 //   this.caracData.puntaje_sisben = "";
 // }
-}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}},volver:function volver(){var _this18=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee16(){var valid;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee16$(_context20){while(1){switch(_context20.prev=_context20.next){case 0:_context20.next=2;return _this18.validarVolver("Men1A");case 2:valid=_context20.sent;if(!(valid===false)){_context20.next=7;break;}return _context20.abrupt("return",false);case 7:if(!(valid===true)){_context20.next=10;break;}_context20.next=11;break;case 10:return _context20.abrupt("return",false);case 11:_context20.next=13;return _this18.validarVolver("De1A5");case 13:valid=_context20.sent;if(!(valid===false)){_context20.next=18;break;}return _context20.abrupt("return",false);case 18:if(!(valid===true)){_context20.next=21;break;}_context20.next=22;break;case 21:return _context20.abrupt("return",false);case 22:_context20.next=24;return _this18.validarVolver("De6A11");case 24:valid=_context20.sent;if(!(valid===false)){_context20.next=29;break;}return _context20.abrupt("return",false);case 29:if(!(valid===true)){_context20.next=32;break;}_context20.next=33;break;case 32:return _context20.abrupt("return",false);case 33:_context20.next=35;return _this18.validarVolver("De10A59");case 35:valid=_context20.sent;if(!(valid===false)){_context20.next=40;break;}return _context20.abrupt("return",false);case 40:if(!(valid===true)){_context20.next=43;break;}_context20.next=44;break;case 43:return _context20.abrupt("return",false);case 44:_context20.next=46;return _this18.validarVolver("ParPost");case 46:valid=_context20.sent;if(!(valid===false)){_context20.next=51;break;}return _context20.abrupt("return",false);case 51:if(!(valid===true)){_context20.next=54;break;}_context20.next=55;break;case 54:return _context20.abrupt("return",false);case 55:_context20.next=57;return _this18.validarVolver("De12A17");case 57:valid=_context20.sent;if(!(valid===false)){_context20.next=62;break;}return _context20.abrupt("return",false);case 62:if(!(valid===true)){_context20.next=65;break;}_context20.next=66;break;case 65:return _context20.abrupt("return",false);case 66:_context20.next=68;return _this18.validarVolver("De18A28");case 68:valid=_context20.sent;if(!(valid===false)){_context20.next=73;break;}return _context20.abrupt("return",false);case 73:if(!(valid===true)){_context20.next=76;break;}_context20.next=77;break;case 76:return _context20.abrupt("return",false);case 77:_context20.next=79;return _this18.validarVolver("De29A59");case 79:valid=_context20.sent;if(!(valid===false)){_context20.next=84;break;}return _context20.abrupt("return",false);case 84:if(!(valid===true)){_context20.next=87;break;}_context20.next=88;break;case 87:return _context20.abrupt("return",false);case 88:_context20.next=90;return _this18.validarVolver("De60");case 90:valid=_context20.sent;if(!(valid===false)){_context20.next=95;break;}return _context20.abrupt("return",false);case 95:if(!(valid===true)){_context20.next=98;break;}_context20.next=99;break;case 98:return _context20.abrupt("return",false);case 99:_context20.next=101;return _this18.validarVolver("EnCro");case 101:valid=_context20.sent;if(!(valid===false)){_context20.next=106;break;}return _context20.abrupt("return",false);case 106:if(!(valid===true)){_context20.next=109;break;}_context20.next=110;break;case 109:return _context20.abrupt("return",false);case 110:_context20.next=112;return _this18.validarVolver("EnInf");case 112:valid=_context20.sent;if(!(valid===false)){_context20.next=117;break;}return _context20.abrupt("return",false);case 117:if(!(valid===true)){_context20.next=120;break;}_context20.next=121;break;case 120:return _context20.abrupt("return",false);case 121:_context20.next=123;return _this18.validarVolver("Migra");case 123:valid=_context20.sent;if(!(valid===false)){_context20.next=128;break;}return _context20.abrupt("return",false);case 128:if(!(valid===true)){_context20.next=131;break;}_context20.next=132;break;case 131:return _context20.abrupt("return",false);case 132:_this18.$router.push("/gestion");case 133:case"end":return _context20.stop();}}},_callee16);}))();},validarVolver:function validarVolver(valor){var _this19=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(){var valid,i,alert,_i6,_alert,_i7,_alert2,_i8,_alert3,_i9,_alert4,_i10,_alert5,_i11,_alert6,_i12,_alert7,_i13,_alert8,_i14,_alert9,_i15,_alert10,_i16,_alert11;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:valid=false;_context21.t0=valor;_context21.next=_context21.t0==="Men1A"?4:_context21.t0==="De1A5"?19:_context21.t0==="De6A11"?34:_context21.t0==="De10A59"?49:_context21.t0==="ParPost"?64:_context21.t0==="De12A17"?79:_context21.t0==="De18A28"?94:_context21.t0==="De29A59"?109:_context21.t0==="De60"?124:_context21.t0==="EnCro"?139:_context21.t0==="EnInf"?154:_context21.t0==="Migra"?169:184;break;case 4:valid=false;// validar Men1A      
+}if(caja=="peso1"){this.caracData.peso=this.caracData.peso.replace(/[^.\d]/g,"").trim();if(this.caracData.peso=="NaN"){this.caracData.peso="0";}}if(caja=="talla1"){this.caracData.talla=this.caracData.talla.replace(/[^.\d]/g,"").trim();if(this.caracData.talla=="NaN"){this.caracData.talla="0";}}if(caja=="peso2"){this.CA1.peso=this.CA1.peso.replace(/[^.\d]/g,"").trim();if(this.CA1.peso=="NaN"){this.CA1.peso="0";}}if(caja=="talla2"){this.CA1.talla=this.CA1.talla.replace(/[^.\d]/g,"").trim();if(this.CA1.talla=="NaN"){this.CA1.talla="0";}}if(caja=="percargo"){this.caracData.percargo=this.caracData.percargo.replace(/[^.\d]/g,"").trim();if(this.caracData.percargo=="NaN"){this.caracData.percargo="0";}}},volver:function volver(){var _this18=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee16(){var valid;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee16$(_context20){while(1){switch(_context20.prev=_context20.next){case 0:_context20.next=2;return _this18.validarVolver("Men1A");case 2:valid=_context20.sent;if(!(valid===false)){_context20.next=7;break;}return _context20.abrupt("return",false);case 7:if(!(valid===true)){_context20.next=10;break;}_context20.next=11;break;case 10:return _context20.abrupt("return",false);case 11:_context20.next=13;return _this18.validarVolver("De1A5");case 13:valid=_context20.sent;if(!(valid===false)){_context20.next=18;break;}return _context20.abrupt("return",false);case 18:if(!(valid===true)){_context20.next=21;break;}_context20.next=22;break;case 21:return _context20.abrupt("return",false);case 22:_context20.next=24;return _this18.validarVolver("De6A11");case 24:valid=_context20.sent;if(!(valid===false)){_context20.next=29;break;}return _context20.abrupt("return",false);case 29:if(!(valid===true)){_context20.next=32;break;}_context20.next=33;break;case 32:return _context20.abrupt("return",false);case 33:_context20.next=35;return _this18.validarVolver("De10A59");case 35:valid=_context20.sent;if(!(valid===false)){_context20.next=40;break;}return _context20.abrupt("return",false);case 40:if(!(valid===true)){_context20.next=43;break;}_context20.next=44;break;case 43:return _context20.abrupt("return",false);case 44:_context20.next=46;return _this18.validarVolver("ParPost");case 46:valid=_context20.sent;if(!(valid===false)){_context20.next=51;break;}return _context20.abrupt("return",false);case 51:if(!(valid===true)){_context20.next=54;break;}_context20.next=55;break;case 54:return _context20.abrupt("return",false);case 55:_context20.next=57;return _this18.validarVolver("De12A17");case 57:valid=_context20.sent;if(!(valid===false)){_context20.next=62;break;}return _context20.abrupt("return",false);case 62:if(!(valid===true)){_context20.next=65;break;}_context20.next=66;break;case 65:return _context20.abrupt("return",false);case 66:_context20.next=68;return _this18.validarVolver("De18A28");case 68:valid=_context20.sent;if(!(valid===false)){_context20.next=73;break;}return _context20.abrupt("return",false);case 73:if(!(valid===true)){_context20.next=76;break;}_context20.next=77;break;case 76:return _context20.abrupt("return",false);case 77:_context20.next=79;return _this18.validarVolver("De29A59");case 79:valid=_context20.sent;if(!(valid===false)){_context20.next=84;break;}return _context20.abrupt("return",false);case 84:if(!(valid===true)){_context20.next=87;break;}_context20.next=88;break;case 87:return _context20.abrupt("return",false);case 88:_context20.next=90;return _this18.validarVolver("De60");case 90:valid=_context20.sent;if(!(valid===false)){_context20.next=95;break;}return _context20.abrupt("return",false);case 95:if(!(valid===true)){_context20.next=98;break;}_context20.next=99;break;case 98:return _context20.abrupt("return",false);case 99:_context20.next=101;return _this18.validarVolver("EnCro");case 101:valid=_context20.sent;if(!(valid===false)){_context20.next=106;break;}return _context20.abrupt("return",false);case 106:if(!(valid===true)){_context20.next=109;break;}_context20.next=110;break;case 109:return _context20.abrupt("return",false);case 110:_context20.next=112;return _this18.validarVolver("EnInf");case 112:valid=_context20.sent;if(!(valid===false)){_context20.next=117;break;}return _context20.abrupt("return",false);case 117:if(!(valid===true)){_context20.next=120;break;}_context20.next=121;break;case 120:return _context20.abrupt("return",false);case 121:_context20.next=123;return _this18.validarVolver("Migra");case 123:valid=_context20.sent;if(!(valid===false)){_context20.next=128;break;}return _context20.abrupt("return",false);case 128:if(!(valid===true)){_context20.next=131;break;}_context20.next=132;break;case 131:return _context20.abrupt("return",false);case 132:_this18.$router.push("/gestion");case 133:case"end":return _context20.stop();}}},_callee16);}))();},validarVolver:function validarVolver(valor){var _this19=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee17(){var valid,i,alert,_i6,_alert,_i7,_alert2,_i8,_alert3,_i9,_alert4,_i10,_alert5,_i11,_alert6,_i12,_alert7,_i13,_alert8,_i14,_alert9,_i15,_alert10,_i16,_alert11;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee17$(_context21){while(1){switch(_context21.prev=_context21.next){case 0:valid=false;_context21.t0=valor;_context21.next=_context21.t0==="Men1A"?4:_context21.t0==="De1A5"?19:_context21.t0==="De6A11"?34:_context21.t0==="De10A59"?49:_context21.t0==="ParPost"?64:_context21.t0==="De12A17"?79:_context21.t0==="De18A28"?94:_context21.t0==="De29A59"?109:_context21.t0==="De60"?124:_context21.t0==="EnCro"?139:_context21.t0==="EnInf"?154:_context21.t0==="Migra"?169:184;break;case 4:valid=false;// validar Men1A      
 for(i=0;i<_this19.Men1A.length;i++){if(_this19.Men1A[i].lugar_nacimiento===""){valid=true;}if(_this19.Men1A[i].hemoclasificacion===""){valid=true;}if(_this19.Men1A[i].compli_parto===""){valid=true;}if(_this19.Men1A[i].via_parto===""){valid=true;}if(_this19.Men1A[i].cyc===""){valid=true;}if(_this19.Men1A[i].valoracion_23===""){valid=true;}if(_this19.Men1A[i].valoracion_68===""){valid=true;}if(_this19.Men1A[i].valoracion_911===""){valid=true;}if(_this19.Men1A[i].lactancia===""){valid=true;}if(_this19.Men1A[i].peso_nacer===""){valid=true;}if(_this19.Men1A[i].peso_actual===""){valid=true;}if(_this19.Men1A[i].longitud_nacer===""){valid=true;}if(_this19.Men1A[i].longitud_actual===""){valid=true;}if(_this19.Men1A[i].longitud_actual===""){valid=true;}if(_this19.Men1A[i].cinta===""){valid=true;}if(_this19.Men1A[i].pb===""){valid=true;}if(_this19.Men1A[i].edemas===""){valid=true;}if(_this19.Men1A[i].lenguaje===""){valid=true;}if(_this19.Men1A[i].motora===""){valid=true;}if(_this19.Men1A[i].conducta===""){valid=true;}if(_this19.Men1A[i].visuales===""){valid=true;}if(_this19.Men1A[i].auditivos===""){valid=true;}if(_this19.Men1A[i].carnet===""){valid=true;}if(_this19.Men1A[i].bcg===""){valid=true;}if(_this19.Men1A[i].hepb===""){valid=true;}if(_this19.Men1A[i].polio===""){valid=true;}if(_this19.Men1A[i].pentavalente===""){valid=true;}if(_this19.Men1A[i].maltrato===""){valid=true;}if(_this19.Men1A[i].morbilidad===""){valid=true;}if(_this19.Men1A[i].tsh===""){valid=true;}if(valid){i=_this19.Men1A.length;}}if(!valid){_context21.next=17;break;}_context21.next=9;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 9:alert=_context21.sent;if(!alert.value){_context21.next=14;break;}_this19.$router.push("/gestion");_context21.next=15;break;case 14:return _context21.abrupt("return",false);case 15:_context21.next=18;break;case 17:return _context21.abrupt("return",true);case 18:return _context21.abrupt("break",186);case 19:valid=false;// validar De1A5
 for(_i6=0;_i6<_this19.De1A5.length;_i6++){if(_this19.De1A5[_i6].beneficiario===""){valid=true;}if(_this19.De1A5[_i6].cyc===""){valid=true;}if(_this19.De1A5[_i6].valoracion_1823===""){valid=true;}if(_this19.De1A5[_i6].valoracion_3035===""){valid=true;}if(_this19.De1A5[_i6].valoracion_4===""){valid=true;}if(_this19.De1A5[_i6].peso===""){valid=true;}if(_this19.De1A5[_i6].talla===""){valid=true;}if(_this19.De1A5[_i6].imc===""){valid=true;}if(_this19.De1A5[_i6].pb===""){valid=true;}if(_this19.De1A5[_i6].pt===""){valid=true;}if(_this19.De1A5[_i6].te===""){valid=true;}if(_this19.De1A5[_i6].pcefalico===""){valid=true;}if(_this19.De1A5[_i6].lenguaje===""){valid=true;}if(_this19.De1A5[_i6].motora===""){valid=true;}if(_this19.De1A5[_i6].conducta===""){valid=true;}if(_this19.De1A5[_i6].visuales===""){valid=true;}if(_this19.De1A5[_i6].auditivos===""){valid=true;}if(_this19.De1A5[_i6].caries===""){valid=true;}if(_this19.De1A5[_i6].nocepillado===""){valid=true;}if(_this19.De1A5[_i6].consultaodon===""){valid=true;}if(_this19.De1A5[_i6].carnet===""){valid=true;}if(_this19.De1A5[_i6].bcg===""){valid=true;}if(_this19.De1A5[_i6].polio===""){valid=true;}if(_this19.De1A5[_i6].dpt===""){valid=true;}if(_this19.De1A5[_i6].fiebrea===""){valid=true;}if(_this19.De1A5[_i6].tripleviral===""){valid=true;}if(_this19.De1A5[_i6].pentavalente===""){valid=true;}if(_this19.De1A5[_i6].desparacitado===""){valid=true;}if(_this19.De1A5[_i6].maltrato===""){valid=true;}if(_this19.De1A5[_i6].enfermedad===""){valid=true;}if(_this19.De1A5[_i6].medicamento===""){valid=true;}if(valid){_i6=_this19.De1A5.length;}}if(!valid){_context21.next=32;break;}_context21.next=24;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 24:_alert=_context21.sent;if(!_alert.value){_context21.next=29;break;}_this19.$router.push("/gestion");_context21.next=30;break;case 29:return _context21.abrupt("return",false);case 30:_context21.next=33;break;case 32:return _context21.abrupt("return",true);case 33:return _context21.abrupt("break",186);case 34:valid=false;// validar De6A11
 for(_i7=0;_i7<_this19.De6A11.length;_i7++){if(_this19.De6A11[_i7].cyc===""){valid=true;}if(_this19.De6A11[_i7].atencion===""){valid=true;}if(_this19.De6A11[_i7].peso===""){valid=true;}if(_this19.De6A11[_i7].talla===""){valid=true;}if(_this19.De6A11[_i7].imc===""){valid=true;}if(_this19.De6A11[_i7].pb===""){valid=true;}if(_this19.De6A11[_i7].te===""){valid=true;}if(_this19.De6A11[_i7].conducta===""){valid=true;}if(_this19.De6A11[_i7].visuales===""){valid=true;}if(_this19.De6A11[_i7].auditivos===""){valid=true;}if(_this19.De6A11[_i7].dientes_sanos===""){valid=true;}if(_this19.De6A11[_i7].consultaodon===""){valid=true;}if(_this19.De6A11[_i7].nofluor===""){valid=true;}if(_this19.De6A11[_i7].nocepillado===""){valid=true;}if(_this19.De6A11[_i7].maltrato===""){valid=true;}if(_this19.De6A11[_i7].sustanciaspsico===""){valid=true;}if(_this19.De6A11[_i7].desparacitado===""){valid=true;}if(_this19.De6A11[_i7].enfermedad===""){valid=true;}if(_this19.De6A11[_i7].medicamento===""){valid=true;}if(_this19.De6A11[_i7].padre===""){valid=true;}if(_this19.De6A11[_i7].madre===""){valid=true;}if(_this19.De6A11[_i7].hermanos===""){valid=true;}if(_this19.De6A11[_i7].conyuge===""){valid=true;}if(valid){_i7=_this19.De6A11.length;}}if(!valid){_context21.next=47;break;}_context21.next=39;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 39:_alert2=_context21.sent;if(!_alert2.value){_context21.next=44;break;}_this19.$router.push("/gestion");_context21.next=45;break;case 44:return _context21.abrupt("return",false);case 45:_context21.next=48;break;case 47:return _context21.abrupt("return",true);case 48:return _context21.abrupt("break",186);case 49:valid=false;// validar De10A59
@@ -12325,7 +13760,7 @@ for(_i12=0;_i12<_this19.De29A59.length;_i12++){if(_this19.De29A59[_i12].peso==="
 for(_i13=0;_i13<_this19.De60.length;_i13++){if(_this19.De60[_i13].grupo_ayudas===""){valid=true;}if(_this19.De60[_i13].peso===""){valid=true;}if(_this19.De60[_i13].talla===""){valid=true;}if(_this19.De60[_i13].imc===""){valid=true;}if(_this19.De60[_i13].pa===""){valid=true;}if(_this19.De60[_i13].cigarrillo===""){valid=true;}if(_this19.De60[_i13].alcohol===""){valid=true;}if(_this19.De60[_i13].actividad_fisica===""){valid=true;}if(_this19.De60[_i13].sintomatico===""){valid=true;}if(_this19.De60[_i13].examen_seno===""){valid=true;}if(_this19.De60[_i13].citologia===""){valid=true;}if(_this19.De60[_i13].colposcopia===""){valid=true;}if(_this19.De60[_i13].examen_prostata===""){valid=true;}if(_this19.De60[_i13].biposia_prostata===""){valid=true;}if(_this19.De60[_i13].agudeza_visual===""){valid=true;}if(_this19.De60[_i13].subsidio===""){valid=true;}if(_this19.De60[_i13].enfermedades_cronicas===""){valid=true;}if(_this19.De60[_i13].enfermedades_infecciosas===""){valid=true;}if(_this19.De60[_i13].empleo===""){valid=true;}if(valid){_i13=_this19.De60.length;}}if(!valid){_context21.next=137;break;}_context21.next=129;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 129:_alert8=_context21.sent;if(!_alert8.value){_context21.next=134;break;}_this19.$router.push("/gestion");_context21.next=135;break;case 134:return _context21.abrupt("return",false);case 135:_context21.next=138;break;case 137:return _context21.abrupt("return",true);case 138:return _context21.abrupt("break",186);case 139:valid=false;// validar EnCro
 for(_i14=0;_i14<_this19.EnCro.length;_i14++){if(_this19.EnCro[_i14].enfermedad===""){valid=true;}if(_this19.EnCro[_i14].tiempo===""){valid=true;}if(_this19.EnCro[_i14].tratamiento===""){valid=true;}if(_this19.EnCro[_i14].complicaciones===""){valid=true;}if(valid){_i14=_this19.EnCro.length;}}if(!valid){_context21.next=152;break;}_context21.next=144;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 144:_alert9=_context21.sent;if(!_alert9.value){_context21.next=149;break;}_this19.$router.push("/gestion");_context21.next=150;break;case 149:return _context21.abrupt("return",false);case 150:_context21.next=153;break;case 152:return _context21.abrupt("return",true);case 153:return _context21.abrupt("break",186);case 154:valid=false;// validar EnInf
 for(_i15=0;_i15<_this19.EnInf.length;_i15++){if(_this19.EnInf[_i15].enfermedad===""){valid=true;}if(_this19.EnInf[_i15].tiempo===""){valid=true;}if(_this19.EnInf[_i15].tratamiento===""){valid=true;}if(_this19.EnInf[_i15].complicaciones===""){valid=true;}if(valid){_i15=_this19.EnInf.length;}}if(!valid){_context21.next=167;break;}_context21.next=159;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 159:_alert10=_context21.sent;if(!_alert10.value){_context21.next=164;break;}_this19.$router.push("/gestion");_context21.next=165;break;case 164:return _context21.abrupt("return",false);case 165:_context21.next=168;break;case 167:return _context21.abrupt("return",true);case 168:return _context21.abrupt("break",186);case 169:valid=false;// validar Migra
-for(_i16=0;_i16<_this19.Migra.length;_i16++){if(_this19.Migra[_i16].pais===""){valid=true;}if(_this19.Migra[_i16].registrado===""){valid=true;}if(_this19.Migra[_i16].cuantollego===""){valid=true;}if(_this19.Migra[_i16].futuro===""){valid=true;}if(_this19.Migra[_i16].recibido===""){valid=true;}if(_this19.Migra[_i16].necesidad===""){valid=true;}if(_this19.Migra[_i16].dependen===""){valid=true;}if(_this19.Migra[_i16].ingreso===""){valid=true;}if(valid){_i16=_this19.Migra.length;}}if(!valid){_context21.next=182;break;}_context21.next=174;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 174:_alert11=_context21.sent;if(!_alert11.value){_context21.next=179;break;}_this19.$router.push("/gestion");_context21.next=180;break;case 179:return _context21.abrupt("return",false);case 180:_context21.next=183;break;case 182:return _context21.abrupt("return",true);case 183:return _context21.abrupt("break",186);case 184:return _context21.abrupt("return",false);case 186:case"end":return _context21.stop();}}},_callee17);}))();},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.ocupacionAuxiliar2="";this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";this.CA1.enfermedades=[];this.CA1.antecedentes=[];this.CA1.antec="";},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.ocupacionAuxiliar="";this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";this.caracData.enfermedades=[];this.caracData.antecedentes=[];this.caracData.antec="";},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},eliminarItemAnimales:function eliminarItemAnimales(index){this.animalesData.splice(index,1);},eliminarItemEstratificacion:function eliminarItemEstratificacion(index,item){if(item.id===0){this.estratificacion.splice(index,1);}else{//INACTIVAR LA ESTRATIFICACION
+for(_i16=0;_i16<_this19.Migra.length;_i16++){if(_this19.Migra[_i16].pais===""){valid=true;}if(_this19.Migra[_i16].registrado===""){valid=true;}if(_this19.Migra[_i16].cuantollego===""){valid=true;}if(_this19.Migra[_i16].futuro===""){valid=true;}if(_this19.Migra[_i16].recibido===""){valid=true;}if(_this19.Migra[_i16].necesidad===""){valid=true;}if(_this19.Migra[_i16].dependen===""){valid=true;}if(_this19.Migra[_i16].ingreso===""){valid=true;}if(valid){_i16=_this19.Migra.length;}}if(!valid){_context21.next=182;break;}_context21.next=174;return _this19.$swal({title:"Existen campos sin completar!!! ¿Desea salir?",text:"",icon:"warning",showCancelButton:true,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"});case 174:_alert11=_context21.sent;if(!_alert11.value){_context21.next=179;break;}_this19.$router.push("/gestion");_context21.next=180;break;case 179:return _context21.abrupt("return",false);case 180:_context21.next=183;break;case 182:return _context21.abrupt("return",true);case 183:return _context21.abrupt("break",186);case 184:return _context21.abrupt("return",false);case 186:case"end":return _context21.stop();}}},_callee17);}))();},limpiar:function limpiar(){this.CA1.tipo_id="0";this.CA1.identificacion="";this.CA1.sexo="0";this.CA1.parentesco="0";this.CA1.pnom="";this.CA1.snom="";this.CA1.pape="";this.CA1.sape="";this.CA1.estado_civil="0";this.CA1.fecha_nac="";this.CA1.edad=0;this.CA1.afi_entidad="0";this.CA1.tipo_afiliacion="0";this.CA1.otra_eps="";this.CA1.embarazo="0";this.CA1.embarazo_multiple="0";this.CA1.discapacidad="0";this.CA1.escolaridad="0";this.CA1.ocupacion="0";this.CA1.colegio="";this.CA1.grado="0";this.CA1.entiende="0";this.CA1.migrante="0";this.CA1.pyp="0";this.CA1.etnia="0";this.CA1.clasificacion="0";this.CA1.puntaje_sisben="";this.CA1.jefe="0";this.CA1.telefono="";this.CA1.orientacion="0";this.CA1.identidad_genero="0";this.CA1.perdida_peso="0";this.CA1.programa_icbf="0";this.CA1.excepciones="0";this.CA1.meses="";this.CA1.dias="";this.bandeGuaEdiInte=true;this.indiceEditInte=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.migrarEditar=null;this.ocupacionAuxiliar2="";this.CA1.enfermedad_infecciosa="0";this.CA1.enfermedad_cronica="0";this.CA1.peso="";this.CA1.talla="";this.CA1.enfermedades=[];this.CA1.antecedentes=[];this.CA1.antec="";this.CA1.tipo_empleo="";},limpiar2:function limpiar2(){this.caracData.tipo_id="";this.caracData.identificacion="";this.caracData.sexo="";this.caracData.parentesco="33";this.caracData.pnom="";this.caracData.snom="";this.caracData.pape="";this.caracData.sape="";this.caracData.estado_civil="";this.caracData.fecha_nacimiento="";this.caracData.salario="";this.caracData.telefono="";this.caracData.edad=0;this.caracData.afiliacion_entidad="";this.caracData.otra_eps="";this.caracData.tipo_afiliacion="";this.caracData.embarazo="";this.caracData.embarazo_multiple="";this.caracData.discapacidad="";this.caracData.nivel_escolaridad="";this.caracData.ocupacion="";this.caracData.colegio="";this.caracData.grado="";this.caracData.entiende="";this.caracData.migrante="";this.caracData.pyp="";this.caracData.etnia="";this.caracData.clasificacion="";this.caracData.puntaje_sisben="";this.caracData.orientacion="";this.caracData.identidad_genero="";this.caracData.perdida_peso="";this.caracData.programa_icbf="";this.bandeGuaEdiJefe=true;this.indiceEditJefe=null;this.idEditar=null;this.identificacionEditar=null;this.fechaEditar=null;this.edadEditar=null;this.embarazoEditar=null;this.ocupacionAuxiliar="";this.identificacionJefe=null;this.migrarEditar=null;this.caracData.enfermedad_infecciosa="";this.caracData.enfermedad_cronica="";this.caracData.peso="";this.caracData.talla="";this.caracData.enfermedades=[];this.caracData.antecedentes=[];this.caracData.antec="";this.caracData.tipo_empleo="";this.caracData.percargo="";},mostrarOtro:function mostrarOtro(tipo){if(tipo==="TE"){if(this.viviendaData.tipo_estructura==="5"){this.mOTE=true;}else{this.mOTE=false;}this.viviendaData.otro_tipo_estructura="";}if(tipo==="TC"){if(this.viviendaData.tipo_cubierta==="9"){this.mOTC=true;}else{this.mOTC=false;}this.viviendaData.otro_tipo_cubierta="";}if(tipo==="AE"){if(this.viviendaData.actividad_economica==="CUAL"){this.mOAE=true;}else{this.mOAE=false;}this.viviendaData.cual_actividad_economica="";}if(tipo==="FA"){if(this.viviendaData.fuente_agua==="9"){this.mOFA=true;}else{this.mOFA=false;}this.viviendaData.cual_fuente="";}if(tipo==="DA"){if(this.viviendaData.donde_almacena_agua==="5"){this.mODA=true;}else{this.mODA=false;}this.viviendaData.otro_almacena_agua="";}if(tipo==="FB"){if(this.viviendaData.destino_final_basura==="5"){this.mOFB=true;}else{this.mOFB=false;}this.viviendaData.otro_destino_final_basura="";}if(tipo==="OC"){if(this.viviendaData.otro_cerca==="SI"){this.mOOC=true;}else{this.mOOC=false;}this.viviendaData.cual_cerca="";}if(tipo==="EV"){if(this.viviendaData.envases_vacios==="7"){this.mOEV=true;}else{this.mOEV=false;}this.viviendaData.otro_envases_vacios="";}if(tipo==="EP"){if(this.viviendaData.elementos_protecion==="5"){this.mOEP=true;}else{this.mOEP=false;}this.viviendaData.otro_elementos_protecion="";}if(tipo==="MC"){if(this.viviendaData.metodos_coccion==="6"){this.mOMC=true;}else{this.mOMC=false;}this.viviendaData.otro_metodos_coccion="";}if(tipo==="AA"){if(this.viviendaData.lugares_almacenan_alimentos==="6"){this.mOAA=true;}else{this.mOAA=false;}this.viviendaData.otro_lugares_almacenan_alimentos="";}if(tipo==="DH"){if(this.viviendaData.excretas==="7"){this.mODH=true;}else{this.mODH=false;}this.viviendaData.otro_depositan_excretas="";}if(tipo==="ES"){if(this.viviendaData.tipo_explotacion==="5"){this.mOES=true;}else{this.mOES=false;}this.viviendaData.otro_tipo_explotacion="";}if(tipo==="OG"){if(this.viviendaData.otros_genera==="SI"){this.mOOG=true;}else{this.mOOG=false;}this.viviendaData.cual_genera="";}if(tipo==="OEPS1"){if(this.caracData.afiliacion_entidad==="OTRA"){this.mOEPS1=true;}else{this.mOEPS1=false;}this.caracData.otra_eps="";}if(tipo==="OEPS2"){if(this.CA1.afi_entidad==="OTRA"){this.mOEPS2=true;}else{this.mOEPS2=false;}this.CA1.otra_eps="";}if(tipo==="mOCOL1"){if(this.caracData.nivel_escolaridad===3||this.caracData.nivel_escolaridad===14||this.caracData.nivel_escolaridad===15||this.caracData.nivel_escolaridad===1||this.caracData.nivel_escolaridad===4){this.mOCOL1=true;}else{this.mOCOL1=false;}this.caracData.colegio="";this.caracData.grado="";}if(tipo==="mOCOL2"){if(this.CA1.escolaridad===3||this.CA1.escolaridad===14||this.CA1.escolaridad===15||this.CA1.escolaridad===1||this.CA1.escolaridad===4){this.mOCOL2=true;}else{this.mOCOL2=false;}this.CA1.colegio="";this.CA1.grado="0";}},eliminarItemAnimales:function eliminarItemAnimales(index){this.animalesData.splice(index,1);},eliminarItemEstratificacion:function eliminarItemEstratificacion(index,item){if(item.id===0){this.estratificacion.splice(index,1);}else{//INACTIVAR LA ESTRATIFICACION
 this.estratificacion[index].estado="Inactivo";this.estratificacion.splice(index,1,this.estratificacion[index]);//INACTIVAR LA ESTRATIFICACION
 }},editarItemEstratificacion:function editarItemEstratificacion(index,item){this.bandeGuaEdiEstrati=false;this.indiceEditEstrati=index;this.estratificacionData.id=item.id;this.estratificacionData.id_hogar=item.id_hogar;this.estratificacionData.cuenta_internet=item.cuenta_internet;this.estratificacionData.tiene_pc_escritorio=item.tiene_pc_escritorio;this.estratificacionData.tiene_pc_portatil=item.tiene_pc_portatil;this.estratificacionData.cuantos_celulares=item.cuantos_celulares;this.estratificacionData.tiene_equipo_sonido=item.tiene_equipo_sonido;this.estratificacionData.cuantos_tv_color=item.cuantos_tv_color;this.estratificacionData.cuantos_vehiculos=item.cuantos_vehiculos;this.estratificacionData.nivel_instruccion=item.nivel_instruccion;this.estratificacionData.afiliacion_salud_privada=item.afiliacion_salud_privada;this.estratificacionData.ingresos_zona_rural=item.ingresos_zona_rural;this.estratificacionData.ingresos_ciudad=item.ingresos_ciudad;this.estratificacionData.id_jefe=item.id_jefe;this.estratificacionData.estado=item.estado;//INACTIVAR LA ESTRATIFICACION
 this.estratificacion[index].estado="Inactivo";this.estratificacion.splice(index,1,this.estratificacion[index]);//INACTIVAR LA ESTRATIFICACION        
@@ -12333,10 +13768,10 @@ this.estratificacion[index].estado="Inactivo";this.estratificacion.splice(index,
 this.estratificacion[this.indiceEditEstrati].estado="Activo";this.estratificacion.splice(this.indiceEditEstrati,1,this.estratificacion[this.indiceEditEstrati]);//INACTIVAR LA ESTRATIFICACION
 this.bandeGuaEdiEstrati=true;this.indiceEditEstrati=null;this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}this.habilitar_zonas();this.estratificacionData.id_jefe="0";},editarEstratificacion:function editarEstratificacion(){this.estratificacion[this.indiceEditEstrati].id=this.estratificacionData.id;this.estratificacion[this.indiceEditEstrati].id_hogar=this.estratificacionData.id_hogar;this.estratificacion[this.indiceEditEstrati].cuenta_internet=this.estratificacionData.cuenta_internet;this.estratificacion[this.indiceEditEstrati].tiene_pc_escritorio=this.estratificacionData.tiene_pc_escritorio;this.estratificacion[this.indiceEditEstrati].tiene_pc_portatil=this.estratificacionData.tiene_pc_portatil;this.estratificacion[this.indiceEditEstrati].cuantos_celulares=this.estratificacionData.cuantos_celulares;this.estratificacion[this.indiceEditEstrati].tiene_equipo_sonido=this.estratificacionData.tiene_equipo_sonido;this.estratificacion[this.indiceEditEstrati].cuantos_tv_color=this.estratificacionData.cuantos_tv_color;this.estratificacion[this.indiceEditEstrati].cuantos_vehiculos=this.estratificacionData.cuantos_vehiculos;this.estratificacion[this.indiceEditEstrati].nivel_instruccion=this.estratificacionData.nivel_instruccion;this.estratificacion[this.indiceEditEstrati].afiliacion_salud_privada=this.estratificacionData.afiliacion_salud_privada;this.estratificacion[this.indiceEditEstrati].ingresos_zona_rural=this.estratificacionData.ingresos_zona_rural;this.estratificacion[this.indiceEditEstrati].ingresos_ciudad=this.estratificacionData.ingresos_ciudad;this.estratificacion[this.indiceEditEstrati].id_jefe=this.estratificacionData.id_jefe;this.estratificacion[this.indiceEditEstrati].estado=this.estratificacionData.estado;this.estratificacion[this.indiceEditEstrati].texto_cuantos_celulares=this.showText(Number(this.estratificacionData.cuantos_celulares),this.opciones1);this.estratificacion[this.indiceEditEstrati].texto_cuantos_tv_color=this.showText(Number(this.estratificacionData.cuantos_tv_color),this.opciones2);this.estratificacion[this.indiceEditEstrati].texto_cuantos_vehiculos=this.showText(Number(this.estratificacionData.cuantos_vehiculos),this.opciones3);this.estratificacion[this.indiceEditEstrati].texto_nivel_instruccion=this.showText(Number(this.estratificacionData.nivel_instruccion),this.escolaridad_options);this.estratificacion[this.indiceEditEstrati].texto_ingresos_zona_rural=this.showText(Number(this.estratificacionData.ingresos_zona_rural),this.opciones5);this.estratificacion[this.indiceEditEstrati].texto_ingresos_ciudad=this.showText(Number(this.estratificacionData.ingresos_ciudad),this.opciones6);this.estratificacion.splice(this.indiceEditEstrati,1,this.estratificacion[this.indiceEditEstrati]);this.bandeGuaEdiEstrati=true;this.indiceEditEstrati=null;this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}this.habilitar_zonas();this.estratificacionData.id_jefe="0";},agregarAnimales:function agregarAnimales(){if(this.animal===""){this.$swal("Error...!","Por favor Digite Un Animal!","error");return;}if(this.vacunadoAnimal==="0"){this.$swal("Error...!","Por favor Seleccione Si El Animal Se Encuentra Vacunado!","error");return;}if(this.cuantosAnimal===""){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}if(!this.isNumeric(this.cuantosAnimal)){this.$swal("Error...!","Por favor Digite cuantos Animales Tiene!","error");return;}this.animalesData.push({id:0,animal:this.animal,cuantos:this.cuantosAnimal,vacunados:this.vacunadoAnimal,estado:"Activo"});this.animal="";this.cuantosAnimal="";this.vacunadoAnimal="0";},agregarEstratificacion:function agregarEstratificacion(){if(this.estratificacionData.cuenta_internet===""){this.$swal("Error...!","Por favor Seleccione Si Cuenta ese Hogar con Internet!","error");return;}if(this.estratificacionData.tiene_pc_escritorio===""){this.$swal("Error...!","Por favor Seleccione Si Tiene computador de Escritorío!","error");return;}if(this.estratificacionData.tiene_pc_portatil===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Computador Portatil!","error");return;}if(this.estratificacionData.cuantos_celulares===""){this.$swal("Error...!","Por favor Seleccione Cuantos celulares en uso hay en el Hogar!","error");return;}if(this.estratificacionData.tiene_equipo_sonido===""){this.$swal("Error...!","Por favor Seleccione Si Tiene Equipo de sonido!","error");return;}if(this.estratificacionData.cuantos_tv_color===""){this.$swal("Error...!","Por favor Seleccione Cuantos Tv a Color!","error");return;}if(this.estratificacionData.cuantos_vehiculos===""){this.$swal("Error...!","Por favor Seleccione Cuantos Vehiculos de Uso exclusivo tiene el Hogar!","error");return;}if(this.estratificacionData.nivel_instruccion===""){this.$swal("Error...!","Por favor Seleccione Cual es el nivel de Instrucción del jefe del Hogar!","error");return;}if(this.estratificacionData.afiliacion_salud_privada===""){this.$swal("Error...!","Por favor Seleccione Si Alguien en el Hogar posee afiliación de salud Privada o contribituva, prepagada!","error");return;}if(this.estratificacionData.ingresos_zona_rural===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar zona rural!","error");return;}if(this.estratificacionData.ingresos_ciudad===""){this.$swal("Error...!","Por favor Seleccione Ingresos mensuales por Hogar en Ciudad!","error");return;}if(this.estratificacionData.id_jefe==="0"){this.$swal("Error...!","Por favor Seleccione El Jefe del Hogar!","error");return;}this.estratificacion.push({id:0,id_hogar:0,cuenta_internet:this.estratificacionData.cuenta_internet,tiene_pc_escritorio:this.estratificacionData.tiene_pc_escritorio,tiene_pc_portatil:this.estratificacionData.tiene_pc_portatil,cuantos_celulares:this.estratificacionData.cuantos_celulares,tiene_equipo_sonido:this.estratificacionData.tiene_equipo_sonido,cuantos_tv_color:this.estratificacionData.cuantos_tv_color,cuantos_vehiculos:this.estratificacionData.cuantos_vehiculos,nivel_instruccion:this.estratificacionData.nivel_instruccion,afiliacion_salud_privada:this.estratificacionData.afiliacion_salud_privada,ingresos_zona_rural:this.estratificacionData.ingresos_zona_rural,ingresos_ciudad:this.estratificacionData.ingresos_ciudad,id_jefe:this.estratificacionData.id_jefe,texto_cuantos_celulares:this.showText(this.estratificacionData.cuantos_celulares,this.opciones1),texto_cuantos_tv_color:this.showText(this.estratificacionData.cuantos_tv_color,this.opciones2),texto_cuantos_vehiculos:this.showText(this.estratificacionData.cuantos_vehiculos,this.opciones3),texto_nivel_instruccion:this.showText(this.estratificacionData.nivel_instruccion,this.escolaridad_options),texto_ingresos_zona_rural:this.showText(this.estratificacionData.ingresos_zona_rural,this.opciones5),texto_ingresos_ciudad:this.showText(this.estratificacionData.ingresos_ciudad,this.opciones6),estado:"Activo"});this.estratificacionData.cuenta_internet="";this.estratificacionData.tiene_pc_escritorio="";this.estratificacionData.tiene_pc_portatil="";this.estratificacionData.cuantos_celulares="";this.estratificacionData.tiene_equipo_sonido="";this.estratificacionData.cuantos_tv_color="";this.estratificacionData.cuantos_vehiculos="";this.estratificacionData.nivel_instruccion="";if(this.SAPU===true){this.estratificacionData.afiliacion_salud_privada="SI";}else{this.estratificacionData.afiliacion_salud_privada="";}// this.estratificacionData.ingresos_zona_rural = "";
 // this.estratificacionData.ingresos_ciudad = "";
-this.habilitar_zonas();this.estratificacionData.id_jefe="0";},Amenores1Anio:function Amenores1Anio(vector,meses,opcion){var pb="";if(meses>=3){pb="";}else{pb="No Aplica";}this.Men1A.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,lugar_nacimiento:"",hemoclasificacion:"",compli_parto:"",via_parto:"",cyc:"",valoracion_23:"",valoracion_68:"",valoracion_911:"",lactancia:"",peso_nacer:"",peso_actual:vector.peso,longitud_nacer:"",longitud_actual:vector.talla,peso_long:"",cinta:"",edemas:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",carnet:"",bcg:"",hepb:"",polio:"",pentavalente:"",maltrato:"",morbilidad:"",tsh:"",opci:opcion,pb:pb,estado:"Activo"});},changeupdateMenA1:function changeupdateMenA1(item,event,opcion){if(opcion==="peso_nacer"){item.peso_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_actual"){item.peso_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_nacer"){item.longitud_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_actual"){item.longitud_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_long"){item.peso_long=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="cinta"){item.cinta=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMenA1:function updateMenA1(item,valor,opcion){if(opcion==="hemoclasificacion"){item.hemoclasificacion=valor;}if(opcion==="lugar_nacimiento"){item.lugar_nacimiento=valor;}if(opcion==="compli_parto"){item.compli_parto=valor;}if(opcion==="via_parto"){item.via_parto=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_23"){item.valoracion_23=valor;}if(opcion==="valoracion_68"){item.valoracion_68=valor;}if(opcion==="valoracion_911"){item.valoracion_911=valor;}if(opcion==="lactancia"){item.lactancia=valor;}// if (opcion === "cinta") {
+this.habilitar_zonas();this.estratificacionData.id_jefe="0";},Amenores1Anio:function(){var _Amenores1Anio=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee18(vector,meses,opcion){var pb,pes_lon,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee18$(_context22){while(1){switch(_context22.prev=_context22.next){case 0:pb="";if(meses>=3){pb="";}else{pb="No Aplica";}pes_lon="NA";parametros={_token:this.csrf,datos:vector,opcion:"MENA1_PL"};_context22.prev=4;_context22.next=7;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["buscarTablas"](parametros).then(function(respuesta){pes_lon=respuesta.data.pes_lon;})["catch"](function(error){});case 7:_context22.next=11;break;case 9:_context22.prev=9;_context22.t0=_context22["catch"](4);case 11:this.Men1A.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,lugar_nacimiento:"",hemoclasificacion:"",compli_parto:"",via_parto:"",cyc:"",valoracion_23:"",valoracion_68:"",valoracion_911:"",lactancia:"",peso_nacer:"",peso_actual:vector.peso,longitud_nacer:"",longitud_actual:vector.talla,peso_long:pes_lon,cinta:"",edemas:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",carnet:"",bcg:"",hepb:"",polio:"",pentavalente:"",maltrato:"",morbilidad:"",tsh:"",opci:opcion,pb:pb,estado:"Activo"});case 12:case"end":return _context22.stop();}}},_callee18,this,[[4,9]]);}));function Amenores1Anio(_x3,_x4,_x5){return _Amenores1Anio.apply(this,arguments);}return Amenores1Anio;}(),changeupdateMenA1:function changeupdateMenA1(item,event,opcion){if(opcion==="peso_nacer"){item.peso_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_actual"){item.peso_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_nacer"){item.longitud_nacer=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="longitud_actual"){item.longitud_actual=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="peso_long"){item.peso_long=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="cinta"){item.cinta=event.target.value.replace(/[^.\d]/g,"").trim();}},updateMenA1:function updateMenA1(item,valor,opcion){if(opcion==="hemoclasificacion"){item.hemoclasificacion=valor;}if(opcion==="lugar_nacimiento"){item.lugar_nacimiento=valor;}if(opcion==="compli_parto"){item.compli_parto=valor;}if(opcion==="via_parto"){item.via_parto=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_23"){item.valoracion_23=valor;}if(opcion==="valoracion_68"){item.valoracion_68=valor;}if(opcion==="valoracion_911"){item.valoracion_911=valor;}if(opcion==="lactancia"){item.lactancia=valor;}// if (opcion === "cinta") {
 //   item.cinta = valor;
 // }
-if(opcion==="edemas"){item.edemas=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="hepb"){item.hepb=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="morbilidad"){item.morbilidad=valor;}if(opcion==="tsh"){item.tsh=valor;}},Ade1a5Anio:function Ade1a5Anio(vector,edad,opcion){this.De1A5.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,beneficiario:"",cyc:"",valoracion_1823:"",valoracion_3035:"",valoracion_4:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"",pt:"",te:"",lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",caries:"",nocepillado:"",consultaodon:"",carnet:"",bcg:"",polio:"",dpt:"",fiebrea:"",tripleviral:"",pentavalente:"",otras:"",desparacitado:"",maltrato:"",enfermedad:"",medicamento:"",opci:opcion,pcefalico:"",estado:"Activo"});},changeupdateDe1A5:function changeupdateDe1A5(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}// if (opcion === "imc") {
+if(opcion==="edemas"){item.edemas=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="hepb"){item.hepb=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="morbilidad"){item.morbilidad=valor;}if(opcion==="tsh"){item.tsh=valor;}},Ade1a5Anio:function(){var _Ade1a5Anio=_asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee19(vector,edad,opcion){var tal_eda,pes_tal,parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee19$(_context23){while(1){switch(_context23.prev=_context23.next){case 0:tal_eda="NA";pes_tal="NA";parametros={_token:this.csrf,datos:vector,opcion:"1A5ANI"};_context23.prev=3;_context23.next=6;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["buscarTablas"](parametros).then(function(respuesta){tal_eda=respuesta.data.tal_eda;pes_tal=respuesta.data.pes_tal;})["catch"](function(error){});case 6:_context23.next=10;break;case 8:_context23.prev=8;_context23.t0=_context23["catch"](3);case 10:this.De1A5.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,beneficiario:"",cyc:"",valoracion_1823:"",valoracion_3035:"",valoracion_4:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"",pt:pes_tal,te:tal_eda,lenguaje:"",motora:"",conducta:"",visuales:"",auditivos:"",caries:"",nocepillado:"",consultaodon:"",carnet:"",bcg:"",polio:"",dpt:"",fiebrea:"",tripleviral:"",pentavalente:"",otras:"",desparacitado:"",maltrato:"",enfermedad:"",medicamento:"",opci:opcion,pcefalico:"",estado:"Activo"});case 11:case"end":return _context23.stop();}}},_callee19,this,[[3,8]]);}));function Ade1a5Anio(_x6,_x7,_x8){return _Ade1a5Anio.apply(this,arguments);}return Ade1a5Anio;}(),changeupdateDe1A5:function changeupdateDe1A5(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}// if (opcion === "imc") {
 //   item.imc = event.target.value.replace( /[^.\d]/g, '' ).trim();;
 // }
 if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="otras"){item.otras=event.target.value.trim();}if(opcion==="pcefalico"){item.pcefalico=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe1A5:function updateDe1A5(item,valor,opcion){if(opcion==="beneficiario"){item.beneficiario=valor;}if(opcion==="cyc"){item.cyc=valor;}if(opcion==="valoracion_1823"){item.valoracion_1823=valor;}if(opcion==="valoracion_3035"){item.valoracion_3035=valor;}if(opcion==="valoracion_4"){item.valoracion_4=valor;}if(opcion==="lenguaje"){item.lenguaje=valor;}if(opcion==="motora"){item.motora=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="caries"){item.caries=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="carnet"){item.carnet=valor;}if(opcion==="bcg"){item.bcg=valor;}if(opcion==="polio"){item.polio=valor;}if(opcion==="dpt"){item.dpt=valor;}if(opcion==="fiebrea"){item.fiebrea=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="pentavalente"){item.pentavalente=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}},Ade6a11Anio:function Ade6a11Anio(vector,edad,opcion){this.De6A11.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,cyc:"",atencion:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),pb:"NA",pt:"NA",te:"",conducta:"",visuales:"",auditivos:"",dientes_sanos:"",consultaodon:"",nofluor:"",nocepillado:"",maltrato:"",sustanciaspsico:"",desparacitado:"",enfermedad:"",medicamento:"",padre:"",madre:"",hermanos:"",conyuge:"",opci:opcion,estado:"Activo"});},changeupdateDe6A11:function changeupdateDe6A11(item,event,opcion){if(opcion==="peso"){item.peso=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="talla"){item.talla=event.target.value.replace(/[^.\d]/g,"").trim();item.imc=this.calcularImc(item.peso,item.talla);}if(opcion==="imc"){item.imc=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pb"){item.pb=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="pt"){item.pt=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="te"){item.te=event.target.value.replace(/[^.\d]/g,"").trim();}if(opcion==="nocepillado"){item.nocepillado=event.target.value.replace(/[^.\d]/g,"").trim();}},updateDe6A11:function updateDe6A11(item,valor,opcion){if(opcion==="cyc"){item.cyc=valor;}if(opcion==="atencion"){item.atencion=valor;}if(opcion==="conducta"){item.conducta=valor;}if(opcion==="visuales"){item.visuales=valor;}if(opcion==="auditivos"){item.auditivos=valor;}if(opcion==="dientes_sanos"){item.dientes_sanos=valor;}if(opcion==="consultaodon"){item.consultaodon=valor;}if(opcion==="maltrato"){item.maltrato=valor;}if(opcion==="sustanciaspsico"){item.sustanciaspsico=valor;}if(opcion==="desparacitado"){item.desparacitado=valor;}if(opcion==="enfermedad"){item.enfermedad=valor;}if(opcion==="medicamento"){item.medicamento=valor;}if(opcion==="padre"){item.padre=valor;}if(opcion==="madre"){item.madre=valor;}if(opcion==="hermanos"){item.hermanos=valor;}if(opcion==="conyuge"){item.conyuge=valor;}if(opcion==="nofluor"){item.nofluor=valor;}},Ade10a59Anio:function Ade10a59Anio(vector,edad,opcion){if(vector.sexo==="MASCULINO"){this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"NA",flujo_vaginal:"NA",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"NA",embarazo_adolecentes:"NA",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"NA",colposcopia:"NA",examen_seno:"NA",violencia:"",tdit:"NA",tripleviral:"NA",nacidos_vivos:"NA",abortos:"NA",examen_prostata:"",biposia_prostata:"",opci:opcion,estado:"Activo"});}else{this.De10A59.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,primera_mes:"",flujo_vaginal:"",flujo_uretral:"",relaciones_sexuales:"",compa_sexuales:"",usa_condon:"",abortos_seis:"",embarazo_adolecentes:"",metodo:"",tiempo_metodo:"",controles:"",motivo:"",citologia:"",colposcopia:"",examen_seno:"",violencia:"",tdit:"",tripleviral:"",nacidos_vivos:"",abortos:"",examen_prostata:"NA",biposia_prostata:"NA",opci:opcion,estado:"Activo"});}},changeupdateDe10A59:function changeupdateDe10A59(item,event,opcion){},updateDe10A59:function updateDe10A59(item,valor,opcion){if(opcion==="flujo_vaginal"){item.flujo_vaginal=valor;}if(opcion==="flujo_uretral"){item.flujo_uretral=valor;}if(opcion==="relaciones_sexuales"){item.relaciones_sexuales=valor;if(valor==="NO"){item.metodo="NA";item.tiempo_metodo="NA";item.controles="NA";item.motivo=14;}else{item.metodo="";item.tiempo_metodo="";item.controles="";item.motivo="";}}if(opcion==="usa_condon"){item.usa_condon=valor;}if(opcion==="abortos_seis"){item.abortos_seis=valor;}if(opcion==="embarazo_adolecentes"){item.embarazo_adolecentes=valor;}if(opcion==="metodo"){item.metodo=valor;}if(opcion==="motivo"){item.motivo=valor;}if(opcion==="controles"){item.controles=valor;}if(opcion==="citologia"){item.citologia=valor;}if(opcion==="colposcopia"){item.colposcopia=valor;}if(opcion==="examen_seno"){item.examen_seno=valor;}if(opcion==="violencia"){item.violencia=valor;}if(opcion==="tdit"){item.tdit=valor;}if(opcion==="tripleviral"){item.tripleviral=valor;}if(opcion==="abortos"){item.abortos=valor;}if(opcion==="examen_prostata"){item.examen_prostata=valor;}if(opcion==="biposia_prostata"){item.biposia_prostata=valor;}if(opcion==="tiempo_metodo"){item.tiempo_metodo=valor;}if(opcion==="primera_mes"){if(item.sexo==="MASCULINO"){item.primera_mes="NA";}else{item.primera_mes=valor;}}if(opcion==="compa_sexuales"){if(item.sexo==="MASCULINO"){item.compa_sexuales="NA";}else{item.compa_sexuales=valor;}}if(opcion==="nacidos_vivos"){if(item.sexo==="MASCULINO"){item.nacidos_vivos="NA";}else{item.nacidos_vivos=valor;}}},AParPost:function AParPost(vector,edad,opcion){this.ParPost.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,aceptacion:"",control_prenatal:"",atencion_parto:"",carnet:"",fecha_ultima:"",fecha_probable:"",peso:vector.peso,talla:vector.talla,imc:this.calcularImc(vector.peso,vector.talla),semanas_ges:"",num_controles:"",vih:"",toxoplasma:"",vdrl:"",odontologia:"",vacunaciontdit:"",fecha_ultimo_parto:"",suplementacion:"",enfermedades_cronicas:"",sedentarismo:"",fuma:"",consumo:"",bebidas:"",tipo_parto:"",atencion_institucional:"",cc18:"NA",morgestacion:"",morparto:"",morposparto:"",opci:opcion,estado:"Activo"});},changeupdatePosparto:function changeupdatePosparto(item,event,opcion){moment.locale("es");if(opcion==="fecha_ultima"){var fecha=moment.utc(item.fecha_ultima,"YYYY-MM-DD");var suma=fecha.add(9,"months");suma=suma.add(7,"days");item.fecha_probable=suma.format("YYYY-MM-DD");// let hoy = moment();
@@ -12680,7 +14115,26 @@ this.De29A59[_indice13].sape=item.sape;this.De29A59.splice(_indice13,1,this.De29
 _indice13=this.De60.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
 this.De60[_indice13].sape=item.sape;this.De60.splice(_indice13,1,this.De60[_indice13]);}//SABER EL INDICE DE LA IDENTIFICACION QUE ESTA EN ESTE ARRAY
 _indice13=this.Migra.findIndex(function(identi){return identi.identificacion===_id11;});if(_indice13>=0){//CAMBIAR LA IDENTIFICACION DE ESTE VECTOR POR LA IDENTIFICACION DEL VECTOR JEFES
-this.Migra[_indice13].sape=item.sape;this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}},AFactores:function AFactores(vector,edad){this.factores.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,dialogos:"",sancion:"",castigo_verbal:"",castigo_fisico:"",alcohol:"",tabaco:"",sustancias_psico:"",apuestas:"",violencia_fisica:"",violencia_psico:"",violencia_economica:"",abuso_sexual:"",actividad_fisica:"",consumo_frutas:"",religiosos:"",sociales:"",culturales:"",recreativos:"",estado:"Activo"});},AAFECTACION:function AAFECTACION(vector,edad){this.afectacion.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,presentado:"",prueba:"",afectado:"",nivel:"",porcentaje:"",perdida:"",sobrelleva:"",percibe:"",principal:"",tiempo:"",estado:"Activo"});},datediff:function datediff(date1,date2){var fecha1=date1.split("-");var fecha2=date2.split("-");var y1=Number(fecha1[0]),m1=Number(fecha1[1]),d1=Number(fecha1[2]),y2=Number(fecha2[0]),m2=Number(fecha2[1]),d2=Number(fecha2[2]);if(d1<d2){m1--;d1=d1+this.DaysInMonth(y2,m2);}if(m1<m2){y1--;m1=m1+12;}var ano=y1-y2;var mes=m1-m2;var dia=d1-d2;if(ano<0){ano=ano*-1;}if(mes<0){mes=mes*-1;}if(dia<0){dia=dia*-1;}return[ano,mes,dia];},DaysInMonth:function DaysInMonth(Y,M){return new Date(Y,M,1,12).getDate();},cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}},agregarAntJef:function agregarAntJef(){var textoAntecedente="",id_antecedente="";if(this.caracData.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.caracData.antec;textoAntecedente=this.showText(this.caracData.antec,this.antec_options);var i=0;while(i<this.caracData.antecedentes.length){if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.caracData.antec="";this.caracData.antecedentes.push({id:0,id_jefe:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntJef:function eliminarItemAntJef(index,item){if(item.id===0){this.caracData.antecedentes.splice(index,1);}else{this.caracData.antecedentes[index].estado="Inactivo";this.caracData.antecedentes.splice(index,1,this.caracData.antecedentes[index]);}},agregarAntInt:function agregarAntInt(){var textoAntecedente="",id_antecedente="";if(this.CA1.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.CA1.antec;textoAntecedente=this.showText(this.CA1.antec,this.antec_options);var i=0;while(i<this.CA1.antecedentes.length){if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.CA1.antec="";this.CA1.antecedentes.push({id:0,id_inte:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntInt:function eliminarItemAntInt(index,item){if(item.id===0){this.CA1.antecedentes.splice(index,1);}else{this.CA1.antecedentes[index].estado="Inactivo";this.CA1.antecedentes.splice(index,1,this.CA1.antecedentes[index]);}}}});
+this.Migra[_indice13].sape=item.sape;this.Migra.splice(_indice13,1,this.Migra[_indice13]);}}},AFactores:function AFactores(vector,edad){this.factores.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,dialogos:"",sancion:"",castigo_verbal:"",castigo_fisico:"",alcohol:"",tabaco:"",sustancias_psico:"",apuestas:"",violencia_fisica:"",violencia_psico:"",violencia_economica:"",abuso_sexual:"",actividad_fisica:"",consumo_frutas:"",religiosos:"",sociales:"",culturales:"",recreativos:"",estado:"Activo"});},AAFECTACION:function AAFECTACION(vector,edad){this.afectacion.push({id:0,tipo_id:vector.tipo_id,identificacion:vector.identificacion,pnom:vector.pnom,snom:vector.snom,pape:vector.pape,sape:vector.sape,sexo:vector.sexo,edad:edad,presentado:"",prueba:"",afectado:"",nivel:"",porcentaje:"",perdida:"",sobrelleva:"",percibe:"",principal:"",tiempo:"",estado:"Activo"});},datediff:function datediff(date1,date2){var fecha1=date1.split("-");var fecha2=date2.split("-");var y1=Number(fecha1[0]),m1=Number(fecha1[1]),d1=Number(fecha1[2]),y2=Number(fecha2[0]),m2=Number(fecha2[1]),d2=Number(fecha2[2]);if(d1<d2){m1--;d1=d1+this.DaysInMonth(y2,m2);}if(m1<m2){y1--;m1=m1+12;}var ano=y1-y2;var mes=m1-m2;var dia=d1-d2;if(ano<0){ano=ano*-1;}if(mes<0){mes=mes*-1;}if(dia<0){dia=dia*-1;}return[ano,mes,dia];},DaysInMonth:function DaysInMonth(Y,M){return new Date(Y,M,1,12).getDate();},cambiarNivel:function cambiarNivel(identi){for(var i=0;i<this.datosJefe.length;i++){if(this.datosJefe[i].identificacion===identi){this.estratificacionData.nivel_instruccion=this.datosJefe[i].nivel_escolaridad;return;}}return"";},agregarEnfJef:function agregarEnfJef(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.caracData.enfermedad_infecciosa===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.caracData.enfermedad_infecciosa;textoEnfermedad=this.showText(this.caracData.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_infecciosa="";}else{if(this.caracData.enfermedad_cronica===""){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.caracData.enfermedad_cronica;textoEnfermedad=this.showText(this.caracData.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.caracData.enfermedades.length){if(this.caracData.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.caracData.enfermedad_cronica="";}this.caracData.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfJef:function eliminarItemEnfJef(index,item){if(item.id===0){this.caracData.enfermedades.splice(index,1);}else{this.caracData.enfermedades[index].estado="Inactivo";this.caracData.enfermedades.splice(index,1,this.caracData.enfermedades[index]);}},agregarEnfInt:function agregarEnfInt(tipo){var enfermedad="",textoEnfermedad="",id_enfermedad="";if(tipo==="Infecciosa"){if(this.CA1.enfermedad_infecciosa==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad infecciosa!","error");return;}id_enfermedad=this.CA1.enfermedad_infecciosa;textoEnfermedad=this.showText(this.CA1.enfermedad_infecciosa,this.enfinf_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad infecciosa ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_infecciosa="0";}else{if(this.CA1.enfermedad_cronica==="0"){this.$swal("Error...!","Por favor seleccione si tiene alguna enfermedad cronica!","error");return;}id_enfermedad=this.CA1.enfermedad_cronica;textoEnfermedad=this.showText(this.CA1.enfermedad_cronica,this.enfcro_options);var i=0;while(i<this.CA1.enfermedades.length){if(this.CA1.enfermedades[i].textoEnfermedad.toUpperCase()===textoEnfermedad.toUpperCase()){this.$swal("Validando...!","la enfermedad cronica ya se encuentra agregada!","warning");return;}i++;}this.CA1.enfermedad_cronica="0";}this.CA1.enfermedades.push({id:0,id_jefe:0,id_hogar:0,textoEnfermedad:textoEnfermedad,id_enfermedad:id_enfermedad,tipo:tipo,tiempo:"",tratamiento:"",estado:"Activo"});},eliminarItemEnfInt:function eliminarItemEnfInt(index,item){if(item.id===0){this.CA1.enfermedades.splice(index,1);}else{this.CA1.enfermedades[index].estado="Inactivo";this.CA1.enfermedades.splice(index,1,this.CA1.enfermedades[index]);}},agregarAntJef:function agregarAntJef(){var textoAntecedente="",id_antecedente="";if(this.caracData.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.caracData.antec;textoAntecedente=this.showText(this.caracData.antec,this.antec_options);var i=0;while(i<this.caracData.antecedentes.length){if(this.caracData.antecedentes[i].id_antecedente===this.caracData.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.caracData.antec="";this.caracData.antecedentes.push({id:0,id_jefe:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntJef:function eliminarItemAntJef(index,item){if(item.id===0){this.caracData.antecedentes.splice(index,1);}else{this.caracData.antecedentes[index].estado="Inactivo";this.caracData.antecedentes.splice(index,1,this.caracData.antecedentes[index]);}},agregarAntInt:function agregarAntInt(){var textoAntecedente="",id_antecedente="";if(this.CA1.antec===""){this.$swal("Error...!","Por favor seleccione un antecedente de enfermedad!","error");return;}id_antecedente=this.CA1.antec;textoAntecedente=this.showText(this.CA1.antec,this.antec_options);var i=0;while(i<this.CA1.antecedentes.length){if(this.CA1.antecedentes[i].id_antecedente===this.CA1.antec){this.$swal("Validando...!","el antecedente ya se encuentra agregado!","warning");return;}i++;}this.CA1.antec="";this.CA1.antecedentes.push({id:0,id_inte:0,id_hogar:0,textoAntecedente:textoAntecedente,id_antecedente:id_antecedente,estado:"Activo"});},eliminarItemAntInt:function eliminarItemAntInt(index,item){if(item.id===0){this.CA1.antecedentes.splice(index,1);}else{this.CA1.antecedentes[index].estado="Inactivo";this.CA1.antecedentes.splice(index,1,this.CA1.antecedentes[index]);}},controlRA:function controlRA(opcion){this.banderaControles=false;this.banConRieAmb=opcion;},cerrarControlRA:function cerrarControlRA(){this.banderaControles=true;},GuardarRA:function GuardarRA(opcion){var _this20=this;return _asyncToGenerator(/*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee20(){var parametros;return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee20$(_context24){while(1){switch(_context24.prev=_context24.next){case 0:if(!(opcion==="RD")){_context24.next=20;break;}if(!(_this20.datosRA.control_entes_RD==="")){_context24.next=4;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 4:if(!(_this20.datosRA.obras_ingenieria_RD==="")){_context24.next=7;break;}_this20.$swal("Error...!","Por Favor seleccione la opción existen obras de ingenieria en las laderas","error");return _context24.abrupt("return",false);case 7:if(!(_this20.datosRA.control_entes_RD!==""&&_this20.datosRA.control_entes_RD!=="NO")){_context24.next=14;break;}if(!(_this20.datosRA.cual_RD==="")){_context24.next=11;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 11:if(!(_this20.datosRA.tipo_RD==="")){_context24.next=14;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 14:if(!(_this20.datosRA.proteccion_RD==="")){_context24.next=17;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Protección estructural","error");return _context24.abrupt("return",false);case 17:if(!(_this20.datosRA.zona_vivienda_RD==="")){_context24.next=20;break;}_this20.$swal("Error...!","Por Favor seleccione la opción La Zona de vivienda se encuentra dentro del mapa de riesgos","error");return _context24.abrupt("return",false);case 20:if(!(opcion==="RI")){_context24.next=43;break;}if(!(_this20.datosRA.control_entes_RI==="")){_context24.next=24;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 24:if(!(_this20.datosRA.gaviones_RI==="")){_context24.next=27;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Construcción de gaviones para fuente hidrica","error");return _context24.abrupt("return",false);case 27:if(!(_this20.datosRA.control_entes_RI!==""&&_this20.datosRA.control_entes_RI!=="NO")){_context24.next=34;break;}if(!(_this20.datosRA.cual_RI==="")){_context24.next=31;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 31:if(!(_this20.datosRA.tipo_RI==="")){_context24.next=34;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 34:if(!(_this20.datosRA.dragado_RI==="")){_context24.next=37;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Se ha evidenciao el dragado del rio","error");return _context24.abrupt("return",false);case 37:if(!(_this20.datosRA.barreras_RI==="")){_context24.next=40;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Barreras en las casas","error");return _context24.abrupt("return",false);case 40:if(!(_this20.datosRA.zona_vivienda_RI==="")){_context24.next=43;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Se encuentra la zona de la vivienda dentro del mapa de riesgo de inundacion","error");return _context24.abrupt("return",false);case 43:if(!(opcion==="RIN")){_context24.next=69;break;}if(!(_this20.datosRA.sistema_recoleccion_RIN==="")){_context24.next=47;break;}_this20.$swal("Error...!","Por Favor seleccione la opción sistema de recolección de residuos ","error");return _context24.abrupt("return",false);case 47:if(!(_this20.datosRA.control_entes_RIN==="")){_context24.next=50;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 50:if(!(_this20.datosRA.control_entes_RIN!==""&&_this20.datosRA.control_entes_RIN!=="NO")){_context24.next=57;break;}if(!(_this20.datosRA.cual_RIN==="")){_context24.next=54;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 54:if(!(_this20.datosRA.tipo_RIN==="")){_context24.next=57;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 57:if(!(_this20.datosRA.control_plagas_RIN==="")){_context24.next=60;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Control de plagas y vectores por fumigación","error");return _context24.abrupt("return",false);case 60:if(!(_this20.datosRA.limpieza_RIN==="")){_context24.next=63;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Limpieza y mantenimiento programado de lotes emontados y afluentes de agua","error");return _context24.abrupt("return",false);case 63:if(!(_this20.datosRA.tipo_tratamiento_RIN==="")){_context24.next=66;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Realiza algun tipo de tratamiento del agua","error");return _context24.abrupt("return",false);case 66:if(!(_this20.datosRA.clasificacion_residuos_RIN==="")){_context24.next=69;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Clasificacion de residuos","error");return _context24.abrupt("return",false);case 69:if(!(opcion==="RA")){_context24.next=89;break;}if(!(_this20.datosRA.control_entes_RA==="")){_context24.next=73;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 73:if(!(_this20.datosRA.humectacion_RA==="")){_context24.next=76;break;}_this20.$swal("Error...!","Por Favor seleccione la opción se realiza humectacion de la via","error");return _context24.abrupt("return",false);case 76:if(!(_this20.datosRA.control_entes_RA!==""&&_this20.datosRA.control_entes_RA!=="NO")){_context24.next=83;break;}if(!(_this20.datosRA.cual_RA==="")){_context24.next=80;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 80:if(!(_this20.datosRA.tipo_RA==="")){_context24.next=83;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 83:if(!(_this20.datosRA.sistema_RA==="")){_context24.next=86;break;}_this20.$swal("Error...!","Por Favor seleccione la opción se tiene algun sistema de monitoreo de calidad del aire","error");return _context24.abrupt("return",false);case 86:if(!(_this20.datosRA.concientizacion_RA==="")){_context24.next=89;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Concientización y educación a la comunidad","error");return _context24.abrupt("return",false);case 89:if(!(opcion==="RRS")){_context24.next=115;break;}if(!(_this20.datosRA.control_entes_RRS==="")){_context24.next=93;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 93:if(!(_this20.datosRA.concientizacion_RRS==="")){_context24.next=96;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Concientización y educación de la comunidad","error");return _context24.abrupt("return",false);case 96:if(!(_this20.datosRA.control_entes_RRS!==""&&_this20.datosRA.control_entes_RRS!=="NO")){_context24.next=103;break;}if(!(_this20.datosRA.cual_RRS==="")){_context24.next=100;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 100:if(!(_this20.datosRA.tipo_RRS==="")){_context24.next=103;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 103:if(!(_this20.datosRA.mantenimiento_RRS==="")){_context24.next=106;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Mantenimiento programado de redes de alcantarillado ","error");return _context24.abrupt("return",false);case 106:if(!(_this20.datosRA.mantenimiento_solicitado_RRS==="")){_context24.next=109;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Mantenimiento solicitado de redes de alcantarillado","error");return _context24.abrupt("return",false);case 109:if(!(_this20.datosRA.fertilizantes_RRS==="")){_context24.next=112;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Utiliza usted fertilizantes o plaguicidas biodegradables","error");return _context24.abrupt("return",false);case 112:if(!(_this20.datosRA.clasificacion_RRS==="")){_context24.next=115;break;}_this20.$swal("Error...!","Por Favor seleccione la opción realiza clasficación de los residuos","error");return _context24.abrupt("return",false);case 115:if(!(opcion==="RQ")){_context24.next=141;break;}if(!(_this20.datosRA.control_entes_RQ==="")){_context24.next=119;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 119:if(!(_this20.datosRA.concientizacion_RQ==="")){_context24.next=122;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Concientización y educación a la población ","error");return _context24.abrupt("return",false);case 122:if(!(_this20.datosRA.control_entes_RQ!==""&&_this20.datosRA.control_entes_RQ!=="NO")){_context24.next=129;break;}if(!(_this20.datosRA.cual_RQ==="")){_context24.next=126;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 126:if(!(_this20.datosRA.tipo_RQ==="")){_context24.next=129;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 129:if(!(_this20.datosRA.bomberos_RQ==="")){_context24.next=132;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Cuerpo de bomberos ","error");return _context24.abrupt("return",false);case 132:if(!(_this20.datosRA.servicio_programado_RQ==="")){_context24.next=135;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Servicio programado de recolección de las basuras.","error");return _context24.abrupt("return",false);case 135:if(!(_this20.datosRA.servicio_solicitud_RQ==="")){_context24.next=138;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Servicio a solicitud de recolección de las basuras","error");return _context24.abrupt("return",false);case 138:if(!(_this20.datosRA.aprovechamiento_RQ==="")){_context24.next=141;break;}_this20.$swal("Error...!","Por Favor seleccione la opción realizan aprovechamiento forestal","error");return _context24.abrupt("return",false);case 141:if(!(opcion==="RAU")){_context24.next=164;break;}if(!(_this20.datosRA.control_entes_RAU==="")){_context24.next=145;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 145:if(!(_this20.datosRA.regulacion_RAU==="")){_context24.next=148;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Regulación de indutrias contaminantes","error");return _context24.abrupt("return",false);case 148:if(!(_this20.datosRA.control_entes_RAU!==""&&_this20.datosRA.control_entes_RAU!=="NO")){_context24.next=155;break;}if(!(_this20.datosRA.cual_RAU==="")){_context24.next=152;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 152:if(!(_this20.datosRA.tipo_RAU==="")){_context24.next=155;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 155:if(!(_this20.datosRA.mediciones_RAU==="")){_context24.next=158;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay realizan mediciones ambientales de ruido","error");return _context24.abrupt("return",false);case 158:if(!(_this20.datosRA.zona_RAU==="")){_context24.next=161;break;}_this20.$swal("Error...!","Por Favor seleccione la opción la zona esta incliuda en el mapa de ruido ambientales","error");return _context24.abrupt("return",false);case 161:if(!(_this20.datosRA.decibeles_RAU==="")){_context24.next=164;break;}_this20.$swal("Error...!","Por Favor seleccione la opción se tiene establecido los decibeles permitidos","error");return _context24.abrupt("return",false);case 164:if(!(opcion==="RRH")){_context24.next=193;break;}if(!(_this20.datosRA.control_entes_RRH==="")){_context24.next=168;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 168:if(!(_this20.datosRA.concientizacion_RRH==="")){_context24.next=171;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Campañas de concientizacion y educación de la comunidad","error");return _context24.abrupt("return",false);case 171:if(!(_this20.datosRA.control_entes_RRH!==""&&_this20.datosRA.control_entes_RRH!=="NO")){_context24.next=178;break;}if(!(_this20.datosRA.cual_RRH==="")){_context24.next=175;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 175:if(!(_this20.datosRA.tipo_RRH==="")){_context24.next=178;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 178:if(!(_this20.datosRA.manejo_aguas_RRH==="")){_context24.next=181;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Manejo de agua residuales sistema de drenaje","error");return _context24.abrupt("return",false);case 181:if(!(_this20.datosRA.programa_RRH==="")){_context24.next=184;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Se tiene programa de uso eficiente y adecuado del agua ","error");return _context24.abrupt("return",false);case 184:if(!(_this20.datosRA.control_industrias_RRH==="")){_context24.next=187;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Control a industrias vertedoras de aguas residuales","error");return _context24.abrupt("return",false);case 187:if(!(_this20.datosRA.mantenimiento_RRH==="")){_context24.next=190;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Mantenimiento de Alcantarillado publico","error");return _context24.abrupt("return",false);case 190:if(!(_this20.datosRA.mantenimiento_captacion_RRH==="")){_context24.next=193;break;}_this20.$swal("Error...!","Por Favor seleccione la opción mantenimiento del sistema de capatacion del agua para consumo","error");return _context24.abrupt("return",false);case 193:if(!(opcion==="RAA")){_context24.next=216;break;}if(!(_this20.datosRA.control_entes_RAA==="")){_context24.next=197;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Hay algún control por arte de los entes gubernamentales","error");return _context24.abrupt("return",false);case 197:if(!(_this20.datosRA.tratamiento_RAA==="")){_context24.next=200;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Tratamiento en casa del agua para el consumo","error");return _context24.abrupt("return",false);case 200:if(!(_this20.datosRA.control_entes_RAA!==""&&_this20.datosRA.control_entes_RAA!=="NO")){_context24.next=207;break;}if(!(_this20.datosRA.cual_RRA==="")){_context24.next=204;break;}_this20.$swal("Error...!","Por Favor digite cual ente","error");return _context24.abrupt("return",false);case 204:if(!(_this20.datosRA.tipo_RRA==="")){_context24.next=207;break;}_this20.$swal("Error...!","Por Favor seleccione el tipo de control","error");return _context24.abrupt("return",false);case 207:if(!(_this20.datosRA.concientizacion_RAA==="")){_context24.next=210;break;}_this20.$swal("Error...!","Por Favor seleccione la opción Campañas de concientización y educación de la población","error");return _context24.abrupt("return",false);case 210:if(!(_this20.datosRA.sistema_RAA==="")){_context24.next=213;break;}_this20.$swal("Error...!","Por Favor seleccione la opción sistema de manejo de agua residuales ","error");return _context24.abrupt("return",false);case 213:if(!(_this20.datosRA.programa_RAA==="")){_context24.next=216;break;}_this20.$swal("Error...!","Por Favor seleccione la opción  se tiene programa de uso eficiente y adecuado del agua","error");return _context24.abrupt("return",false);case 216:// Acceso a Agua Segura
+parametros={_token:_this20.csrf,datosRA:_this20.datosRA,RieAmbInh:_this20.RieAmbInh,opcion:opcion,IDHOGAR:_this20.IDHOGAR};_context24.next=219;return _Servicios_caracterizacion_servicios__WEBPACK_IMPORTED_MODULE_1__["controlesRA"](parametros).then(function(respuesta){// Riesgos de  Derrumbes
+if(opcion==="RD"){_this20.RieAmbInh.control_riesgos_derrumbes=respuesta.data.residual_riesgos_derrumbes;_this20.RieAmbInh.color_residual_riesgos_derrumbes=respuesta.data.color_residual_riesgos_derrumbes;_this20.RieAmbInh.val_residual_riesgos_derrumbes=respuesta.data.val_residual_riesgos_derrumbes;}// Riesgos de  Derrumbes
+// Riesgos de inundación
+if(opcion==="RI"){_this20.RieAmbInh.control_riesgos_inundacion=respuesta.data.residual_riesgos_inundacion;_this20.RieAmbInh.color_residual_riesgos_inundacion=respuesta.data.color_residual_riesgos_inundacion;_this20.RieAmbInh.val_residual_riesgos_inundacion=respuesta.data.val_residual_riesgos_inundacion;}// Riesgos de inundación            
+// Riesgos de insalubridad
+if(opcion==="RIN"){_this20.RieAmbInh.control_riesgos_insalubridad=respuesta.data.residual_riesgos_insalubridad;_this20.RieAmbInh.color_residual_riesgos_insalubridad=respuesta.data.color_residual_riesgos_insalubridad;_this20.RieAmbInh.val_residual_riesgos_insalubridad=respuesta.data.val_residual_riesgos_insalubridad;}// Riesgos de insalubridad
+// Riesgo atmosferico
+if(opcion==="RA"){_this20.RieAmbInh.control_riesgos_atmosferico=respuesta.data.residual_riesgos_atmosferico;_this20.RieAmbInh.color_residual_riesgos_atmosferico=respuesta.data.color_residual_riesgos_atmosferico;_this20.RieAmbInh.val_residual_riesgos_atmosferico=respuesta.data.val_residual_riesgos_atmosferico;}// Riesgo atmosferico
+// Riesgos Recurso suelo
+if(opcion==="RRS"){_this20.RieAmbInh.control_riesgos_recurso_suelo=respuesta.data.residual_riesgos_recurso_suelo;_this20.RieAmbInh.color_residual_riesgos_recurso_suelo=respuesta.data.color_residual_riesgos_recurso_suelo;_this20.RieAmbInh.val_residual_riesgos_recurso_suelo=respuesta.data.val_residual_riesgos_recurso_suelo;}// Riesgos Recurso suelo            
+// Riesgo por quemas o incendio
+if(opcion==="RQ"){_this20.RieAmbInh.control_riesgos_quema=respuesta.data.residual_riesgos_quema;_this20.RieAmbInh.color_residual_riesgos_quema=respuesta.data.color_residual_riesgos_quema;_this20.RieAmbInh.val_residual_riesgos_quema=respuesta.data.val_residual_riesgos_quema;}// Riesgo por quemas o incendio
+// Riesgo Auditivo
+if(opcion==="RAU"){_this20.RieAmbInh.control_riesgos_auditivo=respuesta.data.residual_riesgos_auditivo;_this20.RieAmbInh.color_residual_riesgos_auditivo=respuesta.data.color_residual_riesgos_auditivo;_this20.RieAmbInh.val_residual_riesgos_auditivo=respuesta.data.val_residual_riesgos_auditivo;}// Riesgo Auditivo            
+// Riesgo recurso Hidrico
+if(opcion==="RRH"){_this20.RieAmbInh.control_riesgos_recurso_hidrico=respuesta.data.residual_riesgos_recurso_hidrico;_this20.RieAmbInh.color_residual_riesgos_recurso_hidrico=respuesta.data.color_residual_riesgos_recurso_hidrico;_this20.RieAmbInh.val_residual_riesgos_recurso_hidrico=respuesta.data.val_residual_riesgos_recurso_hidrico;}// Riesgo recurso Hidrico
+// Acceso a Agua Segura
+if(opcion==="RAA"){_this20.RieAmbInh.control_riesgos_acceso_agua=respuesta.data.residual_riesgos_acceso_agua;_this20.RieAmbInh.color_residual_riesgos_acceso_agua=respuesta.data.color_residual_riesgos_acceso_agua;_this20.RieAmbInh.val_residual_riesgos_acceso_agua=respuesta.data.val_residual_riesgos_acceso_agua;}// Acceso a Agua Segura
+_this20.banderaControles=true;})["catch"](function(error){_this20.$swal("Error...!","No se pudo ejecutar los controles","error");return;});case 219:case"end":return _context24.stop();}}},_callee20);}))();},cambioComboRA:function cambioComboRA(opcion){if(opcion==='RD'){this.datosRA.cual_RD="";this.datosRA.tipo_RD="";}if(opcion==='RI'){this.datosRA.cual_RI="";this.datosRA.tipo_RI="";}if(opcion==='RIN'){this.datosRA.cual_RIN="";this.datosRA.tipo_RIN="";}if(opcion==='RA'){this.datosRA.cual_RA="";this.datosRA.tipo_RA="";}if(opcion==='RRS'){this.datosRA.cual_RRS="";this.datosRA.tipo_RRS="";}if(opcion==='RQ'){this.datosRA.cual_RQ="";this.datosRA.tipo_RQ="";}if(opcion==='RAU'){this.datosRA.cual_RAU="";this.datosRA.tipo_RAU="";}if(opcion==='RRH'){this.datosRA.cual_RRH="";this.datosRA.tipo_RRH="";}if(opcion==='RAA'){this.datosRA.cual_RAA="";this.datosRA.tipo_RAA="";}}}});
 
 /***/ }),
 
@@ -14986,7 +16440,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "col-lg-10" }, [
                       _c("label", [_vm._v("Ocupación (*):")]),
                       _vm._v(" "),
                       _c("input", {
@@ -15019,7 +16473,58 @@ var render = function() {
                           }
                         }
                       })
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-2" },
+                      [
+                        _c("label", [_vm._v("Tipo de empleo:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class:
+                              _vm.caracData.tipo_empleo == "" ? "" : "is-valid",
+                            model: {
+                              value: _vm.caracData.tipo_empleo,
+                              callback: function($$v) {
+                                _vm.$set(_vm.caracData, "tipo_empleo", $$v)
+                              },
+                              expression: "caracData.tipo_empleo"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("SIN EMPLEO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("SI FORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "3" } }, [
+                              _vm._v("SI INFORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("INDEPENDIENTE")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -16291,6 +17796,47 @@ var render = function() {
                             _vm.$set(
                               _vm.caracData,
                               "talla",
+                              $event.target.value.trim()
+                            )
+                          },
+                          blur: function($event) {
+                            return _vm.$forceUpdate()
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-2" }, [
+                      _c("label", [_vm._v("Personas a cargo:")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model.trim",
+                            value: _vm.caracData.percargo,
+                            expression: "caracData.percargo",
+                            modifiers: { trim: true }
+                          }
+                        ],
+                        staticClass: "form-control text-capitalize",
+                        class: _vm.caracData.percargo == "" ? "" : "is-valid",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Personas a cargo"
+                        },
+                        domProps: { value: _vm.caracData.percargo },
+                        on: {
+                          change: function($event) {
+                            return _vm.formato("percargo")
+                          },
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.caracData,
+                              "percargo",
                               $event.target.value.trim()
                             )
                           },
@@ -19519,7 +21065,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
-                    _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "col-lg-10" }, [
                       _c("label", [_vm._v("Ocupación:")]),
                       _vm._v(" "),
                       _c("input", {
@@ -19552,7 +21098,57 @@ var render = function() {
                           }
                         }
                       })
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-2" },
+                      [
+                        _c("label", [_vm._v("Tipo de empleo:")]),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-select",
+                          {
+                            class: _vm.CA1.tipo_empleo == "0" ? "" : "is-valid",
+                            model: {
+                              value: _vm.CA1.tipo_empleo,
+                              callback: function($$v) {
+                                _vm.$set(_vm.CA1, "tipo_empleo", $$v)
+                              },
+                              expression: "CA1.tipo_empleo"
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { value: "0", selected: "" } },
+                              [_vm._v("Seleccione")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("SIN EMPLEO")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2" } }, [
+                              _vm._v("SI FORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "3" } }, [
+                              _vm._v("SI INFORMAL")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "4" } }, [
+                              _vm._v("INDEPENDIENTE")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "NA" } }, [
+                              _vm._v("NO APLICA")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
@@ -34497,7 +36093,7 @@ var render = function() {
                                               ? "is-invalid"
                                               : "is-valid",
                                           staticStyle: { width: "160px" },
-                                          attrs: { type: "text" },
+                                          attrs: { type: "text", readonly: "" },
                                           domProps: { value: item.peso_long },
                                           on: {
                                             input: [
@@ -36525,7 +38121,7 @@ var render = function() {
                                               ? "is-invalid"
                                               : "is-valid",
                                           staticStyle: { width: "150px" },
-                                          attrs: { type: "text" },
+                                          attrs: { type: "text", readonly: "" },
                                           domProps: { value: item.pt },
                                           on: {
                                             input: [
@@ -36579,7 +38175,7 @@ var render = function() {
                                               ? "is-invalid"
                                               : "is-valid",
                                           staticStyle: { width: "150px" },
-                                          attrs: { type: "text" },
+                                          attrs: { type: "text", readonly: "" },
                                           domProps: { value: item.te },
                                           on: {
                                             input: [
@@ -52681,6 +54277,7013 @@ var render = function() {
                 ])
               ])
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              ref: "modalRieAmb",
+              attrs: {
+                "hide-footer": "",
+                title: "Controles de los riesgos ambientales",
+                size: "xl",
+                centered: "",
+                "header-bg-variant": "danger",
+                "header-text-variant": "light",
+                "no-close-on-backdrop": true
+              }
+            },
+            [
+              _c("div", { staticClass: "d-block" }, [
+                _c("form", [
+                  _vm.banderaControles
+                    ? _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6" },
+                          [
+                            _c("center", [
+                              _c("p", [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-font-boldest text",
+                                    staticStyle: { "font-size": "18px" }
+                                  },
+                                  [_vm._v("Identificación de riesgos")]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "table-responsive" }, [
+                              _c(
+                                "table",
+                                { staticClass: "table table-sm table-hover" },
+                                [
+                                  _c("thead", {}, [
+                                    _c(
+                                      "tr",
+                                      { staticClass: "kt-bg-fill-brand" },
+                                      [
+                                        _c("th", [_vm._v("No.")]),
+                                        _vm._v(" "),
+                                        _c("th", [_vm._v("Riesgo")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Puntuación")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Valorización")]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tbody", [
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("1")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos de  Derrumbes")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_derrumbes
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_derrumbes
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_derrumbes
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("2")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos de inundación")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_inundacion
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_inundacion
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_inundacion
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("3")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos de insalubridad")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_insalubridad
+                                            ) + " / 25"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_insalubridad
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_insalubridad
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("4")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo atmosferico")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_atmosferico
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_atmosferico
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_atmosferico
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("5")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgos Recurso suelo")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh
+                                                .riesgos_recurso_suelo
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_recurso_suelo
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_recurso_suelo
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("6")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo por quemas o incendio")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_quema
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_quema
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh.va_riesgos_quema
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("7")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo Auditivo")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_auditivo
+                                            ) + " / 5"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_auditivo
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_auditivo
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("8")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo recurso Hidrico")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh
+                                                .riesgos_recurso_hidrico
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_recurso_hidrico
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_recurso_hidrico
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center"
+                                          }
+                                        },
+                                        [_vm._v("9")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "left",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [_vm._v("Riesgo Acceso a Agua Segura")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "normal",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm.RieAmbInh.riesgos_acceso_agua
+                                            ) + " / 10"
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "td",
+                                        {
+                                          staticStyle: {
+                                            "font-weight": "bold",
+                                            "vertical-align": "middle",
+                                            "text-align": "center",
+                                            "text-transform": "capitalize"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticClass:
+                                                "kt-badge kt-badge--inline text-white",
+                                              class:
+                                                _vm.RieAmbInh
+                                                  .color_riesgos_acceso_agua
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.RieAmbInh
+                                                    .va_riesgos_acceso_agua
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-md-6" },
+                          [
+                            _c("center", [
+                              _c("p", [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "kt-font-boldest text",
+                                    staticStyle: { "font-size": "18px" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "Tratamiento de riesgos (medios y altos)"
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "table-responsive" }, [
+                              _c(
+                                "table",
+                                { staticClass: "table table-sm table-hover" },
+                                [
+                                  _c("thead", {}, [
+                                    _c(
+                                      "tr",
+                                      { staticClass: "kt-bg-fill-brand" },
+                                      [
+                                        _c("th", [_vm._v("Riesgo Inherente")]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Puntuación")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo Residual")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "th",
+                                          {
+                                            staticStyle: {
+                                              "vertical-align": "middle",
+                                              "text-align": "center"
+                                            }
+                                          },
+                                          [_vm._v("Opción")]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("tbody", [
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_derrumbes != "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_derrumbes!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos de  Derrumbes")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_derrumbes
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_derrumbes
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_derrumbes
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_derrumbes
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_derrumbes
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RD")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_inundacion !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_inundacion!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos de inundación")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_inundacion
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_inundacion
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_inundacion
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_inundacion
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_inundacion
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RI")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_insalubridad !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_insalubridad!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos de insalubridad")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_insalubridad
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_insalubridad
+                                                  ) + " / 25"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_insalubridad
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_insalubridad
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_insalubridad
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RIN")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_atmosferico !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_atmosferico!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo atmosferico")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_atmosferico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_atmosferico
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_atmosferico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_atmosferico
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_atmosferico
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RA")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_recurso_suelo !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_recurso_suelo!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgos Recurso suelo")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_recurso_suelo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_recurso_suelo
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_recurso_suelo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_recurso_suelo
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_recurso_suelo
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RRS")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh.va_riesgos_quema !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_quema!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Riesgo por quemas o incendio"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_quema
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh.riesgos_quema
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_quema
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_quema
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_quema
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RQ")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_auditivo != "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_auditivo!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo Auditivo")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_auditivo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_auditivo
+                                                  ) + " / 5"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_auditivo
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_auditivo
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_auditivo
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RAU")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_recurso_hidrico !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_recurso_hidrico!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [_vm._v("Riesgo recurso Hidrico")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_recurso_hidrico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_recurso_hidrico
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_recurso_hidrico
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_recurso_hidrico
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_recurso_hidrico
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RRH")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "show",
+                                            rawName: "v-show",
+                                            value:
+                                              _vm.RieAmbInh
+                                                .va_riesgos_acceso_agua !=
+                                              "Bajo",
+                                            expression:
+                                              "RieAmbInh.va_riesgos_acceso_agua!='Bajo'"
+                                          }
+                                        ]
+                                      },
+                                      [
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "normal",
+                                              "vertical-align": "middle",
+                                              "text-align": "left",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Riesgo Acceso a Agua Segura"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_riesgos_acceso_agua
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .riesgos_acceso_agua
+                                                  ) + " / 10"
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "font-weight": "bold",
+                                              "vertical-align": "middle",
+                                              "text-align": "center",
+                                              "text-transform": "capitalize"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "kt-badge kt-badge--inline",
+                                                class:
+                                                  _vm.RieAmbInh
+                                                    .color_residual_riesgos_acceso_agua
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.RieAmbInh
+                                                      .control_riesgos_acceso_agua
+                                                  ) +
+                                                    " - " +
+                                                    _vm._s(
+                                                      _vm.RieAmbInh
+                                                        .val_residual_riesgos_acceso_agua
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "td",
+                                          {
+                                            staticStyle: {
+                                              "text-align": "center",
+                                              "vertical-align": "middle"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-icon btn-sm btn-primary",
+                                                attrs: {
+                                                  type: "button",
+                                                  title: "Controles"
+                                                },
+                                                on: {
+                                                  click: function($event) {
+                                                    return _vm.controlRA("RAA")
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                _c("i", {
+                                                  staticClass: "fa fa-edit"
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ])
+                    : _c("div", { staticClass: "form-group row" }, [
+                        _vm.banConRieAmb == "RD"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [_vm._v("Controles riesgos de derrumbes")]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RD == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RD")
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Existen obra de ingenieria en la laderas? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.obras_ingenieria_RD ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.obras_ingenieria_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "obras_ingenieria_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.obras_ingenieria_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RD !== "NO" &&
+                                _vm.datosRA.control_entes_RD !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RD,
+                                                expression: "datosRA.cual_RD",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RD == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RD
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RD",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RD == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RD,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RD",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RD"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Protección estructural :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.proteccion_RD == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.proteccion_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "proteccion_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.proteccion_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "La Zona de vivienda se encuentra dentro del mapa de riesgos :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.zona_vivienda_RD == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.zona_vivienda_RD,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "zona_vivienda_RD",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.zona_vivienda_RD"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RD")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RI"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgos de inundación"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RI")
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Construcción de gaviones para fuente hidrica :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.gaviones_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.gaviones_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "gaviones_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.gaviones_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RI !== "NO" &&
+                                _vm.datosRA.control_entes_RI !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RI,
+                                                expression: "datosRA.cual_RI",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RI == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RI
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RI",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RI == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RI,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RI",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RI"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se ha evidenciao el dragado del rio :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.dragado_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.dragado_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "dragado_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.dragado_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Barreras en las casas :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.barreras_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.barreras_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "barreras_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.barreras_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se encuentra la zona de la vivienda dentro del mapa de riesgo de inundacion :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.zona_vivienda_RI == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.zona_vivienda_RI,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "zona_vivienda_RI",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.zona_vivienda_RI"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RI")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RIN"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgos de insalubridad"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Sistema de recolección de residuos :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .sistema_recoleccion_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .sistema_recoleccion_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "sistema_recoleccion_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.sistema_recoleccion_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RIN")
+                                            }
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RIN !== "NO" &&
+                                _vm.datosRA.control_entes_RIN !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RIN,
+                                                expression: "datosRA.cual_RIN",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RIN == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RIN
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RIN",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RIN == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RIN,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RIN",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RIN"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Control de plagas y vectores por fumigación :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_plagas_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_plagas_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_plagas_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_plagas_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Limpieza y  mantenimiento programado de lotes emontados y afluentes de agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.limpieza_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.limpieza_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "limpieza_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.limpieza_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realiza algun tipo de tratamiento del agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.tipo_tratamiento_RIN ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.tipo_tratamiento_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "tipo_tratamiento_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.tipo_tratamiento_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Clasificacion de residuos :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .clasificacion_residuos_RIN == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .clasificacion_residuos_RIN,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "clasificacion_residuos_RIN",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.clasificacion_residuos_RIN"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RIN")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RA"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [_vm._v("Controles riesgo atmosferico")]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RA")
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Se realiza humectacion de la via? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.humectacion_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.humectacion_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "humectacion_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.humectacion_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RA !== "NO" &&
+                                _vm.datosRA.control_entes_RA !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RA,
+                                                expression: "datosRA.cual_RA",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RA == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RA
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RA",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RA == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RA,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RA",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RA"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene algun sistema de monitoreo de calidad del aire :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.sistema_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.sistema_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "sistema_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.sistema_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Concientización y educación a la comunidad :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RA")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RRS"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgos recurso suelo"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RRS")
+                                            }
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Concientización y educación de la comunidad :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RRS ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RRS !== "NO" &&
+                                _vm.datosRA.control_entes_RRS !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RRS,
+                                                expression: "datosRA.cual_RRS",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RRS == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RRS
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RRS",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RRS == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RRS,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RRS",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RRS"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento programado de redes de alcantarillado :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.mantenimiento_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.mantenimiento_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento solicitado de redes de alcantarillado  :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .mantenimiento_solicitado_RRS ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .mantenimiento_solicitado_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_solicitado_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_solicitado_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Utiliza usted fertilizantes o plaguicidas biodegradables ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.fertilizantes_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.fertilizantes_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "fertilizantes_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.fertilizantes_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realiza clasficacion de los residuos:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.clasificacion_RRS == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.clasificacion_RRS,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "clasificacion_RRS",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.clasificacion_RRS"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RRS")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RQ"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles Riesgo por quemas o incendio"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RQ")
+                                            }
+                                          },
+                                          model: {
+                                            value: _vm.datosRA.control_entes_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Concientización y educación a la población :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RQ !== "NO" &&
+                                _vm.datosRA.control_entes_RQ !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RQ,
+                                                expression: "datosRA.cual_RQ",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RQ == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RQ
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RQ",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RQ == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RQ,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RQ",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RQ"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v("Cuerpo de bomberos :")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.bomberos_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.bomberos_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "bomberos_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.bomberos_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Servicio programado de recolección de las basuras :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .servicio_programado_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .servicio_programado_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "servicio_programado_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.servicio_programado_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Servicio a solicitud  de recolección de las basuras :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.servicio_solicitud_RQ ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.servicio_solicitud_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "servicio_solicitud_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.servicio_solicitud_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realizan aprovechamiento forestal :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.aprovechamiento_RQ == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.aprovechamiento_RQ,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "aprovechamiento_RQ",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.aprovechamiento_RQ"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RQ")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RAU"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [_vm._v("Controles Riesgo Auditivo")]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RAU")
+                                            }
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Regulación de indutrias contaminantes:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.regulacion_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.regulacion_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "regulacion_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.regulacion_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RAU !== "NO" &&
+                                _vm.datosRA.control_entes_RAU !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RAU,
+                                                expression: "datosRA.cual_RAU",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RAU == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RAU
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RAU",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RAU == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RAU,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RAU",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RAU"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Realizan mediciones ambientales de ruido :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.mediciones_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.mediciones_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mediciones_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.mediciones_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "La zona esta incliuda en el mapa de ruido ambientales:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.zona_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.zona_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "zona_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.zona_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene establecido los decibeles permitidos:"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.decibeles_RAU == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.decibeles_RAU,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "decibeles_RAU",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.decibeles_RAU"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RAU")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RRH"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgo recurso hidrico"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RRH")
+                                            }
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Campañas de concientizacion y educación de la comunidad :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RRH ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RRH !== "NO" &&
+                                _vm.datosRA.control_entes_RRH !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RRH,
+                                                expression: "datosRA.cual_RRH",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RRH == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RRH
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RRH",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RRH == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RRH,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RRH",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RRH"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Manejo de agua residuales sistema de drenaje :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.manejo_aguas_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.manejo_aguas_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "manejo_aguas_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.manejo_aguas_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene programa de uso eficiente y adecuado del agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.programa_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.programa_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "programa_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.programa_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Control a industrias vertedoras de aguas residuales :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .control_industrias_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .control_industrias_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_industrias_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_industrias_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento de Alcantarillado publico :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.mantenimiento_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.mantenimiento_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Mantenimiento del sistema de capatacion del agua para consumo :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA
+                                              .mantenimiento_captacion_RRH == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA
+                                                .mantenimiento_captacion_RRH,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "mantenimiento_captacion_RRH",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.mantenimiento_captacion_RRH"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RRH")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.banConRieAmb == "RAA"
+                          ? _c(
+                              "div",
+                              { staticClass: "col-md-12" },
+                              [
+                                _c("center", [
+                                  _c("p", [
+                                    _c(
+                                      "span",
+                                      {
+                                        staticClass: "kt-font-boldest text",
+                                        staticStyle: { "font-size": "22px" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Controles riesgo acceso a agua segura"
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "¿Hay algún control por arte de los entes gubernamentales ? :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.control_entes_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.cambioComboRA("RRA")
+                                            }
+                                          },
+                                          model: {
+                                            value:
+                                              _vm.datosRA.control_entes_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "control_entes_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.control_entes_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Tratamiento en casa del agua para el consumo :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.tratamiento_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.tratamiento_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "tratamiento_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.tratamiento_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _vm.datosRA.control_entes_RAA !== "NO" &&
+                                _vm.datosRA.control_entes_RAA !== ""
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "form-group row" },
+                                      [
+                                        _c("div", { staticClass: "col-md-6" }, [
+                                          _c("label", [_vm._v("Cual:")]),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model.trim",
+                                                value: _vm.datosRA.cual_RRA,
+                                                expression: "datosRA.cual_RRA",
+                                                modifiers: { trim: true }
+                                              }
+                                            ],
+                                            staticClass:
+                                              "form-control text-capitalize",
+                                            class:
+                                              _vm.datosRA.cual_RRA == ""
+                                                ? ""
+                                                : "is-valid",
+                                            attrs: {
+                                              type: "text",
+                                              placeholder: "Cual"
+                                            },
+                                            domProps: {
+                                              value: _vm.datosRA.cual_RRA
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  _vm.datosRA,
+                                                  "cual_RRA",
+                                                  $event.target.value.trim()
+                                                )
+                                              },
+                                              blur: function($event) {
+                                                return _vm.$forceUpdate()
+                                              }
+                                            }
+                                          })
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-md-6" },
+                                          [
+                                            _c("label", [
+                                              _vm._v("Tipo de control:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-form-select",
+                                              {
+                                                class:
+                                                  _vm.datosRA.tipo_RRA == ""
+                                                    ? ""
+                                                    : "is-valid",
+                                                model: {
+                                                  value: _vm.datosRA.tipo_RRA,
+                                                  callback: function($$v) {
+                                                    _vm.$set(
+                                                      _vm.datosRA,
+                                                      "tipo_RRA",
+                                                      $$v
+                                                    )
+                                                  },
+                                                  expression: "datosRA.tipo_RRA"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "",
+                                                      selected: ""
+                                                    }
+                                                  },
+                                                  [_vm._v("Seleccione")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "CORRECTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("CORRECTIVO")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "option",
+                                                  {
+                                                    attrs: {
+                                                      value: "PREVENTIVO"
+                                                    }
+                                                  },
+                                                  [_vm._v("PREVENTIVO")]
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Campañas de concientización y educación de la población :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.concientizacion_RAA ==
+                                            ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value:
+                                              _vm.datosRA.concientizacion_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "concientizacion_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "datosRA.concientizacion_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Sistema de manejo de agua residuales :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.sistema_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.sistema_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "sistema_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.sistema_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-md-6" },
+                                    [
+                                      _c("label", [
+                                        _vm._v(
+                                          "Se tiene programa de uso eficiente y adecuado del agua :"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "b-form-select",
+                                        {
+                                          class:
+                                            _vm.datosRA.programa_RAA == ""
+                                              ? ""
+                                              : "is-valid",
+                                          model: {
+                                            value: _vm.datosRA.programa_RAA,
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                _vm.datosRA,
+                                                "programa_RAA",
+                                                $$v
+                                              )
+                                            },
+                                            expression: "datosRA.programa_RAA"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "", selected: "" }
+                                            },
+                                            [_vm._v("Seleccione")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "OCACIONAL" } },
+                                            [_vm._v("OCACIONAL")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERIODICO" } },
+                                            [_vm._v("PERIODICO")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "PERMANENTE" } },
+                                            [_vm._v("PERMANENTE")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "NO" } },
+                                            [_vm._v("NO")]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "form-group row" }, [
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c("div", { staticClass: "text-center" }, [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-success",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.GuardarRA("RAA")
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fa fa-edit"
+                                          }),
+                                          _vm._v(
+                                            " Guardar\n                      "
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-right" }, [
+                    _vm.banderaControles
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-warning",
+                            attrs: { type: "button" },
+                            on: { click: _vm.cerrarModal }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-window-close" }),
+                            _vm._v(" Cerrar\n              ")
+                          ]
+                        )
+                      : _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-brand",
+                            attrs: { type: "button" },
+                            on: { click: _vm.cerrarControlRA }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-arrow-left" }),
+                            _vm._v(" Volver\n              ")
+                          ]
+                        )
+                  ])
+                ])
+              ])
+            ]
           )
         ],
         1
@@ -55891,7 +64494,7 @@ function comboBarrios($data) {
 /*!*************************************************************!*\
   !*** ./resources/js/Servicios/caracterizacion_servicios.js ***!
   \*************************************************************/
-/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA */
+/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA, buscarTablas */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55908,6 +64511,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editarCaracterizacion", function() { return editarCaracterizacion; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlesRA", function() { return controlesRA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buscarTablas", function() { return buscarTablas; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarCaracterizacion($data) {
@@ -55945,6 +64549,9 @@ function eliminar($data) {
 }
 function controlesRA($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/controlesRA', $data);
+}
+function buscarTablas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/buscarTablas', $data);
 }
 
 /***/ }),

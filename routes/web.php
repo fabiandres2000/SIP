@@ -100,6 +100,8 @@ Route::post('/caracterizacion/validarJefe', 'CaracterizacionController@validarJe
 Route::post('/caracterizacion/actualizar', 'CaracterizacionController@actualizar');
 Route::post('/caracterizacion/eliminar', 'CaracterizacionController@eliminar');
 Route::post('/caracterizacion/controlesRA', 'CaracterizacionController@controlesRA');
+Route::post('/caracterizacion/buscarTablas', 'CaracterizacionController@buscarTablas');
+
 
 
 Route::post('/establecimientos/editar', 'EstablecimientosController@editar');

@@ -15,7 +15,7 @@ class Integrante extends Model
         'colegio', 'grado', 'etnia', 'entiende', 'pyp', 'migrante',
         'id_compania', 'estado', 'clasificacion', 'puntaje_sisben', 'otra_eps',
         'jefe', 'orientacion', 'identidad_genero', 'telefono', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'excepciones',
-        'peso', 'talla',
+        'peso', 'talla','tipo_empleo'
     ];
     public static function guardar($data, $alias)
     {
@@ -75,6 +75,7 @@ class Integrante extends Model
             'excepciones' => $data['excepciones'],
             'peso' => $data['peso'],
             'talla' => $data['talla'],
+            'tipo_empleo' => $data['tipo_empleo'],
         ]);
     }
 
@@ -136,6 +137,7 @@ class Integrante extends Model
             'excepciones' => $data['excepciones'],
             'peso' => $data['peso'],
             'talla' => $data['talla'],
+            'tipo_empleo' => $data['tipo_empleo'],
         ]);
     }
 
@@ -242,6 +244,23 @@ class Integrante extends Model
             ->count();
     }
 
+    public static function totalIntegrantes($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->where('integrantes.id_hogar', $id_hogar)
+            ->where('estado', 'Activo')
+            ->count();
+    }    
+    public static function totalIntegrantesDescolarizados($alias, $id_hogar)
+    {
+        return DB::connection('mysql')->table($alias . '.integrantes')
+            ->where('integrantes.id_hogar', $id_hogar)
+            ->where('estado', 'Activo')
+            ->select('integrantes.*')
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edad")
+            ->whereRaw('(escolaridad = 1 OR escolaridad = 4 OR escolaridad = 12 OR escolaridad = 13)')
+            ->get();
+    }
     public static function adolEmba($alias)
     {
         return DB::connection('mysql')->table($alias . '.integrantes')

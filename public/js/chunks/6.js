@@ -4345,7 +4345,7 @@ render._withStripped = true
 /*!*************************************************************!*\
   !*** ./resources/js/Servicios/caracterizacion_servicios.js ***!
   \*************************************************************/
-/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA */
+/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA, buscarTablas */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4362,6 +4362,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editarCaracterizacion", function() { return editarCaracterizacion; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminar", function() { return eliminar; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlesRA", function() { return controlesRA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buscarTablas", function() { return buscarTablas; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarCaracterizacion($data) {
@@ -4399,6 +4400,9 @@ function eliminar($data) {
 }
 function controlesRA($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/controlesRA', $data);
+}
+function buscarTablas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/buscarTablas', $data);
 }
 
 /***/ }),

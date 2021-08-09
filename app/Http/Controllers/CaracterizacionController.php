@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 use Session;
 
 class CaracterizacionController extends Controller
@@ -486,6 +487,54 @@ class CaracterizacionController extends Controller
                 'value' => 'Kinder',
                 'texto' => 'Kinder',
             ];
+
+            $arrayGrados[1][] = [
+                'value' => 'Primero',
+                'texto' => 'Primero',
+            ];
+            $arrayGrados[1][] = [
+                'value' => 'Segundo',
+                'texto' => 'Segundo',
+            ];
+            $arrayGrados[1][] = [
+                'value' => 'Tercero',
+                'texto' => 'Tercero',
+            ];
+            $arrayGrados[1][] = [
+                'value' => 'Cuarto',
+                'texto' => 'Cuarto',
+            ];
+            $arrayGrados[1][] = [
+                'value' => 'Quinto',
+                'texto' => 'Quinto',
+            ];
+            $arrayGrados[4][] = [
+                'value' => 'Sexto',
+                'texto' => 'Sexto',
+            ];
+            $arrayGrados[4][] = [
+                'value' => 'Septimo',
+                'texto' => 'Septimo',
+            ];
+            $arrayGrados[4][] = [
+                'value' => 'Octavo',
+                'texto' => 'Octavo',
+            ];
+            $arrayGrados[4][] = [
+                'value' => 'Noveno',
+                'texto' => 'Noveno',
+            ];
+            $arrayGrados[4][] = [
+                'value' => 'Decimo',
+                'texto' => 'Decimo',
+            ];
+            $arrayGrados[4][] = [
+                'value' => 'Undecimo',
+                'texto' => 'Undecimo',
+            ];
+            
+
+
             $arrayMorbilidadNacer = [];
             $consmorbinacer = \App\MorbilidadNacer::buscar(Session::get('alias'));
             foreach ($consmorbinacer as $item) {
@@ -1065,12 +1114,112 @@ class CaracterizacionController extends Controller
                         }
                         //TABLA VIVIENDA
 
+                        //CALCULAR RIESGOS//
+                        $guardarInicial = \App\ValoresRiesgosAmbientales::guardarInicial($IDHOGAR, Session::get('alias'));
+                        $ValoresRiesgosAmbientales = \App\ValoresRiesgosAmbientales::buscar(Session::get('alias'), $IDHOGAR);
+                        $resultado = self::calcular($IDHOGAR);
+                        $riesgos_ambientales = \App\RiesgosAmbientales::buscar(Session::get('alias'), $IDHOGAR);
+                        if ($riesgos_ambientales) {
+                            $riesgos_ambientales->va_riesgos_derrumbes = self::valorizacion($riesgos_ambientales->riesgos_derrumbes, 1);
+                            $riesgos_ambientales->color_riesgos_derrumbes = self::color($riesgos_ambientales->va_riesgos_derrumbes);
+                            if ($riesgos_ambientales->control_riesgos_derrumbes != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_derrumbes = self::valRieRes($riesgos_ambientales->control_riesgos_derrumbes);
+                                $riesgos_ambientales->color_residual_riesgos_derrumbes = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_derrumbes);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_derrumbes = "";
+                                $riesgos_ambientales->color_residual_riesgos_derrumbes = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_inundacion = self::valorizacion($riesgos_ambientales->riesgos_inundacion, 1);
+                            $riesgos_ambientales->color_riesgos_inundacion = self::color($riesgos_ambientales->va_riesgos_inundacion);
+                            if ($riesgos_ambientales->control_riesgos_inundacion != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_inundacion = self::valRieRes($riesgos_ambientales->control_riesgos_inundacion);
+                                $riesgos_ambientales->color_residual_riesgos_inundacion = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_inundacion);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_inundacion = "";
+                                $riesgos_ambientales->color_residual_riesgos_inundacion = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_insalubridad = self::valorizacion($riesgos_ambientales->riesgos_insalubridad, 2);
+                            $riesgos_ambientales->color_riesgos_insalubridad = self::color($riesgos_ambientales->va_riesgos_insalubridad);
+                            if ($riesgos_ambientales->control_riesgos_insalubridad != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_insalubridad = self::valRieRes($riesgos_ambientales->control_riesgos_insalubridad);
+                                $riesgos_ambientales->color_residual_riesgos_insalubridad = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_insalubridad);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_insalubridad = "";
+                                $riesgos_ambientales->color_residual_riesgos_insalubridad = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_atmosferico = self::valorizacion($riesgos_ambientales->riesgos_atmosferico, 1);
+                            $riesgos_ambientales->color_riesgos_atmosferico = self::color($riesgos_ambientales->va_riesgos_atmosferico);
+                            if ($riesgos_ambientales->control_riesgos_atmosferico != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_atmosferico = self::valRieRes($riesgos_ambientales->control_riesgos_atmosferico);
+                                $riesgos_ambientales->color_residual_riesgos_atmosferico = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_atmosferico);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_atmosferico = "";
+                                $riesgos_ambientales->color_residual_riesgos_atmosferico = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_recurso_suelo = self::valorizacion($riesgos_ambientales->riesgos_recurso_suelo, 1);
+                            $riesgos_ambientales->color_riesgos_recurso_suelo = self::color($riesgos_ambientales->va_riesgos_recurso_suelo);
+                            if ($riesgos_ambientales->control_riesgos_recurso_suelo != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_recurso_suelo = self::valRieRes($riesgos_ambientales->control_riesgos_recurso_suelo);
+                                $riesgos_ambientales->color_residual_riesgos_recurso_suelo = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_recurso_suelo);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_recurso_suelo = "";
+                                $riesgos_ambientales->color_residual_riesgos_recurso_suelo = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_quema = self::valorizacion($riesgos_ambientales->riesgos_quema, 1);
+                            $riesgos_ambientales->color_riesgos_quema = self::color($riesgos_ambientales->va_riesgos_quema);
+                            if ($riesgos_ambientales->control_riesgos_quema != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_quema = self::valRieRes($riesgos_ambientales->control_riesgos_quema);
+                                $riesgos_ambientales->color_residual_riesgos_quema = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_quema);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_quema = "";
+                                $riesgos_ambientales->color_residual_riesgos_quema = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_auditivo = self::valorizacion($riesgos_ambientales->riesgos_auditivo, 1);
+                            $riesgos_ambientales->color_riesgos_auditivo = self::color($riesgos_ambientales->va_riesgos_auditivo);
+                            if ($riesgos_ambientales->control_riesgos_auditivo != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_auditivo = self::valRieRes($riesgos_ambientales->control_riesgos_auditivo);
+                                $riesgos_ambientales->color_residual_riesgos_auditivo = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_auditivo);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_auditivo = "";
+                                $riesgos_ambientales->color_residual_riesgos_auditivo = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_recurso_hidrico = self::valorizacion($riesgos_ambientales->riesgos_recurso_hidrico, 1);
+                            $riesgos_ambientales->color_riesgos_recurso_hidrico = self::color($riesgos_ambientales->va_riesgos_recurso_hidrico);
+                            if ($riesgos_ambientales->control_riesgos_recurso_hidrico != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_recurso_hidrico = self::valRieRes($riesgos_ambientales->control_riesgos_recurso_hidrico);
+                                $riesgos_ambientales->color_residual_riesgos_recurso_hidrico = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_recurso_hidrico);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_recurso_hidrico = "";
+                                $riesgos_ambientales->color_residual_riesgos_recurso_hidrico = "";
+                            }
+
+                            $riesgos_ambientales->va_riesgos_acceso_agua = self::valorizacion($riesgos_ambientales->riesgos_acceso_agua, 1);
+                            $riesgos_ambientales->color_riesgos_acceso_agua = self::color($riesgos_ambientales->va_riesgos_acceso_agua);
+                            if ($riesgos_ambientales->control_riesgos_acceso_agua != "0") {
+                                $riesgos_ambientales->val_residual_riesgos_acceso_agua = self::valRieRes($riesgos_ambientales->control_riesgos_acceso_agua);
+                                $riesgos_ambientales->color_residual_riesgos_acceso_agua = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_acceso_agua);
+                            } else {
+                                $riesgos_ambientales->val_residual_riesgos_acceso_agua = "";
+                                $riesgos_ambientales->color_residual_riesgos_acceso_agua = "";
+                            }
+                        }
+                        //CALCULAR RIESGOS//
+
                         $respuesta = [
                             'OPC' => 'SI',
                             'vivienda' => $vivienda,
                             'animales' => $animales,
                             'estratificacion' => $estratificacion,
                             'actividad_viviendas' => $actividad_viviendas,
+                            'riesgos_ambientales' => $riesgos_ambientales,
+                            'ValoresRiesgosAmbientales' => $ValoresRiesgosAmbientales,
                         ];
 
                         $gua = \App\Log::guardar("Guardar la pestaña viviendas con id_hogar  = " . $IDHOGAR, Session::get('alias'));
@@ -1285,6 +1434,7 @@ class CaracterizacionController extends Controller
                     // GUARDAR DATOS DEL JEFE HOGAR
                     if ($hogarrespuesta >= 0) {
                         for ($i = 0; $i < count($datacaracterizacion); $i++) {
+
                             $datacaracterizacion[$i]['id_hogar'] = $id_hogar;
                             if ($datacaracterizacion[$i]['id'] == "0") {
                                 $caracterizacionrespuesta = \App\Caracterizacion::guardar($datacaracterizacion[$i], Session::get('alias'));
@@ -1467,38 +1617,103 @@ class CaracterizacionController extends Controller
                         $actividad_viviendas = \App\ActividadVivienda::buscar(Session::get('alias'), $IDHOGAR);
                     }
                     //TABLA VIVIENDA
+
                     //CALCULAR RIESGOS//
+                    $ValoresRiesgosAmbientales = \App\ValoresRiesgosAmbientales::buscar(Session::get('alias'), $IDHOGAR);
+
                     $resultado = self::calcular($IDHOGAR);
                     $riesgos_ambientales = \App\RiesgosAmbientales::buscar(Session::get('alias'), $IDHOGAR);
                     if ($riesgos_ambientales) {
-                        $riesgos_ambientales->va_riesgos_derrumbes = self::valorizacion($riesgos_ambientales->riesgos_derrumbes);
+                        $riesgos_ambientales->va_riesgos_derrumbes = self::valorizacion($riesgos_ambientales->riesgos_derrumbes, 1);
                         $riesgos_ambientales->color_riesgos_derrumbes = self::color($riesgos_ambientales->va_riesgos_derrumbes);
+                        if ($riesgos_ambientales->control_riesgos_derrumbes != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_derrumbes = self::valRieRes($riesgos_ambientales->control_riesgos_derrumbes);
+                            $riesgos_ambientales->color_residual_riesgos_derrumbes = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_derrumbes);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_derrumbes = "";
+                            $riesgos_ambientales->color_residual_riesgos_derrumbes = "";
+                        }
 
-                        $riesgos_ambientales->va_riesgos_inundacion = self::valorizacion($riesgos_ambientales->riesgos_inundacion);
+                        $riesgos_ambientales->va_riesgos_inundacion = self::valorizacion($riesgos_ambientales->riesgos_inundacion, 1);
                         $riesgos_ambientales->color_riesgos_inundacion = self::color($riesgos_ambientales->va_riesgos_inundacion);
+                        if ($riesgos_ambientales->control_riesgos_inundacion != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_inundacion = self::valRieRes($riesgos_ambientales->control_riesgos_inundacion);
+                            $riesgos_ambientales->color_residual_riesgos_inundacion = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_inundacion);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_inundacion = "";
+                            $riesgos_ambientales->color_residual_riesgos_inundacion = "";
+                        }
 
-                        $riesgos_ambientales->va_riesgos_insalubridad = self::valorizacion($riesgos_ambientales->riesgos_insalubridad);
+                        $riesgos_ambientales->va_riesgos_insalubridad = self::valorizacion($riesgos_ambientales->riesgos_insalubridad, 2);
                         $riesgos_ambientales->color_riesgos_insalubridad = self::color($riesgos_ambientales->va_riesgos_insalubridad);
+                        if ($riesgos_ambientales->control_riesgos_insalubridad != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_insalubridad = self::valRieRes($riesgos_ambientales->control_riesgos_insalubridad);
+                            $riesgos_ambientales->color_residual_riesgos_insalubridad = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_insalubridad);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_insalubridad = "";
+                            $riesgos_ambientales->color_residual_riesgos_insalubridad = "";
+                        }
 
-                        $riesgos_ambientales->va_riesgos_atmosferico = self::valorizacion($riesgos_ambientales->riesgos_atmosferico);
+                        $riesgos_ambientales->va_riesgos_atmosferico = self::valorizacion($riesgos_ambientales->riesgos_atmosferico, 1);
                         $riesgos_ambientales->color_riesgos_atmosferico = self::color($riesgos_ambientales->va_riesgos_atmosferico);
-                        
-                        $riesgos_ambientales->va_riesgos_recurso_suelo = self::valorizacion($riesgos_ambientales->riesgos_recurso_suelo);
+                        if ($riesgos_ambientales->control_riesgos_atmosferico != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_atmosferico = self::valRieRes($riesgos_ambientales->control_riesgos_atmosferico);
+                            $riesgos_ambientales->color_residual_riesgos_atmosferico = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_atmosferico);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_atmosferico = "";
+                            $riesgos_ambientales->color_residual_riesgos_atmosferico = "";
+                        }
+
+                        $riesgos_ambientales->va_riesgos_recurso_suelo = self::valorizacion($riesgos_ambientales->riesgos_recurso_suelo, 1);
                         $riesgos_ambientales->color_riesgos_recurso_suelo = self::color($riesgos_ambientales->va_riesgos_recurso_suelo);
+                        if ($riesgos_ambientales->control_riesgos_recurso_suelo != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_recurso_suelo = self::valRieRes($riesgos_ambientales->control_riesgos_recurso_suelo);
+                            $riesgos_ambientales->color_residual_riesgos_recurso_suelo = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_recurso_suelo);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_recurso_suelo = "";
+                            $riesgos_ambientales->color_residual_riesgos_recurso_suelo = "";
+                        }
 
-                        $riesgos_ambientales->va_riesgos_quema = self::valorizacion($riesgos_ambientales->riesgos_quema);
+                        $riesgos_ambientales->va_riesgos_quema = self::valorizacion($riesgos_ambientales->riesgos_quema, 1);
                         $riesgos_ambientales->color_riesgos_quema = self::color($riesgos_ambientales->va_riesgos_quema);
+                        if ($riesgos_ambientales->control_riesgos_quema != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_quema = self::valRieRes($riesgos_ambientales->control_riesgos_quema);
+                            $riesgos_ambientales->color_residual_riesgos_quema = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_quema);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_quema = "";
+                            $riesgos_ambientales->color_residual_riesgos_quema = "";
+                        }
 
-                        $riesgos_ambientales->va_riesgos_auditivo = self::valorizacion($riesgos_ambientales->riesgos_auditivo);
+                        $riesgos_ambientales->va_riesgos_auditivo = self::valorizacion($riesgos_ambientales->riesgos_auditivo, 3);
                         $riesgos_ambientales->color_riesgos_auditivo = self::color($riesgos_ambientales->va_riesgos_auditivo);
+                        if ($riesgos_ambientales->control_riesgos_auditivo != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_auditivo = self::valRieRes($riesgos_ambientales->control_riesgos_auditivo);
+                            $riesgos_ambientales->color_residual_riesgos_auditivo = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_auditivo);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_auditivo = "";
+                            $riesgos_ambientales->color_residual_riesgos_auditivo = "";
+                        }
 
-                        $riesgos_ambientales->va_riesgos_recurso_hidrico = self::valorizacion($riesgos_ambientales->riesgos_recurso_hidrico);
+                        $riesgos_ambientales->va_riesgos_recurso_hidrico = self::valorizacion($riesgos_ambientales->riesgos_recurso_hidrico, 1);
                         $riesgos_ambientales->color_riesgos_recurso_hidrico = self::color($riesgos_ambientales->va_riesgos_recurso_hidrico);
+                        if ($riesgos_ambientales->control_riesgos_recurso_hidrico != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_recurso_hidrico = self::valRieRes($riesgos_ambientales->control_riesgos_recurso_hidrico);
+                            $riesgos_ambientales->color_residual_riesgos_recurso_hidrico = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_recurso_hidrico);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_recurso_hidrico = "";
+                            $riesgos_ambientales->color_residual_riesgos_recurso_hidrico = "";
+                        }
 
-                        $riesgos_ambientales->va_riesgos_acceso_agua = self::valorizacion($riesgos_ambientales->riesgos_acceso_agua);
-                        $riesgos_ambientales->color_riesgos_acceso_agua = self::color($riesgos_ambientales->va_riesgos_acceso_agua);                        
+                        $riesgos_ambientales->va_riesgos_acceso_agua = self::valorizacion($riesgos_ambientales->riesgos_acceso_agua, 1);
+                        $riesgos_ambientales->color_riesgos_acceso_agua = self::color($riesgos_ambientales->va_riesgos_acceso_agua);
+                        if ($riesgos_ambientales->control_riesgos_acceso_agua != "0") {
+                            $riesgos_ambientales->val_residual_riesgos_acceso_agua = self::valRieRes($riesgos_ambientales->control_riesgos_acceso_agua);
+                            $riesgos_ambientales->color_residual_riesgos_acceso_agua = self::colorRieRes($riesgos_ambientales->val_residual_riesgos_acceso_agua);
+                        } else {
+                            $riesgos_ambientales->val_residual_riesgos_acceso_agua = "";
+                            $riesgos_ambientales->color_residual_riesgos_acceso_agua = "";
+                        }
                     }
-                    // dd($riesgos_ambientales)->die;
                     //CALCULAR RIESGOS//
                     $respuesta = [
                         'OPC' => 'SI',
@@ -1507,6 +1722,7 @@ class CaracterizacionController extends Controller
                         'estratificacion' => $estratificacion,
                         'actividad_viviendas' => $actividad_viviendas,
                         'riesgos_ambientales' => $riesgos_ambientales,
+                        'ValoresRiesgosAmbientales' => $ValoresRiesgosAmbientales,
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña viviendas con id_hogar  = " . $IDHOGAR, Session::get('alias'));
 
@@ -1523,7 +1739,12 @@ class CaracterizacionController extends Controller
                     // GUARDAR MENORES DE 1 AÑO
                     for ($i = 0; $i < count($dataMen1A); $i++) {
                         $dataMen1A[$i]['id_hogar'] = $IDHOGAR;
+                        $integrante = \App\Integrante::buscar($dataMen1A[$i]['identificacion'], Session::get('alias'));
                         $Men1Arespuesta = \App\Men1a::guardar($dataMen1A[$i], Session::get('alias'));
+
+                        //RIESGOS DE SALUD
+                        $resultado = self::riesgoSalud($IDHOGAR, "Men1A", $dataMen1A[$i]['identificacion']);
+                        //RIESGOS DE SALUD
                     }
                     // GUARDAR MENORES DE 1 AÑO
 
@@ -1574,6 +1795,67 @@ class CaracterizacionController extends Controller
                     //TABLA PARPOST
                     $ParPost = \App\Parpost::buscar(Session::get('alias'), $IDHOGAR);
                     //TABLA PARPOST
+
+                    // RIESGOS SALUD MEN1A
+                    $riesgos_salud_men1a = \App\RiesgosSaludMen1::buscar(Session::get('alias'), $IDHOGAR);
+                    if($riesgos_salud_men1a){
+                        foreach($riesgos_salud_men1a as $item){
+                            $item->v_enfermedades_infecciosas_I = $item->enfermedades_infecciosas_I == 0 ? "" : self::valRieRes($item->enfermedades_infecciosas_I);
+                            $item->v_transtornos_asociados_spa_I = $item->transtornos_asociados_spa_I == 0 ? "" : self::valRieRes($item->transtornos_asociados_spa_I);
+                            $item->v_enfermedad_cardiovascular_I = $item->enfermedad_cardiovascular_I == 0 ? "" : self::valRieRes($item->enfermedad_cardiovascular_I);
+                            $item->v_cancer_I = $item->cancer_I == 0 ? "" : self::valRieRes($item->cancer_I);
+                            $item->v_alteraciones_transtornos_visuales_I = $item->alteraciones_transtornos_visuales_I == 0 ? "" : self::valRieRes($item->alteraciones_transtornos_visuales_I);
+                            $item->v_alteraciones_transtornos_audicion_I = $item->alteraciones_transtornos_audicion_I == 0 ? "" : self::valRieRes($item->alteraciones_transtornos_audicion_I);
+                            $item->v_salud_bucal_I = $item->salud_bucal_I == 0 ? "" : self::valRieRes($item->salud_bucal_I);
+                            $item->v_problemas_salud_mental_I = $item->problemas_salud_mental_I == 0 ? "" : self::valRieRes($item->problemas_salud_mental_I);
+                            $item->v_violencias_I = $item->violencias_I == 0 ? "" : self::valRieRes($item->violencias_I);
+                            $item->v_enfermedades_respiratorias_I = $item->enfermedades_respiratorias_I == 0 ? "" : self::valRieRes($item->enfermedades_respiratorias_I);
+                            $item->v_enfermedades_zoonoticas_I = $item->enfermedades_zoonoticas_I == 0 ? "" : self::valRieRes($item->enfermedades_zoonoticas_I);
+                            $item->v_transtornos_degenartivos_I = $item->transtornos_degenartivos_I == 0 ? "" : self::valRieRes($item->transtornos_degenartivos_I);
+                            $item->v_consumo_spa_I = $item->consumo_spa_I == 0 ? "" : self::valRieRes($item->consumo_spa_I);
+                            
+                            $item->v_riesgos_desnutricion_aguda_I = $item->riesgos_desnutricion_aguda_I == 0 ? "" : self::valRieRes($item->riesgos_desnutricion_aguda_I);
+                            $item->v_riesgos_desnutricion_global_I = $item->riesgos_desnutricion_global_I == 0 ? "" : self::valRieRes($item->riesgos_desnutricion_global_I);
+                            $item->v_desnutricion_global_I = $item->desnutricion_global_I == 0 ? "" : self::valRieRes($item->desnutricion_global_I);
+                            $item->v_riesgo_talla_baja_I = $item->riesgo_talla_baja_I == 0 ? "" : self::valRieRes($item->riesgo_talla_baja_I);
+                            $item->v_talla_baja_retraso_I = $item->talla_baja_retraso_I == 0 ? "" : self::valRieRes($item->talla_baja_retraso_I);
+                            $item->v_desnutricion_aguda_moderada_I = $item->desnutricion_aguda_moderada_I == 0 ? "" : self::valRieRes($item->desnutricion_aguda_moderada_I);
+                            $item->v_desnutricion_aguda_severa_I = $item->desnutricion_aguda_severa_I == 0 ? "" : self::valRieRes($item->desnutricion_aguda_severa_I);
+                            $item->v_riesgo_muerte_I = $item->riesgo_muerte_I == 0 ? "" : self::valRieRes($item->riesgo_muerte_I);
+                            $item->v_riesgo_sobrepeso_I = $item->riesgo_sobrepeso_I == 0 ? "" : self::valRieRes($item->riesgo_sobrepeso_I);
+                            $item->v_sobrepeso_I = $item->sobrepeso_I == 0 ? "" : self::valRieRes($item->sobrepeso_I);
+                            $item->v_obesidad_I = $item->obesidad_I == 0 ? "" : self::valRieRes($item->obesidad_I);
+
+                            $item->c_enfermedades_infecciosas_I = $item->v_enfermedades_infecciosas_I == "" ? "" : self::colorRieRes($item->v_enfermedades_infecciosas_I);
+                            $item->c_transtornos_asociados_spa_I = $item->v_transtornos_asociados_spa_I == "" ? "" : self::colorRieRes($item->v_transtornos_asociados_spa_I);
+                            $item->c_enfermedad_cardiovascular_I = $item->v_enfermedad_cardiovascular_I == "" ? "" : self::colorRieRes($item->v_enfermedad_cardiovascular_I);
+                            $item->c_cancer_I = $item->v_cancer_I == "" ? "" : self::colorRieRes($item->v_cancer_I);
+                            $item->c_alteraciones_transtornos_visuales_I = $item->v_alteraciones_transtornos_visuales_I == "" ? "" : self::colorRieRes($item->v_alteraciones_transtornos_visuales_I);
+                            $item->c_alteraciones_transtornos_audicion_I = $item->v_alteraciones_transtornos_audicion_I == "" ? "" : self::colorRieRes($item->v_alteraciones_transtornos_audicion_I);
+                            $item->c_salud_bucal_I = $item->v_salud_bucal_I == "" ? "" : self::colorRieRes($item->v_salud_bucal_I);
+                            $item->c_problemas_salud_mental_I = $item->v_problemas_salud_mental_I == "" ? "" : self::colorRieRes($item->v_problemas_salud_mental_I);
+                            $item->c_violencias_I = $item->v_violencias_I == "" ? "" : self::colorRieRes($item->v_violencias_I);
+                            $item->c_enfermedades_respiratorias_I = $item->v_enfermedades_respiratorias_I == "" ? "" : self::colorRieRes($item->v_enfermedades_respiratorias_I);
+                            $item->c_enfermedades_zoonoticas_I = $item->v_enfermedades_zoonoticas_I == "" ? "" : self::colorRieRes($item->v_enfermedades_zoonoticas_I);
+                            $item->c_transtornos_degenartivos_I = $item->v_transtornos_degenartivos_I == "" ? "" : self::colorRieRes($item->v_transtornos_degenartivos_I);
+                            $item->c_consumo_spa_I = $item->v_consumo_spa_I == "" ? "" : self::colorRieRes($item->v_consumo_spa_I);
+                            
+                            $item->c_riesgos_desnutricion_aguda_I = $item->v_riesgos_desnutricion_aguda_I == "" ? "" : self::colorRieRes($item->v_riesgos_desnutricion_aguda_I);
+                            $item->c_riesgos_desnutricion_global_I = $item->v_riesgos_desnutricion_global_I == "" ? "" : self::colorRieRes($item->v_riesgos_desnutricion_global_I);
+                            $item->c_desnutricion_global_I = $item->v_desnutricion_global_I == "" ? "" : self::colorRieRes($item->v_desnutricion_global_I);
+                            $item->c_riesgo_talla_baja_I = $item->v_riesgo_talla_baja_I == "" ? "" : self::colorRieRes($item->v_riesgo_talla_baja_I);
+                            $item->c_talla_baja_retraso_I = $item->v_talla_baja_retraso_I == "" ? "" : self::colorRieRes($item->v_talla_baja_retraso_I);
+                            $item->c_desnutricion_aguda_moderada_I = $item->v_desnutricion_aguda_moderada_I == "" ? "" : self::colorRieRes($item->v_desnutricion_aguda_moderada_I);
+                            $item->c_desnutricion_aguda_severa_I = $item->v_desnutricion_aguda_severa_I == "" ? "" : self::colorRieRes($item->v_desnutricion_aguda_severa_I);
+                            $item->c_riesgo_muerte_I = $item->v_riesgo_muerte_I == "" ? "" : self::colorRieRes($item->v_riesgo_muerte_I);
+                            $item->c_riesgo_sobrepeso_I = $item->v_riesgo_sobrepeso_I == "" ? "" : self::colorRieRes($item->v_riesgo_sobrepeso_I);
+                            $item->c_sobrepeso_I = $item->v_sobrepeso_I == "" ? "" : self::colorRieRes($item->v_sobrepeso_I);
+                            $item->c_obesidad_I = $item->v_obesidad_I == "" ? "" : self::colorRieRes($item->v_obesidad_I);                            
+                        }
+                        // dd($riesgos_salud_men1a)->die;
+                    }
+                    // RIESGOS SALUD MEN1A
+
                     $respuesta = [
                         'OPC' => 'SI',
                         'De10A59' => $De10A59,
@@ -1581,6 +1863,7 @@ class CaracterizacionController extends Controller
                         'De1A5' => $De1A5,
                         'De6A11' => $De6A11,
                         'ParPost' => $ParPost,
+                        'riesgos_salud_men1a' =>$riesgos_salud_men1a
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña cart.X.ciclo con id_hogar  = " . $IDHOGAR, Session::get('alias'));
                     return response()->json($respuesta, 200);
@@ -1637,7 +1920,6 @@ class CaracterizacionController extends Controller
                     $dataEnInf = request()->get("EnInf");
                     $IDHOGAR = request()->get("IDHOGAR");
 
-                    // dd($dataDe60);die;
                     // GUARDAR DE 60
                     for ($i = 0; $i < count($dataDe60); $i++) {
                         $dataDe60[$i]['id_hogar'] = $IDHOGAR;
@@ -6187,38 +6469,150 @@ class CaracterizacionController extends Controller
         $pI1 = "";
         $impacto = 0;
 
-        if ($respuvivi->fuente_agua == "2") {
-            $rP1 = 1;
-            $impacto = 3;
-        } else {
-            if ($respuvivi->fuente_agua == "6") {
-                $rP1 = 0.6;
-                $impacto = 2;
-            } else {
+        switch ($respuvivi->fuente_agua) {
+            case "NA":
+                // OPCION NO APLICA
                 $rP1 = 0;
-                $impacto = 1;
-            }
-        }
+                $pI1 = "";
+                // OPCION NO APLICA
+                break;
+            case "1":
+                // OPCION Acueducto
+                $impacto = 3;
+                $rP1 = 0;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
 
-        if ($rP1 < 0.8) {
-            $rP1 = 1;
-        } else {
-            if ($rP1 >= 0.8 && $rP1 < 1) {
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Acueducto
+                break;
+            case "2":
+                // OPCION Pozo con bomba.
+                $impacto = 3;
                 $rP1 = 2;
-            } else {
-                $rP1 = 3;
-            }
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Pozo con bomba.
+                break;
+            case "3":
+                // OPCION Laguna o jagüey.
+                $impacto = 1;
+                $rP1 = 0;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Laguna o jagüey.
+                break;
+            case "4":
+                // OPCION Rio, quebrada o manantial.
+                $impacto = 1;
+                $rP1 = 0;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Rio, quebrada o manantial.
+                break;
+            case "5":
+                // OPCION  Agua lluvias.
+                $impacto = 1;
+                $rP1 = 0;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION  Agua lluvias.
+                break;
+            case "6":
+                // OPCION Carro Tanque.
+                $impacto = 2;
+                $rP1 = 2;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Carro Tanque.
+                break;
+            case "7":
+                // OPCION Agua Embotellada.
+                $impacto = 0;
+                $rP1 = 0;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION Agua Embotellada.
+                break;
+            case "9":
+                // OPCION otro
+                $impacto = 1;
+                $rP1 = 0;
+                $operacion = $impacto * $rP1;
+                if ($operacion < 3) {
+                    $pI1 = "BAJO";
+                } else if ($operacion >= 3 && $operacion < 7) {
+                    $pI1 = "MEDIO";
+                } else {
+                    $pI1 = "ALTO";
+                }
+
+                $rP1 = ($operacion * 1.6) / 9;
+                $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
+                // OPCION otro
+                break;
         }
-        $operacion = $impacto * $rP1;
-        if ($operacion < 3) {
-            $pI1 = "BAJO";
-        } else if ($operacion >= 3 && $operacion < 7) {
-            $pI1 = "MEDIO";
-        } else {
-            $pI1 = "ALTO";
-        }
-        $rP1 = ($operacion * 1.6) / 9;
-        $rP1 = round($rP1, 2, PHP_ROUND_HALF_UP);
         // PREGUNTA 13
 
         // PREGUNTA 18
@@ -7237,7 +7631,6 @@ class CaracterizacionController extends Controller
         $rTAas = $rP1 + $rP2 + $rP3 + $rP4 + $rP6 + $rP7;
         // TOTAL RIESGO
 
-        // dd($rTAas)->die;
         // Acceso a Agua Segura
 
         // GUARDAR DATOS
@@ -7316,30 +7709,2146 @@ class CaracterizacionController extends Controller
         }
     }
 
-    public function valorizacion($valor)
+    public function valorizacion($valor, $opc)
     {
         $valorizacion = "";
-        if ($valor < 3) {
-            $valorizacion = "Bajo";
-        } else if ($valor >= 3 && $valor < 7) {
-            $valorizacion = "Medio";
+        if ($opc == 1) {
+            if ($valor < 3) {
+                $valorizacion = "Bajo";
+            } else if ($valor >= 3 && $valor < 7) {
+                $valorizacion = "Medio";
+            } else {
+                $valorizacion = "Alto";
+            }
         } else {
-            $valorizacion = "Alto";
+            if ($opc == 2) {
+                if ($valor < 5) {
+                    $valorizacion = "Bajo";
+                } else if ($valor >= 5 && $valor < 15) {
+                    $valorizacion = "Medio";
+                } else {
+                    $valorizacion = "Alto";
+                }
+            } else {
+                if ($valor < 1.6) {
+                    $valorizacion = "Bajo";
+                } else if ($valor >= 1.6 && $valor < 3.2) {
+                    $valorizacion = "Medio";
+                } else {
+                    $valorizacion = "Alto";
+                }
+            }
         }
         return $valorizacion;
     }
 
-    public function color($valor){
+    public function color($valor)
+    {
         $color = "";
-        if($valor=="Bajo"){
+        if ($valor == "Bajo") {
             $color = "kt-badge--success";
-        }else{
-            if($valor=="Medio"){
+        } else {
+            if ($valor == "Medio") {
                 $color = "kt-badge--warning";
-            }else{
+            } else {
                 $color = "kt-badge--danger";
             }
         }
-        return $color;       
+        return $color;
+    }
+
+    public function controlesRA()
+    {
+        if (Auth::check()) {
+            $opcion = request()->get("opcion");
+            $datosRA = request()->get("datosRA");
+            $IDHOGAR = request()->get("IDHOGAR");
+            $RieAmbInh = request()->get("RieAmbInh");
+
+            $suma = 0;
+            $media = 0;
+            $inexistente = 1;
+            $correctivo = 2;
+            $preventivo = 3;
+
+            // Riesgos de  Derrumbes
+            if ($opcion == "RD") {
+                $totalDivicion = 4;
+                $control_entes_RD = self::valores($datosRA["control_entes_RD"]);
+                if ($control_entes_RD != 0) {
+                    $tipo_RD = self::valores2($datosRA["tipo_RD"]);
+                } else {
+                    $tipo_RD = 0;
+                }
+                $obras_ingenieria_RD = self::valores($datosRA["obras_ingenieria_RD"]);
+                $proteccion_RD = self::valores($datosRA["proteccion_RD"]);
+                $zona_vivienda_RD = self::valores($datosRA["zona_vivienda_RD"]);
+
+                $suma = $suma + ($control_entes_RD * $tipo_RD);
+                $suma = $suma + ($obras_ingenieria_RD * $preventivo);
+                $suma = $suma + ($proteccion_RD * $preventivo);
+                $suma = $suma + ($zona_vivienda_RD * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_derrumbes = self::valorizacion($RieAmbInh["riesgos_derrumbes"], 1);
+                $va_riesgos_derrumbes = self::eficaciaControlRAVA(strtoupper($va_riesgos_derrumbes));
+
+                $residual_riesgos_derrumbes = $va_riesgos_derrumbes / $media;
+                $residual_riesgos_derrumbes = round($residual_riesgos_derrumbes, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_derrumbes = self::valRieRes($residual_riesgos_derrumbes);
+                $color_residual_riesgos_derrumbes = self::colorRieRes($val_residual_riesgos_derrumbes);
+
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_derrumbes", $residual_riesgos_derrumbes);
+                $respuesta = [
+                    'residual_riesgos_derrumbes' => $residual_riesgos_derrumbes,
+                    'val_residual_riesgos_derrumbes' => $val_residual_riesgos_derrumbes,
+                    'color_residual_riesgos_derrumbes' => $color_residual_riesgos_derrumbes,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RD", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgos de  Derrumbes
+
+            // Riesgos de inundación
+            if ($opcion == "RI") {
+                $totalDivicion = 5;
+                $control_entes_RI = self::valores($datosRA["control_entes_RI"]);
+                if ($control_entes_RI != 0) {
+                    $tipo_RI = self::valores2($datosRA["tipo_RI"]);
+                } else {
+                    $tipo_RI = 0;
+                }
+                $gaviones_RI = self::valores($datosRA["gaviones_RI"]);
+                $dragado_RI = self::valores($datosRA["dragado_RI"]);
+                $barreras_RI = self::valores($datosRA["barreras_RI"]);
+                $zona_vivienda_RI = self::valores($datosRA["zona_vivienda_RI"]);
+
+                $suma = $suma + ($control_entes_RI * $tipo_RI);
+                $suma = $suma + ($gaviones_RI * $preventivo);
+                $suma = $suma + ($dragado_RI * $correctivo);
+                $suma = $suma + ($barreras_RI * $preventivo);
+                $suma = $suma + ($zona_vivienda_RI * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_inundacion = self::valorizacion($RieAmbInh["riesgos_inundacion"], 1);
+                $va_riesgos_inundacion = self::eficaciaControlRAVA(strtoupper($va_riesgos_inundacion));
+
+                $residual_riesgos_inundacion = $va_riesgos_inundacion / $media;
+                $residual_riesgos_inundacion = round($residual_riesgos_inundacion, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_inundacion = self::valRieRes($residual_riesgos_inundacion);
+                $color_residual_riesgos_inundacion = self::colorRieRes($val_residual_riesgos_inundacion);
+
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_inundacion", $residual_riesgos_inundacion);
+                $respuesta = [
+                    'residual_riesgos_inundacion' => $residual_riesgos_inundacion,
+                    'val_residual_riesgos_inundacion' => $val_residual_riesgos_inundacion,
+                    'color_residual_riesgos_inundacion' => $color_residual_riesgos_inundacion,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RI", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgos de inundación
+
+            // Riesgos de insalubridad
+            if ($opcion == "RIN") {
+                $totalDivicion = 6;
+                $sistema_recoleccion_RIN = self::valores($datosRA["sistema_recoleccion_RIN"]);
+                $control_entes_RIN = self::valores($datosRA["control_entes_RIN"]);
+                if ($control_entes_RIN != 0) {
+                    $tipo_RIN = self::valores2($datosRA["tipo_RIN"]);
+                } else {
+                    $tipo_RIN = 0;
+                }
+                $control_plagas_RIN = self::valores($datosRA["control_plagas_RIN"]);
+                $limpieza_RIN = self::valores($datosRA["limpieza_RIN"]);
+                $tipo_tratamiento_RIN = self::valores($datosRA["tipo_tratamiento_RIN"]);
+                $clasificacion_residuos_RIN = self::valores($datosRA["clasificacion_residuos_RIN"]);
+                $suma = $suma + ($sistema_recoleccion_RIN * $preventivo);
+                $suma = $suma + ($control_entes_RIN * $tipo_RIN);
+                $suma = $suma + ($control_plagas_RIN * $preventivo);
+                $suma = $suma + ($limpieza_RIN * $correctivo);
+                $suma = $suma + ($tipo_tratamiento_RIN * $preventivo);
+                $suma = $suma + ($clasificacion_residuos_RIN * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_insalubridad = self::valorizacion($RieAmbInh["riesgos_insalubridad"], 2);
+                $va_riesgos_insalubridad = self::eficaciaControlRAVA(strtoupper($va_riesgos_insalubridad));
+
+                $residual_riesgos_insalubridad = $va_riesgos_insalubridad / $media;
+                $residual_riesgos_insalubridad = round($residual_riesgos_insalubridad, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_insalubridad = self::valRieRes($residual_riesgos_insalubridad);
+                $color_residual_riesgos_insalubridad = self::colorRieRes($val_residual_riesgos_insalubridad);
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_insalubridad", $residual_riesgos_insalubridad);
+                $respuesta = [
+                    'residual_riesgos_insalubridad' => $residual_riesgos_insalubridad,
+                    'val_residual_riesgos_insalubridad' => $val_residual_riesgos_insalubridad,
+                    'color_residual_riesgos_insalubridad' => $color_residual_riesgos_insalubridad,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RIN", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgos de insalubridad
+
+            // Riesgo atmosferico
+            if ($opcion == "RA") {
+                $totalDivicion = 4;
+                $control_entes_RA = self::valores($datosRA["control_entes_RA"]);
+                if ($control_entes_RA != 0) {
+                    $tipo_RA = self::valores2($datosRA["tipo_RA"]);
+                } else {
+                    $tipo_RA = 0;
+                }
+                $humectacion_RA = self::valores($datosRA["humectacion_RA"]);
+                $sistema_RA = self::valores($datosRA["sistema_RA"]);
+                $concientizacion_RA = self::valores($datosRA["concientizacion_RA"]);
+
+                $suma = $suma + ($control_entes_RA * $tipo_RA);
+                $suma = $suma + ($humectacion_RA * $correctivo);
+                $suma = $suma + ($sistema_RA * $correctivo);
+                $suma = $suma + ($concientizacion_RA * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_atmosferico = self::valorizacion($RieAmbInh["riesgos_atmosferico"], 1);
+                $va_riesgos_atmosferico = self::eficaciaControlRAVA(strtoupper($va_riesgos_atmosferico));
+
+                $residual_riesgos_atmosferico = $va_riesgos_atmosferico / $media;
+                $residual_riesgos_atmosferico = round($residual_riesgos_atmosferico, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_atmosferico = self::valRieRes($residual_riesgos_atmosferico);
+                $color_residual_riesgos_atmosferico = self::colorRieRes($val_residual_riesgos_atmosferico);
+
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_atmosferico", $residual_riesgos_atmosferico);
+                $respuesta = [
+                    'residual_riesgos_atmosferico' => $residual_riesgos_atmosferico,
+                    'val_residual_riesgos_atmosferico' => $val_residual_riesgos_atmosferico,
+                    'color_residual_riesgos_atmosferico' => $color_residual_riesgos_atmosferico,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RA", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgo atmosferico
+
+            // Riesgos Recurso suelo
+            if ($opcion == "RRS") {
+                $totalDivicion = 6;
+                $control_entes_RRS = self::valores($datosRA["control_entes_RRS"]);
+                if ($control_entes_RRS != 0) {
+                    $tipo_RRS = self::valores2($datosRA["tipo_RRS"]);
+                } else {
+                    $tipo_RRS = 0;
+                }
+                $concientizacion_RRS = self::valores($datosRA["concientizacion_RRS"]);
+                $mantenimiento_RRS = self::valores($datosRA["mantenimiento_RRS"]);
+                $mantenimiento_solicitado_RRS = self::valores($datosRA["mantenimiento_solicitado_RRS"]);
+                $fertilizantes_RRS = self::valores($datosRA["fertilizantes_RRS"]);
+                $clasificacion_RRS = self::valores($datosRA["clasificacion_RRS"]);
+
+                $suma = $suma + ($control_entes_RRS * $tipo_RRS);
+                $suma = $suma + ($concientizacion_RRS * $preventivo);
+                $suma = $suma + ($mantenimiento_RRS * $preventivo);
+                $suma = $suma + ($mantenimiento_solicitado_RRS * $correctivo);
+                $suma = $suma + ($fertilizantes_RRS * $correctivo);
+                $suma = $suma + ($clasificacion_RRS * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_recurso_suelo = self::valorizacion($RieAmbInh["riesgos_recurso_suelo"], 1);
+                $va_riesgos_recurso_suelo = self::eficaciaControlRAVA(strtoupper($va_riesgos_recurso_suelo));
+
+                $residual_riesgos_recurso_suelo = $va_riesgos_recurso_suelo / $media;
+                $residual_riesgos_recurso_suelo = round($residual_riesgos_recurso_suelo, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_recurso_suelo = self::valRieRes($residual_riesgos_recurso_suelo);
+                $color_residual_riesgos_recurso_suelo = self::colorRieRes($val_residual_riesgos_recurso_suelo);
+
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_recurso_suelo", $residual_riesgos_recurso_suelo);
+                $respuesta = [
+                    'residual_riesgos_recurso_suelo' => $residual_riesgos_recurso_suelo,
+                    'val_residual_riesgos_recurso_suelo' => $val_residual_riesgos_recurso_suelo,
+                    'color_residual_riesgos_recurso_suelo' => $color_residual_riesgos_recurso_suelo,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RRS", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgos Recurso suelo
+
+            // Riesgo por quemas o incendio
+            if ($opcion == "RQ") {
+                $totalDivicion = 6;
+                $control_entes_RQ = self::valores($datosRA["control_entes_RQ"]);
+                if ($control_entes_RQ != 0) {
+                    $tipo_RQ = self::valores2($datosRA["tipo_RQ"]);
+                } else {
+                    $tipo_RQ = 0;
+                }
+                $concientizacion_RQ = self::valores($datosRA["concientizacion_RQ"]);
+                $bomberos_RQ = self::valores($datosRA["bomberos_RQ"]);
+                $servicio_programado_RQ = self::valores($datosRA["servicio_programado_RQ"]);
+                $servicio_solicitud_RQ = self::valores($datosRA["servicio_solicitud_RQ"]);
+                $aprovechamiento_RQ = self::valores($datosRA["aprovechamiento_RQ"]);
+
+                $suma = $suma + ($control_entes_RQ * $tipo_RQ);
+                $suma = $suma + ($concientizacion_RQ * $preventivo);
+                $suma = $suma + ($bomberos_RQ * $correctivo);
+                $suma = $suma + ($servicio_programado_RQ * $preventivo);
+                $suma = $suma + ($servicio_solicitud_RQ * $preventivo);
+                $suma = $suma + ($aprovechamiento_RQ * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_quema = self::valorizacion($RieAmbInh["riesgos_quema"], 1);
+                $va_riesgos_quema = self::eficaciaControlRAVA(strtoupper($va_riesgos_quema));
+
+                $residual_riesgos_quema = $va_riesgos_quema / $media;
+                $residual_riesgos_quema = round($residual_riesgos_quema, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_quema = self::valRieRes($residual_riesgos_quema);
+                $color_residual_riesgos_quema = self::colorRieRes($val_residual_riesgos_quema);
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_quema", $residual_riesgos_quema);
+                $respuesta = [
+                    'residual_riesgos_quema' => $residual_riesgos_quema,
+                    'val_residual_riesgos_quema' => $val_residual_riesgos_quema,
+                    'color_residual_riesgos_quema' => $color_residual_riesgos_quema,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RQ", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgo por quemas o incendio
+
+            // Riesgo Auditivo
+            if ($opcion == "RAU") {
+                $totalDivicion = 5;
+                $control_entes_RAU = self::valores($datosRA["control_entes_RAU"]);
+                if ($control_entes_RAU != 0) {
+                    $tipo_RAU = self::valores2($datosRA["tipo_RAU"]);
+                } else {
+                    $tipo_RAU = 0;
+                }
+                $regulacion_RAU = self::valores($datosRA["regulacion_RAU"]);
+                $mediciones_RAU = self::valores($datosRA["mediciones_RAU"]);
+                $zona_RAU = self::valores($datosRA["zona_RAU"]);
+                $decibeles_RAU = self::valores($datosRA["decibeles_RAU"]);
+
+                $suma = $suma + ($control_entes_RAU * $tipo_RAU);
+                $suma = $suma + ($regulacion_RAU * $preventivo);
+                $suma = $suma + ($mediciones_RAU * $correctivo);
+                $suma = $suma + ($zona_RAU * $preventivo);
+                $suma = $suma + ($decibeles_RAU * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_auditivo = self::valorizacion($RieAmbInh["riesgos_auditivo"], 1);
+                $va_riesgos_auditivo = self::eficaciaControlRAVA(strtoupper($va_riesgos_auditivo));
+
+                $residual_riesgos_auditivo = $va_riesgos_auditivo / $media;
+                $residual_riesgos_auditivo = round($residual_riesgos_auditivo, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_auditivo = self::valRieRes($residual_riesgos_auditivo);
+                $color_residual_riesgos_auditivo = self::colorRieRes($val_residual_riesgos_auditivo);
+
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_auditivo", $residual_riesgos_auditivo);
+                $respuesta = [
+                    'residual_riesgos_auditivo' => $residual_riesgos_auditivo,
+                    'val_residual_riesgos_auditivo' => $val_residual_riesgos_auditivo,
+                    'color_residual_riesgos_auditivo' => $color_residual_riesgos_auditivo,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RAU", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgo Auditivo
+
+            // Riesgo recurso Hidrico
+            if ($opcion == "RRH") {
+                $totalDivicion = 7;
+                $control_entes_RRH = self::valores($datosRA["control_entes_RRH"]);
+                if ($control_entes_RRH != 0) {
+                    $tipo_RRH = self::valores2($datosRA["tipo_RRH"]);
+                } else {
+                    $tipo_RRH = 0;
+                }
+                $concientizacion_RRH = self::valores($datosRA["concientizacion_RRH"]);
+                $manejo_aguas_RRH = self::valores($datosRA["manejo_aguas_RRH"]);
+                $programa_RRH = self::valores($datosRA["programa_RRH"]);
+                $control_industrias_RRH = self::valores($datosRA["control_industrias_RRH"]);
+                $mantenimiento_RRH = self::valores($datosRA["mantenimiento_RRH"]);
+                $mantenimiento_captacion_RRH = self::valores($datosRA["mantenimiento_captacion_RRH"]);
+
+                $suma = $suma + ($control_entes_RRH * $tipo_RRH);
+                $suma = $suma + ($concientizacion_RRH * $preventivo);
+                $suma = $suma + ($manejo_aguas_RRH * $preventivo);
+                $suma = $suma + ($programa_RRH * $preventivo);
+                $suma = $suma + ($control_industrias_RRH * $correctivo);
+                $suma = $suma + ($mantenimiento_RRH * $preventivo);
+                $suma = $suma + ($mantenimiento_captacion_RRH * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_recurso_hidrico = self::valorizacion($RieAmbInh["riesgos_recurso_hidrico"], 1);
+                $va_riesgos_recurso_hidrico = self::eficaciaControlRAVA(strtoupper($va_riesgos_recurso_hidrico));
+
+                $residual_riesgos_recurso_hidrico = $va_riesgos_recurso_hidrico / $media;
+                $residual_riesgos_recurso_hidrico = round($residual_riesgos_recurso_hidrico, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_recurso_hidrico = self::valRieRes($residual_riesgos_recurso_hidrico);
+                $color_residual_riesgos_recurso_hidrico = self::colorRieRes($val_residual_riesgos_recurso_hidrico);
+
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_recurso_hidrico", $residual_riesgos_recurso_hidrico);
+                $respuesta = [
+                    'residual_riesgos_recurso_hidrico' => $residual_riesgos_recurso_hidrico,
+                    'val_residual_riesgos_recurso_hidrico' => $val_residual_riesgos_recurso_hidrico,
+                    'color_residual_riesgos_recurso_hidrico' => $color_residual_riesgos_recurso_hidrico,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RRH", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Riesgo recurso Hidrico
+            if ($opcion == "RAA") {
+                $totalDivicion = 5;
+                $control_entes_RAA = self::valores($datosRA["control_entes_RAA"]);
+                if ($control_entes_RAA != 0) {
+                    $tipo_RRA = self::valores2($datosRA["tipo_RRA"]);
+                } else {
+                    $tipo_RRA = 0;
+                }
+                $tratamiento_RAA = self::valores($datosRA["tratamiento_RAA"]);
+                $concientizacion_RAA = self::valores($datosRA["concientizacion_RAA"]);
+                $sistema_RAA = self::valores($datosRA["sistema_RAA"]);
+                $programa_RAA = self::valores($datosRA["programa_RAA"]);
+
+                $suma = $suma + ($control_entes_RAA * $tipo_RRA);
+                $suma = $suma + ($tratamiento_RAA * $correctivo);
+                $suma = $suma + ($concientizacion_RAA * $preventivo);
+                $suma = $suma + ($sistema_RAA * $preventivo);
+                $suma = $suma + ($programa_RAA * $preventivo);
+
+                $media = $suma / $totalDivicion;
+                $media = self::eficaciaControlRA($media);
+
+                $va_riesgos_acceso_agua = self::valorizacion($RieAmbInh["riesgos_acceso_agua"], 1);
+                $va_riesgos_acceso_agua = self::eficaciaControlRAVA(strtoupper($va_riesgos_acceso_agua));
+
+                $residual_riesgos_acceso_agua = $va_riesgos_acceso_agua / $media;
+                $residual_riesgos_acceso_agua = round($residual_riesgos_acceso_agua, 2, PHP_ROUND_HALF_UP);
+                $val_residual_riesgos_acceso_agua = self::valRieRes($residual_riesgos_acceso_agua);
+                $color_residual_riesgos_acceso_agua = self::colorRieRes($val_residual_riesgos_acceso_agua);
+
+                $riesgo = \App\RiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "control_riesgos_acceso_agua", $residual_riesgos_acceso_agua);
+                $respuesta = [
+                    'residual_riesgos_acceso_agua' => $residual_riesgos_acceso_agua,
+                    'val_residual_riesgos_acceso_agua' => $val_residual_riesgos_acceso_agua,
+                    'color_residual_riesgos_acceso_agua' => $color_residual_riesgos_acceso_agua,
+                ];
+                $valores_riesgo = \App\ValoresRiesgosAmbientales::modificar(Session::get('alias'), $IDHOGAR, "RAA", $datosRA);
+                return response()->json($respuesta, 200);
+            }
+            // Acceso a Agua Segura
+
+        } else {
+            return redirect("/login")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function valores($opcion)
+    {
+        $total = 0;
+        switch ($opcion) {
+            case "OCACIONAL":
+                $total = 1;
+                break;
+            case "PERIODICO":
+                $total = 2;
+                break;
+            case "PERMANENTE":
+                $total = 3;
+                break;
+            case "NO":
+                $total = 0;
+                break;
+        }
+        return $total;
+    }
+    public function valores2($opcion)
+    {
+        $total = 0;
+        switch ($opcion) {
+            case "INEXISTENTE":
+                $total = 1;
+                break;
+            case "CORRECTIVO":
+                $total = 2;
+                break;
+            case "PREVENTIVO":
+                $total = 3;
+                break;
+        }
+        return $total;
+    }
+
+    public function eficaciaControlRA($valor)
+    {
+        $eficacia = "";
+        $valoracion = 0;
+        if ($valor >= 0 && $valor < 1) {
+            $eficacia = "INEXISTENTE";
+        } else {
+            if ($valor >= 1 && $valor < 4) {
+                $eficacia = "BAJO";
+            } else {
+                if ($valor >= 4 && $valor < 9) {
+                    $eficacia = "MEDIO";
+                } else {
+                    $eficacia = "ALTO";
+                }
+            }
+        }
+
+        switch ($eficacia) {
+            case "INEXISTENTE":
+                $valoracion = 1;
+                break;
+            case "BAJO":
+                $valoracion = 1;
+                break;
+            case "MEDIO":
+                $valoracion = 2;
+                break;
+            case "ALTO":
+                $valoracion = 3;
+                break;
+        }
+        return $valoracion;
+    }
+    public function eficaciaControlRAVA($eficacia)
+    {
+        $valoracion = 0;
+        switch ($eficacia) {
+            case "INEXISTENTE":
+                $valoracion = 1;
+                break;
+            case "BAJO":
+                $valoracion = 1;
+                break;
+            case "MEDIO":
+                $valoracion = 2;
+                break;
+            case "ALTO":
+                $valoracion = 3;
+                break;
+        }
+        return $valoracion;
+    }
+    public function valRieRes($valor)
+    {
+        $eficacia = "";
+        if ($valor == 1) {
+            $eficacia = "Bajo";
+        } else {
+            if ($valor == 2) {
+                $eficacia = "Moderado";
+            } else {
+                $eficacia = "Alto";
+            }
+        }
+        return $eficacia;
+    }
+
+    public function colorRieRes($valor)
+    {
+        $color = "";
+        if ($valor == "Bajo") {
+            $color = "kt-badge--success";
+        } else {
+            if ($valor == "Moderado") {
+                $color = "kt-badge--warning";
+            } else {
+                $color = "kt-badge--danger";
+            }
+        }
+        return $color;
+    }
+
+    public function efectividad_control($valor)
+    {
+        $valorizacion = "";
+    }
+
+    public function buscarTablas()
+    {
+        if (Auth::check()) {
+            $datos = request()->get("datos");
+            $opcion = request()->get("opcion");
+            switch ($opcion) {
+                case "MENA1_PL":
+                    $peso = $datos["peso"];
+                    $talla = $datos["talla"];
+                    $sexo = $datos["sexo"];
+
+                    $peso_gramos = $peso * 1000;
+                    $talla = round($talla, 1);
+                    $array = [];
+                    $resul = [];
+                    $pes_lon = "";
+                    $peso_longitud = false;
+                    if ($sexo == "MASCULINO") {
+                        $peso_longitud = \App\PesoLongNinos::buscar(Session::get('alias'), $talla);
+                    } else {
+                        $peso_longitud = \App\PesoLongNinas::buscar(Session::get('alias'), $talla);
+                    }
+                    if ($peso_longitud) {
+                        // CREAR ARRAY DE DATOS
+                        array_push($array, $peso_longitud->SD4neg);
+                        array_push($array, $peso_longitud->SD3neg);
+                        array_push($array, $peso_longitud->SD2neg);
+                        array_push($array, $peso_longitud->SD1neg);
+                        array_push($array, $peso_longitud->SD0);
+                        array_push($array, $peso_longitud->SD1);
+                        array_push($array, $peso_longitud->SD2);
+                        array_push($array, $peso_longitud->SD3);
+                        array_push($array, $peso_longitud->SD4);
+
+                        $resul = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+                        // CREAR ARRAY DE DATOS
+
+                        // METODO DE BUSQUEDA
+                        $pl = self::buscarDistancias($peso, $array);
+                        $pes_lon = $resul[$pl];
+                        // METODO DE BUSQUEDA
+                    }
+                    $respuesta = [
+                        'OPC' => 'EXISTE',
+                        'pes_lon' => $pes_lon,
+                        // 'identificacion' => $identificacion,
+                    ];
+                    return response()->json($respuesta, 200);
+                break;
+                case "1A5ANI":
+                    $peso = $datos["peso"];
+                    $talla = $datos["talla"];
+                    $sexo = $datos["sexo"];
+                    $array = [];
+                    $resul = [];
+                    $array2 = [];                    
+                    // $dias = Carbon::parse($datos["fecha_nac"])->diff(Carbon::now())->format("%d");
+
+                    ////CALCULO TE
+                    $dias = self::diasPorAnios($datos["fecha_nac"]);
+                    $talla_edad = false;
+                    $tal_eda = "";
+                    $resul = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+                    if ($sexo == "MASCULINO") {
+                        $talla_edad = \App\TallaEdadNinos::buscar(Session::get('alias'), $dias);
+                    } else {
+                        $talla_edad = \App\TallaEdadNinas::buscar(Session::get('alias'), $dias);
+                    }
+                    if ($talla_edad) {
+                        // CREAR ARRAY DE DATOS
+                        array_push($array, $talla_edad->SD4neg);
+                        array_push($array, $talla_edad->SD3neg);
+                        array_push($array, $talla_edad->SD2neg);
+                        array_push($array, $talla_edad->SD1neg);
+                        array_push($array, $talla_edad->SD0);
+                        array_push($array, $talla_edad->SD1);
+                        array_push($array, $talla_edad->SD2);
+                        array_push($array, $talla_edad->SD3);
+                        array_push($array, $talla_edad->SD4);                        
+                        // CREAR ARRAY DE DATOS
+
+                        // METODO DE BUSQUEDA
+                        $te = self::buscarDistancias($talla, $array);
+                        $tal_eda = $resul[$te];                        
+                        // METODO DE BUSQUEDA
+                    }
+                    ////CALCULO TE
+
+                    ////CALCULO PT
+                    $talla = round($talla, 1);
+                    $peso_talla = false;
+                    $pes_tal = "NA";
+                    if ($sexo == "MASCULINO") {
+                        $peso_talla = \App\PesoTallaNinos::buscar(Session::get('alias'), $talla);
+                    } else {
+                        $peso_talla = \App\PesoTallaNinas::buscar(Session::get('alias'), $talla);
+                    }
+                    if ($peso_talla) {
+                        // CREAR ARRAY DE DATOS
+                        array_push($array2, $peso_talla->SD4neg);
+                        array_push($array2, $peso_talla->SD3neg);
+                        array_push($array2, $peso_talla->SD2neg);
+                        array_push($array2, $peso_talla->SD1neg);
+                        array_push($array2, $peso_talla->SD0);
+                        array_push($array2, $peso_talla->SD1);
+                        array_push($array2, $peso_talla->SD2);
+                        array_push($array2, $peso_talla->SD3);
+                        array_push($array2, $peso_talla->SD4);
+
+                        // CREAR ARRAY DE DATOS
+
+                        // METODO DE BUSQUEDA
+                        $pt = self::buscarDistancias($peso, $array2);
+                        $pes_tal = $resul[$pt];
+                        // METODO DE BUSQUEDA
+                    }                    
+                    ////CALCULO PT
+                    $respuesta = [
+                        'OPC' => 'EXISTE',
+                        'tal_eda' => $tal_eda,
+                        'pes_tal' =>$pes_tal
+                    ];
+                    return response()->json($respuesta, 200);                                 
+                    
+                break;
+            }
+        } else {
+            return redirect("/login")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function buscarDistancias($valor, $array)
+    {
+        $menorDistanciaActual = abs($valor - $array[0]);
+        $posicionNumeroMasCercano = 0;
+
+        // Empezas en 1, porque ya sabes que el 0 es el mas cercano hasta ahora.
+        for ($i = 1; $i < count($array); $i++) {
+            $distanciaEntreNumeros = abs($valor - $array[$i]);
+
+            if ($distanciaEntreNumeros < $menorDistanciaActual) {
+                $menorDistanciaActual = $distanciaEntreNumeros;
+                $posicionNumeroMasCercano = $i;
+            }
+        }
+        return $posicionNumeroMasCercano;
+    }
+
+    public function diasPorAnios($fecha){
+        $date = Carbon::now();
+        $date = $date->format('d-m-Y');        
+        $fechaEmision = Carbon::parse($fecha);
+        $fechaExpiracion = Carbon::parse($date);
+        
+        $dias = $fechaExpiracion->diffInDays($fechaEmision);
+        return $dias;
+    }
+
+
+    public function riesgoSalud($id_hogar, $opcion, $identificacion){
+        $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $id_hogar);
+        $respuhogar = \App\Hogar::buscar(Session::get('alias'), $id_hogar);
+
+        if($opcion == "Men1A"){
+            $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
+            $respumen1a = \App\Men1a::buscarPorIdentificacion(Session::get('alias'), $identificacion);                    
+
+            // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
+            $rTRDA = 0;
+            // No lactancia exclusiva 6 meses        
+            if ($respumen1a->lactancia != "Exclusiva") {
+                $rTRDA = $rTRDA + 0.3;
+            }
+            // No lactancia exclusiva 6 meses
+    
+            // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
+            
+            // Clasificación antropométrica entre las líneas de P/T  -2 a < -1
+
+            // NO agua potable
+            
+            // NO agua potable
+
+            // Bajo peso al nacer 
+
+            // Bajo peso al nacer
+
+            // Presencia de Edemas
+            if ($respumen1a->edemas == "SI") {
+                $rTRDA = $rTRDA + 0.3;
+            }
+            // Presencia de Edemas
+
+            // perdida de peso en ultimos 3 meses
+            if ($respuinte->perdida_peso == "SI") {
+                $rTRDA = $rTRDA + 0.3;
+            }            
+            // perdida de peso en ultimos 3 meses
+
+            // Bajo nivel educativo jefe del hogar
+
+            // Bajo nivel educativo jefe del hogar
+
+            // Enfermedades infecciosas
+            $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id);
+            if(count($respuenferinte)>0){
+                $rTRDA = $rTRDA + 0.3;
+            }
+            // Enfermedades infecciosas
+
+            // Perimetro del brazo  -1 a -2
+            if ($respumen1a->pb >= -1 && $respumen1a->pb <= -2) {
+                $rTRDA = $rTRDA + 1;
+            }
+            // Perimetro del brazo  -1 a -2            
+            // // // // // // // // // // RIESGO DESNUTRICIÓN Aguda
+
+            // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL 
+            $rTRDG = 0;     
+            // Enfermedades infecciosas
+            if(count($respuenferinte)>0){
+                $rTRDG = $rTRDG + 0.6;
+            }
+            // Enfermedades infecciosas
+
+            // Insalubridad en la vivienda 
+
+            // Insalubridad en la vivienda
+            
+            // NBI 
+
+            // NBI 
+
+            // Bajo peso al nacer
+
+            // Bajo peso al nacer
+
+            // NO agua potable 
+
+            // NO agua potable 
+
+            // presencia de edemas 
+            if ($respumen1a->edemas == "SI") {
+                $rTRDG = $rTRDG + 0.3;
+            }
+            // presencia de edemas
+
+            // P / E -2 a < -1
+
+            // P / E -2 a < -1
+            // // // // // // // // // // RIESGO DESNUTRICIÓN GLOBAL
+
+            // // // // // // // // // // DESNUTRICIÓN GLOBAL 
+            $rTDG = 0;
+
+            // P / E  < -2
+
+            // P / E  < -2
+            // // // // // // // // // // DESNUTRICIÓN GLOBAL
+
+            // // // // // // // // // // RIESGO DE TALLA BAJA
+            $rTRTB = 0;
+            // Talla / E -2 a < -1
+
+            // Talla / E -2 a < -1
+
+            // No lactancia exclusiva 6 meses
+            if ($respumen1a->lactancia != "Exclusiva") {
+                $rTRTB = $rTRTB + 0.8;
+            }
+            // No lactancia exclusiva 6 meses
+
+            // Insalubridad
+
+            // Insalubridad
+
+            // Enfermedades infecciosas. 
+            if(count($respuenferinte)>0){
+                $rTRTB = $rTRTB + 0.8;
+            }
+            // Enfermedades infecciosas.
+
+            // NO agua potable 
+
+            // NO agua potable 
+
+            // NBI 
+
+            // NBI          
+            // // // // // // // // // // RIESGO DE TALLA BAJA
+
+            // // // // // // // // // // TALLA BAJA o retraso de la edad
+            $rTTB = 0;
+            // T / E < -2
+
+            // T / E < -2
+            // // // // // // // // // // TALLA BAJA o retraso de la edad
+
+            // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
+            $rTRDAM = 0;
+            // Desnutrición Aguda P/T <-2 a - 3 
+
+            // Desnutrición Aguda P/T <-2 a - 3 
+
+            // Presencia de Edemas
+            if ($respumen1a->edemas == "SI") {
+                
+            }
+            // Presencia de Edemas
+            // // // // // // // // // // DESNUTRICIÓN AGUDA MODERADA
+
+            // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
+            $rTRDAS = 0;
+            // Desnutrición Aguda P/T < - 3            
+
+            // Desnutrición Aguda P/T < - 3
+
+            // Presencia de Edemas
+            if ($respumen1a->edemas == "SI") {
+                
+            }
+            // Presencia de Edemas
+            // // // // // // // // // // DESNUTRICIÓN AGUDA SEVERA.
+
+            // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN 
+            $rTRMPD = 0;
+            // Edemas 
+            if ($respumen1a->edemas == "SI") {
+                $rTRMPD = $rTRMPD + 1.5;
+            }
+            // Edemas
+
+            // Cualquier tipo de desnutrición
+
+            // Cualquier tipo de desnutrición
+
+            // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)
+
+            // Perimetro B   menor a 11,5 cm ( RESOLUCIÓN 5006 - 15)            
+            // // // // // // // // // // RIESGO DE MUERTE POR  DESNUTRICIÓN 
+
+            // // // // // // // // // // RIESGO SOBREPESO
+            $rTRS = 0;
+            // P/ T  >+1  a +2
+
+            // P/ T  >+1  a +2
+
+            // IMC >+1 a +2
+            
+            // IMC >+1 a +2
+
+            // Sedentarismo 
+
+            // Sedentarismo 
+            // // // // // // // // // // RIESGO SOBREPESO
+
+            // // // // // // // // // // SOBREPESO 
+            $rTS = 0;
+            // P/ T > +2  a +3
+
+            // P/ T > +2  a +3
+
+            // Sedentarismo 
+
+            // Sedentarismo 
+
+            // IMC >+2 a +3
+
+            // IMC >+2 a +3
+
+            // // // // // // // // // // SOBREPESO 
+
+            // // // // // // // // // // OBESIDAD 
+            $rTO = 0;
+            // P/ T > +3
+
+            // P/ T > +3
+
+            // IMC  > +3
+
+            // IMC  > +3
+            // // // // // // // // // // OBESIDAD 
+
+
+            // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+
+            // // // // // // // // // // Enfermedades Infeccisosas.
+            $rTEI = 0;
+            // Desnutricion 
+
+            // Desnutricion 
+
+            // Riesgos de desnutricion 
+
+            // Riesgos de desnutricion 
+
+            // No vacunación o atrasada.
+            if ($respumen1a->bcg == "NO" || $respumen1a->hepb == "NO" || $respumen1a->polio == "NO" || $respumen1a->pentavalente == "NO") {
+                $rTEI = $rTEI + 0.55;
+            }
+            // No vacunación o atrasada.
+
+            // Plagas en la vivienda
+            if ($respuvivi->plagas == "SI"){
+                $rTEI = $rTEI + 0.55;
+            }
+            // Plagas en la vivienda
+
+            // insalubridad 
+
+            // insalubridad 
+
+            // Baño compartido 
+            if ($respuvivi->cuantos_baños <= 1){
+                $rTEI = $rTEI + 0.55;
+            }
+            // Baño compartido 
+
+            // relleno sanitario cerda de la vivienda 
+            if ($respuvivi->rellenos == "SI"){
+                $rTEI = $rTEI + 0.55;
+            }
+            // relleno sanitario cerda de la vivienda 
+
+            // no lavar la verduras y frutas antes de comer 
+
+            // no lavar la verduras y frutas antes de comer 
+
+            // Habitante de la vivienda con enfermedad infectocontagiosa
+
+            // Habitante de la vivienda con enfermedad infectocontagiosa
+
+            // Manejo inadecuado  de residuos
+
+            // Manejo inadecuado  de residuos
+
+            // Malas condiciones de la vivienda 
+
+            // Malas condiciones de la vivienda 
+
+            // No desparacitado 
+
+            // No desparacitado 
+
+            // Enfermedades inmunosupresoras 
+
+            // Enfermedades inmunosupresoras 
+
+            // Lotes enmontados 
+            if ($respuvivi->lotes_abandonados == "SI"){
+                $rTEI = $rTEI + 0.55;
+            }
+            // Lotes enmontados 
+
+            // Ningun tratamiento para el consumo de agua 
+            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4"){
+                $rTEI = $rTEI + 0.55;
+            }
+            // Ningun tratamiento para el consumo de agua 
+
+            // Lactancia exclusiva 6 meses 
+            if ($respumen1a->lactancia != "Exclusiva") {
+                $rTEI = $rTEI + 0.55;
+            }
+            // Lactancia exclusiva 6 meses 
+
+            // Hacinamiento 
+
+            // Hacinamiento 
+
+            // No acceso agua potable 
+
+            // No acceso agua potable
+            // // // // // // // // // // Enfermedades Infeccisosas.    
+            
+            // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
+            $rTTAUS = 0;
+
+            // Consumo de SPA
+
+            // Consumo de SPA
+
+            // Consumo pasivo de SPA
+
+            // Consumo pasivo de SPA            
+            // // // // // // // // // // TRASTORNOS ASOCIADOS AL USO DE SPA
+
+            // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+            $rTECA = 0;
+
+            // Sobrepeso
+
+            // Sobrepeso
+
+            // FAMILIARES CON ATENCEDENTES 
+
+            // FAMILIARES CON ATENCEDENTES 
+
+            // Consumo de alcohol 
+
+            // Consumo de alcohol 
+
+            // Consumo de SPA 
+
+            // Consumo de SPA 
+
+            // OBESIDAD
+
+            // OBESIDAD
+
+            // Hipertension arterial 
+
+            // Hipertension arterial 
+
+            // Diabetes 
+
+            // Diabetes 
+
+            // Hiperlipemias 
+
+            // Hiperlipemias 
+            // // // // // // // // // // ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA
+            
+            // // // // // // // // // // Cancer
+            $rTC = 0;
+            // Antecedentes en familiares
+            $antecancer = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "CANCER");
+            if($antecancer>0){
+                $rTC = $rTC + 2;
+            }
+            // Antecedentes en familiares
+
+            // Contaminación ambiental
+            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+            if($contambien->control_riesgos_atmosferico > 1){
+                $rTC = $rTC + 0.5;
+            }
+            // Contaminación ambiental
+
+            // consumo de tabaco o spa pasivo 
+            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+            if($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI"){
+                $rTC = $rTC + 1;
+            }
+            // consumo de tabaco o spa pasivo 
+
+            // Obesidad
+
+            // Obesidad
+
+            // consumos de tabaco. Alcoholismos, spa 
+
+            // consumos de tabaco. Alcoholismos, spa 
+
+            // VIH 
+            $vih = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "VIH");
+            if($vih>0){
+                $rTC = $rTC + 1;
+            }            
+            // VIH 
+            // // // // // // // // // // Cancer
+
+            // // // // // // // // // // Alteraciones y transtornos visuales
+            $rTATV = 0;
+            // Antecedentes familiares
+            $antealteraciones = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONES");
+            if($antealteraciones>0){
+                $rTATV = $rTATV + 2;
+            }
+            // Antecedentes familiares
+
+            // Hipertension arterial 
+            $antehipertension = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "HIPERTENSION");
+            if($antehipertension>0){
+                $rTATV = $rTATV + 1;
+            }
+            // Hipertension arterial 
+
+            // DESnutricion
+
+            // DESnutricion
+
+            // Deabetes 
+            $antediabetes = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "DIABETES");
+            if($antediabetes>0){
+                $rTATV = $rTATV + 1;
+            }
+            // Deabetes 
+
+            // Consumo de alcohol 
+
+            // Consumo de alcohol 
+            // // // // // // // // // // Alteraciones y transtornos visuales
+
+            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+            $rTATAC = 0;
+            // antecedente familiar
+            $antealteracionesaud = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "ALTERACIONESAUD");
+            if($antealteracionesaud>0){
+                $rTATAC = $rTATAC + 1.75;
+            }
+            // antecedente familiar
+
+            // Exposicion a contaminación auditiva
+
+            // Exposicion a contaminación auditiva
+
+            // Infecciones crónicas de oidos
+
+            // Infecciones crónicas de oidos
+
+            // Desnutrición global
+
+            // Desnutrición global
+            // // // // // // // // // // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+
+            // // // // // // // // // // Salud Bucal 
+            $rTSB = 0;
+            // Pobreza
+
+            // Pobreza
+
+            // Sin acceso a servicios odontologicos
+
+            // Sin acceso a servicios odontologicos
+
+            // Malos hábitos de higiene oral 
+
+            // Malos hábitos de higiene oral 
+
+            // no aplicación de barniz de fluor
+
+            // no aplicación de barniz de fluor
+
+            // Consumo de tabaco 
+
+            // Consumo de tabaco           
+            // // // // // // // // // // Salud Bucal 
+
+            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+            $rTSM = 0;
+            // Antecedente familiar
+            $antesaludmental = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "SALUDMENTAL");
+            if($antesaludmental>0){
+                $rTSM = $rTSM + 1.4;
+            }
+            // Antecedente familiar
+
+            // Mala relación con los familiares
+
+            // Mala relación con los familiares
+
+            // Problemas de conducta
+            if ($respumen1a->conducta != "SI") {
+                $rTSM = $rTSM + 1.4;
+            }
+            // Problemas de conducta
+
+            // consumo de alcoho, spa, tabaco
+
+            // consumo de alcoho, spa, tabaco
+
+            // Violencia intrafamiliar
+
+            // Violencia intrafamiliar            
+            // // // // // // // // // // PROBLEMAS EN SALUD MENTAL
+
+            // // // // // // // // // // VIOLENCIAS
+            $rTV = 0;
+            // Violencia intrafamiliar  ( materializado) 
+
+            // Violencia intrafamiliar  ( materializado)
+
+            // Transtornos mentales
+            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
+            if($anteconducta>0){
+                $rTV = $rTV + 1.4;
+            }
+            // Transtornos mentales
+
+            // Problemas de conducta
+            if ($respumen1a->conducta != "SI") {
+                $rTV = $rTV + 1.4;
+            }
+            // Problemas de conducta
+
+            // Señales de violencia
+
+            // Señales de violencia
+
+            // padres con consumo de SPA y o  Alcohol
+            if($consufact->alcohol == "SI" || $consufact->sustancias_psico == "SI"){
+                $rTV = $rTV + 1.8;
+            }
+            // padres con consumo de SPA y o  Alcohol
+
+            // Mala relacion con familiares
+
+            // Mala relacion con familiares
+            // // // // // // // // // // VIOLENCIAS
+
+            // // // // // // // // // // Enfermedades Respiratorias  crónicas
+            $rTERC = 0;
+            // ViVienda Cocina con leña o carbón
+            if ($respuvivi->tipo_combustible == "3"  || $respuvivi->tipo_combustible == "4"){
+                $rTERC = $rTERC + 2.2;
+            }
+            // ViVienda Cocina con leña o carbón
+
+            // Antecedentes familiares de enfermedades respiratorias cronicas
+            $anteenferrespi = \App\AntecedentesIntegrantes::buscarAntePorId(Session::get('alias'), $id_hogar, "ENFERRESPI",$respuinte->id);
+            if($anteenferrespi>0){
+                $rTERC = $rTERC + 1;
+            }
+            // Antecedentes familiares de enfermedades respiratorias cronicas
+
+            // Contaminación ambiental
+            if($contambien->control_riesgos_atmosferico > 1){
+                $rTERC = $rTERC + 1;
+            }
+            // Contaminación ambiental
+            
+            // consumo de tabaco y SPA
+
+            // consumo de tabaco y SPA
+
+            // Consumo pasivo de humo de tabaco o SPA 
+            if($consufact->tabaco == "SI" || $consufact->sustancias_psico == "SI"){
+                $rTERC = $rTERC + 1.4;
+            }
+            // Consumo pasivo de humo de tabaco o SPA 
+            // // // // // // // // // // Enfermedades Respiratorias  crónicas
+
+            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+            $rTEZ = 0;
+            // Cria de animales (mas de 2  domesticos)
+            $anidomes = \App\Animal::buscar(Session::get('alias'), $id_hogar);
+            if(count($anidomes)>2){
+                $rTEZ = $rTEZ + 1.8;
+            }
+            // Cria de animales (mas de 2  domesticos)
+
+            // No vacunación de animales
+            $anidomesvacuna = \App\Animal::buscarVacunados(Session::get('alias'), $id_hogar);
+            if(count($anidomesvacuna)>2){
+                $rTEZ = $rTEZ + 1.2;
+            }
+            // No vacunación de animales
+
+            // Consumo de agua no potable.
+            if ($respuvivi->tipo_tratamiento_agua == "NA" || $respuvivi->tipo_tratamiento_agua == "4"){
+                $rTEZ = $rTEZ + 1.2;
+            }
+            // Consumo de agua no potable.
+
+            // Manejo de residuos
+            if ($respuvivi->destino_final_basura != "1" || $respuvivi->almacenamiento_residuos != "SI"){
+                $rTEZ = $rTEZ + 0.9;
+            }
+            // Manejo de residuos
+
+            // No inmunizado
+            if ($respumen1a->bcg == "NO" || $respumen1a->hepb == "NO" || $respumen1a->polio == "NO" || $respumen1a->pentavalente == "NO") {
+                $rTEZ = $rTEZ + 0.9;
+            }
+            // No inmunizado
+
+            // NBI 
+            $NBI = self::calcularNBI($id_hogar);
+            if($NBI == "SI"){
+                $rTEZ = $rTEZ + 0.9;
+            }
+            // NBI
+            
+            // Lotes abandonados 
+            if ($respuvivi->lotes_abandonados == "SI"){
+                $rTEZ = $rTEZ + 0.9;
+            }
+            // Lotes abandonados 
+
+            // no Desparacitación
+
+            // no Desparacitación
+
+            // Mal estado de la vivienda 
+            if ($respuvivi->material_predominante == "5" || $respuvivi->material_predominante == "7" 
+                || $respuvivi->tipo_estructura == "5" || $respuvivi->tipo_cubierta == "2" 
+                || $respuvivi->tipo_cubierta == "6" || $respuvivi->tipo_cubierta == "8" || $respuvivi->tipo_cubierta == "9"){
+                $rTEZ = $rTEZ + 0.9;
+            }
+            // Mal estado de la vivienda            
+            // // // // // // // // // // ENFERMEDADES ZOONOTICAS
+
+            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+            $rTTDNEA = 0;
+            // Antecedente familiar
+            $antetranstornos = \App\AntecedentesIntegrantes::buscarAnte(Session::get('alias'), $id_hogar, "TRANSTORNOS");
+            if($antetranstornos>0){
+                $rTTDNEA = $rTTDNEA + 1.35;
+            }            
+            // Antecedente familiar
+            
+            // Problemas de lenguaje
+            if ($respumen1a->lenguaje == "SI") {
+                $rTTDNEA = $rTTDNEA + 1.1;
+            }
+            // Problemas de lenguaje
+
+            // contaminación ambiental
+            $contambien = \App\RiesgosAmbientales::buscar(Session::get('alias'), $id_hogar);
+            if($contambien->control_riesgos_atmosferico > 1){
+                $rTTDNEA = $rTTDNEA + 1.1;
+            }
+            // contaminación ambiental
+            
+            // Problemas de motricidad
+            if ($respumen1a->motora == "SI") {
+                $rTTDNEA = $rTTDNEA + 1.35;
+            }
+            // Problemas de motricidad
+
+            // perimetro cefalico > +2 o <- 2            
+            $per_cef = self::CalculosPerimetros("PERIMETROCEFALICO", $respuinte->fecha_nac, $respuinte->sexo, $respumen1a);
+            if($per_cef < -2 || $per_cef > 2){
+                $rTTDNEA = $rTTDNEA + 2.1;
+            }                  
+            // perimetro cefalico > +2 o <- 2            
+            // // // // // // // // // // TRASTORNOS DEGENERATIVOS, NEUROPATÍAS Y ENF AUTOINMUNE
+
+            // // // // // // // // // // CONSUMO DE SPA
+            $rTCDS = 0;
+            // Problemas de conducta
+            if ($respumen1a->conducta == "SI") {
+                $rTCDS = $rTCDS + 1;
+            }
+            // Problemas de conducta
+
+            // consumos de SPA en la vivienda.
+            $consufact = \App\Factores::buscarFact(Session::get('alias'), $id_hogar);
+            if($consufact->sustancias_psico == "SI"){
+                $rTCDS = $rTCDS + 3;
+            }
+            // consumos de SPA en la vivienda.
+
+            // Violencia intrafamiliar 
+            if ($respumen1a->maltrato == "SI") {
+                $rTCDS = $rTCDS + 1;
+            }
+            // Violencia intrafamiliar 
+
+            // Enfermedad mental 
+            $anteconducta = \App\EnfermedadesIntegrantes::buscarEnfer(Session::get('alias'), $respuinte->id, "CONDUCTA");
+            if($anteconducta>0){
+                $rTCDS = $rTCDS + 2;
+            }
+            // Enfermedad mental                   
+            // // // // // // // // // // CONSUMO DE SPA
+
+
+            $datos["enfermedades_infecciosas_I"] = $rTEI;
+            $datos["transtornos_asociados_spa_I"] = $rTTAUS;
+            $datos["enfermedad_cardiovascular_I"] = $rTECA;
+            $datos["cancer_I"] = $rTC;
+            $datos["alteraciones_transtornos_visuales_I"] = $rTATV;
+            $datos["alteraciones_transtornos_audicion_I"] = $rTATAC;
+            $datos["salud_bucal_I"] = $rTSB;
+            $datos["problemas_salud_mental_I"] = $rTSM;
+            $datos["violencias_I"] = $rTV;
+            $datos["enfermedades_respiratorias_I"] = $rTERC;
+            $datos["enfermedades_zoonoticas_I"] = $rTEZ;
+            $datos["transtornos_degenartivos_I"] = $rTTDNEA;
+            $datos["consumo_spa_I"] = $rTCDS;
+            
+            $datos["riesgos_desnutricion_aguda_I"] = $rTRDA;
+            $datos["riesgos_desnutricion_global_I"] = $rTRDG;
+            $datos["desnutricion_global_I"] = $rTDG;
+            $datos["riesgo_talla_baja_I"] = $rTRTB;
+            $datos["talla_baja_retraso_I"] = $rTTB;
+            $datos["desnutricion_aguda_moderada_I"] = $rTRDAM;
+            $datos["desnutricion_aguda_severa_I"] = $rTRDAS;
+            $datos["riesgo_muerte_I"] = $rTRMPD;
+            $datos["riesgo_sobrepeso_I"] = $rTRS;
+            $datos["sobrepeso_I"] = $rTS;
+            $datos["obesidad_I"] = $rTO;
+            $resultado = self::calculosSaludInherente($datos,"MEN1",$id_hogar,$respumen1a->id_integrante);
+            // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+        }        
+    }
+
+    public function calcularNBI($id_hogar)
+    {
+        $NBI = "NO";
+        $VI = "NO";
+        $V3IH = "NO";
+        $VSI = "NO";
+        $VADE = "NO";
+        $VND = "NO";
+        $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $id_hogar);
+        if($respuvivi){
+            $respuhogar = \App\Hogar::buscar(Session::get('alias'), $id_hogar);
+            // VIVIENDA INADECUADA
+            if($respuvivi->tipo_vivienda=="6"){
+                $VI = "SI";
+            }
+            if($respuhogar->id_zona=="1"){
+                if($respuvivi->tipo_estructura=="5"){
+                    $VI = "SI";
+                }
+                if($respuvivi->material_predominante=="5"){
+                    $VI = "SI";
+                }                                
+            }else{
+                if($respuvivi->tipo_estructura=="4" && $respuvivi->material_predominante=="5"){
+                    $VI = "SI";
+                }
+            }
+            // VIVIENDA INADECUADA
+
+            // INDICE DE HACINAMIENTO
+            $numpersonas = 0;
+            $numerohabitaciones = 1;
+            $totalinte = \App\Integrante::totalIntegrantes(Session::get('alias'), $id_hogar);
+            $totaljefe = \App\Caracterizacion::totalJefes(Session::get('alias'), $id_hogar);
+            $numpersonas = $numpersonas + $totalinte + $totaljefe;
+            $numerohabitaciones = $respuvivi->numero_cuartos;
+            if($numerohabitaciones <= 0 ){
+                $numerohabitaciones = 1;
+            }
+            $indiceHacinamiento = $numpersonas / $numerohabitaciones;
+            if($indiceHacinamiento > 3){
+                $V3IH = "SI";
+            }
+            // INDICE DE HACINAMIENTO
+
+            // VIVIENDAS CON SERVICIOS INADECUADOS
+            if($respuvivi->sanitario=="NO" || $respuvivi->sanitario=="NA"){
+                $VSI = "SI";
+            }
+            if($respuvivi->acueducto=="NO" || $respuvivi->acueducto=="NA"){
+                $VSI = "SI";
+            }
+            if($respuhogar->id_zona=="1"){
+                if($respuvivi->fuente_agua=="4" || $respuvivi->fuente_agua=="5" || $respuvivi->fuente_agua=="6"){
+                    $VSI = "SI";
+                }
+            }else{
+                if($respuvivi->fuente_agua=="4" || $respuvivi->fuente_agua=="5"){
+                    $VSI = "SI";
+                }                
+            }    
+            // VIVIENDAS CON SERVICIOS INADECUADOS
+
+            // VIVIENDAS CON ALTA DEPENDENCIA ECONOMICA
+            $totaljefetrabajando = \App\Caracterizacion::totalJefesTrabajando(Session::get('alias'), $id_hogar);
+            foreach($totaljefetrabajando as $item){
+                if($item->nivel_escolaridad == 1){
+                    if($item->grado == "Ninguno" || $item->grado == "Primero" || $item->grado == "Segundo"){
+                        if($item->percargo > 3){
+                            $VADE = "SI";
+                        }
+                    }   
+                }
+            }
+            // VIVIENDAS CON ALTA DEPENDENCIA ECONOMICA
+
+            // VIVIENDAS NIÑOS DESCOLARIZADOS
+            $totalintedescolarizados = \App\Integrante::totalIntegrantesDescolarizados(Session::get('alias'), $id_hogar);
+            foreach($totalintedescolarizados as $item ){
+                if($item->edad >= 6 && $item->edad <=12){
+                    $VND = "NO";
+                }
+            }
+            // VIVIENDAS NIÑOS DESCOLARIZADOS
+
+            // RESULTADO NBI
+            if($VI == "SI" || $V3IH == "SI" || $VSI == "SI" || $VADE = "SI" || $VND = "SI"){
+                $NBI = "SI";
+            }
+            // RESULTADO NBI            
+        }
+        return $NBI;
+    }
+
+    public function CalculosPerimetros($opc, $fecha, $sexo, $vector){
+        if($opc == "PERIMETROCEFALICO"){
+            ////CALCULO PERIMETRO_CEFALICO
+            $resul = [];
+            $array = [];                    
+
+            $dias = self::diasPorAnios($fecha);            
+            $PERICEFA = false;
+            $per_cef = "";
+            $resul = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+            if ($sexo == "MASCULINO") {
+                $PERICEFA = \App\PerimetroCefalicoNinos05::buscar(Session::get('alias'), $dias);
+            } else {
+                $PERICEFA = \App\PerimetroCefalicoNinas05::buscar(Session::get('alias'), $dias);
+            }
+            if ($PERICEFA) {
+                // CREAR ARRAY DE DATOS
+                array_push($array, $PERICEFA->SD4neg);
+                array_push($array, $PERICEFA->SD3neg);
+                array_push($array, $PERICEFA->SD2neg);
+                array_push($array, $PERICEFA->SD1neg);
+                array_push($array, $PERICEFA->SD0);
+                array_push($array, $PERICEFA->SD1);
+                array_push($array, $PERICEFA->SD2);
+                array_push($array, $PERICEFA->SD3);
+                array_push($array, $PERICEFA->SD4);                        
+                // CREAR ARRAY DE DATOS
+
+                // METODO DE BUSQUEDA
+                $te = self::buscarDistancias($vector->cinta, $array);
+                $per_cef = $resul[$te];                        
+                // METODO DE BUSQUEDA
+            }
+            return $per_cef;
+            ////CALCULO PERIMETRO_CEFALICO
+        }
+    }
+
+    public function calculosSaludInherente($datos, $opcion, $id_hogar, $id){
+        if($opcion == "MEN1"){
+            // Enfermedades Infecciosas
+            $valor = 0;
+            if($datos["enfermedades_infecciosas_I"] <= 0.4){
+                $valor = 1;
+            }else{
+                if($datos["enfermedades_infecciosas_I"] >= 0.5 && $datos["enfermedades_infecciosas_I"] < 1.5){
+                    $valor = 2;
+                }else{
+                    if($datos["enfermedades_infecciosas_I"] >= 1.6 && $datos["enfermedades_infecciosas_I"] < 5){
+                        $valor = 3;
+                    }else{
+                        if($datos["enfermedades_infecciosas_I"] >= 5 && $datos["enfermedades_infecciosas_I"] < 8){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["enfermedades_infecciosas_I"] = $valor * 4;
+            if($datos["enfermedades_infecciosas_I"] <= 8){
+                $datos["enfermedades_infecciosas_I"] = 1;
+            }else{
+                if($datos["enfermedades_infecciosas_I"] >= 9 && $datos["enfermedades_infecciosas_I"] < 16){
+                    $datos["enfermedades_infecciosas_I"] = 2;
+                }else{
+                    $datos["enfermedades_infecciosas_I"] = 3;
+                }
+            }
+            // Enfermedades Infecciosas
+
+            // Transtornos asociados al consumo de SPA.
+            $valor = 0; 
+            if($datos["transtornos_asociados_spa_I"] < 3){
+                $valor = 1;
+            }else{
+                if($datos["transtornos_asociados_spa_I"] >= 3 && $datos["transtornos_asociados_spa_I"] < 6){
+                    $valor = 2;
+                }else{
+                    $valor = 3;
+                }
+            }
+            $datos["transtornos_asociados_spa_I"] = $valor * 4;
+            if($datos["transtornos_asociados_spa_I"] <= 4){
+                $datos["transtornos_asociados_spa_I"] = 1;
+            }else{
+                if($datos["transtornos_asociados_spa_I"] >= 5 && $datos["transtornos_asociados_spa_I"] < 9){
+                    $datos["transtornos_asociados_spa_I"] = 2;
+                }else{
+                    $datos["transtornos_asociados_spa_I"] = 3;
+                }
+            }            
+            // Transtornos asociados al consumo de SPA. 
+
+            // Enf Cardiovasculares aterogénica 
+            if($datos["enfermedad_cardiovascular_I"] < 1){
+                $valor = 1;
+            }else{
+                if($datos["enfermedad_cardiovascular_I"] >= 1 && $datos["enfermedad_cardiovascular_I"] <= 2){
+                    $valor = 2;
+                }else{
+                    if($datos["enfermedad_cardiovascular_I"] >= 2.1 && $datos["enfermedad_cardiovascular_I"] <= 5){
+                        $valor = 3;
+                    }else{
+                        if($datos["enfermedad_cardiovascular_I"] >= 5.1 && $datos["enfermedad_cardiovascular_I"] < 7){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["enfermedad_cardiovascular_I"] = $valor * 4;
+            if($datos["enfermedad_cardiovascular_I"] <= 8){
+                $datos["enfermedad_cardiovascular_I"] = 1;
+            }else{
+                if($datos["enfermedad_cardiovascular_I"] >= 9 && $datos["enfermedad_cardiovascular_I"] < 16){
+                    $datos["enfermedad_cardiovascular_I"] = 2;
+                }else{
+                    $datos["enfermedad_cardiovascular_I"] = 3;
+                }
+            }            
+            // Enf Cardiovasculares aterogénica 
+
+            // Cancer 
+            if($datos["cancer_I"] < 1){
+                $valor = 1;
+            }else{
+                if($datos["cancer_I"] >= 1 && $datos["cancer_I"] <= 3){
+                    $valor = 2;
+                }else{
+                    if($datos["cancer_I"] >= 3.1 && $datos["cancer_I"] <= 6){
+                        $valor = 3;
+                    }else{
+                        if($datos["cancer_I"] >= 6.1 && $datos["cancer_I"] <= 7){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["cancer_I"] = $valor * 5;
+            if($datos["cancer_I"] <= 8){
+                $datos["cancer_I"] = 1;
+            }else{
+                if($datos["cancer_I"] >= 9 && $datos["cancer_I"] < 16){
+                    $datos["cancer_I"] = 2;
+                }else{
+                    $datos["cancer_I"] = 3;
+                }
+            }            
+            // Cancer 
+
+            // Alteraciones y transtornos visuales
+            if($datos["alteraciones_transtornos_visuales_I"] < 1){
+                $valor = 1;
+            }else{
+                if($datos["alteraciones_transtornos_visuales_I"] >= 1 && $datos["alteraciones_transtornos_visuales_I"] <= 3){
+                    $valor = 2;
+                }else{
+                    if($datos["alteraciones_transtornos_visuales_I"] >= 3.1 && $datos["alteraciones_transtornos_visuales_I"] <= 5){
+                        $valor = 3;
+                    }else{
+                        if($datos["alteraciones_transtornos_visuales_I"] >= 5.1 && $datos["alteraciones_transtornos_visuales_I"] <= 6){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["alteraciones_transtornos_visuales_I"] = $valor * 4;
+            if($datos["alteraciones_transtornos_visuales_I"] <= 8){
+                $datos["alteraciones_transtornos_visuales_I"] = 1;
+            }else{
+                if($datos["alteraciones_transtornos_visuales_I"] >= 9 && $datos["alteraciones_transtornos_visuales_I"] < 16){
+                    $datos["alteraciones_transtornos_visuales_I"] = 2;
+                }else{
+                    $datos["alteraciones_transtornos_visuales_I"] = 3;
+                }
+            }            
+            // Alteraciones y transtornos visuales
+
+            // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+            if($datos["alteraciones_transtornos_audicion_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["alteraciones_transtornos_audicion_I"] > 0 && $datos["alteraciones_transtornos_audicion_I"] <= 1.75){
+                    $valor = 2;
+                }else{
+                    if($datos["alteraciones_transtornos_audicion_I"] >= 1.76 && $datos["alteraciones_transtornos_audicion_I"] <= 3.5){
+                        $valor = 3;
+                    }else{
+                        if($datos["alteraciones_transtornos_audicion_I"] >= 3.6 && $datos["alteraciones_transtornos_audicion_I"] <= 5.25){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["alteraciones_transtornos_audicion_I"] = $valor * 4;
+            if($datos["alteraciones_transtornos_audicion_I"] <= 8){
+                $datos["alteraciones_transtornos_audicion_I"] = 1;
+            }else{
+                if($datos["alteraciones_transtornos_audicion_I"] >= 9 && $datos["alteraciones_transtornos_audicion_I"] < 16){
+                    $datos["alteraciones_transtornos_audicion_I"] = 2;
+                }else{
+                    $datos["alteraciones_transtornos_audicion_I"] = 3;
+                }
+            }            
+            // ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN
+
+            // Salud Bucal
+            if($datos["salud_bucal_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["salud_bucal_I"] > 0 && $datos["salud_bucal_I"] <= 2.0){
+                    $valor = 2;
+                }else{
+                    if($datos["salud_bucal_I"] >= 2.1 && $datos["salud_bucal_I"] <= 3.4){
+                        $valor = 3;
+                    }else{
+                        if($datos["salud_bucal_I"] >= 3.5 && $datos["salud_bucal_I"] <= 6){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["salud_bucal_I"] = $valor * 3;
+            if($datos["salud_bucal_I"] <= 5){
+                $datos["salud_bucal_I"] = 1;
+            }else{
+                if($datos["salud_bucal_I"] >= 6 && $datos["salud_bucal_I"] < 11){
+                    $datos["salud_bucal_I"] = 2;
+                }else{
+                    $datos["salud_bucal_I"] = 3;
+                }
+            }            
+            // Salud Bucal
+
+            // PROBLEMAS EN SALUD MENTAL
+            if($datos["problemas_salud_mental_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["problemas_salud_mental_I"] > 0 && $datos["problemas_salud_mental_I"] <= 1.4){
+                    $valor = 2;
+                }else{
+                    if($datos["problemas_salud_mental_I"] >= 1.5 && $datos["problemas_salud_mental_I"] <= 2.8){
+                        $valor = 3;
+                    }else{
+                        if($datos["problemas_salud_mental_I"] >= 2.9 && $datos["problemas_salud_mental_I"] <= 5.6){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["problemas_salud_mental_I"] = $valor * 4;
+            if($datos["problemas_salud_mental_I"] <= 8){
+                $datos["problemas_salud_mental_I"] = 1;
+            }else{
+                if($datos["problemas_salud_mental_I"] >= 9 && $datos["problemas_salud_mental_I"] < 16){
+                    $datos["problemas_salud_mental_I"] = 2;
+                }else{
+                    $datos["problemas_salud_mental_I"] = 3;
+                }
+            }            
+            // PROBLEMAS EN SALUD MENTAL
+
+            // VIOLENCIAS
+            if($datos["violencias_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["violencias_I"] > 0 && $datos["violencias_I"] <= 1.4){
+                    $valor = 2;
+                }else{
+                    if($datos["violencias_I"] >= 1.5 && $datos["violencias_I"] <= 2.8){
+                        $valor = 3;
+                    }else{
+                        if($datos["violencias_I"] >= 2.9 && $datos["violencias_I"] <= 5.6){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["violencias_I"] = $valor * 4;
+            if($datos["violencias_I"] <= 8){
+                $datos["violencias_I"] = 1;
+            }else{
+                if($datos["violencias_I"] >= 9 && $datos["violencias_I"] < 16){
+                    $datos["violencias_I"] = 2;
+                }else{
+                    $datos["violencias_I"] = 3;
+                }
+            }            
+            // VIOLENCIAS
+
+            // Enfermedades Respiratorias Crónicas 
+            if($datos["enfermedades_respiratorias_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["enfermedades_respiratorias_I"] > 0 && $datos["enfermedades_respiratorias_I"] <= 1){
+                    $valor = 2;
+                }else{
+                    if($datos["enfermedades_respiratorias_I"] >= 1.1 && $datos["enfermedades_respiratorias_I"] <= 3.9){
+                        $valor = 3;
+                    }else{
+                        if($datos["enfermedades_respiratorias_I"] >= 4 && $datos["enfermedades_respiratorias_I"] < 7){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["enfermedades_respiratorias_I"] = $valor * 4;
+            if($datos["enfermedades_respiratorias_I"] <= 8){
+                $datos["enfermedades_respiratorias_I"] = 1;
+            }else{
+                if($datos["enfermedades_respiratorias_I"] >= 9 && $datos["enfermedades_respiratorias_I"] < 16){
+                    $datos["enfermedades_respiratorias_I"] = 2;
+                }else{
+                    $datos["enfermedades_respiratorias_I"] = 3;
+                }
+            }            
+            // Enfermedades Respiratorias Crónicas 
+
+            // Enfermedades zoonoticas 
+            if($datos["enfermedades_zoonoticas_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["enfermedades_zoonoticas_I"] > 0 && $datos["enfermedades_zoonoticas_I"] <= 0.9){
+                    $valor = 2;
+                }else{
+                    if($datos["enfermedades_zoonoticas_I"] >= 1 && $datos["enfermedades_zoonoticas_I"] < 4.5){
+                        $valor = 3;
+                    }else{
+                        if($datos["enfermedades_zoonoticas_I"] >= 4.5 && $datos["enfermedades_zoonoticas_I"] < 8){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["enfermedades_zoonoticas_I"] = $valor * 4;
+            if($datos["enfermedades_zoonoticas_I"] <= 8){
+                $datos["enfermedades_zoonoticas_I"] = 1;
+            }else{
+                if($datos["enfermedades_zoonoticas_I"] >= 9 && $datos["enfermedades_zoonoticas_I"] < 16){
+                    $datos["enfermedades_zoonoticas_I"] = 2;
+                }else{
+                    $datos["enfermedades_zoonoticas_I"] = 3;
+                }
+            }            
+            // Enfermedades zoonoticas 
+
+            // Transtornos degenerativos, neuropatias y enf autoinmune
+            if($datos["transtornos_degenartivos_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["transtornos_degenartivos_I"] > 0 && $datos["transtornos_degenartivos_I"] < 1.1){
+                    $valor = 2;
+                }else{
+                    if($datos["transtornos_degenartivos_I"] >= 1.1 && $datos["transtornos_degenartivos_I"] < 4.4){
+                        $valor = 3;
+                    }else{
+                        if($datos["transtornos_degenartivos_I"] >= 4.4 && $datos["transtornos_degenartivos_I"] < 5.5){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["transtornos_degenartivos_I"] = $valor * 5;
+            if($datos["transtornos_degenartivos_I"] <= 8){
+                $datos["transtornos_degenartivos_I"] = 1;
+            }else{
+                if($datos["transtornos_degenartivos_I"] >= 9 && $datos["transtornos_degenartivos_I"] < 16){
+                    $datos["transtornos_degenartivos_I"] = 2;
+                }else{
+                    $datos["transtornos_degenartivos_I"] = 3;
+                }
+            }            
+            // Transtornos degenerativos, neuropatias y enf autoinmune
+
+            // Consumo de SPA 
+            if($datos["consumo_spa_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["consumo_spa_I"] > 0 && $datos["consumo_spa_I"] < 1){
+                    $valor = 2;
+                }else{
+                    if($datos["consumo_spa_I"] >= 1 && $datos["consumo_spa_I"] <= 3){
+                        $valor = 3;
+                    }else{
+                        if($datos["consumo_spa_I"] >= 3.1 && $datos["consumo_spa_I"] < 6.1){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["consumo_spa_I"] = $valor * 4;
+            if($datos["consumo_spa_I"] <= 8){
+                $datos["consumo_spa_I"] = 1;
+            }else{
+                if($datos["consumo_spa_I"] >= 9 && $datos["consumo_spa_I"] < 16){
+                    $datos["consumo_spa_I"] = 2;
+                }else{
+                    $datos["consumo_spa_I"] = 3;
+                }
+            }            
+            // Consumo de SPA 
+
+            // RIESGO DESNUTRICIÓN Aguda
+            if($datos["riesgos_desnutricion_aguda_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["riesgos_desnutricion_aguda_I"] > 0 && $datos["riesgos_desnutricion_aguda_I"] < 0.9){
+                    $valor = 2;
+                }else{
+                    if($datos["riesgos_desnutricion_aguda_I"] >= 0.9 && $datos["riesgos_desnutricion_aguda_I"] < 2.8){
+                        $valor = 3;
+                    }else{
+                        if($datos["riesgos_desnutricion_aguda_I"] >= 2.8 && $datos["riesgos_desnutricion_aguda_I"] < 6.1){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["riesgos_desnutricion_aguda_I"] = $valor * 4;
+            if($datos["riesgos_desnutricion_aguda_I"] <= 8){
+                $datos["riesgos_desnutricion_aguda_I"] = 1;
+            }else{
+                if($datos["riesgos_desnutricion_aguda_I"] >= 9 && $datos["riesgos_desnutricion_aguda_I"] < 16){
+                    $datos["riesgos_desnutricion_aguda_I"] = 2;
+                }else{
+                    $datos["riesgos_desnutricion_aguda_I"] = 3;
+                }
+            }            
+            // RIESGO DESNUTRICIÓN Aguda
+
+            // RIESGO DESNUTRICIÓN GLOBAL 
+            if($datos["riesgos_desnutricion_global_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["riesgos_desnutricion_global_I"] > 0 && $datos["riesgos_desnutricion_global_I"] < 1){
+                    $valor = 2;
+                }else{
+                    if($datos["riesgos_desnutricion_global_I"] >= 1 && $datos["riesgos_desnutricion_global_I"] < 2.8){
+                        $valor = 3;
+                    }else{
+                        if($datos["riesgos_desnutricion_global_I"] >= 2.8 && $datos["riesgos_desnutricion_global_I"] < 6.1){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["riesgos_desnutricion_global_I"] = $valor * 5;
+            if($datos["riesgos_desnutricion_global_I"] <= 8){
+                $datos["riesgos_desnutricion_global_I"] = 1;
+            }else{
+                if($datos["riesgos_desnutricion_global_I"] >= 9 && $datos["riesgos_desnutricion_global_I"] < 16){
+                    $datos["riesgos_desnutricion_global_I"] = 2;
+                }else{
+                    $datos["riesgos_desnutricion_global_I"] = 3;
+                }
+            }
+            
+            // RIESGO DESNUTRICIÓN GLOBAL 
+
+            // RIESGO DE TALLA BAJA 
+            if($datos["riesgo_talla_baja_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["riesgo_talla_baja_I"] > 0 && $datos["riesgo_talla_baja_I"] < 1.6){
+                    $valor = 2;
+                }else{
+                    if($datos["riesgo_talla_baja_I"] >= 1.6 && $datos["riesgo_talla_baja_I"] < 3){
+                        $valor = 3;
+                    }else{
+                        if($datos["riesgo_talla_baja_I"] >= 3 && $datos["riesgo_talla_baja_I"] < 6.1){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["riesgo_talla_baja_I"] = $valor * 4;
+            if($datos["riesgo_talla_baja_I"] <= 8){
+                $datos["riesgo_talla_baja_I"] = 1;
+            }else{
+                if($datos["riesgo_talla_baja_I"] >= 9 && $datos["riesgo_talla_baja_I"] < 16){
+                    $datos["riesgo_talla_baja_I"] = 2;
+                }else{
+                    $datos["riesgo_talla_baja_I"] = 3;
+                }
+            }            
+            // RIESGO DE TALLA BAJA 
+
+            // RIESGO DE MUERTE POR  DESNUTRICIÓN 
+            if($datos["riesgo_muerte_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["riesgo_muerte_I"] > 0 && $datos["riesgo_muerte_I"] < 1.5){
+                    $valor = 2;
+                }else{
+                    if($datos["riesgo_muerte_I"] >= 1.5 && $datos["riesgo_muerte_I"] < 2.9){
+                        $valor = 3;
+                    }else{
+                        if($datos["riesgo_muerte_I"] >= 3 && $datos["riesgo_muerte_I"] < 5.5){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["riesgo_muerte_I"] = $valor * 5;
+            if($datos["riesgo_muerte_I"] <= 8){
+                $datos["riesgo_muerte_I"] = 1;
+            }else{
+                if($datos["riesgo_muerte_I"] >= 9 && $datos["riesgo_muerte_I"] < 16){
+                    $datos["riesgo_muerte_I"] = 2;
+                }else{
+                    $datos["riesgo_muerte_I"] = 3;
+                }
+            }            
+            // RIESGO DE MUERTE POR  DESNUTRICIÓN 
+
+            // RIESGO SOBREPESO 
+            if($datos["riesgo_sobrepeso_I"] <= 0){
+                $valor = 1;
+            }else{
+                if($datos["riesgo_sobrepeso_I"] > 0 && $datos["riesgo_sobrepeso_I"] < 1){
+                    $valor = 2;
+                }else{
+                    if($datos["riesgo_sobrepeso_I"] >= 1.1 && $datos["riesgo_sobrepeso_I"] < 4){
+                        $valor = 3;
+                    }else{
+                        if($datos["riesgo_sobrepeso_I"] >= 4.1 && $datos["riesgo_sobrepeso_I"] < 6.1){
+                            $valor = 4;
+                        }else{
+                            $valor = 5;
+                        }
+                    }
+                }
+            }
+            $datos["riesgo_sobrepeso_I"] = $valor * 4;
+            if($datos["riesgo_sobrepeso_I"] <= 8){
+                $datos["riesgo_sobrepeso_I"] = 1;
+            }else{
+                if($datos["riesgo_sobrepeso_I"] >= 9 && $datos["riesgo_sobrepeso_I"] < 16){
+                    $datos["riesgo_sobrepeso_I"] = 2;
+                }else{
+                    $datos["riesgo_sobrepeso_I"] = 3;
+                }
+            }
+            // RIESGO SOBREPESO 
+            $datos["id_inte"] = $id;
+            $datos["id_hogar"] = $id_hogar;
+            $datos["estado"] = "Activo";
+            $guardar = \App\RiesgosSaludMen1::guardar($datos, Session::get('alias'));
+            // GUARDAR DATOS
+    
+            if ($guardar) {
+                return 1;
+            } else {
+                return 1;
+            }            
+        }
+        return 1;
     }
 }
