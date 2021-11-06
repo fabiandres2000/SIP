@@ -79,7 +79,7 @@ class BarrioController extends Controller
                     $dato['barrio'] = $item["barrio"];
                     $dato['id'] = $item["id"];
                     $barrios = \App\Barrio::guardar($dato, Session::get('alias'));
-                    $gua = \App\Log::guardar("Guardar barrio = " . $item["barrio"], Session::get('alias'));
+                    $gua = \App\Log::guardar("Guardar barrio = " . $item["barrio"], Session::get('alias'), 'PARAMETROS BARRIOS');
                 }
             } else {
                 $dato['dpto'] = $data["dpto"];
@@ -88,7 +88,7 @@ class BarrioController extends Controller
                 $dato['barrio'] = $data["barrio"];
                 $dato['id'] = $data["id"];
                 $barrios = \App\Barrio::guardar($dato, Session::get('alias'));
-                $gua = \App\Log::guardar("Editar barrio id = " . $data["id"], Session::get('alias'));
+                $gua = \App\Log::guardar("Editar barrio id = " . $data["id"], Session::get('alias'), 'PARAMETROS BARRIOS');
             }
             if ($barrios) {
                 $respuesta = [
@@ -116,10 +116,10 @@ class BarrioController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {                
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar el barrio con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar el barrio con id = ".$id, Session::get('alias'), 'PARAMETROS BARRIOS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar el barrio con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar el barrio con id = ".$id, Session::get('alias'), 'PARAMETROS BARRIOS');
             }
             $respuesta = \App\Barrio::editarestado($estado, $id, Session::get('alias'));
             return;

@@ -1,4 +1,4 @@
-import { http } from "./http_services";
+import {http} from "./http_services";
 
 export function loginUsuario(data) {
     return http().post('/login', data);
@@ -22,4 +22,31 @@ export function salir($data) {
 }
 export function iniciar($data) {
     return http().post('/usuarios/iniciar', $data);
+}
+export function cambiarclave($data) {
+    return http().post('/usuarios/cambiarclave', $data);
+}
+
+export function buscar($data) {
+    return http().post('/usuarios/buscar', $data);
+}
+
+export function listar($data) {
+    return http().post('/usuarios/listar', $data);
+}
+
+export function guardar($data) {
+    return http().post('/usuarios/guardarSop', $data);
+}
+
+export function editar($data) {
+    return http().post('/usuarios/modificarSop', $data);
+}
+
+export function eliminar($data) {
+    return http().post('/usuarios/eliminarSop', $data);
+}
+
+export function consIp() {
+    return http().get('https://api.ipify.org?format=json');
 }

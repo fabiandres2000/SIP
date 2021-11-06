@@ -79,7 +79,7 @@ class VeredaController extends Controller
                     $dato['descripcion'] = $item["descripcion"];
                     $dato['id'] = $item["id"];
                     $veredas = \App\Vereda::guardar($dato, Session::get('alias'));
-                    $gua = \App\Log::guardar("Guardar la vereda  = ".$item['descripcion'], Session::get('alias'));
+                    $gua = \App\Log::guardar("Guardar la vereda  = " . $item['descripcion'], Session::get('alias'), 'PARAMETROS VEREDAS');
                 }
             } else {
                 $dato['dpto'] = $data["dpto"];
@@ -88,7 +88,7 @@ class VeredaController extends Controller
                 $dato['descripcion'] = $data["descripcion"];
                 $dato['id'] = $data["id"];
                 $veredas = \App\Vereda::guardar($dato, Session::get('alias'));
-                $gua = \App\Log::guardar("Editar la vereda  = ".$data['descripcion'], Session::get('alias'));
+                $gua = \App\Log::guardar("Editar la vereda  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS VEREDAS');
             }
             if ($veredas) {
                 $respuesta = [
@@ -117,10 +117,10 @@ class VeredaController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar la vereda con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar la vereda con id = " . $id, Session::get('alias'), 'PARAMETROS VEREDAS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar la vereda con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar la vereda con id = " . $id, Session::get('alias'), 'PARAMETROS VEREDAS');
             }
             $respuesta = \App\Vereda::editarestado($estado, $id, Session::get('alias'));
             return;

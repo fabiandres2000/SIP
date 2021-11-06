@@ -43,7 +43,7 @@ class GrupoController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $grupos_ayudas = \App\Grupo::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar el grupo de ayuda  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar el grupo de ayuda  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS GRUPOS');
             if ($grupos_ayudas) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class GrupoController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar el grupo de ayuda con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar el grupo de ayuda con id = " . $id, Session::get('alias'), 'PARAMETROS GRUPOS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar el grupo de ayuda con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar el grupo de ayuda con id = " . $id, Session::get('alias'), 'PARAMETROS GRUPOS');
             }
             $respuesta = \App\Grupo::editarestado($estado, $id, Session::get('alias'));
             return;

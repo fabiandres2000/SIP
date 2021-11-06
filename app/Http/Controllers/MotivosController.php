@@ -43,7 +43,7 @@ class MotivosController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $motivos = \App\Motivos::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar el motivo para no planificar  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar el motivo para no planificar  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS MOTIVOS');
             if ($motivos) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class MotivosController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar el motivo para no planificar con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar el motivo para no planificar con id = " . $id, Session::get('alias'), 'PARAMETROS MOTIVOS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar el motivo para no planificar con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar el motivo para no planificar con id = " . $id, Session::get('alias'), 'PARAMETROS MOTIVOS');
             }
             $respuesta = \App\Motivos::editarestado($estado, $id, Session::get('alias'));
             return;

@@ -10,7 +10,9 @@ export default new Vuex.Store({
         // apiURL: 'http://35.196.193.180/SIP/public/',
         // serverPath: 'http://35.196.193.180/SIP/public/',
         // apiURL: 'http://192.168.1.10/SIP/public/',
-        // serverPath: 'http://192.168.1.10/SIP/public/',                
+        // serverPath: 'http://192.168.1.10/SIP/public/',
+        // apiURL: 'http://192.168.1.150/SIP/public/',
+        // serverPath: 'http://192.168.1.150/SIP/public/',                        
     },
     mutations: {},
     actions: {}

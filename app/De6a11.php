@@ -80,6 +80,7 @@ class De6a11 extends Model
                 , "integrantes.sexo AS sexo"
                 , "integrantes.peso AS peso"
                 , "integrantes.talla AS talla"
+                , "de6a11.id_integrante AS id_integrante"
             )
             ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
             ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
@@ -121,4 +122,54 @@ class De6a11 extends Model
             'estado' => $estado,
         ]);
     }
+
+    public static function buscarPorIdentificacion($alias, $dentificacion)
+    {
+
+        $de6a11 = DB::connection('mysql')->table($alias . '.de6a11')
+            ->join($alias . '.integrantes', 'integrantes.id', 'de6a11.id_integrante')
+            ->where('de6a11.identificacion', $dentificacion)
+            ->where('de6a11.estado', 'Activo')
+            ->select("integrantes.identificacion AS identificacion"
+                , "integrantes.tipo_id AS tipo_id"
+                , "integrantes.pnom AS pnom"
+                , "integrantes.pape AS pape"
+                , "integrantes.sexo AS sexo"
+                , "integrantes.peso AS peso"
+                , "integrantes.talla AS talla"
+                , "de6a11.id_integrante AS id_integrante"
+            )
+            ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
+            ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edadCal")
+            ->selectRaw("IFNULL(de6a11.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(de6a11.id_compania,'1') AS id_compania")
+            ->selectRaw("IFNULL(de6a11.edad,YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(de6a11.imc,(integrantes.peso/(integrantes.talla*integrantes.talla))) AS imc")
+            ->selectRaw("IFNULL(de6a11.id,0) AS id")
+            ->selectRaw("IFNULL(de6a11.cyc,'') AS cyc")
+            ->selectRaw("IFNULL(de6a11.atencion,'') AS atencion")
+            ->selectRaw("IFNULL(de6a11.pb,'') AS pb")
+            ->selectRaw("IFNULL(de6a11.pt,'') AS pt")
+            ->selectRaw("IFNULL(de6a11.te,'') AS te")
+            ->selectRaw("IFNULL(de6a11.conducta,'') AS conducta")
+            ->selectRaw("IFNULL(de6a11.visuales,'') AS visuales")
+            ->selectRaw("IFNULL(de6a11.auditivos,'') AS auditivos")
+            ->selectRaw("IFNULL(de6a11.dientes_sanos,'') AS dientes_sanos")
+            ->selectRaw("IFNULL(de6a11.consultaodon,'') AS consultaodon")
+            ->selectRaw("IFNULL(de6a11.nofluor,'') AS nofluor")
+            ->selectRaw("IFNULL(de6a11.nocepillado,'') AS nocepillado")
+            ->selectRaw("IFNULL(de6a11.maltrato,'') AS maltrato")
+            ->selectRaw("IFNULL(de6a11.sustanciaspsico,'') AS sustanciaspsico")
+            ->selectRaw("IFNULL(de6a11.desparacitado,'') AS desparacitado")
+            ->selectRaw("IFNULL(de6a11.enfermedad,'') AS enfermedad")
+            ->selectRaw("IFNULL(de6a11.medicamento,'') AS medicamento")
+            ->selectRaw("IFNULL(de6a11.padre,'') AS padre")
+            ->selectRaw("IFNULL(de6a11.madre,'') AS madre")
+            ->selectRaw("IFNULL(de6a11.hermanos,'') AS hermanos")
+            ->selectRaw("IFNULL(de6a11.conyuge,'') AS conyuge")
+            ->selectRaw("IFNULL(de6a11.opci,'INTE') AS opci");
+        return $de6a11->first();
+
+    }    
 }

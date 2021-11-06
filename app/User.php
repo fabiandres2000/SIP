@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre', 'email', 'password', 'rol', 'usuario', 'estado', 'identificacion', 'celular', 'direccion',
+        'nombre', 'email', 'password', 'rol', 'usuario', 'estado', 'identificacion', 'celular', 'direccion', 'id_entidad',
     ];
 
     /**
@@ -38,11 +39,17 @@ class User extends Authenticatable
 
     public static function login($usua, $pass)
     {
-        $usuario = User::where(function ($query) use ($usua) {
-            $query->where('email', $usua)
-                ->orWhere('usuario', $usua);
-        })
-            ->where('estado', 'Activo')
+        $usuario = User::join("usuarios_permisos", "usuarios_permisos.id_usuario", "users.id")
+            ->join("entes", "usuarios_permisos.id_ente", "entes.id")
+            ->where(function ($query) use ($usua) {
+                $query->where('email', $usua)
+                    ->orWhere('usuario', $usua);
+            })
+            ->where("entes.estado", "Activo")
+            ->where('users.estado', 'Activo')
+            ->where('usuarios_permisos.estado', 'Activo')
+            ->where("usuarios_permisos.actual", 1)
+            ->select('users.*')
             ->first();
         if ($usuario && \Hash::check($pass, $usuario->password)) {
             auth()->loginUsingId($usuario->id);
@@ -53,18 +60,25 @@ class User extends Authenticatable
     public static function listar($busqueda)
     {
         if (!empty($busqueda)) {
-            $respuesta = User::where(function ($query) use ($busqueda) {
-                $query->where('nombre', 'LIKE', '%' . $busqueda . '%')
-                    ->orWhere('email', 'LIKE', '%' . $busqueda . '%')
-                    ->orWhere('rol', 'LIKE', '%' . $busqueda . '%');
-            })
-                ->orderBy('id', 'DESC')
+            $respuesta = User::join('usuarios_permisos', 'usuarios_permisos.id_usuario', 'users.id')
+                ->where(function ($query) use ($busqueda) {
+                    $query->where('users.nombre', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('email', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('usuarios_permisos.rol', 'LIKE', '%' . $busqueda . '%');
+                })
+                ->where('usuarios_permisos.id_ente', Auth::user()->permisos->where('actual', 1)->first()->ente->id)
+                ->where('users.rol', '!=', 'SuperAdministrador')
+                ->select("users.*")
+                ->orderBy('users.id', 'DESC')
                 ->paginate(10);
         } else {
-            $respuesta = User::orderBy('id', 'DESC')
+            $respuesta = User::join('usuarios_permisos', 'usuarios_permisos.id_usuario', 'users.id')
+                ->where('usuarios_permisos.id_ente', Auth::user()->permisos->where('actual', 1)->first()->ente->id)
+                ->orderBy('users.id', 'DESC')
+                ->where('users.rol', '!=', 'SuperAdministrador')
+                ->select("users.*")
                 ->paginate(10);
         }
-
         return $respuesta;
     }
     public static function guardar($data)
@@ -75,11 +89,11 @@ class User extends Authenticatable
             'password' => bcrypt($data['password']),
             'estado' => 'Activo',
             'identificacion' => $data['identificacion'],
-            'rol' => $data['rol'],
+            'rol' => 'usuario',
             'celular' => $data['celular'],
             'usuario' => $data['usuario'],
             'direccion' => $data['direccion'],
-            'id_compania' => 1,
+            'id_entidad' => Auth::user()->permisos->where('actual', 1)->first()->ente->id,
         ]);
     }
     public static function editarestado($estado, $id)
@@ -94,7 +108,6 @@ class User extends Authenticatable
             'nombre' => $data['nombre'],
             'email' => $data['email'],
             'identificacion' => $data['identificacion'],
-            'rol' => $data['rol'],
             'celular' => $data['celular'],
             'usuario' => $data['usuario'],
             'direccion' => $data['direccion'],
@@ -110,7 +123,82 @@ class User extends Authenticatable
     {
         return User::join('entes', 'users.id_entidad', 'entes.id')
             ->where('users.id', $id_user)
-            ->select('entes.alias', 'entes.id', 'entes.sigla', 'entes.poblacion','entes.viviendas')
+            ->select('entes.alias', 'entes.id', 'entes.sigla', 'entes.poblacion', 'entes.viviendas')
             ->first();
+    }
+
+    public static function cambiarclave($data)
+    {
+        $password = $data['actual'];
+        $check_password = User::where(['id' => Auth::user()->id])->first();
+        if (\Hash::check($password, $check_password->password)) {
+            $new_pasword = bcrypt($data['nueva']);
+            $id = Auth::user()->id;
+            User::where('id', $id)->update(['password' => $new_pasword]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function listarSop($busqueda)
+    {
+        if (!empty($busqueda)) {
+            $respuesta = User::join('usuarios_permisos', 'usuarios_permisos.id_usuario', 'users.id')
+                ->join("entes", "usuarios_permisos.id_ente", "entes.id")
+                ->where(function ($query) use ($busqueda) {
+                    $query->where('users.nombre', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('email', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('usuarios_permisos.rol', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('entes.nombre', 'LIKE', '%' . $busqueda . '%');
+                })
+                ->where('users.rol', '!=', 'SuperAdministrador')
+                ->orderBy('users.id', 'DESC')
+                ->select("users.*", 'entes.nombre as entidad', 'entes.id as ide')
+                ->paginate(10);
+        } else {
+            $respuesta = User::join('usuarios_permisos', 'usuarios_permisos.id_usuario', 'users.id')
+                ->join("entes", "usuarios_permisos.id_ente", "entes.id")
+                ->orderBy('users.id', 'DESC')
+                ->where('users.rol', '!=', 'SuperAdministrador')
+                ->select("users.*", 'entes.nombre as entidad', 'entes.id as ide')
+                ->paginate(10);
+        }
+        return $respuesta;
+    }
+
+    public function permisos()
+    {
+        return $this->hasMany(\App\UserPermisos::class, "id_usuario");
+    }
+
+    public static function guardarSop($data)
+    {
+        return User::create([
+            'nombre' => $data['nombre'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'estado' => 'Activo',
+            'identificacion' => $data['identificacion'],
+            'rol' => 'usuario',
+            'celular' => $data['celular'],
+            'usuario' => $data['usuario'],
+            'direccion' => $data['direccion'],
+            'id_entidad' => $data["permisos"]['id_ente'],
+        ]);
+    }
+
+    public static function modificarSop($data, $id)
+    {
+        $respuesta = User::where(['id' => $id])->update([
+            'nombre' => $data['nombre'],
+            'email' => $data['email'],
+            'identificacion' => $data['identificacion'],
+            'celular' => $data['celular'],
+            'usuario' => $data['usuario'],
+            'direccion' => $data['direccion'],
+            'id_entidad' => $data["permisos"]['id_ente'],
+        ]);
+        return $respuesta;
     }
 }

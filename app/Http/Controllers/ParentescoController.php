@@ -43,7 +43,7 @@ class ParentescoController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $parentescos = \App\Parentesco::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar el parentesco  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar el parentesco  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS PARENTESCOS');
             if ($parentescos) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class ParentescoController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar el parentesco con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar el parentesco con id = " . $id, Session::get('alias'), 'PARAMETROS PARENTESCOS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar el parentesco con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar el parentesco con id = " . $id, Session::get('alias'), 'PARAMETROS PARENTESCOS');
             }
             $respuesta = \App\Parentesco::editarestado($estado, $id, Session::get('alias'));
             return;

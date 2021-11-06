@@ -43,7 +43,7 @@ class MorbilidadController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $morbilidad = \App\Morbilidad::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar la morbilidad en gestación  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la morbilidad en gestación  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS MORBILIDAD_GESTACION');
             if ($morbilidad) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class MorbilidadController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar la morbilidad en gestación con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar la morbilidad en gestación con id = " . $id, Session::get('alias'), 'PARAMETROS MORBILIDAD_GESTACION');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar la morbilidad en gestación con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar la morbilidad en gestación con id = " . $id, Session::get('alias'), 'PARAMETROS MORBILIDAD_GESTACION');
             }
             $respuesta = \App\Morbilidad::editarestado($estado, $id, Session::get('alias'));
             return;

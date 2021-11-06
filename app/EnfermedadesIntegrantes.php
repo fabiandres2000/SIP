@@ -90,6 +90,14 @@ class EnfermedadesIntegrantes extends Model
                 ->where('enfermedades_integrantes.estado', 'Activo')
                 ->count();
         }
+        if ($opcion == "OIDOS") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_integrantes')
+                ->where('enfermedades_integrantes.id_inte', $id)
+                ->where('enfermedades_integrantes.id_enfermedad', 25)
+                ->where('enfermedades_integrantes.tipo', 'Cronica')
+                ->where('enfermedades_integrantes.estado', 'Activo')
+                ->count();
+        }        
     }
 
     public static function buscarInfecciosas($alias, $id_inte)

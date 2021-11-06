@@ -1012,7 +1012,19 @@
                   >
                     <i class="fa fa-plus"></i>                    
                   </a>&nbsp;
-                </div>                                
+                </div>
+                <div class="col-lg-3">
+                  <label>Actividad Fisica:</label>
+                  <b-form-select
+                    v-model="caracData.actividad_fisica"
+                    :class="caracData.actividad_fisica==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                                               
               </div>
               <div class="row" v-show="caracData.antecedentes.length > 0">
                 <div class="col-md-12">
@@ -2379,7 +2391,19 @@
                   >
                     <i class="fa fa-plus"></i>                    
                   </a>&nbsp;
-                </div>                                
+                </div>
+                <div class="col-lg-3">
+                  <label>Actividad Fisica:</label>
+                  <b-form-select
+                    v-model="CA1.actividad_fisica"
+                    :class="CA1.actividad_fisica=='0'?'':'is-valid'"
+                  >
+                    <option value='0' selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="NA">NO APLICA</option>
+                  </b-form-select>
+                </div>                                                
               </div>
               <div class="row" v-show="CA1.antecedentes.length > 0">
                 <div class="col-md-12">
@@ -7625,6 +7649,7 @@
                               class="form-control text-capitalize"
                               v-model="item.te"
                               @input="changeupdateDe6A11(item,$event,'te')"
+                              readonly
                               :class="item.te==''?'is-invalid':'is-valid'"
                             />
                           </td>
@@ -9207,6 +9232,7 @@
                               class="form-control text-capitalize"
                               v-model="item.te"
                               @input="changeupdateDe12A17(item,$event,'te')"
+                              readonly
                               :class="item.te==''?'is-invalid':'is-valid'"
                             />
                           </td>
@@ -13449,8 +13475,10 @@
           antecedentes: [],
           antec: "",
           tipo_empleo: "",
-          percargo: ""         
+          percargo: "",
+          actividad_fisica: ""         
         },
+        carac2: [],
         CA1: {
           id: 0,
           tipo_id: "0",
@@ -13497,8 +13525,10 @@
           enfermedades: [],
           antecedentes: [],
           antec: "",
-          tipo_empleo: ""                           
+          tipo_empleo: "",
+          actividad_fisica: "0"                           
         },
+        CA2: [],
         viviendaData: {
           id: 0,
           id_hogar: 0,
@@ -18756,6 +18786,15 @@
           this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
           return;
         }
+        if (this.CA1.actividad_fisica === "0") {
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione si realiza actividad fisica!",
+            "error"
+          );
+          return;
+        }        
         if (this.CA1.programa_icbf === "") {
           this.$refs.programa_icbf.focus();
           this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
@@ -18921,7 +18960,8 @@
                     talla: this.CA1.talla,
                     enfermedades: [],
                     antecedentes: [],
-                    tipo_empleo: this.CA1.tipo_empleo,                                       
+                    tipo_empleo: this.CA1.tipo_empleo,
+                    actividad_fisica: this.CA1.actividad_fisica,                                       
                   });
                   for(let i=0;i<this.CA1.enfermedades.length;i++){
                     this.datos[this.datos.length-1].enfermedades.push({
@@ -18963,71 +19003,74 @@
                     identificacion: this.CA1.identificacion
                   });
 
+
+                  this.CA2 = [];
+                  this.CA2 = JSON.parse( JSON.stringify( this.CA1 ) );
                   // AGREGAR NIÑOS MENORES DE 1 AÑO
                   if (edad <= 0) {
-                    this.Amenores1Anio(this.CA1,hoy.diff(nacimiento, "months"), "INTE");
+                    this.Amenores1Anio(this.CA2,hoy.diff(nacimiento, "months"), "INTE");
                   }
                   // AGREGAR NIÑOS MENORES DE 1 AÑO
                   // AGREGAR DE 1 A 5 AÑOS
                   if (edad >= 1 && edad <= 5) {
-                    this.Ade1a5Anio(this.CA1, edad, "INTE");
+                    this.Ade1a5Anio(this.CA2, edad, "INTE");
                   }
                   // AGREGAR DE 1 A 5 AÑOS
 
                   // AGREGAR DE 6 A 11 AÑOS
                   if (edad >= 6 && edad <= 11) {
-                    this.Ade6a11Anio(this.CA1, edad, "INTE");
+                    this.Ade6a11Anio(this.CA2, edad, "INTE");
                   }
                   // AGREGAR DE 6 A 11 AÑOS
 
                   // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
                   if(edad<10){
                     if(this.CA1.excepciones==="1"){
-                      this.Ade10a59Anio(this.CA1, edad, "INTE");
+                      this.Ade10a59Anio(this.CA2, edad, "INTE");
                     }
                   }  
                   // AGREGAR EXCEPSIONES MENOR DE 10 AÑOS
                 
                   // AGREGAR DE 10 A 59 AÑOS
                   if (edad >= 10 && edad <= 59) {
-                    this.Ade10a59Anio(this.CA1, edad, "INTE");
+                    this.Ade10a59Anio(this.CA2, edad, "INTE");
                   }
                   // AGREGAR DE 10 A 59 AÑOS
 
                   // AGREGAR PARTO POSTPARTO
                   // alert(this.CA1.embarazo_multiple);
                   if (this.CA1.embarazo === "SI") {
-                    this.AParPost(this.CA1, edad, "INTE");
+                    this.AParPost(this.CA2, edad, "INTE");
                   }
                   // AGREGAR PARTO POSTPARTO
 
                   // AGREGAR DE 12 A 17 AÑOS
                   if (edad >= 12 && edad <= 17) {
-                    this.Ade12a17Anio(this.CA1, edad, "INTE");
+                    this.Ade12a17Anio(this.CA2, edad, "INTE");
                   }
                   // AGREGAR DE 12 A 17 AÑOS
 
                   // AGREGAR DE 18 A 28 AÑOS
                   if (edad >= 18 && edad <= 28) {
-                    this.Ade18a28Anio(this.CA1, edad, "INTE");
+                    this.Ade18a28Anio(this.CA2, edad, "INTE");
                   }
                   // AGREGAR DE 18 A 28 AÑOS
 
                   // AGREGAR DE 29 A 59 AÑOS
                   if (edad >= 29 && edad <= 59) {
-                    this.Ade29a59Anio(this.CA1, edad, "INTE");
+                    this.Ade29a59Anio(this.CA2, edad, "INTE");
                   }
                   // AGREGAR DE 29 A 59 AÑOS
 
                   // AGREGAR DE 60 ó MAS AÑOS
                   if (edad >= 60) {
-                    this.Ade60Anio(this.CA1, edad, "INTE");
+                    this.Ade60Anio(this.CA2, edad, "INTE");
                   }
                   // AGREGAR DE 60 ó MAS AÑOS
 
                   // AGREGAR MIGRANTES
                   if (this.CA1.migrante === "SI") {
-                    this.AMigra(this.CA1, edad, "INTE");
+                    this.AMigra(this.CA2, edad, "INTE");
                   }
                   // AGREGAR MIGRANTES
                   this.limpiar();
@@ -19220,6 +19263,7 @@
                       antecedentes: [],
                       tipo_empleo: this.caracData.tipo_empleo,
                       percargo: this.caracData.percargo,
+                      actividad_fisica: this.caracData.actividad_fisica,
                     });
 
                     for(let i=0;i<this.caracData.enfermedades.length;i++){
@@ -19265,6 +19309,8 @@
                       identificacion: this.caracData.identificacion
                     });
 
+                    this.carac2 = [];
+                    this.carac2 = JSON.parse( JSON.stringify( this.caracData ) );
                     // AGREGAR FACTORES
                     this.AFactores(this.caracData, edad);
                     // AGREGAR FACTORES
@@ -19275,44 +19321,44 @@
 
                     // AGREGAR DE 10 A 59 AÑOS
                     if (edad >= 10 && edad <= 59) {
-                      this.Ade10a59Anio(this.caracData, edad, "JEFE");
+                      this.Ade10a59Anio(this.carac2, edad, "JEFE");
                     }
                     // AGREGAR DE 10 A 59 AÑOS
 
                     // AGREGAR PARTO POSTPARTO
                     // alert(this.CA1.embarazo_multiple);
                     if (this.caracData.embarazo === "SI") {
-                      this.AParPost(this.caracData, edad, "JEFE");
+                      this.AParPost(this.carac2, edad, "JEFE");
                     }
                     // AGREGAR PARTO POSTPARTO
 
                     // AGREGAR DE 12 A 17 AÑOS
                     if (edad >= 12 && edad <= 17) {
-                      this.Ade12a17Anio(this.caracData, edad, "JEFE");
+                      this.Ade12a17Anio(this.carac2, edad, "JEFE");
                     }
                     // AGREGAR DE 12 A 17 AÑOS
 
                     // AGREGAR DE 18 A 28 AÑOS
                     if (edad >= 18 && edad <= 28) {
-                      this.Ade18a28Anio(this.caracData, edad, "JEFE");
+                      this.Ade18a28Anio(this.carac2, edad, "JEFE");
                     }
                     // AGREGAR DE 18 A 28 AÑOS
 
                     // AGREGAR DE 29 A 59 AÑOS
                     if (edad >= 29 && edad <= 59) {
-                      this.Ade29a59Anio(this.caracData, edad, "JEFE");
+                      this.Ade29a59Anio(this.carac2, edad, "JEFE");
                     }
                     // AGREGAR DE 29 A 59 AÑOS
 
                     // AGREGAR DE 60 ó MAS AÑOS
                     if (edad >= 60) {
-                      this.Ade60Anio(this.caracData, edad, "JEFE");
+                      this.Ade60Anio(this.carac2, edad, "JEFE");
                     }
                     // AGREGAR DE 60 ó MAS AÑOS
 
                     // AGREGAR MIGRANTES
                     if (this.caracData.migrante === "SI") {
-                      this.AMigra(this.caracData, edad, "JEFE");
+                      this.AMigra(this.carac2, edad, "JEFE");
                     }
                     // AGREGAR MIGRANTES
                     this.limpiar2();                  
@@ -19324,8 +19370,8 @@
                 this.entrarPorError = true;
               });
           } catch (error) {
-            this.errorDevuelto = error.response.data.errors;
-            this.entrarPorError = true;
+              this.errorDevuelto = error.response.data.errors;
+              this.entrarPorError = true;
           }
         }
       },
@@ -19483,6 +19529,15 @@
           this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
           return;
         }
+        if (this.caracData.actividad_fisica === "") {
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione si realiza actividad fisica!",
+            "error"
+          );
+          return;
+        }        
         if (this.caracData.programa_icbf === "") {
           bande = false;
           this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
@@ -19926,7 +19981,8 @@
         this.caracData.peso = item.peso;
         this.caracData.talla = item.talla;
         this.caracData.tipo_empleo = item.tipo_empleo; 
-        this.caracData.percargo = item.percargo;       
+        this.caracData.percargo = item.percargo;
+        this.caracData.actividad_fisica = item.actividad_fisica;     
         this.$refs.identificacionJefe.focus();
 
         this.idEditar = item.id;
@@ -20841,6 +20897,7 @@
         this.datosJefe[this.indiceEditJefe].antecedentes = this.caracData.antecedentes;
         this.datosJefe[this.indiceEditJefe].tipo_empleo = this.caracData.tipo_empleo;
         this.datosJefe[this.indiceEditJefe].percargo = this.caracData.percargo;
+        this.datosJefe[this.indiceEditJefe].actividad_fisica = this.caracData.actividad_fisica;
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         this.EnfJef.length = 0; 
         
@@ -21029,7 +21086,8 @@
         this.CA1.antecedentes = item.antecedentes;
         this.CA1.peso = item.peso;
         this.CA1.talla = item.talla;
-        this.CA1.tipo_empleo = item.tipo_empleo;           
+        this.CA1.tipo_empleo = item.tipo_empleo;
+        this.CA1.actividad_fisica = item.actividad_fisica;           
         this.$refs.identificacionInte.focus();
 
         this.idEditar = item.id;
@@ -22100,6 +22158,7 @@
         this.datos[this.indiceEditInte].peso = this.CA1.peso;
         this.datos[this.indiceEditInte].talla = this.CA1.talla;
         this.datos[this.indiceEditInte].tipo_empleo = this.CA1.tipo_empleo;
+        this.datos[this.indiceEditInte].actividad_fisica = this.CA1.actividad_fisica;
         this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
         this.limpiar();        
       },                
@@ -24261,7 +24320,8 @@
         this.CA1.enfermedades = [];
         this.CA1.antecedentes = [];
         this.CA1.antec = "";
-        this.CA1.tipo_empleo = "";                       
+        this.CA1.tipo_empleo = "";
+        this.CA1.actividad_fisica = "0";                      
       },
       limpiar2() {
         this.caracData.tipo_id = "";
@@ -24317,7 +24377,8 @@
         this.caracData.antecedentes = [];
         this.caracData.antec = "";
         this.caracData.tipo_empleo = "";
-        this.caracData.percargo = "";       
+        this.caracData.percargo = "";
+        this.caracData.actividad_fisica = "";       
       },
       mostrarOtro(tipo) {
         if (tipo === "TE") {
@@ -25106,7 +25167,21 @@
           item.medicamento = valor;
         }
       },
-      Ade6a11Anio(vector, edad, opcion) {
+      Ade6a11Anio: async function(vector, edad, opcion) {
+        let tal_eda = "NA";
+        const parametros = {
+          _token: this.csrf,
+          datos: vector,
+          opcion: "6A11ANI"
+        };
+        try {
+          await caracterizacionServicios
+            .buscarTablas(parametros)
+            .then(respuesta => {
+              tal_eda = respuesta.data.tal_eda;
+            })
+            .catch(error => {});
+        } catch (error) {}        
         this.De6A11.push({
           id: 0,
           tipo_id: vector.tipo_id,
@@ -25124,7 +25199,7 @@
           imc: this.calcularImc(vector.peso,vector.talla),
           pb: "NA",
           pt: "NA",
-          te: "",
+          te: tal_eda,
           conducta: "",
           visuales: "",
           auditivos: "",
@@ -25588,7 +25663,21 @@
           item.morposparto = valor;
         }
       },
-      Ade12a17Anio(vector, edad, opcion) {
+      Ade12a17Anio: async function(vector, edad, opcion) {
+        let tal_eda = "NA";
+        const parametros = {
+          _token: this.csrf,
+          datos: vector,
+          opcion: "6A11ANI"
+        };
+        try {
+          await caracterizacionServicios
+            .buscarTablas(parametros)
+            .then(respuesta => {
+              tal_eda = respuesta.data.tal_eda;
+            })
+            .catch(error => {});
+        } catch (error) {}        
         this.De12A17.push({
           id: 0,
           tipo_id: vector.tipo_id,
@@ -25602,7 +25691,7 @@
           peso: vector.peso,
           talla: vector.talla,
           imc: this.calcularImc(vector.peso,vector.talla),
-          te: "",
+          te: tal_eda,
           visuales: "",
           auditivos: "",
           conducta: "",

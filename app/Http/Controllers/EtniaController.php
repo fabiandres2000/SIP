@@ -12,7 +12,7 @@ class EtniaController extends Controller
     {
         if (Auth::check()) {
             $busqueda = request()->get('txtbusqueda');
-            $etnias = \App\Etnia::listar($busqueda,Session::get('alias'));
+            $etnias = \App\Etnia::listar($busqueda, Session::get('alias'));
             if ($etnias) {
                 $respuesta = [
                     'paginacion' => [
@@ -42,9 +42,9 @@ class EtniaController extends Controller
     {
         if (Auth::check()) {
             $data = request()->all();
-            $etnias = \App\Etnia::guardar($data,Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar la etnia  = ".$data['descripcion'], Session::get('alias'));
-            if ($etnias) {                
+            $etnias = \App\Etnia::guardar($data, Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la etnia  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS ETNIAS');
+            if ($etnias) {
                 $respuesta = [
                     'OPC' => 'SI',
                     'etnias' => $etnias,
@@ -71,12 +71,12 @@ class EtniaController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar la etnia con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar la etnia con id = " . $id, Session::get('alias'), 'PARAMETROS ETNIAS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar la etnia con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar la etnia con id = " . $id, Session::get('alias'), 'PARAMETROS ETNIAS');
             }
-            $respuesta = \App\Etnia::editarestado($estado, $id,Session::get('alias'));
+            $respuesta = \App\Etnia::editarestado($estado, $id, Session::get('alias'));
             return;
         } else {
             return redirect("/")->with("error", "Su sesion ha terminado");
@@ -93,8 +93,8 @@ class EtniaController extends Controller
                 $dato['id'] = $item["id"];
                 $dato['estado'] = $item["estado"];
                 $dato['id_etnia'] = $id_etnia;
-                $clasificacion = \App\ClasificacionEtnia::guardar($dato,Session::get('alias'));
-                $gua = \App\Log::guardar("Guardar la clasificación de la etnia = ".$item["clasificacion"], Session::get('alias'));
+                $clasificacion = \App\ClasificacionEtnia::guardar($dato, Session::get('alias'));
+                $gua = \App\Log::guardar("Guardar la clasificación de la etnia = " . $item["clasificacion"], Session::get('alias'), 'PARAMETROS ETNIAS');
             }
             if ($clasificacion) {
                 $respuesta = [
@@ -119,7 +119,7 @@ class EtniaController extends Controller
     {
         if (Auth::check()) {
             $id_etnia = request()->get('id_etnia');
-            $clasificacion = \App\ClasificacionEtnia::listar($id_etnia,Session::get('alias'));
+            $clasificacion = \App\ClasificacionEtnia::listar($id_etnia, Session::get('alias'));
             if ($clasificacion) {
                 $respuesta = [
                     'clasificacion' => $clasificacion,

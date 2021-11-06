@@ -43,7 +43,7 @@ class OcupacionController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $ocupaciones = \App\Ocupacion::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar la ocupación  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la ocupación  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS OCUPACIONES');
             if ($ocupaciones) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class OcupacionController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar la ocupación con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar la ocupación con id = " . $id, Session::get('alias'), 'PARAMETROS OCUPACIONES');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar la ocupación con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar la ocupación con id = " . $id, Session::get('alias'), 'PARAMETROS OCUPACIONES');
             }
             $respuesta = \App\Ocupacion::editarestado($estado, $id, Session::get('alias'));
             return;

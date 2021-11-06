@@ -43,7 +43,7 @@ class EnfermedadesCroController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $enfermedadescro = \App\EnfermedadesCro::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar la enfermedad cronica  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la enfermedad cronica  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS ENFERMEDADES_CRONICAS');
             if ($enfermedadescro) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class EnfermedadesCroController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar la enfermedad cronica con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar la enfermedad cronica con id = " . $id, Session::get('alias'), 'PARAMETROS ENFERMEDADES_CRONICAS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar la enfermedad cronica con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar la enfermedad cronica con id = " . $id, Session::get('alias'), 'PARAMETROS ENFERMEDADES_CRONICAS');
             }
             $respuesta = \App\EnfermedadesCro::editarestado($estado, $id, Session::get('alias'));
             return;

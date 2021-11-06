@@ -5,6 +5,7 @@
 
 <head>
 
+    
     <!--begin::Base Path (base relative path for assets of this page) -->
     <base href="../../../../">
 
@@ -106,7 +107,7 @@
                                 <form class="kt-form">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Usuario ó Email"
-                                            name="email" autocomplete="off" v-model="usuarioData.email" />
+                                            name="email" autocomplete="off" v-model="usuarioData.email" @change="buscarIP"/>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" type="password" placeholder="Contraseña"

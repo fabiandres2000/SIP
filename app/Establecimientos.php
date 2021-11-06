@@ -23,52 +23,105 @@ class Establecimientos extends Model
     public static function listar($busqueda, $alias)
     {
         if (!empty($busqueda)) {
-            $respuesta = DB::connection('mysql')->table($alias . '.establecimientos')
-                ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
-                ->join($alias . '.muni', function ($join) {
-                    $join->on('muni.coddep', '=', 'dptos.codigo');
-                    $join->on('muni.codmun', '=', 'establecimientos.id_mun');
-                })
-                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
-                ->where(function ($query) use ($busqueda) {
-                    $query->where('establecimientos.nit', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('establecimientos.razon', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('establecimientos.representante', 'LIKE', '%' . $busqueda . '%');
-                })
-                ->where("establecimientos.estado", "Activo")
-                ->select("dptos.descripcion AS DPTO",
-                    "muni.descripcion AS MUNI",
-                    "corregimientos.descripcion AS CORREGIMIENTO",
-                    "establecimientos.estado AS ESTADO",
-                    "establecimientos.nit",
-                    "establecimientos.id",
-                    "establecimientos.representante",
-                    "establecimientos.razon",
-                    "establecimientos.id_hogar AS IDHOGAR"
-                )
-                ->orderBy('establecimientos.id', 'DESC')
-                ->paginate(10);
+            if (Auth::user()->rol == "Administrador") {
+                $respuesta = DB::connection('mysql')->table($alias . '.establecimientos')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'establecimientos.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
+                    ->where(function ($query) use ($busqueda) {
+                        $query->where('establecimientos.nit', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('establecimientos.razon', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('establecimientos.representante', 'LIKE', '%' . $busqueda . '%');
+                    })
+                    ->where("establecimientos.estado", "Activo")
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "establecimientos.estado AS ESTADO",
+                        "establecimientos.nit",
+                        "establecimientos.id",
+                        "establecimientos.representante",
+                        "establecimientos.razon",
+                        "establecimientos.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('establecimientos.id', 'DESC')
+                    ->paginate(10);
+            } else {
+                $respuesta = DB::connection('mysql')->table($alias . '.establecimientos')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'establecimientos.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
+                    ->where(function ($query) use ($busqueda) {
+                        $query->where('establecimientos.nit', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('establecimientos.razon', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('establecimientos.representante', 'LIKE', '%' . $busqueda . '%');
+                    })
+                    ->where("establecimientos.estado", "Activo")
+                    ->where("establecimientos.usuario_crear", Auth::user()->id)
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "establecimientos.estado AS ESTADO",
+                        "establecimientos.nit",
+                        "establecimientos.id",
+                        "establecimientos.representante",
+                        "establecimientos.razon",
+                        "establecimientos.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('establecimientos.id', 'DESC')
+                    ->paginate(10);
+            }
         } else {
-            $respuesta = DB::connection('mysql')->table($alias . '.establecimientos')
-                ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
-                ->join($alias . '.muni', function ($join) {
-                    $join->on('muni.coddep', '=', 'dptos.codigo');
-                    $join->on('muni.codmun', '=', 'establecimientos.id_mun');
-                })
-                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
-                ->where("establecimientos.estado", "Activo")
-                ->select("dptos.descripcion AS DPTO",
-                    "muni.descripcion AS MUNI",
-                    "corregimientos.descripcion AS CORREGIMIENTO",
-                    "establecimientos.estado AS ESTADO",
-                    "establecimientos.nit",
-                    "establecimientos.id",
-                    "establecimientos.representante",
-                    "establecimientos.razon",
-                    "establecimientos.id_hogar AS IDHOGAR"
-                )
-                ->orderBy('establecimientos.id', 'DESC')
-                ->paginate(10);
+            if (Auth::user()->rol == "Administrador") {
+                $respuesta = DB::connection('mysql')->table($alias . '.establecimientos')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'establecimientos.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
+                    ->where("establecimientos.estado", "Activo")
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "establecimientos.estado AS ESTADO",
+                        "establecimientos.nit",
+                        "establecimientos.id",
+                        "establecimientos.representante",
+                        "establecimientos.razon",
+                        "establecimientos.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('establecimientos.id', 'DESC')
+                    ->paginate(10);
+            } else {
+                $respuesta = DB::connection('mysql')->table($alias . '.establecimientos')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'establecimientos.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'establecimientos.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'establecimientos.id_corre')
+                    ->where("establecimientos.estado", "Activo")
+                    ->where("establecimientos.usuario_crear", Auth::user()->id)
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "establecimientos.estado AS ESTADO",
+                        "establecimientos.nit",
+                        "establecimientos.id",
+                        "establecimientos.representante",
+                        "establecimientos.razon",
+                        "establecimientos.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('establecimientos.id', 'DESC')
+                    ->paginate(10);
+            }
         }
 
         return $respuesta;
@@ -76,8 +129,8 @@ class Establecimientos extends Model
 
     public static function guardar($data, $alias)
     {
-        
-        return DB::connection('mysql')->table($alias . '.establecimientos')->insertGetId([            
+
+        return DB::connection('mysql')->table($alias . '.establecimientos')->insertGetId([
             'id_hogar' => $data['id_hogar'],
             'registrado' => $data['registrado'],
             'num_matricula' => $data['num_matricula'],
@@ -172,7 +225,7 @@ class Establecimientos extends Model
             ->selectRaw("IFNULL(establecimientos.id_barrio,'') AS id_barrio")
             ->selectRaw("IFNULL(establecimientos.direccion,'') AS direccion")
             ->selectRaw("IFNULL(establecimientos.razon,'') AS razon")
-            ->selectRaw("IFNULL(establecimientos.tipo_tiempo,'') AS tipo_tiempo")                                                       
+            ->selectRaw("IFNULL(establecimientos.tipo_tiempo,'') AS tipo_tiempo")
             ->where('establecimientos.id', $id)
             ->where('establecimientos.estado', 'Activo')
             ->first();

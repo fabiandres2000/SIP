@@ -66,8 +66,8 @@ class RiesgosSaludMen1 extends Model
     {
         return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
             ->join($alias . '.integrantes', 'integrantes.id', 'riesgos_salud_men1.id_inte')
-            ->where('riesgos_salud_men1.id_hogar', $id_hogar)
-            ->where('riesgos_salud_men1.estado', 'Activo')
+            ->where('integrantes.id_hogar', $id_hogar)
+            ->where('integrantes.estado', 'Activo')
             ->select('riesgos_salud_men1.*'
                 , "integrantes.identificacion AS identificacion"
                 , "integrantes.tipo_id AS tipo_id"
@@ -75,8 +75,180 @@ class RiesgosSaludMen1 extends Model
                 , "integrantes.pape AS pape")
             ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
             ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
-            ->orderBy()
             ->get();
     }
 
+    public static function modificar($alias, $id_hogar, $opcion, $data, $id_inte)
+    {
+        // Enfermedades Infeccisosas
+        if ($opcion == "EnIn") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'enfermedades_infecciosas_R' => $data,
+                ]);
+        }
+        // Enfermedades Infeccisosas
+
+        // Trastornos Asociados al uso de SPA
+        if ($opcion == "TrAsSPA") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'transtornos_asociados_spa_R' => $data,
+                ]);
+        }
+        // Trastornos Asociados al uso de SPA
+        
+        // Enfermedad Cardiovascular Aterogénica
+        if ($opcion == "EnCaAt") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'enfermedad_cardiovascular_R' => $data,
+                ]);
+        }
+        // Enfermedad Cardiovascular Aterogénica
+        
+        // Cancer
+        if ($opcion == "Ca") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'cancer_R' => $data,
+                ]);
+        }
+        // Cancer
+        
+        // Alteraciones y Transtornos Visuales
+        if ($opcion == "AlTrVi") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'alteraciones_transtornos_visuales_R' => $data,
+                ]);
+        }
+        // Alteraciones y Transtornos Visuales
+        
+        // Alteraciones y Transtornos de la Audición y Comunicación
+        if ($opcion == "AlTrAuCo") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'alteraciones_transtornos_audicion_R' => $data,
+                ]);
+        }
+        // Alteraciones y Transtornos de la Audición y Comunicación
+        
+        // Salud Bucal
+        if ($opcion == "SaBu") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'salud_bucal_R' => $data,
+                ]);
+        }
+        // Salud Bucal
+        
+        // Problemas en salud mental
+        if ($opcion == "PrSaMe") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'problemas_salud_mental_R' => $data,
+                ]);
+        }
+        // Problemas en salud mental
+        
+        // Violencias
+        if ($opcion == "Vi") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'violencias_R' => $data,
+                ]);
+        }
+        // Violencias
+        
+        // Enfermedades Respiratorias crónicas
+        if ($opcion == "EnReCr") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'enfermedades_respiratorias_R' => $data,
+                ]);
+        }
+        // Enfermedades Respiratorias crónicas
+        
+        // Enfermedades Zoonoticas
+        if ($opcion == "EnZo") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'enfermedades_zoonoticas_R' => $data,
+                ]);
+        }
+        // Enfermedades Zoonoticas
+        
+        // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+        if ($opcion == "TrDeNeEnAu") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'transtornos_degenartivos_R' => $data,
+                ]);
+        }
+        // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+        
+        // Consumo de SPA
+        if ($opcion == "CoSp") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'consumo_spa_R' => $data,
+                ]);
+        }
+        // Consumo de SPA
+        
+        // Riesgo Desnutrición Aguda
+        if ($opcion == "RiDeAg") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'riesgos_desnutricion_aguda_R' => $data,
+                ]);
+        }
+        // Riesgo Desnutrición Aguda
+        
+        // Riesgo Desnutrición Global
+        if ($opcion == "RiDeGl") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'riesgos_desnutricion_global_R' => $data,
+                ]);
+        }
+        // Riesgo Desnutrición Global
+        
+        // Riesgo de Talla Baja
+        if ($opcion == "RiTaBa") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'riesgo_talla_baja_R' => $data,
+                ]);
+        }
+        // Riesgo de Talla Baja
+        
+        // Riesgo Sobrepeso
+        if ($opcion == "RiSo") {
+            return DB::connection('mysql')->table($alias . '.riesgos_salud_men1')
+                ->where('id_hogar', $id_hogar)->where('id_inte', $id_inte)
+                ->update([
+                    'riesgo_sobrepeso_R' => $data,
+                ]);
+        }
+        // Riesgo Sobrepeso        
+        
+    }
 }

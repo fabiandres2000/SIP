@@ -144,4 +144,14 @@ class Factores extends Model
             ->where('factores.estado', 'Activo')
             ->first();
     }
+
+    public static function buscarFactFami($alias, $id_hogar,$id_jefe)
+    {
+        return DB::connection('mysql')->table($alias . '.factores')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'factores.id_jefe')
+            ->where('factores.id_hogar', $id_hogar)
+            ->where('factores.id_jefe', $id_jefe)
+            ->where('factores.estado', 'Activo')
+            ->first();
+    }    
 }

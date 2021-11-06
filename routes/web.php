@@ -9,6 +9,8 @@ Route::post('/usuarios/eliminar', 'UsuarioController@eliminar');
 Route::post('/usuarios/modificar', 'UsuarioController@modificar');
 Route::post('/logout', 'UsuarioController@logout');
 Route::post('/usuarios/iniciar', 'UsuarioController@iniciar');
+Route::post('/usuarios/cambiarclave', 'UsuarioController@cambiarclave');
+Route::post('/usuarios/buscar', 'UsuarioController@buscar');
 
 Route::post('/barrios', 'BarrioController@gestion');
 Route::post('/barrios/guardar', 'BarrioController@guardar');
@@ -101,6 +103,7 @@ Route::post('/caracterizacion/actualizar', 'CaracterizacionController@actualizar
 Route::post('/caracterizacion/eliminar', 'CaracterizacionController@eliminar');
 Route::post('/caracterizacion/controlesRA', 'CaracterizacionController@controlesRA');
 Route::post('/caracterizacion/buscarTablas', 'CaracterizacionController@buscarTablas');
+Route::post('/caracterizacion/ControlRS', 'CaracterizacionController@ControlRS');
 
 
 
@@ -118,3 +121,37 @@ Route::post('/unidades/eliminar', 'UnidadesProductivasController@eliminar');
 
 Route::post('/estadisticas', 'AdministracionController@estadisticas');
 
+Route::post('/datosdashboard', 'DashboardController@datos_dashboard');
+
+Route::post('/coordenadas', 'DashboardController@coordenadas');
+
+Route::post('/indicadores/calcular', 'IndicadoresController@calcular');
+
+Route::post('/indicadores/gestantes', 'IndicadoresController@gestantes');
+
+Route::post('/indicadores/spa', 'IndicadoresController@spa');
+
+Route::post('/indicadores/filtrospa', 'IndicadoresController@filtrospa');
+
+Route::post('/vivienda/iniciales', 'ConsultasController@viviendas');
+
+Route::post('/vivienda/listar', 'ConsultasController@viviendaslistar');
+
+Route::post('/vivienda/listarpdf', 'ConsultasController@viviendaslistarpdf');
+
+Route::post('/jefehogar/listar', 'ConsultasController@jefelistar');
+
+Route::post('/jefehogar/listarpdf', 'ConsultasController@jefeslistarpdf');
+
+
+
+Route::post('/entes/listar', 'soporteController@listarEntes');
+Route::post('/entes/guardar', 'soporteController@guardarEntes');
+Route::post('/entes/eliminar', 'soporteController@eliminarEntes');
+Route::post('/entes/mostrar', 'soporteController@mostrarEntes');
+Route::post('/entes/seleccionar', 'soporteController@seleccionarEntes');
+
+Route::post('/usuarios/listar', 'soporteController@listarUsuarios');
+Route::post('/usuarios/guardarSop', 'soporteController@guardarUsuarios');
+Route::post('/usuarios/modificarSop', 'soporteController@modificarUsuarios');
+Route::post('/usuarios/eliminarSop', 'soporteController@eliminarUsuarios');

@@ -43,7 +43,7 @@ class ReligionController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $religion = \App\Religion::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar la religión  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la religión  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS RELIGION');
             if ($religion) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class ReligionController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar la religión con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar la religión con id = " . $id, Session::get('alias'), 'PARAMETROS RELIGION');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar la religión con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar la religión con id = " . $id, Session::get('alias'), 'PARAMETROS RELIGION');
             }
             $respuesta = \App\Religion::editarestado($estado, $id, Session::get('alias'));
             return;

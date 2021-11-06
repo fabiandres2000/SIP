@@ -12,8 +12,8 @@ class Hogar extends Model
     protected $fillable = [
         'id_dpto', 'id_mun', 'id_corre', 'id_vereda', 'id_barrio', 'id_zona',
         'tenencia_vivienda', 'numero_hogares', 'poblacion_especial', 'vias_acceso',
-        'servicios_publicos', 'direccion', 'id_compania', 'estado', 'fecha',
-        'usuario_crear', 'fecha_editar', 'usuario_editar',
+        'servicios_publicos', 'direccion', 'id_compania', 'estado', 
+        'fecha','usuario_crear', 'fecha_editar', 'usuario_editar',
     ];
 
     public static function guardar($data, $alias)

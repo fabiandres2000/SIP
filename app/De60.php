@@ -84,6 +84,7 @@ class De60 extends Model
                 , "caracterizacion.sexo AS sexo"
                 , "caracterizacion.peso AS peso"
                 , "caracterizacion.talla AS talla"
+                , "de60.id_integrante AS id_integrante"
             )
             ->selectRaw("IFNULL(caracterizacion.snom,'') AS snom")
             ->selectRaw("IFNULL(caracterizacion.sape,'') AS sape")
@@ -124,6 +125,7 @@ class De60 extends Model
                 , "integrantes.sexo AS sexo"
                 , "integrantes.peso AS peso"
                 , "integrantes.talla AS talla"
+                , "de60.id_integrante AS id_integrante"
             )
             ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
             ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
@@ -162,4 +164,93 @@ class De60 extends Model
             'estado' => $estado,
         ]);
     }
+
+    public static function buscarPorIdentificacion($alias, $dentificacion)
+    {
+
+        $de601 = DB::connection('mysql')->table($alias . '.de60')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'de60.id_integrante')
+            ->where('caracterizacion.identificacion', $dentificacion)
+            ->where('caracterizacion.estado', 'Activo')
+            ->where('de60.opci', 'JEFE')
+            ->select("caracterizacion.identificacion AS identificacion"
+                , "caracterizacion.tipo_id AS tipo_id"
+                , "caracterizacion.pnom AS pnom"
+                , "caracterizacion.pape AS pape"
+                , "caracterizacion.sexo AS sexo"
+                , "caracterizacion.peso AS peso"
+                , "caracterizacion.talla AS talla"
+                , "de60.id_integrante AS id_integrante"
+            )
+            ->selectRaw("IFNULL(caracterizacion.snom,'') AS snom")
+            ->selectRaw("IFNULL(caracterizacion.sape,'') AS sape")
+            ->selectRaw("IFNULL(de60.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(de60.id_compania,'1') AS id_compania")
+
+            ->selectRaw("IFNULL(de60.id,0) AS id")
+            ->selectRaw("IFNULL(de60.grupo_ayudas,'') AS grupo_ayudas")
+            ->selectRaw("IFNULL(de60.edad,YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(de60.imc,(caracterizacion.peso/(caracterizacion.talla*caracterizacion.talla))) AS imc")
+            ->selectRaw("IFNULL(de60.pa,'') AS pa")
+            ->selectRaw("IFNULL(de60.glicemia,'') AS glicemia")
+            ->selectRaw("IFNULL(de60.cigarrillo,'') AS cigarrillo")
+            ->selectRaw("IFNULL(de60.alcohol,'') AS alcohol")
+            ->selectRaw("IFNULL(de60.actividad_fisica,'') AS actividad_fisica")
+            ->selectRaw("IFNULL(de60.sintomatico,'') AS sintomatico")
+            ->selectRaw("if(caracterizacion.sexo='FEMENINO',IFNULL(de60.examen_seno,''),IFNULL(de60.examen_seno,'NA')) AS examen_seno")
+            ->selectRaw("if(caracterizacion.sexo='FEMENINO',IFNULL(de60.citologia,''),IFNULL(de60.citologia,'NA')) AS citologia")
+            ->selectRaw("if(caracterizacion.sexo='FEMENINO',IFNULL(de60.colposcopia,''),IFNULL(de60.colposcopia,'NA')) AS colposcopia")
+            ->selectRaw("if(caracterizacion.sexo='MASCULINO',IFNULL(de60.examen_prostata,''),IFNULL(de60.examen_prostata,'NA')) AS examen_prostata")
+            ->selectRaw("if(caracterizacion.sexo='MASCULINO',IFNULL(de60.biposia_prostata,''),IFNULL(de60.biposia_prostata,'NA')) AS biposia_prostata")
+            ->selectRaw("IFNULL(de60.agudeza_visual,'') AS agudeza_visual")
+            ->selectRaw("IFNULL(de60.subsidio,'') AS subsidio")
+            ->selectRaw("IFNULL(de60.enfermedades_cronicas,'') AS enfermedades_cronicas")
+            ->selectRaw("IFNULL(de60.enfermedades_infecciosas,'') AS enfermedades_infecciosas")
+            ->selectRaw("IFNULL(de60.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de60.empleo,'') AS empleo");
+
+        $de602 = DB::connection('mysql')->table($alias . '.de60')
+            ->join($alias . '.integrantes', 'integrantes.id', 'de60.id_integrante')
+            ->where('integrantes.identificacion', $dentificacion)
+            ->where('integrantes.estado', 'Activo')
+            ->where('de60.opci', 'INTE')
+            ->select("integrantes.identificacion AS identificacion"
+                , "integrantes.tipo_id AS tipo_id"
+                , "integrantes.pnom AS pnom"
+                , "integrantes.pape AS pape"
+                , "integrantes.sexo AS sexo"
+                , "integrantes.peso AS peso"
+                , "integrantes.talla AS talla"
+                , "de60.id_integrante AS id_integrante"
+            )
+            ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
+            ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
+            ->selectRaw("IFNULL(de60.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(de60.id_compania,'1') AS id_compania")
+
+            ->selectRaw("IFNULL(de60.id,0) AS id")
+            ->selectRaw("IFNULL(de60.grupo_ayudas,'') AS grupo_ayudas")
+            ->selectRaw("IFNULL(de60.edad,YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(de60.imc,(integrantes.peso/(integrantes.talla*integrantes.talla))) AS imc")
+            ->selectRaw("IFNULL(de60.pa,'') AS pa")
+            ->selectRaw("IFNULL(de60.glicemia,'') AS glicemia")
+            ->selectRaw("IFNULL(de60.cigarrillo,'') AS cigarrillo")
+            ->selectRaw("IFNULL(de60.alcohol,'') AS alcohol")
+            ->selectRaw("IFNULL(de60.actividad_fisica,'') AS actividad_fisica")
+            ->selectRaw("IFNULL(de60.sintomatico,'') AS sintomatico")
+            ->selectRaw("if(integrantes.sexo='FEMENINO',IFNULL(de60.examen_seno,''),IFNULL(de60.examen_seno,'NA')) AS examen_seno")
+            ->selectRaw("if(integrantes.sexo='FEMENINO',IFNULL(de60.citologia,''),IFNULL(de60.citologia,'NA')) AS citologia")
+            ->selectRaw("if(integrantes.sexo='FEMENINO',IFNULL(de60.colposcopia,''),IFNULL(de60.colposcopia,'NA')) AS colposcopia")
+            ->selectRaw("if(integrantes.sexo='MASCULINO',IFNULL(de60.examen_prostata,''),IFNULL(de60.examen_prostata,'NA')) AS examen_prostata")
+            ->selectRaw("if(integrantes.sexo='MASCULINO',IFNULL(de60.biposia_prostata,''),IFNULL(de60.biposia_prostata,'NA')) AS biposia_prostata")
+            ->selectRaw("IFNULL(de60.agudeza_visual,'') AS agudeza_visual")
+            ->selectRaw("IFNULL(de60.subsidio,'') AS subsidio")
+            ->selectRaw("IFNULL(de60.enfermedades_cronicas,'') AS enfermedades_cronicas")
+            ->selectRaw("IFNULL(de60.enfermedades_infecciosas,'') AS enfermedades_infecciosas")
+            ->selectRaw("IFNULL(de60.opci,'JEFE') AS opci")
+            ->selectRaw("IFNULL(de60.empleo,'') AS empleo");
+
+        return $de601->unionAll($de602)->first();
+
+    }    
 }

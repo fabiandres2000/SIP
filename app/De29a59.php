@@ -89,6 +89,7 @@ class De29a59 extends Model
                 , "caracterizacion.sexo AS sexo"
                 , "caracterizacion.peso AS peso"
                 , "caracterizacion.talla AS talla"
+                , "de29a59.id_integrante AS id_integrante"
             )
             ->selectRaw("IFNULL(caracterizacion.snom,'') AS snom")
             ->selectRaw("IFNULL(caracterizacion.sape,'') AS sape")
@@ -135,6 +136,7 @@ class De29a59 extends Model
                 , "integrantes.sexo AS sexo"
                 , "integrantes.peso AS peso"
                 , "integrantes.talla AS talla"
+                , "de29a59.id_integrante AS id_integrante"
             )
             ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
             ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
@@ -178,4 +180,103 @@ class De29a59 extends Model
             'estado' => $estado,
         ]);
     }
+
+    public static function buscarPorIdentificacion($alias, $dentificacion)
+    {
+        $de29a591 = DB::connection('mysql')->table($alias . '.de29a59')
+            ->join($alias . '.caracterizacion', 'caracterizacion.id', 'de29a59.id_integrante')
+            ->where('de29a59.identificacion', $dentificacion)
+            ->where('de29a59.estado', 'Activo')
+            ->where('de29a59.opci', 'JEFE')
+            ->select("caracterizacion.identificacion AS identificacion"
+                , "caracterizacion.tipo_id AS tipo_id"
+                , "caracterizacion.pnom AS pnom"
+                , "caracterizacion.pape AS pape"
+                , "caracterizacion.sexo AS sexo"
+                , "caracterizacion.peso AS peso"
+                , "caracterizacion.talla AS talla"
+                , "de29a59.id_integrante AS id_integrante"
+            )
+            ->selectRaw("IFNULL(caracterizacion.snom,'') AS snom")
+            ->selectRaw("IFNULL(caracterizacion.sape,'') AS sape")
+            ->selectRaw("YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1) AS edadCal")
+            ->selectRaw("IFNULL(de29a59.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(de29a59.id_compania,'1') AS id_compania")
+
+            ->selectRaw("IFNULL(de29a59.id,0) AS id")
+            ->selectRaw("IFNULL(de29a59.edad,YEAR(CURDATE())-YEAR(caracterizacion.fecha_nacimiento) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(caracterizacion.fecha_nacimiento,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(de29a59.imc,(caracterizacion.peso/(caracterizacion.talla*caracterizacion.talla))) AS imc")
+            ->selectRaw("IFNULL(de29a59.pcintura,'') AS pcintura")
+            ->selectRaw("IFNULL(de29a59.pb,'') AS pb")
+            ->selectRaw("IFNULL(de29a59.visuales,'') AS visuales")
+            ->selectRaw("IFNULL(de29a59.auditivos,'') AS auditivos")
+            ->selectRaw("IFNULL(de29a59.conducta,'') AS conducta")
+            ->selectRaw("IFNULL(de29a59.enfermedades_cronicas,'') AS enfermedades_cronicas")
+            ->selectRaw("IFNULL(de29a59.dientes_sanos,'') AS dientes_sanos")
+            ->selectRaw("IFNULL(de29a59.consultaodon,'') AS consultaodon")
+            ->selectRaw("IFNULL(de29a59.nocepillado,'') AS nocepillado")
+            ->selectRaw("IFNULL(de29a59.maltrato,'') AS maltrato")
+            ->selectRaw("IFNULL(de29a59.alcohol,'') AS alcohol")
+            ->selectRaw("IFNULL(de29a59.fuma,'') AS fuma")
+            ->selectRaw("IFNULL(de29a59.spa,'') AS spa")
+            ->selectRaw("IFNULL(de29a59.desparacitado,'') AS desparacitado")
+            ->selectRaw("IFNULL(de29a59.empleo,'') AS empleo")
+            ->selectRaw("IFNULL(de29a59.examen_prostata,'') AS examen_prostata")
+            ->selectRaw("IFNULL(de29a59.citologia,'') AS citologia")
+            ->selectRaw("IFNULL(de29a59.examen_mama,'') AS examen_mama")
+            ->selectRaw("IFNULL(de29a59.religion,'') AS religion")
+            ->selectRaw("IFNULL(de29a59.queesvih,'') AS queesvih")
+            ->selectRaw("IFNULL(de29a59.queescancerutero,'') AS queescancerutero")
+            ->selectRaw("IFNULL(de29a59.queespapiloma,'') AS queespapiloma")
+            ->selectRaw("IFNULL(de29a59.opci,'JEFE') AS opci");
+
+        $de29a592 = DB::connection('mysql')->table($alias . '.de29a59')
+            ->join($alias . '.integrantes', 'integrantes.id', 'de29a59.id_integrante')
+            ->where('de29a59.identificacion', $dentificacion)
+            ->where('de29a59.estado', 'Activo')
+            ->where('de29a59.opci', 'INTE')
+            ->select("integrantes.identificacion AS identificacion"
+                , "integrantes.tipo_id AS tipo_id"
+                , "integrantes.pnom AS pnom"
+                , "integrantes.pape AS pape"
+                , "integrantes.sexo AS sexo"
+                , "integrantes.peso AS peso"
+                , "integrantes.talla AS talla"
+                , "de29a59.id_integrante AS id_integrante"
+            )
+            ->selectRaw("IFNULL(integrantes.snom,'') AS snom")
+            ->selectRaw("IFNULL(integrantes.sape,'') AS sape")
+            ->selectRaw("YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1) AS edadCal")
+            ->selectRaw("IFNULL(de29a59.estado,'Activo') AS estado")
+            ->selectRaw("IFNULL(de29a59.id_compania,'1') AS id_compania")
+
+            ->selectRaw("IFNULL(de29a59.id,0) AS id")
+            ->selectRaw("IFNULL(de29a59.edad,YEAR(CURDATE())-YEAR(integrantes.fecha_nac) +  IF(DATE_FORMAT(CURDATE(),'%m-%d')>DATE_FORMAT(integrantes.fecha_nac,'%m-%d'),0,-1)) AS edad")
+            ->selectRaw("IFNULL(de29a59.imc,(integrantes.peso/(integrantes.talla*integrantes.talla))) AS imc")
+            ->selectRaw("IFNULL(de29a59.pcintura,'') AS pcintura")
+            ->selectRaw("IFNULL(de29a59.pb,'') AS pb")
+            ->selectRaw("IFNULL(de29a59.visuales,'') AS visuales")
+            ->selectRaw("IFNULL(de29a59.auditivos,'') AS auditivos")
+            ->selectRaw("IFNULL(de29a59.conducta,'') AS conducta")
+            ->selectRaw("IFNULL(de29a59.enfermedades_cronicas,'') AS enfermedades_cronicas")
+            ->selectRaw("IFNULL(de29a59.dientes_sanos,'') AS dientes_sanos")
+            ->selectRaw("IFNULL(de29a59.consultaodon,'') AS consultaodon")
+            ->selectRaw("IFNULL(de29a59.nocepillado,'') AS nocepillado")
+            ->selectRaw("IFNULL(de29a59.maltrato,'') AS maltrato")
+            ->selectRaw("IFNULL(de29a59.alcohol,'') AS alcohol")
+            ->selectRaw("IFNULL(de29a59.fuma,'') AS fuma")
+            ->selectRaw("IFNULL(de29a59.spa,'') AS spa")
+            ->selectRaw("IFNULL(de29a59.desparacitado,'') AS desparacitado")
+            ->selectRaw("IFNULL(de29a59.empleo,'') AS empleo")
+            ->selectRaw("IFNULL(de29a59.examen_prostata,'') AS examen_prostata")
+            ->selectRaw("IFNULL(de29a59.citologia,'') AS citologia")
+            ->selectRaw("IFNULL(de29a59.examen_mama,'') AS examen_mama")
+            ->selectRaw("IFNULL(de29a59.religion,'') AS religion")
+            ->selectRaw("IFNULL(de29a59.queesvih,'') AS queesvih")
+            ->selectRaw("IFNULL(de29a59.queescancerutero,'') AS queescancerutero")
+            ->selectRaw("IFNULL(de29a59.queespapiloma,'') AS queespapiloma")
+            ->selectRaw("IFNULL(de29a59.opci,'INTE') AS opci");
+
+        return $de29a591->unionAll($de29a592)->first();
+    }    
 }

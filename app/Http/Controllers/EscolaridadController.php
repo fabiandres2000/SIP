@@ -43,7 +43,7 @@ class EscolaridadController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $escolaridad = \App\Escolaridad::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar la escolaridad  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar la escolaridad  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS ESCOLARIDAD');
             if ($escolaridad) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class EscolaridadController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar la escolaridad con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar la escolaridad con id = " . $id, Session::get('alias'), 'PARAMETROS ESCOLARIDAD');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar la escolaridad con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar la escolaridad con id = " . $id, Session::get('alias'), 'PARAMETROS ESCOLARIDAD');
             }
             $respuesta = \App\Escolaridad::editarestado($estado, $id, Session::get('alias'));
             return;

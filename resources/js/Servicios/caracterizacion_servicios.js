@@ -51,3 +51,7 @@ export function controlesRA($data) {
 export function buscarTablas($data) {
     return http().post('/caracterizacion/buscarTablas', $data);
 }
+
+export function ControlRS($data) {
+    return http().post('/caracterizacion/ControlRS', $data);
+}

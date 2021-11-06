@@ -43,7 +43,7 @@ class EstadoCivilController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $estadocivil = \App\EstadoCivil::guardar($data, Session::get('alias'));
-            $gua = \App\Log::guardar("Guardar el estado civil  = ".$data['descripcion'], Session::get('alias'));
+            $gua = \App\Log::guardar("Guardar el estado civil  = " . $data['descripcion'], Session::get('alias'), 'PARAMETROS ESTADO_CIVIL');
             if ($estadocivil) {
                 $respuesta = [
                     'OPC' => 'SI',
@@ -71,10 +71,10 @@ class EstadoCivilController extends Controller
             $estado = request()->get('estado');
             if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar el estado civil con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Eliminar el estado civil con id = " . $id, Session::get('alias'), 'PARAMETROS ESTADO_CIVIL');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar el estado civil con id = ".$id, Session::get('alias'));
+                $gua = \App\Log::guardar("Activar el estado civil con id = " . $id, Session::get('alias'), 'PARAMETROS ESTADO_CIVIL');
             }
             $respuesta = \App\EstadoCivil::editarestado($estado, $id, Session::get('alias'));
             return;

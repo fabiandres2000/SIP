@@ -157,7 +157,7 @@ class UnidadesProductivasController extends Controller
                         'OPC' => 'SI',
                         'IDHOGAR' => $unidades,
                     ];
-                    $gua = \App\Log::guardar("Guardar la unidad productiva del productor = ".$data["nom_productor"], Session::get('alias'));
+                    $gua = \App\Log::guardar("Guardar la unidad productiva del productor = " . $data["nom_productor"], Session::get('alias'), 'UNIDADES');
                     return response()->json($respuesta, 200);
                 } else {
                     $respuesta = [
@@ -200,12 +200,12 @@ class UnidadesProductivasController extends Controller
                 for ($i = 0; $i < count($cultivos_forestales); $i++) {
                     $cultivos_forestales[$i]['id_unidad'] = $id;
                     $res = \App\CultivosForestales::guardar($cultivos_forestales[$i], Session::get('alias'));
-                }                
+                }
                 $respuesta = [
                     'OPC' => 'SI',
                     'unidades' => $unidades,
                 ];
-                $gua = \App\Log::guardar("Editar la unidad productiva del productor = ".$data["nom_productor"], Session::get('alias'));
+                $gua = \App\Log::guardar("Editar la unidad productiva del productor = " . $data["nom_productor"], Session::get('alias'), 'UNIDADES');
                 return response()->json($respuesta, 200);
             }
         } else {
@@ -302,7 +302,7 @@ class UnidadesProductivasController extends Controller
         if (Auth::check()) {
             $id = request()->get("id");
             $ParPost = \App\UnidadesProductivas::editarestado("Inactivo", $id, Session::get('alias'));
-            $gua = \App\Log::guardar("Eliminar la unidad productiva con id = ".$id, Session::get('alias'));
+            $gua = \App\Log::guardar("Eliminar la unidad productiva con id = " . $id, Session::get('alias'), 'UNIDADES');
             $OPC = "SI";
             $respuesta = [
                 'OPC' => $OPC,

@@ -146,6 +146,61 @@ export const routes = [
             path: '/unidades/editar',
             name: 'EditarUnidades',
             component: () => import('./Vistas/Unidades/Editar.vue')
+      },
+      {
+            path: '/indicadores',
+            name: 'indicadores',
+            component: () => import('./Vistas/Indicadores/Principal.vue')
+      },
+      {
+            path: '/indicadores/gestantes',
+            name: 'indicadores_gestante',
+            component: () => import('./Vistas/Indicadores/gestantes.vue')
+      },
+      {
+            path: '/indicadores/spa',
+            name: 'indicadores_spa',
+            component: () => import('./Vistas/Indicadores/spa.vue')
+      },
+      {
+            path: '/salud/enfermedades',
+            name: 'indicadores_enfermedades',
+            component: () => import('./Vistas/Indicadores/enfermedades.vue')
+      },
+      {
+            path: '/indicadores/deteccion',
+            name: 'indicadores_deteccion',
+            component: () => import('./Vistas/Indicadores/deteccion.vue')
+      },
+      {
+            path: '/consultas/vivienda',
+            name: 'consulta_viviendas',
+            component: () => import('./Vistas/Consultas/viviendas.vue')
+      },
+      {
+            path: '/consultas/listadovivienda',
+            name: 'ConsultaVivienda',
+            component: () => import('./Vistas/Consultas/listadoviviendas.vue')
+      },
+      {
+            path: '/consultas/jefehogar',
+            name: 'ConsultaJefe',
+            component: () => import('./Vistas/Consultas/jefedehogar.vue')
+      },
+      {
+            path: '/consultas/listadojefehogar',
+            name: 'ConsultaJefeHogar',
+            component: () => import('./Vistas/Consultas/listadojefes.vue')
+      },
+      {
+            path: '/entes',
+            name: 'Entes',
+            component: () => import('./Vistas/Entes/Entes.vue')
+      },
+      {
+            path: '/usuariosSop',
+            name: 'UsuariosSop',
+            component: () => import('./Vistas/Usuarios/UsuariosSop.vue')
       }
 
 ];

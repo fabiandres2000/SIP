@@ -7,13 +7,23 @@ import store from './store.js';
 import BootstrapVue from 'bootstrap-vue';
 import VueSweetalert2 from 'vue-sweetalert2';
 import Vuelidate from 'vuelidate';
+import VueEllipseProgress from 'vue-ellipse-progress';
+import VueApexCharts from 'vue-apexcharts';
+//import * as VueGoogleMaps from 'vue2-google-maps'
+import VueGoogleHeatmap from 'vue-google-heatmap';
 
 
 // import FlashMessage from '@smartweb/vue-flash-message';
 Vue.use(BootstrapVue);
 Vue.use(VueSweetalert2);
 Vue.use(Vuelidate);
+Vue.use(VueEllipseProgress);
+Vue.use(VueApexCharts);
+Vue.component('apexchart', VueApexCharts);
 
+Vue.use(VueGoogleHeatmap, {
+  apiKey: 'AIzaSyCZ_FNKVfd7vx76ykD4XbVjATqK5sVp8AQ'
+});
 // Vue.filter('moneda', {
 //     // model -> view
 //     // formats the value when updating the input element.

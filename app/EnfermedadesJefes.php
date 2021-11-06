@@ -53,4 +53,63 @@ class EnfermedadesJefes extends Model
         return $enfC->unionAll($enfI)->get();
 
     }
+
+    public static function buscarInfecciosas($alias, $id_jefe)
+    {
+
+        return DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+            ->join($alias . '.enfermedadesinf', 'enfermedadesinf.id', 'enfermedades_jefes.id_enfermedad')
+            ->where('enfermedades_jefes.id_jefe', $id_jefe)
+            ->where('enfermedades_jefes.tipo', 'Infecciosa')
+            ->where('enfermedades_jefes.estado', 'Activo')
+            ->select("enfermedades_jefes.*", "enfermedadesinf.descripcion AS textoEnfermedad")
+            ->get();
+
+    }
+    
+    public static function buscarEnfer($alias, $id, $opcion)
+    {
+
+        if ($opcion == "VIH") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+                ->where('enfermedades_jefes.id_jefe', $id)
+                ->where('enfermedades_jefes.id_enfermedad', 2)
+                ->where('enfermedades_jefes.tipo', 'Infecciosa')
+                ->where('enfermedades_jefes.estado', 'Activo')
+                ->count();
+        }
+        if ($opcion == "HIPERTENSION") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+                ->where('enfermedades_jefes.id_jefe', $id)
+                ->where('enfermedades_jefes.id_enfermedad', 1)
+                ->where('enfermedades_jefes.tipo', 'Cronica')
+                ->where('enfermedades_jefes.estado', 'Activo')
+                ->count();
+        }
+        if ($opcion == "DIABETES") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+                ->where('enfermedades_jefes.id_jefe', $id)
+                ->where('enfermedades_jefes.id_enfermedad', 1)
+                ->where('enfermedades_jefes.tipo', 'Cronica')
+                ->where('enfermedades_jefes.estado', 'Activo')
+                ->count();
+        }
+        if ($opcion == "CONDUCTA") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+                ->where('enfermedades_jefes.id_jefe', $id)
+                ->where('enfermedades_jefes.id_enfermedad', 15)
+                ->orWhere('enfermedades_jefes.id_enfermedad', 8)
+                ->where('enfermedades_jefes.tipo', 'Cronica')
+                ->where('enfermedades_jefes.estado', 'Activo')
+                ->count();
+        }
+        if ($opcion == "OIDOS") {
+            return DB::connection('mysql')->table($alias . '.enfermedades_jefes')
+                ->where('enfermedades_jefes.id_jefe', $id)
+                ->where('enfermedades_jefes.id_enfermedad', 25)
+                ->where('enfermedades_jefes.tipo', 'Cronica')
+                ->where('enfermedades_jefes.estado', 'Activo')
+                ->count();
+        }        
+    }    
 }

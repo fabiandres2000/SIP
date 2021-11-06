@@ -105,52 +105,108 @@ class UnidadesProductivas extends Model
     public static function listar($busqueda, $alias)
     {
         if (!empty($busqueda)) {
-            $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
-                ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
-                ->join($alias . '.muni', function ($join) {
-                    $join->on('muni.coddep', '=', 'dptos.codigo');
-                    $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
-                })
-                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
-                ->where(function ($query) use ($busqueda) {
-                    $query->where('unidades_productivas.nom_productor', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('unidades_productivas.identificacion', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhere('unidades_productivas.nom_finca', 'LIKE', '%' . $busqueda . '%');
-                })
-                ->where("unidades_productivas.estado", "Activo")
-                ->select("dptos.descripcion AS DPTO",
-                    "muni.descripcion AS MUNI",
-                    "corregimientos.descripcion AS CORREGIMIENTO",
-                    "unidades_productivas.estado AS ESTADO",
-                    "unidades_productivas.nom_finca",
-                    "unidades_productivas.id",
-                    "unidades_productivas.identificacion",
-                    "unidades_productivas.nom_productor",
-                    "unidades_productivas.id_hogar AS IDHOGAR"
-                )
-                ->orderBy('unidades_productivas.id', 'DESC')
-                ->paginate(10);
+
+            if (Auth::user()->rol == "Administrador") {
+                $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
+                    ->where(function ($query) use ($busqueda) {
+                        $query->where('unidades_productivas.nom_productor', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('unidades_productivas.identificacion', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('unidades_productivas.nom_finca', 'LIKE', '%' . $busqueda . '%');
+                    })
+                    ->where("unidades_productivas.estado", "Activo")
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "unidades_productivas.estado AS ESTADO",
+                        "unidades_productivas.nom_finca",
+                        "unidades_productivas.id",
+                        "unidades_productivas.identificacion",
+                        "unidades_productivas.nom_productor",
+                        "unidades_productivas.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('unidades_productivas.id', 'DESC')
+                    ->paginate(10);
+            } else {
+                $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
+                    ->where(function ($query) use ($busqueda) {
+                        $query->where('unidades_productivas.nom_productor', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('unidades_productivas.identificacion', 'LIKE', '%' . $busqueda . '%')
+                            ->orWhere('unidades_productivas.nom_finca', 'LIKE', '%' . $busqueda . '%');
+                    })
+                    ->where("unidades_productivas.estado", "Activo")
+                    ->where("unidades_productivas.usuario_crear", Auth::user()->id)
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "unidades_productivas.estado AS ESTADO",
+                        "unidades_productivas.nom_finca",
+                        "unidades_productivas.id",
+                        "unidades_productivas.identificacion",
+                        "unidades_productivas.nom_productor",
+                        "unidades_productivas.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('unidades_productivas.id', 'DESC')
+                    ->paginate(10);
+            }
+
         } else {
-            $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
-                ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
-                ->join($alias . '.muni', function ($join) {
-                    $join->on('muni.coddep', '=', 'dptos.codigo');
-                    $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
-                })
-                ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
-                ->where("unidades_productivas.estado", "Activo")
-                ->select("dptos.descripcion AS DPTO",
-                    "muni.descripcion AS MUNI",
-                    "corregimientos.descripcion AS CORREGIMIENTO",
-                    "unidades_productivas.estado AS ESTADO",
-                    "unidades_productivas.nom_finca",
-                    "unidades_productivas.id",
-                    "unidades_productivas.identificacion",
-                    "unidades_productivas.nom_productor",
-                    "unidades_productivas.id_hogar AS IDHOGAR"
-                )
-                ->orderBy('unidades_productivas.id', 'DESC')
-                ->paginate(10);
+            if (Auth::user()->rol == "Administrador") {
+                $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
+                    ->where("unidades_productivas.estado", "Activo")
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "unidades_productivas.estado AS ESTADO",
+                        "unidades_productivas.nom_finca",
+                        "unidades_productivas.id",
+                        "unidades_productivas.identificacion",
+                        "unidades_productivas.nom_productor",
+                        "unidades_productivas.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('unidades_productivas.id', 'DESC')
+                    ->paginate(10);
+            } else {
+                $respuesta = DB::connection('mysql')->table($alias . '.unidades_productivas')
+                    ->join($alias . '.dptos', 'dptos.codigo', 'unidades_productivas.id_dpto')
+                    ->join($alias . '.muni', function ($join) {
+                        $join->on('muni.coddep', '=', 'dptos.codigo');
+                        $join->on('muni.codmun', '=', 'unidades_productivas.id_mun');
+                    })
+                    ->leftjoin($alias . '.corregimientos', 'corregimientos.id', 'unidades_productivas.id_corre')
+                    ->where("unidades_productivas.estado", "Activo")
+                    ->where("unidades_productivas.usuario_crear", Auth::user()->id)
+                    ->select("dptos.descripcion AS DPTO",
+                        "muni.descripcion AS MUNI",
+                        "corregimientos.descripcion AS CORREGIMIENTO",
+                        "unidades_productivas.estado AS ESTADO",
+                        "unidades_productivas.nom_finca",
+                        "unidades_productivas.id",
+                        "unidades_productivas.identificacion",
+                        "unidades_productivas.nom_productor",
+                        "unidades_productivas.id_hogar AS IDHOGAR"
+                    )
+                    ->orderBy('unidades_productivas.id', 'DESC')
+                    ->paginate(10);
+            }
+
         }
 
         return $respuesta;
