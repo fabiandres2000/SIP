@@ -27,4 +27,33 @@ class Log extends Model
             'modulo' => $modulo,
         ]);
     }
+
+    public static function listar($alias)
+    {
+        $respuesta = User::join($alias . '.log', $alias . '.log.id_usuario', 'users.id')
+            ->where($alias . '.log.estado', 'Activo')
+            ->orderBy($alias . '.log.id', 'DESC')
+            ->select('users.nombre', $alias . '.log.*')
+            ->paginate(20);
+        return $respuesta;
+    }
+
+    public static function buscar($alias, $datos)
+    {
+        $respuesta = User::join($alias . '.log', $alias . '.log.id_usuario', 'users.id')
+            ->where($alias . '.log.estado', 'Activo')
+            ->select('users.nombre', $alias . '.log.*')
+            ->orderBy($alias . '.log.id', 'DESC');
+        if ($datos['id_usuario'] != "0") {
+            $respuesta->where($alias . '.log.id_usuario', $datos['id_usuario']);
+        }
+        if ($datos['modulos'] != "0") {
+            $respuesta->where($alias . '.log.modulo', 'like', '%' . $datos['modulos'] . '%');
+        }
+        if ($datos['fecha'] != "0" && $datos['fecha'] != "") {
+            $respuesta->where($alias . '.log.fecha', $datos['fecha']);
+        }
+
+        return $respuesta->paginate(20);
+    }
 }

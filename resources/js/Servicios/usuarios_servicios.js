@@ -50,3 +50,11 @@ export function eliminar($data) {
 export function consIp() {
     return http().get('https://api.ipify.org?format=json');
 }
+
+export function usuariosLog($data) {
+    return http().post('/usuarios/usuarioslog', $data);
+}
+
+export function usuariosLogBuscar($data) {
+    return http().post('/usuarios/usuarioslogbuscar', $data);
+}

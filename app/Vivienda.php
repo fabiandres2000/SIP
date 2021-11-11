@@ -10,7 +10,7 @@ class Vivienda extends Model
     protected $table = 'vivienda';
     protected $fillable = [
         'id_hogar', 'tipo_vivienda', 'tipo_estructura', 'otro_tipo_estructura', 'numero_cuartos', 'personas_por_cuartos',
-        'material_predominante', 'tipo_cubierta', 'otro_tipo_cubierta',  'cual_actividad_economica', 'evento_afecta_vivienda',
+        'material_predominante', 'tipo_cubierta', 'otro_tipo_cubierta', 'cual_actividad_economica', 'evento_afecta_vivienda',
         'familias_accion', 'promedio_ingresos', 'otro_depositan_excretas', 'fuente_agua', 'cual_fuente', 'donde_almacena_agua',
         'otro_almacena_agua', 'ubicacion_tanque', 'tipo_tratamiento_agua', 'destino_final_basura', 'otro_destino_final_basura', 'porquerizas',
         'plagas', 'industrias', 'malos_olores', 'rellenos', 'contaminacion_a', 'contaminacion_v',
@@ -168,101 +168,101 @@ class Vivienda extends Model
         ]);
     }
 
-public static function listar($alias,$data,$tipo){
-        $consulta = DB::table($alias.".vivienda")
-        ->join($alias.".hogar","hogar.id","vivienda.id_hogar")
-        ->join($alias.".dptos","dptos.codigo","hogar.id_dpto")
-        ->leftJoin($alias.".barrios","barrios.id","hogar.id_barrio")
-        ->join($alias.'.muni', function($join) {
-            $join->on('muni.coddep', '=', 'dptos.codigo');
-            $join->on('muni.codmun', '=', 'hogar.id_mun');
-        })
-        ->leftJoin($alias.".corregimientos","corregimientos.id","hogar.id_corre")
-        ->leftJoin($alias.".veredas","veredas.id","hogar.id_vereda")
-        ->join($alias.".caracterizacion","caracterizacion.id_hogar","hogar.id");
+    public static function listar($alias, $data, $tipo)
+    {
+        $consulta = DB::table($alias . ".vivienda")
+            ->join($alias . ".hogar", "hogar.id", "vivienda.id_hogar")
+            ->join($alias . ".dptos", "dptos.codigo", "hogar.id_dpto")
+            ->leftJoin($alias . ".barrios", "barrios.id", "hogar.id_barrio")
+            ->join($alias . '.muni', function ($join) {
+                $join->on('muni.coddep', '=', 'dptos.codigo');
+                $join->on('muni.codmun', '=', 'hogar.id_mun');
+            })
+            ->leftJoin($alias . ".corregimientos", "corregimientos.id", "hogar.id_corre")
+            ->leftJoin($alias . ".veredas", "veredas.id", "hogar.id_vereda")
+            ->join($alias . ".caracterizacion", "caracterizacion.id_hogar", "hogar.id");
 
-
-        if($data["datos"]["id_dpto"] != null){
-            $consulta->where("hogar.id_dpto",$data["datos"]["id_dpto"]);
+        if ($data["datos"]["id_dpto"] != null) {
+            $consulta->where("hogar.id_dpto", $data["datos"]["id_dpto"]);
         }
 
-        if($data["datos"]["id_mun"] != null){
-            $consulta->where("hogar.id_mun",$data["datos"]["id_mun"]);
+        if ($data["datos"]["id_mun"] != null) {
+            $consulta->where("hogar.id_mun", $data["datos"]["id_mun"]);
         }
 
-        if($data["datos"]["id_corre"] != null){
-            $consulta->where("hogar.id_corre",$data["datos"]["id_corre"]);
+        if ($data["datos"]["id_corre"] != null) {
+            $consulta->where("hogar.id_corre", $data["datos"]["id_corre"]);
         }
 
-        if($data["datos"]["id_vereda"] != null){
-            $consulta->where("hogar.id_vereda",$data["datos"]["id_vereda"]);
+        if ($data["datos"]["id_vereda"] != null) {
+            $consulta->where("hogar.id_vereda", $data["datos"]["id_vereda"]);
         }
 
-        if($data["datos"]["id_zona"] != null){
-            $consulta->where("hogar.id_zona",$data["datos"]["id_zona"]);
+        if ($data["datos"]["id_zona"] != null) {
+            $consulta->where("hogar.id_zona", $data["datos"]["id_zona"]);
         }
 
-        if($data["datos"]["id_barrio"] != null){
-            $consulta->where("hogar.id_barrio",$data["datos"]["id_barrio"]);
+        if ($data["datos"]["id_barrio"] != null) {
+            $consulta->where("hogar.id_barrio", $data["datos"]["id_barrio"]);
         }
 
-        if($data["datos"]["tenencia_vivienda"] != null){
-            $consulta->where("vivienda.tenencia_vivienda",$data["datos"]["tenencia_vivienda"]);
+        if ($data["datos"]["tenencia_vivienda"] != null) {
+            $consulta->where("vivienda.tenencia_vivienda", $data["datos"]["tenencia_vivienda"]);
         }
 
-        if($data["datos"]["tipo_vivienda"] != null){
-            $consulta->where("vivienda.tipo_vivienda",$data["datos"]["tipo_vivienda"]);
+        if ($data["datos"]["tipo_vivienda"] != null) {
+            $consulta->where("vivienda.tipo_vivienda", $data["datos"]["tipo_vivienda"]);
         }
 
-        if($data["datos"]["poblacion_especial"] != null){
-            $consulta->where("hogar.poblacion_especial",$data["datos"]["poblacion_especial"]);
+        if ($data["datos"]["poblacion_especial"] != null) {
+            $consulta->where("hogar.poblacion_especial", $data["datos"]["poblacion_especial"]);
         }
 
-        if($data["datos"]["promedio_ingresos"] != null){
-            $consulta->where("vivienda.promedio_ingresos",$data["datos"]["promedio_ingresos"]);
+        if ($data["datos"]["promedio_ingresos"] != null) {
+            $consulta->where("vivienda.promedio_ingresos", $data["datos"]["promedio_ingresos"]);
         }
 
-        if($data["datos"]["energia_electrica"] != null){
-            $consulta->where("vivienda.energia_electrica",$data["datos"]["energia_electrica"]);
+        if ($data["datos"]["energia_electrica"] != null) {
+            $consulta->where("vivienda.energia_electrica", $data["datos"]["energia_electrica"]);
         }
 
-        if($data["datos"]["gas_natural"] != null){
-            $consulta->where("vivienda.gas_natural",$data["datos"]["gas_natural"]);
+        if ($data["datos"]["gas_natural"] != null) {
+            $consulta->where("vivienda.gas_natural", $data["datos"]["gas_natural"]);
         }
 
-        if($data["datos"]["acueducto"] != null){
-            $consulta->where("vivienda.acueducto",$data["datos"]["acueducto"]);
+        if ($data["datos"]["acueducto"] != null) {
+            $consulta->where("vivienda.acueducto", $data["datos"]["acueducto"]);
         }
 
-        if($data["datos"]["alcantarillado"] != null){
-            $consulta->where("vivienda.alcantarillado",$data["datos"]["alcantarillado"]);
+        if ($data["datos"]["alcantarillado"] != null) {
+            $consulta->where("vivienda.alcantarillado", $data["datos"]["alcantarillado"]);
         }
 
-        if($data["datos"]["aseo"] != null){
-            $consulta->where("vivienda.aseo",$data["datos"]["aseo"]);
+        if ($data["datos"]["aseo"] != null) {
+            $consulta->where("vivienda.aseo", $data["datos"]["aseo"]);
         }
 
-        if($data["datos"]["servicio_sanitario"] != null){
-            $consulta->where("vivienda.servicio_sanitario",$data["datos"]["servicio_sanitario"]);
+        if ($data["datos"]["servicio_sanitario"] != null) {
+            $consulta->where("vivienda.servicio_sanitario", $data["datos"]["servicio_sanitario"]);
         }
 
-        if($data["datos"]["acueducto"] != null){
-            $consulta->where("vivienda.acueducto",$data["datos"]["acueducto"]);
+        if ($data["datos"]["acueducto"] != null) {
+            $consulta->where("vivienda.acueducto", $data["datos"]["acueducto"]);
         }
 
-        if($data["datos"]["aguas_negras"] != null){
-            $consulta->where("vivienda.aguas_negras",$data["datos"]["aguas_negras"]);
+        if ($data["datos"]["aguas_negras"] != null) {
+            $consulta->where("vivienda.aguas_negras", $data["datos"]["aguas_negras"]);
         }
 
-        if($data["datos"]["aguas_negras"] != null){
-            $consulta->where("vivienda.aguas_negras",$data["datos"]["aguas_negras"]);
+        if ($data["datos"]["aguas_negras"] != null) {
+            $consulta->where("vivienda.aguas_negras", $data["datos"]["aguas_negras"]);
         }
 
-        $consulta->select("hogar.id","dptos.descripcion as dpto","muni.descripcion as muni","corregimientos.descripcion as corre","veredas.descripcion as vereda","pnom","snom","pape","sape","hogar.*","vivienda.*","barrios.barrio");
+        $consulta->select("hogar.id", "dptos.descripcion as dpto", "muni.descripcion as muni", "corregimientos.descripcion as corre", "veredas.descripcion as vereda", "pnom", "snom", "pape", "sape", "hogar.*", "vivienda.*", "barrios.barrio");
 
-        if($tipo == "todos"){
+        if ($tipo == "todos") {
             return $consulta->groupBy("vivienda.id_hogar")->get();
-        }else{
+        } else {
             return $consulta->groupBy("vivienda.id_hogar")->paginate(10);
         }
     }

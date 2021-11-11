@@ -201,4 +201,14 @@ class User extends Authenticatable
         ]);
         return $respuesta;
     }
+
+    public static function usuariosLog()
+    {
+        $respuesta = User::join('usuarios_permisos', 'usuarios_permisos.id_usuario', 'users.id')
+            ->where('usuarios_permisos.id_ente', Auth::user()->permisos->where('actual', 1)->first()->ente->id)
+            ->orderBy('users.id', 'DESC')
+            ->select("users.*")
+            ->get();
+        return $respuesta;
+    }
 }

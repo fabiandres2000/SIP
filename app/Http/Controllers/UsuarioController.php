@@ -323,4 +323,68 @@ class UsuarioController extends Controller
             return redirect("/")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function usuariosLog()
+    {
+        if (Auth::check()) {
+            $usuarios = \App\User::usuariosLog();
+            if ($usuarios) {
+                $logs = \App\Log::listar(Session::get('alias'));
+                $respuesta = [
+                    'usuarios' => $usuarios,
+                    'logs' => $logs,
+                    'paginacion' => [
+                        'total' => $logs->total(),
+                        'pagina_actual' => $logs->currentPage(),
+                        'por_pagina' => $logs->perPage(),
+                        'ultima_pagina' => $logs->lastPage(),
+                        'desde' => $logs->firstItem(),
+                        'hasta' => $logs->lastItem(),
+                    ],
+                ];
+                return response()->json($respuesta, 200);
+            } else {
+                $respuesta = [
+                    'MENSAJE' => "Ocurrio un error...",
+                ];
+                return response()->json("Error", 500);
+            }
+        } else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function usuariosLogBuscar()
+    {
+        if (Auth::check()) {
+            $data = request()->all();
+            $id_usuario = $data['id_usuario'];
+            $modulos = $data['modulos'];
+            $fecha = $data['fecha'];
+
+            $logs = \App\Log::buscar(Session::get('alias'), $data);
+            
+            if ($logs) {
+                $respuesta = [
+                    'logs' => $logs,
+                    'paginacion' => [
+                        'total' => $logs->total(),
+                        'pagina_actual' => $logs->currentPage(),
+                        'por_pagina' => $logs->perPage(),
+                        'ultima_pagina' => $logs->lastPage(),
+                        'desde' => $logs->firstItem(),
+                        'hasta' => $logs->lastItem(),
+                    ],
+                ];
+                return response()->json($respuesta, 200);
+            } else {
+                $respuesta = [
+                    'MENSAJE' => "Ocurrio un error...",
+                ];
+                return response()->json("Error", 500);
+            }
+        } else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
 }

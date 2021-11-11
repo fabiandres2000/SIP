@@ -11,6 +11,8 @@ Route::post('/logout', 'UsuarioController@logout');
 Route::post('/usuarios/iniciar', 'UsuarioController@iniciar');
 Route::post('/usuarios/cambiarclave', 'UsuarioController@cambiarclave');
 Route::post('/usuarios/buscar', 'UsuarioController@buscar');
+Route::post('/usuarios/usuarioslog', 'UsuarioController@usuariosLog');
+Route::post('/usuarios/usuarioslogbuscar', 'UsuarioController@usuariosLogBuscar');
 
 Route::post('/barrios', 'BarrioController@gestion');
 Route::post('/barrios/guardar', 'BarrioController@guardar');
