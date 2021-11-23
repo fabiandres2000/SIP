@@ -15,14 +15,14 @@ class EtniaController extends Controller
             $etnias = \App\Etnia::listar($busqueda, Session::get('alias'));
             if ($etnias) {
                 $respuesta = [
-                    'paginacion' => [
-                        'total' => $etnias->total(),
-                        'pagina_actual' => $etnias->currentPage(),
-                        'por_pagina' => $etnias->perPage(),
-                        'ultima_pagina' => $etnias->lastPage(),
-                        'desde' => $etnias->firstItem(),
-                        'hasta' => $etnias->lastItem(),
-                    ],
+                    // 'paginacion' => [
+                    //     'total' => $etnias->total(),
+                    //     'pagina_actual' => $etnias->currentPage(),
+                    //     'por_pagina' => $etnias->perPage(),
+                    //     'ultima_pagina' => $etnias->lastPage(),
+                    //     'desde' => $etnias->firstItem(),
+                    //     'hasta' => $etnias->lastItem(),
+                    // ],
                     'etnias' => $etnias,
                 ];
                 return response()->json($respuesta, 200);

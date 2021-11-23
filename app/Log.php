@@ -33,8 +33,8 @@ class Log extends Model
         $respuesta = User::join($alias . '.log', $alias . '.log.id_usuario', 'users.id')
             ->where($alias . '.log.estado', 'Activo')
             ->orderBy($alias . '.log.id', 'DESC')
-            ->select('users.nombre', $alias . '.log.*')
-            ->paginate(20);
+            ->select('users.nombre', $alias . '.log.modulo', $alias . '.log.ip', $alias . '.log.accion', $alias . '.log.fecha', $alias . '.log.id', $alias . '.log.hora')
+            ->get();
         return $respuesta;
     }
 
@@ -42,7 +42,7 @@ class Log extends Model
     {
         $respuesta = User::join($alias . '.log', $alias . '.log.id_usuario', 'users.id')
             ->where($alias . '.log.estado', 'Activo')
-            ->select('users.nombre', $alias . '.log.*')
+            ->select('users.nombre', $alias . '.log.modulo', $alias . '.log.ip', $alias . '.log.accion', $alias . '.log.fecha', $alias . '.log.id', $alias . '.log.hora')
             ->orderBy($alias . '.log.id', 'DESC');
         if ($datos['id_usuario'] != "0") {
             $respuesta->where($alias . '.log.id_usuario', $datos['id_usuario']);
@@ -54,6 +54,6 @@ class Log extends Model
             $respuesta->where($alias . '.log.fecha', $datos['fecha']);
         }
 
-        return $respuesta->paginate(20);
+        return $respuesta->get();
     }
 }

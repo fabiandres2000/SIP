@@ -70,14 +70,14 @@ class User extends Authenticatable
                 ->where('users.rol', '!=', 'SuperAdministrador')
                 ->select("users.*")
                 ->orderBy('users.id', 'DESC')
-                ->paginate(10);
+                ->get();
         } else {
             $respuesta = User::join('usuarios_permisos', 'usuarios_permisos.id_usuario', 'users.id')
                 ->where('usuarios_permisos.id_ente', Auth::user()->permisos->where('actual', 1)->first()->ente->id)
                 ->orderBy('users.id', 'DESC')
                 ->where('users.rol', '!=', 'SuperAdministrador')
                 ->select("users.*")
-                ->paginate(10);
+                ->get();
         }
         return $respuesta;
     }

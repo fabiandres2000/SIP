@@ -154,15 +154,30 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table table-sm table-hover">
+                                    <table
+                                        class="table table-sm table-hover"
+                                        id="tablaDatos"
+                                    >
                                         <thead class>
                                             <tr class="kt-bg-fill-brand">
-                                                <th>No.</th>
-                                                <th>Acción</th>
-                                                <th>Fecha</th>
-                                                <th class="text-center">IP</th>
-                                                <th>Modulo</th>
-                                                <th class="text-left">
+                                                <th class="text-white">No.</th>
+                                                <th class="text-white">
+                                                    Acción
+                                                </th>
+                                                <th class="text-white">
+                                                    Fecha
+                                                </th>
+                                                <th
+                                                    class="text-center text-white"
+                                                >
+                                                    IP
+                                                </th>
+                                                <th class="text-white">
+                                                    Modulo
+                                                </th>
+                                                <th
+                                                    class="text-left text-white"
+                                                >
                                                     Usuario
                                                 </th>
                                             </tr>
@@ -209,118 +224,6 @@
                                     <div
                                         class="kt-separator kt-separator--border-dashed"
                                     ></div>
-                                    <!--begin: Section-->
-                                    <div class="kt-section">
-                                        <!--begin: Pagination-->
-                                        <div
-                                            class="kt-pagination kt-pagination--danger"
-                                        >
-                                            <ul class="kt-pagination__links">
-                                                <li
-                                                    class="kt-pagination__link--first"
-                                                    v-if="
-                                                        paginacion.pagina_actual >
-                                                            1
-                                                    "
-                                                >
-                                                    <a
-                                                        href="javascript:;"
-                                                        @click.prevent="
-                                                            cambiarPaginas(1)
-                                                        "
-                                                    >
-                                                        <i
-                                                            class="fa fa-angle-double-left kt-font-danger"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li
-                                                    class="kt-pagination__link--next"
-                                                    v-if="
-                                                        paginacion.pagina_actual >
-                                                            1
-                                                    "
-                                                >
-                                                    <a
-                                                        href="javascript:;"
-                                                        @click.prevent="
-                                                            cambiarPaginas(
-                                                                paginacion.pagina_actual -
-                                                                    1
-                                                            )
-                                                        "
-                                                    >
-                                                        <i
-                                                            class="fa fa-angle-left kt-font-danger"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li
-                                                    :class="[
-                                                        pagina == esActivo
-                                                            ? 'kt-pagination__link--active'
-                                                            : ''
-                                                    ]"
-                                                    v-for="(pagina,
-                                                    index) in numeroDePaginas"
-                                                    :key="index"
-                                                >
-                                                    <a
-                                                        href="javascript:;"
-                                                        @click.prevent="
-                                                            cambiarPaginas(
-                                                                pagina
-                                                            )
-                                                        "
-                                                        >{{ pagina }}</a
-                                                    >
-                                                </li>
-                                                <li
-                                                    class="kt-pagination__link--prev"
-                                                    v-if="
-                                                        paginacion.pagina_actual <
-                                                            paginacion.ultima_pagina
-                                                    "
-                                                >
-                                                    <a
-                                                        href="javascript:;"
-                                                        @click.prevent="
-                                                            cambiarPaginas(
-                                                                paginacion.pagina_actual +
-                                                                    1
-                                                            )
-                                                        "
-                                                    >
-                                                        <i
-                                                            class="fa fa-angle-right kt-font-danger"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                                <li
-                                                    class="kt-pagination__link--last"
-                                                    v-if="
-                                                        paginacion.pagina_actual <
-                                                            paginacion.ultima_pagina
-                                                    "
-                                                >
-                                                    <a
-                                                        href="javascript:;"
-                                                        @click.prevent="
-                                                            cambiarPaginas(
-                                                                paginacion.ultima_pagina
-                                                            )
-                                                        "
-                                                    >
-                                                        <i
-                                                            class="fa fa-angle-double-right kt-font-danger"
-                                                        ></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!--end: Pagination-->
-                                    </div>
-                                    <!--end: Section-->
                                 </div>
                             </div>
                         </div>
@@ -333,6 +236,17 @@
 <script>
 "use strict";
 import * as usuarioServicios from "../../Servicios/usuarios_servicios";
+import datatable from "datatables.net-bs4";
+require("datatables.net-buttons/js/dataTables.buttons");
+require("datatables.net-buttons/js/buttons.html5");
+import print from "datatables.net-buttons/js/buttons.print";
+import jszip from "jszip/dist/jszip";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+// import fixedHeader from "datatables.net/js/jquery.dataTables/fixedHeader";
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+window.JSZip = jszip;
 export default {
     mounted() {
         this.consultar(1);
@@ -382,7 +296,8 @@ export default {
             },
             offset: 4,
             valG: true,
-            actual: 0
+            actual: 0,
+            tabladatos: null
         };
     },
     computed: {
@@ -411,6 +326,9 @@ export default {
         }
     },
     methods: {
+        iniciarTabla() {
+            this.tabla();
+        },
         consultar: async function(pagina) {
             const parametros = {
                 _token: this.csrf,
@@ -421,8 +339,9 @@ export default {
                     .usuariosLog(parametros)
                     .then(respuesta => {
                         this.usuarios = respuesta.data.usuarios;
-                        this.logs = respuesta.data.logs.data;
-                        this.paginacion = respuesta.data.paginacion;
+                        this.logs = respuesta.data.logs;
+                        // this.paginacion = respuesta.data.paginacion;
+                        this.iniciarTabla();
                     });
             } catch (error) {
                 switch (error.response.status) {
@@ -443,6 +362,7 @@ export default {
             this.buscar(pagina);
         },
         buscar: async function(pagina) {
+            this.logs = [];
             const parametros = {
                 _token: this.csrf,
                 id_usuario: this.datos.usuarios,
@@ -454,8 +374,15 @@ export default {
                 await usuarioServicios
                     .usuariosLogBuscar(parametros)
                     .then(respuesta => {
-                        this.logs = respuesta.data.logs.data;
-                        this.paginacion = respuesta.data.paginacion;
+                        $.fn.DataTable = datatable;
+                        this.tabladatos.fnClearTable();
+                        this.tabladatos.fnDestroy();            
+                        // $('#tablaDatos tbody').empty();                        
+                        
+                        this.logs = respuesta.data.logs;
+                        // this.tabladatos.fnAddData(this.logs);
+                        this.iniciarTabla();                                      
+                        
                     });
             } catch (error) {
                 switch (error.response.status) {
@@ -470,6 +397,320 @@ export default {
                         break;
                 }
             }
+        },
+        tabla() {
+            this.$nextTick(() => {
+                $.fn.DataTable = datatable;
+                this.tabladatos = $("#tablaDatos").DataTable({
+                    orderCellsTop: true,
+                    language: {
+                        processing: "Procesando...",
+                        lengthMenu: "Mostrar _MENU_ registros",
+                        zeroRecords: "No se encontraron resultados",
+                        emptyTable: "Ningún dato disponible en esta tabla",
+                        infoEmpty:
+                            "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        infoFiltered:
+                            "(filtrado de un total de _MAX_ registros)",
+                        search: "Buscar:",
+                        infoThousands: ",",
+                        loadingRecords: "Cargando...",
+                        paginate: {
+                            first: "Primero",
+                            last: "Último",
+                            next: "Siguiente",
+                            previous: "Anterior"
+                        },
+                        aria: {
+                            sortAscending:
+                                ": Activar para ordenar la columna de manera ascendente",
+                            sortDescending:
+                                ": Activar para ordenar la columna de manera descendente"
+                        },
+                        buttons: {
+                            copy: "Copiar",
+                            colvis: "Visibilidad",
+                            collection: "Colección",
+                            colvisRestore: "Restaurar visibilidad",
+                            copyKeys:
+                                "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                            copySuccess: {
+                                "1": "Copiada 1 fila al portapapeles",
+                                _: "Copiadas %d fila al portapapeles"
+                            },
+                            copyTitle: "Copiar al portapapeles",
+                            csv: "CSV",
+                            excel: "Excel",
+                            pageLength: {
+                                "-1": "Mostrar todas las filas",
+                                _: "Mostrar %d filas"
+                            },
+                            pdf: "PDF",
+                            print: "Imprimir"
+                        },
+                        autoFill: {
+                            cancel: "Cancelar",
+                            fill: "Rellene todas las celdas con <i>%d<\/i>",
+                            fillHorizontal: "Rellenar celdas horizontalmente",
+                            fillVertical: "Rellenar celdas verticalmentemente"
+                        },
+                        decimal: ",",
+                        searchBuilder: {
+                            add: "Añadir condición",
+                            button: {
+                                "0": "Constructor de búsqueda",
+                                _: "Constructor de búsqueda (%d)"
+                            },
+                            clearAll: "Borrar todo",
+                            condition: "Condición",
+                            conditions: {
+                                date: {
+                                    after: "Despues",
+                                    before: "Antes",
+                                    between: "Entre",
+                                    empty: "Vacío",
+                                    equals: "Igual a",
+                                    notBetween: "No entre",
+                                    notEmpty: "No Vacio",
+                                    not: "Diferente de"
+                                },
+                                number: {
+                                    between: "Entre",
+                                    empty: "Vacio",
+                                    equals: "Igual a",
+                                    gt: "Mayor a",
+                                    gte: "Mayor o igual a",
+                                    lt: "Menor que",
+                                    lte: "Menor o igual que",
+                                    notBetween: "No entre",
+                                    notEmpty: "No vacío",
+                                    not: "Diferente de"
+                                },
+                                string: {
+                                    contains: "Contiene",
+                                    empty: "Vacío",
+                                    endsWith: "Termina en",
+                                    equals: "Igual a",
+                                    notEmpty: "No Vacio",
+                                    startsWith: "Empieza con",
+                                    not: "Diferente de"
+                                },
+                                array: {
+                                    not: "Diferente de",
+                                    equals: "Igual",
+                                    empty: "Vacío",
+                                    contains: "Contiene",
+                                    notEmpty: "No Vacío",
+                                    without: "Sin"
+                                }
+                            },
+                            data: "Data",
+                            deleteTitle: "Eliminar regla de filtrado",
+                            leftTitle: "Criterios anulados",
+                            logicAnd: "Y",
+                            logicOr: "O",
+                            rightTitle: "Criterios de sangría",
+                            title: {
+                                "0": "Constructor de búsqueda",
+                                _: "Constructor de búsqueda (%d)"
+                            },
+                            value: "Valor"
+                        },
+                        searchPanes: {
+                            clearMessage: "Borrar todo",
+                            collapse: {
+                                "0": "Paneles de búsqueda",
+                                _: "Paneles de búsqueda (%d)"
+                            },
+                            count: "{total}",
+                            countFiltered: "{shown} ({total})",
+                            emptyPanes: "Sin paneles de búsqueda",
+                            loadMessage: "Cargando paneles de búsqueda",
+                            title: "Filtros Activos - %d"
+                        },
+                        select: {
+                            cells: {
+                                "1": "1 celda seleccionada",
+                                _: "%d celdas seleccionadas"
+                            },
+                            columns: {
+                                "1": "1 columna seleccionada",
+                                _: "%d columnas seleccionadas"
+                            },
+                            rows: {
+                                "1": "1 fila seleccionada",
+                                _: "%d filas seleccionadas"
+                            }
+                        },
+                        thousands: ".",
+                        datetime: {
+                            previous: "Anterior",
+                            next: "Proximo",
+                            hours: "Horas",
+                            minutes: "Minutos",
+                            seconds: "Segundos",
+                            unknown: "-",
+                            amPm: ["AM", "PM"],
+                            months: {
+                                "0": "Enero",
+                                "1": "Febrero",
+                                "10": "Noviembre",
+                                "11": "Diciembre",
+                                "2": "Marzo",
+                                "3": "Abril",
+                                "4": "Mayo",
+                                "5": "Junio",
+                                "6": "Julio",
+                                "7": "Agosto",
+                                "8": "Septiembre",
+                                "9": "Octubre"
+                            },
+                            weekdays: [
+                                "Dom",
+                                "Lun",
+                                "Mar",
+                                "Mie",
+                                "Jue",
+                                "Vie",
+                                "Sab"
+                            ]
+                        },
+                        editor: {
+                            close: "Cerrar",
+                            create: {
+                                button: "Nuevo",
+                                title: "Crear Nuevo Registro",
+                                submit: "Crear"
+                            },
+                            edit: {
+                                button: "Editar",
+                                title: "Editar Registro",
+                                submit: "Actualizar"
+                            },
+                            remove: {
+                                button: "Eliminar",
+                                title: "Eliminar Registro",
+                                submit: "Eliminar",
+                                confirm: {
+                                    _:
+                                        "¿Está seguro que desea eliminar %d filas?",
+                                    "1":
+                                        "¿Está seguro que desea eliminar 1 fila?"
+                                }
+                            },
+                            error: {
+                                system:
+                                    'Ha ocurrido un error en el sistema (<a target="\\" rel="\\ nofollow" href="\\">Más información&lt;\\\/a&gt;).<\/a>'
+                            },
+                            multi: {
+                                title: "Múltiples Valores",
+                                info:
+                                    "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
+                                restore: "Deshacer Cambios",
+                                noMulti:
+                                    "Este registro puede ser editado individualmente, pero no como parte de un grupo."
+                            }
+                        },
+                        info: "Mostrando _START_ a _END_ de _TOTAL_ registros"
+                    },
+                    dom:
+                        "B<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                        "<'row'<'col-sm-12'tr>>" +
+                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                    buttons: {
+                        dom: {
+                            buttons: {
+                                className: "btn"
+                            }
+                        },
+                        buttons: [
+                            {
+                                extend: "copyHtml5",
+                                text: "<i class='fa fa-file-alt'></i>",
+                                titleAttr: "Copiar",
+                                className:
+                                    "btn btn-outline-brand btn-icon btn-lg",
+                                messageTop: "Listado de Logs",
+                                title: "Sistema Integrado Poblacional",
+                                exportOptions: {
+                                    columns: [0, 1, 2, 3, 4, 5]
+                                },
+                            },
+                            {
+                                extend: "excelHtml5",
+                                text: "<i class='fa fa-file-excel'></i>",
+                                titleAttr: "Exportar a Excel",
+                                className:
+                                    "btn btn-outline-success btn-icon btn-lg",
+                                excelStyles: {
+                                    template: "header_blue"
+                                },
+                                messageTop: "Listado de Logs",
+                                title: "Sistema Integrado Poblacional",
+                                exportOptions: {
+                                    columns: [0, 1, 2, 3, 4, 5]
+                                }
+                            },
+                            {
+                                extend: "pdfHtml5",
+                                text: "<i class='fa fa-file-pdf'></i>",
+                                titleAttr: "Exportar a PDF",
+                                className:
+                                    "btn btn-outline-danger btn-icon btn-lg",
+                                messageTop: "Listado de Logs",
+                                title: "Sistema Integrado Poblacional",
+                                exportOptions: {
+                                    columns: [0, 1, 2, 3, 4, 5]
+                                },
+                                customize: function(doc) {
+                                    doc.styles.title = {
+                                        color: "red",
+                                        fontSize: "20",
+                                        alignment: "center"
+                                    };
+                                    doc.styles["td:nth-child(2)"] = {
+                                        width: "100px",
+                                        "max-width": "100px"
+                                    };
+                                    doc.styles.tableHeader = {
+                                        fillColor: "#DF0101",
+                                        color: "white"
+                                    };
+                                }
+                            },
+                            {
+                                extend: "csvHtml5",
+                                text: "<i class='fa fa-file-csv'></i>",
+                                titleAttr: "Exportar a csv",
+                                className:
+                                    "btn btn-outline-info btn-icon btn-lg",
+                                messageTop: "Listado de Logs",
+                                title: "Sistema Integrado Poblacional",
+                                exportOptions: {
+                                    columns: [0, 1, 2, 3, 4, 5]
+                                }
+                            },
+                            {
+                                extend: "print",
+                                text: "<i class='fa fa-print'></i>",
+                                titleAttr: "Imprimir Archivo",
+                                className:
+                                    "btn btn-outline-dark btn-icon btn-lg",
+                                messageTop: "Listado de Logs",
+                                title: "Sistema Integrado Poblacional",
+                                exportOptions: {
+                                    columns: [0, 1, 2, 3, 4, 5]
+                                }
+                            }
+                        ]
+                    }
+                });
+                $('.dataTables_filter input').attr("placeholder", "Busqueda...");
+                $('.dataTables_filter label').addClass("form-control");
+                $('.dataTables_filter label').css("outline","none");
+                $('.dataTables_filter label').css("border","0");
+                $('.dataTables_filter label').css("padding-bottom","35px");                
+            });
         }
     }
 };

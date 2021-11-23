@@ -41,14 +41,14 @@ class BarrioController extends Controller
             $barrios = \App\Barrio::listar($busqueda, Session::get('alias'));
             if ($barrios) {
                 $respuesta = [
-                    'paginacion' => [
-                        'total' => $barrios->total(),
-                        'pagina_actual' => $barrios->currentPage(),
-                        'por_pagina' => $barrios->perPage(),
-                        'ultima_pagina' => $barrios->lastPage(),
-                        'desde' => $barrios->firstItem(),
-                        'hasta' => $barrios->lastItem(),
-                    ],
+                    // 'paginacion' => [
+                    //     'total' => $barrios->total(),
+                    //     'pagina_actual' => $barrios->currentPage(),
+                    //     'por_pagina' => $barrios->perPage(),
+                    //     'ultima_pagina' => $barrios->lastPage(),
+                    //     'desde' => $barrios->firstItem(),
+                    //     'hasta' => $barrios->lastItem(),
+                    // ],
                     'barrios' => $barrios,
                     'arrayDpto' => $arrayDpto,
                     'arrayMuni' => $arrayMuni,

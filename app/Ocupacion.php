@@ -23,10 +23,10 @@ class Ocupacion extends Model
                     ->orWhere('estado', 'LIKE', '%' . $busqueda . '%');
             })
                 ->orderBy('id', 'DESC')
-                ->paginate(10);
+                ->get();
         } else {
             $respuesta = DB::connection('mysql')->table($alias . '.ocupaciones')->orderBy('id', 'DESC')
-                ->paginate(10);
+                ->get();
         }
 
         return $respuesta;

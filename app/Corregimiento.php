@@ -53,9 +53,9 @@ class Corregimiento extends Model
                     "corregimientos.id_muni AS muni1"
                 )
                 ->orderBy('corregimientos.id', 'DESC')
-                ->paginate(10);
+                ->get();
         } else {
-            $respuesta = DB::connection('mysql')->table($alias . '.corregimientos')->join($alias.'.dptos', 'dptos.codigo', 'corregimientos.id_dpto')
+            $respuesta = DB::connection('mysql')->table($alias . '.corregimientos')->join($alias . '.dptos', 'dptos.codigo', 'corregimientos.id_dpto')
                 ->join($alias . '.muni', function ($join) {
                     $join->on('muni.coddep', '=', 'dptos.codigo');
                     $join->on('muni.codmun', '=', 'corregimientos.id_muni');
@@ -71,7 +71,7 @@ class Corregimiento extends Model
                     "corregimientos.id_muni AS muni1"
                 )
                 ->orderBy('corregimientos.id', 'DESC')
-                ->paginate(10);
+                ->get();
         }
 
         return $respuesta;

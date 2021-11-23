@@ -67,14 +67,14 @@ class UsuarioController extends Controller
             }
             if ($usuarios) {
                 $respuesta = [
-                    'paginacion' => [
-                        'total' => $usuarios->total(),
-                        'pagina_actual' => $usuarios->currentPage(),
-                        'por_pagina' => $usuarios->perPage(),
-                        'ultima_pagina' => $usuarios->lastPage(),
-                        'desde' => $usuarios->firstItem(),
-                        'hasta' => $usuarios->lastItem(),
-                    ],
+                    // 'paginacion' => [
+                    //     'total' => $usuarios->total(),
+                    //     'pagina_actual' => $usuarios->currentPage(),
+                    //     'por_pagina' => $usuarios->perPage(),
+                    //     'ultima_pagina' => $usuarios->lastPage(),
+                    //     'desde' => $usuarios->firstItem(),
+                    //     'hasta' => $usuarios->lastItem(),
+                    // ],
                     'usuarios' => $usuarios,
                 ];
                 return response()->json($respuesta, 200);
@@ -92,7 +92,6 @@ class UsuarioController extends Controller
     {
         if (Auth::check()) {
             $data = request()->all();
-            // dd($data["permisos"]["usuarios"]);die;
             $usuarios = null;
 
             if ($data["id"] == 0) {
@@ -333,14 +332,14 @@ class UsuarioController extends Controller
                 $respuesta = [
                     'usuarios' => $usuarios,
                     'logs' => $logs,
-                    'paginacion' => [
-                        'total' => $logs->total(),
-                        'pagina_actual' => $logs->currentPage(),
-                        'por_pagina' => $logs->perPage(),
-                        'ultima_pagina' => $logs->lastPage(),
-                        'desde' => $logs->firstItem(),
-                        'hasta' => $logs->lastItem(),
-                    ],
+                    // 'paginacion' => [
+                    //     'total' => $logs->total(),
+                    //     'pagina_actual' => $logs->currentPage(),
+                    //     'por_pagina' => $logs->perPage(),
+                    //     'ultima_pagina' => $logs->lastPage(),
+                    //     'desde' => $logs->firstItem(),
+                    //     'hasta' => $logs->lastItem(),
+                    // ],
                 ];
                 return response()->json($respuesta, 200);
             } else {
@@ -367,14 +366,14 @@ class UsuarioController extends Controller
             if ($logs) {
                 $respuesta = [
                     'logs' => $logs,
-                    'paginacion' => [
-                        'total' => $logs->total(),
-                        'pagina_actual' => $logs->currentPage(),
-                        'por_pagina' => $logs->perPage(),
-                        'ultima_pagina' => $logs->lastPage(),
-                        'desde' => $logs->firstItem(),
-                        'hasta' => $logs->lastItem(),
-                    ],
+                    // 'paginacion' => [
+                    //     'total' => $logs->total(),
+                    //     'pagina_actual' => $logs->currentPage(),
+                    //     'por_pagina' => $logs->perPage(),
+                    //     'ultima_pagina' => $logs->lastPage(),
+                    //     'desde' => $logs->firstItem(),
+                    //     'hasta' => $logs->lastItem(),
+                    // ],
                 ];
                 return response()->json($respuesta, 200);
             } else {

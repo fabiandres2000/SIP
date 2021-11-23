@@ -43,7 +43,7 @@ class Barrio extends Model
                     "barrios.id"
                 )
                 ->orderBy('barrios.id', 'DESC')
-                ->paginate(10);
+                ->get();
         } else {
             $respuesta = DB::connection('mysql')->table($alias . '.barrios')
                 ->join($alias . '.dptos', 'dptos.codigo', 'barrios.id_dpto')
@@ -68,7 +68,7 @@ class Barrio extends Model
                     "barrios.id"
                 )
                 ->orderBy('barrios.id', 'DESC')
-                ->paginate(10);
+                ->get();
         }
 
         return $respuesta;

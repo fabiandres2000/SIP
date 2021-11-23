@@ -31,14 +31,14 @@ class CorregimientoController extends Controller
             $corregimientos = \App\Corregimiento::listar($busqueda, Session::get('alias'));
             if ($corregimientos) {
                 $respuesta = [
-                    'paginacion' => [
-                        'total' => $corregimientos->total(),
-                        'pagina_actual' => $corregimientos->currentPage(),
-                        'por_pagina' => $corregimientos->perPage(),
-                        'ultima_pagina' => $corregimientos->lastPage(),
-                        'desde' => $corregimientos->firstItem(),
-                        'hasta' => $corregimientos->lastItem(),
-                    ],
+                    // 'paginacion' => [
+                    //     'total' => $corregimientos->total(),
+                    //     'pagina_actual' => $corregimientos->currentPage(),
+                    //     'por_pagina' => $corregimientos->perPage(),
+                    //     'ultima_pagina' => $corregimientos->lastPage(),
+                    //     'desde' => $corregimientos->firstItem(),
+                    //     'hasta' => $corregimientos->lastItem(),
+                    // ],
                     'corregimientos' => $corregimientos,
                     'arrayDpto' => $arrayDpto,
                     'arrayMuni' => $arrayMuni,
