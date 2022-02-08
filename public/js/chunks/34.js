@@ -12,6 +12,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/ocupaciones_servicios */ "./resources/js/Servicios/ocupaciones_servicios.js");
+/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
+/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! datatables.net-buttons/js/buttons.print */ "./node_modules/datatables.net-buttons/js/buttons.print.js");
+/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jszip/dist/jszip */ "./node_modules/jszip/dist/jszip.js");
+/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
+/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -339,7 +359,21 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+
+
+__webpack_require__(/*! datatables.net-buttons/js/dataTables.buttons */ "./node_modules/datatables.net-buttons/js/dataTables.buttons.js");
+
+__webpack_require__(/*! datatables.net-buttons/js/buttons.html5 */ "./node_modules/datatables.net-buttons/js/buttons.html5.js");
+
+
+
+
+
+pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default.a.pdfMake.vfs;
+window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["rutaOcupa"],
   mounted: function mounted() {
     this.consultar(1);
   },
@@ -433,43 +467,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                this.ocupaciones = [];
                 parametros = {
                   txtbusqueda: this.txtbusqueda.trim(),
                   _token: this.csrf,
                   page: pagina
                 };
-                _context.prev = 1;
-                _context.next = 4;
+                _context.prev = 2;
+                _context.next = 5;
                 return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__["listarOcupaciones"](parametros).then(function (respuesta) {
-                  _this.ocupaciones = respuesta.data.ocupaciones.data;
-                  _this.paginacion = respuesta.data.paginacion;
+                  _this.ocupaciones = respuesta.data.ocupaciones.original.data;
+                  console.log(respuesta.data.ocupaciones.original.data); // this.paginacion = respuesta.data.paginacion;
+
+                  // this.paginacion = respuesta.data.paginacion;
+                  _this.tabla();
                 });
 
-              case 4:
-                _context.next = 15;
+              case 5:
+                _context.next = 16;
                 break;
 
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](1);
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](2);
                 _context.t1 = _context.t0.response.status;
-                _context.next = _context.t1 === 422 ? 11 : 13;
+                _context.next = _context.t1 === 422 ? 12 : 14;
                 break;
 
-              case 11:
+              case 12:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 15);
+                return _context.abrupt("break", 16);
 
-              case 13:
+              case 14:
                 this.$swal("Error...!", "Ocurrio un error!", "error");
-                return _context.abrupt("break", 15);
+                return _context.abrupt("break", 16);
 
-              case 15:
+              case 16:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 6]]);
+        }, _callee, this, [[2, 7]]);
       }));
 
       function consultar(_x) {
@@ -521,6 +559,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context2.prev = 7;
                 _context2.next = 10;
                 return _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarOcupaciones"](parametros).then(function (respuesta) {
+                  _this2.tabladatos.fnClearTable();
+
+                  _this2.tabladatos.fnDestroy();
+
                   _this2.consultar(1);
 
                   _this2.ocupacionesData.descripcion = "";
@@ -647,6 +689,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                     try {
                       _Servicios_ocupaciones_servicios__WEBPACK_IMPORTED_MODULE_1__["eliminarOcupaciones"](parametros).then(function (respuesta) {
+                        _this3.tabladatos.fnClearTable();
+
+                        _this3.tabladatos.fnDestroy();
+
                         _this3.consultar(1);
 
                         _this3.$swal({
@@ -714,7 +760,309 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return editar;
-    }()
+    }(),
+    tabla: function tabla() {
+      var _this4 = this;
+
+      this.$nextTick(function () {
+        console.log(rutaOcupa);
+        $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default.a;
+        var aux = []; // aux = JSON.stringify(this.ocupaciones.original.data);
+        // console.log(aux);
+
+        _this4.tabladatos = $("#tablaDatos").DataTable({
+          // serverSide: true,
+          // processing: true,
+          "destroy": true,
+          // ajax: {
+          //     url: "/ocupaciones",
+          //     dataSrc: ""
+          // },
+          // data: this.ocupaciones,
+          // columns: [
+          //     { data: "descripcion" },
+          //     { data: "observacion" },
+          //     { data: "estado" }
+          // ],
+          // bFilter: false,
+          orderCellsTop: true,
+          language: {
+            processing: "Procesando...",
+            lengthMenu: "Mostrar _MENU_ registros",
+            zeroRecords: "No se encontraron resultados",
+            emptyTable: "Ningún dato disponible en esta tabla",
+            infoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
+            infoFiltered: "(filtrado de un total de _MAX_ registros)",
+            search: "Buscar:",
+            infoThousands: ",",
+            loadingRecords: "Cargando...",
+            paginate: {
+              first: "Primero",
+              last: "Último",
+              next: "Siguiente",
+              previous: "Anterior"
+            },
+            aria: {
+              sortAscending: ": Activar para ordenar la columna de manera ascendente",
+              sortDescending: ": Activar para ordenar la columna de manera descendente"
+            },
+            buttons: {
+              copy: "Copiar",
+              colvis: "Visibilidad",
+              collection: "Colección",
+              colvisRestore: "Restaurar visibilidad",
+              copyKeys: "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+              copySuccess: {
+                "1": "Copiada 1 fila al portapapeles",
+                _: "Copiadas %d fila al portapapeles"
+              },
+              copyTitle: "Copiar al portapapeles",
+              csv: "CSV",
+              excel: "Excel",
+              pageLength: {
+                "-1": "Mostrar todas las filas",
+                _: "Mostrar %d filas"
+              },
+              pdf: "PDF",
+              print: "Imprimir"
+            },
+            autoFill: {
+              cancel: "Cancelar",
+              fill: "Rellene todas las celdas con <i>%d<\/i>",
+              fillHorizontal: "Rellenar celdas horizontalmente",
+              fillVertical: "Rellenar celdas verticalmentemente"
+            },
+            decimal: ",",
+            searchBuilder: {
+              add: "Añadir condición",
+              button: {
+                "0": "Constructor de búsqueda",
+                _: "Constructor de búsqueda (%d)"
+              },
+              clearAll: "Borrar todo",
+              condition: "Condición",
+              conditions: {
+                date: {
+                  after: "Despues",
+                  before: "Antes",
+                  between: "Entre",
+                  empty: "Vacío",
+                  equals: "Igual a",
+                  notBetween: "No entre",
+                  notEmpty: "No Vacio",
+                  not: "Diferente de"
+                },
+                number: {
+                  between: "Entre",
+                  empty: "Vacio",
+                  equals: "Igual a",
+                  gt: "Mayor a",
+                  gte: "Mayor o igual a",
+                  lt: "Menor que",
+                  lte: "Menor o igual que",
+                  notBetween: "No entre",
+                  notEmpty: "No vacío",
+                  not: "Diferente de"
+                },
+                string: {
+                  contains: "Contiene",
+                  empty: "Vacío",
+                  endsWith: "Termina en",
+                  equals: "Igual a",
+                  notEmpty: "No Vacio",
+                  startsWith: "Empieza con",
+                  not: "Diferente de"
+                },
+                array: {
+                  not: "Diferente de",
+                  equals: "Igual",
+                  empty: "Vacío",
+                  contains: "Contiene",
+                  notEmpty: "No Vacío",
+                  without: "Sin"
+                }
+              },
+              data: "Data",
+              deleteTitle: "Eliminar regla de filtrado",
+              leftTitle: "Criterios anulados",
+              logicAnd: "Y",
+              logicOr: "O",
+              rightTitle: "Criterios de sangría",
+              title: {
+                "0": "Constructor de búsqueda",
+                _: "Constructor de búsqueda (%d)"
+              },
+              value: "Valor"
+            },
+            searchPanes: {
+              clearMessage: "Borrar todo",
+              collapse: {
+                "0": "Paneles de búsqueda",
+                _: "Paneles de búsqueda (%d)"
+              },
+              count: "{total}",
+              countFiltered: "{shown} ({total})",
+              emptyPanes: "Sin paneles de búsqueda",
+              loadMessage: "Cargando paneles de búsqueda",
+              title: "Filtros Activos - %d"
+            },
+            select: {
+              cells: {
+                "1": "1 celda seleccionada",
+                _: "%d celdas seleccionadas"
+              },
+              columns: {
+                "1": "1 columna seleccionada",
+                _: "%d columnas seleccionadas"
+              },
+              rows: {
+                "1": "1 fila seleccionada",
+                _: "%d filas seleccionadas"
+              }
+            },
+            thousands: ".",
+            datetime: {
+              previous: "Anterior",
+              next: "Proximo",
+              hours: "Horas",
+              minutes: "Minutos",
+              seconds: "Segundos",
+              unknown: "-",
+              amPm: ["AM", "PM"],
+              months: {
+                "0": "Enero",
+                "1": "Febrero",
+                "10": "Noviembre",
+                "11": "Diciembre",
+                "2": "Marzo",
+                "3": "Abril",
+                "4": "Mayo",
+                "5": "Junio",
+                "6": "Julio",
+                "7": "Agosto",
+                "8": "Septiembre",
+                "9": "Octubre"
+              },
+              weekdays: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"]
+            },
+            editor: {
+              close: "Cerrar",
+              create: {
+                button: "Nuevo",
+                title: "Crear Nuevo Registro",
+                submit: "Crear"
+              },
+              edit: {
+                button: "Editar",
+                title: "Editar Registro",
+                submit: "Actualizar"
+              },
+              remove: {
+                button: "Eliminar",
+                title: "Eliminar Registro",
+                submit: "Eliminar",
+                confirm: {
+                  _: "¿Está seguro que desea eliminar %d filas?",
+                  "1": "¿Está seguro que desea eliminar 1 fila?"
+                }
+              },
+              error: {
+                system: 'Ha ocurrido un error en el sistema (<a target="\\" rel="\\ nofollow" href="\\">Más información&lt;\\\/a&gt;).<\/a>'
+              },
+              multi: {
+                title: "Múltiples Valores",
+                info: "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
+                restore: "Deshacer Cambios",
+                noMulti: "Este registro puede ser editado individualmente, pero no como parte de un grupo."
+              }
+            },
+            info: "Mostrando _START_ a _END_ de _TOTAL_ registros"
+          },
+          dom: "B<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+          buttons: {
+            dom: {
+              buttons: {
+                className: "btn"
+              }
+            },
+            buttons: [{
+              extend: "copyHtml5",
+              text: "<i class='fa fa-file-alt'></i>",
+              titleAttr: "Copiar",
+              className: "btn btn-outline-brand btn-icon btn-lg",
+              messageTop: "Listado de Ocupaciones",
+              title: "Sistema Integrado Poblacional",
+              exportOptions: {
+                columns: [0, 1, 2]
+              }
+            }, {
+              extend: "excelHtml5",
+              text: "<i class='fa fa-file-excel'></i>",
+              titleAttr: "Exportar a Excel",
+              className: "btn btn-outline-success btn-icon btn-lg",
+              excelStyles: {
+                template: "header_blue"
+              },
+              messageTop: "Listado de Ocupaciones",
+              title: "Sistema Integrado Poblacional",
+              exportOptions: {
+                columns: [0, 1, 2]
+              }
+            }, {
+              extend: "pdfHtml5",
+              text: "<i class='fa fa-file-pdf'></i>",
+              titleAttr: "Exportar a PDF",
+              className: "btn btn-outline-danger btn-icon btn-lg",
+              messageTop: "Listado de Ocupaciones",
+              title: "Sistema Integrado Poblacional",
+              exportOptions: {
+                columns: [0, 1, 2]
+              },
+              customize: function customize(doc) {
+                doc.styles.title = {
+                  color: "red",
+                  fontSize: "20",
+                  alignment: "center"
+                };
+                doc.styles["td:nth-child(2)"] = {
+                  width: "100px",
+                  "max-width": "100px"
+                };
+                doc.styles.tableHeader = {
+                  fillColor: "#DF0101",
+                  color: "white"
+                };
+              }
+            }, {
+              extend: "csvHtml5",
+              text: "<i class='fa fa-file-csv'></i>",
+              titleAttr: "Exportar a csv",
+              className: "btn btn-outline-info btn-icon btn-lg",
+              messageTop: "Listado de Ocupaciones",
+              title: "Sistema Integrado Poblacional",
+              exportOptions: {
+                columns: [0, 1, 2]
+              }
+            }, {
+              extend: "print",
+              text: "<i class='fa fa-print'></i>",
+              titleAttr: "Imprimir Archivo",
+              className: "btn btn-outline-dark btn-icon btn-lg",
+              messageTop: "Listado de Ocupaciones",
+              title: "Sistema Integrado Poblacional",
+              exportOptions: {
+                columns: [0, 1, 2]
+              }
+            }]
+          }
+        });
+        $(".dataTables_filter input").attr("placeholder", "Busqueda...");
+        $(".dataTables_filter label").addClass("form-control");
+        $(".dataTables_filter label").css("outline", "none");
+        $(".dataTables_filter label").css("border", "0");
+        $(".dataTables_filter label").css("padding-bottom", "35px");
+      });
+    }
   }
 });
 
@@ -816,228 +1164,10 @@ var render = function() {
                       _vm._v(" \n                                ")
                     ])
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
-                  _c("form", { staticClass: "kt-form" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("div", { staticClass: "input-group" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.txtbusqueda,
-                              expression: "txtbusqueda"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", placeholder: "Busqueda" },
-                          domProps: { value: _vm.txtbusqueda },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.txtbusqueda = $event.target.value
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "input-group-append" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary btn-icon",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.consultar(1)
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fa fa-search" })]
-                          )
-                        ])
-                      ])
-                    ])
-                  ])
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "table-responsive" }, [
-                    _c(
-                      "table",
-                      {
-                        staticClass: "table table-sm table-hover",
-                        attrs: { id: "tablaDatos" }
-                      },
-                      [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c(
-                          "tbody",
-                          _vm._l(_vm.ocupaciones, function(item, index) {
-                            return _c("tr", { key: index }, [
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    color: "#212529"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(index + 1) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "left",
-                                    "text-transform": "capitalize",
-                                    color: "#212529"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.descripcion) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "left",
-                                    "text-transform": "capitalize",
-                                    color: "#212529"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                " +
-                                      _vm._s(item.observacion) +
-                                      "\n                                            "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "font-weight": "normal",
-                                    "vertical-align": "middle",
-                                    "text-align": "center",
-                                    color: "#212529"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass: "kt-badge kt-badge--inline",
-                                      class:
-                                        item.estado == "Activo"
-                                          ? "kt-badge--success"
-                                          : "kt-badge--danger"
-                                    },
-                                    [_vm._v(_vm._s(item.estado))]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticStyle: {
-                                    "text-align": "center",
-                                    "vertical-align": "middle",
-                                    color: "#212529"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "btn btn-outline-info btn-icon btn-sm",
-                                      attrs: {
-                                        type: "button",
-                                        title: "Editar"
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.editar(item)
-                                        }
-                                      }
-                                    },
-                                    [_c("i", { staticClass: "fa fa-edit" })]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass: "btn btn-icon btn-sm",
-                                      class:
-                                        item.estado == "Activo"
-                                          ? "btn-outline-danger"
-                                          : "btn-outline-success",
-                                      attrs: {
-                                        type: "button",
-                                        title:
-                                          item.estado == "Activo"
-                                            ? "Anular"
-                                            : "Activar"
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.eliminar(item)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fa",
-                                        class:
-                                          item.estado == "Activo"
-                                            ? "fa-trash"
-                                            : "fa-check"
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          }),
-                          0
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "kt-separator kt-separator--border-dashed"
-                    })
-                  ])
-                ])
-              ])
+              _vm._m(1)
             ])
           ])
         ]),
@@ -1345,24 +1475,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", {}, [
-      _c("tr", { staticClass: "kt-bg-fill-brand" }, [
-        _c("th", { staticClass: "text-white" }, [_vm._v("No.")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-white" }, [_vm._v("Ocupación")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-white" }, [_vm._v("Observación")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center text-white" }, [
-          _vm._v(
-            "\n                                                Estado\n                                            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "text-center text-white" }, [
-          _vm._v(
-            "\n                                                Opciones\n                                            "
-          )
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "table-responsive" }, [
+          _c(
+            "table",
+            {
+              staticClass: "table table-sm table-hover",
+              attrs: { id: "tablaDatos" }
+            },
+            [
+              _c("thead", {}, [
+                _c("tr", { staticClass: "kt-bg-fill-brand" }, [
+                  _c("th", { staticClass: "text-white" }, [_vm._v("No.")]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "text-white" }, [
+                    _vm._v(
+                      "\n                                                Ocupación\n                                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "text-white" }, [
+                    _vm._v(
+                      "\n                                                Observación\n                                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "text-center text-white" }, [
+                    _vm._v(
+                      "\n                                                Estado\n                                            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "text-center text-white" }, [
+                    _vm._v(
+                      "\n                                                Opciones\n                                            "
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "kt-separator kt-separator--border-dashed" })
         ])
       ])
     ])

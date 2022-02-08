@@ -169,6 +169,30 @@ export const routes = [
         path: '/log',
         name: 'Log',
         component: () => import ('./Vistas/Log/Log.vue')
+    }, {
+        path: '/reportes/gestantes',
+        name: 'Log',
+        component: () => import ('./Vistas/Reportes/Gestantes.vue')
+    }, {
+        path: '/reportes/nutricional',
+        name: 'Log',
+        component: () => import ('./Vistas/Reportes/Nutricional.vue')
+    }, {
+        path: '/reportes/cronicos',
+        name: 'ReportesCronicos',
+        component: () => import ('./Vistas/Reportes/EnfermedadesCronicas.vue')
+    }, {
+        path: '/reportes/migrantes',
+        name: 'ReportesMigrantes',
+        component: () => import ('./Vistas/Reportes/PoblacionMigrante.vue')
+    }, {
+        path: '/informes/migrantes',
+        name: 'InformesMigrantes',
+        component: () => import ('./Vistas/Informes/poblacionMigrante.vue')
+    }, {
+        path: '/perfil',
+        name: 'Perfil',
+        component: () => import ('./Vistas/Perfil/Gestion.vue')
     }
 
 ];

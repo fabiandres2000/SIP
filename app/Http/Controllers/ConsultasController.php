@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use Session;
-use Auth;
 
 class ConsultasController extends Controller
 {
-    public function viviendas(){
+    public function viviendas()
+    {
         if (Auth::check()) {
             $consdptos = \App\Dpto::buscarDepartamentos(Session::get('alias'));
             foreach ($consdptos as $item) {
@@ -82,24 +83,25 @@ class ConsultasController extends Controller
                 'arrayEscolaridad' => $arrayEscolaridad,
             ];
             return response()->json($respuesta, 200);
-        }else{
+        } else {
 
         }
     }
 
-    public function viviendaslistar(){
+    public function viviendaslistar()
+    {
         if (Auth::check()) {
             $datos = request()->all();
-            $viviendas = \App\Vivienda::listar(Session::get('alias'),$datos,"paginacion");
+            $viviendas = \App\Vivienda::listar(Session::get('alias'), $datos, "paginacion");
 
-            foreach($viviendas as $viv){
-                $viv->animales = \App\Animal::buscar(Session::get('alias'),$viv->id_hogar);
-                $viv->actividad = \App\ActividadVivienda::buscar(Session::get('alias'),$viv->id_hogar);
-                $viv->estratificacion =  \App\Estratificacion::buscar(Session::get('alias'),$viv->id_hogar);
-                $viv->jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'),$viv->id_hogar);
-                $viv->integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'),$viv->id_hogar);
+            foreach ($viviendas as $viv) {
+                $viv->animales = \App\Animal::buscar(Session::get('alias'), $viv->id_hogar);
+                $viv->actividad = \App\ActividadVivienda::buscar(Session::get('alias'), $viv->id_hogar);
+                $viv->estratificacion = \App\Estratificacion::buscar(Session::get('alias'), $viv->id_hogar);
+                $viv->jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'), $viv->id_hogar);
+                $viv->integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'), $viv->id_hogar);
             }
-            
+
             $respuesta = [
                 'paginacion' => [
                     'total' => $viviendas->total(),
@@ -110,37 +112,39 @@ class ConsultasController extends Controller
                     'hasta' => $viviendas->lastItem(),
                 ],
                 'viviendas' => $viviendas,
-                'data' => $datos
+                'data' => $datos,
             ];
             return response()->json($respuesta, 200);
         }
     }
 
-    public function viviendaslistarpdf(){
+    public function viviendaslistarpdf()
+    {
         if (Auth::check()) {
             $datos = request()->all();
             //dd($datos);die;
-            $viviendas = \App\Vivienda::listar(Session::get('alias'),$datos,"todos");
+            $viviendas = \App\Vivienda::listar(Session::get('alias'), $datos, "todos");
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('vista-pdf', ['viviendas' => $viviendas])
-            ->setPaper('letter', 'portrait')
-            ->save('archivo.pdf');
+                ->setPaper('letter', 'portrait')
+                ->save('archivo.pdf');
 
             return null;
         }
     }
 
-    public function jefelistar(){
+    public function jefelistar()
+    {
         if (Auth::check()) {
             $datos = request()->all();
-            $jefes = \App\Caracterizacion::listarj(Session::get('alias'),$datos,"paginacion");
+            $jefes = \App\Caracterizacion::listarj(Session::get('alias'), $datos, "paginacion");
 
-            foreach($jefes as $viv){
-                    $viv->integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'),$viv->id_hogar);
+            foreach ($jefes as $viv) {
+                $viv->integrantes = \App\Integrante::buscarIntegrantes(Session::get('alias'), $viv->id_hogar);
             }
 
-            foreach($jefes as $viv){
-                $viv->jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'),$viv->id_hogar);
+            foreach ($jefes as $viv) {
+                $viv->jefes = \App\Caracterizacion::buscarJefes(Session::get('alias'), $viv->id_hogar);
             }
 
             $respuesta = [
@@ -156,19 +160,20 @@ class ConsultasController extends Controller
             ];
             return response()->json($respuesta, 200);
 
-        }    
+        }
     }
 
-    public function jefeslistarpdf(){
+    public function jefeslistarpdf()
+    {
         if (Auth::check()) {
             $datos = request()->all();
             //dd($datos);die;
-            $jefes = \App\Caracterizacion::listarj(Session::get('alias'),$datos,"todos");
-            $nombre = 'informejefes'.time().'.pdf';
+            $jefes = \App\Caracterizacion::listarj(Session::get('alias'), $datos, "todos");
+            $nombre = 'informejefes' . time() . '.pdf';
             $pdf = app('dompdf.wrapper');
             $pdf->loadView('vista-pdfjefe', ['jefes' => $jefes])
-            ->setPaper('letter', 'portrait')
-            ->save($nombre);
+                ->setPaper('letter', 'portrait')
+                ->save($nombre);
             $respuesta = [
                 'nombre' => $nombre,
             ];

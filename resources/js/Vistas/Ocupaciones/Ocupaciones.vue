@@ -86,7 +86,7 @@
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <!-- <tbody>
                                             <tr
                                                 v-for="(item,
                                                 index) in ocupaciones"
@@ -163,7 +163,7 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                                        </tbody>
+                                        </tbody> -->
                                     </table>
                                     <div
                                         class="kt-separator kt-separator--border-dashed"
@@ -336,7 +336,9 @@ import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 window.JSZip = jszip;
+import axios from "axios";
 export default {
+    props: ["rutaOcupa"],
     mounted() {
         this.consultar(1);
     },
@@ -433,7 +435,9 @@ export default {
                 await ocupacionesServicios
                     .listarOcupaciones(parametros)
                     .then(respuesta => {
-                        this.ocupaciones = respuesta.data.ocupaciones;
+                        this.ocupaciones =
+                            respuesta.data.ocupaciones.original.data;
+                        console.log(respuesta.data.ocupaciones.original.data);
                         // this.paginacion = respuesta.data.paginacion;
                         this.tabla();
                     });
@@ -636,8 +640,25 @@ export default {
         },
         tabla() {
             this.$nextTick(() => {
+                console.log(rutaOcupa);
                 $.fn.DataTable = datatable;
+                let aux = [];
+                // aux = JSON.stringify(this.ocupaciones.original.data);
+                // console.log(aux);
                 this.tabladatos = $("#tablaDatos").DataTable({
+                    // serverSide: true,
+                    // processing: true,
+                    "destroy": true,
+                    // ajax: {
+                    //     url: "/ocupaciones",
+                    //     dataSrc: ""
+                    // },
+                    // data: this.ocupaciones,
+                    // columns: [
+                    //     { data: "descripcion" },
+                    //     { data: "observacion" },
+                    //     { data: "estado" }
+                    // ],
                     // bFilter: false,
                     orderCellsTop: true,
                     language: {

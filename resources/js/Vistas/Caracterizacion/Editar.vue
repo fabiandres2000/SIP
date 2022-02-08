@@ -843,6 +843,17 @@
                 </div>
               </div>
               <div class="form-group row">
+                <div class="col-lg-2">
+                  <label>Vacuna Covid 19:</label>
+                  <b-form-select
+                    v-model="caracData.vacuna"
+                    :class="caracData.vacuna==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                  </b-form-select>
+                </div>                
                 <div class="col-lg-4">
                   <label>Enfermedad Infecciosa:</label>
                   <b-form-select
@@ -2209,6 +2220,17 @@
                 </div>
               </div>
               <div class="form-group row">
+                <div class="col-lg-2">
+                  <label>Vacuna Covid 19:</label>
+                  <b-form-select
+                    v-model="CA1.vacuna"
+                    :class="CA1.vacuna==''?'':'is-valid'"
+                  >
+                    <option value selected>Seleccione</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                  </b-form-select>
+                </div>                 
                 <div class="col-lg-4">
                   <label>Enfermedad Infecciosa:</label>
                   <b-form-select                  
@@ -3322,8 +3344,17 @@
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
-                              <option value="SI">SI</option>
-                              <option value="NO">NO</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                             </b-form-select>
                           </td>
                           <td
@@ -7891,9 +7922,17 @@
                               :class="item.sustanciaspsico==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="Alcohol">Alcohol</option>
-                              <option value="Tabaco">Tabaco</option>
-                              <option value="Spa">Spa</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -9030,7 +9069,17 @@
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -9496,7 +9545,17 @@
                               :class="item.spa==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -10059,7 +10118,17 @@
                               :class="item.spa==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -10560,7 +10629,17 @@
                               :class="item.spa==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -11987,7 +12066,7 @@
 
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">8</td>
-                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hidrico</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hídrico</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_recurso_hidrico }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_recurso_hidrico">{{ RieAmbInh.va_riesgos_recurso_hidrico }}</span>
@@ -12224,7 +12303,7 @@
                         @change="cambioComboRA('RD')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12237,7 +12316,7 @@
                         :class="datosRA.obras_ingenieria_RD==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12276,7 +12355,7 @@
                         :class="datosRA.proteccion_RD==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12289,7 +12368,7 @@
                         :class="datosRA.zona_vivienda_RD==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12325,7 +12404,7 @@
                         @change="cambioComboRA('RI')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12338,7 +12417,7 @@
                         :class="datosRA.gaviones_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12377,7 +12456,7 @@
                         :class="datosRA.dragado_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12390,7 +12469,7 @@
                         :class="datosRA.barreras_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12406,7 +12485,7 @@
                         :class="datosRA.zona_vivienda_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12440,7 +12519,7 @@
                         :class="datosRA.sistema_recoleccion_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12454,7 +12533,7 @@
                         @change="cambioComboRA('RIN')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12492,7 +12571,7 @@
                         :class="datosRA.control_plagas_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12505,7 +12584,7 @@
                         :class="datosRA.limpieza_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12520,7 +12599,7 @@
                         :class="datosRA.tipo_tratamiento_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12533,7 +12612,7 @@
                         :class="datosRA.clasificacion_residuos_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12568,7 +12647,7 @@
                         @change="cambioComboRA('RA')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12581,7 +12660,7 @@
                         :class="datosRA.humectacion_RA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12619,7 +12698,7 @@
                         :class="datosRA.sistema_RA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12632,7 +12711,7 @@
                         :class="datosRA.concientizacion_RA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12667,7 +12746,7 @@
                         @change="cambioComboRA('RRS')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12680,7 +12759,7 @@
                         :class="datosRA.concientizacion_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12718,7 +12797,7 @@
                         :class="datosRA.mantenimiento_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12731,7 +12810,7 @@
                         :class="datosRA.mantenimiento_solicitado_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12746,7 +12825,7 @@
                         :class="datosRA.fertilizantes_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12759,7 +12838,7 @@
                         :class="datosRA.clasificacion_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12794,7 +12873,7 @@
                         @change="cambioComboRA('RQ')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12807,7 +12886,7 @@
                         :class="datosRA.concientizacion_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12845,7 +12924,7 @@
                         :class="datosRA.bomberos_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12858,7 +12937,7 @@
                         :class="datosRA.servicio_programado_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12873,7 +12952,7 @@
                         :class="datosRA.servicio_solicitud_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12886,7 +12965,7 @@
                         :class="datosRA.aprovechamiento_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12921,20 +13000,20 @@
                         @change="cambioComboRA('RAU')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
                       </b-form-select>
                     </div>                    
                     <div class="col-md-6">
-                      <label>Regulación de indutrias contaminantes:</label>
+                      <label>Regulación de industrias contaminantes:</label>
                       <b-form-select
                         v-model="datosRA.regulacion_RAU"
                         :class="datosRA.regulacion_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12972,7 +13051,7 @@
                         :class="datosRA.mediciones_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12985,7 +13064,7 @@
                         :class="datosRA.zona_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13000,7 +13079,7 @@
                         :class="datosRA.decibeles_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13023,7 +13102,7 @@
                 <div class="col-md-12" v-if="banConRieAmb=='RRH'">
                   <center>
                     <p>
-                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgo recurso hidrico</span>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgo recurso hídrico</span>
                     </p>
                   </center>
                   <div class="form-group row">
@@ -13035,7 +13114,7 @@
                         @change="cambioComboRA('RRH')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13048,7 +13127,7 @@
                         :class="datosRA.concientizacion_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13086,7 +13165,7 @@
                         :class="datosRA.manejo_aguas_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13099,7 +13178,7 @@
                         :class="datosRA.programa_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13114,7 +13193,7 @@
                         :class="datosRA.control_industrias_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13127,7 +13206,7 @@
                         :class="datosRA.mantenimiento_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13142,7 +13221,7 @@
                         :class="datosRA.mantenimiento_captacion_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13177,7 +13256,7 @@
                         @change="cambioComboRA('RRA')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13190,7 +13269,7 @@
                         :class="datosRA.tratamiento_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13228,7 +13307,7 @@
                         :class="datosRA.concientizacion_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13241,7 +13320,7 @@
                         :class="datosRA.sistema_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13256,7 +13335,7 @@
                         :class="datosRA.programa_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13590,7 +13669,7 @@
                       :class="datosRSMEN1A_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13603,7 +13682,7 @@
                       :class="datosRSMEN1A_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13619,7 +13698,7 @@
                       :class="datosRSMEN1A_RR.fumigacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13632,7 +13711,7 @@
                       :class="datosRSMEN1A_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13648,7 +13727,7 @@
                       :class="datosRSMEN1A_RR.desparacitacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13661,7 +13740,7 @@
                       :class="datosRSMEN1A_RR.inmunizacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13677,7 +13756,7 @@
                       :class="datosRSMEN1A_RR.educacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13690,7 +13769,7 @@
                       :class="datosRSMEN1A_RR.mantenimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13706,7 +13785,7 @@
                       :class="datosRSMEN1A_RR.citas_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13740,7 +13819,7 @@
                       :class="datosRSMEN1A_RR.educacion_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13753,7 +13832,7 @@
                       :class="datosRSMEN1A_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13788,7 +13867,7 @@
                       :class="datosRSMEN1A_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13801,7 +13880,7 @@
                       :class="datosRSMEN1A_RR.educacion_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13817,7 +13896,7 @@
                       :class="datosRSMEN1A_RR.actividad_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13851,7 +13930,7 @@
                       :class="datosRSMEN1A_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13864,7 +13943,7 @@
                       :class="datosRSMEN1A_RR.educacion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13880,7 +13959,7 @@
                       :class="datosRSMEN1A_RR.valoracion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13914,7 +13993,7 @@
                       :class="datosRSMEN1A_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13927,7 +14006,7 @@
                       :class="datosRSMEN1A_RR.valoracion_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13961,7 +14040,7 @@
                       :class="datosRSMEN1A_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -13974,7 +14053,7 @@
                       :class="datosRSMEN1A_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14008,7 +14087,7 @@
                       :class="datosRSMEN1A_RR.control_odontologia_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14021,7 +14100,7 @@
                       :class="datosRSMEN1A_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14036,7 +14115,7 @@
                       :class="datosRSMEN1A_RR.educacion_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14049,7 +14128,7 @@
                       :class="datosRSMEN1A_RR.habitos_higiene_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14083,7 +14162,7 @@
                       :class="datosRSMEN1A_RR.concientizacion_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14096,7 +14175,7 @@
                       :class="datosRSMEN1A_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14111,7 +14190,7 @@
                       :class="datosRSMEN1A_RR.crecimiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14124,7 +14203,7 @@
                       :class="datosRSMEN1A_RR.grupos_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14158,7 +14237,7 @@
                       :class="datosRSMEN1A_RR.concientizacion_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14171,7 +14250,7 @@
                       :class="datosRSMEN1A_RR.acompaniamiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14186,7 +14265,7 @@
                       :class="datosRSMEN1A_RR.crecimiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14199,7 +14278,7 @@
                       :class="datosRSMEN1A_RR.grupos_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14214,7 +14293,7 @@
                       :class="datosRSMEN1A_RR.icbf_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14248,7 +14327,7 @@
                       :class="datosRSMEN1A_RR.crecimiento_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14261,7 +14340,7 @@
                       :class="datosRSMEN1A_RR.educacion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14276,7 +14355,7 @@
                       :class="datosRSMEN1A_RR.valoracion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14310,7 +14389,7 @@
                       :class="datosRSMEN1A_RR.crecimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14323,7 +14402,7 @@
                       :class="datosRSMEN1A_RR.potabilizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14339,7 +14418,7 @@
                       :class="datosRSMEN1A_RR.mantenimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14352,7 +14431,7 @@
                       :class="datosRSMEN1A_RR.fumigacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14368,7 +14447,7 @@
                       :class="datosRSMEN1A_RR.vacunacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14381,7 +14460,7 @@
                       :class="datosRSMEN1A_RR.inmunizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14397,7 +14476,7 @@
                       :class="datosRSMEN1A_RR.valorizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14410,7 +14489,7 @@
                       :class="datosRSMEN1A_RR.desparatizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14445,7 +14524,7 @@
                       :class="datosRSMEN1A_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14458,7 +14537,7 @@
                       :class="datosRSMEN1A_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14473,7 +14552,7 @@
                       :class="datosRSMEN1A_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14507,7 +14586,7 @@
                       :class="datosRSMEN1A_RR.atencion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14520,7 +14599,7 @@
                       :class="datosRSMEN1A_RR.relaciones_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14535,7 +14614,7 @@
                       :class="datosRSMEN1A_RR.grupos_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14548,7 +14627,7 @@
                       :class="datosRSMEN1A_RR.educacion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14563,7 +14642,7 @@
                       :class="datosRSMEN1A_RR.valoracion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14597,7 +14676,7 @@
                       :class="datosRSMEN1A_RR.asistencia_RiDeAg==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14610,7 +14689,7 @@
                       :class="datosRSMEN1A_RR.programas_RiDeAg==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14625,7 +14704,7 @@
                       :class="datosRSMEN1A_RR.suplementacion_RiDeAg==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14659,7 +14738,7 @@
                       :class="datosRSMEN1A_RR.asistencia_RiDeGl==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14672,7 +14751,7 @@
                       :class="datosRSMEN1A_RR.programas_RiDeGl==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14687,7 +14766,7 @@
                       :class="datosRSMEN1A_RR.suplementacion_RiDeGl==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14721,7 +14800,7 @@
                       :class="datosRSMEN1A_RR.asistencia_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14734,7 +14813,7 @@
                       :class="datosRSMEN1A_RR.programas_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14749,7 +14828,7 @@
                       :class="datosRSMEN1A_RR.suplementacion_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14783,7 +14862,7 @@
                       :class="datosRSMEN1A_RR.asistencia_RiSo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14796,7 +14875,7 @@
                       :class="datosRSMEN1A_RR.actividad_RiSo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14839,7 +14918,7 @@
                       :class="datosRSDE1A5_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14852,7 +14931,7 @@
                       :class="datosRSDE1A5_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14868,7 +14947,7 @@
                       :class="datosRSDE1A5_RR.fumigacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14881,7 +14960,7 @@
                       :class="datosRSDE1A5_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14897,7 +14976,7 @@
                       :class="datosRSDE1A5_RR.desparacitacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14910,7 +14989,7 @@
                       :class="datosRSDE1A5_RR.inmunizacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14926,7 +15005,7 @@
                       :class="datosRSDE1A5_RR.educacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14939,7 +15018,7 @@
                       :class="datosRSDE1A5_RR.mantenimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14955,7 +15034,7 @@
                       :class="datosRSDE1A5_RR.citas_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -14989,7 +15068,7 @@
                       :class="datosRSDE1A5_RR.educacion_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15002,7 +15081,7 @@
                       :class="datosRSDE1A5_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15037,7 +15116,7 @@
                       :class="datosRSDE1A5_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15050,7 +15129,7 @@
                       :class="datosRSDE1A5_RR.educacion_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15066,7 +15145,7 @@
                       :class="datosRSDE1A5_RR.actividad_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15100,7 +15179,7 @@
                       :class="datosRSDE1A5_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15113,7 +15192,7 @@
                       :class="datosRSDE1A5_RR.educacion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15129,7 +15208,7 @@
                       :class="datosRSDE1A5_RR.valoracion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15163,7 +15242,7 @@
                       :class="datosRSDE1A5_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15176,7 +15255,7 @@
                       :class="datosRSDE1A5_RR.valoracion_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15210,7 +15289,7 @@
                       :class="datosRSDE1A5_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15223,7 +15302,7 @@
                       :class="datosRSDE1A5_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15257,7 +15336,7 @@
                       :class="datosRSDE1A5_RR.control_odontologia_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15270,7 +15349,7 @@
                       :class="datosRSDE1A5_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15285,7 +15364,7 @@
                       :class="datosRSDE1A5_RR.educacion_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15298,7 +15377,7 @@
                       :class="datosRSDE1A5_RR.habitos_higiene_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15332,7 +15411,7 @@
                       :class="datosRSDE1A5_RR.concientizacion_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15345,7 +15424,7 @@
                       :class="datosRSDE1A5_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15360,7 +15439,7 @@
                       :class="datosRSDE1A5_RR.crecimiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15373,7 +15452,7 @@
                       :class="datosRSDE1A5_RR.grupos_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15407,7 +15486,7 @@
                       :class="datosRSDE1A5_RR.concientizacion_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15420,7 +15499,7 @@
                       :class="datosRSDE1A5_RR.acompaniamiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15435,7 +15514,7 @@
                       :class="datosRSDE1A5_RR.crecimiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15448,7 +15527,7 @@
                       :class="datosRSDE1A5_RR.grupos_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15463,7 +15542,7 @@
                       :class="datosRSDE1A5_RR.icbf_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15497,7 +15576,7 @@
                       :class="datosRSDE1A5_RR.crecimiento_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15510,7 +15589,7 @@
                       :class="datosRSDE1A5_RR.educacion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15525,7 +15604,7 @@
                       :class="datosRSDE1A5_RR.valoracion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15559,7 +15638,7 @@
                       :class="datosRSDE1A5_RR.crecimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15572,7 +15651,7 @@
                       :class="datosRSDE1A5_RR.potabilizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15588,7 +15667,7 @@
                       :class="datosRSDE1A5_RR.mantenimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15601,7 +15680,7 @@
                       :class="datosRSDE1A5_RR.fumigacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15617,7 +15696,7 @@
                       :class="datosRSDE1A5_RR.vacunacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15630,7 +15709,7 @@
                       :class="datosRSDE1A5_RR.inmunizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15646,7 +15725,7 @@
                       :class="datosRSDE1A5_RR.valorizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15659,7 +15738,7 @@
                       :class="datosRSDE1A5_RR.desparatizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15694,7 +15773,7 @@
                       :class="datosRSDE1A5_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15707,7 +15786,7 @@
                       :class="datosRSDE1A5_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15722,7 +15801,7 @@
                       :class="datosRSDE1A5_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15756,7 +15835,7 @@
                       :class="datosRSDE1A5_RR.atencion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15769,7 +15848,7 @@
                       :class="datosRSDE1A5_RR.relaciones_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15784,7 +15863,7 @@
                       :class="datosRSDE1A5_RR.grupos_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15797,7 +15876,7 @@
                       :class="datosRSDE1A5_RR.educacion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15812,7 +15891,7 @@
                       :class="datosRSDE1A5_RR.valoracion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15846,7 +15925,7 @@
                       :class="datosRSDE1A5_RR.asistencia_RiDeAg==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15859,7 +15938,7 @@
                       :class="datosRSDE1A5_RR.programas_RiDeAg==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15874,7 +15953,7 @@
                       :class="datosRSDE1A5_RR.suplementacion_RiDeAg==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15908,7 +15987,7 @@
                       :class="datosRSDE1A5_RR.asistencia_RiDeGl==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15921,7 +16000,7 @@
                       :class="datosRSDE1A5_RR.programas_RiDeGl==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15936,7 +16015,7 @@
                       :class="datosRSDE1A5_RR.suplementacion_RiDeGl==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15970,7 +16049,7 @@
                       :class="datosRSDE1A5_RR.asistencia_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15983,7 +16062,7 @@
                       :class="datosRSDE1A5_RR.programas_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -15998,7 +16077,7 @@
                       :class="datosRSDE1A5_RR.suplementacion_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16032,7 +16111,7 @@
                       :class="datosRSDE1A5_RR.asistencia_RiSo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16045,7 +16124,7 @@
                       :class="datosRSDE1A5_RR.actividad_RiSo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16088,7 +16167,7 @@
                       :class="datosRSDE6A11_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16101,7 +16180,7 @@
                       :class="datosRSDE6A11_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16117,7 +16196,7 @@
                       :class="datosRSDE6A11_RR.fumigacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16130,7 +16209,7 @@
                       :class="datosRSDE6A11_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16146,7 +16225,7 @@
                       :class="datosRSDE6A11_RR.desparacitacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16159,7 +16238,7 @@
                       :class="datosRSDE6A11_RR.inmunizacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16175,7 +16254,7 @@
                       :class="datosRSDE6A11_RR.educacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16188,7 +16267,7 @@
                       :class="datosRSDE6A11_RR.mantenimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16204,7 +16283,7 @@
                       :class="datosRSDE6A11_RR.citas_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16238,7 +16317,7 @@
                       :class="datosRSDE6A11_RR.educacion_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16251,7 +16330,7 @@
                       :class="datosRSDE6A11_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16286,7 +16365,7 @@
                       :class="datosRSDE6A11_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16299,7 +16378,7 @@
                       :class="datosRSDE6A11_RR.educacion_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16315,7 +16394,7 @@
                       :class="datosRSDE6A11_RR.actividad_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16349,7 +16428,7 @@
                       :class="datosRSDE6A11_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16362,7 +16441,7 @@
                       :class="datosRSDE6A11_RR.educacion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16378,7 +16457,7 @@
                       :class="datosRSDE6A11_RR.valoracion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16412,7 +16491,7 @@
                       :class="datosRSDE6A11_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16425,7 +16504,7 @@
                       :class="datosRSDE6A11_RR.valoracion_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16459,7 +16538,7 @@
                       :class="datosRSDE6A11_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16472,7 +16551,7 @@
                       :class="datosRSDE6A11_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16506,7 +16585,7 @@
                       :class="datosRSDE6A11_RR.control_odontologia_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16519,7 +16598,7 @@
                       :class="datosRSDE6A11_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16534,7 +16613,7 @@
                       :class="datosRSDE6A11_RR.educacion_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16547,7 +16626,7 @@
                       :class="datosRSDE6A11_RR.habitos_higiene_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16581,7 +16660,7 @@
                       :class="datosRSDE6A11_RR.concientizacion_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16594,7 +16673,7 @@
                       :class="datosRSDE6A11_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16609,7 +16688,7 @@
                       :class="datosRSDE6A11_RR.crecimiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16622,7 +16701,7 @@
                       :class="datosRSDE6A11_RR.grupos_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16656,7 +16735,7 @@
                       :class="datosRSDE6A11_RR.concientizacion_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16669,7 +16748,7 @@
                       :class="datosRSDE6A11_RR.acompaniamiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16684,7 +16763,7 @@
                       :class="datosRSDE6A11_RR.crecimiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16697,7 +16776,7 @@
                       :class="datosRSDE6A11_RR.grupos_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16712,7 +16791,7 @@
                       :class="datosRSDE6A11_RR.icbf_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16746,7 +16825,7 @@
                       :class="datosRSDE6A11_RR.crecimiento_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16759,7 +16838,7 @@
                       :class="datosRSDE6A11_RR.educacion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16774,7 +16853,7 @@
                       :class="datosRSDE6A11_RR.valoracion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16808,7 +16887,7 @@
                       :class="datosRSDE6A11_RR.crecimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16821,7 +16900,7 @@
                       :class="datosRSDE6A11_RR.potabilizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16837,7 +16916,7 @@
                       :class="datosRSDE6A11_RR.mantenimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16850,7 +16929,7 @@
                       :class="datosRSDE6A11_RR.fumigacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16866,7 +16945,7 @@
                       :class="datosRSDE6A11_RR.vacunacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16879,7 +16958,7 @@
                       :class="datosRSDE6A11_RR.inmunizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16895,7 +16974,7 @@
                       :class="datosRSDE6A11_RR.valorizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16908,7 +16987,7 @@
                       :class="datosRSDE6A11_RR.desparatizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16943,7 +17022,7 @@
                       :class="datosRSDE6A11_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16956,7 +17035,7 @@
                       :class="datosRSDE6A11_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -16971,7 +17050,7 @@
                       :class="datosRSDE6A11_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17005,7 +17084,7 @@
                       :class="datosRSDE6A11_RR.atencion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17018,7 +17097,7 @@
                       :class="datosRSDE6A11_RR.relaciones_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17033,7 +17112,7 @@
                       :class="datosRSDE6A11_RR.grupos_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17046,7 +17125,7 @@
                       :class="datosRSDE6A11_RR.educacion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17061,7 +17140,7 @@
                       :class="datosRSDE6A11_RR.valoracion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17095,7 +17174,7 @@
                       :class="datosRSDE6A11_RR.asistencia_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17108,7 +17187,7 @@
                       :class="datosRSDE6A11_RR.programas_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17123,7 +17202,7 @@
                       :class="datosRSDE6A11_RR.suplementacion_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17157,7 +17236,7 @@
                       :class="datosRSDE6A11_RR.asistencia_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17170,7 +17249,7 @@
                       :class="datosRSDE6A11_RR.programas_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17185,7 +17264,7 @@
                       :class="datosRSDE6A11_RR.suplementacion_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17518,7 +17597,7 @@
                       :class="datosRSDE12A17_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17531,7 +17610,7 @@
                       :class="datosRSDE12A17_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17547,7 +17626,7 @@
                       :class="datosRSDE12A17_RR.fumigacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17560,7 +17639,7 @@
                       :class="datosRSDE12A17_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17576,7 +17655,7 @@
                       :class="datosRSDE12A17_RR.desparacitacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17589,7 +17668,7 @@
                       :class="datosRSDE12A17_RR.inmunizacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17605,7 +17684,7 @@
                       :class="datosRSDE12A17_RR.educacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17618,7 +17697,7 @@
                       :class="datosRSDE12A17_RR.mantenimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17634,7 +17713,7 @@
                       :class="datosRSDE12A17_RR.citas_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17668,7 +17747,7 @@
                       :class="datosRSDE12A17_RR.educacion_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17681,7 +17760,7 @@
                       :class="datosRSDE12A17_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17716,7 +17795,7 @@
                       :class="datosRSDE12A17_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17729,7 +17808,7 @@
                       :class="datosRSDE12A17_RR.educacion_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17745,7 +17824,7 @@
                       :class="datosRSDE12A17_RR.actividad_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17779,7 +17858,7 @@
                       :class="datosRSDE12A17_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17792,7 +17871,7 @@
                       :class="datosRSDE12A17_RR.educacion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17808,7 +17887,7 @@
                       :class="datosRSDE12A17_RR.valoracion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17842,7 +17921,7 @@
                       :class="datosRSDE12A17_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17855,7 +17934,7 @@
                       :class="datosRSDE12A17_RR.valoracion_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17889,7 +17968,7 @@
                       :class="datosRSDE12A17_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17902,7 +17981,7 @@
                       :class="datosRSDE12A17_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17936,7 +18015,7 @@
                       :class="datosRSDE12A17_RR.control_odontologia_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17949,7 +18028,7 @@
                       :class="datosRSDE12A17_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17964,7 +18043,7 @@
                       :class="datosRSDE12A17_RR.educacion_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -17977,7 +18056,7 @@
                       :class="datosRSDE12A17_RR.habitos_higiene_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18011,7 +18090,7 @@
                       :class="datosRSDE12A17_RR.concientizacion_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18024,7 +18103,7 @@
                       :class="datosRSDE12A17_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18039,7 +18118,7 @@
                       :class="datosRSDE12A17_RR.crecimiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18052,7 +18131,7 @@
                       :class="datosRSDE12A17_RR.grupos_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18086,7 +18165,7 @@
                       :class="datosRSDE12A17_RR.concientizacion_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18099,7 +18178,7 @@
                       :class="datosRSDE12A17_RR.acompaniamiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18114,7 +18193,7 @@
                       :class="datosRSDE12A17_RR.crecimiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18127,7 +18206,7 @@
                       :class="datosRSDE12A17_RR.grupos_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18142,7 +18221,7 @@
                       :class="datosRSDE12A17_RR.icbf_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18176,7 +18255,7 @@
                       :class="datosRSDE12A17_RR.crecimiento_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18189,7 +18268,7 @@
                       :class="datosRSDE12A17_RR.educacion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18204,7 +18283,7 @@
                       :class="datosRSDE12A17_RR.valoracion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18238,7 +18317,7 @@
                       :class="datosRSDE12A17_RR.crecimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18251,7 +18330,7 @@
                       :class="datosRSDE12A17_RR.potabilizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18267,7 +18346,7 @@
                       :class="datosRSDE12A17_RR.mantenimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18280,7 +18359,7 @@
                       :class="datosRSDE12A17_RR.fumigacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18296,7 +18375,7 @@
                       :class="datosRSDE12A17_RR.vacunacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18309,7 +18388,7 @@
                       :class="datosRSDE12A17_RR.inmunizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18325,7 +18404,7 @@
                       :class="datosRSDE12A17_RR.valorizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18338,7 +18417,7 @@
                       :class="datosRSDE12A17_RR.desparatizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18373,7 +18452,7 @@
                       :class="datosRSDE12A17_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18386,7 +18465,7 @@
                       :class="datosRSDE12A17_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18401,7 +18480,7 @@
                       :class="datosRSDE12A17_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18435,7 +18514,7 @@
                       :class="datosRSDE12A17_RR.atencion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18448,7 +18527,7 @@
                       :class="datosRSDE12A17_RR.relaciones_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18463,7 +18542,7 @@
                       :class="datosRSDE12A17_RR.grupos_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18476,7 +18555,7 @@
                       :class="datosRSDE12A17_RR.educacion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18491,7 +18570,7 @@
                       :class="datosRSDE12A17_RR.valoracion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18525,7 +18604,7 @@
                       :class="datosRSDE12A17_RR.asistencia_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18538,7 +18617,7 @@
                       :class="datosRSDE12A17_RR.programas_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18553,7 +18632,7 @@
                       :class="datosRSDE12A17_RR.suplementacion_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18587,7 +18666,7 @@
                       :class="datosRSDE12A17_RR.asistencia_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18600,7 +18679,7 @@
                       :class="datosRSDE12A17_RR.programas_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18615,7 +18694,7 @@
                       :class="datosRSDE12A17_RR.suplementacion_RiTaBa==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18658,7 +18737,7 @@
                       :class="datosRSDE18A28_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18671,7 +18750,7 @@
                       :class="datosRSDE18A28_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18687,7 +18766,7 @@
                       :class="datosRSDE18A28_RR.fumigacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18700,7 +18779,7 @@
                       :class="datosRSDE18A28_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18716,7 +18795,7 @@
                       :class="datosRSDE18A28_RR.desparacitacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18729,7 +18808,7 @@
                       :class="datosRSDE18A28_RR.inmunizacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18745,7 +18824,7 @@
                       :class="datosRSDE18A28_RR.educacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18758,7 +18837,7 @@
                       :class="datosRSDE18A28_RR.mantenimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18774,7 +18853,7 @@
                       :class="datosRSDE18A28_RR.citas_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18808,7 +18887,7 @@
                       :class="datosRSDE18A28_RR.educacion_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18821,7 +18900,7 @@
                       :class="datosRSDE18A28_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18856,7 +18935,7 @@
                       :class="datosRSDE18A28_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18869,7 +18948,7 @@
                       :class="datosRSDE18A28_RR.educacion_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18885,7 +18964,7 @@
                       :class="datosRSDE18A28_RR.actividad_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18919,7 +18998,7 @@
                       :class="datosRSDE18A28_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18932,7 +19011,7 @@
                       :class="datosRSDE18A28_RR.educacion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18948,7 +19027,7 @@
                       :class="datosRSDE18A28_RR.valoracion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18982,7 +19061,7 @@
                       :class="datosRSDE18A28_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -18995,7 +19074,7 @@
                       :class="datosRSDE18A28_RR.valoracion_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19029,7 +19108,7 @@
                       :class="datosRSDE18A28_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19042,7 +19121,7 @@
                       :class="datosRSDE18A28_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19076,7 +19155,7 @@
                       :class="datosRSDE18A28_RR.control_odontologia_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19089,7 +19168,7 @@
                       :class="datosRSDE18A28_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19104,7 +19183,7 @@
                       :class="datosRSDE18A28_RR.educacion_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19117,7 +19196,7 @@
                       :class="datosRSDE18A28_RR.habitos_higiene_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19151,7 +19230,7 @@
                       :class="datosRSDE18A28_RR.concientizacion_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19164,7 +19243,7 @@
                       :class="datosRSDE18A28_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19179,7 +19258,7 @@
                       :class="datosRSDE18A28_RR.crecimiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19192,7 +19271,7 @@
                       :class="datosRSDE18A28_RR.grupos_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19226,7 +19305,7 @@
                       :class="datosRSDE18A28_RR.concientizacion_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19239,7 +19318,7 @@
                       :class="datosRSDE18A28_RR.acompaniamiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19254,7 +19333,7 @@
                       :class="datosRSDE18A28_RR.crecimiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19267,7 +19346,7 @@
                       :class="datosRSDE18A28_RR.grupos_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19282,7 +19361,7 @@
                       :class="datosRSDE18A28_RR.icbf_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19316,7 +19395,7 @@
                       :class="datosRSDE18A28_RR.crecimiento_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19329,7 +19408,7 @@
                       :class="datosRSDE18A28_RR.educacion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19344,7 +19423,7 @@
                       :class="datosRSDE18A28_RR.valoracion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19378,7 +19457,7 @@
                       :class="datosRSDE18A28_RR.crecimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19391,7 +19470,7 @@
                       :class="datosRSDE18A28_RR.potabilizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19407,7 +19486,7 @@
                       :class="datosRSDE18A28_RR.mantenimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19420,7 +19499,7 @@
                       :class="datosRSDE18A28_RR.fumigacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19436,7 +19515,7 @@
                       :class="datosRSDE18A28_RR.vacunacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19449,7 +19528,7 @@
                       :class="datosRSDE18A28_RR.inmunizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19465,7 +19544,7 @@
                       :class="datosRSDE18A28_RR.valorizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19478,7 +19557,7 @@
                       :class="datosRSDE18A28_RR.desparatizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19513,7 +19592,7 @@
                       :class="datosRSDE18A28_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19526,7 +19605,7 @@
                       :class="datosRSDE18A28_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19541,7 +19620,7 @@
                       :class="datosRSDE18A28_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19575,7 +19654,7 @@
                       :class="datosRSDE18A28_RR.atencion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19588,7 +19667,7 @@
                       :class="datosRSDE18A28_RR.relaciones_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19603,7 +19682,7 @@
                       :class="datosRSDE18A28_RR.grupos_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19616,7 +19695,7 @@
                       :class="datosRSDE18A28_RR.educacion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19631,7 +19710,7 @@
                       :class="datosRSDE18A28_RR.valoracion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19665,7 +19744,7 @@
                       :class="datosRSDE18A28_RR.asistencia_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19678,7 +19757,7 @@
                       :class="datosRSDE18A28_RR.programas_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19693,7 +19772,7 @@
                       :class="datosRSDE18A28_RR.suplementacion_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19736,7 +19815,7 @@
                       :class="datosRSDE29A59_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19749,7 +19828,7 @@
                       :class="datosRSDE29A59_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19765,7 +19844,7 @@
                       :class="datosRSDE29A59_RR.fumigacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19778,7 +19857,7 @@
                       :class="datosRSDE29A59_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19794,7 +19873,7 @@
                       :class="datosRSDE29A59_RR.desparacitacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19807,7 +19886,7 @@
                       :class="datosRSDE29A59_RR.inmunizacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19823,7 +19902,7 @@
                       :class="datosRSDE29A59_RR.educacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19836,7 +19915,7 @@
                       :class="datosRSDE29A59_RR.mantenimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19852,7 +19931,7 @@
                       :class="datosRSDE29A59_RR.citas_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19886,7 +19965,7 @@
                       :class="datosRSDE29A59_RR.educacion_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19899,7 +19978,7 @@
                       :class="datosRSDE29A59_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19934,7 +20013,7 @@
                       :class="datosRSDE29A59_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19947,7 +20026,7 @@
                       :class="datosRSDE29A59_RR.educacion_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19963,7 +20042,7 @@
                       :class="datosRSDE29A59_RR.actividad_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -19997,7 +20076,7 @@
                       :class="datosRSDE29A59_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20010,7 +20089,7 @@
                       :class="datosRSDE29A59_RR.educacion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20026,7 +20105,7 @@
                       :class="datosRSDE29A59_RR.valoracion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20060,7 +20139,7 @@
                       :class="datosRSDE29A59_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20073,7 +20152,7 @@
                       :class="datosRSDE29A59_RR.valoracion_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20107,7 +20186,7 @@
                       :class="datosRSDE29A59_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20120,7 +20199,7 @@
                       :class="datosRSDE29A59_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20154,7 +20233,7 @@
                       :class="datosRSDE29A59_RR.control_odontologia_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20167,7 +20246,7 @@
                       :class="datosRSDE29A59_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20182,7 +20261,7 @@
                       :class="datosRSDE29A59_RR.educacion_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20195,7 +20274,7 @@
                       :class="datosRSDE29A59_RR.habitos_higiene_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20229,7 +20308,7 @@
                       :class="datosRSDE29A59_RR.concientizacion_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20242,7 +20321,7 @@
                       :class="datosRSDE29A59_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20257,7 +20336,7 @@
                       :class="datosRSDE29A59_RR.crecimiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20270,7 +20349,7 @@
                       :class="datosRSDE29A59_RR.grupos_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20304,7 +20383,7 @@
                       :class="datosRSDE29A59_RR.concientizacion_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20317,7 +20396,7 @@
                       :class="datosRSDE29A59_RR.acompaniamiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20332,7 +20411,7 @@
                       :class="datosRSDE29A59_RR.crecimiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20345,7 +20424,7 @@
                       :class="datosRSDE29A59_RR.grupos_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20360,7 +20439,7 @@
                       :class="datosRSDE29A59_RR.icbf_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20394,7 +20473,7 @@
                       :class="datosRSDE29A59_RR.crecimiento_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20407,7 +20486,7 @@
                       :class="datosRSDE29A59_RR.educacion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20422,7 +20501,7 @@
                       :class="datosRSDE29A59_RR.valoracion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20456,7 +20535,7 @@
                       :class="datosRSDE29A59_RR.crecimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20469,7 +20548,7 @@
                       :class="datosRSDE29A59_RR.potabilizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20485,7 +20564,7 @@
                       :class="datosRSDE29A59_RR.mantenimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20498,7 +20577,7 @@
                       :class="datosRSDE29A59_RR.fumigacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20514,7 +20593,7 @@
                       :class="datosRSDE29A59_RR.vacunacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20527,7 +20606,7 @@
                       :class="datosRSDE29A59_RR.inmunizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20543,7 +20622,7 @@
                       :class="datosRSDE29A59_RR.valorizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20556,7 +20635,7 @@
                       :class="datosRSDE29A59_RR.desparatizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20591,7 +20670,7 @@
                       :class="datosRSDE29A59_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20604,7 +20683,7 @@
                       :class="datosRSDE29A59_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20619,7 +20698,7 @@
                       :class="datosRSDE29A59_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20653,7 +20732,7 @@
                       :class="datosRSDE29A59_RR.atencion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20666,7 +20745,7 @@
                       :class="datosRSDE29A59_RR.relaciones_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20681,7 +20760,7 @@
                       :class="datosRSDE29A59_RR.grupos_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20694,7 +20773,7 @@
                       :class="datosRSDE29A59_RR.educacion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20709,7 +20788,7 @@
                       :class="datosRSDE29A59_RR.valoracion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20743,7 +20822,7 @@
                       :class="datosRSDE29A59_RR.asistencia_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20756,7 +20835,7 @@
                       :class="datosRSDE29A59_RR.programas_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20771,7 +20850,7 @@
                       :class="datosRSDE29A59_RR.suplementacion_RiDel==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20932,7 +21011,7 @@
                       :class="datosRSDE60_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20945,7 +21024,7 @@
                       :class="datosRSDE60_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20961,7 +21040,7 @@
                       :class="datosRSDE60_RR.fumigacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20974,7 +21053,7 @@
                       :class="datosRSDE60_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -20990,7 +21069,7 @@
                       :class="datosRSDE60_RR.desparacitacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21003,7 +21082,7 @@
                       :class="datosRSDE60_RR.inmunizacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21019,7 +21098,7 @@
                       :class="datosRSDE60_RR.educacion_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21032,7 +21111,7 @@
                       :class="datosRSDE60_RR.mantenimiento_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21048,7 +21127,7 @@
                       :class="datosRSDE60_RR.citas_EnIn==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21082,7 +21161,7 @@
                       :class="datosRSDE60_RR.educacion_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21095,7 +21174,7 @@
                       :class="datosRSDE60_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21130,7 +21209,7 @@
                       :class="datosRSDE60_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21143,7 +21222,7 @@
                       :class="datosRSDE60_RR.educacion_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21159,7 +21238,7 @@
                       :class="datosRSDE60_RR.actividad_EnCaAt==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21193,7 +21272,7 @@
                       :class="datosRSDE60_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21206,7 +21285,7 @@
                       :class="datosRSDE60_RR.educacion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21222,7 +21301,7 @@
                       :class="datosRSDE60_RR.valoracion_Ca==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21256,7 +21335,7 @@
                       :class="datosRSDE60_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21269,7 +21348,7 @@
                       :class="datosRSDE60_RR.valoracion_AlTrVi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21303,7 +21382,7 @@
                       :class="datosRSDE60_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21316,7 +21395,7 @@
                       :class="datosRSDE60_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21350,7 +21429,7 @@
                       :class="datosRSDE60_RR.control_odontologia_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21363,7 +21442,7 @@
                       :class="datosRSDE60_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21378,7 +21457,7 @@
                       :class="datosRSDE60_RR.educacion_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21391,7 +21470,7 @@
                       :class="datosRSDE60_RR.habitos_higiene_SaBu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21425,7 +21504,7 @@
                       :class="datosRSDE60_RR.concientizacion_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21438,7 +21517,7 @@
                       :class="datosRSDE60_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21453,7 +21532,7 @@
                       :class="datosRSDE60_RR.crecimiento_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21466,7 +21545,7 @@
                       :class="datosRSDE60_RR.grupos_PrSaMe==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21500,7 +21579,7 @@
                       :class="datosRSDE60_RR.concientizacion_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21513,7 +21592,7 @@
                       :class="datosRSDE60_RR.acompaniamiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21528,7 +21607,7 @@
                       :class="datosRSDE60_RR.crecimiento_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21541,7 +21620,7 @@
                       :class="datosRSDE60_RR.grupos_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21556,7 +21635,7 @@
                       :class="datosRSDE60_RR.icbf_Vi==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21590,7 +21669,7 @@
                       :class="datosRSDE60_RR.crecimiento_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21603,7 +21682,7 @@
                       :class="datosRSDE60_RR.educacion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21618,7 +21697,7 @@
                       :class="datosRSDE60_RR.valoracion_EnReCr==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21652,7 +21731,7 @@
                       :class="datosRSDE60_RR.crecimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21665,7 +21744,7 @@
                       :class="datosRSDE60_RR.potabilizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21681,7 +21760,7 @@
                       :class="datosRSDE60_RR.mantenimiento_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21694,7 +21773,7 @@
                       :class="datosRSDE60_RR.fumigacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21710,7 +21789,7 @@
                       :class="datosRSDE60_RR.vacunacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21723,7 +21802,7 @@
                       :class="datosRSDE60_RR.inmunizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21739,7 +21818,7 @@
                       :class="datosRSDE60_RR.valorizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21752,7 +21831,7 @@
                       :class="datosRSDE60_RR.desparatizacion_EnZo==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21787,7 +21866,7 @@
                       :class="datosRSDE60_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21800,7 +21879,7 @@
                       :class="datosRSDE60_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21815,7 +21894,7 @@
                       :class="datosRSDE60_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21849,7 +21928,7 @@
                       :class="datosRSDE60_RR.atencion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21862,7 +21941,7 @@
                       :class="datosRSDE60_RR.relaciones_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21877,7 +21956,7 @@
                       :class="datosRSDE60_RR.grupos_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21890,7 +21969,7 @@
                       :class="datosRSDE60_RR.educacion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -21905,7 +21984,7 @@
                       :class="datosRSDE60_RR.valoracion_CoSp==''?'':'is-valid'"
                     >
                       <option value selected>Seleccione</option>
-                      <option value="OCACIONAL">OCACIONAL</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
                       <option value="PERIODICO">PERIODICO</option>
                       <option value="PERMANENTE">PERMANENTE</option>
                       <option value="NO">NO</option>
@@ -22144,7 +22223,8 @@
           antec: "",
           tipo_empleo: "",
           percargo: "",
-          actividad_fisica: ""
+          actividad_fisica: "",
+          vacuna: ""
         },
         carac2: [],
         CA1: {
@@ -22194,7 +22274,8 @@
           antecedentes: [],
           antec: "",
           tipo_empleo: "0",
-          actividad_fisica: "0"                            
+          actividad_fisica: "0",
+          vacuna: ""                        
         },
         CA2: [],       
         viviendaData: {
@@ -26980,6 +27061,7 @@
                       tipo_empleo: this.caracData.tipo_empleo,
                       percargo: this.caracData.percargo,
                       actividad_fisica: this.caracData.actividad_fisica,
+                      vacuna: this.caracData.vacuna
                     });
                     for(let i=0;i<this.caracData.enfermedades.length;i++){
                       this.datosJefe[this.datosJefe.length-1].enfermedades.push({
@@ -27286,11 +27368,18 @@
           this.$swal("Error...!", "Por favor digite la talla!", "error");
           return;
         }
+
+        if (this.caracData.vacuna === "") {
+          bande = false;
+          this.$swal("Error...!", "Por favor seleccione si se encuentra vacunado!", "error");
+          return;
+        }        
         if (this.caracData.percargo === "") {
           bande = false;
           this.$swal("Error...!", "Por favor digite el numero de personas a cargo!", "error");
           return;
-        }                              
+        }
+                
         return bande;
         e.preventDefault();
       },      
@@ -27584,6 +27673,7 @@
         this.caracData.tipo_empleo = "";
         this.caracData.percargo = "";
         this.caracData.actividad_fisica = "";
+        this.caracData.vacuna = "";
       },
       updateJefe(item, valor, opcion, index) {
         if (opcion === "tipo_id") {
@@ -28459,7 +28549,9 @@
         this.caracData.talla = item.talla;
         this.caracData.tipo_empleo = item.tipo_empleo;
         this.caracData.percargo = item.percargo;
-        this.caracData.actividad_fisica = item.actividad_fisica;                        
+        this.caracData.actividad_fisica = item.actividad_fisica;
+        
+        this.caracData.vacuna = item.vacuna;
         this.$refs.identificacionJefe.focus();
 
         this.idEditar = item.id;
@@ -29361,6 +29453,7 @@
         this.datosJefe[this.indiceEditJefe].tipo_empleo = this.caracData.tipo_empleo;
         this.datosJefe[this.indiceEditJefe].percargo = this.caracData.percargo;
         this.datosJefe[this.indiceEditJefe].actividad_fisica = this.caracData.actividad_fisica;
+        this.datosJefe[this.indiceEditJefe].vacuna = this.caracData.vacuna;
         this.datosJefe.splice(this.indiceEditJefe, 1, this.datosJefe[this.indiceEditJefe]);                
         
         this.limpiar2();
@@ -29504,160 +29597,164 @@
 
       //OPCIONES DE LOS INTEGRANTES
       agregar: async function() {
-        // if (this.CA1.tipo_id == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione un tipo de identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.identificacion == "") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite el documento de identificación!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.sexo == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
-        //   return;
-        // }
-        // if (this.CA1.orientacion === "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
-        //   return;
-        // }
-        // if (this.CA1.identidad_genero === "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
-        //   return;
-        // }        
-        // if (this.CA1.parentesco == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
-        //   return;
-        // }
-        // if (this.CA1.pnom == "0") {
-        //   this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
-        //   return;
-        // }
-        // if (this.CA1.pape == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor digite el primer apellido!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.estado_civil == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el estado civil!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.fecha_nac == "") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la fecha de nacimiento!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.afi_entidad === "") {
-        //   this.$refs.afi_entidad.focus();
-        //   this.$swal("Error...!", "Por favor seleccione la eps!", "error");
-        //   return;
-        // }        
-        // if (this.CA1.tipo_afiliacion === "") {
-        //   this.$refs.tipo_afiliacion.focus();
-        //   this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
-        //   return;
-        // }        
-        // if (this.CA1.escolaridad == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el nivel de escolaridad!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.ocupacion == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
-        //   return;
-        // }
-        // if (this.CA1.tipo_empleo == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione el tipo de empleo!", "error");
-        //   return;
-        // }        
+        if (this.CA1.tipo_id == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione un tipo de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.identificacion == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el documento de identificación!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.sexo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el sexo!", "error");
+          return;
+        }
+        if (this.CA1.orientacion === "0") {
+          this.$swal("Error...!", "Por favor seleccione la orientación sexual!", "error");
+          return;
+        }
+        if (this.CA1.identidad_genero === "0") {
+          this.$swal("Error...!", "Por favor seleccione la identidad de genero!", "error");
+          return;
+        }        
+        if (this.CA1.parentesco == "0") {
+          this.$swal("Error...!", "Por favor seleccione el parentesco!", "error");
+          return;
+        }
+        if (this.CA1.pnom == "0") {
+          this.$swal("Error...!", "Por favor digite el primer nombre!", "error");
+          return;
+        }
+        if (this.CA1.pape == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor digite el primer apellido!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.estado_civil == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el estado civil!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.fecha_nac == "") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la fecha de nacimiento!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.afi_entidad === "") {
+          this.$refs.afi_entidad.focus();
+          this.$swal("Error...!", "Por favor seleccione la eps!", "error");
+          return;
+        }        
+        if (this.CA1.tipo_afiliacion === "") {
+          this.$refs.tipo_afiliacion.focus();
+          this.$swal("Error...!", "Por favor seleccione el tipo de afiliación!", "error");
+          return;
+        }        
+        if (this.CA1.escolaridad == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el nivel de escolaridad!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.ocupacion == "0") {
+          this.$swal("Error...!", "Por favor seleccione la ocupación!", "error");
+          return;
+        }
+        if (this.CA1.tipo_empleo == "0") {
+          this.$swal("Error...!", "Por favor seleccione el tipo de empleo!", "error");
+          return;
+        }        
         
-        // if (this.CA1.etnia == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
-        //   return;
-        // }
-        // if (this.CA1.clasificacion == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la clasificacion de la etnia!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.entiende == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la opción entiende español!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.pyp == "0") {
-        //   this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
-        //   return;
-        // }
-        // if (this.CA1.migrante == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione la opción migrante!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.jefe == "0") {
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione el un jefe de hogar!",
-        //     "error"
-        //   );
-        //   return;
-        // }
-        // if (this.CA1.perdida_peso === "") {
-        //   this.$refs.perdida_peso.focus();
-        //   this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
-        //   return;
-        // }
-        // if (this.CA1.actividad_fisica === "0") {
-        //   bande = false;
-        //   this.$swal(
-        //     "Error...!",
-        //     "Por favor seleccione si realiza actividad fisica!",
-        //     "error"
-        //   );
-        //   return;
-        // }        
-        // if (this.CA1.programa_icbf === "") {
-        //   this.$refs.programa_icbf.focus();
-        //   this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
-        //   return;
-        // }
-        // if (this.CA1.peso === "") {
-        //   this.$swal("Error...!", "Por favor digite el peso!", "error");
-        //   return;
-        // }
-        // if (this.CA1.talla === "") {
-        //   this.$swal("Error...!", "Por favor digite la talla!", "error");
-        //   return;
-        // }                              
+        if (this.CA1.etnia == "0") {
+          this.$swal("Error...!", "Por favor seleccione la etnia!", "error");
+          return;
+        }
+        if (this.CA1.clasificacion == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la clasificacion de la etnia!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.entiende == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción entiende español!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.pyp == "0") {
+          this.$swal("Error...!", "Por favor seleccione la opción PYP!", "error");
+          return;
+        }
+        if (this.CA1.migrante == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione la opción migrante!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.jefe == "0") {
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione el un jefe de hogar!",
+            "error"
+          );
+          return;
+        }
+        if (this.CA1.perdida_peso === "") {
+          this.$refs.perdida_peso.focus();
+          this.$swal("Error...!", "Por favor seleccione la perdida de peso en los ultimos 3 meses!", "error");
+          return;
+        }
+        if (this.CA1.actividad_fisica === "0") {
+          bande = false;
+          this.$swal(
+            "Error...!",
+            "Por favor seleccione si realiza actividad fisica!",
+            "error"
+          );
+          return;
+        }        
+        if (this.CA1.programa_icbf === "") {
+          this.$refs.programa_icbf.focus();
+          this.$swal("Error...!", "Por favor seleccione si Pertenece a algún programa del ICBF!", "error");
+          return;
+        }
+        if (this.CA1.peso === "") {
+          this.$swal("Error...!", "Por favor digite el peso!", "error");
+          return;
+        }
+        if (this.CA1.talla === "") {
+          this.$swal("Error...!", "Por favor digite la talla!", "error");
+          return;
+        }
+        if (this.CA1.vacuna === "") {
+          this.$swal("Error...!", "Por favor seleccione si si se encuentra vacunado!", "error");
+          return;
+        }                                     
         // VALIDAR SI EL INTEGRANTE SE ENCUENTRA AGREGADO
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
@@ -29813,6 +29910,7 @@
                     antecedentes: [],
                     tipo_empleo: this.CA1.tipo_empleo,
                     actividad_fisica: this.CA1.actividad_fisica,
+                    vacuna: this.CA1.vacuna,
                   });
                   
                   for(let i=0;i<this.CA1.enfermedades.length;i++){
@@ -30692,7 +30790,8 @@
         this.CA1.antecedentes = [];
         this.CA1.antec = "";
         this.CA1.tipo_empleo = "";
-        this.CA1.actividad_fisica = "0";       
+        this.CA1.actividad_fisica = "0";
+        this.CA1.vacuna = "";       
       },
       eliminarItem: function(index, item) {
         let nombre = " " + item.pnom + " " + item.snom + " " + item.pape + " " + item.sape;
@@ -31083,6 +31182,7 @@
         this.CA1.talla = item.talla;
         this.CA1.tipo_empleo = item.tipo_empleo;
         this.CA1.actividad_fisica = item.actividad_fisica;
+        this.CA1.vacuna = item.vacuna;
         this.$refs.identificacionInte.focus();
 
         this.idEditar = item.id;
@@ -31494,7 +31594,11 @@
         if (this.CA1.talla === "") {
           this.$swal("Error...!", "Por favor digite la talla!", "error");
           return;
-        }              
+        }
+        if (this.CA1.vacuna === "") {
+          this.$swal("Error...!", "Por favor seleccione si se encuentra vacunado!", "error");
+          return;
+        }                     
         this.CA1.identificacion = this.CA1.identificacion.replace(
           /[.*+\-?^${}()|[\]\\]/g,
           ""
@@ -32162,6 +32266,7 @@
         this.datos[this.indiceEditInte].antecedentes = this.CA1.antecedentes;
         this.datos[this.indiceEditInte].tipo_empleo = this.CA1.tipo_empleo;
         this.datos[this.indiceEditInte].actividad_fisica = this.CA1.actividad_fisica;
+        this.datos[this.indiceEditInte].vacuna = this.CA1.vacuna;
         this.datos.splice(this.indiceEditInte, 1, this.datos[this.indiceEditInte]);
         this.limpiar();        
       },                       
@@ -32399,7 +32504,18 @@
               "error"
             );
             return false;
-          }                                                      
+          }
+          if (this.datosJefe[i].vacuna === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si se encuentra <b>vacunado</b> en la fila " +
+                (i + 1) +
+                " de los jefes de hogar",
+              "error"
+            );
+            return false;
+          }          
+                                                               
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datosJefe,
@@ -32695,7 +32811,17 @@
               "error"
             );
             return false;
-          }                                                     
+          }
+          if (this.datos[i].vacuna === "") {
+            this.$swal(
+              "Error...!",
+              "Por favor seleccione si se encuentra <b>vacunado</b> en la fila " +
+                (i + 1) +
+                " de los integrantes",
+              "error"
+            );
+            return false;
+          }                                                            
           // VERIFICAR SI ESTA EN LA TABLA
           let resultado = this.buscarIguales(
             this.datos,
@@ -38181,7 +38307,7 @@
           if(this.datosRA.regulacion_RAU === ""){
             this.$swal(
               "Error...!",
-              "Por Favor seleccione la opción Regulación de indutrias contaminantes",
+              "Por Favor seleccione la opción Regulación de industrias contaminantes",
               "error"
             );
             return false;

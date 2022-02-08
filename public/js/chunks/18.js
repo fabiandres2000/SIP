@@ -12,16 +12,177 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/barrios_servicios */ "./resources/js/Servicios/barrios_servicios.js");
-/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
-/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! datatables.net-buttons/js/buttons.print */ "./node_modules/datatables.net-buttons/js/buttons.print.js");
-/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jszip/dist/jszip */ "./node_modules/jszip/dist/jszip.js");
-/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -511,17 +672,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
-__webpack_require__(/*! datatables.net-buttons/js/dataTables.buttons */ "./node_modules/datatables.net-buttons/js/dataTables.buttons.js");
-
-__webpack_require__(/*! datatables.net-buttons/js/buttons.html5 */ "./node_modules/datatables.net-buttons/js/buttons.html5.js");
-
-
-
-
-
-pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default.a.pdfMake.vfs;
-window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.consultar(1);
@@ -529,6 +679,8 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
   name: "barri",
   data: function data() {
     return {
+      ruta: "",
+      disabled: 0,
       errores: [],
       bandera: false,
       entrarPorError: false,
@@ -557,7 +709,10 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
       offset: 4,
       banderaBoton: true,
       valG: true,
-      tabladatos: null
+      tabladatos: null,
+      valPdf: true,
+      valExcel: true,
+      valN: true
     };
   },
   computed: {
@@ -597,6 +752,27 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
       } else {
         return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
       }
+    },
+    spinPdf: function spinPdf() {
+      if (this.valPdf) {
+        return {};
+      } else {
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
+      }
+    },
+    spinExcel: function spinExcel() {
+      if (this.valExcel) {
+        return {};
+      } else {
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
+      }
+    },
+    spinN: function spinN() {
+      if (this.valN) {
+        return {};
+      } else {
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
+      }
     }
   },
   methods: {
@@ -618,13 +794,11 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
                 _context.prev = 2;
                 _context.next = 5;
                 return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__["listarBarrios"](parametros).then(function (respuesta) {
-                  _this.barrios = respuesta.data.barrios;
+                  _this.barrios = respuesta.data.barrios.data;
                   _this.dpto_options = respuesta.data.arrayDpto;
                   _this.muni_options = respuesta.data.arrayMuni;
-                  _this.corregi_options = respuesta.data.arrayCorregi; // this.paginacion = respuesta.data.paginacion;
-
-                  // this.paginacion = respuesta.data.paginacion;
-                  _this.tabla();
+                  _this.corregi_options = respuesta.data.arrayCorregi;
+                  _this.paginacion = respuesta.data.paginacion;
                 });
 
               case 5:
@@ -675,6 +849,7 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
     },
     cerrarModal: function cerrarModal() {
       this.$refs.modalBarrio.hide();
+      this.$refs.modalpdf.hide();
     },
     cambio: function cambio() {
       this.bandera = false;
@@ -1064,290 +1239,64 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
 
       return "";
     },
-    tabla: function tabla() {
+    generarPDF: function generarPDF() {
       var _this5 = this;
 
-      this.$nextTick(function () {
-        $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default.a;
-        _this5.tabladatos = $("#tablaDatos").DataTable({
-          // bFilter: false,
-          orderCellsTop: true,
-          language: {
-            processing: "Procesando...",
-            lengthMenu: "Mostrar _MENU_ registros",
-            zeroRecords: "No se encontraron resultados",
-            emptyTable: "Ningún dato disponible en esta tabla",
-            infoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
-            infoFiltered: "(filtrado de un total de _MAX_ registros)",
-            search: "Buscar:",
-            infoThousands: ",",
-            loadingRecords: "Cargando...",
-            paginate: {
-              first: "Primero",
-              last: "Último",
-              next: "Siguiente",
-              previous: "Anterior"
-            },
-            aria: {
-              sortAscending: ": Activar para ordenar la columna de manera ascendente",
-              sortDescending: ": Activar para ordenar la columna de manera descendente"
-            },
-            buttons: {
-              copy: "Copiar",
-              colvis: "Visibilidad",
-              collection: "Colección",
-              colvisRestore: "Restaurar visibilidad",
-              copyKeys: "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
-              copySuccess: {
-                "1": "Copiada 1 fila al portapapeles",
-                _: "Copiadas %d fila al portapapeles"
-              },
-              copyTitle: "Copiar al portapapeles",
-              csv: "CSV",
-              excel: "Excel",
-              pageLength: {
-                "-1": "Mostrar todas las filas",
-                _: "Mostrar %d filas"
-              },
-              pdf: "PDF",
-              print: "Imprimir"
-            },
-            autoFill: {
-              cancel: "Cancelar",
-              fill: "Rellene todas las celdas con <i>%d<\/i>",
-              fillHorizontal: "Rellenar celdas horizontalmente",
-              fillVertical: "Rellenar celdas verticalmentemente"
-            },
-            decimal: ",",
-            searchBuilder: {
-              add: "Añadir condición",
-              button: {
-                "0": "Constructor de búsqueda",
-                _: "Constructor de búsqueda (%d)"
-              },
-              clearAll: "Borrar todo",
-              condition: "Condición",
-              conditions: {
-                date: {
-                  after: "Despues",
-                  before: "Antes",
-                  between: "Entre",
-                  empty: "Vacío",
-                  equals: "Igual a",
-                  notBetween: "No entre",
-                  notEmpty: "No Vacio",
-                  not: "Diferente de"
-                },
-                number: {
-                  between: "Entre",
-                  empty: "Vacio",
-                  equals: "Igual a",
-                  gt: "Mayor a",
-                  gte: "Mayor o igual a",
-                  lt: "Menor que",
-                  lte: "Menor o igual que",
-                  notBetween: "No entre",
-                  notEmpty: "No vacío",
-                  not: "Diferente de"
-                },
-                string: {
-                  contains: "Contiene",
-                  empty: "Vacío",
-                  endsWith: "Termina en",
-                  equals: "Igual a",
-                  notEmpty: "No Vacio",
-                  startsWith: "Empieza con",
-                  not: "Diferente de"
-                },
-                array: {
-                  not: "Diferente de",
-                  equals: "Igual",
-                  empty: "Vacío",
-                  contains: "Contiene",
-                  notEmpty: "No Vacío",
-                  without: "Sin"
-                }
-              },
-              data: "Data",
-              deleteTitle: "Eliminar regla de filtrado",
-              leftTitle: "Criterios anulados",
-              logicAnd: "Y",
-              logicOr: "O",
-              rightTitle: "Criterios de sangría",
-              title: {
-                "0": "Constructor de búsqueda",
-                _: "Constructor de búsqueda (%d)"
-              },
-              value: "Valor"
-            },
-            searchPanes: {
-              clearMessage: "Borrar todo",
-              collapse: {
-                "0": "Paneles de búsqueda",
-                _: "Paneles de búsqueda (%d)"
-              },
-              count: "{total}",
-              countFiltered: "{shown} ({total})",
-              emptyPanes: "Sin paneles de búsqueda",
-              loadMessage: "Cargando paneles de búsqueda",
-              title: "Filtros Activos - %d"
-            },
-            select: {
-              cells: {
-                "1": "1 celda seleccionada",
-                _: "%d celdas seleccionadas"
-              },
-              columns: {
-                "1": "1 columna seleccionada",
-                _: "%d columnas seleccionadas"
-              },
-              rows: {
-                "1": "1 fila seleccionada",
-                _: "%d filas seleccionadas"
-              }
-            },
-            thousands: ".",
-            datetime: {
-              previous: "Anterior",
-              next: "Proximo",
-              hours: "Horas",
-              minutes: "Minutos",
-              seconds: "Segundos",
-              unknown: "-",
-              amPm: ["AM", "PM"],
-              months: {
-                "0": "Enero",
-                "1": "Febrero",
-                "10": "Noviembre",
-                "11": "Diciembre",
-                "2": "Marzo",
-                "3": "Abril",
-                "4": "Mayo",
-                "5": "Junio",
-                "6": "Julio",
-                "7": "Agosto",
-                "8": "Septiembre",
-                "9": "Octubre"
-              },
-              weekdays: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"]
-            },
-            editor: {
-              close: "Cerrar",
-              create: {
-                button: "Nuevo",
-                title: "Crear Nuevo Registro",
-                submit: "Crear"
-              },
-              edit: {
-                button: "Editar",
-                title: "Editar Registro",
-                submit: "Actualizar"
-              },
-              remove: {
-                button: "Eliminar",
-                title: "Eliminar Registro",
-                submit: "Eliminar",
-                confirm: {
-                  _: "¿Está seguro que desea eliminar %d filas?",
-                  "1": "¿Está seguro que desea eliminar 1 fila?"
-                }
-              },
-              error: {
-                system: 'Ha ocurrido un error en el sistema (<a target="\\" rel="\\ nofollow" href="\\">Más información&lt;\\\/a&gt;).<\/a>'
-              },
-              multi: {
-                title: "Múltiples Valores",
-                info: "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
-                restore: "Deshacer Cambios",
-                noMulti: "Este registro puede ser editado individualmente, pero no como parte de un grupo."
-              }
-            },
-            info: "Mostrando _START_ a _END_ de _TOTAL_ registros"
-          },
-          dom: "B<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-          buttons: {
-            dom: {
-              buttons: {
-                className: "btn"
-              }
-            },
-            buttons: [{
-              extend: "copyHtml5",
-              text: "<i class='fa fa-file-alt'></i>",
-              titleAttr: "Copiar",
-              className: "btn btn-outline-brand btn-icon btn-lg",
-              messageTop: "Listado de Barrios",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4]
-              }
-            }, {
-              extend: "excelHtml5",
-              text: "<i class='fa fa-file-excel'></i>",
-              titleAttr: "Exportar a Excel",
-              className: "btn btn-outline-success btn-icon btn-lg",
-              excelStyles: {
-                template: "header_blue"
-              },
-              messageTop: "Listado de Barrios",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4]
-              }
-            }, {
-              extend: "pdfHtml5",
-              text: "<i class='fa fa-file-pdf'></i>",
-              titleAttr: "Exportar a PDF",
-              className: "btn btn-outline-danger btn-icon btn-lg",
-              messageTop: "Listado de Barrios",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4]
-              },
-              customize: function customize(doc) {
-                doc.styles.title = {
-                  color: "red",
-                  fontSize: "20",
-                  alignment: "center"
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _this5.valPdf = false;
+                _this5.valExcel = false;
+                _this5.valN = false;
+                _this5.disabled = (_this5.disabled + 1) % 2;
+                parametros = {
+                  txtbusqueda: _this5.txtbusqueda.trim(),
+                  _token: _this5.csrf,
+                  opcion: "PDF"
                 };
-                doc.styles["td:nth-child(2)"] = {
-                  width: "100px",
-                  "max-width": "100px"
-                };
-                doc.styles.tableHeader = {
-                  fillColor: "#DF0101",
-                  color: "white"
-                };
-              }
-            }, {
-              extend: "csvHtml5",
-              text: "<i class='fa fa-file-csv'></i>",
-              titleAttr: "Exportar a csv",
-              className: "btn btn-outline-info btn-icon btn-lg",
-              messageTop: "Listado de Barrios",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4]
-              }
-            }, {
-              extend: "print",
-              text: "<i class='fa fa-print'></i>",
-              titleAttr: "Imprimir Archivo",
-              className: "btn btn-outline-dark btn-icon btn-lg",
-              messageTop: "Listado de Barrios",
-              title: "Sistema Integrado Poblacional",
-              exportOptions: {
-                columns: [0, 1, 2, 3, 4]
-              }
-            }]
+                _context5.prev = 5;
+                _context5.next = 8;
+                return _Servicios_barrios_servicios__WEBPACK_IMPORTED_MODULE_1__["exportar"](parametros).then(function (respuesta) {
+                  _this5.valPdf = true;
+                  _this5.valExcel = true;
+                  _this5.valN = true;
+                  _this5.ruta = _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.apiURL + respuesta.data.nombre;
+
+                  _this5.$refs.modalpdf.show(); // this.download(this.ruta);
+
+                });
+
+              case 8:
+                _context5.next = 12;
+                break;
+
+              case 10:
+                _context5.prev = 10;
+                _context5.t0 = _context5["catch"](5);
+
+              case 12:
+              case "end":
+                return _context5.stop();
+            }
           }
-        });
-        $(".dataTables_filter input").attr("placeholder", "Busqueda...");
-        $(".dataTables_filter label").addClass("form-control");
-        $(".dataTables_filter label").css("outline", "none");
-        $(".dataTables_filter label").css("border", "0");
-        $(".dataTables_filter label").css("padding-bottom", "35px");
-      });
+        }, _callee5, null, [[5, 10]]);
+      }))();
+    },
+    download: function download(data) {
+      if (!data) {
+        return;
+      }
+
+      var url = window.URL.createObjectURL(new Blob([data]));
+      var link = document.createElement("a");
+      link.style.display = "none";
+      link.href = url;
+      link.setAttribute("download", "excel.pdf");
+      document.body.appendChild(link);
+      link.click();
     }
   }
 });
@@ -1433,26 +1382,122 @@ var render = function() {
                   _c("div", { staticClass: "kt-section" }, [
                     _c("div", { staticClass: "kt-section__content" }, [
                       _c(
-                        "a",
+                        "button",
                         {
-                          staticClass: "btn btn-outline-primary ",
+                          staticClass: "btn btn-primary ",
+                          class: _vm.spinN,
                           attrs: {
-                            href: "javascript:;",
+                            type: "button",
                             "data-skin": "dark",
                             "data-toggle": "kt-tooltip",
                             "data-placement": "top",
-                            title: "Nuevo Barrio"
+                            title: "Nuevo Barrio",
+                            disabled: !_vm.valN
                           },
                           on: { click: _vm.abrirModal }
                         },
                         [
                           _c("i", { staticClass: "la la-file-text-o" }),
                           _vm._v(
-                            "\n                                        Nuevo Barrio"
+                            "\n                                        Nuevo Barrio\n                                    "
                           )
                         ]
                       ),
-                      _vm._v(" \n                                ")
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: " btn btn-success",
+                          class: _vm.spinPdf,
+                          attrs: {
+                            type: "button",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Exportar Pdf",
+                            disabled: !_vm.valPdf
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.generarPDF()
+                            }
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-file-pdf" }),
+                          _vm._v(
+                            "Exportar a Pdf\n                                    "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: " btn btn-danger",
+                          class: _vm.spinExcel,
+                          attrs: {
+                            type: "button",
+                            "data-skin": "dark",
+                            "data-toggle": "kt-tooltip",
+                            "data-placement": "top",
+                            title: "Exportar Pdf",
+                            disabled: !_vm.valExcel
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-file-excel" }),
+                          _vm._v(
+                            "Exportar a Excel\n                                    "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6 col-lg-6" }, [
+                  _c("form", { staticClass: "kt-form" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("div", { staticClass: "input-group" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.txtbusqueda,
+                              expression: "txtbusqueda"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", placeholder: "Busqueda" },
+                          domProps: { value: _vm.txtbusqueda },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.txtbusqueda = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "input-group-append" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.consultar(1)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fa fa-search" })]
+                          )
+                        ])
+                      ])
                     ])
                   ])
                 ])
@@ -1660,7 +1705,178 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", {
                       staticClass: "kt-separator kt-separator--border-dashed"
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "kt-section" }, [
+                      _c(
+                        "div",
+                        { staticClass: "kt-pagination kt-pagination--danger" },
+                        [
+                          _c(
+                            "ul",
+                            { staticClass: "kt-pagination__links" },
+                            [
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--first"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(1)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual > 1
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--next"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual - 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-left kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._l(_vm.numeroDePaginas, function(
+                                pagina,
+                                index
+                              ) {
+                                return _c(
+                                  "li",
+                                  {
+                                    key: index,
+                                    class: [
+                                      pagina == _vm.esActivo
+                                        ? "kt-pagination__link--active"
+                                        : ""
+                                    ]
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(pagina)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(pagina))]
+                                    )
+                                  ]
+                                )
+                              }),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--prev"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.pagina_actual + 1
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.paginacion.pagina_actual <
+                              _vm.paginacion.ultima_pagina
+                                ? _c(
+                                    "li",
+                                    {
+                                      staticClass: "kt-pagination__link--last"
+                                    },
+                                    [
+                                      _c(
+                                        "a",
+                                        {
+                                          attrs: { href: "javascript:;" },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              return _vm.cambiarPaginas(
+                                                _vm.paginacion.ultima_pagina
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-angle-double-right kt-font-danger"
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            2
+                          )
+                        ]
+                      )
+                    ])
                   ])
                 ])
               ])
@@ -2252,6 +2468,50 @@ var render = function() {
               ])
             ])
           ]
+        ),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalpdf",
+            attrs: {
+              "hide-footer": "",
+              title: "Listado de Barrios",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("embed", {
+              attrs: {
+                id: "divPdf",
+                src: _vm.ruta,
+                type: "application/pdf",
+                width: "100%",
+                height: "650px"
+              }
+            }),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-right" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "button" },
+                  on: { click: _vm.cerrarModal }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-window-close" }),
+                  _vm._v(" Cancelar\n                ")
+                ]
+              )
+            ])
+          ]
         )
       ],
       1
@@ -2330,7 +2590,7 @@ render._withStripped = true
 /*!*****************************************************!*\
   !*** ./resources/js/Servicios/barrios_servicios.js ***!
   \*****************************************************/
-/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios */
+/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios, exportar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2339,6 +2599,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarBarrios", function() { return guardarBarrios; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarBarrios", function() { return eliminarBarrios; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboBarrios", function() { return comboBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportar", function() { return exportar; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarBarrios($data) {
@@ -2352,6 +2613,11 @@ function eliminarBarrios($data) {
 }
 function comboBarrios($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
+}
+function exportar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/exportar', $data, {
+    responseType: 'blob'
+  });
 }
 
 /***/ }),

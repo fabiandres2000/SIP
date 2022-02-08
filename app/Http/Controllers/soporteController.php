@@ -13,7 +13,24 @@ class soporteController extends Controller
     {
         if (Auth::check()) {
             $busqueda = request()->get('txtbusqueda');
-            $entes = \App\Entes::listar($busqueda);
+            $entes = \App\Entes::listar($busqueda, Session::get('alias'));
+
+            $consdptos = \App\Dpto::buscarDepartamentos(Session::get('alias'));
+            foreach ($consdptos as $item) {
+                $arrayDpto[] = [
+                    'value' => $item->codigo,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
+
+            $arrayMuni = [];
+            $consmuni = \App\Muni::buscarMunicipios(Session::get('alias'));
+            foreach ($consmuni as $item) {
+                $arrayMuni[$item->codigo][] = [
+                    'value' => $item->codmun,
+                    'texto' => strtoupper($item->descripcion),
+                ];
+            }
             if ($entes) {
                 $respuesta = [
                     'paginacion' => [
@@ -25,6 +42,8 @@ class soporteController extends Controller
                         'hasta' => $entes->lastItem(),
                     ],
                     'entes' => $entes,
+                    'arrayDpto' => $arrayDpto,
+                    'arrayMuni' => $arrayMuni,
                 ];
                 return response()->json($respuesta, 200);
             } else {
@@ -41,7 +60,7 @@ class soporteController extends Controller
     public function guardarEntes()
     {
         if (Auth::check()) {
-            $data = request()->all();            
+            $data = request()->all();
             if ($data["opcion"] == "GUARDAR") {
                 request()->validate([
                     'entes.nombre' => 'required|unique:entes,nombre',
@@ -49,6 +68,10 @@ class soporteController extends Controller
                     'entes.sigla' => 'required|unique:entes,sigla',
                     'entes.poblacion' => 'required',
                     'entes.viviendas' => 'required',
+                    'entes.lat' => 'required',
+                    'entes.lng' => 'required',
+                    'entes.id_dpto' => 'required',
+                    'entes.id_mun' => 'required',
                 ], [
                     'entes.nombre.required' => 'EL nombre es obligatorio',
                     'entes.nombre.unique' => 'El nombre ya se encuentra registrado',
@@ -58,15 +81,23 @@ class soporteController extends Controller
                     'entes.sigla.unique' => 'La sigla ya se encuentra registrada',
                     'entes.poblacion.required' => 'La población es obligatoria',
                     'entes.viviendas.required' => 'El numero de viviendas es obligatorio',
+                    'entes.lat.required' => 'La latitud es obligatoria',
+                    'entes.lng.required' => 'La longitud es obligatoria',
+                    'entes.id_dpto.required' => 'El departamento es obligatorio',
+                    'entes.id_mun.required' => 'El municipio es obligatorio',
                 ]);
             } else {
-                $ente = \App\Entes::buscarEnte($data["entes"]['id']);          
+                $ente = \App\Entes::buscarEnte($data["entes"]['id']);
                 request()->validate([
                     'entes.nombre' => 'required|unique:entes,nombre,' . $ente->id,
                     'entes.alias' => 'required|unique:entes,alias,' . $ente->id,
                     'entes.sigla' => 'required|unique:entes,sigla,' . $ente->id,
                     'entes.poblacion' => 'required',
                     'entes.viviendas' => 'required',
+                    'entes.lat' => 'required',
+                    'entes.lng' => 'required',
+                    'entes.id_dpto' => 'required',
+                    'entes.id_mun' => 'required',
                 ], [
                     'entes.nombre.required' => 'EL nombre es obligatorio',
                     'entes.nombre.unique' => 'El nombre ya se encuentra registrado',
@@ -76,9 +107,13 @@ class soporteController extends Controller
                     'entes.sigla.unique' => 'La sigla ya se encuentra registrada',
                     'entes.poblacion.required' => 'La población es obligatoria',
                     'entes.viviendas.required' => 'El numero de viviendas es obligatorio',
+                    'entes.lat.required' => 'La latitud es obligatoria',
+                    'entes.lng.required' => 'La longitud es obligatoria',
+                    'entes.id_dpto.required' => 'El departamento es obligatorio',
+                    'entes.id_mun.required' => 'El municipio es obligatorio',
                 ]);
             }
-            
+
             $entes = \App\Entes::guardar($data["entes"]);
 
             if ($entes) {
@@ -156,10 +191,9 @@ class soporteController extends Controller
                     Session::put('idusuario', $alias->id);
                     Session::put('sigla', $alias->sigla);
 
-                    
                     $respuesta = [
                         'OPC' => 'SI',
-                        'alias' => Session::get('alias')
+                        'alias' => Session::get('alias'),
                     ];
                     return response()->json($respuesta, 200);
                 } else {

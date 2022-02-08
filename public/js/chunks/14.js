@@ -1683,7 +1683,7 @@ render._withStripped = true
 /*!*****************************************************!*\
   !*** ./resources/js/Servicios/barrios_servicios.js ***!
   \*****************************************************/
-/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios */
+/*! exports provided: listarBarrios, guardarBarrios, eliminarBarrios, comboBarrios, exportar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1692,6 +1692,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "guardarBarrios", function() { return guardarBarrios; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eliminarBarrios", function() { return eliminarBarrios; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comboBarrios", function() { return comboBarrios; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportar", function() { return exportar; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarBarrios($data) {
@@ -1705,6 +1706,11 @@ function eliminarBarrios($data) {
 }
 function comboBarrios($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/combo', $data);
+}
+function exportar($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/barrios/exportar', $data, {
+    responseType: 'blob'
+  });
 }
 
 /***/ }),

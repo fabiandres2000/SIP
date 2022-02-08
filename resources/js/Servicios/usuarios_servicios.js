@@ -58,3 +58,15 @@ export function usuariosLog($data) {
 export function usuariosLogBuscar($data) {
     return http().post('/usuarios/usuarioslogbuscar', $data);
 }
+
+export function usuariosSubirImagen($data) {
+    return http().post('/usuarios/usuariosSubirImagen', $data);
+}
+
+export function usuariosEditarSubirImagen($data) {
+    return http().post('/usuarios/usuariosEditarSubirImagen', $data);
+}
+
+export function perfil($data) {
+    return http().post('/perfil', $data);
+}

@@ -173,6 +173,7 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amch
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
       datos: {
         nro_mujeres_embarazadas: 0,
+        porcentaje_embarazadas: 0,
         nro_adolescentes_embarazadas: 0,
         nro_adolescentes_desescolarizadas: 0,
         nro_adolescentes_lactantes: 0,
@@ -408,7 +409,7 @@ var render = function() {
                     "vue-ellipse-progress",
                     {
                       attrs: {
-                        progress: 95,
+                        progress: _vm.datos.porcentaje_embarazadas,
                         size: 120,
                         angle: -90,
                         gap: 10,

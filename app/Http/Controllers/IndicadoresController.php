@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use Session;
-use Auth;
 
 class IndicadoresController extends Controller
 {
@@ -43,7 +43,7 @@ class IndicadoresController extends Controller
                     'poblacion_sin_eps' => $poblacion_sin_eps,
                     'porcentaje_atencion_prenatal' => $porcentaje_atencion_prenatal,
                     'porcentaje_sin_atencion_prenatal' => $porcentaje_sin_atencion_prenatal,
-                    'razon_gestantes_sin_atencion_prental' => $razon_gestantes_sin_atencion_prental
+                    'razon_gestantes_sin_atencion_prental' => $razon_gestantes_sin_atencion_prental,
                 ],
             ];
 
@@ -58,6 +58,7 @@ class IndicadoresController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $nro_mujeres_embarazadas = \App\Indicadores::mujeres_embarazadas(Session::get('alias'));
+            $total_mujeres = \App\Reportes::poblacionTotalMujeres(Session::get('alias'));
             $nro_adolescentes_embarazadas = \App\Indicadores::adolescentes_embarazadas(Session::get('alias'));
             $nro_adolescentes_desescolarizadas = \App\Indicadores::adolescentes_desescolarizadas(Session::get('alias'));
             $nro_adolescentes_lactantes = \App\Indicadores::adolescentes_lactantes(Session::get('alias'));
@@ -84,12 +85,12 @@ class IndicadoresController extends Controller
             $gestantes_grupo_1828 = \App\Indicadores::gestantes_grupo_1828(Session::get('alias'));
             $gestantes_grupo_2959 = \App\Indicadores::gestantes_grupo_2959(Session::get('alias'));
 
-
             $razon_gestantes_sin_atencion_prental = $sin_atencion_prenatal / $nro_atencion_prenatal;
 
             $respuesta = [
                 'cantidades' => [
                     'nro_mujeres_embarazadas' => $nro_mujeres_embarazadas,
+                    'porcentaje_embarazadas' => round(($nro_mujeres_embarazadas * 100) / $total_mujeres, 2),
                     'nro_adolescentes_embarazadas' => $nro_adolescentes_embarazadas,
                     'nro_adolescentes_desescolarizadas' => $nro_adolescentes_desescolarizadas,
                     'nro_adolescentes_lactantes' => $nro_adolescentes_lactantes,
@@ -127,17 +128,17 @@ class IndicadoresController extends Controller
             $grupo_611_hombre = \App\Indicadores::total_consumidores_integrantes_masculinos_6_11(Session::get('alias'));
             $grupo_611_mujeres = \App\Indicadores::total_consumidores_integrantes_femeninos_6_11(Session::get('alias'));
 
-            $grupo_1217_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_12_17_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_masculinos_12_17_jefe(Session::get('alias'));
-            $grupo_1217_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_12_17_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_femeninos_12_17_jefe(Session::get('alias'));
+            $grupo_1217_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_12_17_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_masculinos_12_17_jefe(Session::get('alias'));
+            $grupo_1217_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_12_17_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_femeninos_12_17_jefe(Session::get('alias'));
 
-            $grupo_1828_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_18_28_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_masculinos_18_28_jefe(Session::get('alias'));
-            $grupo_1828_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_18_28_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_femeninos_18_28_jefe(Session::get('alias'));
+            $grupo_1828_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_18_28_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_masculinos_18_28_jefe(Session::get('alias'));
+            $grupo_1828_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_18_28_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_femeninos_18_28_jefe(Session::get('alias'));
 
-            $grupo_2959_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_29_59_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_masculinos_29_59_jefe(Session::get('alias'));
-            $grupo_2959_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_29_59_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_femeninos_29_59_jefe(Session::get('alias'));
+            $grupo_2959_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_29_59_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_masculinos_29_59_jefe(Session::get('alias'));
+            $grupo_2959_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_29_59_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_femeninos_29_59_jefe(Session::get('alias'));
 
-            $grupo_60_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_60_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_masculinos_60_jefe(Session::get('alias'));
-            $grupo_60_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_60_integrantes(Session::get('alias')) + \App\Indicadores::total_consumidores_integrantes_femeninos_60_jefe(Session::get('alias'));
+            $grupo_60_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_60_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_masculinos_60_jefe(Session::get('alias'));
+            $grupo_60_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_60_integrantes(Session::get('alias'))+\App\Indicadores::total_consumidores_integrantes_femeninos_60_jefe(Session::get('alias'));
             ////// % DE ATENCION PRENATAL
             $total_consumidores = $grupo_611_hombre + $grupo_611_mujeres + $grupo_1217_hombres + $grupo_1217_femeninos + $grupo_1828_hombres + $grupo_1828_femeninos + $grupo_2959_femeninos + $grupo_2959_hombres + $grupo_60_femeninos + $grupo_60_hombres;
             $adolescentes_consumidores = $grupo_1217_hombres + $grupo_1217_femeninos;
@@ -150,11 +151,12 @@ class IndicadoresController extends Controller
 
             //dd(\App\Indicadores::total_gestantes_spa_jefe(Session::get('alias')));die;
 
-            $gestantes_consumidores = \App\Indicadores::total_gestantes_spa_integrantes(Session::get('alias')) + \App\Indicadores::total_gestantes_spa_jefe(Session::get('alias'));
+            $gestantes_consumidores = \App\Indicadores::total_gestantes_spa_integrantes(Session::get('alias'))+\App\Indicadores::total_gestantes_spa_jefe(Session::get('alias'));
 
             $respuesta = [
                 'cantidades' => [
                     'total_consumidores' => $total_consumidores * 1,
+                    'porcentaje_consumidores' => round(($total_consumidores * 100) / $total_poblacion, 2),
                     'adolescentes_consumidores' => $adolescentes_consumidores,
                     'ninos_consumidores' => $ninos_consumidores,
                     'gestantes_consumidores' => $gestantes_consumidores,
@@ -181,7 +183,7 @@ class IndicadoresController extends Controller
                     'grupo_2959_mujerest' => $grupo_2959_femeninos,
                     'grupo_60m_hombrest' => $grupo_60_hombres,
                     'grupo_60m_mujerest' => $grupo_60_femeninos,
-                ]
+                ],
             ];
 
             return response()->json($respuesta, 200);
@@ -202,15 +204,14 @@ class IndicadoresController extends Controller
         $grupo_611_hombre = \App\Indicadores::total_consumidores_integrantes_masculinos_6_11_t(Session::get('alias'), $tipo_temp);
         $grupo_611_mujeres = \App\Indicadores::total_consumidores_integrantes_femeninos_6_11_t(Session::get('alias'), $tipo_temp);
 
-        $grupo_1217_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_12_17(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_masculinos_12_17(Session::get('alias'), $tipo);
-        $grupo_1217_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_12_17(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_femeninos_12_17(Session::get('alias'), $tipo);
+        $grupo_1217_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_12_17(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_masculinos_12_17(Session::get('alias'), $tipo);
+        $grupo_1217_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_12_17(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_femeninos_12_17(Session::get('alias'), $tipo);
 
-        $grupo_1828_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_18_28(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_masculinos_18_28(Session::get('alias'), $tipo);
-        $grupo_1828_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_18_28(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_femeninos_18_28(Session::get('alias'), $tipo);
+        $grupo_1828_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_18_28(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_masculinos_18_28(Session::get('alias'), $tipo);
+        $grupo_1828_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_18_28(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_femeninos_18_28(Session::get('alias'), $tipo);
 
-        $grupo_2959_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_29_59(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_masculinos_29_59(Session::get('alias'), $tipo);
-        $grupo_2959_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_29_59(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_femeninos_29_59(Session::get('alias'), $tipo);
-
+        $grupo_2959_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_29_59(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_masculinos_29_59(Session::get('alias'), $tipo);
+        $grupo_2959_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_29_59(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_femeninos_29_59(Session::get('alias'), $tipo);
 
         if ($tipo == "fuma") {
             $tipo = "cigarrillo";
@@ -218,8 +219,8 @@ class IndicadoresController extends Controller
             $tipo = "glicemia";
         }
 
-        $grupo_60_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_60(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_masculinos_60(Session::get('alias'), $tipo);
-        $grupo_60_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_60(Session::get('alias'), $tipo) + \App\Indicadores::total_consumidores_jefe_femeninos_60(Session::get('alias'), $tipo);
+        $grupo_60_hombres = \App\Indicadores::total_consumidores_integrantes_masculinos_60(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_masculinos_60(Session::get('alias'), $tipo);
+        $grupo_60_femeninos = \App\Indicadores::total_consumidores_integrantes_femeninos_60(Session::get('alias'), $tipo)+\App\Indicadores::total_consumidores_jefe_femeninos_60(Session::get('alias'), $tipo);
 
         $respuesta = [
             'poblacion' => [

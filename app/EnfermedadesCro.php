@@ -56,4 +56,12 @@ class EnfermedadesCro extends Model
         return DB::connection('mysql')->table($alias . '.enfermedadescro')->orderBy('descripcion', 'asc')
             ->where('estado', 'Activo')->get();
     }
+
+    public static function todas($alias)
+    {
+        return DB::connection('mysql')->table($alias . '.enfermedadescro')
+            ->select("id", "descripcion")
+            ->orderBy('descripcion', 'asc')
+            ->where('estado', 'Activo')->get();
+    }
 }

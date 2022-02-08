@@ -17,22 +17,51 @@
                             <div class="col-md-6 col-lg-6">
                                 <div class="kt-section">
                                     <div class="kt-section__content">
-                                        <a
-                                            href="javascript:;"
-                                            class="btn btn-outline-primary "
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary "
                                             data-skin="dark"
                                             data-toggle="kt-tooltip"
                                             data-placement="top"
                                             title="Nuevo Barrio"
                                             @click="abrirModal"
+                                            :disabled="!valN"
+                                            :class="spinN"
                                         >
                                             <i class="la la-file-text-o"></i>
-                                            Nuevo Barrio</a
-                                        >&nbsp;
+                                            Nuevo Barrio
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class=" btn btn-success"
+                                            data-skin="dark"
+                                            data-toggle="kt-tooltip"
+                                            data-placement="top"
+                                            title="Exportar Pdf"
+                                            @click="generarPDF()"
+                                            :disabled="!valPdf"
+                                            :class="spinPdf"
+                                        >
+                                            <i class="fa fa-file-pdf"></i
+                                            >Exportar a Pdf
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class=" btn btn-danger"
+                                            data-skin="dark"
+                                            data-toggle="kt-tooltip"
+                                            data-placement="top"
+                                            title="Exportar Pdf"
+                                            :disabled="!valExcel"
+                                            :class="spinExcel"
+                                        >
+                                            <i class="fa fa-file-excel"></i
+                                            >Exportar a Excel
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-6 col-lg-6">
+                            <div class="col-md-6 col-lg-6">
                                 <form class="kt-form">
                                     <div class="form-group">
                                         <div class="input-group">
@@ -54,7 +83,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div> -->
+                            </div>
                         </div>
 
                         <div class="row">
@@ -182,6 +211,118 @@
                                     <div
                                         class="kt-separator kt-separator--border-dashed"
                                     ></div>
+                                    <!--begin: Section-->
+                                    <div class="kt-section">
+                                        <!--begin: Pagination-->
+                                        <div
+                                            class="kt-pagination kt-pagination--danger"
+                                        >
+                                            <ul class="kt-pagination__links">
+                                                <li
+                                                    class="kt-pagination__link--first"
+                                                    v-if="
+                                                        paginacion.pagina_actual >
+                                                            1
+                                                    "
+                                                >
+                                                    <a
+                                                        href="javascript:;"
+                                                        @click.prevent="
+                                                            cambiarPaginas(1)
+                                                        "
+                                                    >
+                                                        <i
+                                                            class="fa fa-angle-double-left kt-font-danger"
+                                                        ></i>
+                                                    </a>
+                                                </li>
+                                                <li
+                                                    class="kt-pagination__link--next"
+                                                    v-if="
+                                                        paginacion.pagina_actual >
+                                                            1
+                                                    "
+                                                >
+                                                    <a
+                                                        href="javascript:;"
+                                                        @click.prevent="
+                                                            cambiarPaginas(
+                                                                paginacion.pagina_actual -
+                                                                    1
+                                                            )
+                                                        "
+                                                    >
+                                                        <i
+                                                            class="fa fa-angle-left kt-font-danger"
+                                                        ></i>
+                                                    </a>
+                                                </li>
+                                                <li
+                                                    :class="[
+                                                        pagina == esActivo
+                                                            ? 'kt-pagination__link--active'
+                                                            : ''
+                                                    ]"
+                                                    v-for="(pagina,
+                                                    index) in numeroDePaginas"
+                                                    :key="index"
+                                                >
+                                                    <a
+                                                        href="javascript:;"
+                                                        @click.prevent="
+                                                            cambiarPaginas(
+                                                                pagina
+                                                            )
+                                                        "
+                                                        >{{ pagina }}</a
+                                                    >
+                                                </li>
+                                                <li
+                                                    class="kt-pagination__link--prev"
+                                                    v-if="
+                                                        paginacion.pagina_actual <
+                                                            paginacion.ultima_pagina
+                                                    "
+                                                >
+                                                    <a
+                                                        href="javascript:;"
+                                                        @click.prevent="
+                                                            cambiarPaginas(
+                                                                paginacion.pagina_actual +
+                                                                    1
+                                                            )
+                                                        "
+                                                    >
+                                                        <i
+                                                            class="fa fa-angle-right kt-font-danger"
+                                                        ></i>
+                                                    </a>
+                                                </li>
+                                                <li
+                                                    class="kt-pagination__link--last"
+                                                    v-if="
+                                                        paginacion.pagina_actual <
+                                                            paginacion.ultima_pagina
+                                                    "
+                                                >
+                                                    <a
+                                                        href="javascript:;"
+                                                        @click.prevent="
+                                                            cambiarPaginas(
+                                                                paginacion.ultima_pagina
+                                                            )
+                                                        "
+                                                    >
+                                                        <i
+                                                            class="fa fa-angle-double-right kt-font-danger"
+                                                        ></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!--end: Pagination-->
+                                    </div>
+                                    <!--end: Section-->
                                 </div>
                             </div>
                         </div>
@@ -474,21 +615,42 @@
                     </form>
                 </div>
             </b-modal>
+
+            <b-modal
+                ref="modalpdf"
+                hide-footer
+                title="Listado de Barrios"
+                size="xl"
+                centered
+                header-bg-variant="danger"
+                header-text-variant="light"
+                :no-close-on-backdrop="true"
+            >
+                <embed
+                    id="divPdf"
+                    :src="ruta"
+                    type="application/pdf"
+                    width="100%"
+                    height="650px"
+                />
+                <hr />
+                <div class="text-right">
+                    <button
+                        type="button"
+                        class="btn btn-warning"
+                        @click="cerrarModal"
+                    >
+                        <i class="fa fa-window-close"></i> Cancelar
+                    </button>
+                </div>
+            </b-modal>
         </div>
     </div>
 </template>
 <script>
 "use strict";
 import * as barriosServicios from "../../Servicios/barrios_servicios";
-import datatable from "datatables.net-bs4";
-require("datatables.net-buttons/js/dataTables.buttons");
-require("datatables.net-buttons/js/buttons.html5");
-import print from "datatables.net-buttons/js/buttons.print";
-import jszip from "jszip/dist/jszip";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-window.JSZip = jszip;
+import store from "../../store";
 export default {
     mounted() {
         this.consultar(1);
@@ -496,6 +658,8 @@ export default {
     name: "barri",
     data() {
         return {
+            ruta: "",
+            disabled: 0,
             errores: [],
             bandera: false,
             entrarPorError: false,
@@ -526,7 +690,10 @@ export default {
             offset: 4,
             banderaBoton: true,
             valG: true,
-            tabladatos: null
+            tabladatos: null,
+            valPdf: true,
+            valExcel: true,
+            valN: true
         };
     },
     computed: {
@@ -564,6 +731,42 @@ export default {
                     "kt-spinner--light"
                 ];
             }
+        },
+        spinPdf() {
+            if (this.valPdf) {
+                return {};
+            } else {
+                return [
+                    "kt-spinner",
+                    "kt-spinner--right",
+                    "kt-spinner--sm",
+                    "kt-spinner--light"
+                ];
+            }
+        },
+        spinExcel() {
+            if (this.valExcel) {
+                return {};
+            } else {
+                return [
+                    "kt-spinner",
+                    "kt-spinner--right",
+                    "kt-spinner--sm",
+                    "kt-spinner--light"
+                ];
+            }
+        },
+        spinN() {
+            if (this.valN) {
+                return {};
+            } else {
+                return [
+                    "kt-spinner",
+                    "kt-spinner--right",
+                    "kt-spinner--sm",
+                    "kt-spinner--light"
+                ];
+            }
         }
     },
     methods: {
@@ -578,12 +781,11 @@ export default {
                 await barriosServicios
                     .listarBarrios(parametros)
                     .then(respuesta => {
-                        this.barrios = respuesta.data.barrios;
+                        this.barrios = respuesta.data.barrios.data;
                         this.dpto_options = respuesta.data.arrayDpto;
                         this.muni_options = respuesta.data.arrayMuni;
                         this.corregi_options = respuesta.data.arrayCorregi;
-                        // this.paginacion = respuesta.data.paginacion;
-                        this.tabla();
+                        this.paginacion = respuesta.data.paginacion;
                     });
             } catch (error) {
                 switch (error.response.status) {
@@ -611,6 +813,7 @@ export default {
         },
         cerrarModal() {
             this.$refs.modalBarrio.hide();
+            this.$refs.modalpdf.hide();
         },
         cambio() {
             this.bandera = false;
@@ -941,323 +1144,39 @@ export default {
             }
             return "";
         },
-        tabla() {
-            this.$nextTick(() => {
-                $.fn.DataTable = datatable;
-                this.tabladatos = $("#tablaDatos").DataTable({
-                    // bFilter: false,
-                    orderCellsTop: true,
-                    language: {
-                        processing: "Procesando...",
-                        lengthMenu: "Mostrar _MENU_ registros",
-                        zeroRecords: "No se encontraron resultados",
-                        emptyTable: "Ningún dato disponible en esta tabla",
-                        infoEmpty:
-                            "Mostrando registros del 0 al 0 de un total de 0 registros",
-                        infoFiltered:
-                            "(filtrado de un total de _MAX_ registros)",
-                        search: "Buscar:",
-                        infoThousands: ",",
-                        loadingRecords: "Cargando...",
-                        paginate: {
-                            first: "Primero",
-                            last: "Último",
-                            next: "Siguiente",
-                            previous: "Anterior"
-                        },
-                        aria: {
-                            sortAscending:
-                                ": Activar para ordenar la columna de manera ascendente",
-                            sortDescending:
-                                ": Activar para ordenar la columna de manera descendente"
-                        },
-                        buttons: {
-                            copy: "Copiar",
-                            colvis: "Visibilidad",
-                            collection: "Colección",
-                            colvisRestore: "Restaurar visibilidad",
-                            copyKeys:
-                                "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
-                            copySuccess: {
-                                "1": "Copiada 1 fila al portapapeles",
-                                _: "Copiadas %d fila al portapapeles"
-                            },
-                            copyTitle: "Copiar al portapapeles",
-                            csv: "CSV",
-                            excel: "Excel",
-                            pageLength: {
-                                "-1": "Mostrar todas las filas",
-                                _: "Mostrar %d filas"
-                            },
-                            pdf: "PDF",
-                            print: "Imprimir"
-                        },
-                        autoFill: {
-                            cancel: "Cancelar",
-                            fill: "Rellene todas las celdas con <i>%d<\/i>",
-                            fillHorizontal: "Rellenar celdas horizontalmente",
-                            fillVertical: "Rellenar celdas verticalmentemente"
-                        },
-                        decimal: ",",
-                        searchBuilder: {
-                            add: "Añadir condición",
-                            button: {
-                                "0": "Constructor de búsqueda",
-                                _: "Constructor de búsqueda (%d)"
-                            },
-                            clearAll: "Borrar todo",
-                            condition: "Condición",
-                            conditions: {
-                                date: {
-                                    after: "Despues",
-                                    before: "Antes",
-                                    between: "Entre",
-                                    empty: "Vacío",
-                                    equals: "Igual a",
-                                    notBetween: "No entre",
-                                    notEmpty: "No Vacio",
-                                    not: "Diferente de"
-                                },
-                                number: {
-                                    between: "Entre",
-                                    empty: "Vacio",
-                                    equals: "Igual a",
-                                    gt: "Mayor a",
-                                    gte: "Mayor o igual a",
-                                    lt: "Menor que",
-                                    lte: "Menor o igual que",
-                                    notBetween: "No entre",
-                                    notEmpty: "No vacío",
-                                    not: "Diferente de"
-                                },
-                                string: {
-                                    contains: "Contiene",
-                                    empty: "Vacío",
-                                    endsWith: "Termina en",
-                                    equals: "Igual a",
-                                    notEmpty: "No Vacio",
-                                    startsWith: "Empieza con",
-                                    not: "Diferente de"
-                                },
-                                array: {
-                                    not: "Diferente de",
-                                    equals: "Igual",
-                                    empty: "Vacío",
-                                    contains: "Contiene",
-                                    notEmpty: "No Vacío",
-                                    without: "Sin"
-                                }
-                            },
-                            data: "Data",
-                            deleteTitle: "Eliminar regla de filtrado",
-                            leftTitle: "Criterios anulados",
-                            logicAnd: "Y",
-                            logicOr: "O",
-                            rightTitle: "Criterios de sangría",
-                            title: {
-                                "0": "Constructor de búsqueda",
-                                _: "Constructor de búsqueda (%d)"
-                            },
-                            value: "Valor"
-                        },
-                        searchPanes: {
-                            clearMessage: "Borrar todo",
-                            collapse: {
-                                "0": "Paneles de búsqueda",
-                                _: "Paneles de búsqueda (%d)"
-                            },
-                            count: "{total}",
-                            countFiltered: "{shown} ({total})",
-                            emptyPanes: "Sin paneles de búsqueda",
-                            loadMessage: "Cargando paneles de búsqueda",
-                            title: "Filtros Activos - %d"
-                        },
-                        select: {
-                            cells: {
-                                "1": "1 celda seleccionada",
-                                _: "%d celdas seleccionadas"
-                            },
-                            columns: {
-                                "1": "1 columna seleccionada",
-                                _: "%d columnas seleccionadas"
-                            },
-                            rows: {
-                                "1": "1 fila seleccionada",
-                                _: "%d filas seleccionadas"
-                            }
-                        },
-                        thousands: ".",
-                        datetime: {
-                            previous: "Anterior",
-                            next: "Proximo",
-                            hours: "Horas",
-                            minutes: "Minutos",
-                            seconds: "Segundos",
-                            unknown: "-",
-                            amPm: ["AM", "PM"],
-                            months: {
-                                "0": "Enero",
-                                "1": "Febrero",
-                                "10": "Noviembre",
-                                "11": "Diciembre",
-                                "2": "Marzo",
-                                "3": "Abril",
-                                "4": "Mayo",
-                                "5": "Junio",
-                                "6": "Julio",
-                                "7": "Agosto",
-                                "8": "Septiembre",
-                                "9": "Octubre"
-                            },
-                            weekdays: [
-                                "Dom",
-                                "Lun",
-                                "Mar",
-                                "Mie",
-                                "Jue",
-                                "Vie",
-                                "Sab"
-                            ]
-                        },
-                        editor: {
-                            close: "Cerrar",
-                            create: {
-                                button: "Nuevo",
-                                title: "Crear Nuevo Registro",
-                                submit: "Crear"
-                            },
-                            edit: {
-                                button: "Editar",
-                                title: "Editar Registro",
-                                submit: "Actualizar"
-                            },
-                            remove: {
-                                button: "Eliminar",
-                                title: "Eliminar Registro",
-                                submit: "Eliminar",
-                                confirm: {
-                                    _:
-                                        "¿Está seguro que desea eliminar %d filas?",
-                                    "1":
-                                        "¿Está seguro que desea eliminar 1 fila?"
-                                }
-                            },
-                            error: {
-                                system:
-                                    'Ha ocurrido un error en el sistema (<a target="\\" rel="\\ nofollow" href="\\">Más información&lt;\\\/a&gt;).<\/a>'
-                            },
-                            multi: {
-                                title: "Múltiples Valores",
-                                info:
-                                    "Los elementos seleccionados contienen diferentes valores para este registro. Para editar y establecer todos los elementos de este registro con el mismo valor, hacer click o tap aquí, de lo contrario conservarán sus valores individuales.",
-                                restore: "Deshacer Cambios",
-                                noMulti:
-                                    "Este registro puede ser editado individualmente, pero no como parte de un grupo."
-                            }
-                        },
-                        info: "Mostrando _START_ a _END_ de _TOTAL_ registros"
-                    },
-                    dom:
-                        "B<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
-                        "<'row'<'col-sm-12'tr>>" +
-                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                    buttons: {
-                        dom: {
-                            buttons: {
-                                className: "btn"
-                            }
-                        },
-                        buttons: [
-                            {
-                                extend: "copyHtml5",
-                                text: "<i class='fa fa-file-alt'></i>",
-                                titleAttr: "Copiar",
-                                className:
-                                    "btn btn-outline-brand btn-icon btn-lg",
-                                messageTop: "Listado de Barrios",
-                                title: "Sistema Integrado Poblacional",
-                                exportOptions: {
-                                    columns: [0, 1, 2, 3, 4]
-                                }
-                            },
-                            {
-                                extend: "excelHtml5",
-                                text: "<i class='fa fa-file-excel'></i>",
-                                titleAttr: "Exportar a Excel",
-                                className:
-                                    "btn btn-outline-success btn-icon btn-lg",
-                                excelStyles: {
-                                    template: "header_blue"
-                                },
-                                messageTop: "Listado de Barrios",
-                                title: "Sistema Integrado Poblacional",
-                                exportOptions: {
-                                    columns: [0, 1, 2, 3, 4]
-                                }
-                            },
-                            {
-                                extend: "pdfHtml5",
-                                text: "<i class='fa fa-file-pdf'></i>",
-                                titleAttr: "Exportar a PDF",
-                                className:
-                                    "btn btn-outline-danger btn-icon btn-lg",
-                                messageTop: "Listado de Barrios",
-                                title: "Sistema Integrado Poblacional",
-                                exportOptions: {
-                                    columns: [0, 1, 2, 3, 4]
-                                },
-                                customize: function(doc) {
-                                    doc.styles.title = {
-                                        color: "red",
-                                        fontSize: "20",
-                                        alignment: "center"
-                                    };
-                                    doc.styles["td:nth-child(2)"] = {
-                                        width: "100px",
-                                        "max-width": "100px"
-                                    };
-                                    doc.styles.tableHeader = {
-                                        fillColor: "#DF0101",
-                                        color: "white"
-                                    };
-                                }
-                            },
-                            {
-                                extend: "csvHtml5",
-                                text: "<i class='fa fa-file-csv'></i>",
-                                titleAttr: "Exportar a csv",
-                                className:
-                                    "btn btn-outline-info btn-icon btn-lg",
-                                messageTop: "Listado de Barrios",
-                                title: "Sistema Integrado Poblacional",
-                                exportOptions: {
-                                    columns: [0, 1, 2, 3, 4]
-                                }
-                            },
-                            {
-                                extend: "print",
-                                text: "<i class='fa fa-print'></i>",
-                                titleAttr: "Imprimir Archivo",
-                                className:
-                                    "btn btn-outline-dark btn-icon btn-lg",
-                                messageTop: "Listado de Barrios",
-                                title: "Sistema Integrado Poblacional",
-                                exportOptions: {
-                                    columns: [0, 1, 2, 3, 4]
-                                }
-                            }
-                        ]
-                    }
+        async generarPDF() {
+            this.valPdf = false;
+            this.valExcel = false;
+            this.valN = false;
+            this.disabled = (this.disabled + 1) % 2;
+            const parametros = {
+                txtbusqueda: this.txtbusqueda.trim(),
+                _token: this.csrf,
+                opcion: "PDF"
+            };
+            try {
+                await barriosServicios.exportar(parametros).then(respuesta => {
+                    this.valPdf = true;
+                    this.valExcel = true;
+                    this.valN = true;
+                    this.ruta = store.state.apiURL + respuesta.data.nombre;
+                    this.$refs.modalpdf.show();
+                    // this.download(this.ruta);
                 });
-                $(".dataTables_filter input").attr(
-                    "placeholder",
-                    "Busqueda..."
-                );
-                $(".dataTables_filter label").addClass("form-control");
-                $(".dataTables_filter label").css("outline", "none");
-                $(".dataTables_filter label").css("border", "0");
-                $(".dataTables_filter label").css("padding-bottom", "35px");
-            });
+            } catch (e) {}
+        },
+        download(data) {
+            if (!data) {
+                return;
+            }
+            let url = window.URL.createObjectURL(new Blob([data]));
+            let link = document.createElement("a");
+            link.style.display = "none";
+            link.href = url;
+            link.setAttribute("download", "excel.pdf");
+
+            document.body.appendChild(link);
+            link.click();
         }
     }
 };

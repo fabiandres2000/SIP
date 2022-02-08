@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use Session;
+use DataTables;
 
 class OcupacionController extends Controller
 {
@@ -14,15 +15,17 @@ class OcupacionController extends Controller
             $busqueda = request()->get('txtbusqueda');
             $ocupaciones = \App\Ocupacion::listar($busqueda, Session::get('alias'));
             if ($ocupaciones) {
+                // $ayuda = Datatables::of($ocupaciones);
+                // dd($ayuda);die;
                 $respuesta = [
-                    // 'paginacion' => [
-                    //     'total' => $ocupaciones->total(),
-                    //     'pagina_actual' => $ocupaciones->currentPage(),
-                    //     'por_pagina' => $ocupaciones->perPage(),
-                    //     'ultima_pagina' => $ocupaciones->lastPage(),
-                    //     'desde' => $ocupaciones->firstItem(),
-                    //     'hasta' => $ocupaciones->lastItem(),
-                    // ],
+                    'paginacion' => [
+                        'total' => $ocupaciones->total(),
+                        'pagina_actual' => $ocupaciones->currentPage(),
+                        'por_pagina' => $ocupaciones->perPage(),
+                        'ultima_pagina' => $ocupaciones->lastPage(),
+                        'desde' => $ocupaciones->firstItem(),
+                        'hasta' => $ocupaciones->lastItem(),
+                    ],
                     'ocupaciones' => $ocupaciones,
                 ];
                 return response()->json($respuesta, 200);

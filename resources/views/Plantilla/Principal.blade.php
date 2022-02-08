@@ -8,6 +8,8 @@
 
     <!--end::Base Path -->
     <meta charset="utf-8" />
+    {{-- <meta content-type="aplication/octet-stream" />
+    <meta content-disposition="attachment; filename=kpi.pdf" /> --}}
     <title>SIP</title>
     <meta name="description" content="Updates and statistics">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,7 +48,7 @@
         kt-aside--minimize 
         kt-page--loading ">
 
-        <div id="app">
+        <div id="app" >
 
         </div>
         @include('Plantilla.Footer')

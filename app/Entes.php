@@ -9,22 +9,32 @@ class Entes extends Model
 {
     protected $table = 'entes';
     protected $fillable = [
-        'nombre', 'estado', 'alias', 'sigla', 'poblacion', 'viviendas',
+        'nombre', 'estado', 'alias', 'sigla', 'poblacion', 'viviendas', 'lat', 'lng', 'id_dpto', 'id_mun',
     ];
 
-    public static function listar($busqueda)
+    public static function listar($busqueda, $alias)
     {
         if (!empty($busqueda)) {
-            $respuesta = \App\Entes::where(function ($query) use ($busqueda) {
-                $query->where('nombre', 'LIKE', '%' . $busqueda . '%')
-                    ->orWhere('alias', 'LIKE', '%' . $busqueda . '%')
-                    ->orWhere('sigla', 'LIKE', '%' . $busqueda . '%')
-                    ->orWhere('estado', 'LIKE', '%' . $busqueda . '%');
-            })
-                ->orderBy('id', 'DESC')
+            $respuesta = \App\Entes::join($alias . '.dptos', 'dptos.codigo', 'entes.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'entes.id_mun');
+                })
+                ->where(function ($query) use ($busqueda) {
+                    $query->where('nombre', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('alias', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('sigla', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('estado', 'LIKE', '%' . $busqueda . '%');
+                })
+                ->orderBy('entes.id', 'DESC')
                 ->paginate(10);
         } else {
-            $respuesta = \App\Entes::orderBy('id', 'DESC')
+            $respuesta = \App\Entes::join($alias . '.dptos', 'dptos.codigo', 'entes.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'entes.id_mun');
+                })
+                ->orderBy('entes.id', 'DESC')
                 ->paginate(10);
         }
 
@@ -42,6 +52,10 @@ class Entes extends Model
             'poblacion' => $data['poblacion'],
             'viviendas' => $data['viviendas'],
             'estado' => $data['estado'],
+            'lat' => $data['lat'],
+            'lng' => $data['lng'],
+            'id_dpto' => $data['id_dpto'],
+            'id_mun' => $data['id_mun'],
         ]);
     }
 

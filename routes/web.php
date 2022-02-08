@@ -14,10 +14,14 @@ Route::post('/usuarios/buscar', 'UsuarioController@buscar');
 Route::post('/usuarios/usuarioslog', 'UsuarioController@usuariosLog');
 Route::post('/usuarios/usuarioslogbuscar', 'UsuarioController@usuariosLogBuscar');
 
+Route::post('/usuarios/usuariosSubirImagen', 'UsuarioController@usuariosSubirImagen');
+Route::post('/usuarios/usuariosEditarSubirImagen', 'UsuarioController@usuariosEditarSubirImagen');
+
 Route::post('/barrios', 'BarrioController@gestion');
 Route::post('/barrios/guardar', 'BarrioController@guardar');
 Route::post('/barrios/eliminar', 'BarrioController@eliminar');
 Route::post('/barrios/combo', 'BarrioController@combo');
+Route::post('/barrios/exportar', 'BarrioController@exportar');
 
 Route::post('/corregimientos', 'CorregimientoController@gestion');
 Route::post('/corregimientos/guardar', 'CorregimientoController@guardar');
@@ -91,7 +95,6 @@ Route::post('/actividad', 'ActividadController@gestion');
 Route::post('/actividad/guardar', 'ActividadController@guardar');
 Route::post('/actividad/eliminar', 'ActividadController@eliminar');
 
-
 Route::post('/caracterizacion', 'CaracterizacionController@gestion');
 Route::post('/caracterizacion/nuevo', 'CaracterizacionController@nuevo');
 Route::post('/caracterizacion/editar', 'CaracterizacionController@editar');
@@ -106,8 +109,6 @@ Route::post('/caracterizacion/eliminar', 'CaracterizacionController@eliminar');
 Route::post('/caracterizacion/controlesRA', 'CaracterizacionController@controlesRA');
 Route::post('/caracterizacion/buscarTablas', 'CaracterizacionController@buscarTablas');
 Route::post('/caracterizacion/ControlRS', 'CaracterizacionController@ControlRS');
-
-
 
 Route::post('/establecimientos/editar', 'EstablecimientosController@editar');
 Route::post('/establecimientos/guardar', 'EstablecimientosController@guardar');
@@ -145,8 +146,6 @@ Route::post('/jefehogar/listar', 'ConsultasController@jefelistar');
 
 Route::post('/jefehogar/listarpdf', 'ConsultasController@jefeslistarpdf');
 
-
-
 Route::post('/entes/listar', 'soporteController@listarEntes');
 Route::post('/entes/guardar', 'soporteController@guardarEntes');
 Route::post('/entes/eliminar', 'soporteController@eliminarEntes');
@@ -157,3 +156,19 @@ Route::post('/usuarios/listar', 'soporteController@listarUsuarios');
 Route::post('/usuarios/guardarSop', 'soporteController@guardarUsuarios');
 Route::post('/usuarios/modificarSop', 'soporteController@modificarUsuarios');
 Route::post('/usuarios/eliminarSop', 'soporteController@eliminarUsuarios');
+
+Route::post('/reportes/gestantes', 'ReportesController@gestantes');
+Route::post('/reportes/exportarGestantes', 'ReportesController@exportarGestantes');
+Route::post('/reportes/nutricional', 'ReportesController@nutricional');
+Route::post('/reportes/exportarNutricional', 'ReportesController@exportarNutricional');
+
+
+
+
+Route::post('/reportes/cronicas', 'ReportesController@listarcronicas');
+Route::post('/reportes/cronicaspdf', 'ReportesController@listarcronicaspdf');
+Route::post('/reportes/migrantes', 'ReportesController@listarmigrantes');
+Route::post('/reportes/migrantespdf', 'ReportesController@listarmigrantespdf');
+Route::post('/informes/migrantes', 'InformesController@migrantes');
+
+Route::post('/perfil', 'UsuarioController@perfil');

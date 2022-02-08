@@ -4,7 +4,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h3>Consumo de SPA</h3>
+            <h3>Consumo de SPA (Sustancias Psicoactivas)</h3>
           </div>
         </div>
         <div class="card">
@@ -13,7 +13,7 @@
               <div class="col-lg-3 text-center">
                 <h5>Número consumidores</h5>
                 <vue-ellipse-progress
-                  :progress="95"
+                  :progress="datos.porcentaje_consumidores"
                   :size="120"
                   :angle="-90"
                   :gap="10"
@@ -161,6 +161,7 @@ export default {
       combo: "",
       datos: {
         total_consumidores: 0,
+        porcentaje_consumidores: 0,
         adolescentes_consumidores: 0,
         ninos_consumidores: 0,
         gestantes_consumidores: 0,
@@ -203,6 +204,7 @@ export default {
       await IndicadoresService.spa(data)
         .then(respuesta => {
           this.datos = respuesta.data["cantidades"];
+          console.log(this.datos);
           this.poblacion = respuesta.data["poblacion"];
 
           this.serie = [

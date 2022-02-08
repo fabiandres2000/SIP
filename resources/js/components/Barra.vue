@@ -223,10 +223,32 @@
                             <!-- <img class="kt-hidden" alt="Pic" src="{{ asset('assets/media/users/300_25.jpg') }}" /> -->
 
                             <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
-                            <span
+                            <!-- <span
                                 class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold"
                                 >{{ nombreUsuario.substring(0, 1) }}</span
+                            > -->
+                            <span
+                                class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold"
                             >
+                                <img
+                                    v-if="imagen != null"
+                                    alt="Logo"
+                                    :src="
+                                        `${$store.state.serverPath}assets/media/${alias}/fotos/${imagen}`
+                                    "
+                                    width="70"
+                                    style="margin-left:5px;"
+                                />
+                                <img
+                                    v-else
+                                    alt="Logo"
+                                    :src="
+                                        `${$store.state.serverPath}assets/media/default.png`
+                                    "
+                                    width="70"
+                                    style="margin-left:5px;"
+                                />
+                            </span>
                         </div>
                     </div>
                     <div
@@ -235,15 +257,37 @@
                         <!--begin: Head -->
                         <div
                             class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x"
-                            style="background-image: url(./assets/media/misc/bg-1.jpg)"
+                            style="background: linear-gradient(to right, #1D4A7E  , #305580  );"
                         >
                             <div class="kt-user-card__avatar">
                                 <!-- <img class="kt-hidden" alt="Pic" :src="`${$store.state.serverPath}assets/media/users/300_25.jpg`" /> -->
                                 <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
-                                <span
+                                <!-- <span
                                     class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success"
                                     >{{ nombreUsuario.substring(0, 1) }}</span
+                                > -->
+                                <span
+                                    class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success"
                                 >
+                                    <img
+                                        v-if="imagen != null"
+                                        alt="Logo"
+                                        :src="
+                                            `${$store.state.serverPath}assets/media/${alias}/fotos/${imagen}`
+                                        "
+                                        width="70"
+                                        style="margin-left:5px;"
+                                    />
+                                    <img
+                                        v-else
+                                        alt="Logo"
+                                        :src="
+                                            `${$store.state.serverPath}assets/media/default.png`
+                                        "
+                                        width="70"
+                                        style="margin-left:5px;"
+                                    />
+                                </span>
                             </div>
                             <div class="kt-user-card__name">
                                 {{ nombreUsuario }}
@@ -253,41 +297,106 @@
                         <!--end: Head -->
 
                         <!--begin: Navigation -->
-                        <div class="kt-notification">
-                            <a href="#" class="kt-notification__item">
+                        <div
+                            class="kt-notification"
+                            style="background: linear-gradient(to right, #f9f9f9  , #c2cbcb  );"
+                        >
+                            <router-link to="/perfil" class="kt-notification__item">
                                 <div class="kt-notification__item-icon">
-                                    <i
-                                        class="flaticon2-calendar-3 kt-font-success"
-                                    ></i>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 24 24"
+                                        version="1.1"
+                                        class="kt-svg-icon"
+                                    >
+                                        <g
+                                            stroke="none"
+                                            stroke-width="1"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                        >
+                                            <polygon
+                                                id="Shape"
+                                                points="0 0 24 0 24 24 0 24"
+                                            />
+                                            <path
+                                                d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z"
+                                                id="Mask"
+                                                fill="#000000"
+                                                fill-rule="nonzero"
+                                                opacity="0.3"
+                                            />
+                                            <path
+                                                d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z"
+                                                id="Mask-Copy"
+                                                fill="#000000"
+                                                fill-rule="nonzero"
+                                            />
+                                        </g>
+                                    </svg>
                                 </div>
                                 <div class="kt-notification__item-details">
                                     <div
                                         class="kt-notification__item-title kt-font-bold"
+                                        style="color: black;"
                                     >
                                         Mi Perfil
                                     </div>
-                                    <div class="kt-notification__item-time">
+                                    <div
+                                        class="kt-notification__item-time"
+                                        style="color: black;"
+                                    >
                                         Configuar Cuenta
                                     </div>
                                 </div>
-                            </a>
+                            </router-link>
                             <a
                                 href="javascript:;"
                                 @click="abrirModal"
                                 class="kt-notification__item"
                             >
                                 <div class="kt-notification__item-icon">
-                                    <i
-                                        class="flaticon2-cardiogram kt-font-warning"
-                                    ></i>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 24 24"
+                                        version="1.1"
+                                        class="kt-svg-icon"
+                                    >
+                                        <g
+                                            stroke="none"
+                                            stroke-width="1"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                        >
+                                            <mask id="mask-2" fill="white">
+                                                <use xlink:href="#path-1" />
+                                            </mask>
+                                            <g id="bound" />
+                                            <path
+                                                d="M7,10 L7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 L17,10 L18,10 C19.1045695,10 20,10.8954305 20,12 L20,18 C20,19.1045695 19.1045695,20 18,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,12 C4,10.8954305 4.8954305,10 6,10 L7,10 Z M12,5 C10.3431458,5 9,6.34314575 9,8 L9,10 L15,10 L15,8 C15,6.34314575 13.6568542,5 12,5 Z"
+                                                id="Mask"
+                                                fill="#000000"
+                                            />
+                                        </g>
+                                    </svg>
                                 </div>
                                 <div class="kt-notification__item-details">
                                     <div
                                         class="kt-notification__item-title kt-font-bold"
+                                        style="color: black;"
                                     >
                                         Contraseña
                                     </div>
-                                    <div class="kt-notification__item-time">
+                                    <div
+                                        class="kt-notification__item-time"
+                                        style="color: black;"
+                                    >
                                         Cambiar Contraseñas
                                     </div>
                                 </div>
@@ -298,13 +407,51 @@
                                 class="kt-notification__item"
                             >
                                 <div class="kt-notification__item-icon">
-                                    <i
-                                        class="flaticon2-power kt-font-warning"
-                                    ></i>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 24 24"
+                                        version="1.1"
+                                        class="kt-svg-icon"
+                                    >
+                                        <g
+                                            stroke="none"
+                                            stroke-width="1"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                        >
+                                            <rect
+                                                id="bound"
+                                                x="0"
+                                                y="0"
+                                                width="24"
+                                                height="24"
+                                            />
+                                            <path
+                                                d="M7.62302337,5.30262097 C8.08508802,5.000107 8.70490146,5.12944838 9.00741543,5.59151303 C9.3099294,6.05357769 9.18058801,6.67339112 8.71852336,6.97590509 C7.03468892,8.07831239 6,9.95030239 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,9.99549229 17.0108275,8.15969002 15.3875704,7.04698597 C14.9320347,6.73472706 14.8158858,6.11230651 15.1281448,5.65677076 C15.4404037,5.20123501 16.0628242,5.08508618 16.51836,5.39734508 C18.6800181,6.87911023 20,9.32886071 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,9.26852332 5.38056879,6.77075716 7.62302337,5.30262097 Z"
+                                                id="Oval-25"
+                                                fill="#000000"
+                                                fill-rule="nonzero"
+                                            />
+                                            <rect
+                                                id="Rectangle"
+                                                fill="#000000"
+                                                opacity="0.3"
+                                                x="11"
+                                                y="3"
+                                                width="2"
+                                                height="10"
+                                                rx="1"
+                                            />
+                                        </g>
+                                    </svg>
                                 </div>
                                 <div class="kt-notification__item-details">
                                     <div
                                         class="kt-notification__item-title kt-font-bold"
+                                        style="color: black;"
                                     >
                                         Salir
                                     </div>
@@ -585,6 +732,8 @@ export default {
             nombreUsuario: "",
             rolUsuario: "",
             ente: "",
+            imagen: "NADA",
+            alias: "",
             csrf: document
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content"),
@@ -641,6 +790,8 @@ export default {
                         this.rolUsuario = respuesta.data.rolUsuario;
                         this.ente = respuesta.data.ente;
                         this.entesTotal = respuesta.data.entesTotal;
+                        this.imagen = respuesta.data.imagen;
+                        this.alias = respuesta.data.alias;
                         // $.getJSON(
                         //     "http://www.geoplugin.net/json.gp?jsoncallback=?",
                         //     function(data) {

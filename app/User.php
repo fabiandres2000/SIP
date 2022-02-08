@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre', 'email', 'password', 'rol', 'usuario', 'estado', 'identificacion', 'celular', 'direccion', 'id_entidad',
+        'nombre', 'email', 'password', 'rol', 'usuario', 'estado', 'identificacion', 'celular', 'direccion', 'id_entidad', 'imagen',
     ];
 
     /**
@@ -94,6 +94,7 @@ class User extends Authenticatable
             'usuario' => $data['usuario'],
             'direccion' => $data['direccion'],
             'id_entidad' => Auth::user()->permisos->where('actual', 1)->first()->ente->id,
+            'imagen' => $data['ruta'],
         ]);
     }
     public static function editarestado($estado, $id)
@@ -111,6 +112,7 @@ class User extends Authenticatable
             'celular' => $data['celular'],
             'usuario' => $data['usuario'],
             'direccion' => $data['direccion'],
+            'imagen' => $data['ruta'],
         ]);
         return $respuesta;
     }
@@ -123,7 +125,7 @@ class User extends Authenticatable
     {
         return User::join('entes', 'users.id_entidad', 'entes.id')
             ->where('users.id', $id_user)
-            ->select('entes.alias', 'entes.id', 'entes.sigla', 'entes.poblacion', 'entes.viviendas')
+            ->select('entes.alias', 'entes.id', 'entes.sigla', 'entes.poblacion', 'entes.viviendas', 'lat', 'lng')
             ->first();
     }
 

@@ -24,7 +24,7 @@
       </div>
     </div>
     <!-- end:: Header Mobile -->
-    <div class="kt-grid kt-grid--hor kt-grid--root">
+    <div class="kt-grid kt-grid--hor kt-grid--root" style="background: linear-gradient(to left, #acb1c2 , #bcbfcb  , #e4e4e4  );">
       <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
         <!-- begin:: Aside -->
         <button class="kt-aside-close" id="kt_aside_close_btn">
@@ -58,7 +58,7 @@
             id="kt_footer"
           >
             <div class="kt-footer__copyright">
-              Copyright &copy;2020
+              Copyright &copy;{{fecha}}
               <a href="#">&nbsp;CSI&nbsp;</a> Todos los derechos reservados.
             </div>
           </div>
@@ -84,6 +84,11 @@
     components: {
       Barra,
       Menu
+    },
+    data(){
+      return {
+        fecha: new Date().getFullYear()
+      }
     }
   };
 </script>

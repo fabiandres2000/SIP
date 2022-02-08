@@ -5,7 +5,7 @@
 
 <head>
 
-    
+
     <!--begin::Base Path (base relative path for assets of this page) -->
     <base href="../../../../">
 
@@ -20,13 +20,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
     <script>
         WebFont.load({
-				google: {
-					"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
-				},
-				active: function() {
-					sessionStorage.fonts = true;
-				}
-			});
+            google: {
+                "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+            },
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
     </script>
 
     <!--end::Fonts -->
@@ -52,7 +52,7 @@
 
                 <!--begin::Aside-->
                 <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
-                    style="background-image: url({{ asset('assets/media//bg/1.png')}});">
+                    style="background-image: url({{ asset('assets/media//bg/inicio.png') }});">
                     <div class="kt-grid__item">
                         <a href="#" class="kt-login__logo">
                             {{-- <img src="{{ asset('assets/media/logos/logo-4.png')}}"> --}}
@@ -85,11 +85,10 @@
 
                 <!--begin::Content-->
                 <div
-                    class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-2  kt-login__wrapper"
-                    >
+                    class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-2  kt-login__wrapper">
 
                     <!--begin::Head-->
-                    <div class="kt-login__head" >
+                    <div class="kt-login__head">
                         {{-- <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
                         <a href="#" class="kt-link kt-login__signup-link">Sign Up!</a> --}}
                     </div>
@@ -97,7 +96,7 @@
                     <!--end::Head-->
 
                     <!--begin::Body-->
-                    <div class="kt-login__body" >
+                    <div class="kt-login__body">
                         <!--begin::Signin-->
                         <div class="kt-login__form">
                             <div class="kt-login__title">
@@ -107,8 +106,10 @@
                                 <form class="kt-form">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Usuario ó Email"
-                                            name="email" autocomplete="off" v-model="usuarioData.email" @change="buscarIP"/>
+                                            name="email" autocomplete="off" v-model="usuarioData.email"
+                                            @change="buscarIP" />
                                     </div>
+                                    
                                     <div class="form-group">
                                         <input class="form-control" type="password" placeholder="Contraseña"
                                             name="password" v-model="usuarioData.password" />
@@ -150,7 +151,7 @@
 
     <!-- end:: Page -->
 
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @include('Plantilla.Footer')
 </body>
 

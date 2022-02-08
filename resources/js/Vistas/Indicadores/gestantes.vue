@@ -13,7 +13,7 @@
               <div class="col-lg-3 text-center">
                 <h5>Número gestanes</h5>
                 <vue-ellipse-progress
-                  :progress="95"
+                  :progress="datos.porcentaje_embarazadas"
                   :size="120"
                   :angle="-90"
                   :gap="10"
@@ -150,6 +150,7 @@ export default {
         .getAttribute("content"),
       datos: {
         nro_mujeres_embarazadas: 0,
+        porcentaje_embarazadas: 0,
         nro_adolescentes_embarazadas: 0,
         nro_adolescentes_desescolarizadas: 0,
         nro_adolescentes_lactantes: 0,

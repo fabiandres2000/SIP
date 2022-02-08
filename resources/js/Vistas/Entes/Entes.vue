@@ -69,8 +69,12 @@
                                                 <th>Nombre</th>
                                                 <th>Alias</th>
                                                 <th>Sigla</th>
-                                                <th class="text-right">Población</th>
-                                                <th class="text-right">Viviendas</th>
+                                                <th class="text-right">
+                                                    Población
+                                                </th>
+                                                <th class="text-right">
+                                                    Viviendas
+                                                </th>
                                                 <td class="text-center">
                                                     Estado
                                                 </td>
@@ -391,6 +395,55 @@
                     <form>
                         <div class="form-group row">
                             <label class="col-lg-1 col-form-label"
+                                >Departamento:</label
+                            >
+                            <div class="col-lg-4">
+                                <b-form-select
+                                    v-model.trim="entesData.id_dpto"
+                                    :class="
+                                        entesData.id_dpto == ''
+                                            ? 'is-invalid'
+                                            : 'is-valid'
+                                    "
+                                    @change="cambiarCombo('dpto')"
+                                    ref="id_dpto"
+                                >
+                                    <option value selected>Seleccione</option>
+                                    <option
+                                        v-for="item in dpto_options"
+                                        :value="item.value"
+                                        :key="item.value"
+                                        >{{ item.texto }}</option
+                                    >
+                                </b-form-select>
+                            </div>
+                            <label class="col-lg-1 col-form-label"
+                                >Municipio:</label
+                            >
+                            <div class="col-lg-4">
+                                <b-form-select
+                                    v-model.trim="entesData.id_mun"
+                                    :class="
+                                        entesData.id_mun == ''
+                                            ? 'is-invalid'
+                                            : 'is-valid'
+                                    "
+                                    ref="id_mun"
+                                >
+                                    <option value selected>Seleccione</option>
+                                    <option
+                                        v-for="item in muni_options[
+                                            entesData.id_dpto
+                                        ]"
+                                        :value="item.value"
+                                        :key="item.value"
+                                        >{{ item.texto }}</option
+                                    >
+                                </b-form-select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-1 col-form-label"
                                 >Nombre:</label
                             >
                             <div class="col-lg-6">
@@ -477,6 +530,40 @@
                                 />
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-lg-1 col-form-label"
+                                >Latitud:</label
+                            >
+                            <div class="col-lg-3">
+                                <input
+                                    type="text"
+                                    class="form-control text-capitalize"
+                                    placeholder="Latitud"
+                                    v-model="entesData.lat"
+                                    :class="
+                                        entesData.lat == ''
+                                            ? 'is-invalid'
+                                            : 'is-valid'
+                                    "
+                                />
+                            </div>
+                            <label class="col-lg-1 col-form-label"
+                                >Longitud:</label
+                            >
+                            <div class="col-lg-3">
+                                <input
+                                    type="text"
+                                    class="form-control text-capitalize"
+                                    placeholder="Longitud"
+                                    v-model="entesData.lng"
+                                    :class="
+                                        entesData.lng == ''
+                                            ? 'is-invalid'
+                                            : 'is-valid'
+                                    "
+                                />
+                            </div>
+                        </div>
                         <hr />
                         <div class="text-right">
                             <button
@@ -517,6 +604,8 @@ export default {
             errorDevuelto: [],
             entrarPorError: false,
             txtbusqueda: "",
+            dpto_options: [],
+            muni_options: {},
             entesData: {
                 id: 0,
                 nombre: "",
@@ -524,7 +613,11 @@ export default {
                 sigla: "",
                 poblacion: "",
                 viviendas: "",
-                estado: "Activo"
+                estado: "Activo",
+                id_dpto: "",
+                id_mun: "",
+                lat: "",
+                lng: ""
             },
             csrf: document
                 .querySelector('meta[name="csrf-token"]')
@@ -619,9 +712,12 @@ export default {
             }
         },
         guardar: async function() {
+            
             if (!this.checkForm()) {
                 this.entrarPorError = false;
-                this.errores = [];
+                // this.errores = [];
+                console.log("clo")
+
             } else {
                 this.errores = [];
                 let opcion = "";
@@ -688,6 +784,8 @@ export default {
                 await entesServicios.listar(parametros).then(respuesta => {
                     this.entes = respuesta.data.entes.data;
                     this.paginacion = respuesta.data.paginacion;
+                    this.dpto_options = respuesta.data.arrayDpto;
+                    this.muni_options = respuesta.data.arrayMuni;
                 });
             } catch (error) {
                 switch (error.response.status) {
@@ -714,6 +812,12 @@ export default {
         },
         checkForm(e) {
             this.errores = [];
+            if (!this.entesData.id_dpto) {
+                this.errores.push("EL departamento es obligatorio.");
+            }
+            if (!this.entesData.id_mun) {
+                this.errores.push("EL municipio es obligatorio.");
+            }
             if (!this.entesData.nombre) {
                 this.errores.push("EL nombre es obligatorio.");
             }
@@ -729,6 +833,12 @@ export default {
             if (!this.entesData.viviendas) {
                 this.errores.push("El numero de viviendas es obligatoria.");
             }
+            if (!this.entesData.lat) {
+                this.errores.push("La latitud es obligatoria.");
+            }
+            if (!this.entesData.lng) {
+                this.errores.push("La longitud es obligatoria.");
+            }                        
             if (!this.errores.length) {
                 return true;
             } else {
@@ -814,13 +924,22 @@ export default {
         },
         limpiar() {
             this.entesData.id = 0;
+            this.entesData.id_dpto = "";
+            this.entesData.id_mun = "";
             this.entesData.nombre = "";
             this.entesData.alias = "";
             this.entesData.sigla = "";
             this.entesData.poblacion = "";
             this.entesData.viviendas = "";
+            this.entesData.lat = "";
+            this.entesData.lng = "";
             this.entrarPorError = false;
             this.errores = [];
+        },
+        cambiarCombo: async function(caja) {
+            if (caja === "dpto") {
+                this.entesData.id_mun = "";
+            }
         }
     }
 };

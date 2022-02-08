@@ -335,7 +335,22 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabDP" role="tabpanel">
-                            <form>
+                            <form enctype="multipart/form-data">
+                                <div class="form-group row justify-content-center">
+                                    <!-- <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label> -->
+                                    <div class="col-lg-12 col-xl-12" style="text-align: center;">
+                                        <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_apps_user_add_avatar">
+                                            <div class="kt-avatar__holder" :style="imagen"></div>
+                                            <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
+                                                <i class="fa fa-pen"></i>
+                                                <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" @change="obtenerImagen">
+                                            </label>
+                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>                                
                                 <div class="form-group row">
                                     <div class="col-lg-3">
                                         <label>Identificación:</label>
@@ -1380,7 +1395,22 @@
                             id="tabDP1"
                             role="tabpanel"
                         >
-                            <form>
+                            <form enctype="multipart/form-data">
+                                <div class="form-group row justify-content-center">
+                                    <!-- <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label> -->
+                                    <div class="col-lg-12 col-xl-12" style="text-align: center;">
+                                        <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_apps_user_add_avatar">
+                                            <div class="kt-avatar__holder" :style="imagen1"></div>
+                                            <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
+                                                <i class="fa fa-pen"></i>
+                                                <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" @change="obtenerImagen1">
+                                            </label>
+                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
+                                                <i class="fa fa-times"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>                            
                                 <div class="form-group row">
                                     <div class="col-lg-3">
                                         <label>Identificación:</label>
@@ -2306,6 +2336,7 @@
 <script>
 "use strict";
 import * as usuarioServicios from "../../Servicios/usuarios_servicios";
+import store from "../../store";
 
 import datatable from "datatables.net-bs4";
 require("datatables.net-buttons/js/dataTables.buttons");
@@ -2347,6 +2378,8 @@ export default {
                     value: "General"
                 }
             ],
+            imagenMiniatura: null,
+            imagenMiniatura1: null,
             usuariosData: {
                 id: 0,
                 identificacion: "",
@@ -2359,7 +2392,8 @@ export default {
                 estado: "",
                 celular: "",
                 direccion: "",
-                id_compania: 0
+                id_compania: 0,
+                imagen: null
             },
             editarUsuariosData: {
                 identificacion: "",
@@ -2373,7 +2407,8 @@ export default {
                 celular: "",
                 direccion: "",
                 id_compania: 0,
-                id: 0
+                id: 0,
+                imagen: null
             },
             permisos: {
                 usuarios: "",
@@ -2450,10 +2485,17 @@ export default {
                 desde: 0,
                 hasta: 0
             },
-            offset: 4
+            offset: 4,
+            alias: ""
         };
     },
     computed: {
+        imagen(){
+            return "background-image: url('" + this.imagenMiniatura + "')";
+        },
+        imagen1(){            
+            return "background-image: url('" + this.imagenMiniatura1 + "')";
+        },
         // CLASES Y ERRORES DE CAMPO IDENTIFICACION
         identiError() {
             var valor = this.usuariosData.identificacion.trim();
@@ -2789,6 +2831,7 @@ export default {
                     .listarUsuarios(parametros)
                     .then(respuesta => {
                         this.usuarios = respuesta.data.usuarios;
+                        this.alias = respuesta.data.alias;
                         this.tabla();
                         // this.paginacion = respuesta.data.paginacion;
                     });
@@ -2836,7 +2879,8 @@ export default {
                     usuario: this.usuariosData.usuario,
                     password: this.usuariosData.password,
                     confPassword: this.usuariosData.confPassword,
-                    permisos: this.permisos
+                    permisos: this.permisos,
+                    ruta: this.usuariosData.imagen
                 };
                 try {
                     await usuarioServicios
@@ -3259,6 +3303,7 @@ export default {
             let permi = [];
             this.mostrar = false;
             this.editarUsuariosData = { ...usu };
+            this.imagenMiniatura1 = `${store.state.serverPath}assets/media/${this.alias}/fotos/${this.editarUsuariosData.imagen}`;
             permi = { ...usu.permi };
             this.editarpermisos = permi;
             this.$refs.modalUsuarioEditar.show();
@@ -3278,7 +3323,8 @@ export default {
                     direccion: this.editarUsuariosData.direccion,
                     id: this.editarUsuariosData.id,
                     usuario: this.editarUsuariosData.usuario,
-                    permisos: this.editarpermisos
+                    permisos: this.editarpermisos,
+                    ruta: this.editarUsuariosData.imagen
                 };
                 try {
                     await usuarioServicios
@@ -3489,6 +3535,8 @@ export default {
             this.usuariosData.usuario = "";
             this.usuariosData.password = "";
             this.usuariosData.confPassword = "";
+            this.usuariosData.imagen = null;
+            this.imagenMiniatura = null;
 
             this.permisos.usuarios = "";
             this.permisos.barrios = "";
@@ -3525,6 +3573,8 @@ export default {
             this.editarUsuariosData.celular = "";
             this.editarUsuariosData.direccion = "";
             this.editarUsuariosData.usuario = "";
+            this.editarUsuariosData.imagen = null;
+            this.imagenMiniatura1 = null;
 
             // this.editarpermisos.usuarios = "";
             // this.editarpermisos.barrios = "";
@@ -3575,8 +3625,10 @@ export default {
                             respuesta.data.usuario.celular;
                         this.usuariosData.direccion =
                             respuesta.data.usuario.direccion;
-
+                        this.usuariosData.imagen =
+                            respuesta.data.usuario.imagen;
                         this.permisos = respuesta.data.usuario.permi[0];
+                        this.imagenMiniatura = `${store.state.serverPath}assets/media/${this.alias}/fotos/${this.usuariosData.imagen}`;
                     } else {
                         this.usuariosData.id = 0;
                         this.usuariosData.nombre = "";
@@ -3909,7 +3961,58 @@ export default {
                 $(".dataTables_filter label").css("border", "0");
                 $(".dataTables_filter label").css("padding-bottom", "35px");
             });
-        }
+        },
+        obtenerImagen(e){
+            let file = e.target.files[0];
+            this.usuariosData.imagen = file;            
+            this.cargarImagen(file);
+        },
+        cargarImagen: async function(file) {
+            let reader = new FileReader();
+            reader.onload = (e) =>{
+                this.imagenMiniatura = e.target.result;
+            }
+            reader.readAsDataURL(file);
+
+            let campos = new FormData();   
+            campos.append("_token",this.csrf);
+            campos.append("imagen",this.usuariosData.imagen);
+            await usuarioServicios
+                .usuariosSubirImagen(campos)
+                .then(respuesta => {
+                    this.usuariosData.imagen = respuesta.data.ruta;
+                })
+                .catch(error => {
+                    this.errorDevuelto = error.response.data.errors;
+                    this.entrarPorError = true;
+                });                   
+        },
+        obtenerImagen1(e){
+            let file = e.target.files[0];
+            this.editarUsuariosData.imagen = file;            
+            this.cargarImagen1(file);
+        },
+        cargarImagen1: async function(file) {
+            let reader = new FileReader();
+            reader.onload = (e) =>{
+                this.imagenMiniatura1 = e.target.result;
+            }
+            reader.readAsDataURL(file);
+
+            let campos = new FormData();   
+            campos.append("_token",this.csrf);
+            campos.append("imagen",this.editarUsuariosData.imagen);
+            campos.append("id",this.editarUsuariosData.id);              
+            await usuarioServicios
+                .usuariosEditarSubirImagen(campos)
+                .then(respuesta => {
+                    this.editarUsuariosData.imagen = respuesta.data.ruta;
+                })
+                .catch(error => {
+                    this.errorDevuelto = error.response.data.errors;
+                    this.entrarPorError = true;
+                });                   
+        }        
     }
 };
 </script>

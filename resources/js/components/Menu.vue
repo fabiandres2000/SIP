@@ -11,9 +11,9 @@
                         <img
                             alt="Logo"
                             :src="
-                                `${$store.state.serverPath}assets/media/logos/logoSip1.png`
+                                `${$store.state.serverPath}assets/media/logos/logoSip8.png`
                             "
-                            width="200"
+                            width="180"
                             style="margin-left:5px;"
                         />
                     </a>
@@ -62,7 +62,7 @@
                             </svg>
                         </span>
                         <span>
-                            <svg
+                            <!-- <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="24px"
@@ -96,7 +96,15 @@
                                         transform="translate(9.000003, 11.999999) rotate(-270.000000) translate(-9.000003, -11.999999) "
                                     />
                                 </g>
-                            </svg>
+                            </svg> -->
+                            <img
+                                alt="Logo"
+                                :src="
+                                    `${$store.state.serverPath}assets/media/logos/logooculto1.png`
+                                "
+                                width="70"
+                                style="margin-left:5px;"
+                            />
                         </span>
                     </button>
 
@@ -112,7 +120,7 @@
             <div
                 class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid"
                 id="kt_aside_menu_wrapper"
-                style="background-color: #fff;"
+                style="background: linear-gradient(to bottom, #1D4A7E , #02A3F2  , #32BEA2  );"
             >
                 <div
                     id="kt_aside_menu"
@@ -122,7 +130,11 @@
                     data-ktmenu-dropdown-timeout="500"
                 >
                     <ul class="kt-menu__nav">
-                        <li class="kt-menu__item" aria-haspopup="true">
+                        <li
+                            class="kt-menu__item"
+                            aria-haspopup="true"
+                            style="color: #001e36"
+                        >
                             <router-link to="/" class="kt-menu__link">
                                 <span class="kt-menu__link-icon">
                                     <svg
@@ -607,7 +619,7 @@
                                                 >Bitacora</span
                                             >
                                         </router-link>
-                                    </li>                                    
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -818,6 +830,161 @@
                                             >
                                         </router-link>
                                     </li>
+
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/informes/migrantes"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Población Migrante</span
+                                            >
+                                        </router-link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li
+                            class="kt-menu__item kt-menu__item--submenu"
+                            aria-haspopup="true"
+                            data-ktmenu-submenu-toggle="hover"
+                        >
+                            <a
+                                href="javascript:;"
+                                class="kt-menu__link kt-menu__toggle"
+                            >
+                                <span class="kt-menu__link-icon">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 24 24"
+                                        version="1.1"
+                                        class="kt-svg-icon"
+                                    >
+                                        <g
+                                            stroke="none"
+                                            stroke-width="1"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                        >
+                                            <rect
+                                                id="bound"
+                                                x="0"
+                                                y="0"
+                                                width="24"
+                                                height="24"
+                                            />
+                                            <path
+                                                d="M5.5,2 L18.5,2 C19.3284271,2 20,2.67157288 20,3.5 L20,6.5 C20,7.32842712 19.3284271,8 18.5,8 L5.5,8 C4.67157288,8 4,7.32842712 4,6.5 L4,3.5 C4,2.67157288 4.67157288,2 5.5,2 Z M11,4 C10.4477153,4 10,4.44771525 10,5 C10,5.55228475 10.4477153,6 11,6 L13,6 C13.5522847,6 14,5.55228475 14,5 C14,4.44771525 13.5522847,4 13,4 L11,4 Z"
+                                                id="Combined-Shape"
+                                                fill="#000000"
+                                                opacity="0.3"
+                                            />
+                                            <path
+                                                d="M5.5,9 L18.5,9 C19.3284271,9 20,9.67157288 20,10.5 L20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 L4,10.5 C4,9.67157288 4.67157288,9 5.5,9 Z M11,11 C10.4477153,11 10,11.4477153 10,12 C10,12.5522847 10.4477153,13 11,13 L13,13 C13.5522847,13 14,12.5522847 14,12 C14,11.4477153 13.5522847,11 13,11 L11,11 Z M5.5,16 L18.5,16 C19.3284271,16 20,16.6715729 20,17.5 L20,20.5 C20,21.3284271 19.3284271,22 18.5,22 L5.5,22 C4.67157288,22 4,21.3284271 4,20.5 L4,17.5 C4,16.6715729 4.67157288,16 5.5,16 Z M11,18 C10.4477153,18 10,18.4477153 10,19 C10,19.5522847 10.4477153,20 11,20 L13,20 C13.5522847,20 14,19.5522847 14,19 C14,18.4477153 13.5522847,18 13,18 L11,18 Z"
+                                                id="Combined-Shape"
+                                                fill="#000000"
+                                            />
+                                        </g>
+                                    </svg>
+                                </span>
+                                <span class="kt-menu__link-text">Reportes</span>
+                                <i
+                                    class="kt-menu__ver-arrow la la-angle-right"
+                                ></i>
+                            </a>
+                            <div class="kt-menu__submenu">
+                                <span class="kt-menu__arrow"></span>
+                                <ul class="kt-menu__subnav">
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/gestantes"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Gestantes</span
+                                            >
+                                        </router-link>
+                                    </li>
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/nutricional"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Reporte Nutricional</span
+                                            >
+                                        </router-link>
+                                    </li>
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/cronicos"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Enfermedades Crónicas</span
+                                            >
+                                        </router-link>
+                                    </li>
+
+                                    <li
+                                        class="kt-menu__item kt-menu__item--submenu"
+                                        aria-haspopup="true"
+                                        data-ktmenu-submenu-toggle="hover"
+                                    >
+                                        <router-link
+                                            to="/reportes/migrantes"
+                                            class="kt-menu__link kt-menu__toggle"
+                                        >
+                                            <i
+                                                class="kt-menu__link-bullet kt-menu__link-bullet--line"
+                                            >
+                                                <span></span>
+                                            </i>
+                                            <span class="kt-menu__link-text"
+                                                >Población Migrante</span
+                                            >
+                                        </router-link>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -909,7 +1076,7 @@
                                             >
                                         </router-link>
                                     </li>
-                                    <li
+                                    <!-- <li
                                         class="kt-menu__item kt-menu__item--submenu"
                                         aria-haspopup="true"
                                         data-ktmenu-submenu-toggle="hover"
@@ -927,13 +1094,17 @@
                                                 >Tickets</span
                                             >
                                         </router-link>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </li>
 
                         <li class="kt-menu__item" aria-haspopup="true">
-                            <a href="https://api.whatsapp.com/send?phone=+573017459893" target='_blank' class="kt-menu__link">
+                            <a
+                                href="https://api.whatsapp.com/send?phone=+573017459893"
+                                target="_blank"
+                                class="kt-menu__link"
+                            >
                                 <span class="kt-menu__link-icon">
                                     <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -941,8 +1112,36 @@
                                             <path d="M14,13.381038 L14,3.47213595 L7.99460483,15.4829263 L14,13.381038 Z M4.88230018,17.2353996 L13.2844582,0.431083506 C13.4820496,0.0359007077 13.9625881,-0.12427877 14.3577709,0.0733126292 C14.5125928,0.15072359 14.6381308,0.276261584 14.7155418,0.431083506 L23.1176998,17.2353996 C23.3152912,17.6305824 23.1551117,18.1111209 22.7599289,18.3087123 C22.5664522,18.4054506 22.3420471,18.4197165 22.1378777,18.3482572 L14,15.5 L5.86212227,18.3482572 C5.44509941,18.4942152 4.98871325,18.2744737 4.84275525,17.8574509 C4.77129597,17.6532815 4.78556182,17.4288764 4.88230018,17.2353996 Z" id="Path-99" fill="#000000" fill-rule="nonzero" transform="translate(14.000087, 9.191034) rotate(-315.000000) translate(-14.000087, -9.191034) "/>
                                         </g>
                                     </svg> -->
-                                    <i class="flaticon-whatsapp text-success"></i>
-                                </span> 
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px"
+                                        height="24px"
+                                        viewBox="0 0 24 24"
+                                        version="1.1"
+                                        class="kt-svg-icon"
+                                    >
+                                        <g
+                                            stroke="none"
+                                            stroke-width="1"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                        >
+                                            <rect
+                                                id="bound"
+                                                x="0"
+                                                y="0"
+                                                width="24"
+                                                height="24"
+                                            />
+                                            <path
+                                                d="M12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 Z M11.613922,13.2130341 C11.1688026,13.6581534 10.4887934,13.7685037 9.92575695,13.4869855 C9.36272054,13.2054673 8.68271128,13.3158176 8.23759191,13.760937 L6.72658218,15.2719467 C6.67169475,15.3268342 6.63034033,15.393747 6.60579393,15.4673862 C6.51847004,15.7293579 6.66005003,16.0125179 6.92202169,16.0998418 L8.27584113,16.5511149 C9.57592638,16.9844767 11.009274,16.6461092 11.9783003,15.6770829 L15.9775173,11.6778659 C16.867756,10.7876271 17.0884566,9.42760861 16.5254202,8.3015358 L15.8928491,7.03639343 C15.8688153,6.98832598 15.8371895,6.9444475 15.7991889,6.90644684 C15.6039267,6.71118469 15.2873442,6.71118469 15.0920821,6.90644684 L13.4995401,8.49898884 C13.0544207,8.94410821 12.9440704,9.62411747 13.2255886,10.1871539 C13.5071068,10.7501903 13.3967565,11.4301996 12.9516371,11.8753189 L11.613922,13.2130341 Z"
+                                                id="Combined-Shape"
+                                                fill="#000000"
+                                            />
+                                        </g>
+                                    </svg>
+                                </span>
                                 <span class="kt-menu__link-text"
                                     >Soporte Whatsapp</span
                                 >
@@ -1068,7 +1267,7 @@ export default {
                 await usuarioServicios
                     .iniciar(parametros)
                     .then(respuesta => {
-                        this.rolUsuario = respuesta.data.rolUsuario;                        
+                        this.rolUsuario = respuesta.data.rolUsuario;
                     })
                     .catch(error => {});
             } catch (error) {

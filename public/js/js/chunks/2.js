@@ -10873,7 +10873,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("Ocacional")
+                              _vm._v("OCASIONAL")
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "3" } }, [

@@ -516,6 +516,93 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -543,6 +630,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errorDevuelto: [],
       entrarPorError: false,
       txtbusqueda: "",
+      dpto_options: [],
+      muni_options: {},
       entesData: {
         id: 0,
         nombre: "",
@@ -550,7 +639,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sigla: "",
         poblacion: "",
         viviendas: "",
-        estado: "Activo"
+        estado: "Activo",
+        id_dpto: "",
+        id_mun: "",
+        lat: "",
+        lng: ""
       },
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
       headerTextVariant: "light",
@@ -655,8 +748,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                this.entrarPorError = false;
-                this.errores = [];
+                this.entrarPorError = false; // this.errores = [];
+
+                console.log("clo");
                 _context.next = 23;
                 break;
 
@@ -748,6 +842,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _Servicios_entes_servicios__WEBPACK_IMPORTED_MODULE_1__["listar"](parametros).then(function (respuesta) {
                   _this2.entes = respuesta.data.entes.data;
                   _this2.paginacion = respuesta.data.paginacion;
+                  _this2.dpto_options = respuesta.data.arrayDpto;
+                  _this2.muni_options = respuesta.data.arrayMuni;
                 });
 
               case 6:
@@ -799,6 +895,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     checkForm: function checkForm(e) {
       this.errores = [];
 
+      if (!this.entesData.id_dpto) {
+        this.errores.push("EL departamento es obligatorio.");
+      }
+
+      if (!this.entesData.id_mun) {
+        this.errores.push("EL municipio es obligatorio.");
+      }
+
       if (!this.entesData.nombre) {
         this.errores.push("EL nombre es obligatorio.");
       }
@@ -817,6 +921,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       if (!this.entesData.viviendas) {
         this.errores.push("El numero de viviendas es obligatoria.");
+      }
+
+      if (!this.entesData.lat) {
+        this.errores.push("La latitud es obligatoria.");
+      }
+
+      if (!this.entesData.lng) {
+        this.errores.push("La longitud es obligatoria.");
       }
 
       if (!this.errores.length) {
@@ -918,14 +1030,42 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     limpiar: function limpiar() {
       this.entesData.id = 0;
+      this.entesData.id_dpto = "";
+      this.entesData.id_mun = "";
       this.entesData.nombre = "";
       this.entesData.alias = "";
       this.entesData.sigla = "";
       this.entesData.poblacion = "";
       this.entesData.viviendas = "";
+      this.entesData.lat = "";
+      this.entesData.lng = "";
       this.entrarPorError = false;
       this.errores = [];
-    }
+    },
+    cambiarCombo: function () {
+      var _cambiarCombo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(caja) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (caja === "dpto") {
+                  this.entesData.id_mun = "";
+                }
+
+              case 1:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function cambiarCombo(_x3) {
+        return _cambiarCombo.apply(this, arguments);
+      }
+
+      return cambiarCombo;
+    }()
   }
 });
 
@@ -1638,6 +1778,116 @@ var render = function() {
               _c("form", [
                 _c("div", { staticClass: "form-group row" }, [
                   _c("label", { staticClass: "col-lg-1 col-form-label" }, [
+                    _vm._v("Departamento:")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-4" },
+                    [
+                      _c(
+                        "b-form-select",
+                        {
+                          ref: "id_dpto",
+                          class:
+                            _vm.entesData.id_dpto == ""
+                              ? "is-invalid"
+                              : "is-valid",
+                          on: {
+                            change: function($event) {
+                              return _vm.cambiarCombo("dpto")
+                            }
+                          },
+                          model: {
+                            value: _vm.entesData.id_dpto,
+                            callback: function($$v) {
+                              _vm.$set(
+                                _vm.entesData,
+                                "id_dpto",
+                                typeof $$v === "string" ? $$v.trim() : $$v
+                              )
+                            },
+                            expression: "entesData.id_dpto"
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "", selected: "" } }, [
+                            _vm._v("Seleccione")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.dpto_options, function(item) {
+                            return _c(
+                              "option",
+                              {
+                                key: item.value,
+                                domProps: { value: item.value }
+                              },
+                              [_vm._v(_vm._s(item.texto))]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-lg-1 col-form-label" }, [
+                    _vm._v("Municipio:")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-4" },
+                    [
+                      _c(
+                        "b-form-select",
+                        {
+                          ref: "id_mun",
+                          class:
+                            _vm.entesData.id_mun == ""
+                              ? "is-invalid"
+                              : "is-valid",
+                          model: {
+                            value: _vm.entesData.id_mun,
+                            callback: function($$v) {
+                              _vm.$set(
+                                _vm.entesData,
+                                "id_mun",
+                                typeof $$v === "string" ? $$v.trim() : $$v
+                              )
+                            },
+                            expression: "entesData.id_mun"
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "", selected: "" } }, [
+                            _vm._v("Seleccione")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(
+                            _vm.muni_options[_vm.entesData.id_dpto],
+                            function(item) {
+                              return _c(
+                                "option",
+                                {
+                                  key: item.value,
+                                  domProps: { value: item.value }
+                                },
+                                [_vm._v(_vm._s(item.texto))]
+                              )
+                            }
+                          )
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("label", { staticClass: "col-lg-1 col-form-label" }, [
                     _vm._v("Nombre:")
                   ]),
                   _vm._v(" "),
@@ -1814,6 +2064,68 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("label", { staticClass: "col-lg-1 col-form-label" }, [
+                    _vm._v("Latitud:")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-3" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.entesData.lat,
+                          expression: "entesData.lat"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      class:
+                        _vm.entesData.lat == "" ? "is-invalid" : "is-valid",
+                      attrs: { type: "text", placeholder: "Latitud" },
+                      domProps: { value: _vm.entesData.lat },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.entesData, "lat", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "col-lg-1 col-form-label" }, [
+                    _vm._v("Longitud:")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-3" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.entesData.lng,
+                          expression: "entesData.lng"
+                        }
+                      ],
+                      staticClass: "form-control text-capitalize",
+                      class:
+                        _vm.entesData.lng == "" ? "is-invalid" : "is-valid",
+                      attrs: { type: "text", placeholder: "Longitud" },
+                      domProps: { value: _vm.entesData.lng },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.entesData, "lng", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
                 _c("div", { staticClass: "text-right" }, [
@@ -1882,9 +2194,17 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Sigla")]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-right" }, [_vm._v("Población")]),
+        _c("th", { staticClass: "text-right" }, [
+          _vm._v(
+            "\n                                                Población\n                                            "
+          )
+        ]),
         _vm._v(" "),
-        _c("th", { staticClass: "text-right" }, [_vm._v("Viviendas")]),
+        _c("th", { staticClass: "text-right" }, [
+          _vm._v(
+            "\n                                                Viviendas\n                                            "
+          )
+        ]),
         _vm._v(" "),
         _c("td", { staticClass: "text-center" }, [
           _vm._v(

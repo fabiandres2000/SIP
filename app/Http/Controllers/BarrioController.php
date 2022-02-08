@@ -41,14 +41,14 @@ class BarrioController extends Controller
             $barrios = \App\Barrio::listar($busqueda, Session::get('alias'));
             if ($barrios) {
                 $respuesta = [
-                    // 'paginacion' => [
-                    //     'total' => $barrios->total(),
-                    //     'pagina_actual' => $barrios->currentPage(),
-                    //     'por_pagina' => $barrios->perPage(),
-                    //     'ultima_pagina' => $barrios->lastPage(),
-                    //     'desde' => $barrios->firstItem(),
-                    //     'hasta' => $barrios->lastItem(),
-                    // ],
+                    'paginacion' => [
+                        'total' => $barrios->total(),
+                        'pagina_actual' => $barrios->currentPage(),
+                        'por_pagina' => $barrios->perPage(),
+                        'ultima_pagina' => $barrios->lastPage(),
+                        'desde' => $barrios->firstItem(),
+                        'hasta' => $barrios->lastItem(),
+                    ],
                     'barrios' => $barrios,
                     'arrayDpto' => $arrayDpto,
                     'arrayMuni' => $arrayMuni,
@@ -114,12 +114,12 @@ class BarrioController extends Controller
             $mensaje = "";
             $id = request()->get('id');
             $estado = request()->get('estado');
-            if ($estado == "Activo") {                
+            if ($estado == "Activo") {
                 $estado = "Inactivo";
-                $gua = \App\Log::guardar("Eliminar el barrio con id = ".$id, Session::get('alias'), 'PARAMETROS BARRIOS');
+                $gua = \App\Log::guardar("Eliminar el barrio con id = " . $id, Session::get('alias'), 'PARAMETROS BARRIOS');
             } else {
                 $estado = "Activo";
-                $gua = \App\Log::guardar("Activar el barrio con id = ".$id, Session::get('alias'), 'PARAMETROS BARRIOS');
+                $gua = \App\Log::guardar("Activar el barrio con id = " . $id, Session::get('alias'), 'PARAMETROS BARRIOS');
             }
             $respuesta = \App\Barrio::editarestado($estado, $id, Session::get('alias'));
             return;
@@ -156,6 +156,24 @@ class BarrioController extends Controller
             return response()->json($respuesta, 200);
         } else {
             return redirect("/")->with("error", "Su sesion ha terminado");
+        }
+    }
+
+    public function exportar()
+    {
+        if (Auth::check()) {
+            $datos = request()->all();
+            $busqueda = request()->get('txtbusqueda');
+            $barrios = \App\Barrio::listar2($busqueda, Session::get('alias'));
+            $nombre = 'barrios' . '.pdf';
+            $pdf = app('dompdf.wrapper');
+            $pdf->loadView('Pdf/Barrios/pdf', ['barrios' => $barrios])
+                ->setPaper('letter', 'portrait')
+                ->save($nombre);
+            $respuesta = [
+                'nombre' => $nombre,
+            ];
+            return response()->json($respuesta, 200);
         }
     }
 }

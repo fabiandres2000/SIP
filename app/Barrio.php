@@ -43,7 +43,7 @@ class Barrio extends Model
                     "barrios.id"
                 )
                 ->orderBy('barrios.id', 'DESC')
-                ->get();
+                ->paginate(10);
         } else {
             $respuesta = DB::connection('mysql')->table($alias . '.barrios')
                 ->join($alias . '.dptos', 'dptos.codigo', 'barrios.id_dpto')
@@ -68,7 +68,7 @@ class Barrio extends Model
                     "barrios.id"
                 )
                 ->orderBy('barrios.id', 'DESC')
-                ->get();
+                ->paginate(10);
         }
 
         return $respuesta;
@@ -148,5 +148,67 @@ class Barrio extends Model
             ->orderBy('barrios.id', 'asc')
             ->orderBy('barrios.barrio', 'asc')
             ->get();
+    }
+
+    public static function listar2($busqueda, $alias)
+    {
+        if (!empty($busqueda)) {
+            $respuesta = DB::connection('mysql')->table($alias . '.barrios')
+                ->join($alias . '.dptos', 'dptos.codigo', 'barrios.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'barrios.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', function ($join) {
+                    $join->on('corregimientos.id_dpto', '=', 'dptos.codigo');
+                    $join->on('corregimientos.id_muni', '=', 'muni.codmun');
+                    $join->on('corregimientos.id', '=', 'barrios.id_corre');
+                })
+                ->where(function ($query) use ($busqueda) {
+                    $query->where('barrio', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('muni.descripcion', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhere('dptos.descripcion', 'LIKE', '%' . $busqueda . '%');
+                })
+                ->select("dptos.descripcion AS DEPARTAMENTO",
+                    "dptos.codigo AS dpto",
+                    "muni.descripcion AS MUNICIPIO",
+                    "muni.codmun AS muni",
+                    "corregimientos.descripcion AS CORREGI",
+                    "corregimientos.id AS corregimiento",
+                    "barrios.barrio AS BARRI",
+                    "barrios.id AS barrio",
+                    "barrios.estado AS ESTADO",
+                    "barrios.id"
+                )
+                ->orderBy('barrios.id', 'DESC')
+                ->get();
+        } else {
+            $respuesta = DB::connection('mysql')->table($alias . '.barrios')
+                ->join($alias . '.dptos', 'dptos.codigo', 'barrios.id_dpto')
+                ->join($alias . '.muni', function ($join) {
+                    $join->on('muni.coddep', '=', 'dptos.codigo');
+                    $join->on('muni.codmun', '=', 'barrios.id_mun');
+                })
+                ->leftjoin($alias . '.corregimientos', function ($join) {
+                    $join->on('corregimientos.id_dpto', '=', 'dptos.codigo');
+                    $join->on('corregimientos.id_muni', '=', 'muni.codmun');
+                    $join->on('corregimientos.id', '=', 'barrios.id_corre');
+                })
+                ->select("dptos.descripcion AS DEPARTAMENTO",
+                    "dptos.codigo AS dpto",
+                    "muni.descripcion AS MUNICIPIO",
+                    "muni.codmun AS muni",
+                    "corregimientos.descripcion AS CORREGI",
+                    "corregimientos.id AS corregimiento",
+                    "barrios.barrio AS BARRI",
+                    "barrios.id AS barrio",
+                    "barrios.estado AS ESTADO",
+                    "barrios.id"
+                )
+                ->orderBy('barrios.id', 'DESC')
+                ->get();
+        }
+
+        return $respuesta;
     }
 }

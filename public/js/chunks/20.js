@@ -11,7 +11,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/consultas */ "./resources/js/Servicios/consultas.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _Servicios_consultas__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Servicios/consultas */ "./resources/js/Servicios/consultas.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -615,6 +617,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.iniciales(1);
@@ -689,7 +693,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context.prev = 2;
                 _context.next = 5;
-                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__["jefe"](parametros).then(function (respuesta) {
+                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_2__["jefe"](parametros).then(function (respuesta) {
                   _this.jefes = respuesta.data.jefes.data;
                   _this.paginacion = respuesta.data.paginacion;
                   console.log(_this.jefes);
@@ -731,8 +735,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 };
                 _context2.prev = 1;
                 _context2.next = 4;
-                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_1__["jefespdf"](parametros).then(function (respuesta) {
-                  _this2.ruta = "http://127.0.0.1:8000/" + respuesta.data.nombre;
+                return _Servicios_consultas__WEBPACK_IMPORTED_MODULE_2__["jefespdf"](parametros).then(function (respuesta) {
+                  // this.ruta = "http://127.0.0.1:8000/"+respuesta.data.nombre;
+                  _this2.ruta = _store__WEBPACK_IMPORTED_MODULE_3__["default"].state.apiURL + respuesta.data.nombre;
 
                   _this2.$refs.modalpdf.show();
                 });

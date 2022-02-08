@@ -184,6 +184,7 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amch
       combo: "",
       datos: {
         total_consumidores: 0,
+        porcentaje_consumidores: 0,
         adolescentes_consumidores: 0,
         ninos_consumidores: 0,
         gestantes_consumidores: 0,
@@ -233,6 +234,7 @@ _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amch
                 _context.next = 3;
                 return _Servicios_indicadores__WEBPACK_IMPORTED_MODULE_4__["spa"](data).then(function (respuesta) {
                   _this.datos = respuesta.data["cantidades"];
+                  console.log(_this.datos);
                   _this.poblacion = respuesta.data["poblacion"];
                   _this.serie = [{
                     age: "60+",
@@ -492,7 +494,7 @@ var render = function() {
                     "vue-ellipse-progress",
                     {
                       attrs: {
-                        progress: 95,
+                        progress: _vm.datos.porcentaje_consumidores,
                         size: 120,
                         angle: -90,
                         gap: 10,
@@ -767,7 +769,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-body" }, [
-        _c("h3", [_vm._v("Consumo de SPA")])
+        _c("h3", [_vm._v("Consumo de SPA (Sustancias Psicoactivas)")])
       ])
     ])
   },

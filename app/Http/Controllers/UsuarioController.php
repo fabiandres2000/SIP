@@ -29,6 +29,7 @@ class UsuarioController extends Controller
             Session::put('idusuario', $resultado->id);
             Session::put('sigla', $alias->sigla);
             Session::put('ip', $ip);
+            // Session::put('imagen', Auth::user()->imagen);
             $opc = true;
             $mensaje = "Usuario logueado";
 
@@ -76,6 +77,7 @@ class UsuarioController extends Controller
                     //     'hasta' => $usuarios->lastItem(),
                     // ],
                     'usuarios' => $usuarios,
+                    'alias' => Auth::user()->permisos->where('actual', 1)->first()->ente->alias,
                 ];
                 return response()->json($respuesta, 200);
             } else {
@@ -93,7 +95,6 @@ class UsuarioController extends Controller
         if (Auth::check()) {
             $data = request()->all();
             $usuarios = null;
-
             if ($data["id"] == 0) {
                 request()->validate([
                     'identificacion' => 'required|unique:users,identificacion',
@@ -114,6 +115,7 @@ class UsuarioController extends Controller
                     'usuario.required' => 'El usuario es obligatorio',
                     'usuario.unique' => 'El usuario ya se encuentra registrado',
                 ]);
+
                 $usuarios = \App\User::guardar($data);
             } else {
                 $usuario = \App\User::buscarUsuario($data['id']);
@@ -274,6 +276,8 @@ class UsuarioController extends Controller
             'rolUsuario' => Auth::user()->rol,
             'ente' => Auth::user()->permisos->where('actual', 1)->first()->ente->nombre,
             'entesTotal' => $entesTotal->count() ?? 0,
+            'imagen' => Auth::user()->imagen,
+            'alias' => Auth::user()->permisos->where('actual', 1)->first()->ente->alias,
         ];
         return response()->json($respuesta, 200);
         // return redirect('/')->with('success', 'Sesion Finalizada');
@@ -362,7 +366,7 @@ class UsuarioController extends Controller
             $fecha = $data['fecha'];
 
             $logs = \App\Log::buscar(Session::get('alias'), $data);
-            
+
             if ($logs) {
                 $respuesta = [
                     'logs' => $logs,
@@ -386,4 +390,74 @@ class UsuarioController extends Controller
             return redirect("/index")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function usuariosSubirImagen()
+    {
+        $data = request()->all();
+        $filename1 = "NADA";
+        $hasFile1 = request()->hasFile('imagen') && request()->imagen->isValid();
+        if ($hasFile1) {
+            $imagen_tmp1 = $data['imagen'];
+            if ($imagen_tmp1->isValid()) {
+                $filename1 = 'foto_usuario_' . date('Y-m-d h:i:s A');
+                $imagen_tmp1->move(public_path() . '/assets/media/' . Auth::user()->permisos->where('actual', 1)->first()->ente->alias . '/fotos/', $filename1);
+            }
+        }
+        $respuesta = [
+            'ruta' => $filename1,
+        ];
+        return response()->json($respuesta, 200);
+    }
+
+    public function usuariosEditarSubirImagen()
+    {
+        $data = request()->all();
+        $usuario = \App\User::buscarUsuario($data['id']);
+
+        if ($usuario) {
+            try {
+                unlink(public_path() . '/assets/media/' . Auth::user()->permisos->where('actual', 1)->first()->ente->alias . '/fotos/' . $usuario->imagen);
+            } catch (\Exception $e) {
+
+            }
+        }
+        $filename1 = "NADA";
+        $hasFile1 = request()->hasFile('imagen') && request()->imagen->isValid();
+        if ($hasFile1) {
+            $imagen_tmp1 = $data['imagen'];
+            if ($imagen_tmp1->isValid()) {
+                $filename1 = 'foto_usuario_' . date('Y-m-d h:i:s A');
+                $imagen_tmp1->move(public_path() . '/assets/media/' . Auth::user()->permisos->where('actual', 1)->first()->ente->alias . '/fotos/', $filename1);
+            }
+        }
+        $respuesta = [
+            'ruta' => $filename1,
+        ];
+        return response()->json($respuesta, 200);
+    }
+
+    public function perfil()
+    {
+        if (Auth::check()) {
+            $data = request()->all();
+            $usuarios = \App\User::where('id', Auth::user()->id)
+                ->first();
+
+            if ($usuarios) {
+                $respuesta = [
+                    'usuarios' => $usuarios,
+                    'alias' => Auth::user()->permisos->where('actual', 1)->first()->ente->alias,
+                ];
+                return response()->json($respuesta, 200);
+            } else {
+                $respuesta = [
+                    'MENSAJE' => "Ocurrio un error...",
+                ];
+                return response()->json("Error", 500);
+            }
+        } else {
+            return redirect("/index")->with("error", "Su sesion ha terminado");
+        }
+    }
+
 }

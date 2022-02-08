@@ -16,7 +16,7 @@ class Caracterizacion extends Model
         'tipo_afiliacion', 'embarazo', 'embarazo_multiple', 'discapacidad', 'nivel_escolaridad',
         'ocupacion', 'colegio', 'grado', 'etnia', 'clasificacion', 'entiende', 'pyp', 'migrante', 'otra_eps',
         'orientacion', 'identidad_genero', 'perdida_peso', 'programa_icbf', 'identi_auxi', 'peso', 'talla',
-        'tipo_empleo', 'percargo', 'actividad_fisica',
+        'tipo_empleo', 'percargo', 'actividad_fisica', 'vacuna',
     ];
 
     public static function listar($busqueda, $alias)
@@ -140,7 +140,7 @@ class Caracterizacion extends Model
                     ->selectRaw('CONCAT_WS(" ",caracterizacion.pnom," ",caracterizacion.snom," ",caracterizacion.pape," ",caracterizacion.sape) AS USUARIO')
                     ->orderBy('caracterizacion.id', 'DESC')
                     ->paginate(10);
-            }            
+            }
         }
 
         return $respuesta;
@@ -205,6 +205,8 @@ class Caracterizacion extends Model
             'tipo_empleo' => $data['tipo_empleo'],
             'percargo' => $data['percargo'],
             'actividad_fisica' => $data['actividad_fisica'],
+            'vacuna' => $data['vacuna'],
+            
         ]);
     }
     public static function modificar($data, $alias, $id)
@@ -265,6 +267,7 @@ class Caracterizacion extends Model
             'tipo_empleo' => $data['tipo_empleo'],
             'percargo' => $data['percargo'],
             'actividad_fisica' => $data['actividad_fisica'],
+            'vacuna' => $data['vacuna'],
         ]);
     }
     public static function verificar($identificacion, $alias)

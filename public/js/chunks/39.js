@@ -12,16 +12,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/usuarios_servicios */ "./resources/js/Servicios/usuarios_servicios.js");
-/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
-/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! datatables.net-buttons/js/buttons.print */ "./node_modules/datatables.net-buttons/js/buttons.print.js");
-/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jszip/dist/jszip */ "./node_modules/jszip/dist/jszip.js");
-/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
+/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
+/* harmony import */ var datatables_net_bs4__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(datatables_net_bs4__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! datatables.net-buttons/js/buttons.print */ "./node_modules/datatables.net-buttons/js/buttons.print.js");
+/* harmony import */ var datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(datatables_net_buttons_js_buttons_print__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jszip/dist/jszip */ "./node_modules/jszip/dist/jszip.js");
+/* harmony import */ var jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
+/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_7__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2344,6 +2375,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 __webpack_require__(/*! datatables.net-buttons/js/dataTables.buttons */ "./node_modules/datatables.net-buttons/js/dataTables.buttons.js");
 
 __webpack_require__(/*! datatables.net-buttons/js/buttons.html5 */ "./node_modules/datatables.net-buttons/js/buttons.html5.js");
@@ -2352,8 +2384,8 @@ __webpack_require__(/*! datatables.net-buttons/js/buttons.html5 */ "./node_modul
 
 
 
-pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_5___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_6___default.a.pdfMake.vfs;
-window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
+pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_6___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_7___default.a.pdfMake.vfs;
+window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_5___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.consultar(1);
@@ -2380,6 +2412,8 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
         texto: "General",
         value: "General"
       }],
+      imagenMiniatura: null,
+      imagenMiniatura1: null,
       usuariosData: {
         id: 0,
         identificacion: "",
@@ -2392,7 +2426,8 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
         estado: "",
         celular: "",
         direccion: "",
-        id_compania: 0
+        id_compania: 0,
+        imagen: null
       },
       editarUsuariosData: {
         identificacion: "",
@@ -2406,7 +2441,8 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
         celular: "",
         direccion: "",
         id_compania: 0,
-        id: 0
+        id: 0,
+        imagen: null
       },
       permisos: {
         usuarios: "",
@@ -2476,10 +2512,17 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
         desde: 0,
         hasta: 0
       },
-      offset: 4
+      offset: 4,
+      alias: ""
     };
   },
   computed: {
+    imagen: function imagen() {
+      return "background-image: url('" + this.imagenMiniatura + "')";
+    },
+    imagen1: function imagen1() {
+      return "background-image: url('" + this.imagenMiniatura1 + "')";
+    },
     // CLASES Y ERRORES DE CAMPO IDENTIFICACION
     identiError: function identiError() {
       var valor = this.usuariosData.identificacion.trim();
@@ -2810,6 +2853,7 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
                 _context.next = 5;
                 return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["listarUsuarios"](parametros).then(function (respuesta) {
                   _this2.usuarios = respuesta.data.usuarios;
+                  _this2.alias = respuesta.data.alias;
 
                   _this2.tabla(); // this.paginacion = respuesta.data.paginacion;
 
@@ -2897,7 +2941,8 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
                   usuario: this.usuariosData.usuario,
                   password: this.usuariosData.password,
                   confPassword: this.usuariosData.confPassword,
-                  permisos: this.permisos
+                  permisos: this.permisos,
+                  ruta: this.usuariosData.imagen
                 };
                 _context2.prev = 6;
                 _context2.next = 9;
@@ -3362,6 +3407,7 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
       var permi = [];
       this.mostrar = false;
       this.editarUsuariosData = _objectSpread({}, usu);
+      this.imagenMiniatura1 = "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/").concat(this.alias, "/fotos/").concat(this.editarUsuariosData.imagen);
       permi = _objectSpread({}, usu.permi);
       this.editarpermisos = permi;
       this.$refs.modalUsuarioEditar.show();
@@ -3396,7 +3442,8 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
                   direccion: this.editarUsuariosData.direccion,
                   id: this.editarUsuariosData.id,
                   usuario: this.editarUsuariosData.usuario,
-                  permisos: this.editarpermisos
+                  permisos: this.editarpermisos,
+                  ruta: this.editarUsuariosData.imagen
                 };
                 _context4.prev = 6;
                 _context4.next = 9;
@@ -3622,6 +3669,8 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
       this.usuariosData.usuario = "";
       this.usuariosData.password = "";
       this.usuariosData.confPassword = "";
+      this.usuariosData.imagen = null;
+      this.imagenMiniatura = null;
       this.permisos.usuarios = "";
       this.permisos.barrios = "";
       this.permisos.corregimientos = "";
@@ -3656,7 +3705,9 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
       this.editarUsuariosData.rol = "";
       this.editarUsuariosData.celular = "";
       this.editarUsuariosData.direccion = "";
-      this.editarUsuariosData.usuario = ""; // this.editarpermisos.usuarios = "";
+      this.editarUsuariosData.usuario = "";
+      this.editarUsuariosData.imagen = null;
+      this.imagenMiniatura1 = null; // this.editarpermisos.usuarios = "";
       // this.editarpermisos.barrios = "";
       // this.editarpermisos.corregimientos = "";
       // this.editarpermisos.etnias = "";
@@ -3706,7 +3757,9 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
                     _this6.usuariosData.usuario = respuesta.data.usuario.usuario;
                     _this6.usuariosData.celular = respuesta.data.usuario.celular;
                     _this6.usuariosData.direccion = respuesta.data.usuario.direccion;
+                    _this6.usuariosData.imagen = respuesta.data.usuario.imagen;
                     _this6.permisos = respuesta.data.usuario.permi[0];
+                    _this6.imagenMiniatura = "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/").concat(_this6.alias, "/fotos/").concat(_this6.usuariosData.imagen);
                   } else {
                     _this6.usuariosData.id = 0;
                     _this6.usuariosData.nombre = "";
@@ -3739,7 +3792,7 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
       var _this7 = this;
 
       this.$nextTick(function () {
-        $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_2___default.a;
+        $.fn.DataTable = datatables_net_bs4__WEBPACK_IMPORTED_MODULE_3___default.a;
         _this7.tabladatos = $("#tablaDatos").DataTable({
           // bFilter: false,
           orderCellsTop: true,
@@ -4019,7 +4072,100 @@ window.JSZip = jszip_dist_jszip__WEBPACK_IMPORTED_MODULE_4___default.a;
         $(".dataTables_filter label").css("border", "0");
         $(".dataTables_filter label").css("padding-bottom", "35px");
       });
-    }
+    },
+    obtenerImagen: function obtenerImagen(e) {
+      var file = e.target.files[0];
+      this.usuariosData.imagen = file;
+      this.cargarImagen(file);
+    },
+    cargarImagen: function () {
+      var _cargarImagen = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(file) {
+        var _this8 = this;
+
+        var reader, campos;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                reader = new FileReader();
+
+                reader.onload = function (e) {
+                  _this8.imagenMiniatura = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+                campos = new FormData();
+                campos.append("_token", this.csrf);
+                campos.append("imagen", this.usuariosData.imagen);
+                _context6.next = 8;
+                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["usuariosSubirImagen"](campos).then(function (respuesta) {
+                  _this8.usuariosData.imagen = respuesta.data.ruta;
+                })["catch"](function (error) {
+                  _this8.errorDevuelto = error.response.data.errors;
+                  _this8.entrarPorError = true;
+                });
+
+              case 8:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function cargarImagen(_x3) {
+        return _cargarImagen.apply(this, arguments);
+      }
+
+      return cargarImagen;
+    }(),
+    obtenerImagen1: function obtenerImagen1(e) {
+      var file = e.target.files[0];
+      this.editarUsuariosData.imagen = file;
+      this.cargarImagen1(file);
+    },
+    cargarImagen1: function () {
+      var _cargarImagen2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7(file) {
+        var _this9 = this;
+
+        var reader, campos;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                reader = new FileReader();
+
+                reader.onload = function (e) {
+                  _this9.imagenMiniatura1 = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+                campos = new FormData();
+                campos.append("_token", this.csrf);
+                campos.append("imagen", this.editarUsuariosData.imagen);
+                campos.append("id", this.editarUsuariosData.id);
+                _context7.next = 9;
+                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["usuariosEditarSubirImagen"](campos).then(function (respuesta) {
+                  _this9.editarUsuariosData.imagen = respuesta.data.ruta;
+                })["catch"](function (error) {
+                  _this9.errorDevuelto = error.response.data.errors;
+                  _this9.entrarPorError = true;
+                });
+
+              case 9:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, this);
+      }));
+
+      function cargarImagen1(_x4) {
+        return _cargarImagen2.apply(this, arguments);
+      }
+
+      return cargarImagen1;
+    }()
   }
 });
 
@@ -4599,7 +4745,76 @@ var render = function() {
                     attrs: { id: "tabDP", role: "tabpanel" }
                   },
                   [
-                    _c("form", [
+                    _c("form", { attrs: { enctype: "multipart/form-data" } }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group row justify-content-center"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-lg-12 col-xl-12",
+                              staticStyle: { "text-align": "center" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "kt-avatar kt-avatar--outline kt-avatar--circle-",
+                                  attrs: { id: "kt_apps_user_add_avatar" }
+                                },
+                                [
+                                  _c("div", {
+                                    staticClass: "kt-avatar__holder",
+                                    style: _vm.imagen
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "kt-avatar__upload",
+                                      attrs: {
+                                        "data-toggle": "kt-tooltip",
+                                        title: "",
+                                        "data-original-title": "Change avatar"
+                                      }
+                                    },
+                                    [
+                                      _c("i", { staticClass: "fa fa-pen" }),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        attrs: {
+                                          type: "file",
+                                          name: "profile_avatar",
+                                          accept: ".png, .jpg, .jpeg"
+                                        },
+                                        on: { change: _vm.obtenerImagen }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "kt-avatar__cancel",
+                                      attrs: {
+                                        "data-toggle": "kt-tooltip",
+                                        title: "",
+                                        "data-original-title": "Cancel avatar"
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "fa fa-times" })]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
                       _c("div", { staticClass: "form-group row" }, [
                         _c("div", { staticClass: "col-lg-3" }, [
                           _c("label", [_vm._v("Identificación:")]),
@@ -7022,7 +7237,76 @@ var render = function() {
                     attrs: { id: "tabDP1", role: "tabpanel" }
                   },
                   [
-                    _c("form", [
+                    _c("form", { attrs: { enctype: "multipart/form-data" } }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "form-group row justify-content-center"
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col-lg-12 col-xl-12",
+                              staticStyle: { "text-align": "center" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "kt-avatar kt-avatar--outline kt-avatar--circle-",
+                                  attrs: { id: "kt_apps_user_add_avatar" }
+                                },
+                                [
+                                  _c("div", {
+                                    staticClass: "kt-avatar__holder",
+                                    style: _vm.imagen1
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "kt-avatar__upload",
+                                      attrs: {
+                                        "data-toggle": "kt-tooltip",
+                                        title: "",
+                                        "data-original-title": "Change avatar"
+                                      }
+                                    },
+                                    [
+                                      _c("i", { staticClass: "fa fa-pen" }),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        attrs: {
+                                          type: "file",
+                                          name: "profile_avatar",
+                                          accept: ".png, .jpg, .jpeg"
+                                        },
+                                        on: { change: _vm.obtenerImagen1 }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "kt-avatar__cancel",
+                                      attrs: {
+                                        "data-toggle": "kt-tooltip",
+                                        title: "",
+                                        "data-original-title": "Cancel avatar"
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "fa fa-times" })]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
                       _c("div", { staticClass: "form-group row" }, [
                         _c("div", { staticClass: "col-lg-3" }, [
                           _c("label", [_vm._v("Identificación:")]),

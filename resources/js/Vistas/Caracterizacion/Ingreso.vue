@@ -3309,7 +3309,17 @@
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -7777,9 +7787,17 @@
                               :class="item.sustanciaspsico==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="Alcohol">Alcohol</option>
-                              <option value="Tabaco">Tabaco</option>
-                              <option value="Spa">Spa</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -8919,7 +8937,17 @@
                             >
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -9385,7 +9413,17 @@
                               :class="item.spa==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -9948,7 +9986,17 @@
                               :class="item.spa==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -10449,7 +10497,17 @@
                               :class="item.spa==''?'is-invalid':'is-valid'"
                             >
                               <option value selected>Seleccione</option>
-                              <option value="SI">SI</option>
+                              <option value="COCAINA">COCAINA</option>
+                              <option value="ANFETAMINAS">ANFETAMINAS</option>
+                              <option value="BENZODIACEPINAS">BENZODIACEPINAS</option>
+                              <option value="CANNABI">CANNABI</option>
+                              <option value="LSD">LSD</option>
+                              <option value="EXTASIS">EXTASIS</option>
+                              <option value="PEGAMENTO">PEGAMENTO</option>
+                              <option value="HONGOS">HONGOS</option>
+                              <option value="HEROINA">HEROINA</option>
+                              <option value="DISOLVENTES">DISOLVENTES</option>
+                              <option value="OTROS">OTROS</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -11979,7 +12037,7 @@
 
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">8</td>
-                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hidrico</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hídrico</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_recurso_hidrico }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_recurso_hidrico">{{ RieAmbInh.va_riesgos_recurso_hidrico }}</span>
@@ -12216,7 +12274,7 @@
                         @change="cambioComboRA('RD')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12229,7 +12287,7 @@
                         :class="datosRA.obras_ingenieria_RD==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12268,7 +12326,7 @@
                         :class="datosRA.proteccion_RD==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12281,7 +12339,7 @@
                         :class="datosRA.zona_vivienda_RD==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12317,7 +12375,7 @@
                         @change="cambioComboRA('RI')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12330,7 +12388,7 @@
                         :class="datosRA.gaviones_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12369,7 +12427,7 @@
                         :class="datosRA.dragado_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12382,7 +12440,7 @@
                         :class="datosRA.barreras_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12398,7 +12456,7 @@
                         :class="datosRA.zona_vivienda_RI==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12432,7 +12490,7 @@
                         :class="datosRA.sistema_recoleccion_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12446,7 +12504,7 @@
                         @change="cambioComboRA('RIN')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12484,7 +12542,7 @@
                         :class="datosRA.control_plagas_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12497,7 +12555,7 @@
                         :class="datosRA.limpieza_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12512,7 +12570,7 @@
                         :class="datosRA.tipo_tratamiento_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12525,7 +12583,7 @@
                         :class="datosRA.clasificacion_residuos_RIN==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12560,7 +12618,7 @@
                         @change="cambioComboRA('RA')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12573,7 +12631,7 @@
                         :class="datosRA.humectacion_RA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12611,7 +12669,7 @@
                         :class="datosRA.sistema_RA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12624,7 +12682,7 @@
                         :class="datosRA.concientizacion_RA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12659,7 +12717,7 @@
                         @change="cambioComboRA('RRS')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12672,7 +12730,7 @@
                         :class="datosRA.concientizacion_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12710,7 +12768,7 @@
                         :class="datosRA.mantenimiento_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12723,7 +12781,7 @@
                         :class="datosRA.mantenimiento_solicitado_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12738,7 +12796,7 @@
                         :class="datosRA.fertilizantes_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12751,7 +12809,7 @@
                         :class="datosRA.clasificacion_RRS==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12786,7 +12844,7 @@
                         @change="cambioComboRA('RQ')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12799,7 +12857,7 @@
                         :class="datosRA.concientizacion_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12837,7 +12895,7 @@
                         :class="datosRA.bomberos_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12850,7 +12908,7 @@
                         :class="datosRA.servicio_programado_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12865,7 +12923,7 @@
                         :class="datosRA.servicio_solicitud_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12878,7 +12936,7 @@
                         :class="datosRA.aprovechamiento_RQ==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12913,20 +12971,20 @@
                         @change="cambioComboRA('RAU')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
                       </b-form-select>
                     </div>                    
                     <div class="col-md-6">
-                      <label>Regulación de indutrias contaminantes:</label>
+                      <label>Regulación de industrias contaminantes:</label>
                       <b-form-select
                         v-model="datosRA.regulacion_RAU"
                         :class="datosRA.regulacion_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12964,7 +13022,7 @@
                         :class="datosRA.mediciones_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12977,7 +13035,7 @@
                         :class="datosRA.zona_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -12992,7 +13050,7 @@
                         :class="datosRA.decibeles_RAU==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13015,7 +13073,7 @@
                 <div class="col-md-12" v-if="banConRieAmb=='RRH'">
                   <center>
                     <p>
-                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgo recurso hidrico</span>
+                      <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgo recurso hídrico</span>
                     </p>
                   </center>
                   <div class="form-group row">
@@ -13027,7 +13085,7 @@
                         @change="cambioComboRA('RRH')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13040,7 +13098,7 @@
                         :class="datosRA.concientizacion_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13078,7 +13136,7 @@
                         :class="datosRA.manejo_aguas_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13091,7 +13149,7 @@
                         :class="datosRA.programa_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13106,7 +13164,7 @@
                         :class="datosRA.control_industrias_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13119,7 +13177,7 @@
                         :class="datosRA.mantenimiento_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13134,7 +13192,7 @@
                         :class="datosRA.mantenimiento_captacion_RRH==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13169,7 +13227,7 @@
                         @change="cambioComboRA('RRA')"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13182,7 +13240,7 @@
                         :class="datosRA.tratamiento_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13220,7 +13278,7 @@
                         :class="datosRA.concientizacion_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13233,7 +13291,7 @@
                         :class="datosRA.sistema_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13248,7 +13306,7 @@
                         :class="datosRA.programa_RAA==''?'':'is-valid'"
                       >
                         <option value selected>Seleccione</option>
-                        <option value="OCACIONAL">OCACIONAL</option>
+                        <option value="OCASIONAL">OCASIONAL</option>
                         <option value="PERIODICO">PERIODICO</option>
                         <option value="PERMANENTE">PERMANENTE</option>
                         <option value="NO">NO</option>
@@ -13278,7 +13336,8657 @@
             </form>
           </div>
         </b-modal>
-        <!--begin::Modal RIESGOS AMBIENTALES-->                
+        <!--begin::Modal RIESGOS AMBIENTALES-->
+
+
+        <!--begin::Modal RIESGOS SALUD cart. X ciclo-->
+        <b-modal
+          ref="modalRieSal1"
+          hide-footer
+          title="Controles de los riesgos salud"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block" v-if="banderaControles1">
+            <ul
+              class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success"
+              role="tablist"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#tabMen1a"
+                  role="tab"
+                >PRIMERA INFANCIA NIÑOS(AS) MENORES DE UN AÑO</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#tabDe1a5"
+                  role="tab"
+                >PRIMERA INFANCIA NIÑOS(AS) DE 1 A 5 AÑOS (12 a 60 Meses)</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#tabDe6a11"
+                  role="tab"
+                >INFANCIA NIÑOS(AS) DE 6 A 11 AÑOS</a>
+              </li>           
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tabMen1a" role="tabpanel">
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los integrantes</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
+                        <thead class>
+                          <tr class="kt-bg-fill-brand">
+                            <th>No.</th>
+                            <th>Integrante</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item, index) in datosRSMEN1A" :value="item.value" :key="item.value">
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">{{(index + 1)}}</td>  
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{item.tipo_id}}:{{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="mostrarRiesgoSalMen1a(index)"
+                              >
+                                <i class="fa fa-check"></i>
+                              </button>
+                            </td>                            
+                          </tr>
+                        </tbody>                   
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los riesgos</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive" style="height:370px;">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                            <th style="vertical-align: middle;text-align: left;">Riesgo</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr v-for="(item, index) in vectorAuxRSMEN1A" :value="item.value" :key="item.value">
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.texto }}</td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
+                            </td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
+                            </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-primary"
+                                type="button"
+                                title="Controles"
+                                @click="controlRSMEN1A(item.boton,'MEN1A',item.id,index)"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>                            
+                          </tr>                          
+                        </tbody>  
+                      </table>
+                    </div>                    
+                  </div>
+                </div>                
+              </div>
+              <div class="tab-pane" id="tabDe1a5" role="tabpanel">
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los integrantes de 1 a 5 años</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
+                        <thead class>
+                          <tr class="kt-bg-fill-brand">
+                            <th>No.</th>
+                            <th>Integrante</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item, index) in datosRSDE1A5" :value="item.value" :key="item.value">
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">{{(index + 1)}}</td>  
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{item.tipo_id}}:{{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="mostrarRiesgoSalDe1a5(index)"
+                              >
+                                <i class="fa fa-check"></i>
+                              </button>
+                            </td>                            
+                          </tr>
+                        </tbody>                   
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los riesgos</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive" style="height:370px;">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                            <th style="vertical-align: middle;text-align: left;">Riesgo</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr v-for="(item, index) in vectorAuxRSDE1A5" :value="item.value" :key="item.value">
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.texto }}</td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
+                            </td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
+                            </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-primary"
+                                type="button"
+                                title="Controles"
+                                @click="controlRSDE1A5(item.boton,'DE1A5',item.id,index)"
+
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>                            
+                          </tr>  
+                        </tbody>                        
+                      </table>
+                    </div>                      
+                  </div>                  
+                </div>
+              </div>
+              <div class="tab-pane" id="tabDe6a11" role="tabpanel">
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los integrantes de 6 a 11 años</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
+                        <thead class>
+                          <tr class="kt-bg-fill-brand">
+                            <th>No.</th>
+                            <th>Integrante</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item, index) in datosRSDE6A11" :value="item.value" :key="item.value">
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">{{(index + 1)}}</td>  
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{item.tipo_id}}:{{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="mostrarRiesgoSalDe6a11(index)"
+                              >
+                                <i class="fa fa-check"></i>
+                              </button>
+                            </td>                            
+                          </tr>
+                        </tbody>                   
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los riesgos</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive" style="height:370px;">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                            <th style="vertical-align: middle;text-align: left;">Riesgo</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr v-for="(item, index) in vectorAuxRSDE6A11" :value="item.value" :key="item.value">
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.texto }}</td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
+                            </td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
+                            </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-primary"
+                                type="button"
+                                title="Controles"
+                                @click="controlRSDE6A11(item.boton,'DE6A11',item.id,index)"
+
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>                            
+                          </tr>  
+                        </tbody>                        
+                      </table>
+                    </div>                    
+                  </div>                
+                </div>
+              </div>
+            </div>                  
+            <div class="text-right">
+              <button type="button" class="btn btn-warning" @click="cerrarModal">
+                <i class="fa fa-window-close"></i> Cerrar
+              </button>                             
+            </div>
+          </div>
+          <div class="d-block" v-else>
+            <div v-if="tipoRieSal1 == 'MEN1A'">
+              <!-- Enfermedades Infeccisosas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnIn'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Infeccisosas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Alimentación saludable :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.alimentacion_saludable_EnIn"
+                      :class="datosRSMEN1A_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Asistencia a crecimiento  y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_crecimiento_EnIn"
+                      :class="datosRSMEN1A_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Fumigación, control de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.fumigacion_EnIn"
+                      :class="datosRSMEN1A_RR.fumigacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Sistemas de recolección de basuras :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.sistema_recoleccion_EnIn"
+                      :class="datosRSMEN1A_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Desparacitación  inferior a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.desparacitacion_EnIn"
+                      :class="datosRSMEN1A_RR.desparacitacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.inmunizacion_EnIn"
+                      :class="datosRSMEN1A_RR.inmunizacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.educacion_EnIn"
+                      :class="datosRSMEN1A_RR.educacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.mantenimiento_EnIn"
+                      :class="datosRSMEN1A_RR.mantenimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Citas por valoración integral al dia :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.citas_EnIn"
+                      :class="datosRSMEN1A_RR.citas_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                          
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','EnIn')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Infeccisosas -->
+
+              <!-- Trastornos Asociados al uso de SPA -->
+              <div class="col-md-12" v-if="banConRieSal1=='TrAsSPA'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Asociados al uso de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización de la familia :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.educacion_TrAsSPA"
+                      :class="datosRSMEN1A_RR.educacion_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento terapeutico :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.acompaniamiento_TrAsSPA"
+                      :class="datosRSMEN1A_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','TrAsSPA')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Asociados al uso de SPA -->
+
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnCaAt'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedad Cardiovascular Aterogénica</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_crecimiento_EnCaAt"
+                      :class="datosRSMEN1A_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.educacion_EnCaAt"
+                      :class="datosRSMEN1A_RR.educacion_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Actividad fisica:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.actividad_EnCaAt"
+                      :class="datosRSMEN1A_RR.actividad_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','EnCaAt')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+
+              <!-- Cancer -->
+              <div class="col-md-12" v-if="banConRieSal1=='Ca'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Cancer</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_crecimiento_Ca"
+                      :class="datosRSMEN1A_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.educacion_Ca"
+                      :class="datosRSMEN1A_RR.educacion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.valoracion_Ca"
+                      :class="datosRSMEN1A_RR.valoracion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','Ca')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Cancer -->
+
+              <!-- Alteraciones y Transtornos Visuales -->
+              <div class="col-md-12" v-if="banConRieSal1=='AlTrVi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos Visuales</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_crecimiento_AlTrVi"
+                      :class="datosRSMEN1A_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.valoracion_AlTrVi"
+                      :class="datosRSMEN1A_RR.valoracion_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','AlTrVi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos Visuales -->
+
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+              <div class="col-md-12" v-if="banConRieSal1=='AlTrAuCo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos de la Audición y Comunicación</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_crecimiento_AlTrAuCo"
+                      :class="datosRSMEN1A_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.valoracion_AlTrAuCo"
+                      :class="datosRSMEN1A_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','AlTrAuCo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+
+              <!-- Salud Bucal -->
+              <div class="col-md-12" v-if="banConRieSal1=='SaBu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Salud Bucal</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control con odontologia menor a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.control_odontologia_SaBu"
+                      :class="datosRSMEN1A_RR.control_odontologia_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Aplicación de Fluor:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.aplicacion_fluor_SaBu"
+                      :class="datosRSMEN1A_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.educacion_SaBu"
+                      :class="datosRSMEN1A_RR.educacion_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>hábitos de higiene oral:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.habitos_higiene_SaBu"
+                      :class="datosRSMEN1A_RR.habitos_higiene_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','SaBu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Salud Bucal -->
+
+              <!-- Problemas en salud mental -->
+              <div class="col-md-12" v-if="banConRieSal1=='PrSaMe'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Problemas en salud mental</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.concientizacion_PrSaMe"
+                      :class="datosRSMEN1A_RR.concientizacion_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.acompaniamiento_PrSaMe"
+                      :class="datosRSMEN1A_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.crecimiento_PrSaMe"
+                      :class="datosRSMEN1A_RR.crecimiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.grupos_PrSaMe"
+                      :class="datosRSMEN1A_RR.grupos_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','PrSaMe')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Problemas en salud mental -->
+
+              <!-- Violencias -->
+              <div class="col-md-12" v-if="banConRieSal1=='Vi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Violencias</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.concientizacion_Vi"
+                      :class="datosRSMEN1A_RR.concientizacion_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.acompaniamiento_Vi"
+                      :class="datosRSMEN1A_RR.acompaniamiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.crecimiento_Vi"
+                      :class="datosRSMEN1A_RR.crecimiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.grupos_Vi"
+                      :class="datosRSMEN1A_RR.grupos_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>ICBF :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.icbf_Vi"
+                      :class="datosRSMEN1A_RR.icbf_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','Vi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Violencias -->
+
+              <!-- Enfermedades Respiratorias crónicas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnReCr'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Respiratorias crónicas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.crecimiento_EnReCr"
+                      :class="datosRSMEN1A_RR.crecimiento_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.educacion_EnReCr"
+                      :class="datosRSMEN1A_RR.educacion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.valoracion_EnReCr"
+                      :class="datosRSMEN1A_RR.valoracion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','EnReCr')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Respiratorias crónicas -->
+
+              <!-- Enfermedades Zoonoticas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnZo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Zoonoticas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.crecimiento_EnZo"
+                      :class="datosRSMEN1A_RR.crecimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Potabilización del agua :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.potabilizacion_EnZo"
+                      :class="datosRSMEN1A_RR.potabilizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.mantenimiento_EnZo"
+                      :class="datosRSMEN1A_RR.mantenimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>fumigación de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.fumigacion_EnZo"
+                      :class="datosRSMEN1A_RR.fumigacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Vacunación de animales :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.vacunacion_EnZo"
+                      :class="datosRSMEN1A_RR.vacunacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.inmunizacion_EnZo"
+                      :class="datosRSMEN1A_RR.inmunizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.valorizacion_EnZo"
+                      :class="datosRSMEN1A_RR.valorizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label> Desparasitación menor a 6 meses:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.desparatizacion_EnZo"
+                      :class="datosRSMEN1A_RR.desparatizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','EnZo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Zoonoticas -->
+
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+              <div class="col-md-12" v-if="banConRieSal1=='TrDeNeEnAu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.crecimiento_TrDeNeEnAu"
+                      :class="datosRSMEN1A_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acceso atención especializada:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.acceso_TrDeNeEnAu"
+                      :class="datosRSMEN1A_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.valoracion_TrDeNeEnAu"
+                      :class="datosRSMEN1A_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','TrDeNeEnAu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+
+              <!-- Consumo de SPA -->
+              <div class="col-md-12" v-if="banConRieSal1=='CoSp'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Consumo de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Atencion Psicologica :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.atencion_CoSp"
+                      :class="datosRSMEN1A_RR.atencion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Buenas relaciones familiares:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.relaciones_CoSp"
+                      :class="datosRSMEN1A_RR.relaciones_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.grupos_CoSp"
+                      :class="datosRSMEN1A_RR.grupos_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientizacion:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.educacion_CoSp"
+                      :class="datosRSMEN1A_RR.educacion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.valoracion_CoSp"
+                      :class="datosRSMEN1A_RR.valoracion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','CoSp')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Consumo de SPA -->
+
+              <!-- Riesgo Desnutrición Aguda -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiDeAg'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Aguda</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_RiDeAg"
+                      :class="datosRSMEN1A_RR.asistencia_RiDeAg==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.programas_RiDeAg"
+                      :class="datosRSMEN1A_RR.programas_RiDeAg==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.suplementacion_RiDeAg"
+                      :class="datosRSMEN1A_RR.suplementacion_RiDeAg==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','RiDeAg')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Desnutrición Aguda -->
+
+              <!-- Riesgo Desnutrición Global -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiDeGl'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_RiDeGl"
+                      :class="datosRSMEN1A_RR.asistencia_RiDeGl==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.programas_RiDeGl"
+                      :class="datosRSMEN1A_RR.programas_RiDeGl==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.suplementacion_RiDeGl"
+                      :class="datosRSMEN1A_RR.suplementacion_RiDeGl==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','RiDeGl')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Desnutrición Global -->
+
+              <!-- Riesgo de Talla Baja -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiTaBa'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo de Talla Baja</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_RiTaBa"
+                      :class="datosRSMEN1A_RR.asistencia_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.programas_RiTaBa"
+                      :class="datosRSMEN1A_RR.programas_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.suplementacion_RiTaBa"
+                      :class="datosRSMEN1A_RR.suplementacion_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','RiTaBa')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo de Talla Baja -->
+
+              <!-- Riesgo Sobrepeso -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiSo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Sobrepeso</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.asistencia_RiSo"
+                      :class="datosRSMEN1A_RR.asistencia_RiSo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Actividad Fisica:</label>
+                    <b-form-select
+                      v-model="datosRSMEN1A_RR.actividad_RiSo"
+                      :class="datosRSMEN1A_RR.actividad_RiSo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('MEN1A','RiSo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Sobrepeso -->
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles1">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-brand" @click="cerrarControlRS1('#tabMen1a')" v-else>
+                  <i class="fa fa-arrow-left"></i> Volver
+                </button>                
+              </div>                                                                                                                                                                                               
+            </div>
+            <div v-if="tipoRieSal1 == 'DE1A5'">
+              <!-- Enfermedades Infeccisosas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnIn'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Infeccisosas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Alimentación saludable :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.alimentacion_saludable_EnIn"
+                      :class="datosRSDE1A5_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Asistencia a crecimiento  y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_crecimiento_EnIn"
+                      :class="datosRSDE1A5_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Fumigación, control de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.fumigacion_EnIn"
+                      :class="datosRSDE1A5_RR.fumigacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Sistemas de recolección de basuras :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.sistema_recoleccion_EnIn"
+                      :class="datosRSDE1A5_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Desparacitación  inferior a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.desparacitacion_EnIn"
+                      :class="datosRSDE1A5_RR.desparacitacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.inmunizacion_EnIn"
+                      :class="datosRSDE1A5_RR.inmunizacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.educacion_EnIn"
+                      :class="datosRSDE1A5_RR.educacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.mantenimiento_EnIn"
+                      :class="datosRSDE1A5_RR.mantenimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Citas por valoración integral al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.citas_EnIn"
+                      :class="datosRSDE1A5_RR.citas_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                          
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','EnIn')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Infeccisosas -->
+
+              <!-- Trastornos Asociados al uso de SPA -->
+              <div class="col-md-12" v-if="banConRieSal1=='TrAsSPA'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Asociados al uso de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización de la familia :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.educacion_TrAsSPA"
+                      :class="datosRSDE1A5_RR.educacion_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento terapeutico :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.acompaniamiento_TrAsSPA"
+                      :class="datosRSDE1A5_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','TrAsSPA')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Asociados al uso de SPA -->
+
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnCaAt'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedad Cardiovascular Aterogénica</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_crecimiento_EnCaAt"
+                      :class="datosRSDE1A5_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.educacion_EnCaAt"
+                      :class="datosRSDE1A5_RR.educacion_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Actividad fisica:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.actividad_EnCaAt"
+                      :class="datosRSDE1A5_RR.actividad_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','EnCaAt')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+
+              <!-- Cancer -->
+              <div class="col-md-12" v-if="banConRieSal1=='Ca'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Cancer</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_crecimiento_Ca"
+                      :class="datosRSDE1A5_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.educacion_Ca"
+                      :class="datosRSDE1A5_RR.educacion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.valoracion_Ca"
+                      :class="datosRSDE1A5_RR.valoracion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','Ca')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Cancer -->
+
+              <!-- Alteraciones y Transtornos Visuales -->
+              <div class="col-md-12" v-if="banConRieSal1=='AlTrVi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos Visuales</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_crecimiento_AlTrVi"
+                      :class="datosRSDE1A5_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.valoracion_AlTrVi"
+                      :class="datosRSDE1A5_RR.valoracion_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','AlTrVi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos Visuales -->
+
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+              <div class="col-md-12" v-if="banConRieSal1=='AlTrAuCo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos de la Audición y Comunicación</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_crecimiento_AlTrAuCo"
+                      :class="datosRSDE1A5_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.valoracion_AlTrAuCo"
+                      :class="datosRSDE1A5_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','AlTrAuCo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+
+              <!-- Salud Bucal -->
+              <div class="col-md-12" v-if="banConRieSal1=='SaBu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Salud Bucal</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control con odontologia menor a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.control_odontologia_SaBu"
+                      :class="datosRSDE1A5_RR.control_odontologia_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Aplicación de Fluor:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.aplicacion_fluor_SaBu"
+                      :class="datosRSDE1A5_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.educacion_SaBu"
+                      :class="datosRSDE1A5_RR.educacion_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>hábitos de higiene oral:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.habitos_higiene_SaBu"
+                      :class="datosRSDE1A5_RR.habitos_higiene_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','SaBu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Salud Bucal -->
+
+              <!-- Problemas en salud mental -->
+              <div class="col-md-12" v-if="banConRieSal1=='PrSaMe'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Problemas en salud mental</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.concientizacion_PrSaMe"
+                      :class="datosRSDE1A5_RR.concientizacion_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.acompaniamiento_PrSaMe"
+                      :class="datosRSDE1A5_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.crecimiento_PrSaMe"
+                      :class="datosRSDE1A5_RR.crecimiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.grupos_PrSaMe"
+                      :class="datosRSDE1A5_RR.grupos_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','PrSaMe')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Problemas en salud mental -->
+
+              <!-- Violencias -->
+              <div class="col-md-12" v-if="banConRieSal1=='Vi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Violencias</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.concientizacion_Vi"
+                      :class="datosRSDE1A5_RR.concientizacion_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.acompaniamiento_Vi"
+                      :class="datosRSDE1A5_RR.acompaniamiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.crecimiento_Vi"
+                      :class="datosRSDE1A5_RR.crecimiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.grupos_Vi"
+                      :class="datosRSDE1A5_RR.grupos_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>ICBF :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.icbf_Vi"
+                      :class="datosRSDE1A5_RR.icbf_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','Vi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Violencias -->
+
+              <!-- Enfermedades Respiratorias crónicas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnReCr'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Respiratorias crónicas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.crecimiento_EnReCr"
+                      :class="datosRSDE1A5_RR.crecimiento_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.educacion_EnReCr"
+                      :class="datosRSDE1A5_RR.educacion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.valoracion_EnReCr"
+                      :class="datosRSDE1A5_RR.valoracion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','EnReCr')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Respiratorias crónicas -->
+
+              <!-- Enfermedades Zoonoticas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnZo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Zoonoticas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.crecimiento_EnZo"
+                      :class="datosRSDE1A5_RR.crecimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Potabilización del agua :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.potabilizacion_EnZo"
+                      :class="datosRSDE1A5_RR.potabilizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.mantenimiento_EnZo"
+                      :class="datosRSDE1A5_RR.mantenimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>fumigación de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.fumigacion_EnZo"
+                      :class="datosRSDE1A5_RR.fumigacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Vacunación de animales :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.vacunacion_EnZo"
+                      :class="datosRSDE1A5_RR.vacunacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.inmunizacion_EnZo"
+                      :class="datosRSDE1A5_RR.inmunizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.valorizacion_EnZo"
+                      :class="datosRSDE1A5_RR.valorizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label> Desparasitación menor a 6 meses:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.desparatizacion_EnZo"
+                      :class="datosRSDE1A5_RR.desparatizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','EnZo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Zoonoticas -->
+
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+              <div class="col-md-12" v-if="banConRieSal1=='TrDeNeEnAu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.crecimiento_TrDeNeEnAu"
+                      :class="datosRSDE1A5_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acceso atención especializada:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.acceso_TrDeNeEnAu"
+                      :class="datosRSDE1A5_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.valoracion_TrDeNeEnAu"
+                      :class="datosRSDE1A5_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','TrDeNeEnAu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+
+              <!-- Consumo de SPA -->
+              <div class="col-md-12" v-if="banConRieSal1=='CoSp'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Consumo de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Atencion Psicologica :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.atencion_CoSp"
+                      :class="datosRSDE1A5_RR.atencion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Buenas relaciones familiares:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.relaciones_CoSp"
+                      :class="datosRSDE1A5_RR.relaciones_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.grupos_CoSp"
+                      :class="datosRSDE1A5_RR.grupos_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientizacion:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.educacion_CoSp"
+                      :class="datosRSDE1A5_RR.educacion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.valoracion_CoSp"
+                      :class="datosRSDE1A5_RR.valoracion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','CoSp')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Consumo de SPA -->
+
+              <!-- Riesgo Desnutrición Aguda -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiDeAg'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Aguda</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_RiDeAg"
+                      :class="datosRSDE1A5_RR.asistencia_RiDeAg==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.programas_RiDeAg"
+                      :class="datosRSDE1A5_RR.programas_RiDeAg==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.suplementacion_RiDeAg"
+                      :class="datosRSDE1A5_RR.suplementacion_RiDeAg==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','RiDeAg')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Desnutrición Aguda -->
+
+              <!-- Riesgo Desnutrición Global -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiDeGl'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_RiDeGl"
+                      :class="datosRSDE1A5_RR.asistencia_RiDeGl==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.programas_RiDeGl"
+                      :class="datosRSDE1A5_RR.programas_RiDeGl==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.suplementacion_RiDeGl"
+                      :class="datosRSDE1A5_RR.suplementacion_RiDeGl==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','RiDeGl')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Desnutrición Global -->
+
+              <!-- Riesgo de Talla Baja -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiTaBa'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo de Talla Baja</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_RiTaBa"
+                      :class="datosRSDE1A5_RR.asistencia_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.programas_RiTaBa"
+                      :class="datosRSDE1A5_RR.programas_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.suplementacion_RiTaBa"
+                      :class="datosRSDE1A5_RR.suplementacion_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','RiTaBa')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo de Talla Baja -->
+
+              <!-- Riesgo Sobrepeso -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiSo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Sobrepeso</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.asistencia_RiSo"
+                      :class="datosRSDE1A5_RR.asistencia_RiSo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Actividad Fisica:</label>
+                    <b-form-select
+                      v-model="datosRSDE1A5_RR.actividad_RiSo"
+                      :class="datosRSDE1A5_RR.actividad_RiSo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE1A5','RiSo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Sobrepeso --> 
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles1">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-brand" @click="cerrarControlRS1('#tabDe1a5')" v-else>
+                  <i class="fa fa-arrow-left"></i> Volver
+                </button>                
+              </div>                                                                                                                                                                                              
+            </div>
+            <div v-if="tipoRieSal1 == 'DE6A11'">
+              <!-- Enfermedades Infeccisosas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnIn'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Infeccisosas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Alimentación saludable :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.alimentacion_saludable_EnIn"
+                      :class="datosRSDE6A11_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Asistencia a crecimiento  y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.asistencia_crecimiento_EnIn"
+                      :class="datosRSDE6A11_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Fumigación, control de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.fumigacion_EnIn"
+                      :class="datosRSDE6A11_RR.fumigacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Sistemas de recolección de basuras :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.sistema_recoleccion_EnIn"
+                      :class="datosRSDE6A11_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Desparacitación  inferior a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.desparacitacion_EnIn"
+                      :class="datosRSDE6A11_RR.desparacitacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.inmunizacion_EnIn"
+                      :class="datosRSDE6A11_RR.inmunizacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.educacion_EnIn"
+                      :class="datosRSDE6A11_RR.educacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.mantenimiento_EnIn"
+                      :class="datosRSDE6A11_RR.mantenimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Citas por valoración integral al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.citas_EnIn"
+                      :class="datosRSDE6A11_RR.citas_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                          
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','EnIn')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Infeccisosas -->
+
+              <!-- Trastornos Asociados al uso de SPA -->
+              <div class="col-md-12" v-if="banConRieSal1=='TrAsSPA'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Asociados al uso de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización de la familia :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.educacion_TrAsSPA"
+                      :class="datosRSDE6A11_RR.educacion_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento terapeutico :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.acompaniamiento_TrAsSPA"
+                      :class="datosRSDE6A11_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','TrAsSPA')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Asociados al uso de SPA -->
+
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnCaAt'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedad Cardiovascular Aterogénica</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.asistencia_crecimiento_EnCaAt"
+                      :class="datosRSDE6A11_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.educacion_EnCaAt"
+                      :class="datosRSDE6A11_RR.educacion_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Actividad fisica:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.actividad_EnCaAt"
+                      :class="datosRSDE6A11_RR.actividad_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','EnCaAt')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+
+              <!-- Cancer -->
+              <div class="col-md-12" v-if="banConRieSal1=='Ca'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Cancer</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.asistencia_crecimiento_Ca"
+                      :class="datosRSDE6A11_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.educacion_Ca"
+                      :class="datosRSDE6A11_RR.educacion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.valoracion_Ca"
+                      :class="datosRSDE6A11_RR.valoracion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','Ca')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Cancer -->
+
+              <!-- Alteraciones y Transtornos Visuales -->
+              <div class="col-md-12" v-if="banConRieSal1=='AlTrVi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos Visuales</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.asistencia_crecimiento_AlTrVi"
+                      :class="datosRSDE6A11_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.valoracion_AlTrVi"
+                      :class="datosRSDE6A11_RR.valoracion_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','AlTrVi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos Visuales -->
+
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+              <div class="col-md-12" v-if="banConRieSal1=='AlTrAuCo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos de la Audición y Comunicación</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.asistencia_crecimiento_AlTrAuCo"
+                      :class="datosRSDE6A11_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.valoracion_AlTrAuCo"
+                      :class="datosRSDE6A11_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','AlTrAuCo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+
+              <!-- Salud Bucal -->
+              <div class="col-md-12" v-if="banConRieSal1=='SaBu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Salud Bucal</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control con odontologia menor a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.control_odontologia_SaBu"
+                      :class="datosRSDE6A11_RR.control_odontologia_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Aplicación de Fluor:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.aplicacion_fluor_SaBu"
+                      :class="datosRSDE6A11_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.educacion_SaBu"
+                      :class="datosRSDE6A11_RR.educacion_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>hábitos de higiene oral:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.habitos_higiene_SaBu"
+                      :class="datosRSDE6A11_RR.habitos_higiene_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','SaBu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Salud Bucal -->
+
+              <!-- Problemas en salud mental -->
+              <div class="col-md-12" v-if="banConRieSal1=='PrSaMe'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Problemas en salud mental</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.concientizacion_PrSaMe"
+                      :class="datosRSDE6A11_RR.concientizacion_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.acompaniamiento_PrSaMe"
+                      :class="datosRSDE6A11_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.crecimiento_PrSaMe"
+                      :class="datosRSDE6A11_RR.crecimiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.grupos_PrSaMe"
+                      :class="datosRSDE6A11_RR.grupos_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','PrSaMe')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Problemas en salud mental -->
+
+              <!-- Violencias -->
+              <div class="col-md-12" v-if="banConRieSal1=='Vi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Violencias</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.concientizacion_Vi"
+                      :class="datosRSDE6A11_RR.concientizacion_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.acompaniamiento_Vi"
+                      :class="datosRSDE6A11_RR.acompaniamiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.crecimiento_Vi"
+                      :class="datosRSDE6A11_RR.crecimiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.grupos_Vi"
+                      :class="datosRSDE6A11_RR.grupos_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>ICBF :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.icbf_Vi"
+                      :class="datosRSDE6A11_RR.icbf_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','Vi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Violencias -->
+
+              <!-- Enfermedades Respiratorias crónicas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnReCr'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Respiratorias crónicas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.crecimiento_EnReCr"
+                      :class="datosRSDE6A11_RR.crecimiento_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.educacion_EnReCr"
+                      :class="datosRSDE6A11_RR.educacion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.valoracion_EnReCr"
+                      :class="datosRSDE6A11_RR.valoracion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','EnReCr')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Respiratorias crónicas -->
+
+              <!-- Enfermedades Zoonoticas -->
+              <div class="col-md-12" v-if="banConRieSal1=='EnZo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Zoonoticas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.crecimiento_EnZo"
+                      :class="datosRSDE6A11_RR.crecimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Potabilización del agua :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.potabilizacion_EnZo"
+                      :class="datosRSDE6A11_RR.potabilizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.mantenimiento_EnZo"
+                      :class="datosRSDE6A11_RR.mantenimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>fumigación de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.fumigacion_EnZo"
+                      :class="datosRSDE6A11_RR.fumigacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Vacunación de animales :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.vacunacion_EnZo"
+                      :class="datosRSDE6A11_RR.vacunacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.inmunizacion_EnZo"
+                      :class="datosRSDE6A11_RR.inmunizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.valorizacion_EnZo"
+                      :class="datosRSDE6A11_RR.valorizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label> Desparasitación menor a 6 meses:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.desparatizacion_EnZo"
+                      :class="datosRSDE6A11_RR.desparatizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','EnZo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Zoonoticas -->
+
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+              <div class="col-md-12" v-if="banConRieSal1=='TrDeNeEnAu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.crecimiento_TrDeNeEnAu"
+                      :class="datosRSDE6A11_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acceso atención especializada:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.acceso_TrDeNeEnAu"
+                      :class="datosRSDE6A11_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.valoracion_TrDeNeEnAu"
+                      :class="datosRSDE6A11_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','TrDeNeEnAu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+
+              <!-- Consumo de SPA -->
+              <div class="col-md-12" v-if="banConRieSal1=='CoSp'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Consumo de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Atencion Psicologica :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.atencion_CoSp"
+                      :class="datosRSDE6A11_RR.atencion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Buenas relaciones familiares:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.relaciones_CoSp"
+                      :class="datosRSDE6A11_RR.relaciones_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.grupos_CoSp"
+                      :class="datosRSDE6A11_RR.grupos_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientizacion:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.educacion_CoSp"
+                      :class="datosRSDE6A11_RR.educacion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.valoracion_CoSp"
+                      :class="datosRSDE6A11_RR.valoracion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','CoSp')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Consumo de SPA -->
+
+              <!-- Riesgo Delgadez -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiDel'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.asistencia_RiDel"
+                      :class="datosRSDE6A11_RR.asistencia_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.programas_RiDel"
+                      :class="datosRSDE6A11_RR.programas_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.suplementacion_RiDel"
+                      :class="datosRSDE6A11_RR.suplementacion_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','RiDel')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Delgadez -->
+
+              <!-- Riesgo de Talla Baja -->
+              <div class="col-md-12" v-if="banConRieSal1=='RiTaBa'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo de Talla Baja</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.asistencia_RiTaBa"
+                      :class="datosRSDE6A11_RR.asistencia_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.programas_RiTaBa"
+                      :class="datosRSDE6A11_RR.programas_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE6A11_RR.suplementacion_RiTaBa"
+                      :class="datosRSDE6A11_RR.suplementacion_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS1('DE6A11','RiTaBa')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo de Talla Baja -->
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles1">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-brand" @click="cerrarControlRS1('#tabDe6a11')" v-else>
+                  <i class="fa fa-arrow-left"></i> Volver
+                </button>                
+              </div>                                                                                                                                                                                              
+            </div>
+          </div>
+        </b-modal>
+        <!--begin::Modal RIESGOS SALUD cart. X ciclo-->
+
+        <!--begin::Modal RIESGOS SALUD Adolescentes/Jovenes-->
+        <b-modal
+          ref="modalRieSal2"
+          hide-footer
+          title="Controles de los riesgos salud"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block" v-if="banderaControles2">
+            <ul
+              class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success"
+              role="tablist"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#tabDe12a17"
+                  role="tab"
+                >ADOLESCENTES DE 12 A 17 AÑOS</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#tabDe18a28"
+                  role="tab"
+                >JUVENTUD, JOVENES DE 18 A 28 AÑOS</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#tabDe29a59"
+                  role="tab"
+                >HOMBRES Y MUJERES DE 29 AÑOS A 59 AÑOS</a>
+              </li>           
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tabDe12a17" role="tabpanel">
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los integrantes</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
+                        <thead class>
+                          <tr class="kt-bg-fill-brand">
+                            <th>No.</th>
+                            <th>Integrante</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item, index) in datosRSDE12A17" :value="item.value" :key="item.value">
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">{{(index + 1)}}</td>  
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{item.tipo_id}}:{{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="mostrarRiesgoSalDe12a17(index)"
+                              >
+                                <i class="fa fa-check"></i>
+                              </button>
+                            </td>                            
+                          </tr>
+                        </tbody>                   
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los riesgos</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive" style="height:370px;">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                            <th style="vertical-align: middle;text-align: left;">Riesgo</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr v-for="(item, index) in vectorAuxRSDE12A17" :value="item.value" :key="item.value">
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.texto }}</td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
+                            </td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
+                            </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-primary"
+                                type="button"
+                                title="Controles"
+                                @click="controlRSDE12A17(item.boton,'DE12A17',item.id,index)"
+
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>                            
+                          </tr>                          
+                        </tbody>  
+                      </table>
+                    </div>                    
+                  </div>                                   
+                </div>
+              </div>
+              <div class="tab-pane" id="tabDe18a28" role="tabpanel">
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los integrantes</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
+                        <thead class>
+                          <tr class="kt-bg-fill-brand">
+                            <th>No.</th>
+                            <th>Integrante</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item, index) in datosRSDE18A28" :value="item.value" :key="item.value">
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">{{(index + 1)}}</td>  
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{item.tipo_id}}:{{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="mostrarRiesgoSalDe18a28(index)"
+                              >
+                                <i class="fa fa-check"></i>
+                              </button>
+                            </td>                            
+                          </tr>
+                        </tbody>                   
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los riesgos</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive" style="height:370px;">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                            <th style="vertical-align: middle;text-align: left;">Riesgo</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr v-for="(item, index) in vectorAuxRSDE18A28" :value="item.value" :key="item.value">
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.texto }}</td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
+                            </td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
+                            </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-primary"
+                                type="button"
+                                title="Controles"
+                                @click="controlRSDE18A28(item.boton,'DE18A28',item.id,index)"
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>                            
+                          </tr>                          
+                        </tbody>  
+                      </table>
+                    </div>                    
+                  </div>                                   
+                </div>
+              </div>
+              <div class="tab-pane" id="tabDe29a59" role="tabpanel">
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los integrantes</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
+                        <thead class>
+                          <tr class="kt-bg-fill-brand">
+                            <th>No.</th>
+                            <th>Integrante</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item, index) in datosRSDE29A59" :value="item.value" :key="item.value">
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">{{(index + 1)}}</td>  
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{item.tipo_id}}:{{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="mostrarRiesgoSalDe29a59(index)"
+                              >
+                                <i class="fa fa-check"></i>
+                              </button>
+                            </td>                            
+                          </tr>
+                        </tbody>                   
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los riesgos</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive" style="height:370px;">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                            <th style="vertical-align: middle;text-align: left;">Riesgo</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr v-for="(item, index) in vectorAuxRSDE29A59" :value="item.value" :key="item.value">
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.texto }}</td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
+                            </td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
+                            </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-primary"
+                                type="button"
+                                title="Controles"
+                                @click="controlRSDE29A59(item.boton,'DE29A59',item.id,index)"
+
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>                            
+                          </tr>                          
+                        </tbody>  
+                      </table>
+                    </div>                    
+                  </div>                                   
+                </div>
+              </div>                           
+            </div>
+            <div class="text-right">
+              <button type="button" class="btn btn-warning" @click="cerrarModal">
+                <i class="fa fa-window-close"></i> Cerrar
+              </button>               
+            </div>                         
+          </div>
+          <div class="d-block" v-else>
+            <div v-if="tipoRieSal2 == 'DE12A17'">
+              <!-- Enfermedades Infeccisosas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnIn'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Infeccisosas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Alimentación saludable :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.alimentacion_saludable_EnIn"
+                      :class="datosRSDE12A17_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Asistencia a crecimiento  y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.asistencia_crecimiento_EnIn"
+                      :class="datosRSDE12A17_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Fumigación, control de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.fumigacion_EnIn"
+                      :class="datosRSDE12A17_RR.fumigacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Sistemas de recolección de basuras :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.sistema_recoleccion_EnIn"
+                      :class="datosRSDE12A17_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Desparacitación  inferior a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.desparacitacion_EnIn"
+                      :class="datosRSDE12A17_RR.desparacitacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.inmunizacion_EnIn"
+                      :class="datosRSDE12A17_RR.inmunizacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.educacion_EnIn"
+                      :class="datosRSDE12A17_RR.educacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.mantenimiento_EnIn"
+                      :class="datosRSDE12A17_RR.mantenimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Citas por valoración integral al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.citas_EnIn"
+                      :class="datosRSDE12A17_RR.citas_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                          
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','EnIn')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Infeccisosas -->
+
+              <!-- Trastornos Asociados al uso de SPA -->
+              <div class="col-md-12" v-if="banConRieSal2=='TrAsSPA'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Asociados al uso de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización de la familia :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.educacion_TrAsSPA"
+                      :class="datosRSDE12A17_RR.educacion_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento terapeutico :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.acompaniamiento_TrAsSPA"
+                      :class="datosRSDE12A17_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','TrAsSPA')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Asociados al uso de SPA -->
+
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnCaAt'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedad Cardiovascular Aterogénica</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.asistencia_crecimiento_EnCaAt"
+                      :class="datosRSDE12A17_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.educacion_EnCaAt"
+                      :class="datosRSDE12A17_RR.educacion_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Actividad fisica:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.actividad_EnCaAt"
+                      :class="datosRSDE12A17_RR.actividad_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','EnCaAt')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+
+              <!-- Cancer -->
+              <div class="col-md-12" v-if="banConRieSal2=='Ca'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Cancer</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.asistencia_crecimiento_Ca"
+                      :class="datosRSDE12A17_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.educacion_Ca"
+                      :class="datosRSDE12A17_RR.educacion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.valoracion_Ca"
+                      :class="datosRSDE12A17_RR.valoracion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','Ca')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Cancer -->
+
+              <!-- Alteraciones y Transtornos Visuales -->
+              <div class="col-md-12" v-if="banConRieSal2=='AlTrVi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos Visuales</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.asistencia_crecimiento_AlTrVi"
+                      :class="datosRSDE12A17_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.valoracion_AlTrVi"
+                      :class="datosRSDE12A17_RR.valoracion_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','AlTrVi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos Visuales -->
+
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+              <div class="col-md-12" v-if="banConRieSal2=='AlTrAuCo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos de la Audición y Comunicación</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.asistencia_crecimiento_AlTrAuCo"
+                      :class="datosRSDE12A17_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.valoracion_AlTrAuCo"
+                      :class="datosRSDE12A17_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','AlTrAuCo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+
+              <!-- Salud Bucal -->
+              <div class="col-md-12" v-if="banConRieSal2=='SaBu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Salud Bucal</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control con odontologia menor a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.control_odontologia_SaBu"
+                      :class="datosRSDE12A17_RR.control_odontologia_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Aplicación de Fluor:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.aplicacion_fluor_SaBu"
+                      :class="datosRSDE12A17_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.educacion_SaBu"
+                      :class="datosRSDE12A17_RR.educacion_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>hábitos de higiene oral:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.habitos_higiene_SaBu"
+                      :class="datosRSDE12A17_RR.habitos_higiene_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','SaBu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Salud Bucal -->
+
+              <!-- Problemas en salud mental -->
+              <div class="col-md-12" v-if="banConRieSal2=='PrSaMe'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Problemas en salud mental</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.concientizacion_PrSaMe"
+                      :class="datosRSDE12A17_RR.concientizacion_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.acompaniamiento_PrSaMe"
+                      :class="datosRSDE12A17_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.crecimiento_PrSaMe"
+                      :class="datosRSDE12A17_RR.crecimiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.grupos_PrSaMe"
+                      :class="datosRSDE12A17_RR.grupos_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','PrSaMe')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Problemas en salud mental -->
+
+              <!-- Violencias -->
+              <div class="col-md-12" v-if="banConRieSal2=='Vi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Violencias</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.concientizacion_Vi"
+                      :class="datosRSDE12A17_RR.concientizacion_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.acompaniamiento_Vi"
+                      :class="datosRSDE12A17_RR.acompaniamiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.crecimiento_Vi"
+                      :class="datosRSDE12A17_RR.crecimiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.grupos_Vi"
+                      :class="datosRSDE12A17_RR.grupos_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>ICBF :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.icbf_Vi"
+                      :class="datosRSDE12A17_RR.icbf_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','Vi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Violencias -->
+
+              <!-- Enfermedades Respiratorias crónicas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnReCr'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Respiratorias crónicas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.crecimiento_EnReCr"
+                      :class="datosRSDE12A17_RR.crecimiento_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.educacion_EnReCr"
+                      :class="datosRSDE12A17_RR.educacion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.valoracion_EnReCr"
+                      :class="datosRSDE12A17_RR.valoracion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','EnReCr')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Respiratorias crónicas -->
+
+              <!-- Enfermedades Zoonoticas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnZo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Zoonoticas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.crecimiento_EnZo"
+                      :class="datosRSDE12A17_RR.crecimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Potabilización del agua :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.potabilizacion_EnZo"
+                      :class="datosRSDE12A17_RR.potabilizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.mantenimiento_EnZo"
+                      :class="datosRSDE12A17_RR.mantenimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>fumigación de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.fumigacion_EnZo"
+                      :class="datosRSDE12A17_RR.fumigacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Vacunación de animales :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.vacunacion_EnZo"
+                      :class="datosRSDE12A17_RR.vacunacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.inmunizacion_EnZo"
+                      :class="datosRSDE12A17_RR.inmunizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.valorizacion_EnZo"
+                      :class="datosRSDE12A17_RR.valorizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label> Desparasitación menor a 6 meses:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.desparatizacion_EnZo"
+                      :class="datosRSDE12A17_RR.desparatizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','EnZo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Zoonoticas -->
+
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+              <div class="col-md-12" v-if="banConRieSal2=='TrDeNeEnAu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.crecimiento_TrDeNeEnAu"
+                      :class="datosRSDE12A17_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acceso atención especializada:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.acceso_TrDeNeEnAu"
+                      :class="datosRSDE12A17_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.valoracion_TrDeNeEnAu"
+                      :class="datosRSDE12A17_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','TrDeNeEnAu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+
+              <!-- Consumo de SPA -->
+              <div class="col-md-12" v-if="banConRieSal2=='CoSp'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Consumo de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Atencion Psicologica :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.atencion_CoSp"
+                      :class="datosRSDE12A17_RR.atencion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Buenas relaciones familiares:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.relaciones_CoSp"
+                      :class="datosRSDE12A17_RR.relaciones_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.grupos_CoSp"
+                      :class="datosRSDE12A17_RR.grupos_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientizacion:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.educacion_CoSp"
+                      :class="datosRSDE12A17_RR.educacion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.valoracion_CoSp"
+                      :class="datosRSDE12A17_RR.valoracion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','CoSp')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Consumo de SPA -->
+
+              <!-- Riesgo Delgadez -->
+              <div class="col-md-12" v-if="banConRieSal2=='RiDel'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.asistencia_RiDel"
+                      :class="datosRSDE12A17_RR.asistencia_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.programas_RiDel"
+                      :class="datosRSDE12A17_RR.programas_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.suplementacion_RiDel"
+                      :class="datosRSDE12A17_RR.suplementacion_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','RiDel')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Delgadez -->
+
+              <!-- Riesgo de Talla Baja -->
+              <div class="col-md-12" v-if="banConRieSal2=='RiTaBa'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo de Talla Baja</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.asistencia_RiTaBa"
+                      :class="datosRSDE12A17_RR.asistencia_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.programas_RiTaBa"
+                      :class="datosRSDE12A17_RR.programas_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE12A17_RR.suplementacion_RiTaBa"
+                      :class="datosRSDE12A17_RR.suplementacion_RiTaBa==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE12A17','RiTaBa')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo de Talla Baja -->
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles2">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-brand" @click="cerrarControlRS2('#tabDe12a17')" v-else>
+                  <i class="fa fa-arrow-left"></i> Volver
+                </button>                
+              </div>                                                                                                                                                                                                           
+            </div>
+            <div v-if="tipoRieSal2 == 'DE18A28'">
+              <!-- Enfermedades Infeccisosas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnIn'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Infeccisosas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Alimentación saludable :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.alimentacion_saludable_EnIn"
+                      :class="datosRSDE18A28_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Asistencia a crecimiento  y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.asistencia_crecimiento_EnIn"
+                      :class="datosRSDE18A28_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Fumigación, control de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.fumigacion_EnIn"
+                      :class="datosRSDE18A28_RR.fumigacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Sistemas de recolección de basuras :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.sistema_recoleccion_EnIn"
+                      :class="datosRSDE18A28_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Desparacitación  inferior a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.desparacitacion_EnIn"
+                      :class="datosRSDE18A28_RR.desparacitacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.inmunizacion_EnIn"
+                      :class="datosRSDE18A28_RR.inmunizacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.educacion_EnIn"
+                      :class="datosRSDE18A28_RR.educacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.mantenimiento_EnIn"
+                      :class="datosRSDE18A28_RR.mantenimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Citas por valoración integral al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.citas_EnIn"
+                      :class="datosRSDE18A28_RR.citas_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                          
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','EnIn')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Infeccisosas -->
+
+              <!-- Trastornos Asociados al uso de SPA -->
+              <div class="col-md-12" v-if="banConRieSal2=='TrAsSPA'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Asociados al uso de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización de la familia :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.educacion_TrAsSPA"
+                      :class="datosRSDE18A28_RR.educacion_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento terapeutico :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.acompaniamiento_TrAsSPA"
+                      :class="datosRSDE18A28_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','TrAsSPA')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Asociados al uso de SPA -->
+
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnCaAt'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedad Cardiovascular Aterogénica</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.asistencia_crecimiento_EnCaAt"
+                      :class="datosRSDE18A28_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.educacion_EnCaAt"
+                      :class="datosRSDE18A28_RR.educacion_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Actividad fisica:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.actividad_EnCaAt"
+                      :class="datosRSDE18A28_RR.actividad_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','EnCaAt')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+
+              <!-- Cancer -->
+              <div class="col-md-12" v-if="banConRieSal2=='Ca'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Cancer</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.asistencia_crecimiento_Ca"
+                      :class="datosRSDE18A28_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.educacion_Ca"
+                      :class="datosRSDE18A28_RR.educacion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.valoracion_Ca"
+                      :class="datosRSDE18A28_RR.valoracion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','Ca')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Cancer -->
+
+              <!-- Alteraciones y Transtornos Visuales -->
+              <div class="col-md-12" v-if="banConRieSal2=='AlTrVi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos Visuales</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.asistencia_crecimiento_AlTrVi"
+                      :class="datosRSDE18A28_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.valoracion_AlTrVi"
+                      :class="datosRSDE18A28_RR.valoracion_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','AlTrVi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos Visuales -->
+
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+              <div class="col-md-12" v-if="banConRieSal2=='AlTrAuCo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos de la Audición y Comunicación</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.asistencia_crecimiento_AlTrAuCo"
+                      :class="datosRSDE18A28_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.valoracion_AlTrAuCo"
+                      :class="datosRSDE18A28_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','AlTrAuCo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+
+              <!-- Salud Bucal -->
+              <div class="col-md-12" v-if="banConRieSal2=='SaBu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Salud Bucal</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control con odontologia menor a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.control_odontologia_SaBu"
+                      :class="datosRSDE18A28_RR.control_odontologia_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Aplicación de Fluor:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.aplicacion_fluor_SaBu"
+                      :class="datosRSDE18A28_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.educacion_SaBu"
+                      :class="datosRSDE18A28_RR.educacion_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>hábitos de higiene oral:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.habitos_higiene_SaBu"
+                      :class="datosRSDE18A28_RR.habitos_higiene_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','SaBu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Salud Bucal -->
+
+              <!-- Problemas en salud mental -->
+              <div class="col-md-12" v-if="banConRieSal2=='PrSaMe'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Problemas en salud mental</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.concientizacion_PrSaMe"
+                      :class="datosRSDE18A28_RR.concientizacion_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.acompaniamiento_PrSaMe"
+                      :class="datosRSDE18A28_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.crecimiento_PrSaMe"
+                      :class="datosRSDE18A28_RR.crecimiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.grupos_PrSaMe"
+                      :class="datosRSDE18A28_RR.grupos_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','PrSaMe')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Problemas en salud mental -->
+
+              <!-- Violencias -->
+              <div class="col-md-12" v-if="banConRieSal2=='Vi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Violencias</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.concientizacion_Vi"
+                      :class="datosRSDE18A28_RR.concientizacion_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.acompaniamiento_Vi"
+                      :class="datosRSDE18A28_RR.acompaniamiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.crecimiento_Vi"
+                      :class="datosRSDE18A28_RR.crecimiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.grupos_Vi"
+                      :class="datosRSDE18A28_RR.grupos_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>ICBF :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.icbf_Vi"
+                      :class="datosRSDE18A28_RR.icbf_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','Vi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Violencias -->
+
+              <!-- Enfermedades Respiratorias crónicas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnReCr'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Respiratorias crónicas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.crecimiento_EnReCr"
+                      :class="datosRSDE18A28_RR.crecimiento_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.educacion_EnReCr"
+                      :class="datosRSDE18A28_RR.educacion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.valoracion_EnReCr"
+                      :class="datosRSDE18A28_RR.valoracion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','EnReCr')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Respiratorias crónicas -->
+
+              <!-- Enfermedades Zoonoticas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnZo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Zoonoticas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.crecimiento_EnZo"
+                      :class="datosRSDE18A28_RR.crecimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Potabilización del agua :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.potabilizacion_EnZo"
+                      :class="datosRSDE18A28_RR.potabilizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.mantenimiento_EnZo"
+                      :class="datosRSDE18A28_RR.mantenimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>fumigación de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.fumigacion_EnZo"
+                      :class="datosRSDE18A28_RR.fumigacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Vacunación de animales :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.vacunacion_EnZo"
+                      :class="datosRSDE18A28_RR.vacunacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.inmunizacion_EnZo"
+                      :class="datosRSDE18A28_RR.inmunizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.valorizacion_EnZo"
+                      :class="datosRSDE18A28_RR.valorizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label> Desparasitación menor a 6 meses:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.desparatizacion_EnZo"
+                      :class="datosRSDE18A28_RR.desparatizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','EnZo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Zoonoticas -->
+
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+              <div class="col-md-12" v-if="banConRieSal2=='TrDeNeEnAu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.crecimiento_TrDeNeEnAu"
+                      :class="datosRSDE18A28_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acceso atención especializada:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.acceso_TrDeNeEnAu"
+                      :class="datosRSDE18A28_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.valoracion_TrDeNeEnAu"
+                      :class="datosRSDE18A28_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','TrDeNeEnAu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+
+              <!-- Consumo de SPA -->
+              <div class="col-md-12" v-if="banConRieSal2=='CoSp'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Consumo de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Atencion Psicologica :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.atencion_CoSp"
+                      :class="datosRSDE18A28_RR.atencion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Buenas relaciones familiares:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.relaciones_CoSp"
+                      :class="datosRSDE18A28_RR.relaciones_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.grupos_CoSp"
+                      :class="datosRSDE18A28_RR.grupos_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientizacion:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.educacion_CoSp"
+                      :class="datosRSDE18A28_RR.educacion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.valoracion_CoSp"
+                      :class="datosRSDE18A28_RR.valoracion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','CoSp')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Consumo de SPA -->
+
+              <!-- Riesgo Delgadez -->
+              <div class="col-md-12" v-if="banConRieSal2=='RiDel'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.asistencia_RiDel"
+                      :class="datosRSDE18A28_RR.asistencia_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.programas_RiDel"
+                      :class="datosRSDE18A28_RR.programas_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE18A28_RR.suplementacion_RiDel"
+                      :class="datosRSDE18A28_RR.suplementacion_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE18A28','RiDel')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Delgadez -->
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles2">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-brand" @click="cerrarControlRS2('#tabDe18a28')" v-else>
+                  <i class="fa fa-arrow-left"></i> Volver
+                </button>                
+              </div>                                                                                                                                                                                            
+            </div>
+            <div v-if="tipoRieSal2 == 'DE29A59'">
+              <!-- Enfermedades Infeccisosas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnIn'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Infeccisosas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Alimentación saludable :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.alimentacion_saludable_EnIn"
+                      :class="datosRSDE29A59_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Asistencia a crecimiento  y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.asistencia_crecimiento_EnIn"
+                      :class="datosRSDE29A59_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Fumigación, control de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.fumigacion_EnIn"
+                      :class="datosRSDE29A59_RR.fumigacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Sistemas de recolección de basuras :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.sistema_recoleccion_EnIn"
+                      :class="datosRSDE29A59_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Desparacitación  inferior a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.desparacitacion_EnIn"
+                      :class="datosRSDE29A59_RR.desparacitacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.inmunizacion_EnIn"
+                      :class="datosRSDE29A59_RR.inmunizacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.educacion_EnIn"
+                      :class="datosRSDE29A59_RR.educacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.mantenimiento_EnIn"
+                      :class="datosRSDE29A59_RR.mantenimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Citas por valoración integral al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.citas_EnIn"
+                      :class="datosRSDE29A59_RR.citas_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                          
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','EnIn')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Infeccisosas -->
+
+              <!-- Trastornos Asociados al uso de SPA -->
+              <div class="col-md-12" v-if="banConRieSal2=='TrAsSPA'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Asociados al uso de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización de la familia :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.educacion_TrAsSPA"
+                      :class="datosRSDE29A59_RR.educacion_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento terapeutico :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.acompaniamiento_TrAsSPA"
+                      :class="datosRSDE29A59_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','TrAsSPA')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Asociados al uso de SPA -->
+
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnCaAt'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedad Cardiovascular Aterogénica</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.asistencia_crecimiento_EnCaAt"
+                      :class="datosRSDE29A59_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.educacion_EnCaAt"
+                      :class="datosRSDE29A59_RR.educacion_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Actividad fisica:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.actividad_EnCaAt"
+                      :class="datosRSDE29A59_RR.actividad_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','EnCaAt')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+
+              <!-- Cancer -->
+              <div class="col-md-12" v-if="banConRieSal2=='Ca'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Cancer</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.asistencia_crecimiento_Ca"
+                      :class="datosRSDE29A59_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.educacion_Ca"
+                      :class="datosRSDE29A59_RR.educacion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.valoracion_Ca"
+                      :class="datosRSDE29A59_RR.valoracion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','Ca')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Cancer -->
+
+              <!-- Alteraciones y Transtornos Visuales -->
+              <div class="col-md-12" v-if="banConRieSal2=='AlTrVi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos Visuales</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.asistencia_crecimiento_AlTrVi"
+                      :class="datosRSDE29A59_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.valoracion_AlTrVi"
+                      :class="datosRSDE29A59_RR.valoracion_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','AlTrVi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos Visuales -->
+
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+              <div class="col-md-12" v-if="banConRieSal2=='AlTrAuCo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos de la Audición y Comunicación</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.asistencia_crecimiento_AlTrAuCo"
+                      :class="datosRSDE29A59_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.valoracion_AlTrAuCo"
+                      :class="datosRSDE29A59_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','AlTrAuCo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+
+              <!-- Salud Bucal -->
+              <div class="col-md-12" v-if="banConRieSal2=='SaBu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Salud Bucal</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control con odontologia menor a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.control_odontologia_SaBu"
+                      :class="datosRSDE29A59_RR.control_odontologia_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Aplicación de Fluor:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.aplicacion_fluor_SaBu"
+                      :class="datosRSDE29A59_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.educacion_SaBu"
+                      :class="datosRSDE29A59_RR.educacion_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>hábitos de higiene oral:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.habitos_higiene_SaBu"
+                      :class="datosRSDE29A59_RR.habitos_higiene_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','SaBu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Salud Bucal -->
+
+              <!-- Problemas en salud mental -->
+              <div class="col-md-12" v-if="banConRieSal2=='PrSaMe'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Problemas en salud mental</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.concientizacion_PrSaMe"
+                      :class="datosRSDE29A59_RR.concientizacion_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.acompaniamiento_PrSaMe"
+                      :class="datosRSDE29A59_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.crecimiento_PrSaMe"
+                      :class="datosRSDE29A59_RR.crecimiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.grupos_PrSaMe"
+                      :class="datosRSDE29A59_RR.grupos_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','PrSaMe')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Problemas en salud mental -->
+
+              <!-- Violencias -->
+              <div class="col-md-12" v-if="banConRieSal2=='Vi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Violencias</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.concientizacion_Vi"
+                      :class="datosRSDE29A59_RR.concientizacion_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.acompaniamiento_Vi"
+                      :class="datosRSDE29A59_RR.acompaniamiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.crecimiento_Vi"
+                      :class="datosRSDE29A59_RR.crecimiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.grupos_Vi"
+                      :class="datosRSDE29A59_RR.grupos_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>ICBF :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.icbf_Vi"
+                      :class="datosRSDE29A59_RR.icbf_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','Vi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Violencias -->
+
+              <!-- Enfermedades Respiratorias crónicas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnReCr'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Respiratorias crónicas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.crecimiento_EnReCr"
+                      :class="datosRSDE29A59_RR.crecimiento_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.educacion_EnReCr"
+                      :class="datosRSDE29A59_RR.educacion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.valoracion_EnReCr"
+                      :class="datosRSDE29A59_RR.valoracion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','EnReCr')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Respiratorias crónicas -->
+
+              <!-- Enfermedades Zoonoticas -->
+              <div class="col-md-12" v-if="banConRieSal2=='EnZo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Zoonoticas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.crecimiento_EnZo"
+                      :class="datosRSDE29A59_RR.crecimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Potabilización del agua :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.potabilizacion_EnZo"
+                      :class="datosRSDE29A59_RR.potabilizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.mantenimiento_EnZo"
+                      :class="datosRSDE29A59_RR.mantenimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>fumigación de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.fumigacion_EnZo"
+                      :class="datosRSDE29A59_RR.fumigacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Vacunación de animales :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.vacunacion_EnZo"
+                      :class="datosRSDE29A59_RR.vacunacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.inmunizacion_EnZo"
+                      :class="datosRSDE29A59_RR.inmunizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.valorizacion_EnZo"
+                      :class="datosRSDE29A59_RR.valorizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label> Desparasitación menor a 6 meses:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.desparatizacion_EnZo"
+                      :class="datosRSDE29A59_RR.desparatizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','EnZo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Zoonoticas -->
+
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+              <div class="col-md-12" v-if="banConRieSal2=='TrDeNeEnAu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.crecimiento_TrDeNeEnAu"
+                      :class="datosRSDE29A59_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acceso atención especializada:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.acceso_TrDeNeEnAu"
+                      :class="datosRSDE29A59_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.valoracion_TrDeNeEnAu"
+                      :class="datosRSDE29A59_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','TrDeNeEnAu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+
+              <!-- Consumo de SPA -->
+              <div class="col-md-12" v-if="banConRieSal2=='CoSp'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Consumo de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Atencion Psicologica :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.atencion_CoSp"
+                      :class="datosRSDE29A59_RR.atencion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Buenas relaciones familiares:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.relaciones_CoSp"
+                      :class="datosRSDE29A59_RR.relaciones_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.grupos_CoSp"
+                      :class="datosRSDE29A59_RR.grupos_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientizacion:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.educacion_CoSp"
+                      :class="datosRSDE29A59_RR.educacion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.valoracion_CoSp"
+                      :class="datosRSDE29A59_RR.valoracion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','CoSp')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Consumo de SPA -->
+
+              <!-- Riesgo Delgadez -->
+              <div class="col-md-12" v-if="banConRieSal2=='RiDel'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Riesgo Desnutrición Global</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.asistencia_RiDel"
+                      :class="datosRSDE29A59_RR.asistencia_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Programas de alimentación:</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.programas_RiDel"
+                      :class="datosRSDE29A59_RR.programas_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Suplementación alimenticia :</label>
+                    <b-form-select
+                      v-model="datosRSDE29A59_RR.suplementacion_RiDel"
+                      :class="datosRSDE29A59_RR.suplementacion_RiDel==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS2('DE29A59','RiDel')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Riesgo Delgadez -->
+              <div class="text-right">
+                <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles2">
+                  <i class="fa fa-window-close"></i> Cerrar
+                </button>
+                <button type="button" class="btn btn-brand" @click="cerrarControlRS2('#tabDe29a59')" v-else>
+                  <i class="fa fa-arrow-left"></i> Volver
+                </button>                
+              </div>                                                                                                                                                                                            
+            </div>                       
+          </div>         
+        </b-modal>        
+        <!--begin::Modal RIESGOS SALUD Adolescentes/Jovenes-->
+
+
+        <!--begin::Modal RIESGOS SALUD Adulto mayor-->
+        <b-modal
+          ref="modalRieSal3"
+          hide-footer
+          title="Controles de los riesgos salud"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block" v-if="banderaControles3">
+            <ul
+              class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success"
+              role="tablist"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#tabDe60"
+                  role="tab"
+                >Adulto mayor</a>
+              </li>           
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tabDe60" role="tabpanel">
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los integrantes</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
+                        <thead class>
+                          <tr class="kt-bg-fill-brand">
+                            <th>No.</th>
+                            <th>Integrante</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="(item, index) in datosRSDE60" :value="item.value" :key="item.value">
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">{{(index + 1)}}</td>  
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{item.tipo_id}}:{{item.identificacion}} - {{item.pnom}} {{item.snom}} {{item.pape}} {{item.sape}}</td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="mostrarRiesgoSalDe60(index)"
+                              >
+                                <i class="fa fa-check"></i>
+                              </button>
+                            </td>                            
+                          </tr>
+                        </tbody>                   
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <center>
+                      <p>
+                        <span class="kt-font-boldest text" style="font-size: 18px;">Datos de los riesgos</span>
+                      </p>
+                    </center>
+                    <div class="table-responsive" style="height:370px;">
+                      <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                            <th style="vertical-align: middle;text-align: left;">Riesgo</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: center;">Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                          <tr v-for="(item, index) in vectorAuxRSDE60" :value="item.value" :key="item.value">
+                            <td style="font-weight: none;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.texto }}</td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
+                            </td>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
+                              <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
+                            </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-primary"
+                                type="button"
+                                title="Controles"
+                                @click="controlRSDE60(item.boton,'DE60',item.id,index)"
+
+                              >
+                                <i class="fa fa-edit"></i>
+                              </button>
+                            </td>                            
+                          </tr>                          
+                        </tbody>  
+                      </table>
+                    </div>                    
+                  </div>                                   
+                </div>
+              </div>                                                       
+            </div>
+            <div class="text-right">
+              <button type="button" class="btn btn-warning" @click="cerrarModal">
+                <i class="fa fa-window-close"></i> Cerrar
+              </button>               
+            </div>                         
+          </div>
+          <div class="d-block" v-else>
+            <div v-if="tipoRieSal3 == 'DE60'">
+              <!-- Enfermedades Infeccisosas -->
+              <div class="col-md-12" v-if="banConRieSal3=='EnIn'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Infeccisosas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Alimentación saludable :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.alimentacion_saludable_EnIn"
+                      :class="datosRSDE60_RR.alimentacion_saludable_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Asistencia a crecimiento  y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.asistencia_crecimiento_EnIn"
+                      :class="datosRSDE60_RR.asistencia_crecimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Fumigación, control de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.fumigacion_EnIn"
+                      :class="datosRSDE60_RR.fumigacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Sistemas de recolección de basuras :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.sistema_recoleccion_EnIn"
+                      :class="datosRSDE60_RR.sistema_recoleccion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Desparacitación  inferior a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.desparacitacion_EnIn"
+                      :class="datosRSDE60_RR.desparacitacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.inmunizacion_EnIn"
+                      :class="datosRSDE60_RR.inmunizacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.educacion_EnIn"
+                      :class="datosRSDE60_RR.educacion_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.mantenimiento_EnIn"
+                      :class="datosRSDE60_RR.mantenimiento_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Citas por valoración integral al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.citas_EnIn"
+                      :class="datosRSDE60_RR.citas_EnIn==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                          
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','EnIn')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Infeccisosas -->
+
+              <!-- Trastornos Asociados al uso de SPA -->
+              <div class="col-md-12" v-if="banConRieSal3=='TrAsSPA'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Asociados al uso de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización de la familia :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.educacion_TrAsSPA"
+                      :class="datosRSDE60_RR.educacion_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento terapeutico :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.acompaniamiento_TrAsSPA"
+                      :class="datosRSDE60_RR.acompaniamiento_TrAsSPA==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','TrAsSPA')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Asociados al uso de SPA -->
+
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+              <div class="col-md-12" v-if="banConRieSal3=='EnCaAt'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedad Cardiovascular Aterogénica</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.asistencia_crecimiento_EnCaAt"
+                      :class="datosRSDE60_RR.asistencia_crecimiento_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.educacion_EnCaAt"
+                      :class="datosRSDE60_RR.educacion_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Actividad fisica:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.actividad_EnCaAt"
+                      :class="datosRSDE60_RR.actividad_EnCaAt==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','EnCaAt')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedad Cardiovascular Aterogénica -->
+
+              <!-- Cancer -->
+              <div class="col-md-12" v-if="banConRieSal3=='Ca'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Cancer</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.asistencia_crecimiento_Ca"
+                      :class="datosRSDE60_RR.asistencia_crecimiento_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.educacion_Ca"
+                      :class="datosRSDE60_RR.educacion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.valoracion_Ca"
+                      :class="datosRSDE60_RR.valoracion_Ca==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','Ca')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Cancer -->
+
+              <!-- Alteraciones y Transtornos Visuales -->
+              <div class="col-md-12" v-if="banConRieSal3=='AlTrVi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos Visuales</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.asistencia_crecimiento_AlTrVi"
+                      :class="datosRSDE60_RR.asistencia_crecimiento_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.valoracion_AlTrVi"
+                      :class="datosRSDE60_RR.valoracion_AlTrVi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','AlTrVi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos Visuales -->
+
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+              <div class="col-md-12" v-if="banConRieSal3=='AlTrAuCo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Alteraciones y Transtornos de la Audición y Comunicación</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Asistencia a Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.asistencia_crecimiento_AlTrAuCo"
+                      :class="datosRSDE60_RR.asistencia_crecimiento_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Valoración por enfermeria:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.valoracion_AlTrAuCo"
+                      :class="datosRSDE60_RR.valoracion_AlTrAuCo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>             
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','AlTrAuCo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Alteraciones y Transtornos de la Audición y Comunicación -->
+
+              <!-- Salud Bucal -->
+              <div class="col-md-12" v-if="banConRieSal3=='SaBu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Salud Bucal</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control con odontologia menor a 6 meses :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.control_odontologia_SaBu"
+                      :class="datosRSDE60_RR.control_odontologia_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Aplicación de Fluor:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.aplicacion_fluor_SaBu"
+                      :class="datosRSDE60_RR.aplicacion_fluor_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Educación y concientización :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.educacion_SaBu"
+                      :class="datosRSDE60_RR.educacion_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>hábitos de higiene oral:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.habitos_higiene_SaBu"
+                      :class="datosRSDE60_RR.habitos_higiene_SaBu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','SaBu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Salud Bucal -->
+
+              <!-- Problemas en salud mental -->
+              <div class="col-md-12" v-if="banConRieSal3=='PrSaMe'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Problemas en salud mental</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.concientizacion_PrSaMe"
+                      :class="datosRSDE60_RR.concientizacion_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.acompaniamiento_PrSaMe"
+                      :class="datosRSDE60_RR.acompaniamiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.crecimiento_PrSaMe"
+                      :class="datosRSDE60_RR.crecimiento_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.grupos_PrSaMe"
+                      :class="datosRSDE60_RR.grupos_PrSaMe==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','PrSaMe')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Problemas en salud mental -->
+
+              <!-- Violencias -->
+              <div class="col-md-12" v-if="banConRieSal3=='Vi'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Violencias</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Concientizacion y educación :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.concientizacion_Vi"
+                      :class="datosRSDE60_RR.concientizacion_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acompañamiento Psicologico:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.acompaniamiento_Vi"
+                      :class="datosRSDE60_RR.acompaniamiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.crecimiento_Vi"
+                      :class="datosRSDE60_RR.crecimiento_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.grupos_Vi"
+                      :class="datosRSDE60_RR.grupos_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>ICBF :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.icbf_Vi"
+                      :class="datosRSDE60_RR.icbf_Vi==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','Vi')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Violencias -->
+
+              <!-- Enfermedades Respiratorias crónicas -->
+              <div class="col-md-12" v-if="banConRieSal3=='EnReCr'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Respiratorias crónicas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.crecimiento_EnReCr"
+                      :class="datosRSDE60_RR.crecimiento_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientización:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.educacion_EnReCr"
+                      :class="datosRSDE60_RR.educacion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.valoracion_EnReCr"
+                      :class="datosRSDE60_RR.valoracion_EnReCr==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','EnReCr')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Respiratorias crónicas -->
+
+              <!-- Enfermedades Zoonoticas -->
+              <div class="col-md-12" v-if="banConRieSal3=='EnZo'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Enfermedades Zoonoticas</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.crecimiento_EnZo"
+                      :class="datosRSDE60_RR.crecimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Potabilización del agua :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.potabilizacion_EnZo"
+                      :class="datosRSDE60_RR.potabilizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Mantenimiento de lotes :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.mantenimiento_EnZo"
+                      :class="datosRSDE60_RR.mantenimiento_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>fumigación de plagas :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.fumigacion_EnZo"
+                      :class="datosRSDE60_RR.fumigacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Vacunación de animales :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.vacunacion_EnZo"
+                      :class="datosRSDE60_RR.vacunacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Inmunización  al dia :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.inmunizacion_EnZo"
+                      :class="datosRSDE60_RR.inmunizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.valorizacion_EnZo"
+                      :class="datosRSDE60_RR.valorizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label> Desparasitación menor a 6 meses:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.desparatizacion_EnZo"
+                      :class="datosRSDE60_RR.desparatizacion_EnZo==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+
+                </div>                                        
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','EnZo')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Enfermedades Zoonoticas -->
+
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+              <div class="col-md-12" v-if="banConRieSal3=='TrDeNeEnAu'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Control de crecimiento y desarrollo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.crecimiento_TrDeNeEnAu"
+                      :class="datosRSDE60_RR.crecimiento_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Acceso atención especializada:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.acceso_TrDeNeEnAu"
+                      :class="datosRSDE60_RR.acceso_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.valoracion_TrDeNeEnAu"
+                      :class="datosRSDE60_RR.valoracion_TrDeNeEnAu==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','TrDeNeEnAu')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes -->
+
+              <!-- Consumo de SPA -->
+              <div class="col-md-12" v-if="banConRieSal3=='CoSp'">
+                <center>
+                  <p>
+                    <span class="kt-font-boldest text" style="font-size: 22px;">Controles riesgos de Consumo de SPA</span>
+                  </p>
+                </center>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Atencion Psicologica :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.atencion_CoSp"
+                      :class="datosRSDE60_RR.atencion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Buenas relaciones familiares:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.relaciones_CoSp"
+                      :class="datosRSDE60_RR.relaciones_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Grupos de apoyo :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.grupos_CoSp"
+                      :class="datosRSDE60_RR.grupos_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>                    
+                  <div class="col-md-6">
+                    <label>Educación y concientizacion:</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.educacion_CoSp"
+                      :class="datosRSDE60_RR.educacion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>              
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label>Valoración integral :</label>
+                    <b-form-select
+                      v-model="datosRSDE60_RR.valoracion_CoSp"
+                      :class="datosRSDE60_RR.valoracion_CoSp==''?'':'is-valid'"
+                    >
+                      <option value selected>Seleccione</option>
+                      <option value="OCASIONAL">OCASIONAL</option>
+                      <option value="PERIODICO">PERIODICO</option>
+                      <option value="PERMANENTE">PERMANENTE</option>
+                      <option value="NO">NO</option>
+                    </b-form-select>
+                  </div>
+                </div>                           
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <div class="text-center">                
+                      <button type="button" class="btn btn-success" @click="GuardarRS3('DE60','CoSp')">
+                        <i class="fa fa-edit"></i> Guardar
+                      </button>          
+                    </div>                      
+                  </div>
+                </div>                                                                     
+              </div>
+              <!-- Consumo de SPA -->
+                                                                                                                                                                                            
+            </div>                        
+            <div class="text-right">
+              <button type="button" class="btn btn-warning" @click="cerrarModal" v-if="banderaControles3">
+                <i class="fa fa-window-close"></i> Cerrar
+              </button>
+              <button type="button" class="btn btn-brand" @click="cerrarControlRS3" v-else>
+                <i class="fa fa-arrow-left"></i> Volver
+              </button>                
+            </div>            
+          </div>         
+        </b-modal>        
+        <!--begin::Modal RIESGOS SALUD Adulto mayor-->                       
       </div>
     </div>
   </div>
@@ -13301,7 +22009,7 @@
   const entero = value => {
     return /^[0-9]*$/.test(value);
   };
-
+  import Loading from "vue-loading-overlay";
   import {
     required,
     numeric,
@@ -13313,7 +22021,8 @@
   } from "vuelidate/lib/validators";
   export default {
     components: {
-      Datepicker
+      Datepicker,
+      Loading
     },
     mounted() {
       this.nuevo();
@@ -13908,7 +22617,792 @@
           cual_RRA: "",
           tipo_RRA: "",
           // Riesgo Acceso a Agua Segura
-        }
+        },
+
+
+        banderaControles1: true,
+        banConRieSal1: "",
+        tipoRieSal1: "",
+        idSal1: 0,
+        indexSal1: 0,
+
+        datosRSMEN1A: [],
+        indiceRSMEN1A: 0,
+        vectorAuxRSMEN1A: [],
+        datosRSMEN1A_RR: {
+          // Riesgos de Enfermedades Infeccisosas
+          alimentacion_saludable_EnIn: "",
+          asistencia_crecimiento_EnIn: "",          
+          fumigacion_EnIn: "",
+          sistema_recoleccion_EnIn: "",
+          desparacitacion_EnIn: "",
+          inmunizacion_EnIn: "",
+          educacion_EnIn: "",
+          mantenimiento_EnIn: "",
+          citas_EnIn: "",
+          // Riesgos de Enfermedades Infeccisosas
+
+          // Riesgos de Trastornos Asociados al uso de SPA
+          educacion_TrAsSPA: "",
+          acompaniamiento_TrAsSPA: "",  
+          // Riesgos de Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          asistencia_crecimiento_EnCaAt: "",
+          educacion_EnCaAt: "",
+          actividad_EnCaAt: "",
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          asistencia_crecimiento_Ca: "",
+          educacion_Ca: "",
+          valoracion_Ca: "",
+          // Cancer
+          
+          // Alteraciones y Transtornos Visuales
+          asistencia_crecimiento_AlTrVi: "",
+          valoracion_AlTrVi: "",
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          asistencia_crecimiento_AlTrAuCo: "",
+          valoracion_AlTrAuCo: "",
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          control_odontologia_SaBu: "",
+          aplicacion_fluor_SaBu: "",
+          educacion_SaBu: "",
+          habitos_higiene_SaBu: "",
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          concientizacion_PrSaMe: "",
+          acompaniamiento_PrSaMe: "",
+          crecimiento_PrSaMe: "",
+          grupos_PrSaMe: "",
+          // Problemas en salud mental
+          
+          // Violencias
+          acompaniamiento_Vi: "",
+          grupos_Vi: "",
+          concientizacion_Vi: "",
+          crecimiento_Vi: "",
+          icbf_Vi: "",
+          // Violencias
+
+          // Enfermedades Respiratorias crónicas
+          crecimiento_EnReCr: "",
+          educacion_EnReCr: "",
+          valoracion_EnReCr: "",
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          crecimiento_EnZo: "",
+          potabilizacion_EnZo: "",          
+          mantenimiento_EnZo: "",
+          fumigacion_EnZo: "",
+          vacunacion_EnZo: "",
+          inmunizacion_EnZo: "",
+          valorizacion_EnZo: "",
+          desparatizacion_EnZo: "",
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          crecimiento_TrDeNeEnAu: "",
+          acceso_TrDeNeEnAu: "",
+          valoracion_TrDeNeEnAu: "",
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          atencion_CoSp: "",
+          relaciones_CoSp: "",
+          grupos_CoSp: "",
+          educacion_CoSp: "",
+          valoracion_CoSp: "",
+          // Consumo de SPA
+          
+          // Riesgo Desnutrición Aguda
+          asistencia_RiDeAg: "",
+          programas_RiDeAg: "",
+          suplementacion_RiDeAg: "",
+          // Riesgo Desnutrición Aguda
+          
+          // Riesgo Desnutrición Global
+          asistencia_RiDeGl: "",
+          programas_RiDeGl: "",
+          suplementacion_RiDeGl: "",
+          // Riesgo Desnutrición Global
+          
+          // Riesgo de Talla Baja
+          asistencia_RiTaBa: "",
+          programas_RiTaBa: "",
+          suplementacion_RiTaBa: "",
+          // Riesgo de Talla Baja
+
+          // Riesgo Sobrepeso
+          asistencia_RiSo: "",
+          actividad_RiSo: "",
+          // Riesgo Sobrepeso
+        },        
+
+        datosRSDE1A5: [],
+        indiceRSDE1A5: 0,
+        vectorAuxRSDE1A5: [],
+        datosRSDE1A5_RR: {
+          // Riesgos de Enfermedades Infeccisosas
+          alimentacion_saludable_EnIn: "",
+          asistencia_crecimiento_EnIn: "",          
+          fumigacion_EnIn: "",
+          sistema_recoleccion_EnIn: "",
+          desparacitacion_EnIn: "",
+          inmunizacion_EnIn: "",
+          educacion_EnIn: "",
+          mantenimiento_EnIn: "",
+          citas_EnIn: "",
+          // Riesgos de Enfermedades Infeccisosas
+
+          // Riesgos de Trastornos Asociados al uso de SPA
+          educacion_TrAsSPA: "",
+          acompaniamiento_TrAsSPA: "",  
+          // Riesgos de Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          asistencia_crecimiento_EnCaAt: "",
+          educacion_EnCaAt: "",
+          actividad_EnCaAt: "",
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          asistencia_crecimiento_Ca: "",
+          educacion_Ca: "",
+          valoracion_Ca: "",
+          // Cancer
+          
+          // Alteraciones y Transtornos Visuales
+          asistencia_crecimiento_AlTrVi: "",
+          valoracion_AlTrVi: "",
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          asistencia_crecimiento_AlTrAuCo: "",
+          valoracion_AlTrAuCo: "",
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          control_odontologia_SaBu: "",
+          aplicacion_fluor_SaBu: "",
+          educacion_SaBu: "",
+          habitos_higiene_SaBu: "",
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          concientizacion_PrSaMe: "",
+          acompaniamiento_PrSaMe: "",
+          crecimiento_PrSaMe: "",
+          grupos_PrSaMe: "",
+          // Problemas en salud mental
+          
+          // Violencias
+          acompaniamiento_Vi: "",
+          grupos_Vi: "",
+          concientizacion_Vi: "",
+          crecimiento_Vi: "",
+          icbf_Vi: "",
+          // Violencias
+
+          // Enfermedades Respiratorias crónicas
+          crecimiento_EnReCr: "",
+          educacion_EnReCr: "",
+          valoracion_EnReCr: "",
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          crecimiento_EnZo: "",
+          potabilizacion_EnZo: "",          
+          mantenimiento_EnZo: "",
+          fumigacion_EnZo: "",
+          vacunacion_EnZo: "",
+          inmunizacion_EnZo: "",
+          valorizacion_EnZo: "",
+          desparatizacion_EnZo: "",
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          crecimiento_TrDeNeEnAu: "",
+          acceso_TrDeNeEnAu: "",
+          valoracion_TrDeNeEnAu: "",
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          atencion_CoSp: "",
+          relaciones_CoSp: "",
+          grupos_CoSp: "",
+          educacion_CoSp: "",
+          valoracion_CoSp: "",
+          // Consumo de SPA
+          
+          // Riesgo Desnutrición Aguda
+          asistencia_RiDeAg: "",
+          programas_RiDeAg: "",
+          suplementacion_RiDeAg: "",
+          // Riesgo Desnutrición Aguda
+          
+          // Riesgo Desnutrición Global
+          asistencia_RiDeGl: "",
+          programas_RiDeGl: "",
+          suplementacion_RiDeGl: "",
+          // Riesgo Desnutrición Global
+          
+          // Riesgo de Talla Baja
+          asistencia_RiTaBa: "",
+          programas_RiTaBa: "",
+          suplementacion_RiTaBa: "",
+          // Riesgo de Talla Baja          
+
+          // Riesgo Sobrepeso
+          asistencia_RiSo: "",
+          actividad_RiSo: "",
+          // Riesgo Sobrepeso
+        },        
+        
+        datosRSDE6A11: [],
+        indiceRSDE6A11: 0,
+        vectorAuxRSDE6A11: [],
+        datosRSDE6A11_RR: {
+          // Riesgos de Enfermedades Infeccisosas
+          alimentacion_saludable_EnIn: "",
+          asistencia_crecimiento_EnIn: "",          
+          fumigacion_EnIn: "",
+          sistema_recoleccion_EnIn: "",
+          desparacitacion_EnIn: "",
+          inmunizacion_EnIn: "",
+          educacion_EnIn: "",
+          mantenimiento_EnIn: "",
+          citas_EnIn: "",
+          // Riesgos de Enfermedades Infeccisosas
+
+          // Riesgos de Trastornos Asociados al uso de SPA
+          educacion_TrAsSPA: "",
+          acompaniamiento_TrAsSPA: "",  
+          // Riesgos de Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          asistencia_crecimiento_EnCaAt: "",
+          educacion_EnCaAt: "",
+          actividad_EnCaAt: "",
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          asistencia_crecimiento_Ca: "",
+          educacion_Ca: "",
+          valoracion_Ca: "",
+          // Cancer
+          
+          // Alteraciones y Transtornos Visuales
+          asistencia_crecimiento_AlTrVi: "",
+          valoracion_AlTrVi: "",
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          asistencia_crecimiento_AlTrAuCo: "",
+          valoracion_AlTrAuCo: "",
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          control_odontologia_SaBu: "",
+          aplicacion_fluor_SaBu: "",
+          educacion_SaBu: "",
+          habitos_higiene_SaBu: "",
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          concientizacion_PrSaMe: "",
+          acompaniamiento_PrSaMe: "",
+          crecimiento_PrSaMe: "",
+          grupos_PrSaMe: "",
+          // Problemas en salud mental
+          
+          // Violencias
+          acompaniamiento_Vi: "",
+          grupos_Vi: "",
+          concientizacion_Vi: "",
+          crecimiento_Vi: "",
+          icbf_Vi: "",
+          // Violencias
+
+          // Enfermedades Respiratorias crónicas
+          crecimiento_EnReCr: "",
+          educacion_EnReCr: "",
+          valoracion_EnReCr: "",
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          crecimiento_EnZo: "",
+          potabilizacion_EnZo: "",          
+          mantenimiento_EnZo: "",
+          fumigacion_EnZo: "",
+          vacunacion_EnZo: "",
+          inmunizacion_EnZo: "",
+          valorizacion_EnZo: "",
+          desparatizacion_EnZo: "",
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          crecimiento_TrDeNeEnAu: "",
+          acceso_TrDeNeEnAu: "",
+          valoracion_TrDeNeEnAu: "",
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          atencion_CoSp: "",
+          relaciones_CoSp: "",
+          grupos_CoSp: "",
+          educacion_CoSp: "",
+          valoracion_CoSp: "",
+          // Consumo de SPA
+          
+          // Riesgo de Talla Baja
+          asistencia_RiTaBa: "",
+          programas_RiTaBa: "",
+          suplementacion_RiTaBa: "",
+          // Riesgo de Talla Baja    
+          
+          // Riesgo Delgadez
+          asistencia_RiDel: "",
+          programas_RiDel: "",
+          suplementacion_RiDel: "",
+          // Riesgo Delgadez
+          
+        },        
+
+        banderaControles2: true,
+        banConRieSal2: "",
+        tipoRieSal2: "",
+        idSal2: 0,
+        indexSal2: 0,
+        
+        datosRSDE12A17: [],
+        indiceRSDE12A17: 0,
+        vectorAuxRSDE12A17: [],
+        datosRSDE12A17_RR: {
+          // Riesgos de Enfermedades Infeccisosas
+          alimentacion_saludable_EnIn: "",
+          asistencia_crecimiento_EnIn: "",          
+          fumigacion_EnIn: "",
+          sistema_recoleccion_EnIn: "",
+          desparacitacion_EnIn: "",
+          inmunizacion_EnIn: "",
+          educacion_EnIn: "",
+          mantenimiento_EnIn: "",
+          citas_EnIn: "",
+          // Riesgos de Enfermedades Infeccisosas
+
+          // Riesgos de Trastornos Asociados al uso de SPA
+          educacion_TrAsSPA: "",
+          acompaniamiento_TrAsSPA: "",  
+          // Riesgos de Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          asistencia_crecimiento_EnCaAt: "",
+          educacion_EnCaAt: "",
+          actividad_EnCaAt: "",
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          asistencia_crecimiento_Ca: "",
+          educacion_Ca: "",
+          valoracion_Ca: "",
+          // Cancer
+          
+          // Alteraciones y Transtornos Visuales
+          asistencia_crecimiento_AlTrVi: "",
+          valoracion_AlTrVi: "",
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          asistencia_crecimiento_AlTrAuCo: "",
+          valoracion_AlTrAuCo: "",
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          control_odontologia_SaBu: "",
+          aplicacion_fluor_SaBu: "",
+          educacion_SaBu: "",
+          habitos_higiene_SaBu: "",
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          concientizacion_PrSaMe: "",
+          acompaniamiento_PrSaMe: "",
+          crecimiento_PrSaMe: "",
+          grupos_PrSaMe: "",
+          // Problemas en salud mental
+          
+          // Violencias
+          acompaniamiento_Vi: "",
+          grupos_Vi: "",
+          concientizacion_Vi: "",
+          crecimiento_Vi: "",
+          icbf_Vi: "",
+          // Violencias
+
+          // Enfermedades Respiratorias crónicas
+          crecimiento_EnReCr: "",
+          educacion_EnReCr: "",
+          valoracion_EnReCr: "",
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          crecimiento_EnZo: "",
+          potabilizacion_EnZo: "",          
+          mantenimiento_EnZo: "",
+          fumigacion_EnZo: "",
+          vacunacion_EnZo: "",
+          inmunizacion_EnZo: "",
+          valorizacion_EnZo: "",
+          desparatizacion_EnZo: "",
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          crecimiento_TrDeNeEnAu: "",
+          acceso_TrDeNeEnAu: "",
+          valoracion_TrDeNeEnAu: "",
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          atencion_CoSp: "",
+          relaciones_CoSp: "",
+          grupos_CoSp: "",
+          educacion_CoSp: "",
+          valoracion_CoSp: "",
+          // Consumo de SPA
+          
+          // Riesgo de Talla Baja
+          asistencia_RiTaBa: "",
+          programas_RiTaBa: "",
+          suplementacion_RiTaBa: "",
+          // Riesgo de Talla Baja    
+          
+          // Riesgo Delgadez
+          asistencia_RiDel: "",
+          programas_RiDel: "",
+          suplementacion_RiDel: "",
+          // Riesgo Delgadez
+          
+        },        
+
+        datosRSDE18A28: [],
+        indiceRSDE18A28: 0,
+        vectorAuxRSDE18A28: [],
+        datosRSDE18A28_RR: {
+          // Riesgos de Enfermedades Infeccisosas
+          alimentacion_saludable_EnIn: "",
+          asistencia_crecimiento_EnIn: "",          
+          fumigacion_EnIn: "",
+          sistema_recoleccion_EnIn: "",
+          desparacitacion_EnIn: "",
+          inmunizacion_EnIn: "",
+          educacion_EnIn: "",
+          mantenimiento_EnIn: "",
+          citas_EnIn: "",
+          // Riesgos de Enfermedades Infeccisosas
+
+          // Riesgos de Trastornos Asociados al uso de SPA
+          educacion_TrAsSPA: "",
+          acompaniamiento_TrAsSPA: "",  
+          // Riesgos de Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          asistencia_crecimiento_EnCaAt: "",
+          educacion_EnCaAt: "",
+          actividad_EnCaAt: "",
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          asistencia_crecimiento_Ca: "",
+          educacion_Ca: "",
+          valoracion_Ca: "",
+          // Cancer
+          
+          // Alteraciones y Transtornos Visuales
+          asistencia_crecimiento_AlTrVi: "",
+          valoracion_AlTrVi: "",
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          asistencia_crecimiento_AlTrAuCo: "",
+          valoracion_AlTrAuCo: "",
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          control_odontologia_SaBu: "",
+          aplicacion_fluor_SaBu: "",
+          educacion_SaBu: "",
+          habitos_higiene_SaBu: "",
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          concientizacion_PrSaMe: "",
+          acompaniamiento_PrSaMe: "",
+          crecimiento_PrSaMe: "",
+          grupos_PrSaMe: "",
+          // Problemas en salud mental
+          
+          // Violencias
+          acompaniamiento_Vi: "",
+          grupos_Vi: "",
+          concientizacion_Vi: "",
+          crecimiento_Vi: "",
+          icbf_Vi: "",
+          // Violencias
+
+          // Enfermedades Respiratorias crónicas
+          crecimiento_EnReCr: "",
+          educacion_EnReCr: "",
+          valoracion_EnReCr: "",
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          crecimiento_EnZo: "",
+          potabilizacion_EnZo: "",          
+          mantenimiento_EnZo: "",
+          fumigacion_EnZo: "",
+          vacunacion_EnZo: "",
+          inmunizacion_EnZo: "",
+          valorizacion_EnZo: "",
+          desparatizacion_EnZo: "",
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          crecimiento_TrDeNeEnAu: "",
+          acceso_TrDeNeEnAu: "",
+          valoracion_TrDeNeEnAu: "",
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          atencion_CoSp: "",
+          relaciones_CoSp: "",
+          grupos_CoSp: "",
+          educacion_CoSp: "",
+          valoracion_CoSp: "",
+          // Consumo de SPA              
+          
+          // Riesgo Delgadez
+          asistencia_RiDel: "",
+          programas_RiDel: "",
+          suplementacion_RiDel: "",
+          // Riesgo Delgadez
+          
+        },
+
+        datosRSDE29A59: [],
+        indiceRSDE29A59: 0,
+        vectorAuxRSDE29A59: [],
+        datosRSDE29A59_RR: {
+          // Riesgos de Enfermedades Infeccisosas
+          alimentacion_saludable_EnIn: "",
+          asistencia_crecimiento_EnIn: "",          
+          fumigacion_EnIn: "",
+          sistema_recoleccion_EnIn: "",
+          desparacitacion_EnIn: "",
+          inmunizacion_EnIn: "",
+          educacion_EnIn: "",
+          mantenimiento_EnIn: "",
+          citas_EnIn: "",
+          // Riesgos de Enfermedades Infeccisosas
+
+          // Riesgos de Trastornos Asociados al uso de SPA
+          educacion_TrAsSPA: "",
+          acompaniamiento_TrAsSPA: "",  
+          // Riesgos de Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          asistencia_crecimiento_EnCaAt: "",
+          educacion_EnCaAt: "",
+          actividad_EnCaAt: "",
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          asistencia_crecimiento_Ca: "",
+          educacion_Ca: "",
+          valoracion_Ca: "",
+          // Cancer
+          
+          // Alteraciones y Transtornos Visuales
+          asistencia_crecimiento_AlTrVi: "",
+          valoracion_AlTrVi: "",
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          asistencia_crecimiento_AlTrAuCo: "",
+          valoracion_AlTrAuCo: "",
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          control_odontologia_SaBu: "",
+          aplicacion_fluor_SaBu: "",
+          educacion_SaBu: "",
+          habitos_higiene_SaBu: "",
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          concientizacion_PrSaMe: "",
+          acompaniamiento_PrSaMe: "",
+          crecimiento_PrSaMe: "",
+          grupos_PrSaMe: "",
+          // Problemas en salud mental
+          
+          // Violencias
+          acompaniamiento_Vi: "",
+          grupos_Vi: "",
+          concientizacion_Vi: "",
+          crecimiento_Vi: "",
+          icbf_Vi: "",
+          // Violencias
+
+          // Enfermedades Respiratorias crónicas
+          crecimiento_EnReCr: "",
+          educacion_EnReCr: "",
+          valoracion_EnReCr: "",
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          crecimiento_EnZo: "",
+          potabilizacion_EnZo: "",          
+          mantenimiento_EnZo: "",
+          fumigacion_EnZo: "",
+          vacunacion_EnZo: "",
+          inmunizacion_EnZo: "",
+          valorizacion_EnZo: "",
+          desparatizacion_EnZo: "",
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          crecimiento_TrDeNeEnAu: "",
+          acceso_TrDeNeEnAu: "",
+          valoracion_TrDeNeEnAu: "",
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          atencion_CoSp: "",
+          relaciones_CoSp: "",
+          grupos_CoSp: "",
+          educacion_CoSp: "",
+          valoracion_CoSp: "",
+          // Consumo de SPA            
+          
+          // Riesgo Delgadez
+          asistencia_RiDel: "",
+          programas_RiDel: "",
+          suplementacion_RiDel: "",
+          // Riesgo Delgadez
+          
+        },               
+
+        banderaControles3: true,
+        banConRieSal3: "",
+        tipoRieSal3: "",
+        idSal3: 0,
+        indexSal3: 0,
+
+        datosRSDE60: [],
+        indiceRSDE60: 0,
+        vectorAuxRSDE60: [],
+        datosRSDE60_RR: {
+          // Riesgos de Enfermedades Infeccisosas
+          alimentacion_saludable_EnIn: "",
+          asistencia_crecimiento_EnIn: "",          
+          fumigacion_EnIn: "",
+          sistema_recoleccion_EnIn: "",
+          desparacitacion_EnIn: "",
+          inmunizacion_EnIn: "",
+          educacion_EnIn: "",
+          mantenimiento_EnIn: "",
+          citas_EnIn: "",
+          // Riesgos de Enfermedades Infeccisosas
+
+          // Riesgos de Trastornos Asociados al uso de SPA
+          educacion_TrAsSPA: "",
+          acompaniamiento_TrAsSPA: "",  
+          // Riesgos de Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          asistencia_crecimiento_EnCaAt: "",
+          educacion_EnCaAt: "",
+          actividad_EnCaAt: "",
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          asistencia_crecimiento_Ca: "",
+          educacion_Ca: "",
+          valoracion_Ca: "",
+          // Cancer
+          
+          // Alteraciones y Transtornos Visuales
+          asistencia_crecimiento_AlTrVi: "",
+          valoracion_AlTrVi: "",
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          asistencia_crecimiento_AlTrAuCo: "",
+          valoracion_AlTrAuCo: "",
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          control_odontologia_SaBu: "",
+          aplicacion_fluor_SaBu: "",
+          educacion_SaBu: "",
+          habitos_higiene_SaBu: "",
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          concientizacion_PrSaMe: "",
+          acompaniamiento_PrSaMe: "",
+          crecimiento_PrSaMe: "",
+          grupos_PrSaMe: "",
+          // Problemas en salud mental
+          
+          // Violencias
+          acompaniamiento_Vi: "",
+          grupos_Vi: "",
+          concientizacion_Vi: "",
+          crecimiento_Vi: "",
+          icbf_Vi: "",
+          // Violencias
+
+          // Enfermedades Respiratorias crónicas
+          crecimiento_EnReCr: "",
+          educacion_EnReCr: "",
+          valoracion_EnReCr: "",
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          crecimiento_EnZo: "",
+          potabilizacion_EnZo: "",          
+          mantenimiento_EnZo: "",
+          fumigacion_EnZo: "",
+          vacunacion_EnZo: "",
+          inmunizacion_EnZo: "",
+          valorizacion_EnZo: "",
+          desparatizacion_EnZo: "",
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          crecimiento_TrDeNeEnAu: "",
+          acceso_TrDeNeEnAu: "",
+          valoracion_TrDeNeEnAu: "",
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          atencion_CoSp: "",
+          relaciones_CoSp: "",
+          grupos_CoSp: "",
+          educacion_CoSp: "",
+          valoracion_CoSp: "",
+          // Consumo de SPA
+          
+        },        
       };
     },
     validations: {
@@ -14197,6 +23691,7 @@
             .listarOcupaciones(parametros)
             .then(respuesta => {
               this.ocupacionesVector = respuesta.data.ocupaciones.data;
+              console.log(this.ocupacionesVector)
               this.paginacionVector = respuesta.data.paginacion;              
             });
         } catch (error) {
@@ -14850,7 +24345,30 @@
                     this.De6A11 = respuesta.data.De6A11;
                     this.De10A59 = respuesta.data.De10A59;                                            
                     this.ParPost = respuesta.data.ParPost;
-                    // GESTION DE LAS VARIABLES DE CART X CICLO                    
+                    // GESTION DE LAS VARIABLES DE CART X CICLO
+                    
+                    
+                    if(respuesta.data.riesgos_salud_men1a !== null){
+                      this.datosRSMEN1A = respuesta.data.riesgos_salud_men1a;
+                    }
+                    this.vectorAuxRSMEN1A = [];
+                    if(respuesta.data.ValoresRiesgosSaludMen1a !== null){
+                      this.datosRSMEN1A_RR = respuesta.data.ValoresRiesgosSaludMen1a;
+                    }                    
+
+                    if(respuesta.data.riesgos_salud_de1a5 !== null){
+                      this.datosRSDE1A5 = respuesta.data.riesgos_salud_de1a5;
+                    }
+                    this.vectorAuxRSDE1A5 = [];
+                    if(respuesta.data.ValoresRiesgosSaludDe1a5 !== null){
+                      this.datosRSDE1A5_RR = respuesta.data.ValoresRiesgosSaludDe1a5;
+                    }                    
+                    
+                    if(respuesta.data.riesgos_salud_de6a11 !== null){
+                      this.datosRSDE6A11 = respuesta.data.riesgos_salud_de6a11;
+                    }
+                    this.vectorAuxRSDE6A11 = [];                    
+                    this.$refs.modalRieSal1.show();                    
                   }
                 })
                 .catch(error => {
@@ -14967,7 +24485,23 @@
                     this.De12A17 = respuesta.data.De12A17;
                     this.De18A28 = respuesta.data.De18A28;
                     this.De29A59 = respuesta.data.De29A59;                  
-                    // GESTION DE LAS VARIABLES DE ADOLESCENTES                    
+                    // GESTION DE LAS VARIABLES DE ADOLESCENTES
+                    
+                    if(respuesta.data.riesgos_salud_de12a17 !== null){
+                      this.datosRSDE12A17 = respuesta.data.riesgos_salud_de12a17;
+                    }
+                    this.vectorAuxRSDE12A17 = [];
+
+                    if(respuesta.data.riesgos_salud_de18a28 !== null){
+                      this.datosRSDE18A28 = respuesta.data.riesgos_salud_de18a28;
+                    }
+                    this.vectorAuxRSDE18A28 = [];
+                    
+                    if(respuesta.data.riesgos_salud_de29a59 !== null){
+                      this.datosRSDE29A59 = respuesta.data.riesgos_salud_de29a59;
+                    }
+                    this.vectorAuxRSDE29A59 = [];                    
+                    this.$refs.modalRieSal2.show();                    
                   }
                 })
                 .catch(error => {
@@ -15084,7 +24618,13 @@
                     this.De60 = respuesta.data.De60;
                     this.EnCro = respuesta.data.EnCro;
                     this.EnInf = respuesta.data.EnInf;
-                    // GESTION DE LAS VARIABLES DE ADULTO MAYOR                    
+                    // GESTION DE LAS VARIABLES DE ADULTO MAYOR
+                    
+                    if(respuesta.data.riesgos_salud_de60 !== null){
+                      this.datosRSDE60 = respuesta.data.riesgos_salud_de60;
+                    }
+                    this.vectorAuxRSDE60 = [];                    
+                    this.$refs.modalRieSal3.show();                    
                   }
                 })
                 .catch(error => {
@@ -28337,7 +37877,7 @@
           if(this.datosRA.regulacion_RAU === ""){
             this.$swal(
               "Error...!",
-              "Por Favor seleccione la opción Regulación de indutrias contaminantes",
+              "Por Favor seleccione la opción Regulación de industrias contaminantes",
               "error"
             );
             return false;
@@ -28658,6 +38198,5485 @@
           this.datosRA.cual_RAA = "";
           this.datosRA.tipo_RAA = "";
         }                                                              
+      },
+      
+      
+      mostrarRiesgoSalMen1a(index){
+        this.indiceRSMEN1A = index;
+        this.vectorAuxRSMEN1A = [];
+
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_infecciosas_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_infecciosas_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_infecciosas_I"],
+          texto: "Enfermedades Infeccisosas",
+          boton: "EnIn",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_infecciosas_R"],          
+        });
+
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["transtornos_asociados_spa_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_transtornos_asociados_spa_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_transtornos_asociados_spa_I"],
+          texto: "Trastornos Asociados al uso de SPA",
+          boton: "TrAsSPA",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_transtornos_asociados_spa_R"],
+        });
+
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedad_cardiovascular_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedad_cardiovascular_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedad_cardiovascular_I"],
+          texto: "Enfermedad Cardiovascular Aterogénica",
+          boton: "EnCaAt",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedad_cardiovascular_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["cancer_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_cancer_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_cancer_I"],
+          texto: "Cancer",
+          boton: "Ca",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["cancer_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_cancer_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_cancer_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["alteraciones_transtornos_visuales_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_alteraciones_transtornos_visuales_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_alteraciones_transtornos_visuales_I"],
+          texto: "Alteraciones y Transtornos Visuales",
+          boton: "AlTrVi",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_alteraciones_transtornos_visuales_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["alteraciones_transtornos_audicion_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_alteraciones_transtornos_audicion_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_alteraciones_transtornos_audicion_I"],
+          texto: "Alteraciones y Transtornos de la Audición y Comunicación",
+          boton: "AlTrAuCo",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_alteraciones_transtornos_audicion_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["salud_bucal_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_salud_bucal_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_salud_bucal_I"],
+          texto: "Salud Bucal",
+          boton: "SaBu",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["salud_bucal_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_salud_bucal_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_salud_bucal_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["problemas_salud_mental_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_problemas_salud_mental_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_problemas_salud_mental_I"],
+          texto: "Problemas en salud mental",
+          boton: "PrSaMe",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["problemas_salud_mental_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_problemas_salud_mental_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["violencias_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_violencias_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_violencias_I"],
+          texto: "Violencias",
+          boton: "Vi",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["violencias_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_violencias_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_violencias_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_respiratorias_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_respiratorias_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_respiratorias_I"],
+          texto: "Enfermedades Respiratorias crónicas",
+          boton: "EnReCr",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_respiratorias_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_zoonoticas_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_zoonoticas_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_zoonoticas_I"],
+          texto: "Enfermedades Zoonoticas",
+          boton: "EnZo",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_enfermedades_zoonoticas_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["transtornos_degenartivos_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_transtornos_degenartivos_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_transtornos_degenartivos_I"],
+          texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
+          boton: "TrDeNeEnAu",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_transtornos_degenartivos_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["consumo_spa_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_consumo_spa_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_consumo_spa_I"],
+          texto: "Consumo de SPA",
+          boton: "CoSp",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["consumo_spa_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_consumo_spa_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_consumo_spa_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgos_desnutricion_aguda_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgos_desnutricion_aguda_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgos_desnutricion_aguda_I"],
+          texto: "Riesgo Desnutrición Aguda",
+          boton: "RiDeAg",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgos_desnutricion_aguda_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgos_desnutricion_aguda_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgos_desnutricion_aguda_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgos_desnutricion_global_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgos_desnutricion_global_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgos_desnutricion_global_I"],
+          texto: "Riesgo Desnutrición Global",
+          boton: "RiDeGl",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgos_desnutricion_global_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgos_desnutricion_global_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgos_desnutricion_global_R"],
+        });
+        
+        // this.vectorAuxRSMEN1A.push({
+        //   riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["desnutricion_global_I"],
+        //   valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_desnutricion_global_I"],
+        //   color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_desnutricion_global_I"],
+        //   texto: "Desnutrición Global",
+        //   boton: "DeGl"
+        // });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_talla_baja_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_talla_baja_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_talla_baja_I"],
+          texto: "Riesgo de Talla Baja",
+          boton: "RiTaBa",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_talla_baja_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_talla_baja_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_talla_baja_R"],
+        });
+        
+        // this.vectorAuxRSMEN1A.push({
+        //   riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["talla_baja_retraso_I"],
+        //   valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_talla_baja_retraso_I"],
+        //   color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_talla_baja_retraso_I"],
+        //   texto: "Talla Baja o Retraso de la Edad",
+        //   boton: "TaBaReEd"
+        // });
+        
+        // this.vectorAuxRSMEN1A.push({
+        //   riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["desnutricion_aguda_moderada_I"],
+        //   valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_desnutricion_aguda_moderada_I"],
+        //   color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_desnutricion_aguda_moderada_I"],
+        //   texto: "Desnutrición Aguda Moderada",
+        //   boton: "DeAgMo"
+        // });
+        
+        // this.vectorAuxRSMEN1A.push({
+        //   riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["desnutricion_aguda_severa_I"],
+        //   valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_desnutricion_aguda_severa_I"],
+        //   color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_desnutricion_aguda_severa_I"],
+        //   texto: "Desnutrición Aguda Severa",
+        //   boton: "DeAgSe"
+        // });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_muerte_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_muerte_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_muerte_I"],
+          texto: "Riesgo de Muerte por Desnutrición",
+          boton: "RiMuDe",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_muerte_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_muerte_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_muerte_R"],
+        });
+        
+        this.vectorAuxRSMEN1A.push({
+          riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_sobrepeso_I"],
+          valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_sobrepeso_I"],
+          color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_sobrepeso_I"],
+          texto: "Riesgo Sobrepeso",
+          boton: "RiSo",
+          id: this.datosRSMEN1A[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSMEN1A[this.indiceRSMEN1A]["riesgo_sobrepeso_R"],
+          valor_r: this.datosRSMEN1A[this.indiceRSMEN1A]["v_riesgo_sobrepeso_R"],
+          color_r: this.datosRSMEN1A[this.indiceRSMEN1A]["c_riesgo_sobrepeso_R"],
+        });
+        
+        // this.vectorAuxRSMEN1A.push({
+        //   riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["sobrepeso_I"],
+        //   valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_sobrepeso_I"],
+        //   color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_sobrepeso_I"],
+        //   texto: "Sobrepeso",
+        //   boton: "So"
+        // });
+        
+        // this.vectorAuxRSMEN1A.push({
+        //   riesgo: this.datosRSMEN1A[this.indiceRSMEN1A]["obesidad_I"],
+        //   valor: this.datosRSMEN1A[this.indiceRSMEN1A]["v_obesidad_I"],
+        //   color: this.datosRSMEN1A[this.indiceRSMEN1A]["c_obesidad_I"],
+        //   texto: "Obesidad",
+        //   boton: "Ob"
+        // });
+
+        this.vectorAuxRSMEN1A.sort(function(x, y) {
+          return y.riesgo - x.riesgo;
+        });      
+      
+      },
+      controlRSMEN1A(opcion, tipo, id, index){
+        this.banderaControles1 = false;
+        this.banConRieSal1 = opcion;
+        this.tipoRieSal1 = tipo;
+        this.idSal1 = id;
+        this.indexSal1 = index;
+      },
+      cerrarControlRS1(tab){
+        this.banderaControles1 = true;
+        this.cambiarTab(tab);
+        this.idSal1 = 0;
+        this.indexSal1 = 0;                
+      },
+
+      mostrarRiesgoSalDe1a5(index){
+        this.indiceRSDE1A5 = index;
+        this.vectorAuxRSDE1A5 = [];
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedades_infecciosas_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedades_infecciosas_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_infecciosas_I"],
+          texto: "Enfermedades Infeccisosas",
+          boton: "EnIn",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedades_infecciosas_R"],
+        });
+
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["transtornos_asociados_spa_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_transtornos_asociados_spa_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_transtornos_asociados_spa_I"],
+          texto: "Trastornos Asociados al uso de SPA",
+          boton: "TrAsSPA",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_transtornos_asociados_spa_R"],
+        });
+
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedad_cardiovascular_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedad_cardiovascular_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedad_cardiovascular_I"],
+          texto: "Enfermedad Cardiovascular Aterogénica",
+          boton: "EnCaAt",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedad_cardiovascular_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["cancer_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_cancer_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_cancer_I"],
+          texto: "Cancer",
+          boton: "Ca",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["cancer_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_cancer_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_cancer_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["alteraciones_transtornos_visuales_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_alteraciones_transtornos_visuales_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_alteraciones_transtornos_visuales_I"],
+          texto: "Alteraciones y Transtornos Visuales",
+          boton: "AlTrVi",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_alteraciones_transtornos_visuales_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["alteraciones_transtornos_audicion_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_alteraciones_transtornos_audicion_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_alteraciones_transtornos_audicion_I"],
+          texto: "Alteraciones y Transtornos de la Audición y Comunicación",
+          boton: "AlTrAuCo",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_alteraciones_transtornos_audicion_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["salud_bucal_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_salud_bucal_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_salud_bucal_I"],
+          texto: "Salud Bucal",
+          boton: "SaBu",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["salud_bucal_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_salud_bucal_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_salud_bucal_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["problemas_salud_mental_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_problemas_salud_mental_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_problemas_salud_mental_I"],
+          texto: "Problemas en salud mental",
+          boton: "PrSaMe",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["problemas_salud_mental_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_problemas_salud_mental_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["violencias_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_violencias_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_violencias_I"],
+          texto: "Violencias",
+          boton: "Vi",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["violencias_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_violencias_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_violencias_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedades_respiratorias_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedades_respiratorias_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_respiratorias_I"],
+          texto: "Enfermedades Respiratorias crónicas",
+          boton: "EnReCr",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedades_respiratorias_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["enfermedades_zoonoticas_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_enfermedades_zoonoticas_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_enfermedades_zoonoticas_I"],
+          texto: "Enfermedades Zoonoticas",
+          boton: "EnZo",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_enfermedades_zoonoticas_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["transtornos_degenartivos_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_transtornos_degenartivos_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_transtornos_degenartivos_I"],
+          texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
+          boton: "TrDeNeEnAu",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_transtornos_degenartivos_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["consumo_spa_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_consumo_spa_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_consumo_spa_I"],
+          texto: "Consumo de SPA",
+          boton: "CoSp",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["consumo_spa_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_consumo_spa_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_consumo_spa_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgos_desnutricion_aguda_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgos_desnutricion_aguda_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgos_desnutricion_aguda_I"],
+          texto: "Riesgo Desnutrición Aguda",
+          boton: "RiDeAg",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgos_desnutricion_aguda_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgos_desnutricion_aguda_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgos_desnutricion_aguda_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgos_desnutricion_global_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgos_desnutricion_global_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgos_desnutricion_global_I"],
+          texto: "Riesgo Desnutrición Global",
+          boton: "RiDeGl",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgos_desnutricion_global_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgos_desnutricion_global_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgos_desnutricion_global_R"],
+        });
+        
+        // this.vectorAuxRSDE1A5.push({
+        //   riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["desnutricion_global_I"],
+        //   valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_desnutricion_global_I"],
+        //   color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_desnutricion_global_I"],
+        //   texto: "Desnutrición Global",
+        //   boton: "DeGl"
+        // });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgo_talla_baja_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgo_talla_baja_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_talla_baja_I"],
+          texto: "Riesgo de Talla Baja",
+          boton: "RiTaBa",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgo_talla_baja_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgo_talla_baja_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgo_talla_baja_R"],
+        });
+        
+        // this.vectorAuxRSDE1A5.push({
+        //   riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["talla_baja_retraso_I"],
+        //   valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_talla_baja_retraso_I"],
+        //   color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_talla_baja_retraso_I"],
+        //   texto: "Talla Baja o Retraso de la Edad",
+        //   boton: "TaBaReEd"
+        // });
+        
+        // this.vectorAuxRSDE1A5.push({
+        //   riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["desnutricion_aguda_moderada_I"],
+        //   valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_desnutricion_aguda_moderada_I"],
+        //   color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_desnutricion_aguda_moderada_I"],
+        //   texto: "Desnutrición Aguda Moderada",
+        //   boton: "DeAgMo"
+        // });
+        
+        // this.vectorAuxRSDE1A5.push({
+        //   riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["desnutricion_aguda_severa_I"],
+        //   valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_desnutricion_aguda_severa_I"],
+        //   color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_desnutricion_aguda_severa_I"],
+        //   texto: "Desnutrición Aguda Severa",
+        //   boton: "DeAgSe"
+        // });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgo_muerte_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgo_muerte_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_muerte_I"],
+          texto: "Riesgo de Muerte por Desnutrición",
+          boton: "RiMuDe",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgo_muerte_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgo_muerte_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgo_muerte_R"],
+        });
+        
+        this.vectorAuxRSDE1A5.push({
+          riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["riesgo_sobrepeso_I"],
+          valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_riesgo_sobrepeso_I"],
+          color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_riesgo_sobrepeso_I"],
+          texto: "Riesgo Sobrepeso",
+          boton: "RiSo",
+          id: this.datosRSDE1A5[this.indiceRSMEN1A]["id_inte"],
+          riesgo_r: this.datosRSDE1A5[this.indiceRSMEN1A]["riesgo_sobrepeso_R"],
+          valor_r: this.datosRSDE1A5[this.indiceRSMEN1A]["v_riesgo_sobrepeso_R"],
+          color_r: this.datosRSDE1A5[this.indiceRSMEN1A]["c_riesgo_sobrepeso_R"],
+        });
+        
+        // this.vectorAuxRSDE1A5.push({
+        //   riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["sobrepeso_I"],
+        //   valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_sobrepeso_I"],
+        //   color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_sobrepeso_I"],
+        //   texto: "Sobrepeso",
+        //   boton: "So"
+        // });
+        
+        // this.vectorAuxRSDE1A5.push({
+        //   riesgo: this.datosRSDE1A5[this.indiceRSDE1A5]["obesidad_I"],
+        //   valor: this.datosRSDE1A5[this.indiceRSDE1A5]["v_obesidad_I"],
+        //   color: this.datosRSDE1A5[this.indiceRSDE1A5]["c_obesidad_I"],
+        //   texto: "Obesidad",
+        //   boton: "Ob"
+        // });
+
+        this.vectorAuxRSDE1A5.sort(function(x, y) {
+          return y.riesgo - x.riesgo;
+        });           
+      },
+      controlRSDE1A5(opcion, tipo, id, index){
+        this.banderaControles1 = false;
+        this.banConRieSal1 = opcion;
+        this.tipoRieSal1 = tipo;
+        this.idSal1 = id;
+        this.indexSal1 = index;        
+      },
+      mostrarRiesgoSalDe6a11(index){
+        this.indiceRSDE6A11 = index;
+        this.vectorAuxRSDE6A11 = [];
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedades_infecciosas_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedades_infecciosas_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedades_infecciosas_I"],
+          texto: "Enfermedades Infeccisosas",
+          boton: "EnIn",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedades_infecciosas_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["transtornos_asociados_spa_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_transtornos_asociados_spa_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_transtornos_asociados_spa_I"],
+          texto: "Trastornos Asociados al uso de SPA",
+          boton: "TrAsSPA",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_transtornos_asociados_spa_R"],
+        });
+
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedad_cardiovascular_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedad_cardiovascular_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedad_cardiovascular_I"],
+          texto: "Enfermedad Cardiovascular Aterogénica",
+          boton: "EnCaAt",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedad_cardiovascular_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["cancer_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_cancer_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_cancer_I"],
+          texto: "Cancer",
+          boton: "Ca",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["cancer_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_cancer_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_cancer_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["alteraciones_transtornos_visuales_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_alteraciones_transtornos_visuales_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_alteraciones_transtornos_visuales_I"],
+          texto: "Alteraciones y Transtornos Visuales",
+          boton: "AlTrVi",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_alteraciones_transtornos_visuales_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["alteraciones_transtornos_audicion_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_alteraciones_transtornos_audicion_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_alteraciones_transtornos_audicion_I"],
+          texto: "Alteraciones y Transtornos de la Audición y Comunicación",
+          boton: "AlTrAuCo",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_alteraciones_transtornos_audicion_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["salud_bucal_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_salud_bucal_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_salud_bucal_I"],
+          texto: "Salud Bucal",
+          boton: "SaBu",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["salud_bucal_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_salud_bucal_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_salud_bucal_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["problemas_salud_mental_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_problemas_salud_mental_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_problemas_salud_mental_I"],
+          texto: "Problemas en salud mental",
+          boton: "PrSaMe",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["problemas_salud_mental_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_problemas_salud_mental_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["violencias_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_violencias_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_violencias_I"],
+          texto: "Violencias",
+          boton: "Vi",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["violencias_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_violencias_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_violencias_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedades_respiratorias_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedades_respiratorias_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedades_respiratorias_I"],
+          texto: "Enfermedades Respiratorias crónicas",
+          boton: "EnReCr",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedades_respiratorias_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedades_zoonoticas_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedades_zoonoticas_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedades_zoonoticas_I"],
+          texto: "Enfermedades Zoonoticas",
+          boton: "EnZo",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_enfermedades_zoonoticas_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["transtornos_degenartivos_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_transtornos_degenartivos_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_transtornos_degenartivos_I"],
+          texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
+          boton: "TrDeNeEnAu",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_transtornos_degenartivos_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["consumo_spa_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_consumo_spa_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_consumo_spa_I"],
+          texto: "Consumo de SPA",
+          boton: "CoSp",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["consumo_spa_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_consumo_spa_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_consumo_spa_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["riesgo_talla_baja_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_riesgo_talla_baja_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_riesgo_talla_baja_I"],
+          texto: "Riesgo De Retraso en Talla",
+          boton: "RiTaBa",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["riesgo_talla_baja_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_riesgo_talla_baja_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_riesgo_talla_baja_R"],
+        });
+        
+        this.vectorAuxRSDE6A11.push({
+          riesgo: this.datosRSDE6A11[this.indiceRSDE6A11]["riesgo_delgadez_I"],
+          valor: this.datosRSDE6A11[this.indiceRSDE6A11]["v_riesgo_delgadez_I"],
+          color: this.datosRSDE6A11[this.indiceRSDE6A11]["c_riesgo_delgadez_I"],
+          texto: "Riesgo de Delgadez",
+          boton: "RiDeDe",
+          id: this.datosRSDE6A11[this.indiceRSDE6A11]["id_inte"],
+          riesgo_r: this.datosRSDE6A11[this.indiceRSDE6A11]["riesgo_delgadez_R"],
+          valor_r: this.datosRSDE6A11[this.indiceRSDE6A11]["v_riesgo_delgadez_R"],
+          color_r: this.datosRSDE6A11[this.indiceRSDE6A11]["c_riesgo_delgadez_R"],          
+        });      
+
+        this.vectorAuxRSDE6A11.sort(function(x, y) {
+          return y.riesgo - x.riesgo;
+        });           
+      },
+      controlRSDE6A11(opcion, tipo, id, index){
+        this.banderaControles1 = false;
+        this.banConRieSal1 = opcion;
+        this.tipoRieSal1 = tipo;
+        this.idSal1 = id;
+        this.indexSal1 = index;         
+      },
+      async GuardarRS1(tipo, opcion){
+        let datos = [];
+        let vector = [];
+        let tab = "";
+        if(tipo == "MEN1A"){
+          datos = this.datosRSMEN1A_RR;
+          vector = this.vectorAuxRSMEN1A;
+          tab = "#tabMen1a";
+          // Enfermedades Infeccisosas
+          if(opcion == "EnIn"){
+            if(this.datosRSMEN1A_RR.alimentacion_saludable_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Alimentación saludable",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.asistencia_crecimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.fumigacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Fumigación, control de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.sistema_recoleccion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Sistemas de recolección de basuras",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.desparacitacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparacitación inferior a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.inmunizacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.educacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.mantenimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.citas_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Citas por valoración integral al dia",
+                "error"
+              );
+              return false;
+            }                                                                                                            
+          }
+          // Enfermedades Infeccisosas
+
+          // Trastornos Asociados al uso de SPA
+          if(opcion == "TrAsSPA"){
+            if(this.datosRSMEN1A_RR.educacion_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización de la familia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.acompaniamiento_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento terapeutico",
+                "error"
+              );
+              return false;
+            }                                                                                                                      
+          }
+          // Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          if(opcion == "EnCaAt"){
+            if(this.datosRSMEN1A_RR.asistencia_crecimiento_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.educacion_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.actividad_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          if(opcion == "Ca"){
+            if(this.datosRSMEN1A_RR.asistencia_crecimiento_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.educacion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.valoracion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Cancer
+
+          // Alteraciones y Transtornos Visuales
+          if(opcion == "AlTrVi"){
+            if(this.datosRSMEN1A_RR.asistencia_crecimiento_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.valoracion_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          if(opcion == "AlTrAuCo"){
+            if(this.datosRSMEN1A_RR.asistencia_crecimiento_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.valoracion_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          if(opcion == "SaBu"){
+            if(this.datosRSMEN1A_RR.control_odontologia_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Control con odontologia menor a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.aplicacion_fluor_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Aplicación de Fluor",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.educacion_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.habitos_higiene_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción hábitos de higiene oral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          if(opcion == "PrSaMe"){
+            if(this.datosRSMEN1A_RR.concientizacion_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.acompaniamiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.crecimiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.grupos_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Problemas en salud mental
+          
+          // Violencias
+          if(opcion == "Vi"){
+            if(this.datosRSMEN1A_RR.concientizacion_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.acompaniamiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.crecimiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.grupos_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.icbf_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción ICBF",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Violencias
+          
+          // Enfermedades Respiratorias crónicas
+          if(opcion == "EnReCr"){
+            if(this.datosRSMEN1A_RR.crecimiento_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.educacion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.valoracion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          if(opcion == "EnZo"){
+            if(this.datosRSMEN1A_RR.crecimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.potabilizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Potabilización del agua",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.mantenimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.fumigacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción fumigación de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.vacunacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Vacunación de animales",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.inmunizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.valorizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.desparatizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparasitación menor a 6 meses",
+                "error"
+              );
+              return false;
+            }                                                                                                           
+          }
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          if(opcion == "TrDeNeEnAu"){
+            if(this.datosRSMEN1A_RR.crecimiento_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.acceso_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acceso atención especializada",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.valoracion_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          if(opcion == "CoSp"){
+            if(this.datosRSMEN1A_RR.atencion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Atencion Psicologica",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.relaciones_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Buenas relaciones familiares",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.grupos_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.educacion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientizacion",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.valoracion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Consumo de SPA
+          
+          // Riesgo Desnutrición Aguda
+          if(opcion == "RiDeAg"){
+            if(this.datosRSMEN1A_RR.asistencia_RiDeAg === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.programas_RiDeAg === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.suplementacion_RiDeAg === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Desnutrición Aguda
+          
+          // Riesgo Desnutrición Global
+          if(opcion == "RiDeGl"){
+            if(this.datosRSMEN1A_RR.asistencia_RiDeGl === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.programas_RiDeGl === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.suplementacion_RiDeGl === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Desnutrición Global
+          
+          // Riesgo de Talla Baja
+          if(opcion == "RiTaBa"){
+            if(this.datosRSMEN1A_RR.asistencia_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.programas_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.suplementacion_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo de Talla Baja
+          
+          // Riesgo Sobrepeso
+          if(opcion == "RiSo"){
+            if(this.datosRSMEN1A_RR.asistencia_RiSo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSMEN1A_RR.actividad_RiSo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad Fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Sobrepeso                    
+        }
+        if(tipo == "DE1A5"){
+          datos = this.datosRSDE1A5_RR;
+          vector = this.vectorAuxRSDE1A5;
+          tab = "#tabDe1a5";
+          // Enfermedades Infeccisosas
+          if(opcion == "EnIn"){
+            if(this.datosRSDE1A5_RR.alimentacion_saludable_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Alimentación saludable",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.asistencia_crecimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.fumigacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Fumigación, control de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.sistema_recoleccion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Sistemas de recolección de basuras",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.desparacitacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparacitación inferior a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.inmunizacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.educacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.mantenimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.citas_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Citas por valoración integral al dia",
+                "error"
+              );
+              return false;
+            }                                                                                                            
+          }
+          // Enfermedades Infeccisosas
+
+          // Trastornos Asociados al uso de SPA
+          if(opcion == "TrAsSPA"){
+            if(this.datosRSDE1A5_RR.educacion_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización de la familia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.acompaniamiento_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento terapeutico",
+                "error"
+              );
+              return false;
+            }                                                                                                                      
+          }
+          // Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          if(opcion == "EnCaAt"){
+            if(this.datosRSDE1A5_RR.asistencia_crecimiento_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.educacion_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.actividad_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          if(opcion == "Ca"){
+            if(this.datosRSDE1A5_RR.asistencia_crecimiento_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.educacion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.valoracion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Cancer
+
+          // Alteraciones y Transtornos Visuales
+          if(opcion == "AlTrVi"){
+            if(this.datosRSDE1A5_RR.asistencia_crecimiento_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.valoracion_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          if(opcion == "AlTrAuCo"){
+            if(this.datosRSDE1A5_RR.asistencia_crecimiento_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.valoracion_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          if(opcion == "SaBu"){
+            if(this.datosRSDE1A5_RR.control_odontologia_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Control con odontologia menor a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.aplicacion_fluor_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Aplicación de Fluor",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.educacion_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.habitos_higiene_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción hábitos de higiene oral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          if(opcion == "PrSaMe"){
+            if(this.datosRSDE1A5_RR.concientizacion_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.acompaniamiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.crecimiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.grupos_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Problemas en salud mental
+          
+          // Violencias
+          if(opcion == "Vi"){
+            if(this.datosRSDE1A5_RR.concientizacion_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.acompaniamiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.crecimiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.grupos_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.icbf_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción ICBF",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Violencias
+          
+          // Enfermedades Respiratorias crónicas
+          if(opcion == "EnReCr"){
+            if(this.datosRSDE1A5_RR.crecimiento_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.educacion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.valoracion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          if(opcion == "EnZo"){
+            if(this.datosRSDE1A5_RR.crecimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.potabilizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Potabilización del agua",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.mantenimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.fumigacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción fumigación de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.vacunacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Vacunación de animales",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.inmunizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.valorizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.desparatizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparasitación menor a 6 meses",
+                "error"
+              );
+              return false;
+            }                                                                                                           
+          }
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          if(opcion == "TrDeNeEnAu"){
+            if(this.datosRSDE1A5_RR.crecimiento_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.acceso_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acceso atención especializada",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.valoracion_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          if(opcion == "CoSp"){
+            if(this.datosRSDE1A5_RR.atencion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Atencion Psicologica",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.relaciones_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Buenas relaciones familiares",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.grupos_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.educacion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientizacion",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.valoracion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Consumo de SPA
+          
+          // Riesgo Desnutrición Aguda
+          if(opcion == "RiDeAg"){
+            if(this.datosRSDE1A5_RR.asistencia_RiDeAg === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.programas_RiDeAg === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.suplementacion_RiDeAg === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Desnutrición Aguda
+          
+          // Riesgo Desnutrición Global
+          if(opcion == "RiDeGl"){
+            if(this.datosRSDE1A5_RR.asistencia_RiDeGl === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.programas_RiDeGl === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.suplementacion_RiDeGl === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Desnutrición Global
+          
+          // Riesgo de Talla Baja
+          if(opcion == "RiTaBa"){
+            if(this.datosRSDE1A5_RR.asistencia_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.programas_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.suplementacion_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo de Talla Baja
+          
+          // Riesgo Sobrepeso
+          if(opcion == "RiSo"){
+            if(this.datosRSDE1A5_RR.asistencia_RiSo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE1A5_RR.actividad_RiSo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad Fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Sobrepeso                    
+        }
+        if(tipo == "DE6A11"){
+          datos = this.datosRSDE6A11_RR;
+          vector = this.vectorAuxRSDE6A11;
+          tab = "#tabDe6a11";
+          // Enfermedades Infeccisosas
+          if(opcion == "EnIn"){
+            if(this.datosRSDE6A11_RR.alimentacion_saludable_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Alimentación saludable",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.asistencia_crecimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.fumigacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Fumigación, control de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.sistema_recoleccion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Sistemas de recolección de basuras",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.desparacitacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparacitación inferior a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.inmunizacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.educacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.mantenimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.citas_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Citas por valoración integral al dia",
+                "error"
+              );
+              return false;
+            }                                                                                                            
+          }
+          // Enfermedades Infeccisosas
+
+          // Trastornos Asociados al uso de SPA
+          if(opcion == "TrAsSPA"){
+            if(this.datosRSDE6A11_RR.educacion_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización de la familia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.acompaniamiento_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento terapeutico",
+                "error"
+              );
+              return false;
+            }                                                                                                                      
+          }
+          // Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          if(opcion == "EnCaAt"){
+            if(this.datosRSDE6A11_RR.asistencia_crecimiento_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.educacion_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.actividad_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          if(opcion == "Ca"){
+            if(this.datosRSDE6A11_RR.asistencia_crecimiento_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.educacion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.valoracion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Cancer
+
+          // Alteraciones y Transtornos Visuales
+          if(opcion == "AlTrVi"){
+            if(this.datosRSDE6A11_RR.asistencia_crecimiento_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.valoracion_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          if(opcion == "AlTrAuCo"){
+            if(this.datosRSDE6A11_RR.asistencia_crecimiento_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.valoracion_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          if(opcion == "SaBu"){
+            if(this.datosRSDE6A11_RR.control_odontologia_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Control con odontologia menor a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.aplicacion_fluor_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Aplicación de Fluor",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.educacion_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.habitos_higiene_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción hábitos de higiene oral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          if(opcion == "PrSaMe"){
+            if(this.datosRSDE6A11_RR.concientizacion_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.acompaniamiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.crecimiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.grupos_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Problemas en salud mental
+          
+          // Violencias
+          if(opcion == "Vi"){
+            if(this.datosRSDE6A11_RR.concientizacion_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.acompaniamiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.crecimiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.grupos_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.icbf_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción ICBF",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Violencias
+          
+          // Enfermedades Respiratorias crónicas
+          if(opcion == "EnReCr"){
+            if(this.datosRSDE6A11_RR.crecimiento_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.educacion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.valoracion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          if(opcion == "EnZo"){
+            if(this.datosRSDE6A11_RR.crecimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.potabilizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Potabilización del agua",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.mantenimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.fumigacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción fumigación de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.vacunacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Vacunación de animales",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.inmunizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.valorizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.desparatizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparasitación menor a 6 meses",
+                "error"
+              );
+              return false;
+            }                                                                                                           
+          }
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          if(opcion == "TrDeNeEnAu"){
+            if(this.datosRSDE6A11_RR.crecimiento_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.acceso_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acceso atención especializada",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.valoracion_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          if(opcion == "CoSp"){
+            if(this.datosRSDE6A11_RR.atencion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Atencion Psicologica",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.relaciones_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Buenas relaciones familiares",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.grupos_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.educacion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientizacion",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.valoracion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Consumo de SPA          
+          
+          // Riesgo Delgades
+          if(opcion == "RiDel"){
+            if(this.datosRSDE6A11_RR.asistencia_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.programas_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.suplementacion_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Delgades
+          
+          // Riesgo de Talla Baja
+          if(opcion == "RiTaBa"){
+            if(this.datosRSDE6A11_RR.asistencia_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.programas_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE6A11_RR.suplementacion_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo de Talla Baja
+                    
+        }
+        const parametros = {
+          _token: this.csrf,
+          datos: datos,
+          vector: vector,
+          opcion: opcion,
+          tipo: tipo,
+          IDHOGAR: this.IDHOGAR,
+          id_inte: this.idSal1
+        };
+        await caracterizacionServicios
+          .ControlRS(parametros)
+          .then(respuesta => {
+            if(tipo == "MEN1A"){
+              this.vectorAuxRSMEN1A[this.indexSal1].riesgo_r = respuesta.data.riesgo_r;
+              this.vectorAuxRSMEN1A[this.indexSal1].valor_r = respuesta.data.valor_r;
+              this.vectorAuxRSMEN1A[this.indexSal1].color_r = respuesta.data.color_r;
+              this.vectorAuxRSMEN1A.splice(this.indexSal1, 1, this.vectorAuxRSMEN1A[this.indexSal1]);                                     
+            }
+            if(tipo == "DE1A5"){
+              this.vectorAuxRSDE1A5[this.indexSal1].riesgo_r = respuesta.data.riesgo_r;
+              this.vectorAuxRSDE1A5[this.indexSal1].valor_r = respuesta.data.valor_r;
+              this.vectorAuxRSDE1A5[this.indexSal1].color_r = respuesta.data.color_r;
+              this.vectorAuxRSDE1A5.splice(this.indexSal1, 1, this.vectorAuxRSDE1A5[this.indexSal1]);                                   
+            }
+            if(tipo == "DE6A11"){
+              this.vectorAuxRSDE6A11[this.indexSal1].riesgo_r = respuesta.data.riesgo_r;
+              this.vectorAuxRSDE6A11[this.indexSal1].valor_r = respuesta.data.valor_r;
+              this.vectorAuxRSDE6A11[this.indexSal1].color_r = respuesta.data.color_r;
+              this.vectorAuxRSDE6A11.splice(this.indexSal1, 1, this.vectorAuxRSDE6A11[this.indexSal1]);                                     
+            }                                  
+            this.cerrarControlRS1(tab);
+          })
+          .catch(error => {
+            this.$swal(
+              "Error...!",
+              "No se pudo ejecutar los controles",
+              "error"
+            );
+            return;
+          });               
+      },
+
+      mostrarRiesgoSalDe12a17(index){
+        this.indiceRSDE12A17 = index;
+        this.vectorAuxRSDE12A17 = [];
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedades_infecciosas_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedades_infecciosas_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedades_infecciosas_I"],
+          texto: "Enfermedades Infeccisosas",
+          boton: "EnIn",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedades_infecciosas_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["transtornos_asociados_spa_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_transtornos_asociados_spa_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_transtornos_asociados_spa_I"],
+          texto: "Trastornos Asociados al uso de SPA",
+          boton: "TrAsSPA",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_transtornos_asociados_spa_R"],
+        });
+
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedad_cardiovascular_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedad_cardiovascular_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedad_cardiovascular_I"],
+          texto: "Enfermedad Cardiovascular Aterogénica",
+          boton: "EnCaAt",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedad_cardiovascular_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["cancer_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_cancer_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_cancer_I"],
+          texto: "Cancer",
+          boton: "Ca",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["cancer_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_cancer_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_cancer_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["alteraciones_transtornos_visuales_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_alteraciones_transtornos_visuales_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_alteraciones_transtornos_visuales_I"],
+          texto: "Alteraciones y Transtornos Visuales",
+          boton: "AlTrVi",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_alteraciones_transtornos_visuales_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["alteraciones_transtornos_audicion_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_alteraciones_transtornos_audicion_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_alteraciones_transtornos_audicion_I"],
+          texto: "Alteraciones y Transtornos de la Audición y Comunicación",
+          boton: "AlTrAuCo",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_alteraciones_transtornos_audicion_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["salud_bucal_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_salud_bucal_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_salud_bucal_I"],
+          texto: "Salud Bucal",
+          boton: "SaBu",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["salud_bucal_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_salud_bucal_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_salud_bucal_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["problemas_salud_mental_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_problemas_salud_mental_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_problemas_salud_mental_I"],
+          texto: "Problemas en salud mental",
+          boton: "PrSaMe",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["problemas_salud_mental_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_problemas_salud_mental_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["violencias_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_violencias_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_violencias_I"],
+          texto: "Violencias",
+          boton: "Vi",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["violencias_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_violencias_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_violencias_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedades_respiratorias_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedades_respiratorias_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedades_respiratorias_I"],
+          texto: "Enfermedades Respiratorias crónicas",
+          boton: "EnReCr",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedades_respiratorias_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedades_zoonoticas_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedades_zoonoticas_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedades_zoonoticas_I"],
+          texto: "Enfermedades Zoonoticas",
+          boton: "EnZo",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_enfermedades_zoonoticas_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["transtornos_degenartivos_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_transtornos_degenartivos_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_transtornos_degenartivos_I"],
+          texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
+          boton: "TrDeNeEnAu",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_transtornos_degenartivos_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["consumo_spa_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_consumo_spa_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_consumo_spa_I"],
+          texto: "Consumo de SPA",
+          boton: "CoSp",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["consumo_spa_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_consumo_spa_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_consumo_spa_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["riesgo_talla_baja_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_riesgo_talla_baja_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_riesgo_talla_baja_I"],
+          texto: "Riesgo De Retraso en Talla",
+          boton: "RiTaBa",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["riesgo_talla_baja_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_riesgo_talla_baja_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_riesgo_talla_baja_R"],
+        });
+        
+        this.vectorAuxRSDE12A17.push({
+          riesgo: this.datosRSDE12A17[this.indiceRSDE12A17]["riesgo_delgadez_I"],
+          valor: this.datosRSDE12A17[this.indiceRSDE12A17]["v_riesgo_delgadez_I"],
+          color: this.datosRSDE12A17[this.indiceRSDE12A17]["c_riesgo_delgadez_I"],
+          texto: "Riesgo de Delgadez",
+          boton: "RiDeDe",
+          id: this.datosRSDE12A17[this.indiceRSDE12A17]["id_inte"],
+          riesgo_r: this.datosRSDE12A17[this.indiceRSDE12A17]["riesgo_delgadez_R"],
+          valor_r: this.datosRSDE12A17[this.indiceRSDE12A17]["v_riesgo_delgadez_R"],
+          color_r: this.datosRSDE12A17[this.indiceRSDE12A17]["c_riesgo_delgadez_R"],          
+        });      
+
+        this.vectorAuxRSDE12A17.sort(function(x, y) {
+          return y.riesgo - x.riesgo;
+        });           
+      },
+      controlRSDE12A17(opcion, tipo, id, index){
+        this.banderaControles2 = false;
+        this.banConRieSal2 = opcion;
+        this.tipoRieSal2 = tipo;
+        this.idSal2 = id;
+        this.indexSal2 = index;        
+      },
+      cerrarControlRS2(tab){
+        this.banderaControles2 = true;
+        this.idSal2 = 0;
+        this.indexSal2 = 0;
+        this.cambiarTab(tab);
+      },
+      async GuardarRS2(tipo, opcion){
+        let datos = [];
+        let vector = [];
+        let tab = "";
+        if(tipo == "DE12A17"){
+          datos = this.datosRSDE12A17_RR;
+          vector = this.vectorAuxRSDE12A17;
+          tab = "#tabDe12a17";
+          // Enfermedades Infeccisosas
+          if(opcion == "EnIn"){
+            if(this.datosRSDE12A17_RR.alimentacion_saludable_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Alimentación saludable",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.asistencia_crecimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.fumigacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Fumigación, control de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.sistema_recoleccion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Sistemas de recolección de basuras",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.desparacitacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparacitación inferior a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.inmunizacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.educacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.mantenimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.citas_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Citas por valoración integral al dia",
+                "error"
+              );
+              return false;
+            }                                                                                                            
+          }
+          // Enfermedades Infeccisosas
+
+          // Trastornos Asociados al uso de SPA
+          if(opcion == "TrAsSPA"){
+            if(this.datosRSDE12A17_RR.educacion_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización de la familia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.acompaniamiento_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento terapeutico",
+                "error"
+              );
+              return false;
+            }                                                                                                                      
+          }
+          // Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          if(opcion == "EnCaAt"){
+            if(this.datosRSDE12A17_RR.asistencia_crecimiento_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.educacion_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.actividad_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          if(opcion == "Ca"){
+            if(this.datosRSDE12A17_RR.asistencia_crecimiento_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.educacion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.valoracion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Cancer
+
+          // Alteraciones y Transtornos Visuales
+          if(opcion == "AlTrVi"){
+            if(this.datosRSDE12A17_RR.asistencia_crecimiento_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.valoracion_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          if(opcion == "AlTrAuCo"){
+            if(this.datosRSDE12A17_RR.asistencia_crecimiento_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.valoracion_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          if(opcion == "SaBu"){
+            if(this.datosRSDE12A17_RR.control_odontologia_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Control con odontologia menor a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.aplicacion_fluor_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Aplicación de Fluor",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.educacion_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.habitos_higiene_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción hábitos de higiene oral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          if(opcion == "PrSaMe"){
+            if(this.datosRSDE12A17_RR.concientizacion_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.acompaniamiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.crecimiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.grupos_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Problemas en salud mental
+          
+          // Violencias
+          if(opcion == "Vi"){
+            if(this.datosRSDE12A17_RR.concientizacion_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.acompaniamiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.crecimiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.grupos_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.icbf_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción ICBF",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Violencias
+          
+          // Enfermedades Respiratorias crónicas
+          if(opcion == "EnReCr"){
+            if(this.datosRSDE12A17_RR.crecimiento_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.educacion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.valoracion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          if(opcion == "EnZo"){
+            if(this.datosRSDE12A17_RR.crecimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.potabilizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Potabilización del agua",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.mantenimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.fumigacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción fumigación de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.vacunacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Vacunación de animales",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.inmunizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.valorizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.desparatizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparasitación menor a 6 meses",
+                "error"
+              );
+              return false;
+            }                                                                                                           
+          }
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          if(opcion == "TrDeNeEnAu"){
+            if(this.datosRSDE12A17_RR.crecimiento_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.acceso_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acceso atención especializada",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.valoracion_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          if(opcion == "CoSp"){
+            if(this.datosRSDE12A17_RR.atencion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Atencion Psicologica",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.relaciones_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Buenas relaciones familiares",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.grupos_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.educacion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientizacion",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.valoracion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Consumo de SPA          
+          
+          // Riesgo Delgades
+          if(opcion == "RiDel"){
+            if(this.datosRSDE12A17_RR.asistencia_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.programas_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.suplementacion_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Delgades
+          
+          // Riesgo de Talla Baja
+          if(opcion == "RiTaBa"){
+            if(this.datosRSDE12A17_RR.asistencia_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.programas_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE12A17_RR.suplementacion_RiTaBa === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo de Talla Baja
+                    
+        }
+        if(tipo == "DE18A28"){
+          datos = this.datosRSDE18A28_RR;
+          vector = this.vectorAuxRSDE18A28;
+          tab = "#tabDe18a28";
+          // Enfermedades Infeccisosas
+          if(opcion == "EnIn"){
+            if(this.datosRSDE18A28_RR.alimentacion_saludable_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Alimentación saludable",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.asistencia_crecimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.fumigacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Fumigación, control de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.sistema_recoleccion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Sistemas de recolección de basuras",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.desparacitacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparacitación inferior a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.inmunizacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.educacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.mantenimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.citas_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Citas por valoración integral al dia",
+                "error"
+              );
+              return false;
+            }                                                                                                            
+          }
+          // Enfermedades Infeccisosas
+
+          // Trastornos Asociados al uso de SPA
+          if(opcion == "TrAsSPA"){
+            if(this.datosRSDE18A28_RR.educacion_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización de la familia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.acompaniamiento_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento terapeutico",
+                "error"
+              );
+              return false;
+            }                                                                                                                      
+          }
+          // Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          if(opcion == "EnCaAt"){
+            if(this.datosRSDE18A28_RR.asistencia_crecimiento_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.educacion_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.actividad_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          if(opcion == "Ca"){
+            if(this.datosRSDE18A28_RR.asistencia_crecimiento_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.educacion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.valoracion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Cancer
+
+          // Alteraciones y Transtornos Visuales
+          if(opcion == "AlTrVi"){
+            if(this.datosRSDE18A28_RR.asistencia_crecimiento_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.valoracion_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          if(opcion == "AlTrAuCo"){
+            if(this.datosRSDE18A28_RR.asistencia_crecimiento_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.valoracion_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          if(opcion == "SaBu"){
+            if(this.datosRSDE18A28_RR.control_odontologia_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Control con odontologia menor a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.aplicacion_fluor_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Aplicación de Fluor",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.educacion_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.habitos_higiene_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción hábitos de higiene oral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          if(opcion == "PrSaMe"){
+            if(this.datosRSDE18A28_RR.concientizacion_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.acompaniamiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.crecimiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.grupos_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Problemas en salud mental
+          
+          // Violencias
+          if(opcion == "Vi"){
+            if(this.datosRSDE18A28_RR.concientizacion_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.acompaniamiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.crecimiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.grupos_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.icbf_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción ICBF",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Violencias
+          
+          // Enfermedades Respiratorias crónicas
+          if(opcion == "EnReCr"){
+            if(this.datosRSDE18A28_RR.crecimiento_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.educacion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.valoracion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          if(opcion == "EnZo"){
+            if(this.datosRSDE18A28_RR.crecimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.potabilizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Potabilización del agua",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.mantenimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.fumigacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción fumigación de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.vacunacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Vacunación de animales",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.inmunizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.valorizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.desparatizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparasitación menor a 6 meses",
+                "error"
+              );
+              return false;
+            }                                                                                                           
+          }
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          if(opcion == "TrDeNeEnAu"){
+            if(this.datosRSDE18A28_RR.crecimiento_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.acceso_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acceso atención especializada",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.valoracion_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          if(opcion == "CoSp"){
+            if(this.datosRSDE18A28_RR.atencion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Atencion Psicologica",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.relaciones_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Buenas relaciones familiares",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.grupos_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.educacion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientizacion",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.valoracion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Consumo de SPA          
+          
+          // Riesgo Delgades
+          if(opcion == "RiDel"){
+            if(this.datosRSDE18A28_RR.asistencia_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.programas_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE18A28_RR.suplementacion_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Delgades        
+                    
+        }
+        if(tipo == "DE29A59"){
+          datos = this.datosRSDE29A59_RR;
+          vector = this.vectorAuxRSDE29A59;
+          tab = "#tabDe29a59";
+          // Enfermedades Infeccisosas
+          if(opcion == "EnIn"){
+            if(this.datosRSDE29A59_RR.alimentacion_saludable_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Alimentación saludable",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.asistencia_crecimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.fumigacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Fumigación, control de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.sistema_recoleccion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Sistemas de recolección de basuras",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.desparacitacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparacitación inferior a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.inmunizacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.educacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.mantenimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.citas_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Citas por valoración integral al dia",
+                "error"
+              );
+              return false;
+            }                                                                                                            
+          }
+          // Enfermedades Infeccisosas
+
+          // Trastornos Asociados al uso de SPA
+          if(opcion == "TrAsSPA"){
+            if(this.datosRSDE29A59_RR.educacion_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización de la familia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.acompaniamiento_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento terapeutico",
+                "error"
+              );
+              return false;
+            }                                                                                                                      
+          }
+          // Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          if(opcion == "EnCaAt"){
+            if(this.datosRSDE29A59_RR.asistencia_crecimiento_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.educacion_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.actividad_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          if(opcion == "Ca"){
+            if(this.datosRSDE29A59_RR.asistencia_crecimiento_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.educacion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.valoracion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Cancer
+
+          // Alteraciones y Transtornos Visuales
+          if(opcion == "AlTrVi"){
+            if(this.datosRSDE29A59_RR.asistencia_crecimiento_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.valoracion_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          if(opcion == "AlTrAuCo"){
+            if(this.datosRSDE29A59_RR.asistencia_crecimiento_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.valoracion_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          if(opcion == "SaBu"){
+            if(this.datosRSDE29A59_RR.control_odontologia_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Control con odontologia menor a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.aplicacion_fluor_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Aplicación de Fluor",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.educacion_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.habitos_higiene_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción hábitos de higiene oral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          if(opcion == "PrSaMe"){
+            if(this.datosRSDE29A59_RR.concientizacion_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.acompaniamiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.crecimiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.grupos_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Problemas en salud mental
+          
+          // Violencias
+          if(opcion == "Vi"){
+            if(this.datosRSDE29A59_RR.concientizacion_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.acompaniamiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.crecimiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.grupos_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.icbf_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción ICBF",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Violencias
+          
+          // Enfermedades Respiratorias crónicas
+          if(opcion == "EnReCr"){
+            if(this.datosRSDE29A59_RR.crecimiento_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.educacion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.valoracion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          if(opcion == "EnZo"){
+            if(this.datosRSDE29A59_RR.crecimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.potabilizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Potabilización del agua",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.mantenimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.fumigacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción fumigación de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.vacunacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Vacunación de animales",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.inmunizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.valorizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.desparatizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparasitación menor a 6 meses",
+                "error"
+              );
+              return false;
+            }                                                                                                           
+          }
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          if(opcion == "TrDeNeEnAu"){
+            if(this.datosRSDE29A59_RR.crecimiento_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.acceso_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acceso atención especializada",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.valoracion_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          if(opcion == "CoSp"){
+            if(this.datosRSDE29A59_RR.atencion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Atencion Psicologica",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.relaciones_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Buenas relaciones familiares",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.grupos_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.educacion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientizacion",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.valoracion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Consumo de SPA          
+          
+          // Riesgo Delgades
+          if(opcion == "RiDel"){
+            if(this.datosRSDE29A59_RR.asistencia_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.programas_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Programas de alimentación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE29A59_RR.suplementacion_RiDel === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Suplementación alimenticia",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Riesgo Delgades        
+                    
+        }                                      
+        const parametros = {
+          _token: this.csrf,
+          datos: datos,
+          vector: vector,
+          opcion: opcion,
+          tipo: tipo,
+          IDHOGAR: this.IDHOGAR,
+          id_inte: this.idSal2
+        };
+        await caracterizacionServicios
+          .ControlRS(parametros)
+          .then(respuesta => {
+            if(tipo == "DE12A17"){
+              this.vectorAuxRSDE12A17[this.indexSal2].riesgo_r = respuesta.data.riesgo_r;
+              this.vectorAuxRSDE12A17[this.indexSal2].valor_r = respuesta.data.valor_r;
+              this.vectorAuxRSDE12A17[this.indexSal2].color_r = respuesta.data.color_r;
+              this.vectorAuxRSDE12A17.splice(this.indexSal2, 1, this.vectorAuxRSDE12A17[this.indexSal2]);                        
+            }
+            if(tipo == "DE18A28"){
+              this.vectorAuxRSDE18A28[this.indexSal2].riesgo_r = respuesta.data.riesgo_r;
+              this.vectorAuxRSDE18A28[this.indexSal2].valor_r = respuesta.data.valor_r;
+              this.vectorAuxRSDE18A28[this.indexSal2].color_r = respuesta.data.color_r;
+              this.vectorAuxRSDE18A28.splice(this.indexSal2, 1, this.vectorAuxRSDE18A28[this.indexSal2]);                        
+            }
+            if(tipo == "DE29A59"){
+              this.vectorAuxRSDE29A59[this.indexSal2].riesgo_r = respuesta.data.riesgo_r;
+              this.vectorAuxRSDE29A59[this.indexSal2].valor_r = respuesta.data.valor_r;
+              this.vectorAuxRSDE29A59[this.indexSal2].color_r = respuesta.data.color_r;
+              this.vectorAuxRSDE29A59.splice(this.indexSal2, 1, this.vectorAuxRSDE29A59[this.indexSal2]);                        
+            }                                                          
+            this.cerrarControlRS2(tab);
+          })
+          .catch(error => {
+            this.$swal(
+              "Error...!",
+              "No se pudo ejecutar los controles",
+              "error"
+            );
+            return;
+          });        
+      },
+      mostrarRiesgoSalDe18a28(index){
+        this.indiceRSDE18A28 = index;
+        this.vectorAuxRSDE18A28 = [];
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_infecciosas_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_infecciosas_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_infecciosas_I"],
+          texto: "Enfermedades Infeccisosas",
+          boton: "EnIn",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_infecciosas_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["transtornos_asociados_spa_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_transtornos_asociados_spa_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_transtornos_asociados_spa_I"],
+          texto: "Trastornos Asociados al uso de SPA",
+          boton: "TrAsSPA",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_transtornos_asociados_spa_R"],
+        });
+
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedad_cardiovascular_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedad_cardiovascular_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedad_cardiovascular_I"],
+          texto: "Enfermedad Cardiovascular Aterogénica",
+          boton: "EnCaAt",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedad_cardiovascular_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["cancer_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_cancer_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_cancer_I"],
+          texto: "Cancer",
+          boton: "Ca",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["cancer_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_cancer_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_cancer_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["alteraciones_transtornos_visuales_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_alteraciones_transtornos_visuales_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_alteraciones_transtornos_visuales_I"],
+          texto: "Alteraciones y Transtornos Visuales",
+          boton: "AlTrVi",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_alteraciones_transtornos_visuales_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["alteraciones_transtornos_audicion_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_alteraciones_transtornos_audicion_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_alteraciones_transtornos_audicion_I"],
+          texto: "Alteraciones y Transtornos de la Audición y Comunicación",
+          boton: "AlTrAuCo",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_alteraciones_transtornos_audicion_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["salud_bucal_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_salud_bucal_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_salud_bucal_I"],
+          texto: "Salud Bucal",
+          boton: "SaBu",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["salud_bucal_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_salud_bucal_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_salud_bucal_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["problemas_salud_mental_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_problemas_salud_mental_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_problemas_salud_mental_I"],
+          texto: "Problemas en salud mental",
+          boton: "PrSaMe",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["problemas_salud_mental_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_problemas_salud_mental_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["violencias_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_violencias_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_violencias_I"],
+          texto: "Violencias",
+          boton: "Vi",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["violencias_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_violencias_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_violencias_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_respiratorias_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_respiratorias_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_respiratorias_I"],
+          texto: "Enfermedades Respiratorias crónicas",
+          boton: "EnReCr",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_respiratorias_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_zoonoticas_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_zoonoticas_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_zoonoticas_I"],
+          texto: "Enfermedades Zoonoticas",
+          boton: "EnZo",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_zoonoticas_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["transtornos_degenartivos_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_transtornos_degenartivos_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_transtornos_degenartivos_I"],
+          texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
+          boton: "TrDeNeEnAu",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_transtornos_degenartivos_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["consumo_spa_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_consumo_spa_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_consumo_spa_I"],
+          texto: "Consumo de SPA",
+          boton: "CoSp",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["consumo_spa_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_consumo_spa_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_consumo_spa_R"],
+        });
+        
+        this.vectorAuxRSDE18A28.push({
+          riesgo: this.datosRSDE18A28[this.indiceRSDE18A28]["riesgo_delgadez_I"],
+          valor: this.datosRSDE18A28[this.indiceRSDE18A28]["v_riesgo_delgadez_I"],
+          color: this.datosRSDE18A28[this.indiceRSDE18A28]["c_riesgo_delgadez_I"],
+          texto: "Riesgo de Delgadez",
+          boton: "RiDeDe",
+          id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
+          riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["riesgo_delgadez_R"],
+          valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_riesgo_delgadez_R"],
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_riesgo_delgadez_R"],          
+        });      
+
+        this.vectorAuxRSDE18A28.sort(function(x, y) {
+          return y.riesgo - x.riesgo;
+        });           
+      },
+      controlRSDE18A28(opcion, tipo, id, index){
+        this.banderaControles2 = false;
+        this.banConRieSal2 = opcion;
+        this.tipoRieSal2 = tipo;
+        this.idSal2 = id;
+        this.indexSal2 = index;        
+      },      
+      mostrarRiesgoSalDe29a59(index){
+        this.indiceRSDE29A59 = index;
+        this.vectorAuxRSDE29A59 = [];
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedades_infecciosas_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedades_infecciosas_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedades_infecciosas_I"],
+          texto: "Enfermedades Infeccisosas",
+          boton: "EnIn",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedades_infecciosas_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["transtornos_asociados_spa_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_transtornos_asociados_spa_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_transtornos_asociados_spa_I"],
+          texto: "Trastornos Asociados al uso de SPA",
+          boton: "TrAsSPA",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_transtornos_asociados_spa_R"],
+        });
+
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedad_cardiovascular_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedad_cardiovascular_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedad_cardiovascular_I"],
+          texto: "Enfermedad Cardiovascular Aterogénica",
+          boton: "EnCaAt",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedad_cardiovascular_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["cancer_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_cancer_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_cancer_I"],
+          texto: "Cancer",
+          boton: "Ca",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["cancer_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_cancer_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_cancer_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["alteraciones_transtornos_visuales_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_alteraciones_transtornos_visuales_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_alteraciones_transtornos_visuales_I"],
+          texto: "Alteraciones y Transtornos Visuales",
+          boton: "AlTrVi",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_alteraciones_transtornos_visuales_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["alteraciones_transtornos_audicion_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_alteraciones_transtornos_audicion_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_alteraciones_transtornos_audicion_I"],
+          texto: "Alteraciones y Transtornos de la Audición y Comunicación",
+          boton: "AlTrAuCo",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_alteraciones_transtornos_audicion_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["salud_bucal_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_salud_bucal_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_salud_bucal_I"],
+          texto: "Salud Bucal",
+          boton: "SaBu",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["salud_bucal_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_salud_bucal_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_salud_bucal_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["problemas_salud_mental_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_problemas_salud_mental_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_problemas_salud_mental_I"],
+          texto: "Problemas en salud mental",
+          boton: "PrSaMe",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["problemas_salud_mental_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_problemas_salud_mental_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["violencias_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_violencias_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_violencias_I"],
+          texto: "Violencias",
+          boton: "Vi",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["violencias_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_violencias_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_violencias_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedades_respiratorias_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedades_respiratorias_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedades_respiratorias_I"],
+          texto: "Enfermedades Respiratorias crónicas",
+          boton: "EnReCr",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedades_respiratorias_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedades_zoonoticas_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedades_zoonoticas_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedades_zoonoticas_I"],
+          texto: "Enfermedades Zoonoticas",
+          boton: "EnZo",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_enfermedades_zoonoticas_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["transtornos_degenartivos_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_transtornos_degenartivos_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_transtornos_degenartivos_I"],
+          texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
+          boton: "TrDeNeEnAu",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_transtornos_degenartivos_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["consumo_spa_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_consumo_spa_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_consumo_spa_I"],
+          texto: "Consumo de SPA",
+          boton: "CoSp",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["consumo_spa_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_consumo_spa_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_consumo_spa_R"],
+        });
+        
+        this.vectorAuxRSDE29A59.push({
+          riesgo: this.datosRSDE29A59[this.indiceRSDE29A59]["riesgo_delgadez_I"],
+          valor: this.datosRSDE29A59[this.indiceRSDE29A59]["v_riesgo_delgadez_I"],
+          color: this.datosRSDE29A59[this.indiceRSDE29A59]["c_riesgo_delgadez_I"],
+          texto: "Riesgo de Delgadez",
+          boton: "RiDeDe",
+          id: this.datosRSDE29A59[this.indiceRSDE29A59]["id_inte"],
+          riesgo_r: this.datosRSDE29A59[this.indiceRSDE29A59]["riesgo_delgadez_R"],
+          valor_r: this.datosRSDE29A59[this.indiceRSDE29A59]["v_riesgo_delgadez_R"],
+          color_r: this.datosRSDE29A59[this.indiceRSDE29A59]["c_riesgo_delgadez_R"],          
+        });      
+
+        this.vectorAuxRSDE29A59.sort(function(x, y) {
+          return y.riesgo - x.riesgo;
+        });           
+      },
+      controlRSDE29A59(opcion, tipo, id, index){
+        this.banderaControles2 = false;
+        this.banConRieSal2 = opcion;
+        this.tipoRieSal2 = tipo;
+        this.idSal2 = id;
+        this.indexSal2 = index;        
+      },
+      
+      mostrarRiesgoSalDe60(index){
+        this.indiceRSDE60 = index;
+        this.vectorAuxRSDE60 = [];
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["enfermedades_infecciosas_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_enfermedades_infecciosas_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_enfermedades_infecciosas_I"],
+          texto: "Enfermedades Infeccisosas",
+          boton: "EnIn",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["enfermedades_infecciosas_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_enfermedades_infecciosas_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_enfermedades_infecciosas_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["transtornos_asociados_spa_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_transtornos_asociados_spa_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_transtornos_asociados_spa_I"],
+          texto: "Trastornos Asociados al uso de SPA",
+          boton: "TrAsSPA",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["transtornos_asociados_spa_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_transtornos_asociados_spa_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_transtornos_asociados_spa_R"],
+        });
+
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["enfermedad_cardiovascular_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_enfermedad_cardiovascular_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_enfermedad_cardiovascular_I"],
+          texto: "Enfermedad Cardiovascular Aterogénica",
+          boton: "EnCaAt",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["enfermedad_cardiovascular_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_enfermedad_cardiovascular_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_enfermedad_cardiovascular_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["cancer_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_cancer_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_cancer_I"],
+          texto: "Cancer",
+          boton: "Ca",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["cancer_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_cancer_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_cancer_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["alteraciones_transtornos_visuales_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_alteraciones_transtornos_visuales_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_alteraciones_transtornos_visuales_I"],
+          texto: "Alteraciones y Transtornos Visuales",
+          boton: "AlTrVi",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["alteraciones_transtornos_visuales_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_alteraciones_transtornos_visuales_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_alteraciones_transtornos_visuales_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["alteraciones_transtornos_audicion_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_alteraciones_transtornos_audicion_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_alteraciones_transtornos_audicion_I"],
+          texto: "Alteraciones y Transtornos de la Audición y Comunicación",
+          boton: "AlTrAuCo",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["alteraciones_transtornos_audicion_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_alteraciones_transtornos_audicion_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_alteraciones_transtornos_audicion_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["salud_bucal_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_salud_bucal_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_salud_bucal_I"],
+          texto: "Salud Bucal",
+          boton: "SaBu",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["salud_bucal_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_salud_bucal_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_salud_bucal_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["problemas_salud_mental_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_problemas_salud_mental_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_problemas_salud_mental_I"],
+          texto: "Problemas en salud mental",
+          boton: "PrSaMe",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["problemas_salud_mental_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_problemas_salud_mental_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_problemas_salud_mental_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["violencias_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_violencias_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_violencias_I"],
+          texto: "Violencias",
+          boton: "Vi",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["violencias_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_violencias_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_violencias_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["enfermedades_respiratorias_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_enfermedades_respiratorias_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_enfermedades_respiratorias_I"],
+          texto: "Enfermedades Respiratorias crónicas",
+          boton: "EnReCr",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["enfermedades_respiratorias_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_enfermedades_respiratorias_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_enfermedades_respiratorias_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["enfermedades_zoonoticas_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_enfermedades_zoonoticas_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_enfermedades_zoonoticas_I"],
+          texto: "Enfermedades Zoonoticas",
+          boton: "EnZo",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["enfermedades_zoonoticas_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_enfermedades_zoonoticas_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_enfermedades_zoonoticas_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["transtornos_degenartivos_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_transtornos_degenartivos_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_transtornos_degenartivos_I"],
+          texto: "Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes",
+          boton: "TrDeNeEnAu",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["transtornos_degenartivos_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_transtornos_degenartivos_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_transtornos_degenartivos_R"],
+        });
+        
+        this.vectorAuxRSDE60.push({
+          riesgo: this.datosRSDE60[this.indiceRSDE60]["consumo_spa_I"],
+          valor: this.datosRSDE60[this.indiceRSDE60]["v_consumo_spa_I"],
+          color: this.datosRSDE60[this.indiceRSDE60]["c_consumo_spa_I"],
+          texto: "Consumo de SPA",
+          boton: "CoSp",
+          id: this.datosRSDE60[this.indiceRSDE60]["id_inte"],
+          riesgo_r: this.datosRSDE60[this.indiceRSDE60]["consumo_spa_R"],
+          valor_r: this.datosRSDE60[this.indiceRSDE60]["v_consumo_spa_R"],
+          color_r: this.datosRSDE60[this.indiceRSDE60]["c_consumo_spa_R"],
+        });
+           
+
+        this.vectorAuxRSDE60.sort(function(x, y) {
+          return y.riesgo - x.riesgo;
+        });           
+      },
+      controlRSDE60(opcion, tipo, id, index){
+        this.banderaControles3 = false;
+        this.banConRieSal3 = opcion;
+        this.tipoRieSal3 = tipo;
+        this.idSal3 = id;
+        this.indexSal3 = index;        
+      },
+      cerrarControlRS3(){
+        this.banderaControles3 = true;
+        this.idSal3 = 0;
+        this.indexSal3 = 0;
+      },
+      async GuardarRS3(tipo, opcion){
+        let datos = [];
+        let vector = [];
+        if(tipo == "DE60"){
+          datos = this.datosRSDE60_RR;
+          vector = this.vectorAuxRSDE60;
+          // Enfermedades Infeccisosas
+          if(opcion == "EnIn"){
+            if(this.datosRSDE60_RR.alimentacion_saludable_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Alimentación saludable",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.asistencia_crecimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.fumigacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Fumigación, control de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.sistema_recoleccion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Sistemas de recolección de basuras",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.desparacitacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparacitación inferior a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.inmunizacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.educacion_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.mantenimiento_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.citas_EnIn === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Citas por valoración integral al dia",
+                "error"
+              );
+              return false;
+            }                                                                                                            
+          }
+          // Enfermedades Infeccisosas
+
+          // Trastornos Asociados al uso de SPA
+          if(opcion == "TrAsSPA"){
+            if(this.datosRSDE60_RR.educacion_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización de la familia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.acompaniamiento_TrAsSPA === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento terapeutico",
+                "error"
+              );
+              return false;
+            }                                                                                                                      
+          }
+          // Trastornos Asociados al uso de SPA
+
+          // Enfermedad Cardiovascular Aterogénica
+          if(opcion == "EnCaAt"){
+            if(this.datosRSDE60_RR.asistencia_crecimiento_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.educacion_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.actividad_EnCaAt === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Actividad fisica",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedad Cardiovascular Aterogénica
+
+          // Cancer
+          if(opcion == "Ca"){
+            if(this.datosRSDE60_RR.asistencia_crecimiento_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.educacion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.valoracion_Ca === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Cancer
+
+          // Alteraciones y Transtornos Visuales
+          if(opcion == "AlTrVi"){
+            if(this.datosRSDE60_RR.asistencia_crecimiento_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.valoracion_AlTrVi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos Visuales
+          
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          if(opcion == "AlTrAuCo"){
+            if(this.datosRSDE60_RR.asistencia_crecimiento_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.valoracion_AlTrAuCo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración por enfermeria",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Alteraciones y Transtornos de la Audición y Comunicación
+          
+          // Salud Bucal
+          if(opcion == "SaBu"){
+            if(this.datosRSDE60_RR.control_odontologia_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Control con odontologia menor a 6 meses",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.aplicacion_fluor_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Aplicación de Fluor",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.educacion_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.habitos_higiene_SaBu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción hábitos de higiene oral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Salud Bucal
+          
+          // Problemas en salud mental
+          if(opcion == "PrSaMe"){
+            if(this.datosRSDE60_RR.concientizacion_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.acompaniamiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.crecimiento_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.grupos_PrSaMe === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                          
+          }
+          // Problemas en salud mental
+          
+          // Violencias
+          if(opcion == "Vi"){
+            if(this.datosRSDE60_RR.concientizacion_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Concientizacion y educación",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.acompaniamiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acompañamiento Psicologico",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.crecimiento_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.grupos_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.icbf_Vi === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción ICBF",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Violencias
+          
+          // Enfermedades Respiratorias crónicas
+          if(opcion == "EnReCr"){
+            if(this.datosRSDE60_RR.crecimiento_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.educacion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientización",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.valoracion_EnReCr === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Enfermedades Respiratorias crónicas
+          
+          // Enfermedades Zoonoticas
+          if(opcion == "EnZo"){
+            if(this.datosRSDE60_RR.crecimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.potabilizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Potabilización del agua",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.mantenimiento_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Mantenimiento de lotes",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.fumigacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción fumigación de plagas",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.vacunacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Vacunación de animales",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.inmunizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Inmunización al dia",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.valorizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.desparatizacion_EnZo === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Desparasitación menor a 6 meses",
+                "error"
+              );
+              return false;
+            }                                                                                                           
+          }
+          // Enfermedades Zoonoticas
+          
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          if(opcion == "TrDeNeEnAu"){
+            if(this.datosRSDE60_RR.crecimiento_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Asistencia a Control de crecimiento y desarrollo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.acceso_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Acceso atención especializada",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.valoracion_TrDeNeEnAu === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                  
+          }
+          // Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes
+          
+          // Consumo de SPA
+          if(opcion == "CoSp"){
+            if(this.datosRSDE60_RR.atencion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Atencion Psicologica",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.relaciones_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Buenas relaciones familiares",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.grupos_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Grupos de apoyo",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.educacion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Educación y concientizacion",
+                "error"
+              );
+              return false;
+            }
+            if(this.datosRSDE60_RR.valoracion_CoSp === ""){
+              this.$swal(
+                "Error...!",
+                "Por Favor seleccione la opción Valoración integral",
+                "error"
+              );
+              return false;
+            }                                                                                                                                                                      
+          }
+          // Consumo de SPA                
+                    
+        }                                      
+        const parametros = {
+          _token: this.csrf,
+          datos: datos,
+          vector: vector,
+          opcion: opcion,
+          tipo: tipo,
+          IDHOGAR: this.IDHOGAR,
+          id_inte: this.idSal3
+        };
+        await caracterizacionServicios
+          .ControlRS(parametros)
+          .then(respuesta => {
+            if(tipo == "DE60"){
+              this.vectorAuxRSDE60[this.indexSal3].riesgo_r = respuesta.data.riesgo_r;
+              this.vectorAuxRSDE60[this.indexSal3].valor_r = respuesta.data.valor_r;
+              this.vectorAuxRSDE60[this.indexSal3].color_r = respuesta.data.color_r;
+              this.vectorAuxRSDE60.splice(this.indexSal3, 1, this.vectorAuxRSDE60[this.indexSal3]);                        
+            }                                                   
+            this.cerrarControlRS3();
+          })
+          .catch(error => {
+            this.$swal(
+              "Error...!",
+              "No se pudo ejecutar los controles",
+              "error"
+            );
+            return;
+          });        
+      },
+      cambiarTab(tab){
+        setTimeout(() => $('.nav-tabs a[href="' + tab + '"]').tab("show"), 200);        
       }      
     }
   };

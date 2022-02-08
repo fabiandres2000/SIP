@@ -595,8 +595,9 @@
   </div>
 </template>
 <script>
+import { Store } from 'vuex';
 import * as consultas from "../../Servicios/consultas";
-
+import store from '../../store';
 export default {
   mounted() {
     this.iniciales(1);
@@ -684,7 +685,9 @@ export default {
       };
       try {
         await consultas.jefespdf(parametros).then((respuesta) => {
-          this.ruta = "http://127.0.0.1:8000/"+respuesta.data.nombre;
+
+          // this.ruta = "http://127.0.0.1:8000/"+respuesta.data.nombre;
+          this.ruta = store.state.apiURL + respuesta.data.nombre;          
           this.$refs.modalpdf.show();
         });
       } catch (e) {}
