@@ -55,3 +55,11 @@ export function buscarTablas($data) {
 export function ControlRS($data) {
     return http().post('/caracterizacion/ControlRS', $data);
 }
+
+export function DetallesAmbiental($data) {
+    return http().post('/caracterizacion/DetallesAmbiental', $data);
+}
+
+export function DetallesControlAmbiental($data) {
+    return http().post('/caracterizacion/DetallesControlAmbiental', $data);
+}

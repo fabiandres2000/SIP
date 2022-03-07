@@ -113,7 +113,7 @@
                     @change="cambiarCombo('dpto')"
                     ref="id_dpto"
                   >
-                    <option value selected>Seleccione</option>
+                    <option value>Seleccione</option>
                     <option
                       v-for="item in dpto_options"
                       :value="item.value"
@@ -28159,6 +28159,8 @@
             .then(respuesta => {
               this.dpto_options = respuesta.data.arrayDpto;
               this.muni_options = respuesta.data.arrayMuni;
+              this.hogar.id_dpto = respuesta.data.id_dpto;
+              this.hogar.id_mun = respuesta.data.id_mun;
               this.corregi_options = respuesta.data.arrayCorregi;
               this.vereda_options = respuesta.data.arrayVeredas;
               // this.barrio_options = respuesta.data.arrayBarrios;

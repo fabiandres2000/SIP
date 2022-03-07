@@ -225,6 +225,200 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -255,7 +449,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       imagenMiniatura: null,
       imagenMiniatura1: null,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-      alias: ""
+      alias: "",
+      auxiliar: true,
+      errorDevuelto1: [],
+      entrarPorError1: false,
+      claves: {
+        actual: "",
+        nueva: "",
+        confir: ""
+      }
     };
   },
   computed: {
@@ -287,10 +489,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.prev = 2;
                 _context.next = 5;
                 return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["perfil"](parametros).then(function (respuesta) {
+                  _this.errores = [];
+                  _this.entrarPorError = false;
                   _this.usuariosData = respuesta.data.usuarios;
-                  console.log(_this.usuariosData);
                   _this.alias = respuesta.data.alias;
                   _this.imagenMiniatura = _this.usuariosData.imagen;
+                  _this.imagenMiniatura1 = _this.usuariosData.imagen;
 
                   if (_this.imagenMiniatura1 == null) {
                     _this.imagenMiniatura1 = "".concat(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.serverPath, "assets/media/default.png");
@@ -382,6 +586,309 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return cargarImagen1;
+    }(),
+    cambiarTab: function cambiarTab(opcion) {
+      console.log(opcion);
+
+      if (opcion == 1) {
+        this.auxiliar = true;
+        $("#enlaceIP").addClass("kt-widget__item--active");
+        $("#enlaceCC").removeClass("kt-widget__item--active");
+      } else {
+        $("#enlaceCC").addClass("kt-widget__item--active");
+        $("#enlaceIP").removeClass("kt-widget__item--active");
+        this.auxiliar = false;
+      }
+    },
+    guardarDatos: function () {
+      var _guardarDatos = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var _this3 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (this.checkForm()) {
+                  _context3.next = 4;
+                  break;
+                }
+
+                this.entrarPorError = false;
+                _context3.next = 20;
+                break;
+
+              case 4:
+                this.errores = [];
+                parametros = {
+                  _token: this.csrf,
+                  id: this.usuariosData.id,
+                  identificacion: this.usuariosData.identificacion,
+                  nombre: this.usuariosData.nombre,
+                  email: this.usuariosData.email,
+                  celular: this.usuariosData.celular,
+                  direccion: this.usuariosData.direccion,
+                  usuario: this.usuariosData.usuario,
+                  ruta: this.usuariosData.imagen
+                };
+                _context3.prev = 6;
+                _context3.next = 9;
+                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["guardarPerfil"](parametros).then(function (respuesta) {
+                  _this3.errorDevuelto = [];
+                  _this3.entrarPorError = false;
+
+                  _this3.$swal("Guardar...!", "Datos Guardados Exitosamente!", "success"); // this.$router.push("/perfil");
+
+
+                  // this.$router.push("/perfil");
+                  location.reload();
+                })["catch"](function (error) {
+                  _this3.errorDevuelto = error.response.data.errors;
+                  _this3.entrarPorError = true;
+                });
+
+              case 9:
+                _context3.next = 20;
+                break;
+
+              case 11:
+                _context3.prev = 11;
+                _context3.t0 = _context3["catch"](6);
+                _context3.t1 = _context3.t0.response.status;
+                _context3.next = _context3.t1 === 422 ? 16 : 18;
+                break;
+
+              case 16:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context3.abrupt("break", 20);
+
+              case 18:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context3.abrupt("break", 20);
+
+              case 20:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[6, 11]]);
+      }));
+
+      function guardarDatos() {
+        return _guardarDatos.apply(this, arguments);
+      }
+
+      return guardarDatos;
+    }(),
+    checkForm: function checkForm(e) {
+      this.errores = [];
+
+      if (!this.usuariosData.identificacion) {
+        this.errores.push("La identificación es obligatoria.");
+      }
+
+      if (this.usuariosData.identificacion.length < 6) {
+        this.errores.push("Por favor escriba una identificación mayor a 6 caracteres");
+      }
+
+      if (!this.usuariosData.nombre) {
+        this.errores.push("El nombre es obligatorio.");
+      }
+
+      if (this.usuariosData.nombre.length < 5) {
+        this.errores.push("Por favor escriba un nombre mayor a 5 caracteres");
+      }
+
+      if (!this.usuariosData.email) {
+        this.errores.push("El correo electrónico es obligatorio.");
+      } else if (!this.validEmail(this.usuariosData.email)) {
+        this.errores.push("El correo electrónico debe ser válido.");
+      }
+
+      if (!this.usuariosData.celular) {
+        this.errores.push("El celular es obligatorio.");
+      }
+
+      if (!this.usuariosData.usuario) {
+        this.errores.push("El usuario es obligatorio.");
+      }
+
+      if (!this.errores.length) {
+        return true;
+      } else {
+        return false;
+      }
+
+      e.preventDefault();
+    },
+    validEmail: function validEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    guardarContrasena: function () {
+      var _guardarContrasena = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var _this4 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (!(this.claves.actual === "")) {
+                  _context4.next = 3;
+                  break;
+                }
+
+                this.$swal("Error...!", "La contraseña actual es obligatoria!", "error");
+                return _context4.abrupt("return", false);
+
+              case 3:
+                if (!(this.claves.nueva === "")) {
+                  _context4.next = 6;
+                  break;
+                }
+
+                this.$swal("Error...!", "La nueva contraseña es obligatoria!", "error");
+                return _context4.abrupt("return", false);
+
+              case 6:
+                if (!(this.claves.nueva.length < 5)) {
+                  _context4.next = 9;
+                  break;
+                }
+
+                this.$swal("Error...!", "Por favor escriba una Contraseña mayor a 5 caracteres!", "error");
+                return _context4.abrupt("return", false);
+
+              case 9:
+                if (!(this.claves.confir === "")) {
+                  _context4.next = 12;
+                  break;
+                }
+
+                this.$swal("Error...!", "Confirmar la contraseña es obligatorio!", "error");
+                return _context4.abrupt("return", false);
+
+              case 12:
+                if (!(this.claves.nueva != this.claves.confir)) {
+                  _context4.next = 15;
+                  break;
+                }
+
+                this.$swal("Error...!", "Las contraseñas no coinciden!", "error");
+                return _context4.abrupt("return", false);
+
+              case 15:
+                // this.errores = [];
+                parametros = {
+                  _token: this.csrf,
+                  claves: this.claves
+                };
+                _context4.prev = 16;
+                _context4.next = 19;
+                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["cambiarclave"](parametros).then(function (respuesta) {
+                  if (respuesta.data.OPC === "SI") {
+                    _this4.$swal("Cambiar...!", "Contraseña cambiada de manera exitosa!", "success");
+
+                    setTimeout(function () {
+                      _this4.salir();
+                    }, 3000);
+                  } else {
+                    _this4.$swal("Cambiar...!", "Contraseña no cambiada!", "warning");
+                  }
+                })["catch"](function (error) {
+                  _this4.errorDevuelto1 = error.response.data.errors;
+                  _this4.entrarPorError1 = true;
+                });
+
+              case 19:
+                _context4.next = 30;
+                break;
+
+              case 21:
+                _context4.prev = 21;
+                _context4.t0 = _context4["catch"](16);
+                _context4.t1 = _context4.t0.response.status;
+                _context4.next = _context4.t1 === 422 ? 26 : 28;
+                break;
+
+              case 26:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 30);
+
+              case 28:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context4.abrupt("break", 30);
+
+              case 30:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[16, 21]]);
+      }));
+
+      function guardarContrasena() {
+        return _guardarContrasena.apply(this, arguments);
+      }
+
+      return guardarContrasena;
+    }(),
+    salir: function () {
+      var _salir = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var _this5 = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                parametros = {
+                  _token: this.csrf
+                };
+                _context5.prev = 1;
+                _context5.next = 4;
+                return _Servicios_usuarios_servicios__WEBPACK_IMPORTED_MODULE_1__["salir"](parametros).then(function (respuesta) {
+                  _this5.$swal("Cerrar...!", "Sesion Cerrada de Manera Exitosa!", "success");
+
+                  setTimeout(function () {
+                    // this.$router.go("/index");
+                    window.location = "/index"; // window.location = "/SIP/public/index";
+                  }, 2000);
+                })["catch"](function (error) {});
+
+              case 4:
+                _context5.next = 15;
+                break;
+
+              case 6:
+                _context5.prev = 6;
+                _context5.t0 = _context5["catch"](1);
+                _context5.t1 = _context5.t0.response.status;
+                _context5.next = _context5.t1 === 422 ? 11 : 13;
+                break;
+
+              case 11:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context5.abrupt("break", 15);
+
+              case 13:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context5.abrupt("break", 15);
+
+              case 15:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this, [[1, 6]]);
+      }));
+
+      function salir() {
+        return _salir.apply(this, arguments);
+      }
+
+      return salir;
     }()
   }
 });
@@ -526,7 +1033,12 @@ var render = function() {
                               {
                                 staticClass:
                                   "kt-widget__item kt-widget__item--active",
-                                attrs: { href: "javascript:;" }
+                                attrs: { href: "javascript:;", id: "enlaceIP" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.cambiarTab(1)
+                                  }
+                                }
                               },
                               [
                                 _c(
@@ -617,7 +1129,12 @@ var render = function() {
                               "a",
                               {
                                 staticClass: "kt-widget__item ",
-                                attrs: { href: "javascript:;" }
+                                attrs: { href: "javascript:;", id: "enlaceCC" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.cambiarTab(2)
+                                  }
+                                }
                               },
                               [
                                 _c(
@@ -730,385 +1247,1161 @@ var render = function() {
               staticClass: "kt-grid__item kt-grid__item--fluid kt-app__content"
             },
             [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-xl-12" }, [
-                  _c("div", { staticClass: "kt-portlet" }, [
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      { staticClass: "kt-form kt-form--label-right" },
-                      [
-                        _c("div", { staticClass: "kt-portlet__body" }, [
-                          _c(
-                            "div",
-                            { staticClass: "kt-section kt-section--first" },
-                            [
-                              _c("div", { staticClass: "kt-section__body" }, [
-                                _c("div", { staticClass: "form-group row" }, [
+              _vm.auxiliar
+                ? _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-xl-12" }, [
+                      _c("div", { staticClass: "kt-portlet" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          { staticClass: "kt-form kt-form--label-right" },
+                          [
+                            _c("div", { staticClass: "kt-portlet__body" }, [
+                              _c(
+                                "div",
+                                { staticClass: "kt-section kt-section--first" },
+                                [
                                   _c(
                                     "div",
-                                    {
-                                      staticClass: "col-lg-12 col-xl-12",
-                                      staticStyle: { "text-align": "center" }
-                                    },
+                                    { staticClass: "kt-section__body" },
                                     [
                                       _c(
                                         "div",
                                         {
                                           staticClass:
-                                            "kt-avatar kt-avatar--outline kt-avatar--circle",
-                                          attrs: {
-                                            id: "kt_apps_user_add_avatar"
-                                          }
+                                            "row justify-content-center"
                                         },
                                         [
-                                          _c("div", {
-                                            staticClass: "kt-avatar__holder",
-                                            style: _vm.imagen1
-                                          }),
-                                          _vm._v(" "),
                                           _c(
-                                            "label",
+                                            "div",
+                                            { staticClass: "col-lg-7" },
+                                            [
+                                              _c(
+                                                "transition",
+                                                {
+                                                  attrs: {
+                                                    duration: 1000,
+                                                    name: "fade"
+                                                  }
+                                                },
+                                                [
+                                                  _vm.errores.length
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "alert alert-warning fade show",
+                                                          attrs: {
+                                                            role: "alert"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "alert-icon"
+                                                            },
+                                                            [
+                                                              _c("i", {
+                                                                staticClass:
+                                                                  "flaticon-warning"
+                                                              })
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "alert-text"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                                                Por favor, corrija el(los) siguiente(s)\n                                                                error(es):\n                                                                "
+                                                              ),
+                                                              _c("hr"),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "ul",
+                                                                _vm._l(
+                                                                  _vm.errores,
+                                                                  function(
+                                                                    error,
+                                                                    index
+                                                                  ) {
+                                                                    return _c(
+                                                                      "li",
+                                                                      {
+                                                                        key: index
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "\n                                                                        " +
+                                                                            _vm._s(
+                                                                              error
+                                                                            ) +
+                                                                            "\n                                                                    "
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  }
+                                                                ),
+                                                                0
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "alert-close"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "close",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "button",
+                                                                    "data-dismiss":
+                                                                      "alert",
+                                                                    "aria-label":
+                                                                      "Close"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      attrs: {
+                                                                        "aria-hidden":
+                                                                          "true"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c("i", {
+                                                                        staticClass:
+                                                                          "la la-close"
+                                                                      })
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "row justify-content-center"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-lg-7" },
+                                            [
+                                              _c(
+                                                "transition",
+                                                {
+                                                  attrs: {
+                                                    duration: 1000,
+                                                    name: "fade"
+                                                  }
+                                                },
+                                                [
+                                                  _vm.entrarPorError
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "alert alert-warning fade show",
+                                                          attrs: {
+                                                            role: "alert"
+                                                          }
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "alert-icon"
+                                                            },
+                                                            [
+                                                              _c("i", {
+                                                                staticClass:
+                                                                  "flaticon-warning"
+                                                              })
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "alert-text"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                                                Por favor, corrija el(los) siguiente(s)\n                                                                error(es):\n                                                                "
+                                                              ),
+                                                              _c("hr"),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "ul",
+                                                                _vm._l(
+                                                                  _vm.errorDevuelto,
+                                                                  function(
+                                                                    error,
+                                                                    index
+                                                                  ) {
+                                                                    return _c(
+                                                                      "li",
+                                                                      {
+                                                                        key: index
+                                                                      },
+                                                                      [
+                                                                        _vm._v(
+                                                                          "\n                                                                        " +
+                                                                            _vm._s(
+                                                                              error
+                                                                            ) +
+                                                                            "\n                                                                    "
+                                                                        )
+                                                                      ]
+                                                                    )
+                                                                  }
+                                                                ),
+                                                                0
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "alert-close"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "button",
+                                                                {
+                                                                  staticClass:
+                                                                    "close",
+                                                                  attrs: {
+                                                                    type:
+                                                                      "button",
+                                                                    "data-dismiss":
+                                                                      "alert",
+                                                                    "aria-label":
+                                                                      "Close"
+                                                                  }
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      attrs: {
+                                                                        "aria-hidden":
+                                                                          "true"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c("i", {
+                                                                        staticClass:
+                                                                          "la la-close"
+                                                                      })
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group row" },
+                                        [
+                                          _c(
+                                            "div",
                                             {
-                                              staticClass: "kt-avatar__upload",
-                                              attrs: {
-                                                "data-toggle": "kt-tooltip",
-                                                title: "",
-                                                "data-original-title":
-                                                  "Change avatar"
+                                              staticClass:
+                                                "col-lg-12 col-xl-12",
+                                              staticStyle: {
+                                                "text-align": "center"
                                               }
                                             },
                                             [
-                                              _c("i", {
-                                                staticClass: "fa fa-pen"
-                                              }),
-                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "kt-avatar kt-avatar--outline kt-avatar--circle",
+                                                  attrs: {
+                                                    id:
+                                                      "kt_apps_user_add_avatar"
+                                                  }
+                                                },
+                                                [
+                                                  _c("div", {
+                                                    staticClass:
+                                                      "kt-avatar__holder",
+                                                    style: _vm.imagen1
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "kt-avatar__upload",
+                                                      attrs: {
+                                                        "data-toggle":
+                                                          "kt-tooltip",
+                                                        title: "",
+                                                        "data-original-title":
+                                                          "Change avatar"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("i", {
+                                                        staticClass: "fa fa-pen"
+                                                      }),
+                                                      _vm._v(" "),
+                                                      _c("input", {
+                                                        attrs: {
+                                                          type: "file",
+                                                          name:
+                                                            "profile_avatar",
+                                                          accept:
+                                                            ".png, .jpg, .jpeg"
+                                                        },
+                                                        on: {
+                                                          change:
+                                                            _vm.obtenerImagen1
+                                                        }
+                                                      })
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _vm._m(4)
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group row" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Identificación")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
+                                            },
+                                            [
                                               _c("input", {
-                                                attrs: {
-                                                  type: "file",
-                                                  name: "profile_avatar",
-                                                  accept: ".png, .jpg, .jpeg"
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value:
+                                                      _vm.usuariosData
+                                                        .identificacion,
+                                                    expression:
+                                                      "usuariosData.identificacion"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: { type: "text" },
+                                                domProps: {
+                                                  value:
+                                                    _vm.usuariosData
+                                                      .identificacion
                                                 },
                                                 on: {
-                                                  change: _vm.obtenerImagen1
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.usuariosData,
+                                                      "identificacion",
+                                                      $event.target.value
+                                                    )
+                                                  }
                                                 }
                                               })
                                             ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group row" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Nombre")]
                                           ),
                                           _vm._v(" "),
-                                          _vm._m(4)
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
+                                            },
+                                            [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value:
+                                                      _vm.usuariosData.nombre,
+                                                    expression:
+                                                      "usuariosData.nombre"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: { type: "text" },
+                                                domProps: {
+                                                  value: _vm.usuariosData.nombre
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.usuariosData,
+                                                      "nombre",
+                                                      $event.target.value
+                                                    )
+                                                  }
+                                                }
+                                              })
+                                            ]
+                                          )
                                         ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group row" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass:
-                                        "col-xl-3 col-lg-3 col-form-label"
-                                    },
-                                    [_vm._v("Identificación")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-9 col-xl-6" },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value:
-                                              _vm.usuariosData.identificacion,
-                                            expression:
-                                              "usuariosData.identificacion"
-                                          }
-                                        ],
-                                        staticClass: "form-control",
-                                        attrs: { type: "text" },
-                                        domProps: {
-                                          value: _vm.usuariosData.identificacion
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.usuariosData,
-                                              "identificacion",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group row" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass:
-                                        "col-xl-3 col-lg-3 col-form-label"
-                                    },
-                                    [_vm._v("Nombre")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-9 col-xl-6" },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.usuariosData.nombre,
-                                            expression: "usuariosData.nombre"
-                                          }
-                                        ],
-                                        staticClass: "form-control",
-                                        attrs: { type: "text" },
-                                        domProps: {
-                                          value: _vm.usuariosData.nombre
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.usuariosData,
-                                              "nombre",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group row" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass:
-                                        "col-xl-3 col-lg-3 col-form-label"
-                                    },
-                                    [_vm._v("Dirección")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-9 col-xl-6" },
-                                    [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.usuariosData.direccion,
-                                            expression: "usuariosData.direccion"
-                                          }
-                                        ],
-                                        staticClass: "form-control",
-                                        attrs: { type: "text" },
-                                        domProps: {
-                                          value: _vm.usuariosData.direccion
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.usuariosData,
-                                              "direccion",
-                                              $event.target.value
-                                            )
-                                          }
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group row" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass:
-                                        "col-xl-3 col-lg-3 col-form-label"
-                                    },
-                                    [_vm._v("Telefono")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-9 col-xl-6" },
-                                    [
+                                      ),
+                                      _vm._v(" "),
                                       _c(
                                         "div",
-                                        { staticClass: "input-group" },
+                                        { staticClass: "form-group row" },
                                         [
-                                          _vm._m(5),
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Dirección")]
+                                          ),
                                           _vm._v(" "),
-                                          _c("input", {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.usuariosData.celular,
-                                                expression:
-                                                  "usuariosData.celular"
-                                              }
-                                            ],
-                                            staticClass: "form-control",
-                                            attrs: {
-                                              type: "text",
-                                              placeholder: "Celular",
-                                              "aria-describedby": "basic-addon1"
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
                                             },
-                                            domProps: {
-                                              value: _vm.usuariosData.celular
-                                            },
-                                            on: {
-                                              input: function($event) {
-                                                if ($event.target.composing) {
-                                                  return
+                                            [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value:
+                                                      _vm.usuariosData
+                                                        .direccion,
+                                                    expression:
+                                                      "usuariosData.direccion"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: { type: "text" },
+                                                domProps: {
+                                                  value:
+                                                    _vm.usuariosData.direccion
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.usuariosData,
+                                                      "direccion",
+                                                      $event.target.value
+                                                    )
+                                                  }
                                                 }
-                                                _vm.$set(
-                                                  _vm.usuariosData,
-                                                  "celular",
-                                                  $event.target.value
-                                                )
-                                              }
-                                            }
-                                          })
+                                              })
+                                            ]
+                                          )
                                         ]
-                                      )
-                                    ]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group row" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass:
-                                        "col-xl-3 col-lg-3 col-form-label"
-                                    },
-                                    [_vm._v("Email")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-9 col-xl-6" },
-                                    [
+                                      ),
+                                      _vm._v(" "),
                                       _c(
                                         "div",
-                                        { staticClass: "input-group" },
+                                        { staticClass: "form-group row" },
                                         [
-                                          _vm._m(6),
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Telefono")]
+                                          ),
                                           _vm._v(" "),
-                                          _c("input", {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value: _vm.usuariosData.email,
-                                                expression: "usuariosData.email"
-                                              }
-                                            ],
-                                            staticClass: "form-control",
-                                            attrs: {
-                                              type: "text",
-                                              placeholder: "Email",
-                                              "aria-describedby": "basic-addon1"
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
                                             },
-                                            domProps: {
-                                              value: _vm.usuariosData.email
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "input-group" },
+                                                [
+                                                  _vm._m(5),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.usuariosData
+                                                            .celular,
+                                                        expression:
+                                                          "usuariosData.celular"
+                                                      }
+                                                    ],
+                                                    staticClass: "form-control",
+                                                    attrs: {
+                                                      type: "text",
+                                                      placeholder: "Celular",
+                                                      "aria-describedby":
+                                                        "basic-addon1"
+                                                    },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.usuariosData.celular
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.usuariosData,
+                                                          "celular",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group row" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
                                             },
-                                            on: {
-                                              input: function($event) {
-                                                if ($event.target.composing) {
-                                                  return
+                                            [_vm._v("Email")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "input-group" },
+                                                [
+                                                  _vm._m(6),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.usuariosData
+                                                            .email,
+                                                        expression:
+                                                          "usuariosData.email"
+                                                      }
+                                                    ],
+                                                    staticClass: "form-control",
+                                                    attrs: {
+                                                      type: "text",
+                                                      placeholder: "Email",
+                                                      "aria-describedby":
+                                                        "basic-addon1"
+                                                    },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.usuariosData.email
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.usuariosData,
+                                                          "email",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group row" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Usuario")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
+                                            },
+                                            [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value:
+                                                      _vm.usuariosData.usuario,
+                                                    expression:
+                                                      "usuariosData.usuario"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: { type: "text" },
+                                                domProps: {
+                                                  value:
+                                                    _vm.usuariosData.usuario
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.usuariosData,
+                                                      "usuario",
+                                                      $event.target.value
+                                                    )
+                                                  }
                                                 }
-                                                _vm.$set(
-                                                  _vm.usuariosData,
-                                                  "email",
-                                                  $event.target.value
-                                                )
-                                              }
-                                            }
-                                          })
+                                              })
+                                            ]
+                                          )
                                         ]
                                       )
                                     ]
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "form-group row" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass:
-                                        "col-xl-3 col-lg-3 col-form-label"
-                                    },
-                                    [_vm._v("Usuario")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-lg-9 col-xl-6" },
-                                    [
-                                      _c("input", {
-                                        directives: [
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "kt-portlet__foot" }, [
+                              _c("div", { staticClass: "kt-form__actions" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "row justify-content-center" },
+                                  [
+                                    _c("div", {
+                                      staticClass: "col-lg-6 col-xl-6"
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-lg-6 col-xl-6" },
+                                      [
+                                        _c(
+                                          "button",
                                           {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.usuariosData.usuario,
-                                            expression: "usuariosData.usuario"
-                                          }
-                                        ],
-                                        staticClass: "form-control",
-                                        attrs: { type: "text" },
-                                        domProps: {
-                                          value: _vm.usuariosData.usuario
-                                        },
-                                        on: {
-                                          input: function($event) {
-                                            if ($event.target.composing) {
-                                              return
-                                            }
-                                            _vm.$set(
-                                              _vm.usuariosData,
-                                              "usuario",
-                                              $event.target.value
+                                            staticClass: "btn btn-success",
+                                            attrs: { type: "button" },
+                                            on: { click: _vm.guardarDatos }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-edit"
+                                            }),
+                                            _vm._v(
+                                              "\n                                                    Guardar\n                                                "
                                             )
-                                          }
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
                               ])
-                            ]
-                          )
-                        ])
-                      ]
-                    )
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
                   ])
-                ])
-              ])
+                : _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-xl-12" }, [
+                      _c("div", { staticClass: "kt-portlet" }, [
+                        _vm._m(7),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          { staticClass: "kt-form kt-form--label-right" },
+                          [
+                            _c("div", { staticClass: "kt-portlet__body" }, [
+                              _c(
+                                "div",
+                                { staticClass: "kt-section kt-section--first" },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "kt-section__body" },
+                                    [
+                                      _c("div", { staticClass: "row" }, [
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-lg-12" },
+                                          [
+                                            _c(
+                                              "transition",
+                                              {
+                                                attrs: {
+                                                  duration: 1000,
+                                                  name: "fade"
+                                                }
+                                              },
+                                              [
+                                                _vm.entrarPorError1
+                                                  ? _c(
+                                                      "div",
+                                                      {
+                                                        staticClass:
+                                                          "alert alert-warning fade show",
+                                                        attrs: { role: "alert" }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "alert-icon"
+                                                          },
+                                                          [
+                                                            _c("i", {
+                                                              staticClass:
+                                                                "flaticon-warning"
+                                                            })
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "alert-text"
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              "\n                                                                Por favor, corrija el(los) siguiente(s)\n                                                                error(es):\n                                                                "
+                                                            ),
+                                                            _c("hr"),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "ul",
+                                                              _vm._l(
+                                                                _vm.errorDevuelto1,
+                                                                function(
+                                                                  error,
+                                                                  index
+                                                                ) {
+                                                                  return _c(
+                                                                    "li",
+                                                                    {
+                                                                      key: index
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "\n                                                                        " +
+                                                                          _vm._s(
+                                                                            error
+                                                                          ) +
+                                                                          "\n                                                                    "
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                }
+                                                              ),
+                                                              0
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "alert-close"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "button",
+                                                              {
+                                                                staticClass:
+                                                                  "close",
+                                                                attrs: {
+                                                                  type:
+                                                                    "button",
+                                                                  "data-dismiss":
+                                                                    "alert",
+                                                                  "aria-label":
+                                                                    "Close"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "span",
+                                                                  {
+                                                                    attrs: {
+                                                                      "aria-hidden":
+                                                                        "true"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("i", {
+                                                                      staticClass:
+                                                                        "la la-close"
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    )
+                                                  : _vm._e()
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group row" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Contraseña Actual")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
+                                            },
+                                            [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.claves.actual,
+                                                    expression: "claves.actual"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: {
+                                                  type: "password",
+                                                  value: "",
+                                                  placeholder:
+                                                    "Contraseña Actual"
+                                                },
+                                                domProps: {
+                                                  value: _vm.claves.actual
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.claves,
+                                                      "actual",
+                                                      $event.target.value
+                                                    )
+                                                  }
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group row" },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Nueva Contraseña")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
+                                            },
+                                            [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.claves.nueva,
+                                                    expression: "claves.nueva"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: {
+                                                  type: "password",
+                                                  value: "",
+                                                  placeholder:
+                                                    "Nueva Contraseña"
+                                                },
+                                                domProps: {
+                                                  value: _vm.claves.nueva
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.claves,
+                                                      "nueva",
+                                                      $event.target.value
+                                                    )
+                                                  }
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "form-group form-group-last row"
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass:
+                                                "col-xl-3 col-lg-3 col-form-label"
+                                            },
+                                            [_vm._v("Verificar Contraseña")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "col-lg-9 col-xl-6"
+                                            },
+                                            [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.claves.confir,
+                                                    expression: "claves.confir"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: {
+                                                  type: "password",
+                                                  value: "",
+                                                  placeholder:
+                                                    "Verificar Contraseña"
+                                                },
+                                                domProps: {
+                                                  value: _vm.claves.confir
+                                                },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      _vm.claves,
+                                                      "confir",
+                                                      $event.target.value
+                                                    )
+                                                  }
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "kt-portlet__foot" }, [
+                              _c("div", { staticClass: "kt-form__actions" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "row justify-content-center" },
+                                  [
+                                    _c("div", {
+                                      staticClass: "col-lg-6 col-xl-6"
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "col-lg-6 col-xl-6" },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-success",
+                                            attrs: { type: "button" },
+                                            on: { click: _vm.guardarContrasena }
+                                          },
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-edit"
+                                            }),
+                                            _vm._v(
+                                              "\n                                                    Guardar\n                                                "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
             ]
           )
         ]
@@ -1224,6 +2517,23 @@ var staticRenderFns = [
     return _c("div", { staticClass: "input-group-prepend" }, [
       _c("span", { staticClass: "input-group-text" }, [
         _c("i", { staticClass: "la la-at" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head" }, [
+      _c("div", { staticClass: "kt-portlet__head-label" }, [
+        _c("h3", { staticClass: "kt-portlet__head-title" }, [
+          _vm._v("Cambiar Contraseña "),
+          _c("small", [_vm._v("cambie su contraseña de inicio de sesion")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "kt-portlet__head-toolbar" }, [
+        _c("div", { staticClass: "kt-portlet__head-wrapper" })
       ])
     ])
   }

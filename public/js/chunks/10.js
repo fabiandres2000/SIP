@@ -4327,7 +4327,7 @@ render._withStripped = true
 /*!*************************************************************!*\
   !*** ./resources/js/Servicios/caracterizacion_servicios.js ***!
   \*************************************************************/
-/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA, buscarTablas, ControlRS */
+/*! exports provided: listarCaracterizacion, nuevaCaracterizacion, guardar, validar, eliminarCaracterizacion, exportarCaracterizacion, exportarCaracterizacion2, validarJefe, actualizar, editarCaracterizacion, eliminar, controlesRA, buscarTablas, ControlRS, DetallesAmbiental, DetallesControlAmbiental */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4346,6 +4346,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlesRA", function() { return controlesRA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buscarTablas", function() { return buscarTablas; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ControlRS", function() { return ControlRS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetallesAmbiental", function() { return DetallesAmbiental; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetallesControlAmbiental", function() { return DetallesControlAmbiental; });
 /* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
 
 function listarCaracterizacion($data) {
@@ -4389,6 +4391,12 @@ function buscarTablas($data) {
 }
 function ControlRS($data) {
   return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/ControlRS', $data);
+}
+function DetallesAmbiental($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/DetallesAmbiental', $data);
+}
+function DetallesControlAmbiental($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/caracterizacion/DetallesControlAmbiental', $data);
 }
 
 /***/ }),

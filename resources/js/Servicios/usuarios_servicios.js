@@ -70,3 +70,6 @@ export function usuariosEditarSubirImagen($data) {
 export function perfil($data) {
     return http().post('/perfil', $data);
 }
+export function guardarPerfil($data) {
+    return http().post('/usuarios/guardarPerfil', $data);
+}

@@ -287,6 +287,7 @@ class UsuarioController extends Controller
     {
         $data = request()->all();
         $res = \App\User::cambiarclave($data["claves"]);
+        
         if ($res) {
             $gua = \App\Log::guardar("Cambio de contraseña el usuario con el id = " . Auth::user()->id, Session::get('alias'), 'PERFIL');
             $respuesta = [
@@ -460,4 +461,47 @@ class UsuarioController extends Controller
         }
     }
 
+    public function guardarPerfil()
+    {
+        if (Auth::check()) {
+            $data = request()->all();
+            
+            $id = $data['id'];
+            $usuario = \App\User::buscarUsuario($id);
+            request()->validate([
+                'identificacion' => 'required|unique:users,identificacion,' . $usuario->id,
+                'nombre' => 'required',
+                'email' => 'required|email|unique:users,email,' . $usuario->id,
+                'celular' => 'required',
+                'usuario' => 'required|unique:users,usuario,' . $usuario->id,
+            ], [
+                'identificacion.required' => 'La identificación es obligatorio',
+                'identificacion.unique' => 'La identificación ya se encuentra registrada',
+                'nombre.required' => 'El Nombre es obligatorio',
+                'email.required' => 'El email es obligatorio',
+                'email.unique' => 'El email ya se encuentra registrado',
+                'email.email' => 'El email debe ser valido',
+                'celular.required' => 'El celular es obligatorio',
+                'usuario.required' => 'El usuario es obligatorio',
+                'usuario.unique' => 'El usuario ya se encuentra registrado',
+            ]);
+            
+            $resp = \App\User::modificar($data, $id);
+            if ($resp) {
+                $respuesta = [
+                    'OPC' => 'SI',
+                ];
+                return response()->json($respuesta, 200);
+            } else {
+                $respuesta = [
+                    'OPC' => 'NO',
+                    'MENSAJE' => "Perfil No Modificado...",
+                ];
+                return response()->json($respuesta, 500);
+
+            }
+        } else {
+            return redirect("/")->with("error", "Su sesion ha terminado");
+        }
+    }
 }

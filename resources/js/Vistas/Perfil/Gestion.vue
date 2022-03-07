@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div class="kt-widget__items">
-                                        <a href="javascript:;" class="kt-widget__item kt-widget__item--active">
+                                        <a href="javascript:;" class="kt-widget__item kt-widget__item--active" @click="cambiarTab(1)" id="enlaceIP">
                                             <span class="kt-widget__section">
                                                 <span class="kt-widget__icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -88,7 +88,7 @@
                                                 </span>
                                             </span>
                                         </a>
-                                        <a href="javascript:;" class="kt-widget__item " >
+                                        <a href="javascript:;" class="kt-widget__item " @click="cambiarTab(2)" id="enlaceCC">
                                             <span class="kt-widget__section">
                                                 <span class="kt-widget__icon">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -116,7 +116,7 @@
 
                 <!--Begin:: App Content-->
                 <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
-                    <div class="row">
+                    <div class="row" v-if="auxiliar">
                         <div class="col-xl-12">
                             <div class="kt-portlet">
                                 <div class="kt-portlet__head">
@@ -133,6 +133,88 @@
                                     <div class="kt-portlet__body">
                                         <div class="kt-section kt-section--first">
                                             <div class="kt-section__body">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-lg-7">
+                                                        <transition :duration="1000" name="fade">
+                                                            <div
+                                                                class="alert alert-warning fade show"
+                                                                role="alert"
+                                                                v-if="errores.length"
+                                                            >
+                                                                <div class="alert-icon">
+                                                                    <i class="flaticon-warning"></i>
+                                                                </div>
+                                                                <div class="alert-text">
+                                                                    Por favor, corrija el(los) siguiente(s)
+                                                                    error(es):
+                                                                    <hr />
+                                                                    <ul>
+                                                                        <li
+                                                                            v-for="(error,
+                                                                            index) in errores"
+                                                                            :key="index"
+                                                                        >
+                                                                            {{ error }}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="alert-close">
+                                                                    <button
+                                                                        type="button"
+                                                                        class="close"
+                                                                        data-dismiss="alert"
+                                                                        aria-label="Close"
+                                                                    >
+                                                                        <span aria-hidden="true">
+                                                                            <i class="la la-close"></i>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </transition>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <div class="col-lg-7">
+                                                        <transition :duration="1000" name="fade">
+                                                            <div
+                                                                class="alert alert-warning fade show"
+                                                                role="alert"
+                                                                v-if="entrarPorError"
+                                                            >
+                                                                <div class="alert-icon">
+                                                                    <i class="flaticon-warning"></i>
+                                                                </div>
+                                                                <div class="alert-text">
+                                                                    Por favor, corrija el(los) siguiente(s)
+                                                                    error(es):
+                                                                    <hr />
+                                                                    <ul>
+                                                                        <li
+                                                                            v-for="(error,
+                                                                            index) in errorDevuelto"
+                                                                            :key="index"
+                                                                        >
+                                                                            {{ error }}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="alert-close">
+                                                                    <button
+                                                                        type="button"
+                                                                        class="close"
+                                                                        data-dismiss="alert"
+                                                                        aria-label="Close"
+                                                                    >
+                                                                        <span aria-hidden="true">
+                                                                            <i class="la la-close"></i>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </transition>
+                                                    </div>
+                                                </div>                                                                                      
                                                 <div class="form-group row">
                                                     <!-- <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label> -->
                                                     <div class="col-lg-12 col-xl-12"  style="text-align: center;">
@@ -193,9 +275,121 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="kt-portlet__foot">
+                                        <div class="kt-form__actions">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-6 col-xl-6">
+                                                </div>
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <button type="button" class="btn btn-success" @click="guardarDatos">
+                                                        <i class="fa fa-edit"></i>
+                                                        Guardar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>                                    
                                 </form>                              
                             </div>
                         </div> 
+                    </div>
+                    <div class="row" v-else>
+                        <div class="col-xl-12">
+                            <div class="kt-portlet">
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                        <h3 class="kt-portlet__head-title">Cambiar Contraseña <small>cambie su contraseña de inicio de sesion</small></h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <div class="kt-portlet__head-wrapper">
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <form class="kt-form kt-form--label-right">
+                                    <div class="kt-portlet__body">
+                                        <div class="kt-section kt-section--first">
+                                            <div class="kt-section__body">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <transition :duration="1000" name="fade">
+                                                            <div
+                                                                class="alert alert-warning fade show"
+                                                                role="alert"
+                                                                v-if="entrarPorError1"
+                                                            >
+                                                                <div class="alert-icon">
+                                                                    <i class="flaticon-warning"></i>
+                                                                </div>
+                                                                <div class="alert-text">
+                                                                    Por favor, corrija el(los) siguiente(s)
+                                                                    error(es):
+                                                                    <hr />
+                                                                    <ul>
+                                                                        <li
+                                                                            v-for="(error,
+                                                                            index) in errorDevuelto1"
+                                                                            :key="index"
+                                                                        >
+                                                                            {{ error }}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="alert-close">
+                                                                    <button
+                                                                        type="button"
+                                                                        class="close"
+                                                                        data-dismiss="alert"
+                                                                        aria-label="Close"
+                                                                    >
+                                                                        <span aria-hidden="true">
+                                                                            <i class="la la-close"></i>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </transition>
+                                                    </div>
+                                                </div>                                                       
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">Contraseña Actual</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <input type="password" v-model="claves.actual" class="form-control" value="" placeholder="Contraseña Actual">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">Nueva Contraseña</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <input type="password" v-model="claves.nueva" class="form-control" value="" placeholder="Nueva Contraseña">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-group-last row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">Verificar Contraseña</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <input type="password" v-model="claves.confir" class="form-control" value="" placeholder="Verificar Contraseña">
+                                                    </div>
+                                                </div>                                                                                                                                                                                                                                                                                     
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="kt-portlet__foot">
+                                        <div class="kt-form__actions">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-6 col-xl-6">
+                                                </div>
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <button type="button" class="btn btn-success" @click="guardarContrasena">
+                                                        <i class="fa fa-edit"></i>
+                                                        Guardar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                                                     
+                                </form>                              
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--End:: App Content-->
@@ -238,7 +432,15 @@ export default {
             csrf: document
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content"),
-            alias: ""
+            alias: "",
+            auxiliar: true,
+            errorDevuelto1: [],
+            entrarPorError1: false,
+            claves: {
+                actual: "",
+                nueva: "",
+                confir: ""
+            },                  
         };
     },
     computed:{
@@ -249,7 +451,7 @@ export default {
                 return `${store.state.serverPath}assets/media/${this.alias}/fotos/${this.usuariosData.imagen}`;
             }
         },
-        imagen1(){            
+        imagen1(){
             return "background-image: url('" + this.imagenMiniatura1 + "')";
         },        
     },
@@ -263,10 +465,12 @@ export default {
                 await usuarioServicios
                     .perfil(parametros)
                     .then(respuesta => {
+                        this.errores = [];
+                        this.entrarPorError = false;
                         this.usuariosData = respuesta.data.usuarios;
-                        console.log(this.usuariosData);
                         this.alias = respuesta.data.alias;
                         this.imagenMiniatura = this.usuariosData.imagen;
+                        this.imagenMiniatura1 = this.usuariosData.imagen;
                         if(this.imagenMiniatura1 == null) {
                             this.imagenMiniatura1 = `${store.state.serverPath}assets/media/default.png`;
                         }else{
@@ -312,7 +516,229 @@ export default {
                     this.errorDevuelto = error.response.data.errors;
                     this.entrarPorError = true;
                 });                   
-        }        
+        },
+        cambiarTab(opcion){
+            console.log(opcion)
+            if(opcion == 1){
+                this.auxiliar = true;
+                $("#enlaceIP").addClass("kt-widget__item--active");
+                $("#enlaceCC").removeClass("kt-widget__item--active");
+            }else{
+                $("#enlaceCC").addClass("kt-widget__item--active");
+                $("#enlaceIP").removeClass("kt-widget__item--active");                
+                this.auxiliar = false;
+            }
+        },
+        guardarDatos: async function() {
+            if (!this.checkForm()) {
+                this.entrarPorError = false;
+            } else {
+                this.errores = [];
+                   
+                const parametros = {
+                    _token: this.csrf,
+                    id: this.usuariosData.id,
+                    identificacion: this.usuariosData.identificacion,
+                    nombre: this.usuariosData.nombre,
+                    email: this.usuariosData.email,
+                    celular: this.usuariosData.celular,
+                    direccion: this.usuariosData.direccion,
+                    usuario: this.usuariosData.usuario,
+                    ruta: this.usuariosData.imagen
+                };
+                try {
+                    await usuarioServicios
+                        .guardarPerfil(parametros)
+                        .then(respuesta => {
+                            
+                            this.errorDevuelto = [];
+                            this.entrarPorError = false;
+                            this.$swal(
+                                "Guardar...!",
+                                "Datos Guardados Exitosamente!",
+                                "success"
+                            );
+                            // this.$router.push("/perfil");
+                            location.reload();
+                        })
+                        .catch(error => {
+                            this.errorDevuelto = error.response.data.errors;
+                            this.entrarPorError = true;
+                        });
+                } catch (error) {
+                    switch (error.response.status) {
+                        case 422:
+                            this.$swal(
+                                "Error...!",
+                                "Ocurrio un error!",
+                                "error"
+                            );
+                            break;
+                        default:
+                            this.$swal(
+                                "Error...!",
+                                "Ocurrio un error!",
+                                "error"
+                            );
+                            break;
+                    }
+                }
+            }
+        },
+        checkForm(e) {
+            this.errores = [];
+            
+            if (!this.usuariosData.identificacion) {
+                this.errores.push("La identificación es obligatoria.");
+            }
+            if (this.usuariosData.identificacion.length < 6) {
+                this.errores.push(
+                    "Por favor escriba una identificación mayor a 6 caracteres"
+                );
+            }
+            if (!this.usuariosData.nombre) {
+                this.errores.push("El nombre es obligatorio.");
+            }
+            if (this.usuariosData.nombre.length < 5) {
+                this.errores.push(
+                    "Por favor escriba un nombre mayor a 5 caracteres"
+                );
+            }
+            if (!this.usuariosData.email) {
+                this.errores.push("El correo electrónico es obligatorio.");
+            } else if (!this.validEmail(this.usuariosData.email)) {
+                this.errores.push("El correo electrónico debe ser válido.");
+            }
+            if (!this.usuariosData.celular) {
+                this.errores.push("El celular es obligatorio.");
+            }
+            if (!this.usuariosData.usuario) {
+                this.errores.push("El usuario es obligatorio.");
+            }
+            if (!this.errores.length) {
+                return true;
+            } else {
+                return false;
+            }
+            e.preventDefault();
+        },
+        validEmail: function(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
+        guardarContrasena: async function() {
+            if (this.claves.actual === "") {
+                this.$swal(
+                    "Error...!",
+                    "La contraseña actual es obligatoria!",
+                    "error"
+                );
+                return false;
+            }
+            if (this.claves.nueva === "") {
+                this.$swal(
+                    "Error...!",
+                    "La nueva contraseña es obligatoria!",
+                    "error"
+                );
+                return false;
+            }
+            if (this.claves.nueva.length < 5) {
+                this.$swal(
+                    "Error...!",
+                    "Por favor escriba una Contraseña mayor a 5 caracteres!",
+                    "error"
+                );
+                return false;
+            }
+            if (this.claves.confir === "") {
+                this.$swal(
+                    "Error...!",
+                    "Confirmar la contraseña es obligatorio!",
+                    "error"
+                );
+                return false;
+            }
+            if (this.claves.nueva != this.claves.confir) {
+                this.$swal(
+                    "Error...!",
+                    "Las contraseñas no coinciden!",
+                    "error"
+                );
+                return false;
+            }
+            // this.errores = [];
+            const parametros = {
+                _token: this.csrf,
+                claves: this.claves
+            };
+            try {
+                await usuarioServicios
+                    .cambiarclave(parametros)
+                    .then(respuesta => {
+                        if (respuesta.data.OPC === "SI") {
+                            this.$swal(
+                                "Cambiar...!",
+                                "Contraseña cambiada de manera exitosa!",
+                                "success"
+                            );
+                            setTimeout(() => {
+                                this.salir();
+                            }, 3000);
+                        } else {
+                            this.$swal(
+                                "Cambiar...!",
+                                "Contraseña no cambiada!",
+                                "warning"
+                            );
+                        }
+                    })
+                    .catch(error => {
+                        this.errorDevuelto1 = error.response.data.errors;
+                        this.entrarPorError1 = true;
+                    });
+            } catch (error) {
+                switch (error.response.status) {
+                    case 422:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                    default:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                }
+            }
+        },
+        salir: async function() {
+            const parametros = {
+                _token: this.csrf
+            };
+            try {
+                await usuarioServicios
+                    .salir(parametros)
+                    .then(respuesta => {
+                        this.$swal(
+                            "Cerrar...!",
+                            "Sesion Cerrada de Manera Exitosa!",
+                            "success"
+                        );
+                        setTimeout(() => {
+                            // this.$router.go("/index");
+                            window.location = "/index";
+                            // window.location = "/SIP/public/index";
+                        }, 2000);
+                    })
+                    .catch(error => {});
+            } catch (error) {
+                switch (error.response.status) {
+                    case 422:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                    default:
+                        this.$swal("Error...!", "Ocurrio un error!", "error");
+                        break;
+                }
+            }
+        },                                   
     }    
 };
 </script>

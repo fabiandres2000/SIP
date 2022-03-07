@@ -133,6 +133,7 @@ class User extends Authenticatable
     {
         $password = $data['actual'];
         $check_password = User::where(['id' => Auth::user()->id])->first();
+        
         if (\Hash::check($password, $check_password->password)) {
             $new_pasword = bcrypt($data['nueva']);
             $id = Auth::user()->id;

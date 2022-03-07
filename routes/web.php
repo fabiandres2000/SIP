@@ -1,4 +1,6 @@
 <?php
+
+Auth::routes();
 Route::get('/index', 'UsuarioController@index');
 Route::post('/login', 'UsuarioController@login');
 // Route::post('/{login?}', 'UsuarioController@login')->where('login', '.*');
@@ -172,3 +174,7 @@ Route::post('/reportes/migrantespdf', 'ReportesController@listarmigrantespdf');
 Route::post('/informes/migrantes', 'InformesController@migrantes');
 
 Route::post('/perfil', 'UsuarioController@perfil');
+Route::post('/usuarios/guardarPerfil', 'UsuarioController@guardarPerfil');
+
+Route::post('/caracterizacion/DetallesAmbiental', 'CaracterizacionController@DetallesAmbiental');
+Route::post('/caracterizacion/DetallesControlAmbiental', 'CaracterizacionController@DetallesControlAmbiental');

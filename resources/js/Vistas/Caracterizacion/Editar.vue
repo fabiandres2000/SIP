@@ -11996,6 +11996,7 @@
                         <tr class="kt-bg-fill-brand">
                           <th>No.</th>
                           <th>Riesgo</th>
+                          <th style="vertical-align: middle;text-align: center;">Detalle</th>
                           <th style="vertical-align: middle;text-align: center;">Puntuación</th>
                           <th style="vertical-align: middle;text-align: center;">Valorización</th>
                         </tr>
@@ -12004,6 +12005,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">1</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de  Derrumbes</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RD')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td> 
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_derrumbes }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_derrumbes">{{ RieAmbInh.va_riesgos_derrumbes }}</span>
@@ -12013,6 +12024,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">2</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de inundación</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RI')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_inundacion }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_inundacion">{{ RieAmbInh.va_riesgos_inundacion }}</span>
@@ -12022,6 +12043,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">3</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de insalubridad</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RIN')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_insalubridad }} / 25</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_insalubridad">{{ RieAmbInh.va_riesgos_insalubridad }}</span>
@@ -12031,6 +12062,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">4</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo atmosferico</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RA')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_atmosferico }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_atmosferico">{{ RieAmbInh.va_riesgos_atmosferico }}</span>
@@ -12040,6 +12081,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">5</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos Recurso suelo</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RRS')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_recurso_suelo }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_recurso_suelo">{{ RieAmbInh.va_riesgos_recurso_suelo }}</span>
@@ -12049,6 +12100,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">6</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo por quemas o incendio</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RQ')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_quema }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_quema">{{ RieAmbInh.va_riesgos_quema }}</span>
@@ -12058,6 +12119,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">7</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo Auditivo</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RAU')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_auditivo }} / 5</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_auditivo">{{ RieAmbInh.va_riesgos_auditivo }}</span>
@@ -12067,6 +12138,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">8</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hídrico</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RRH')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_recurso_hidrico }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_recurso_hidrico">{{ RieAmbInh.va_riesgos_recurso_hidrico }}</span>
@@ -12076,6 +12157,16 @@
                         <tr>
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;">9</td>
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo Acceso a Agua Segura</td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleAmbiental('RAA')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: center;text-transform:capitalize;">{{ RieAmbInh.riesgos_acceso_agua }} / 10</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline text-white" :class="RieAmbInh.color_riesgos_acceso_agua">{{ RieAmbInh.va_riesgos_acceso_agua }}</span>
@@ -12095,21 +12186,32 @@
                     <table class="table table-sm table-hover">
                       <thead class>
                         <tr class="kt-bg-fill-brand">
-                          <th>Riesgo Inherente</th>
+                          <th>Riesgo Inherente</th>                          
                           <th style="vertical-align: middle;text-align: center;">Puntuación</th>
                           <th style="vertical-align: middle;text-align: center;">Riesgo Residual</th>
+                          <th style="vertical-align: middle;text-align: center;">Detalle</th>
                           <th style="vertical-align: middle;text-align: center;">Opción</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-show="RieAmbInh.va_riesgos_derrumbes!='Bajo'">
-                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de  Derrumbes</td>
+                        <tr v-show="RieAmbInh.va_riesgos_derrumbes!='Bajo'">                          
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de  Derrumbes</td>                          
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_derrumbes">{{ RieAmbInh.riesgos_derrumbes }} / 10</span>
                           </td>                          
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_derrumbes">{{ RieAmbInh.control_riesgos_derrumbes }} - {{RieAmbInh.val_residual_riesgos_derrumbes}}</span>                            
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RD')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                                  
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12129,7 +12231,17 @@
                           </td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_inundacion">{{ RieAmbInh.control_riesgos_inundacion }} - {{RieAmbInh.val_residual_riesgos_inundacion}}</span>
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RI')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                                                       
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12142,7 +12254,7 @@
                           </td>                          
                         </tr>
 
-                        <tr v-show="RieAmbInh.va_riesgos_insalubridad!='Bajo'">
+                        <tr v-show="RieAmbInh.va_riesgos_insalubridad!='Bajo'">                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgos de insalubridad</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_insalubridad">{{ RieAmbInh.riesgos_insalubridad }} / 25</span>
@@ -12150,6 +12262,16 @@
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_insalubridad">{{ RieAmbInh.control_riesgos_insalubridad }} - {{RieAmbInh.val_residual_riesgos_insalubridad}}</span>                            
                           </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RIN')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                          
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12162,14 +12284,24 @@
                           </td>                          
                         </tr>
 
-                        <tr v-show="RieAmbInh.va_riesgos_atmosferico!='Bajo'">
+                        <tr v-show="RieAmbInh.va_riesgos_atmosferico!='Bajo'">                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo atmosferico</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_atmosferico">{{ RieAmbInh.riesgos_atmosferico }} / 10</span>
                           </td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_atmosferico">{{ RieAmbInh.control_riesgos_atmosferico }} - {{RieAmbInh.val_residual_riesgos_atmosferico}}</span>
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RA')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                               
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12189,7 +12321,17 @@
                           </td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_recurso_suelo">{{ RieAmbInh.control_riesgos_recurso_suelo }} - {{RieAmbInh.val_residual_riesgos_recurso_suelo}}</span>
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RRS')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                                  
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12209,7 +12351,17 @@
                           </td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_quema">{{ RieAmbInh.control_riesgos_quema }} - {{RieAmbInh.val_residual_riesgos_quema}}</span>                            
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RQ')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                                    
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12222,14 +12374,24 @@
                           </td>                          
                         </tr>
 
-                        <tr v-show="RieAmbInh.va_riesgos_auditivo!='Bajo'">
+                        <tr v-show="RieAmbInh.va_riesgos_auditivo!='Bajo'">                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo Auditivo</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_auditivo">{{ RieAmbInh.riesgos_auditivo }} / 5</span>
                           </td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_auditivo">{{ RieAmbInh.control_riesgos_auditivo }} - {{RieAmbInh.val_residual_riesgos_auditivo}}</span>                            
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RAU')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                                 
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12242,14 +12404,24 @@
                           </td>                          
                         </tr>
 
-                        <tr v-show="RieAmbInh.va_riesgos_recurso_hidrico!='Bajo'">
+                        <tr v-show="RieAmbInh.va_riesgos_recurso_hidrico!='Bajo'">                          
                           <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">Riesgo recurso Hidrico</td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">                            
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_riesgos_recurso_hidrico">{{ RieAmbInh.riesgos_recurso_hidrico }} / 10</span>
                           </td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_recurso_hidrico">{{ RieAmbInh.control_riesgos_recurso_hidrico }} - {{RieAmbInh.val_residual_riesgos_recurso_hidrico}}</span>                            
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RRH')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                                    
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -12269,7 +12441,17 @@
                           </td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
                             <span class="kt-badge kt-badge--inline" :class="RieAmbInh.color_residual_riesgos_acceso_agua">{{ RieAmbInh.control_riesgos_acceso_agua }} - {{RieAmbInh.val_residual_riesgos_acceso_agua}}</span>                            
-                          </td>                          
+                          </td>
+                          <td style="text-align:center;vertical-align: middle;text-align: center;">
+                            <button
+                              class="btn btn-icon btn-sm btn-success"
+                              type="button"
+                              title="Controles"
+                              @click="detalleControlAmbiental('RAA')"
+                            >
+                              <i class="fa fa-search"></i>
+                            </button>
+                          </td>                                                   
                           <td style="text-align:center;vertical-align: middle;text-align: center;">
                             <button
                               class="btn btn-icon btn-sm btn-primary"
@@ -22014,7 +22196,322 @@
             </div>            
           </div>         
         </b-modal>        
-        <!--begin::Modal RIESGOS SALUD Adulto mayor-->        
+        <!--begin::Modal RIESGOS SALUD Adulto mayor-->
+
+        <!--begin::Modal DETALLES AMBIENTALES-->
+        <b-modal
+          ref="modalDetAmb"
+          hide-footer
+          title="Detalles de los riesgos ambientales"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block">
+            <div class="form-group row">
+              <div class="col-md-12">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 18px;">{{textoDetalleAmbiental}}</span>
+                    </p>
+                  </center>                
+              </div>
+            </div>
+            <div class="form-group row" v-if="detalleAmbientales">
+              <div class="col-md-10">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover" >
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th>Factores de Riesgo</th>
+                        <th style="vertical-align: middle;text-align: center;">Valor del Factor</th>
+                        <th style="vertical-align: middle;text-align: center;">Probabilidad(P)</th>
+                        <th style="vertical-align: middle;text-align: center;">Impacto(I)</th>
+                        <th style="vertical-align: middle;text-align: center;">Riesgo(P*I)</th>
+                        <th style="vertical-align: middle;text-align: center;">Valor del Riesgo</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr v-for="item in RI_AM_DE" :value="item.value" :key="item.value">
+                        <td style="font-weight: bold;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.factores_riesgo }}</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;">{{ item.valores_factores }}</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;">{{ item.probabilidad }}</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;">{{ item.impactoRie }}</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;">{{ item.riesgoMulti }}</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;">{{ item.valores_riesgo }}</td>                                              
+                      </tr>
+                      <tr>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: right;text-transform:capitalize;" colspan="4"></td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" colspan="1">Total</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;" colspan="1">{{total_riesgo_detalles}}</td>                            
+                      </tr>  
+                    </tbody>                      
+                  </table>
+                </div>
+              </div>  
+              <div class="col-md-2">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                      <thead>
+                          <tr class="kt-bg-fill-brand">
+                              <th colspan='2' style="vertical-align: middle; text-align: center;">Riesgo Inherente</th>
+                          </tr>
+                      </thead> 
+                      <tbody>
+                          <tr>
+                              <td style="font-weight: bold;vertical-align: middle;text-align: center;" v-if="opci_AM_DE==1">
+                                  <table class="table table-sm table-hover">
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 3</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">3 >= 7</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">7 >= 10</td>
+                                      </tr>                
+                                  </table>              
+                              </td>
+                              <td style="font-weight: bold;vertical-align: middle;text-align: center;" v-else >
+                                  <table class="table table-sm table-hover">
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 5</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">5 >= 15</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">15 >= 25</td>
+                                      </tr>                
+                                  </table>              
+                              </td>                                      
+                              <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                  <table class="table table-sm table-hover">
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ total_riesgo_detalles }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                          <span class="kt-badge kt-badge--inline text-white" :class="colorValorizacion">{{ opcionValorizacion }}</span>
+                                        </td>
+                                      </tr>                                                      
+                                  </table>              
+                              </td>
+                          </tr>      
+                      </tbody>
+                  </table>
+                </div>                    
+              </div>
+            </div>
+            <div class="" v-else>
+              <div class="form-group row">
+                <div class="col-md-2">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                              <th style="vertical-align: middle; text-align: center;">R. Inherente</th>
+                          </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>                                      
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.riesgo_inherente }}</td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                    <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.color_riesgo_inherente">{{ datosControlesAmbientales.valorizacion_riesgo_inherente }}</span>
+                                  </td>
+                                </tr>                                                      
+                              </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>
+                <div class="col-md-10">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover" >
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>Controles</th>
+                          <th style="vertical-align: middle;text-align: center;">Tipo</th>
+                          <th style="vertical-align: middle;text-align: center;">Peridiocidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="item in RI_AM_DE_CON" :value="item.value" :key="item.value">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.controles }}</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">{{ item.tipo }}</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">{{ item.peridiocidad }}</td>
+                        </tr>
+                        <tr>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: right;text-transform:capitalize;" colspan="1"></td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" colspan="1">Prom.</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;" colspan="1">{{datosControlesAmbientales.mediaRiesgos}}</td>                            
+                        </tr>                      
+                      </tbody>                     
+                    </table>  
+                  </div>  
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr class="kt-bg-fill-brand">
+                                <th colspan='2' style="vertical-align: middle; text-align: center;">Eficacia del Control</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Inexistente</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 0 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Baja</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 3 > 4 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 4 > 9 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Alta</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 9 > </td>
+                                </tr>                                              
+                              </table>              
+                            </td>                                    
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                <table class="table table-sm table-hover">
+                                    <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.mediaRiesgos }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                        <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.c_eficaciaControl">{{ datosControlesAmbientales.eficaciaControl }}</span>
+                                      </td>
+                                    </tr>                                                      
+                                </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>
+
+                <div class="col-md-4">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr class="kt-bg-fill-brand">
+                                <th colspan='2' style="vertical-align: middle; text-align: center;">Valorización del Control</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Inexistente</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 0 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Baja</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 1 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 2 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Alta</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 3 </td>
+                                </tr>                                              
+                              </table>              
+                            </td>                                    
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                <table class="table table-sm table-hover">
+                                    <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.v_valorizacionControl }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                        <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.c_eficaciaControl">{{ datosControlesAmbientales.eficaciaControl }}</span>
+                                      </td>
+                                    </tr>                                                      
+                                </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>
+
+                <div class="col-md-4">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr class="kt-bg-fill-brand">
+                                <th colspan='2' style="vertical-align: middle; text-align: center;">Riesgo Residual</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Baja</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 0 - 1 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 1 >= 2 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Alta</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 2 >= 3 </td>
+                                </tr>                                              
+                              </table>              
+                            </td>                                    
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                <table class="table table-sm table-hover">
+                                    <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.riesgoResidual }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                        <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.colorOpcionValorizacion">{{ datosControlesAmbientales.opcionValorizacion }}</span>
+                                      </td>
+                                    </tr>                                                      
+                                </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>                                              
+              </div>  
+            </div>  
+            <div class="text-right">
+              <button type="button" class="btn btn-warning" @click="cerrarModalDetAmb">
+                <i class="fa fa-window-close"></i> Cerrar
+              </button>               
+            </div>                         
+          </div>     
+        </b-modal>        
+        <!--begin::Modal DETALLES AMBIENTALES-->               
       </div>
     </div>
   </div>
@@ -22658,6 +23155,28 @@
           cual_RRA: "",
           tipo_RRA: "",
           // Riesgo Acceso a Agua Segura
+        },
+
+        RI_AM_DE: [],
+        total_riesgo_detalles: 0,
+        opcionTablaAmbiental: 0,
+        opcionValorizacion: "",
+        colorValorizacion: "",
+        opci_AM_DE: 0,
+        detalleAmbientales: true,
+        RI_AM_DE_CON: [],
+        datosControlesAmbientales: {
+          riesgoResidual: 0,
+          opcionValorizacion: "",
+          colorOpcionValorizacion: "",
+          riesgo_inherente: 0,
+          opci_AM_DE_CON: 0,
+          valorizacion_riesgo_inherente: "",
+          color_riesgo_inherente: "",
+          mediaRiesgos: 0,
+          eficaciaControl: "",
+          c_eficaciaControl: "",
+          v_valorizacionControl: 0
         },
 
         banderaControles1: true,
@@ -23442,7 +23961,9 @@
           valoracion_CoSp: "",
           // Consumo de SPA
           
-        },                       
+        },
+
+        textoDetalleAmbiental: ""                       
       };
     },
     validations: {
@@ -23683,6 +24204,170 @@
              
     },
     methods: {
+      detalleAmbiental: async function(opcion){
+        this.$refs.modalDetAmb.show();
+        this.detalleAmbientales = true;
+        switch (opcion) {
+          case 'RD':
+            this.textoDetalleAmbiental = "Detalle Riesgos de Derrumbes";
+            break;
+          case 'RI':
+            this.textoDetalleAmbiental = "Detalle Riesgos de inundación";
+            break;
+          case 'RIN':
+            this.textoDetalleAmbiental = "Detalle Riesgos de insalubridad";
+            break;
+          case 'RA':
+            this.textoDetalleAmbiental = "Detalle Riesgos atmosfericos";
+            break;
+          case 'RRS':
+            this.textoDetalleAmbiental = "Detalle Riesgos Recurso suelo";
+            break;
+          case 'RQ':
+            this.textoDetalleAmbiental = "Detalle Riesgo por Quemas ó Incendio";
+            break;
+          case 'RAU':
+            this.textoDetalleAmbiental = "Detalle Riesgos Auditivos";
+            break;
+          case 'RRH':
+            this.textoDetalleAmbiental = "Detalle Riesgos recursos Hidricos";
+            break;
+          case 'RAA':
+            this.textoDetalleAmbiental = "Detalle Riesgos Acceso a Agua Segura ";
+            break;                                        
+        }      
+        const parametros = {
+          _token: this.csrf,
+          opcion: opcion,
+          id_hogar: this.IDHOGAR
+        };
+        
+        await caracterizacionServicios
+          .DetallesAmbiental(parametros)
+          .then(respuesta => {
+            this.RI_AM_DE = respuesta.data.RI_AM_DE;
+            this.total_riesgo_detalles = respuesta.data.total_riesgo_detalles;
+            this.opcionValorizacion = respuesta.data.opcionValorizacion;
+            this.colorValorizacion = respuesta.data.colorValorizacion;
+            this.opci_AM_DE = respuesta.data.opci_AM_DE; 
+          })
+          .catch(error => {
+            this.errorDevuelto = error.response.data.errors;
+            this.entrarPorError = true;
+            this.$swal(
+              "Error...!",
+              "No se pudo acceder a la información",
+              "error"
+            );
+            return;
+          });        
+
+      },
+      detalleControlAmbiental: async function(opcion) {
+
+        switch (opcion) {
+          case 'RD':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgos de Derrumbes";
+            if(this.datosRA.control_entes_RD == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }
+            break;
+          case 'RI':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgos de inundación";
+            if(this.datosRA.control_entes_RI == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }            
+            break;
+          case 'RIN':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgos de insalubridad";
+            if(this.datosRA.control_entes_RIN == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }             
+            break;
+          case 'RA':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgos atmosfericos";
+            if(this.datosRA.control_entes_RA == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }            
+            break;
+          case 'RRS':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgos Recurso suelo";
+            if(this.datosRA.control_entes_RRS == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }            
+            break;
+          case 'RQ':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgo por Quemas ó Incendio";
+            if(this.datosRA.control_entes_RQ == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }            
+            break;
+          case 'RAU':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgos Auditivos";
+
+            if(this.datosRA.control_entes_RAU == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }            
+            break;
+          case 'RRH':
+            this.textoDetalleAmbiental = "Detalle Residual  Riesgos recursos Hidricos";
+
+            if(this.datosRA.control_entes_RRH == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }            
+            break;
+          case 'RAA':
+            this.textoDetalleAmbiental = "Detalle Residual Riesgos Acceso a Agua Segura ";
+
+            if(this.datosRA.control_entes_RAA == ""){
+              this.$swal("Error...!","No se ha ejecutado el control","error");
+              return;              
+            }            
+            break;                                        
+        }
+        this.detalleAmbientales = false;        
+        this.$refs.modalDetAmb.show();        
+        const parametros = {
+          _token: this.csrf,
+          datosRA: this.datosRA,
+          RieAmbInh: this.RieAmbInh,
+          opcion: opcion,
+          IDHOGAR: this.IDHOGAR
+        };
+        
+        await caracterizacionServicios
+          .DetallesControlAmbiental(parametros)
+          .then(respuesta => {
+            this.RI_AM_DE_CON = respuesta.data.RI_AM_DE_CON;
+
+            this.datosControlesAmbientales = respuesta.data.datos;          
+            // this.total_riesgo_detalles = respuesta.data.total_riesgo_detalles;
+            // this.opcionTablaAmbiental = respuesta.data.opcionTablaAmbiental;
+            // this.opci_AM_DE = respuesta.data.opci_AM_DE
+            
+          })
+          .catch(error => {
+            this.errorDevuelto = error.response.data.errors;
+            this.entrarPorError = true;
+            this.$swal(
+              "Error...!",
+              "No se pudo acceder a la información",
+              "error"
+            );
+            return;
+          });         
+      },
+      cerrarModalDetAmb(){
+        this.$refs.modalDetAmb.hide();
+      },     
       onCancel() {
         // this.isLoading = true;
         // // simulate AJAX
@@ -26852,7 +27537,7 @@
         this.$refs.modalRieAmb.hide();
         this.$refs.modalRieSal1.hide();
         this.$refs.modalRieSal2.hide();
-        this.$refs.modalRieSal3.hide();
+        this.$refs.modalRieSal3.hide();        
       },
       async consultarOcupaciones(pagina) {
         const parametros = {
