@@ -20,6 +20,11 @@ class RiesgosSaludDe18a28 extends Model
         'riesgo_delgadez_R',
 
         'estado', 'id_compania', 'id_inte',
+
+        'proba_enfermedades_infecciosas_I', 'proba_transtornos_asociados_spa_I', 'proba_enfermedad_cardiovascular_I', 'proba_cancer_I',
+        'proba_alteraciones_transtornos_visuales_I', 'proba_alteraciones_transtornos_audicion_I', 'proba_salud_bucal_I', 'proba_problemas_salud_mental_I',
+        'proba_violencias_I', 'proba_enfermedades_respiratorias_I', 'proba_enfermedades_zoonoticas_I', 'proba_transtornos_degenartivos_I',
+        'proba_consumo_spa_I', 'proba_riesgo_delgadez_I', 
     ];
     public static function guardar($data, $alias)
     {
@@ -46,6 +51,23 @@ class RiesgosSaludDe18a28 extends Model
 
             'id_compania' => 1,
             'estado' => $data['estado'],
+
+
+            'proba_enfermedades_infecciosas_I' => $data['proba_enfermedades_infecciosas_I'],
+            'proba_transtornos_asociados_spa_I' => $data['proba_transtornos_asociados_spa_I'],
+            'proba_enfermedad_cardiovascular_I' => $data['proba_enfermedad_cardiovascular_I'],
+            'proba_cancer_I' => $data['proba_cancer_I'],
+            'proba_alteraciones_transtornos_visuales_I' => $data['proba_alteraciones_transtornos_visuales_I'],
+            'proba_alteraciones_transtornos_audicion_I' => $data['proba_alteraciones_transtornos_audicion_I'],
+            'proba_salud_bucal_I' => $data['proba_salud_bucal_I'],
+            'proba_problemas_salud_mental_I' => $data['proba_problemas_salud_mental_I'],
+
+            'proba_violencias_I' => $data['proba_violencias_I'],
+            'proba_enfermedades_respiratorias_I' => $data['proba_enfermedades_respiratorias_I'],
+            'proba_enfermedades_zoonoticas_I' => $data['proba_enfermedades_zoonoticas_I'],
+            'proba_transtornos_degenartivos_I' => $data['proba_transtornos_degenartivos_I'],
+            'proba_consumo_spa_I' => $data['proba_consumo_spa_I'],
+            'proba_riesgo_delgadez_I' => $data['proba_riesgo_delgadez_I'],            
         ]);
     }
 

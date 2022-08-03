@@ -43,8 +43,8 @@ new Vue({
             try {
                 const resp = await usuarioServicios.loginUsuario(parametros).then(respuesta => {
                     if (respuesta.data.OPC) {
-                        window.location = "/";
-                        // window.location = "/SIP/public/";
+                        // window.location = "/";
+                        window.location = "/SIP/public/";
                     } else {
                         this.$swal("Error...!", respuesta.data.MENSAJE, "error");
                     }

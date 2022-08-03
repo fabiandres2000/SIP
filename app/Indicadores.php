@@ -278,6 +278,696 @@ class Indicadores extends Model
         return $nro_gestantes;
     }
 
+    public static function embarazos_rural_510($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 6 AND 11")
+            ->select("integrantes.estado")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 6 AND 11")
+            ->select("caracterizacion.estado")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_rural_1117($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 12 AND 17")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 12 AND 17")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_rural_1828($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 18 AND 28")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 18 AND 28")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_rural_2959($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 29 AND 59")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 29 AND 59")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_urbano_510($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 6 AND 11")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 6 AND 11")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_urbano_1117($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 12 AND 17")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 12 AND 17")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_urbano_1828($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 18 AND 28")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 18 AND 28")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_urbano_2959($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 29 AND 59")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")
+            ->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 29 AND 59")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    ///////////////////EMBARAZOS MULTIPLES///////////////////////
+    public static function multiple_rural_510($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 6 AND 11")
+            ->select("integrantes.estado")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 6 AND 11")
+            ->select("caracterizacion.estado")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function multiple_rural_1117($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 12 AND 17")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 12 AND 17")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function multiple_rural_1828($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 18 AND 28")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 18 AND 28")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function multiple_rural_2959($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 29 AND 59")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("integrantes.estado", "Activo")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 29 AND 59")
+            ->where(function ($query) use ($alias) {
+                $query->where('hogar.id_zona', "2")
+                    ->orWhere('hogar.id_zona', "3");
+            })
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function multiple_urbano_510($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 6 AND 11")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 6 AND 11")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function multiple_urbano_1117($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 12 AND 17")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 12 AND 17")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function multiple_urbano_1828($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 18 AND 28")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("parpost.opci", "INTE")->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 18 AND 28")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function multiple_urbano_2959($alias)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+            ->select("integrantes.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN 29 AND 59")
+            ->where('hogar.id_zona', "1")
+            ->where("integrantes.estado", "Activo")
+            ->where("integrantes.embarazo_multiple", "SI")
+            ->where("parpost.opci", "INTE")
+            ->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+            ->select("caracterizacion.estado")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN 29 AND 59")
+            ->where('hogar.id_zona', "1")
+            ->where("caracterizacion.estado", "Activo")
+            ->where("caracterizacion.embarazo_multiple", "SI")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function embarazos_edad($alias, $edad, $zona)
+    {
+        if ($zona == "urbano") {
+            $nro_gestantes = DB::table($alias . ".parpost")
+                ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+                ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+                ->select("integrantes.estado")
+                ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) = " . $edad)
+                ->where('hogar.id_zona', "1")
+                ->where("integrantes.estado", "Activo")
+                ->where("integrantes.embarazo_multiple", "SI")
+                ->where("parpost.opci", "INTE")
+                ->count();
+
+            $nro_gestantes1 = DB::table($alias . ".parpost")
+                ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+                ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+                ->select("caracterizacion.estado")
+                ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) = " . $edad)
+                ->where('hogar.id_zona', "1")
+                ->where("caracterizacion.estado", "Activo")
+                ->where("caracterizacion.embarazo_multiple", "SI")
+                ->where("parpost.opci", "JEFE")->count();
+        } else {
+            $nro_gestantes = DB::table($alias . ".parpost")
+                ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+                ->join($alias . '.hogar', 'hogar.id', 'integrantes.id_hogar')
+                ->select("integrantes.estado")
+                ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) = " . $edad)
+                ->where(function ($query) use ($alias) {
+                    $query->where('hogar.id_zona', "2")
+                        ->orWhere('hogar.id_zona', "3");
+                })
+                ->where("integrantes.estado", "Activo")
+                ->where("integrantes.embarazo_multiple", "SI")
+                ->where("parpost.opci", "INTE")
+                ->count();
+
+            $nro_gestantes1 = DB::table($alias . ".parpost")
+                ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+                ->join($alias . '.hogar', 'hogar.id', 'caracterizacion.id_hogar')
+                ->select("caracterizacion.estado")
+                ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) = " . $edad)
+                ->where(function ($query) use ($alias) {
+                    $query->where('hogar.id_zona', "2")
+                        ->orWhere('hogar.id_zona', "3");
+                })
+                ->where("caracterizacion.estado", "Activo")
+                ->where("caracterizacion.embarazo_multiple", "SI")
+                ->where("parpost.opci", "JEFE")->count();
+        }
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    //////////////////////EMBARAZOS AFILIADOS//////////////////////////////
+    public static function gestantes_afiliacion($alias, $tipo)
+    {
+        if ($tipo == "NINGUNA") {
+            $nro_gestantes = DB::table($alias . ".parpost")
+                ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+                ->select("integrantes.estado")
+                ->where("integrantes.estado", "Activo")
+                ->where("integrantes.afi_entidad", $tipo)
+                ->where("parpost.opci", "INTE")
+                ->count();
+
+            $nro_gestantes1 = DB::table($alias . ".parpost")
+                ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+                ->select("caracterizacion.estado")
+                ->where("caracterizacion.afiliacion_entidad", $tipo)
+                ->where("caracterizacion.estado", "Activo")
+                ->where("parpost.opci", "JEFE")->count();
+        } else {
+            $nro_gestantes = DB::table($alias . ".parpost")
+                ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+                ->select("integrantes.estado")
+                ->where("integrantes.estado", "Activo")
+                ->where("integrantes.afi_entidad", "<>", "NINGUNA")
+                ->where("parpost.opci", "INTE")
+                ->count();
+
+            $nro_gestantes1 = DB::table($alias . ".parpost")
+                ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+                ->select("caracterizacion.estado")
+                ->where("caracterizacion.estado", "Activo")
+                ->where("caracterizacion.afiliacion_entidad", "<>", "NINGUNA")
+                ->where("parpost.opci", "JEFE")->count();
+        }
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function afiliacion_tipo_sin($alias, $tipo)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->select("integrantes.estado")
+            ->where("integrantes.estado", "Activo")
+            ->where("integrantes.afi_entidad", "NINGUNA")
+            ->where("integrantes.tipo_afiliacion", $tipo)
+            ->where("parpost.opci", "INTE")
+            ->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->select("caracterizacion.estado")
+            ->where("caracterizacion.afiliacion_entidad", "NINGUNA")
+            ->where("caracterizacion.tipo_afiliacion", $tipo)
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    public static function afiliacion_tipo_con($alias, $tipo)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->select("integrantes.estado")
+            ->where("integrantes.estado", "Activo")
+            ->where("integrantes.afi_entidad", "<>", "NINGUNA")
+            ->where("integrantes.tipo_afiliacion", $tipo)
+            ->where("parpost.opci", "INTE")
+            ->count();
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->select("caracterizacion.estado")
+            ->where("caracterizacion.afiliacion_entidad", "<>", "NINGUNA")
+            ->where("caracterizacion.tipo_afiliacion", $tipo)
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE")->count();
+
+        $nro_gestantes = $nro_gestantes + $nro_gestantes1;
+
+        return $nro_gestantes;
+    }
+
+    ///////////////////EMBARAZO ENFERMEDADES///////////////////////////
+
+    public static function gestantesenfermedades($alias, $e1, $e2)
+    {
+        $nro_gestantes = DB::table($alias . ".parpost")
+            ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+            ->join($alias . ".enfermedades_integrantes", "enfermedades_integrantes.id_inte", "integrantes.id")
+            ->select("integrantes.id", "integrantes.pnom", "integrantes.estado")
+            ->selectRaw("'Integrante' as tipo")
+            ->where("integrantes.estado", "Activo")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nac, CURDATE()) BETWEEN " . $e1 . " AND " . $e2)
+            ->where("parpost.opci", "INTE");
+
+        $nro_gestantes1 = DB::table($alias . ".parpost")
+            ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+            ->join($alias . ".enfermedades_jefes", "enfermedades_jefes.id_jefe", "caracterizacion.id")
+            ->select("caracterizacion.id", "caracterizacion.pnom", "caracterizacion.estado")
+            ->selectRaw("'Jefe' as tipo")
+            ->whereRaw("TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) BETWEEN " . $e1 . " AND " . $e2)
+            ->where("caracterizacion.estado", "Activo")
+            ->where("parpost.opci", "JEFE");
+
+        $nro_gestantes->union($nro_gestantes1);
+
+        //dd($nro_gestantes->groupBy("id")->count());die;
+
+        return $nro_gestantes->groupBy("id")->count();
+    }
+
+    ///////////ENFERMEDADES ATENDIDAS///////////////////
+
+    public static function enfermedadedesatendidas($alias, $tipo, $enfermedad)
+    {
+        if ($enfermedad == "TODAS") {
+            $nro_gestantes = DB::table($alias . ".parpost")
+                ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+                ->join($alias . ".enfermedades_integrantes", "enfermedades_integrantes.id_inte", "integrantes.id")
+                ->select("integrantes.id", "integrantes.pnom", "integrantes.estado")
+                ->where("enfermedades_integrantes.tratamiento", $tipo)
+                ->selectRaw("'Integrante' as tipo")
+                ->where("integrantes.estado", "Activo")
+                ->where("parpost.opci", "INTE");
+
+            $nro_gestantes1 = DB::table($alias . ".parpost")
+                ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+                ->join($alias . ".enfermedades_jefes", "enfermedades_jefes.id_jefe", "caracterizacion.id")
+                ->select("caracterizacion.id", "caracterizacion.pnom", "caracterizacion.estado")
+                ->selectRaw("'Jefe' as tipo")
+                ->where("enfermedades_jefes.tratamiento", $tipo)
+                ->where("caracterizacion.estado", "Activo")
+                ->where("parpost.opci", "JEFE");
+        } else {
+            $nro_gestantes = DB::table($alias . ".parpost")
+                ->join($alias . ".integrantes", "integrantes.id", "parpost.id_integrante")
+                ->join($alias . ".enfermedades_integrantes", "enfermedades_integrantes.id_inte", "integrantes.id")
+                ->select("integrantes.id", "integrantes.pnom", "integrantes.estado")
+                ->where("enfermedades_integrantes.tratamiento", $tipo)
+                ->where("enfermedades_integrantes.tipo", $enfermedad)
+                ->selectRaw("'Integrante' as tipo")
+                ->where("integrantes.estado", "Activo")
+                ->where("parpost.opci", "INTE");
+
+            $nro_gestantes1 = DB::table($alias . ".parpost")
+                ->join($alias . ".caracterizacion", "caracterizacion.id", "parpost.id_integrante")
+                ->join($alias . ".enfermedades_jefes", "enfermedades_jefes.id_jefe", "caracterizacion.id")
+                ->select("caracterizacion.id", "caracterizacion.pnom", "caracterizacion.estado")
+                ->selectRaw("'Jefe' as tipo")
+                ->where("enfermedades_jefes.tratamiento", $tipo)
+                ->where("enfermedades_jefes.tipo", $enfermedad)
+                ->where("caracterizacion.estado", "Activo")
+                ->where("parpost.opci", "JEFE");
+        }
+
+        $nro_gestantes->union($nro_gestantes1);
+
+        return $nro_gestantes->groupBy("id")->count();
+    }
+
     ///////////////////CONSUMIDORES DE DROGAS//////////////////////////////
 
     public static function total_consumidores_integrantes_masculinos_6_11($alias)

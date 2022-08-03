@@ -205,8 +205,7 @@ class Caracterizacion extends Model
             'tipo_empleo' => $data['tipo_empleo'],
             'percargo' => $data['percargo'],
             'actividad_fisica' => $data['actividad_fisica'],
-            'vacuna' => $data['vacuna'],
-            
+            'vacuna' => $data['vacuna'],            
         ]);
     }
     public static function modificar($data, $alias, $id)

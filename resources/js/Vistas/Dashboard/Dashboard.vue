@@ -25,16 +25,31 @@
                                         >
                                     </div>
                                     <div class="col-md-9 text-center">
-                                        <div class="row" style="height: 50%;">
+                                        <div class="row">
                                             <div class="col-md-12">
                                                 <span
                                                     class="text-white"
-                                                    style="font-weight: 600; font-size: 24px;"
+                                                    style="font-weight: 600; font-size: 18px;"
+                                                    >Número Total de Personas</span
+                                                >
+                                                <h1
+                                                    style="padding-top: 10px;font-size: 18px;"
+                                                    class="text-white"
+                                                >
+                                                    {{ datos.personas_globales.poblacion }}
+                                                </h1>
+                                            </div>
+                                        </div>                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <span
+                                                    class="text-white"
+                                                    style="font-weight: 600; font-size: 18px;"
                                                     >Personas
                                                     caracterizadas</span
                                                 >
                                                 <h1
-                                                    style="padding-top: 10px;font-size: 24px;"
+                                                    style="padding-top: 10px;font-size: 18px;"
                                                     class="text-white"
                                                 >
                                                     {{ datos.numero_personas }}
@@ -45,12 +60,27 @@
                                             <div class="col-md-12">
                                                 <span
                                                     class="text-white"
-                                                    style="font-weight: 600; font-size: 24px;"
+                                                    style="font-weight: 600; font-size: 18px;"
+                                                    >Número Total de Hogares</span
+                                                >
+                                                <h1
+                                                    style="padding-top: 10px;font-size: 18px;"
+                                                    class="text-white"
+                                                >
+                                                    {{ datos.personas_globales.viviendas }}
+                                                </h1>
+                                            </div>
+                                        </div>                                        
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <span
+                                                    class="text-white"
+                                                    style="font-weight: 600; font-size: 18px;"
                                                     >Hogares
                                                     caracterizados</span
                                                 >
                                                 <h1
-                                                    style="padding-top: 10px;font-size: 24px;"
+                                                    style="padding-top: 10px;font-size: 18px;"
                                                     class="text-white"
                                                 >
                                                     {{ datos.numero_hogares }}
@@ -64,7 +94,7 @@
                                 <br />
                                 <h4>Porcentaje de avance</h4>
                                 <vue-ellipse-progress
-                                    :progress="porcentaje"
+                                    :progress="Math.floor(porcentaje * 10) / 10"
                                     :size="220"
                                     :angle="-90"
                                     :gap="10"
@@ -85,7 +115,7 @@
                                         slot="legend-caption"
                                         style="font-size: 20px; font-weight: bold;"
                                     >
-                                        {{ Math.round(porcentaje) }}%
+                                        {{ Math.floor(porcentaje * 10) / 10 }}%
                                     </p>
                                 </vue-ellipse-progress>
                             </div>
@@ -107,10 +137,13 @@
                 </div>
             </div>
         </div>
-        <br>
+        <br />
         <div class="row justify-content-center">
             <div class="col-lg-8" style="overflow: auto">
-                <div class="card redondo" style="margin-top: 0px;height: 450px;">
+                <div
+                    class="card redondo"
+                    style="margin-top: 0px;height: 450px;"
+                >
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -118,7 +151,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <vue-ellipse-progress
-                                            :progress="45"
+                                            :progress="Math.floor(datos.hacinamientos * 100 / datos.personas_globales.viviendas)"
                                             :size="220"
                                             :angle="-90"
                                             :gap="10"
@@ -138,7 +171,7 @@
                                                 slot="legend-caption"
                                                 style="font-size: 20px; font-weight: bold;"
                                             >
-                                                {{ datos.numero_hogares + 56 }}
+                                                {{ datos.hacinamientos}}
                                             </p>
                                         </vue-ellipse-progress>
                                     </div>
@@ -155,7 +188,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <vue-ellipse-progress
-                                            :progress="60"
+                                            :progress="Math.floor(datos.total_migrantes * 100 / datos.numero_personas)"
                                             :size="220"
                                             :angle="-90"
                                             :gap="10"
@@ -175,7 +208,7 @@
                                                 slot="legend-caption"
                                                 style="font-size: 20px; font-weight: bold;"
                                             >
-                                                {{ datos.numero_hogares + 124 }}
+                                                {{ datos.total_migrantes }}
                                             </p>
                                         </vue-ellipse-progress>
                                     </div>
@@ -192,7 +225,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <vue-ellipse-progress
-                                            :progress="95"
+                                            :progress="Math.floor(datos.total_desempleados * 100 / datos.numero_personas)"
                                             :size="220"
                                             :angle="-90"
                                             :gap="10"
@@ -212,7 +245,7 @@
                                                 slot="legend-caption"
                                                 style="font-size: 20px; font-weight: bold;"
                                             >
-                                                {{ datos.numero_hogares + 500 }}
+                                                {{ datos.total_desempleados}}
                                             </p>
                                         </vue-ellipse-progress>
                                     </div>
@@ -228,7 +261,10 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card redondo" style="margin-top: 0px;height: 450px;">
+                <div
+                    class="card redondo"
+                    style="margin-top: 0px;height: 450px;"
+                >
                     <div class="card-body">
                         <GoogleMap></GoogleMap>
                     </div>
@@ -250,6 +286,8 @@ import GoogleMap from "./Maps";
 
 export default {
     mounted() {
+        // console.log(Math.round(1.005*100)/100);
+        // console.log(Math.round10(1.005, -2));
         this.consultar();
         this.grafica_sexo();
     },
@@ -266,7 +304,9 @@ export default {
                 personas_desempleadas: 0,
                 indice_hacinamiento: 0,
                 personas_globales: [],
-                hacinamientos: 0
+                hacinamientos: 0,
+                total_migrantes: 0,
+                total_desempleados: 0
             },
             porcentaje: 0,
             colorspinnner: "#fff",
@@ -352,18 +392,13 @@ export default {
                 }
             },
 
-            series_bar: [
-                {
-                    name: "Nro de personas",
-                    data: [40, 60]
-                }
-            ],
+            series_bar: [],
             chartOptions_bar: {
                 chart: {
                     type: "bar",
                     height: 300
                 },
-                colors: ["#FF1902", "#1D4A7E"],
+                colors: ["#1D4A7E", "#1D4A7E"],
                 plotOptions: {
                     bar: {
                         horizontal: false,
@@ -411,7 +446,7 @@ export default {
 
             await DashboardService.listar(data)
                 .then(respuesta => {
-                    //console.log(respuesta.data);
+                    // console.log(respuesta.data);
                     this.datos = respuesta.data["cantidades"];
                     this.porcentaje =
                         (this.datos.numero_personas /
@@ -424,6 +459,12 @@ export default {
                     } else {
                         this.colorspinnner = "#1abf03";
                     }
+
+
+                    this.series_bar.push({
+                        name: "Nro de personas",
+                        data: [this.datos.total_hombres, this.datos.total_mujeres]
+                    });               
                 })
                 .catch(err => {
                     console.log(err);

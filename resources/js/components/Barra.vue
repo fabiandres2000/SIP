@@ -762,8 +762,8 @@ export default {
                         );
                         setTimeout(() => {
                             // this.$router.go("/index");
-                            window.location = "/index";
-                            // window.location = "/SIP/public/index";
+                            // window.location = "/index";
+                            window.location = "/SIP/public/index";
                         }, 2000);
                     })
                     .catch(error => {});

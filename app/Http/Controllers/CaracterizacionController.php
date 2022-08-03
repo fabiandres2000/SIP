@@ -2845,37 +2845,38 @@ class CaracterizacionController extends Controller
 
                     // RIESGOS SALUD DE18A28
                     $riesgos_salud_de18a28 = \App\RiesgosSaludDe18a28::buscar(Session::get('alias'), $IDHOGAR);
+                    // dd($riesgos_salud_de18a28);
                     if ($riesgos_salud_de18a28) {
                         foreach ($riesgos_salud_de18a28 as $item) {
-                            $item->v_enfermedades_infecciosas_I = $item->enfermedades_infecciosas_I == 0 ? "" : self::valRieResSa($item->enfermedades_infecciosas_I);
-                            $item->v_transtornos_asociados_spa_I = $item->transtornos_asociados_spa_I == 0 ? "" : self::valRieResSa($item->transtornos_asociados_spa_I);
-                            $item->v_enfermedad_cardiovascular_I = $item->enfermedad_cardiovascular_I == 0 ? "" : self::valRieResSa($item->enfermedad_cardiovascular_I);
-                            $item->v_cancer_I = $item->cancer_I == 0 ? "" : self::valRieResSa($item->cancer_I);
-                            $item->v_alteraciones_transtornos_visuales_I = $item->alteraciones_transtornos_visuales_I == 0 ? "" : self::valRieResSa($item->alteraciones_transtornos_visuales_I);
-                            $item->v_alteraciones_transtornos_audicion_I = $item->alteraciones_transtornos_audicion_I == 0 ? "" : self::valRieResSa($item->alteraciones_transtornos_audicion_I);
-                            $item->v_salud_bucal_I = $item->salud_bucal_I == 0 ? "" : self::valRieResSa($item->salud_bucal_I);
-                            $item->v_problemas_salud_mental_I = $item->problemas_salud_mental_I == 0 ? "" : self::valRieResSa($item->problemas_salud_mental_I);
-                            $item->v_violencias_I = $item->violencias_I == 0 ? "" : self::valRieResSa($item->violencias_I);
-                            $item->v_enfermedades_respiratorias_I = $item->enfermedades_respiratorias_I == 0 ? "" : self::valRieResSa($item->enfermedades_respiratorias_I);
-                            $item->v_enfermedades_zoonoticas_I = $item->enfermedades_zoonoticas_I == 0 ? "" : self::valRieResSa($item->enfermedades_zoonoticas_I);
-                            $item->v_transtornos_degenartivos_I = $item->transtornos_degenartivos_I == 0 ? "" : self::valRieResSa($item->transtornos_degenartivos_I);
-                            $item->v_consumo_spa_I = $item->consumo_spa_I == 0 ? "" : self::valRieResSa($item->consumo_spa_I);
-                            $item->v_riesgo_delgadez_I = $item->riesgo_delgadez_I == 0 ? "" : self::valRieResSa($item->riesgo_delgadez_I);
+                            $item->v_enfermedades_infecciosas_I = $item->enfermedades_infecciosas_I == 0 ? "" : self::valRieResSaludMejorado($item->enfermedades_infecciosas_I, 1);
+                            $item->v_transtornos_asociados_spa_I = $item->transtornos_asociados_spa_I == 0 ? "" : self::valRieResSaludMejorado($item->transtornos_asociados_spa_I, 2);
+                            $item->v_enfermedad_cardiovascular_I = $item->enfermedad_cardiovascular_I == 0 ? "" : self::valRieResSaludMejorado($item->enfermedad_cardiovascular_I, 1);
+                            $item->v_cancer_I = $item->cancer_I == 0 ? "" : self::valRieResSaludMejorado($item->cancer_I, 1);
+                            $item->v_alteraciones_transtornos_visuales_I = $item->alteraciones_transtornos_visuales_I == 0 ? "" : self::valRieResSaludMejorado($item->alteraciones_transtornos_visuales_I, 1);
+                            $item->v_alteraciones_transtornos_audicion_I = $item->alteraciones_transtornos_audicion_I == 0 ? "" : self::valRieResSaludMejorado($item->alteraciones_transtornos_audicion_I, 1);
+                            $item->v_salud_bucal_I = $item->salud_bucal_I == 0 ? "" : self::valRieResSaludMejorado($item->salud_bucal_I, 1);
+                            $item->v_problemas_salud_mental_I = $item->problemas_salud_mental_I == 0 ? "" : self::valRieResSaludMejorado($item->problemas_salud_mental_I, 1);
+                            $item->v_violencias_I = $item->violencias_I == 0 ? "" : self::valRieResSaludMejorado($item->violencias_I, 1);
+                            $item->v_enfermedades_respiratorias_I = $item->enfermedades_respiratorias_I == 0 ? "" : self::valRieResSaludMejorado($item->enfermedades_respiratorias_I, 1);
+                            $item->v_enfermedades_zoonoticas_I = $item->enfermedades_zoonoticas_I == 0 ? "" : self::valRieResSaludMejorado($item->enfermedades_zoonoticas_I, 1);
+                            $item->v_transtornos_degenartivos_I = $item->transtornos_degenartivos_I == 0 ? "" : self::valRieResSaludMejorado($item->transtornos_degenartivos_I, 1);
+                            $item->v_consumo_spa_I = $item->consumo_spa_I == 0 ? "" : self::valRieResSaludMejorado($item->consumo_spa_I, 1);
+                            $item->v_riesgo_delgadez_I = $item->riesgo_delgadez_I == 0 ? "" : self::valRieResSaludMejorado($item->riesgo_delgadez_I, 1);
 
-                            $item->c_enfermedades_infecciosas_I = $item->v_enfermedades_infecciosas_I == "" ? "" : self::colorRieResSa($item->v_enfermedades_infecciosas_I);
-                            $item->c_transtornos_asociados_spa_I = $item->v_transtornos_asociados_spa_I == "" ? "" : self::colorRieResSa($item->v_transtornos_asociados_spa_I);
-                            $item->c_enfermedad_cardiovascular_I = $item->v_enfermedad_cardiovascular_I == "" ? "" : self::colorRieResSa($item->v_enfermedad_cardiovascular_I);
-                            $item->c_cancer_I = $item->v_cancer_I == "" ? "" : self::colorRieResSa($item->v_cancer_I);
-                            $item->c_alteraciones_transtornos_visuales_I = $item->v_alteraciones_transtornos_visuales_I == "" ? "" : self::colorRieResSa($item->v_alteraciones_transtornos_visuales_I);
-                            $item->c_alteraciones_transtornos_audicion_I = $item->v_alteraciones_transtornos_audicion_I == "" ? "" : self::colorRieResSa($item->v_alteraciones_transtornos_audicion_I);
-                            $item->c_salud_bucal_I = $item->v_salud_bucal_I == "" ? "" : self::colorRieResSa($item->v_salud_bucal_I);
-                            $item->c_problemas_salud_mental_I = $item->v_problemas_salud_mental_I == "" ? "" : self::colorRieResSa($item->v_problemas_salud_mental_I);
-                            $item->c_violencias_I = $item->v_violencias_I == "" ? "" : self::colorRieResSa($item->v_violencias_I);
-                            $item->c_enfermedades_respiratorias_I = $item->v_enfermedades_respiratorias_I == "" ? "" : self::colorRieResSa($item->v_enfermedades_respiratorias_I);
-                            $item->c_enfermedades_zoonoticas_I = $item->v_enfermedades_zoonoticas_I == "" ? "" : self::colorRieResSa($item->v_enfermedades_zoonoticas_I);
-                            $item->c_transtornos_degenartivos_I = $item->v_transtornos_degenartivos_I == "" ? "" : self::colorRieResSa($item->v_transtornos_degenartivos_I);
-                            $item->c_consumo_spa_I = $item->v_consumo_spa_I == "" ? "" : self::colorRieResSa($item->v_consumo_spa_I);
-                            $item->c_riesgo_delgadez_I = $item->v_riesgo_delgadez_I == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_I);
+                            $item->c_enfermedades_infecciosas_I = $item->v_enfermedades_infecciosas_I == "" ? "" : self::colorRieResSaludMejorado($item->v_enfermedades_infecciosas_I);
+                            $item->c_transtornos_asociados_spa_I = $item->v_transtornos_asociados_spa_I == "" ? "" : self::colorRieResSaludMejorado($item->v_transtornos_asociados_spa_I);
+                            $item->c_enfermedad_cardiovascular_I = $item->v_enfermedad_cardiovascular_I == "" ? "" : self::colorRieResSaludMejorado($item->v_enfermedad_cardiovascular_I);
+                            $item->c_cancer_I = $item->v_cancer_I == "" ? "" : self::colorRieResSaludMejorado($item->v_cancer_I);
+                            $item->c_alteraciones_transtornos_visuales_I = $item->v_alteraciones_transtornos_visuales_I == "" ? "" : self::colorRieResSaludMejorado($item->v_alteraciones_transtornos_visuales_I);
+                            $item->c_alteraciones_transtornos_audicion_I = $item->v_alteraciones_transtornos_audicion_I == "" ? "" : self::colorRieResSaludMejorado($item->v_alteraciones_transtornos_audicion_I);
+                            $item->c_salud_bucal_I = $item->v_salud_bucal_I == "" ? "" : self::colorRieResSaludMejorado($item->v_salud_bucal_I);
+                            $item->c_problemas_salud_mental_I = $item->v_problemas_salud_mental_I == "" ? "" : self::colorRieResSaludMejorado($item->v_problemas_salud_mental_I);
+                            $item->c_violencias_I = $item->v_violencias_I == "" ? "" : self::colorRieResSaludMejorado($item->v_violencias_I);
+                            $item->c_enfermedades_respiratorias_I = $item->v_enfermedades_respiratorias_I == "" ? "" : self::colorRieResSaludMejorado($item->v_enfermedades_respiratorias_I);
+                            $item->c_enfermedades_zoonoticas_I = $item->v_enfermedades_zoonoticas_I == "" ? "" : self::colorRieResSaludMejorado($item->v_enfermedades_zoonoticas_I);
+                            $item->c_transtornos_degenartivos_I = $item->v_transtornos_degenartivos_I == "" ? "" : self::colorRieResSaludMejorado($item->v_transtornos_degenartivos_I);
+                            $item->c_consumo_spa_I = $item->v_consumo_spa_I == "" ? "" : self::colorRieResSaludMejorado($item->v_consumo_spa_I);
+                            $item->c_riesgo_delgadez_I = $item->v_riesgo_delgadez_I == "" ? "" : self::colorRieResSaludMejorado($item->v_riesgo_delgadez_I);
 
                             $item->v_enfermedades_infecciosas_R = $item->enfermedades_infecciosas_R == 0 ? "" : self::valRieResSa($item->enfermedades_infecciosas_R);
                             $item->v_transtornos_asociados_spa_R = $item->transtornos_asociados_spa_R == 0 ? "" : self::valRieResSa($item->transtornos_asociados_spa_R);
@@ -2906,6 +2907,146 @@ class CaracterizacionController extends Controller
                             $item->c_transtornos_degenartivos_R = $item->v_transtornos_degenartivos_R == "" ? "" : self::colorRieResSa($item->v_transtornos_degenartivos_R);
                             $item->c_consumo_spa_R = $item->v_consumo_spa_R == "" ? "" : self::colorRieResSa($item->v_consumo_spa_R);
                             $item->c_riesgo_delgadez_R = $item->v_riesgo_delgadez_R == "" ? "" : self::colorRieResSa($item->v_riesgo_delgadez_R);
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'Enfermedades Infecciosas',
+                            //     'valores_factores' => '10',
+                            //     'probabilidad' => $item->proba_enfermedades_infecciosas_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->enfermedades_infecciosas_I,
+                            //     'valoracionRInherente' => $item->v_enfermedades_infecciosas_I,
+                            //     'colorRInherente' => $item->c_enfermedades_infecciosas_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'TRASTORNOS ASOCIADOS AL CONSUMO DE SPA',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_transtornos_asociados_spa_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->transtornos_asociados_spa_I,
+                            //     'valoracionRInherente' => $item->v_transtornos_asociados_spa_I,
+                            //     'colorRInherente' => $item->c_transtornos_asociados_spa_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'ENFERMERDAD CARDIOVASCULAR ATEROGÉNICA',
+                            //     'valores_factores' => '8',
+                            //     'probabilidad' => $item->proba_enfermedad_cardiovascular_I,
+                            //     'impactoRie' => '5',
+                            //     'riesgoInherente' => $item->enfermedad_cardiovascular_I,
+                            //     'valoracionRInherente' => $item->v_enfermedad_cardiovascular_I,
+                            //     'colorRInherente' => $item->c_enfermedad_cardiovascular_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'Cancer',
+                            //     'valores_factores' => '8',
+                            //     'probabilidad' => $item->proba_cancer_I,
+                            //     'impactoRie' => '5',
+                            //     'riesgoInherente' => $item->cancer_I,
+                            //     'valoracionRInherente' => $item->v_cancer_I,
+                            //     'colorRInherente' => $item->c_cancer_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'Alteraciones y transtornos visuales',
+                            //     'valores_factores' => '8',
+                            //     'probabilidad' => $item->proba_alteraciones_transtornos_visuales_I,
+                            //     'impactoRie' => '5',
+                            //     'riesgoInherente' => $item->alteraciones_transtornos_visuales_I,
+                            //     'valoracionRInherente' => $item->v_alteraciones_transtornos_visuales_I,
+                            //     'colorRInherente' => $item->c_alteraciones_transtornos_visuales_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'ALTERACIONES Y TRASTORNOS DE LA AUDICIÓN Y COMUNICACIÓN',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_alteraciones_transtornos_audicion_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->alteraciones_transtornos_audicion_I,
+                            //     'valoracionRInherente' => $item->v_alteraciones_transtornos_audicion_I,
+                            //     'colorRInherente' => $item->c_alteraciones_transtornos_audicion_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'Salud Bucal',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_salud_bucal_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->salud_bucal_I,
+                            //     'valoracionRInherente' => $item->v_salud_bucal_I,
+                            //     'colorRInherente' => $item->c_salud_bucal_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'PROBLEMAS EN SALUD MENTAL',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_problemas_salud_mental_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->problemas_salud_mental_I,
+                            //     'valoracionRInherente' => $item->v_problemas_salud_mental_I,
+                            //     'colorRInherente' => $item->c_problemas_salud_mental_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'VIOLENCIAS',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_violencias_I,
+                            //     'impactoRie' => '5',
+                            //     'riesgoInherente' => $item->violencias_I,
+                            //     'valoracionRInherente' => $item->v_violencias_I,
+                            //     'colorRInherente' => $item->c_violencias_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'ENFERMEDADES RESPIRATORIAS CRÓNICAS',
+                            //     'valores_factores' => '8',
+                            //     'probabilidad' => $item->proba_enfermedades_respiratorias_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->enfermedades_respiratorias_I,
+                            //     'valoracionRInherente' => $item->v_enfermedades_respiratorias_I,
+                            //     'colorRInherente' => $item->c_enfermedades_respiratorias_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'ENFERMEDADES ZOONOTICAS',
+                            //     'valores_factores' => '10',
+                            //     'probabilidad' => $item->proba_enfermedades_zoonoticas_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->enfermedades_zoonoticas_I,
+                            //     'valoracionRInherente' => $item->v_enfermedades_zoonoticas_I,
+                            //     'colorRInherente' => $item->c_enfermedades_zoonoticas_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'TRASTORNOS DEGENERATIVOS, ',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_transtornos_degenartivos_I,
+                            //     'impactoRie' => '5',
+                            //     'riesgoInherente' => $item->transtornos_degenartivos_I,
+                            //     'valoracionRInherente' => $item->v_transtornos_degenartivos_I,
+                            //     'colorRInherente' => $item->c_transtornos_degenartivos_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'CONSUMO DE SPA',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_consumo_spa_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->consumo_spa_I,
+                            //     'valoracionRInherente' => $item->v_consumo_spa_I,
+                            //     'colorRInherente' => $item->c_consumo_spa_I,
+                            // ];
+                            
+                            // $RI_SA_1828_DE[] = [
+                            //     'factores_riesgo' => 'RIESGO DE DELGADEZ',
+                            //     'valores_factores' => '7',
+                            //     'probabilidad' => $item->proba_riesgo_delgadez_I,
+                            //     'impactoRie' => '4',
+                            //     'riesgoInherente' => $item->riesgo_delgadez_I,
+                            //     'valoracionRInherente' => $item->v_riesgo_delgadez_I,
+                            //     'colorRInherente' => $item->c_riesgo_delgadez_I,
+                            // ];                            
                         }
                     }
                     // RIESGOS SALUD DE18A28
@@ -2984,6 +3125,7 @@ class CaracterizacionController extends Controller
                         'riesgos_salud_de12a17' => $riesgos_salud_de12a17,
                         'riesgos_salud_de18a28' => $riesgos_salud_de18a28,
                         'riesgos_salud_de29a59' => $riesgos_salud_de29a59,
+                        // 'RI_SA_1828_DE' => $RI_SA_1828_DE
                     ];
                     $gua = \App\Log::guardar("Guardar la pestaña Adolescentes/Jovenes con id_hogar  = " . $IDHOGAR, Session::get('alias'), 'CARACTERIZACION');
                     return response()->json($respuesta, 200);
@@ -8919,7 +9061,7 @@ class CaracterizacionController extends Controller
 
             // Riesgos de  Derrumbes
             if ($opcion == "RD") {
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -8963,7 +9105,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
     
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_derrumbes = self::valorizacion($RieAmbInh["riesgos_derrumbes"], 1);
                 $va_riesgos_derrumbes = self::eficaciaControlRAVA(strtoupper($va_riesgos_derrumbes));
@@ -8986,7 +9128,7 @@ class CaracterizacionController extends Controller
 
             // Riesgos de inundación
             if ($opcion == "RI") {
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -9032,7 +9174,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
 
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_inundacion = self::valorizacion($RieAmbInh["riesgos_inundacion"], 1);
                 $va_riesgos_inundacion = self::eficaciaControlRAVA(strtoupper($va_riesgos_inundacion));
@@ -9057,7 +9199,7 @@ class CaracterizacionController extends Controller
             if ($opcion == "RIN") {
                 // $totalDivicion = 6;
 
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -9115,7 +9257,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
     
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_insalubridad = self::valorizacion($RieAmbInh["riesgos_insalubridad"], 2);
                 $va_riesgos_insalubridad = self::eficaciaControlRAVA(strtoupper($va_riesgos_insalubridad));
@@ -9137,7 +9279,7 @@ class CaracterizacionController extends Controller
 
             // Riesgo atmosferico
             if ($opcion == "RA") {
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -9180,7 +9322,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
 
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_atmosferico = self::valorizacion($RieAmbInh["riesgos_atmosferico"], 1);
                 $va_riesgos_atmosferico = self::eficaciaControlRAVA(strtoupper($va_riesgos_atmosferico));
@@ -9203,7 +9345,7 @@ class CaracterizacionController extends Controller
 
             // Riesgos Recurso suelo
             if ($opcion == "RRS") {
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -9261,7 +9403,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
 
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_recurso_suelo = self::valorizacion($RieAmbInh["riesgos_recurso_suelo"], 1);
                 $va_riesgos_recurso_suelo = self::eficaciaControlRAVA(strtoupper($va_riesgos_recurso_suelo));
@@ -9285,7 +9427,7 @@ class CaracterizacionController extends Controller
             // Riesgo por quemas o incendio
             if ($opcion == "RQ") {
 
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -9342,7 +9484,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
 
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_quema = self::valorizacion($RieAmbInh["riesgos_quema"], 1);
                 $va_riesgos_quema = self::eficaciaControlRAVA(strtoupper($va_riesgos_quema));
@@ -9364,7 +9506,7 @@ class CaracterizacionController extends Controller
 
             // Riesgo Auditivo
             if ($opcion == "RAU") {
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -9414,7 +9556,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
 
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_auditivo = self::valorizacion($RieAmbInh["riesgos_auditivo"], 1);
                 $va_riesgos_auditivo = self::eficaciaControlRAVA(strtoupper($va_riesgos_auditivo));
@@ -9437,7 +9579,7 @@ class CaracterizacionController extends Controller
 
             // Riesgo recurso Hidrico
             if ($opcion == "RRH") {
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
 
@@ -9501,7 +9643,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
     
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_recurso_hidrico = self::valorizacion($RieAmbInh["riesgos_recurso_hidrico"], 1);
                 $va_riesgos_recurso_hidrico = self::eficaciaControlRAVA(strtoupper($va_riesgos_recurso_hidrico));
@@ -9524,7 +9666,7 @@ class CaracterizacionController extends Controller
 
             // Acceso a Agua Segura
             if ($opcion == "RAA") {
-                $totalDivicion = 0;
+                $totalDivicion = 1;
                 $sumaTipo = 0;
                 $sumaPerid = 0;
                 $control_entes_RAA = self::valores($datosRA["control_entes_RAA"]);
@@ -9573,7 +9715,7 @@ class CaracterizacionController extends Controller
                 $suma = $mediaTipo * $mediaPerid;
     
                 $mediaRiesgos = $suma;
-                $media = self::eficaciaControlRA($media);
+                $media = self::eficaciaControlRA($mediaRiesgos);
 
                 $va_riesgos_acceso_agua = self::valorizacion($RieAmbInh["riesgos_acceso_agua"], 1);
                 $va_riesgos_acceso_agua = self::eficaciaControlRAVA(strtoupper($va_riesgos_acceso_agua));
@@ -13520,7 +13662,7 @@ class CaracterizacionController extends Controller
             $datos["enfermedades_zoonoticas_I"] = $rTEZ;
             $datos["transtornos_degenartivos_I"] = $rTTDNEA;
             $datos["consumo_spa_I"] = $rTCDS;
-            $datos["riesgo_delgadez_I"] = $rTRD;
+            $datos["riesgo_delgadez_I"] = $rTRD;            
             $resultado = self::calculosSaludInherente($datos, "DE18A28", $id_hogar, $respude18a28->id_integrante);
         }
         // // // // // // // // // // De18A28 // // // // // // // // // //
@@ -17043,6 +17185,22 @@ class CaracterizacionController extends Controller
             }
         }
         if ($opcion == "DE18A28") {
+
+            $datos['proba_enfermedades_infecciosas_I'] = $datos['enfermedades_infecciosas_I'];
+            $datos['proba_transtornos_asociados_spa_I'] = $datos['transtornos_asociados_spa_I'];
+            $datos['proba_enfermedad_cardiovascular_I'] = $datos['enfermedad_cardiovascular_I'];
+            $datos['proba_cancer_I'] = $datos['cancer_I'];
+            $datos['proba_alteraciones_transtornos_visuales_I'] = $datos['alteraciones_transtornos_visuales_I'];
+            $datos['proba_alteraciones_transtornos_audicion_I'] = $datos['alteraciones_transtornos_audicion_I'];
+            $datos['proba_salud_bucal_I'] = $datos['salud_bucal_I'];
+            $datos['proba_problemas_salud_mental_I'] = $datos['problemas_salud_mental_I'];
+            $datos['proba_violencias_I'] = $datos['violencias_I'];
+            $datos['proba_enfermedades_respiratorias_I'] = $datos['enfermedades_respiratorias_I'];
+            $datos['proba_enfermedades_zoonoticas_I'] = $datos['enfermedades_zoonoticas_I'];
+            $datos['proba_transtornos_degenartivos_I'] = $datos['transtornos_degenartivos_I'];
+            $datos['proba_consumo_spa_I'] = $datos['consumo_spa_I'];
+            $datos['proba_riesgo_delgadez_I'] = $datos['riesgo_delgadez_I'];
+
             // Riesgo de delgadez
             $valor = 0;
             if ($datos["riesgo_delgadez_I"] <= 0) {
@@ -28641,7 +28799,7 @@ class CaracterizacionController extends Controller
 
         // Riesgos de  Derrumbes
         if ($opcion == "RD") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
             $control_entes_RD = self::valores($datosRA["control_entes_RD"]);
@@ -28684,7 +28842,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;            
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_derrumbes = self::valorizacion($RieAmbInh["riesgos_derrumbes"], 1);
             $va_riesgos_derrumbes = self::eficaciaControlRAVA(strtoupper($va_riesgos_derrumbes));
@@ -28742,10 +28900,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_derrumbes"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_derrumbes"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_derrumbes                       
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -28757,7 +28921,7 @@ class CaracterizacionController extends Controller
 
         // Riesgos de inundación
         if ($opcion == "RI") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
             $control_entes_RI = self::valores($datosRA["control_entes_RI"]);
@@ -28802,7 +28966,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_inundacion = self::valorizacion($RieAmbInh["riesgos_inundacion"], 1);
             $va_riesgos_inundacion = self::eficaciaControlRAVA(strtoupper($va_riesgos_inundacion));
@@ -28870,10 +29034,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_inundacion"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_inundacion"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_inundacion                      
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -28885,7 +29055,7 @@ class CaracterizacionController extends Controller
 
         // Riesgos de insalubridad
         if ($opcion == "RIN") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
 
@@ -28943,7 +29113,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_insalubridad = self::valorizacion($RieAmbInh["riesgos_insalubridad"], 2);
             $va_riesgos_insalubridad = self::eficaciaControlRAVA(strtoupper($va_riesgos_insalubridad));
@@ -29018,13 +29188,19 @@ class CaracterizacionController extends Controller
                 'opcionValorizacion' => $val_residual_riesgos_insalubridad,
                 'colorOpcionValorizacion' => $color_residual_riesgos_insalubridad,
                 'riesgo_inherente' => $RieAmbInh["riesgos_insalubridad"],
-                'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_insalubridad"], 1),
-                'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_insalubridad"], 1)),
-                'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_insalubridad"], 2),
+                'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_insalubridad"], 2)),
+                'opci_AM_DE_CON' => 2,
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_insalubridad
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -29036,7 +29212,7 @@ class CaracterizacionController extends Controller
         
         // Riesgo atmosferico
         if ($opcion == "RA") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
 
@@ -29079,7 +29255,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_atmosferico = self::valorizacion($RieAmbInh["riesgos_atmosferico"], 1);
             $va_riesgos_atmosferico = self::eficaciaControlRAVA(strtoupper($va_riesgos_atmosferico));
@@ -29137,10 +29313,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_atmosferico"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_atmosferico"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_atmosferico                              
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -29152,7 +29334,7 @@ class CaracterizacionController extends Controller
         
         // Riesgos Recurso suelo
         if ($opcion == "RRS") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
 
@@ -29210,7 +29392,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_recurso_suelo = self::valorizacion($RieAmbInh["riesgos_recurso_suelo"], 1);
             $va_riesgos_recurso_suelo = self::eficaciaControlRAVA(strtoupper($va_riesgos_recurso_suelo));
@@ -29288,10 +29470,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_recurso_suelo"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_recurso_suelo"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_recurso_suelo                              
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -29303,7 +29491,7 @@ class CaracterizacionController extends Controller
 
         // Riesgo por quemas o incendio
         if ($opcion == "RQ") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
 
@@ -29361,7 +29549,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_quema = self::valorizacion($RieAmbInh["riesgos_quema"], 1);
             $va_riesgos_quema = self::eficaciaControlRAVA(strtoupper($va_riesgos_quema));
@@ -29439,10 +29627,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_quema"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_quema"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_quema                              
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -29454,7 +29648,7 @@ class CaracterizacionController extends Controller
         
         // Riesgo Auditivo
         if ($opcion == "RAU") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
 
@@ -29504,7 +29698,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_auditivo = self::valorizacion($RieAmbInh["riesgos_auditivo"], 1);
             $va_riesgos_auditivo = self::eficaciaControlRAVA(strtoupper($va_riesgos_auditivo));
@@ -29572,10 +29766,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_auditivo"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_auditivo"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_auditivo                                
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -29588,7 +29788,7 @@ class CaracterizacionController extends Controller
         
         // Riesgo recurso Hidrico
         if ($opcion == "RRH") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
 
@@ -29653,7 +29853,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_recurso_hidrico = self::valorizacion($RieAmbInh["riesgos_recurso_hidrico"], 1);
             $va_riesgos_recurso_hidrico = self::eficaciaControlRAVA(strtoupper($va_riesgos_recurso_hidrico));
@@ -29741,10 +29941,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_recurso_hidrico"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_recurso_hidrico"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_recurso_hidrico                                
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -29756,7 +29962,7 @@ class CaracterizacionController extends Controller
         
         // Acceso a Agua Segura
         if ($opcion == "RAA") {
-            $totalDivicion = 0;
+            $totalDivicion = 1;
             $sumaTipo = 0;
             $sumaPerid = 0;
 
@@ -29806,7 +30012,7 @@ class CaracterizacionController extends Controller
             $suma = $mediaTipo * $mediaPerid;
 
             $mediaRiesgos = $suma;
-            $media = self::eficaciaControlRA($media);
+            $media = self::eficaciaControlRA($mediaRiesgos);
 
             $va_riesgos_acceso_agua = self::valorizacion($RieAmbInh["riesgos_acceso_agua"], 1);
             $va_riesgos_acceso_agua = self::eficaciaControlRAVA(strtoupper($va_riesgos_acceso_agua));
@@ -29874,10 +30080,16 @@ class CaracterizacionController extends Controller
                 'valorizacion_riesgo_inherente' => $this->valorizacion($RieAmbInh["riesgos_acceso_agua"], 1),
                 'color_riesgo_inherente' => $this->color($this->valorizacion($RieAmbInh["riesgos_acceso_agua"], 1)),
                 'opci_AM_DE_CON' => 1,
-                'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                // 'mediaRiesgos' => round($mediaRiesgos, 2, PHP_ROUND_HALF_UP),
+                'mediaRiesgos' => $mediaRiesgos,
                 'eficaciaControl' => $this->eficaciaControlRA2($mediaRiesgos),
                 'c_eficaciaControl' => $this->colorRieDeCoAm($this->eficaciaControlRA2($mediaRiesgos)),
-                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),                
+                'v_valorizacionControl' => $this->eficaciaControlRAVA($this->eficaciaControlRA2($mediaRiesgos)),
+                'mediaTipo' => $mediaTipo,
+                'mediaPerid' => $mediaPerid,
+                'sumaTipo' => $sumaTipo,
+                'sumaPerid' => $sumaPerid,
+                'valoracion_riesgo_inherente' => $va_riesgos_acceso_agua                
             ];
             $respuesta = [
                 'RI_AM_DE_CON' => $RI_AM_DE_CON,
@@ -29940,5 +30152,191 @@ class CaracterizacionController extends Controller
             }
         }
         return $color;
-    }    
+    }
+    
+    public function valRieResSaludMejorado($valor, $opc)
+    {
+        $eficacia = "";
+        if($opc == 1) {            
+            if ($valor < 9) {
+                $eficacia = "Bajo";
+            } else {
+                if ($valor >= 9 && $valor < 16) {
+                    $eficacia = "Medio";
+                } else {
+                    $eficacia = "Alto";
+                }
+            }
+        }else {
+            if ($valor < 5) {
+                $eficacia = "Bajo";
+            } else {
+                if ($valor >= 5 && $valor < 9) {
+                    $eficacia = "Medio";
+                } else {
+                    $eficacia = "Alto";
+                }
+            }
+        }
+        
+        return $eficacia;
+    }
+    
+    public function colorRieResSaludMejorado($valor)
+    {
+        $color = "";
+        if ($valor == "Bajo" || $valor == "Inexistente") {
+            $color = "kt-badge--success";
+        } else {
+            if ($valor == "Medio") {
+                $color = "kt-badge--warning";
+            } else {
+                $color = "kt-badge--danger";
+            }
+        }
+        return $color;
+    }
+
+    public function DetallesSalud(){
+        $opcion = request()->get("opcion");
+        $id_hogar = request()->get("id_hogar");
+        $ciclo = request()->get("ciclo");
+        $identificacion = request()->get("identificacion");
+        
+        $factores_riesgo = "";
+        $valores_factores = 0;
+        $probabilidad = 0;
+        $impactoRie = 0;
+        $riesgoInherente = 0;
+        $valorizacion = "";
+        $colorValorizacion = "";
+
+
+        if ($ciclo == "De18A28") {
+            $respuvivi = \App\Vivienda::buscar(Session::get('alias'), $id_hogar);
+            $respuhogar = \App\Hogar::buscar(Session::get('alias'), $id_hogar);            
+            $respuinte = \App\Integrante::buscar($identificacion, Session::get('alias'));
+            $respujefe = \App\Caracterizacion::buscar($identificacion, Session::get('alias'));
+            $respude18a28 = \App\De18a28::buscarPorIdentificacion(Session::get('alias'), $identificacion);
+
+            // // // // // // // // // //  Riesgo de delgadez   // // // // // // // // // //
+            if($opcion == "RiDeDe") {
+                $suma_RiDeDe = 0;             
+                // Enfermedades infecciosas
+                $rTRD = 0;
+                $respuenferinte = \App\EnfermedadesIntegrantes::buscarInfecciosas(Session::get('alias'), $respuinte->id ?? 0);
+                $respuenferjefe = \App\EnfermedadesJefes::buscarInfecciosas(Session::get('alias'), $respujefe->id ?? 0);
+    
+                if ((count($respuenferinte) + count($respuenferjefe)) > 0) {
+                    $rTRD = $rTRD + 0.8;
+                }
+
+                $RI_SA_DE[] = [
+                    'factores_riesgo' => "Enfermedades Infecciosas",
+                    'valores_factores' => $rTRD,
+                ];
+                $suma_RiDeDe = $suma_RiDeDe + $rTRD;            
+                // Enfermedades infecciosas
+                
+    
+                // Consumo SPA
+                $rTRD = 0;
+                if ($respude18a28->spa == "SI") {
+                    $rTRD = $rTRD + 0.8;
+                }
+                $RI_SA_DE[] = [
+                    'factores_riesgo' => "Consumo SPA",
+                    'valores_factores' => $rTRD,
+                ];
+                $suma_RiDeDe = $suma_RiDeDe + $rTRD;               
+                // Consumo SPA
+    
+                // NBI
+                $rTRD = 0;
+                $NBI = self::calcularNBI($id_hogar);
+                if ($NBI == "SI") {
+                    $rTRD = $rTRD + 1.2;
+                }
+                $RI_SA_DE[] = [
+                    'factores_riesgo' => "NBI",
+                    'valores_factores' => $rTRD,
+                ];
+                $suma_RiDeDe = $suma_RiDeDe + $rTRD;                
+                // NBI
+    
+                // NO agua potable
+                $rTRD = 0;
+                if ($respuvivi->acueducto == "NO") {
+                    $rTRD = $rTRD + 0.8;
+                }
+                $RI_SA_DE[] = [
+                    'factores_riesgo' => "NO Agua Potable",
+                    'valores_factores' => $rTRD,
+                ];
+                $suma_RiDeDe = $suma_RiDeDe + $rTRD;               
+                // NO agua potable
+    
+                // IMC  -2 a < -1
+                $rTRD = 0;
+                if ($respude18a28->imc >= "18.5" && $respude18a28->imc <= "19.5") {
+                    $rTRD = $rTRD + 3.4;
+                }
+                $RI_SA_DE[] = [
+                    'factores_riesgo' => "IMC Menor 19,5 y Mayor 18,5 Kg/m",
+                    'valores_factores' => $rTRD,
+                ];
+                $suma_RiDeDe = $suma_RiDeDe + $rTRD;                
+                // IMC  -2 a < -1
+                
+                $datos["riesgo_delgadez_I"] = $suma_RiDeDe;
+
+                $valor = 0;
+                if ($datos["riesgo_delgadez_I"] <= 0) {
+                    $valor = 1;
+                } else {
+                    if ($datos["riesgo_delgadez_I"] >= 0.1 && $datos["riesgo_delgadez_I"] < 0.5) {
+                        $valor = 2;
+                    } else {
+                        if ($datos["riesgo_delgadez_I"] >= 0.5 && $datos["riesgo_delgadez_I"] < 3.4) {
+                            $valor = 3;
+                        } else {
+                            if ($datos["riesgo_delgadez_I"] >= 3.4 && $datos["riesgo_delgadez_I"] < 6.1) {
+                                $valor = 4;
+                            } else {
+                                $valor = 5;
+                            }
+                        }
+                    }
+                }
+                $datos["riesgo_delgadez_I"] = $valor * 4;
+                if ($datos["riesgo_delgadez_I"] <= 8) {
+                    $datos["riesgo_delgadez_I"] = 1;
+                } else {
+                    if ($datos["riesgo_delgadez_I"] >= 9 && $datos["riesgo_delgadez_I"] < 16) {
+                        $datos["riesgo_delgadez_I"] = 2;
+                    } else {
+                        $datos["riesgo_delgadez_I"] = 3;
+                    }
+                }
+
+                $respuesta = [
+                    'RI_SA_DE' => $RI_SA_DE,
+                    // 'total_riesgo_detalles' => round($rTRD, 2, PHP_ROUND_HALF_UP),
+                    'opcionTablaSalud' => 1,
+                    // 'opcionValorizacionSalud' => $this->valorizacion($rTRD, 1),
+                    'opci_SA_DE' => 1,
+                    'probabilidad' => "7",
+                    'impactoRieSalud' => "4",
+                    'riesgoInherente' => $valor * 4,
+                    'valorValorizacionSalud' => $datos["riesgo_delgadez_I"],
+                    'valorizacionSalud' => self::valRieResSaludMejorado($datos["riesgo_delgadez_I"], 1),
+                    'colorValorizacionSalud' => self::colorRieResSaludMejorado(self::valRieResSaludMejorado($datos["riesgo_delgadez_I"], 1)),
+                    'total_riesgo_detalles_salud' => $suma_RiDeDe,
+                    'valorSeleccionadoSalud' => $valor
+                ];    
+                return response()->json($respuesta, 200);                
+            }
+            // // // // // // // // // //  Riesgo de delgadez   // // // // // // // // // //                      
+        }
+    }
 }

@@ -8495,7 +8495,7 @@
                               <option value selected>Seleccione</option>
                               <option value="NA">No Aplica</option>
                               <option value="D1">D1</option>
-                              <option value="D1">D2</option>
+                              <option value="D2">D2</option>
                               <option value="NO">NO</option>
                             </b-form-select>
                           </td>
@@ -17624,7 +17624,7 @@
                                 class="btn btn-icon btn-sm btn-success"
                                 type="button"
                                 title="Controles"
-                                @click="mostrarRiesgoSalDe18a28(index)"
+                                @click="mostrarRiesgoSalDe18a28(index,item.identificacion)"
                               >
                                 <i class="fa fa-check"></i>
                               </button>
@@ -17646,7 +17646,9 @@
                           <tr class="kt-bg-fill-brand">
                             <th style="vertical-align: middle;text-align: left;">Riesgo</th>
                             <th style="vertical-align: middle;text-align: center;">Valorización I.</th>
+                            <th style="vertical-align: middle;text-align: left;">Detalle I.</th>
                             <th style="vertical-align: middle;text-align: center;">Valorización R.</th>
+                            <th style="vertical-align: middle;text-align: left;">Detalle I.</th>
                             <th style="vertical-align: middle;text-align: center;">Opción</th>
                           </tr>
                         </thead>
@@ -17656,9 +17658,29 @@
                             <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
                               <span class="kt-badge kt-badge--inline" :class="item.color">{{ item.riesgo }} - {{item.valor}}</span>
                             </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="detalleRiesgoSalud(item.boton,item.ciclo,item.identificacion)"
+                              >
+                                <i class="fa fa-search"></i>
+                              </button>
+                            </td>                            
                             <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" >
                               <span class="kt-badge kt-badge--inline" :class="item.color_r">{{ item.riesgo_r }} - {{item.valor_r}}</span>
                             </td>
+                            <td style="text-align:center;vertical-align: middle;text-align: center;">
+                              <button
+                                class="btn btn-icon btn-sm btn-success"
+                                type="button"
+                                title="Controles"
+                                @click="detalleControlRSDE18A28()"
+                              >
+                                <i class="fa fa-search"></i>
+                              </button>
+                            </td>                            
                             <td style="text-align:center;vertical-align: middle;text-align: center;">
                               <button
                                 class="btn btn-icon btn-sm btn-primary"
@@ -22320,8 +22342,52 @@
                           <tr>                                      
                             <td style="font-weight: bold;vertical-align: middle;text-align: center;">
                               <table class="table table-sm table-hover">
-                                <tr>
-                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.riesgo_inherente }}</td>
+                                <tr>                                  
+                                  <td>
+                                    <b-button
+                                      style='border: none;'
+                                      title="Valorización"
+                                      id="popover-1"
+                                    >                                      
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                        {{ datosControlesAmbientales.riesgo_inherente }}
+                                      </span>
+                                    </b-button>
+                                    <b-popover target="popover-1" triggers="hover focus" v-if="datosControlesAmbientales.opci_AM_DE_CON==1">
+                                      <template #title>Valorización del Riesgo</template>
+                                      <table class="table table-sm table-hover">
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 3</td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 1</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">3 >= 7 </td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 2</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">7 >= 10</td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 3</td>
+                                          </tr>                
+                                      </table>
+                                    </b-popover>
+                                    <b-popover target="popover-1" triggers="hover focus" v-else>
+                                      <template #title>Valorización del Riesgo</template>
+                                      <table class="table table-sm table-hover">
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 5 </td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 1</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">5 >= 15 </td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 2</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">15 >= 25</td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 3</td>
+                                          </tr>                
+                                      </table>
+                                    </b-popover>                                                                    
+                                  </td>
                                 </tr>
                                 <tr>
                                   <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
@@ -22354,7 +22420,37 @@
                         <tr>
                           <td style="font-weight: bold;vertical-align: middle;text-align: right;text-transform:capitalize;" colspan="1"></td>
                           <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" colspan="1">Prom.</td>
-                          <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;" colspan="1">{{datosControlesAmbientales.mediaRiesgos}}</td>                            
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;" colspan="1">
+                            <b-button
+                              style='border: none;'
+                              title="Valorización"
+                              id="popover-2"
+                            >                                      
+                              <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                {{ Math.floor(datosControlesAmbientales.mediaRiesgos * 10)/10 }}
+                              </span>
+                            </b-button>                            
+                            <b-popover target="popover-2" triggers="hover focus">
+                              <template #title>Valores</template>
+                              <table class="table table-sm table-hover">
+                                  <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"></td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Suma</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  </tr>                                
+                                  <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media del Tipo de Control</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ datosControlesAmbientales.sumaTipo }}</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ datosControlesAmbientales.mediaTipo }}</td>
+                                  </tr>
+                                  <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media de la Peridiocidad del Control</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ Math.floor(datosControlesAmbientales.sumaPerid * 10)/10 }}</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ Math.floor(datosControlesAmbientales.mediaPerid * 10)/10 }}</td>
+                                  </tr>               
+                              </table>
+                            </b-popover>                            
+                          </td>                            
                         </tr>                      
                       </tbody>                     
                     </table>  
@@ -22395,7 +22491,7 @@
                             <td style="font-weight: bold;vertical-align: middle;text-align: center;">
                                 <table class="table table-sm table-hover">
                                     <tr>
-                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.mediaRiesgos }}</td>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ Math.floor(datosControlesAmbientales.mediaRiesgos * 10)/10 }}</td>
                                     </tr>
                                     <tr>
                                       <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
@@ -22488,7 +22584,40 @@
                             <td style="font-weight: bold;vertical-align: middle;text-align: center;">
                                 <table class="table table-sm table-hover">
                                     <tr>
-                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.riesgoResidual }}</td>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                        <b-button
+                                          style='border: none;'
+                                          title="Valorización"
+                                          id="popover-3"
+                                        >                                      
+                                          <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                            {{ datosControlesAmbientales.riesgoResidual }}
+                                          </span>
+                                        </b-button>
+                                        <b-popover target="popover-3" triggers="hover focus">
+                                          <template #title>Riesgo Residual</template>
+                                          <table class="table table-sm table-hover">
+                                              <tr>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Valorización del Riesgo Inherente</td>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> {{ datosControlesAmbientales.valoracion_riesgo_inherente }}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td colspan='2' style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">÷</td>
+                                              </tr>                                              
+                                              <tr>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Valorización del Control </td>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> {{ datosControlesAmbientales.v_valorizacionControl }}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td colspan='2' style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> = </td>
+                                              </tr>                                              
+                                              <tr>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Riesgo Residual</td>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> {{ datosControlesAmbientales.riesgoResidual }}</td>
+                                              </tr>                
+                                          </table>
+                                        </b-popover>                                          
+                                        </td>
                                     </tr>
                                     <tr>
                                       <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
@@ -22511,7 +22640,601 @@
             </div>                         
           </div>     
         </b-modal>        
-        <!--begin::Modal DETALLES AMBIENTALES-->               
+        <!--begin::Modal DETALLES AMBIENTALES-->        
+
+
+        <!--begin::Modal DETALLES SALUD-->
+        <b-modal
+          ref="modalDetSal"
+          hide-footer
+          title="Detalles de los riesgos de salud"
+          size="xl"
+          centered
+          header-bg-variant="danger"
+          header-text-variant="light"
+          :no-close-on-backdrop="true"
+        >
+          <div class="d-block">
+            <div class="form-group row">
+              <div class="col-md-12">
+                  <center>
+                    <p>
+                      <span class="kt-font-boldest text" style="font-size: 18px;">{{textoDetalleSalud}}</span>
+                    </p>
+                  </center>                
+              </div>
+            </div>
+            <div class="form-group row" v-if="detalleSalud">
+              <div class="col-md-5">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover" >
+                    <thead class>
+                      <tr class="kt-bg-fill-brand">
+                        <th>Factores de Riesgo</th>
+                        <th style="vertical-align: middle;text-align: center;">Valor del Factor</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr v-for="item in RI_SA_DE" :value="item.value" :key="item.value">
+                        <td style="font-weight: bold;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.factores_riesgo }}</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;">{{ item.valores_factores }}</td>                                           
+                      </tr>
+                      <tr>
+                        <!-- <td style="font-weight: bold;vertical-align: middle;text-align: right;text-transform:capitalize;" colspan="2"></td> -->
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" colspan="1">Total</td>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;" colspan="1">{{total_riesgo_detalles_salud}}</td>                            
+                      </tr>  
+                    </tbody>                      
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover" >
+                    <thead class>
+                      <tr class="kt-bg-fill-brand text-center" >
+                        <th>Probabilidad del Riesgo</th>                        
+                      </tr>
+                      <tr>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;color:red;font-size:24px;">{{ probabilidadSalud }}</td>
+                      </tr>                      
+                      <tr class="kt-bg-fill-brand text-center">
+                        <th>Impacto del Riesgo</th>                        
+                      </tr>
+                      <tr>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;color:red;font-size:24px;">{{ impactoRieSalud }}</td>
+                      </tr>                      
+                      <tr class="kt-bg-fill-brand text-center">
+                        <th>Riesgo Inherente</th>                        
+                      </tr>
+                      <tr>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;color:red;font-size:24px;">
+                          <b-button
+                            style='border: none;'
+                            title="Riesgo Inherente"
+                            id="popover-4"
+                          >                                      
+                            <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                              {{ riesgoInherenteSalud }}
+                            </span>
+                          </b-button>
+                          <b-popover target="popover-4" triggers="hover focus" v-if="opcionTablaSalud==1">
+                            <template #title>Riesgo Inherente</template>
+                            <table class="table table-sm table-hover">
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }} 
+                                      </span>
+                                      {{comodin1}} 0 
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 1</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }} 
+                                      </span> 
+                                      {{comodin4}} 0.1 Y 
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }}  
+                                      </span>
+                                      {{comodin1}} 0.5 
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 2</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }} 
+                                      </span>
+                                      {{comodin4}} 0.5 Y 
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }} 
+                                      </span>
+                                      {{comodin1}} 3.4 
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 3</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }} 
+                                      </span>
+                                      {{comodin4}} 3.4 Y 
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }} 
+                                      </span>
+                                      {{comodin1}} 6.1 
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 4</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ total_riesgo_detalles_salud }} 
+                                      </span>
+                                      {{comodin4}} 6.1
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 5</td>
+                                </tr>                                                                               
+                            </table>
+                            <br>
+                            <p>
+                              <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 12px;">
+                                Valor Seleccionado = {{ valorSeleccionadoSalud }}
+                              </span>
+                            </p>                            
+                            <p>
+                              <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 12px;">
+                              Probabilidad * Impacto = {{ valorSeleccionadoSalud }} * {{impactoRieSalud}}
+                              </span>
+                            </p>
+                            <br><br>
+                                                                               
+                          </b-popover>                          
+                        </td>
+                      </tr>                                                                  
+                    </thead>                   
+                  </table>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover" >
+                    <thead class>
+                      <tr class="kt-bg-fill-brand text-center">
+                        <th>Valorización del Riesgo</th>                        
+                      </tr>                                                                                                             
+                    </thead>
+                    <tbody>                      
+                      <tr>
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;color:red;font-size:30px;">
+                          <b-button
+                            style='border: none;'
+                            title="Riesgo Inherente"
+                            id="popover-5"
+                          >                                      
+                            <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                              {{ valorValorizacionSalud }}
+                            </span>
+                          </b-button>
+                          <b-popover target="popover-5" triggers="hover focus" v-if="opcionTablaSalud==1">
+                            <template #title>Riesgo Inherente</template>
+                            <table class="table table-sm table-hover">
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ riesgoInherenteSalud }} 
+                                      </span>
+                                      {{comodin2}} 8
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 1</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ riesgoInherenteSalud }} 
+                                      </span> 
+                                      {{comodin4}} 9 Y 
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ riesgoInherenteSalud }}  
+                                      </span>
+                                      {{comodin1}} 16
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 2</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;">
+                                        {{ riesgoInherenteSalud }} 
+                                      </span>
+                                      {{comodin4}} 16
+                                    </td>
+                                    <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 3</td>
+                                </tr>                                                                            
+                            </table>                                                                                                          
+                          </b-popover>                                                    
+                        </td>
+                      </tr>                     
+                      <tr >
+                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;color:red;">
+                          <span class="kt-badge kt-badge--inline text-white" style='font-size:20px;' :class="colorValorizacionSalud">Riesgo {{valorizacionSalud}}</span>
+                        </td>
+                      </tr>                      
+                    </tbody>                    
+                  </table>
+                </div>
+              </div>              
+              <!-- <div class="col-md-2">
+                <div class="table-responsive">
+                  <table class="table table-sm table-hover">
+                      <thead>
+                          <tr class="kt-bg-fill-brand">
+                              <th colspan='2' style="vertical-align: middle; text-align: center;">Riesgo Inherente</th>
+                          </tr>
+                      </thead> 
+                      <tbody>
+                          <tr>
+                              <td style="font-weight: bold;vertical-align: middle;text-align: center;" v-if="opci_AM_DE==1">
+                                  <table class="table table-sm table-hover">
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 3</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">3 >= 7</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">7 >= 10</td>
+                                      </tr>                
+                                  </table>              
+                              </td>
+                              <td style="font-weight: bold;vertical-align: middle;text-align: center;" v-else >
+                                  <table class="table table-sm table-hover">
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 5</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">5 >= 15</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">15 >= 25</td>
+                                      </tr>                
+                                  </table>              
+                              </td>                                      
+                              <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                  <table class="table table-sm table-hover">
+                                      <tr>
+                                          <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ total_riesgo_detalles }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                          <span class="kt-badge kt-badge--inline text-white" :class="colorValorizacion">{{ opcionValorizacion }}</span>
+                                        </td>
+                                      </tr>                                                      
+                                  </table>              
+                              </td>
+                          </tr>      
+                      </tbody>
+                  </table>
+                </div>                    
+              </div> -->
+            </div>
+            <!-- <div class="" v-else>
+              <div class="form-group row">
+                <div class="col-md-2">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                          <tr class="kt-bg-fill-brand">
+                              <th style="vertical-align: middle; text-align: center;">R. Inherente</th>
+                          </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>                                      
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+                                <tr>                                  
+                                  <td>
+                                    <b-button
+                                      style='border: none;'
+                                      title="Valorización"
+                                      id="popover-1"
+                                    >                                      
+                                      <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                        {{ datosControlesAmbientales.riesgo_inherente }}
+                                      </span>
+                                    </b-button>
+                                    <b-popover target="popover-1" triggers="hover focus" v-if="datosControlesAmbientales.opci_AM_DE_CON==1">
+                                      <template #title>Valorización del Riesgo</template>
+                                      <table class="table table-sm table-hover">
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 3</td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 1</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">3 >= 7 </td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 2</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">7 >= 10</td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 3</td>
+                                          </tr>                
+                                      </table>
+                                    </b-popover>
+                                    <b-popover target="popover-1" triggers="hover focus" v-else>
+                                      <template #title>Valorización del Riesgo</template>
+                                      <table class="table table-sm table-hover">
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">1 - 5 </td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 1</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">5 >= 15 </td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 2</td>
+                                          </tr>
+                                          <tr>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">15 >= 25</td>
+                                              <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> 3</td>
+                                          </tr>                
+                                      </table>
+                                    </b-popover>                                                                    
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                    <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.color_riesgo_inherente">{{ datosControlesAmbientales.valorizacion_riesgo_inherente }}</span>
+                                  </td>
+                                </tr>                                                      
+                              </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>
+                <div class="col-md-10">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover" >
+                      <thead class>
+                        <tr class="kt-bg-fill-brand">
+                          <th>Controles</th>
+                          <th style="vertical-align: middle;text-align: center;">Tipo</th>
+                          <th style="vertical-align: middle;text-align: center;">Peridiocidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="item in RI_AM_DE_CON" :value="item.value" :key="item.value">
+                          <td style="font-weight: normal;vertical-align: middle;text-align: left;text-transform:capitalize;">{{ item.controles }}</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">{{ item.tipo }}</td>
+                          <td style="font-weight: normal;vertical-align: middle;text-align: center;">{{ item.peridiocidad }}</td>
+                        </tr>
+                        <tr>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: right;text-transform:capitalize;" colspan="1"></td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;" colspan="1">Prom.</td>
+                          <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;" colspan="1">
+                            <b-button
+                              style='border: none;'
+                              title="Valorización"
+                              id="popover-2"
+                            >                                      
+                              <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                {{ Math.floor(datosControlesAmbientales.mediaRiesgos * 10)/10 }}
+                              </span>
+                            </b-button>                            
+                            <b-popover target="popover-2" triggers="hover focus">
+                              <template #title>Valores</template>
+                              <table class="table table-sm table-hover">
+                                  <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"></td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Suma</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  </tr>                                
+                                  <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media del Tipo de Control</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ datosControlesAmbientales.sumaTipo }}</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ datosControlesAmbientales.mediaTipo }}</td>
+                                  </tr>
+                                  <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media de la Peridiocidad del Control</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ Math.floor(datosControlesAmbientales.sumaPerid * 10)/10 }}</td>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">{{ Math.floor(datosControlesAmbientales.mediaPerid * 10)/10 }}</td>
+                                  </tr>               
+                              </table>
+                            </b-popover>                            
+                          </td>                            
+                        </tr>                      
+                      </tbody>                     
+                    </table>  
+                  </div>  
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr class="kt-bg-fill-brand">
+                                <th colspan='2' style="vertical-align: middle; text-align: center;">Eficacia del Control</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Inexistente</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 0 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Baja</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 3 > 4 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 4 > 9 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Alta</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 9 > </td>
+                                </tr>                                              
+                              </table>              
+                            </td>                                    
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                <table class="table table-sm table-hover">
+                                    <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ Math.floor(datosControlesAmbientales.mediaRiesgos * 10)/10 }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                        <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.c_eficaciaControl">{{ datosControlesAmbientales.eficaciaControl }}</span>
+                                      </td>
+                                    </tr>                                                      
+                                </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>
+
+                <div class="col-md-4">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr class="kt-bg-fill-brand">
+                                <th colspan='2' style="vertical-align: middle; text-align: center;">Valorización del Control</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Inexistente</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 0 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Baja</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 1 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 2 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Alta</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 3 </td>
+                                </tr>                                              
+                              </table>              
+                            </td>                                    
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                <table class="table table-sm table-hover">
+                                    <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">{{ datosControlesAmbientales.v_valorizacionControl }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                        <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.c_eficaciaControl">{{ datosControlesAmbientales.eficaciaControl }}</span>
+                                      </td>
+                                    </tr>                                                      
+                                </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>
+
+                <div class="col-md-4">
+                  <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr class="kt-bg-fill-brand">
+                                <th colspan='2' style="vertical-align: middle; text-align: center;">Riesgo Residual</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                          <tr>
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                              <table class="table table-sm table-hover">
+
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Baja</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 0 - 1 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Media</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 1 >= 2 </td>
+                                </tr>
+                                <tr>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Alta</td>
+                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;"> 2 >= 3 </td>
+                                </tr>                                              
+                              </table>              
+                            </td>                                    
+                            <td style="font-weight: bold;vertical-align: middle;text-align: center;">
+                                <table class="table table-sm table-hover">
+                                    <tr>
+                                        <td style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                        <b-button
+                                          style='border: none;'
+                                          title="Valorización"
+                                          id="popover-3"
+                                        >                                      
+                                          <span style="font-weight: bold;vertical-align: middle;text-align: center;color: red;font-size: 22px;">
+                                            {{ datosControlesAmbientales.riesgoResidual }}
+                                          </span>
+                                        </b-button>
+                                        <b-popover target="popover-3" triggers="hover focus">
+                                          <template #title>Riesgo Residual</template>
+                                          <table class="table table-sm table-hover">
+                                              <tr>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Valorización del Riesgo Inherente</td>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> {{ datosControlesAmbientales.valoracion_riesgo_inherente }}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td colspan='2' style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;">÷</td>
+                                              </tr>                                              
+                                              <tr>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Valorización del Control </td>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> {{ datosControlesAmbientales.v_valorizacionControl }}</td>
+                                              </tr>
+                                              <tr>
+                                                  <td colspan='2' style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> = </td>
+                                              </tr>                                              
+                                              <tr>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;">Riesgo Residual</td>
+                                                  <td style="font-weight: bold;vertical-align: middle;text-align: center;border: 1px #000 solid;color: red;"> {{ datosControlesAmbientales.riesgoResidual }}</td>
+                                              </tr>                
+                                          </table>
+                                        </b-popover>                                          
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                      <td style="font-weight: bold;vertical-align: middle;text-align: center;text-transform:capitalize;">
+                                        <span class="kt-badge kt-badge--inline text-white" :class="datosControlesAmbientales.colorOpcionValorizacion">{{ datosControlesAmbientales.opcionValorizacion }}</span>
+                                      </td>
+                                    </tr>                                                      
+                                </table>              
+                            </td>
+                          </tr>      
+                        </tbody>
+                    </table>
+                  </div>                    
+                </div>                                              
+              </div>  
+            </div>   -->
+            <div class="text-right">
+              <button type="button" class="btn btn-warning" @click="cerrarModalDetSal">
+                <i class="fa fa-window-close"></i> Cerrar
+              </button>               
+            </div>                         
+          </div>     
+        </b-modal>        
+        <!--begin::Modal DETALLES SALUD-->                   
       </div>
     </div>
   </div>
@@ -23176,7 +23899,10 @@
           mediaRiesgos: 0,
           eficaciaControl: "",
           c_eficaciaControl: "",
-          v_valorizacionControl: 0
+          v_valorizacionControl: 0,
+          mediaTipo: 0,
+          mediaPerid: 0,
+          valoracion_riesgo_inherente: 0
         },
 
         banderaControles1: true,
@@ -23963,7 +24689,27 @@
           
         },
 
-        textoDetalleAmbiental: ""                       
+        textoDetalleAmbiental: "",
+        
+        textoDetalleSalud: "",
+        detalleSalud: true,
+        RI_SA_DE: [],
+        opci_SA_DE: 0,
+        total_riesgo_detalles_salud: 0,
+        opcionValorizacionSalud: "",        
+        colorValorizacionSalud: "",
+        probabilidadSalud: 0,
+        impactoRieSalud: 0,
+        riesgoInherenteSalud: 0,
+        valorizacionSalud: "",
+        valorValorizacionSalud: "",
+        opcionTablaSalud: 0,
+        valorSeleccionadoSalud: 0,
+        
+        comodin1: "<",
+        comodin2: "<=",
+        comodin3: ">",
+        comodin4: ">=",        
       };
     },
     validations: {
@@ -24260,8 +25006,7 @@
               "error"
             );
             return;
-          });        
-
+          });
       },
       detalleControlAmbiental: async function(opcion) {
 
@@ -24348,7 +25093,9 @@
           .then(respuesta => {
             this.RI_AM_DE_CON = respuesta.data.RI_AM_DE_CON;
 
-            this.datosControlesAmbientales = respuesta.data.datos;          
+            this.datosControlesAmbientales = respuesta.data.datos;
+            dd(this.datosControlesAmbientales);
+            // this.datosControlesAmbientales.popoverHtml.replace(/\n/g, "<br>");
             // this.total_riesgo_detalles = respuesta.data.total_riesgo_detalles;
             // this.opcionTablaAmbiental = respuesta.data.opcionTablaAmbiental;
             // this.opci_AM_DE = respuesta.data.opci_AM_DE
@@ -24365,9 +25112,95 @@
             return;
           });         
       },
+      detalleRiesgoSalud: async function(opcion,ciclo,identificacion){
+        console.log(opcion);
+        this.$refs.modalDetSal.show();
+        this.detalleSalud = true;
+        switch (opcion) {
+          case 'SaBu':
+            this.textoDetalleSalud = "Detalle Riesgos de Derrumbes";
+            break;
+          case 'Ca':
+            this.textoDetalleSalud = "Detalle Cancer";
+            break;
+          case 'AlTrVi':
+            this.textoDetalleSalud = "Detalle Alteraciones y Transtornos Visuales";
+            break;
+          case 'AlTrAuCo':
+            this.textoDetalleSalud = "Detalle Alteraciones y Transtornos de la Audición y Comunicación";
+            break;
+          case 'Vi':
+            this.textoDetalleSalud = "Detalle Violencias";
+            break;
+          case 'EnZo':
+            this.textoDetalleSalud = "Detalle Enfermedades Zoonoticas";
+            break;
+          case 'CoSp':
+            this.textoDetalleSalud = "Detalle Consumo de SPA";
+            break;
+          case 'RiDeDe':
+            this.textoDetalleSalud = "Detalle Riesgo de Delgadez";
+            break;
+          case 'EnIn':
+            this.textoDetalleSalud = "Detalle Enfermedades Infeccisosas";
+            break;            
+          case 'TrAsSPA':
+            this.textoDetalleSalud = "Detalle Trastornos Asociados al uso de SPA";
+            break;
+          case 'EnCaAt':
+            this.textoDetalleSalud = "Detalle Enfermedad Cardiovascular Aterogénica";
+            break;
+          case 'PrSaMe':
+            this.textoDetalleSalud = "Detalle Problemas en salud mental";
+            break;
+          case 'EnReCr':
+            this.textoDetalleSalud = "Detalle Enfermedades Respiratorias crónicas";
+            break;
+          case 'TrDeNeEnAu':
+            this.textoDetalleSalud = "Detalle Trastornos Degenerativos, Neuropatías y Enfermedades Autoinmunes";
+            break;
+        }
+        const parametros = {
+          _token: this.csrf,
+          opcion: opcion,
+          id_hogar: this.IDHOGAR,
+          ciclo: ciclo,
+          identificacion: identificacion
+        };
+                
+        await caracterizacionServicios
+          .DetallesSalud(parametros)
+          .then(respuesta => {
+            this.RI_SA_DE = respuesta.data.RI_SA_DE;
+            this.total_riesgo_detalles_salud = respuesta.data.total_riesgo_detalles_salud;
+            this.opcionValorizacionSalud = respuesta.data.opcionValorizacionSalud;
+            this.colorValorizacionSalud = respuesta.data.colorValorizacionSalud;
+            this.opci_SA_DE = respuesta.data.opci_SA_DE;
+            this.probabilidadSalud = respuesta.data.probabilidad;
+            this.impactoRieSalud = respuesta.data.impactoRieSalud;
+            this.riesgoInherenteSalud = respuesta.data.riesgoInherente;
+            this.valorizacionSalud = respuesta.data.valorizacionSalud;
+            this.valorValorizacionSalud = respuesta.data.valorValorizacionSalud;
+            this.opcionTablaSalud = respuesta.data.opcionTablaSalud;
+            this.valorSeleccionadoSalud = respuesta.data.valorSeleccionadoSalud;    
+          })
+          .catch(error => {
+            this.errorDevuelto = error.response.data.errors;
+            this.entrarPorError = true;
+            this.$swal(
+              "Error...!",
+              "No se pudo acceder a la información",
+              "error"
+            );
+            return;
+          });                
+      },
       cerrarModalDetAmb(){
         this.$refs.modalDetAmb.hide();
-      },     
+      },
+      cerrarModalDetSal(){
+        this.$refs.modalDetSal.hide();
+      },    
       onCancel() {
         // this.isLoading = true;
         // // simulate AJAX
@@ -24376,7 +25209,6 @@
         // },5000)
       },
       nuevo: async function(id_hogar) {
-
         const parametros = {
           _token: this.csrf,
           id_hogar: id_hogar
@@ -25521,7 +26353,10 @@
                     if(respuesta.data.riesgos_salud_de29a59 !== null){
                       this.datosRSDE29A59 = respuesta.data.riesgos_salud_de29a59;
                     }
-                    this.vectorAuxRSDE29A59 = [];                    
+                    this.vectorAuxRSDE29A59 = [];
+
+                    // console.log(respuesta.data.RI_SA_1828_DE);
+                   
                     this.$refs.modalRieSal2.show();
                   }
                 })
@@ -25807,8 +26642,7 @@
           }else{
             return false;
           }
-        }
-        console.log(this.De12A17);        
+        }    
         valid = await this.validarVolver("De12A17");
         if(valid ===  false){
           return false;
@@ -43720,7 +44554,7 @@
             return;
           });        
       },
-      mostrarRiesgoSalDe18a28(index){
+      mostrarRiesgoSalDe18a28(index,identificacion){
         this.indiceRSDE18A28 = index;
         this.vectorAuxRSDE18A28 = [];
         
@@ -43734,6 +44568,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_infecciosas_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_infecciosas_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_infecciosas_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43746,6 +44582,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["transtornos_asociados_spa_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_transtornos_asociados_spa_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_transtornos_asociados_spa_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
 
         this.vectorAuxRSDE18A28.push({
@@ -43758,6 +44596,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedad_cardiovascular_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedad_cardiovascular_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedad_cardiovascular_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43770,6 +44610,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["cancer_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_cancer_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_cancer_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43782,6 +44624,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["alteraciones_transtornos_visuales_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_alteraciones_transtornos_visuales_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_alteraciones_transtornos_visuales_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43794,6 +44638,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["alteraciones_transtornos_audicion_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_alteraciones_transtornos_audicion_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_alteraciones_transtornos_audicion_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43806,6 +44652,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["salud_bucal_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_salud_bucal_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_salud_bucal_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43818,6 +44666,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["problemas_salud_mental_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_problemas_salud_mental_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_problemas_salud_mental_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43830,6 +44680,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["violencias_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_violencias_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_violencias_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43842,6 +44694,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_respiratorias_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_respiratorias_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_respiratorias_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43854,6 +44708,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["enfermedades_zoonoticas_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_enfermedades_zoonoticas_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_enfermedades_zoonoticas_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43866,6 +44722,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["transtornos_degenartivos_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_transtornos_degenartivos_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_transtornos_degenartivos_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43878,6 +44736,8 @@
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["consumo_spa_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_consumo_spa_R"],
           color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_consumo_spa_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,
         });
         
         this.vectorAuxRSDE18A28.push({
@@ -43889,7 +44749,9 @@
           id: this.datosRSDE18A28[this.indiceRSDE18A28]["id_inte"],
           riesgo_r: this.datosRSDE18A28[this.indiceRSDE18A28]["riesgo_delgadez_R"],
           valor_r: this.datosRSDE18A28[this.indiceRSDE18A28]["v_riesgo_delgadez_R"],
-          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_riesgo_delgadez_R"],          
+          color_r: this.datosRSDE18A28[this.indiceRSDE18A28]["c_riesgo_delgadez_R"],
+          ciclo: "De18A28",
+          identificacion: identificacion,       
         });      
 
         this.vectorAuxRSDE18A28.sort(function(x, y) {

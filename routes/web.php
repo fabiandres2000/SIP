@@ -178,3 +178,5 @@ Route::post('/usuarios/guardarPerfil', 'UsuarioController@guardarPerfil');
 
 Route::post('/caracterizacion/DetallesAmbiental', 'CaracterizacionController@DetallesAmbiental');
 Route::post('/caracterizacion/DetallesControlAmbiental', 'CaracterizacionController@DetallesControlAmbiental');
+
+Route::post('/caracterizacion/DetallesSalud', 'CaracterizacionController@DetallesSalud');

@@ -63,3 +63,7 @@ export function DetallesAmbiental($data) {
 export function DetallesControlAmbiental($data) {
     return http().post('/caracterizacion/DetallesControlAmbiental', $data);
 }
+
+export function DetallesSalud($data) {
+    return http().post('/caracterizacion/DetallesSalud', $data);
+}
