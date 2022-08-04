@@ -1,1 +1,2009 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[45],{341:function(s,i,t){var a=t(511);"string"==typeof a&&(a=[[s.i,a,""]]);var e={hmr:!0,transform:void 0,insertInto:void 0};t(12)(a,e);a.locals&&(s.exports=a.locals)},510:function(s,i,t){"use strict";t(341)},511:function(s,i,t){(s.exports=t(11)(!1)).push([s.i,"\n.modal-backdrop {\n    background-color: rgba(0, 0, 0, 0.5) !important;\n}\n.modal-title {\n    color: #f8f9fa !important;\n}\n.close {\n    display: none;\n}\n",""])},655:function(s,i,t){"use strict";t.r(i);var a=t(1),e=t.n(a),o=t(4);function r(s,i){var t=Object.keys(s);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(s);i&&(a=a.filter((function(i){return Object.getOwnPropertyDescriptor(s,i).enumerable}))),t.push.apply(t,a)}return t}function l(s){for(var i=1;i<arguments.length;i++){var t=null!=arguments[i]?arguments[i]:{};i%2?r(Object(t),!0).forEach((function(i){n(s,i,t[i])})):Object.getOwnPropertyDescriptors?Object.defineProperties(s,Object.getOwnPropertyDescriptors(t)):r(Object(t)).forEach((function(i){Object.defineProperty(s,i,Object.getOwnPropertyDescriptor(t,i))}))}return s}function n(s,i,t){return i in s?Object.defineProperty(s,i,{value:t,enumerable:!0,configurable:!0,writable:!0}):s[i]=t,s}function c(s,i,t,a,e,o,r){try{var l=s[o](r),n=l.value}catch(s){return void t(s)}l.done?i(n):Promise.resolve(n).then(a,e)}function u(s){return function(){var i=this,t=arguments;return new Promise((function(a,e){var o=s.apply(i,t);function r(s){c(o,a,e,r,l,"next",s)}function l(s){c(o,a,e,r,l,"throw",s)}r(void 0)}))}}var v,d,p,m,_,h={mounted:function(){this.consultar(1)},name:"usuarios",data:function(){return{errores:[],usuarios:[],entes:[],errorDevuelto:[],entrarPorError:!1,txtbusqueda:"",opciones:["Administrador","Promotor","Usuario"],roles:[{texto:"Administrador",value:"Administrador"},{texto:"Coordinador",value:"Coordinador"},{texto:"Promotor",value:"Promotor"},{texto:"General",value:"General"},{texto:"Soporte",value:"Soporte"}],usuariosData:{id:0,identificacion:"",nombre:"",email:"",password:"",confPassword:"",rol:"usuario",usuario:"",estado:"",celular:"",direccion:"",id_compania:0},permisos:{usuarios:"",barrios:"",corregimientos:"",etnias:"",ocupaciones:"",parentescos:"",estado_civil:"",escolaridad:"",veredas:"",morbilidad_ges:"",morbilidad_nac:"",metodos:"",motivos:"",grupos:"",enfermedades_cro:"",enfermedades_inf:"",religion:"",colegios:"",actividades_economicas:"",gestion:"",consulta_integrante:"",consulta_vivienda:"",indicadores_gestantes:"",indicadores_spa:"",dashboard:"",rol:"",id_ente:"",id:0,id_actual:0,estado:""},csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),headerTextVariant:"light",mostrar:!0,paginacion:{total:0,pagina_actual:0,por_pagina:0,ultima_pagina:0,desde:0,hasta:0},offset:4,opc:"G"}},computed:{identiError:function(){var s=this.usuariosData.identificacion.trim();return""==s?"El campo es obligatorio":s.length<6?"Por favor escriba una identificación mayor a 6 caracteres":void 0},identiClases:function(){return[{"is-invalid":this.identiError,"is-valid":!this.identiError}]},nameError:function(){var s=this.usuariosData.nombre.trim();return""==s?"El campo es obligatorio":s.length<5?"Por favor escribe un nombre mayor a 5 caracteres":void 0},nameClases:function(){return[{"is-invalid":this.nameError,"is-valid":!this.nameError}]},emailError:function(){var s=this.usuariosData.email.trim();return""==s?"El campo es obligatorio":this.validEmail(s)?void 0:"El correo electrónico debe ser válido."},emailClases:function(){return[{"is-invalid":this.emailError,"is-valid":!this.emailError}]},rolError:function(){if(""==this.permisos.rol)return"El campo es obligatorio"},rolClases:function(){return[{"is-invalid":this.rolError,"is-valid":!this.rolError}]},celError:function(){if(""==this.usuariosData.celular)return"El campo es obligatorio"},celClases:function(){return[{"is-invalid":this.celError,"is-valid":!this.celError}]},dirError:function(){if(""==this.usuariosData.direccion)return!0},dirClases:function(){return[{"":this.dirError,"is-valid":!this.dirError}]},usuError:function(){var s=this.usuariosData.usuario.trim();return""==s?"El campo es obligatorio":s.length<5?"Por favor escriba un usuario mayor a 5 caracteres":void 0},usuClases:function(){return[{"is-invalid":this.usuError,"is-valid":!this.usuError}]},pasError:function(){var s=this.usuariosData.password.trim();return""==s?"El campo es obligatorio":s.length<5?"Por favor escriba una Contraseña mayor a 5 caracteres":void 0},pasClases:function(){return[{"is-invalid":this.pasError,"is-valid":!this.pasError}]},conError:function(){var s=this.usuariosData.confPassword.trim();return""==s?"El campo es obligatorio":s!=this.usuariosData.password?"Las contraseñas no coinciden":void 0},conClases:function(){return[{"is-invalid":this.conError,"is-valid":!this.conError}]},enteError:function(){if(""==this.permisos.id_ente)return"El campo es obligatorio"},enteClases:function(){return[{"is-invalid":this.enteError,"is-valid":!this.enteError}]},filtrarUsuarios:function(){var s=this;return this.usuarios.filter((function(i){return i.nombre.toLowerCase().includes(s.txtbusqueda.toLowerCase())+i.rol.toLowerCase().includes(s.txtbusqueda.toLowerCase())+i.email.toLowerCase().includes(s.txtbusqueda.toLowerCase())+i.usuario.toLowerCase().includes(s.txtbusqueda.toLowerCase())+i.identificacion.toLowerCase().includes(s.txtbusqueda.toLowerCase())}))},esActivo:function(){return this.paginacion.pagina_actual},numeroDePaginas:function(){if(!this.paginacion.hasta)return[];var s=this.paginacion.pagina_actual-this.offset;s<1&&(s=1);var i=s+2*this.offset;i>=this.paginacion.ultima_pagina&&(i=this.paginacion.ultima_pagina);for(var t=[];s<=i;)t.push(s),s++;return t}},methods:{consultar:(_=u(e.a.mark((function s(i){var t,a=this;return e.a.wrap((function(s){for(;;)switch(s.prev=s.next){case 0:return t={txtbusqueda:this.txtbusqueda.trim(),_token:this.csrf,page:i},s.prev=1,s.next=4,o.l(t).then((function(s){a.usuarios=s.data.usuarios.data,a.paginacion=s.data.paginacion,a.entes=s.data.entes}));case 4:s.next=17;break;case 6:s.prev=6,s.t0=s.catch(1),s.t1=s.t0.response.status,s.next=419===s.t1?11:422===s.t1?13:15;break;case 11:case 13:case 15:return this.$swal("Error...!","Ocurrio un error!","error"),s.abrupt("break",17);case 17:case"end":return s.stop()}}),s,this,[[1,6]])}))),function(s){return _.apply(this,arguments)}),abrirModal:function(){this.errores=[],this.entrarPorError=!1,this.opc="G",this.$refs.modalUsuario.show()},cerrarModal:function(){this.limpiar(),this.$refs.modalUsuario.hide()},cambiarRol:function(s){if("Crear"==s)switch(this.permisos.rol){case"Administrador":this.permisos.usuarios="T",this.permisos.barrios="T",this.permisos.corregimientos="T",this.permisos.etnias="T",this.permisos.ocupaciones="T",this.permisos.parentescos="T",this.permisos.estado_civil="T",this.permisos.escolaridad="T",this.permisos.veredas="T",this.permisos.morbilidad_ges="T",this.permisos.morbilidad_nac="T",this.permisos.metodos="T",this.permisos.motivos="T",this.permisos.grupos="T",this.permisos.enfermedades_cro="T",this.permisos.enfermedades_inf="T",this.permisos.religion="T",this.permisos.colegios="T",this.permisos.actividades_economicas="T",this.permisos.gestion="T",this.permisos.consulta_integrante="T",this.permisos.consulta_vivienda="T",this.permisos.indicadores_gestantes="T",this.permisos.indicadores_spa="T",this.permisos.dashboard="T";break;case"Coordinador":this.permisos.usuarios="S",this.permisos.barrios="S",this.permisos.corregimientos="S",this.permisos.etnias="S",this.permisos.ocupaciones="S",this.permisos.parentescos="S",this.permisos.estado_civil="S",this.permisos.escolaridad="S",this.permisos.veredas="S",this.permisos.morbilidad_ges="S",this.permisos.morbilidad_nac="S",this.permisos.metodos="S",this.permisos.motivos="S",this.permisos.grupos="S",this.permisos.enfermedades_cro="S",this.permisos.enfermedades_inf="S",this.permisos.religion="S",this.permisos.colegios="S",this.permisos.actividades_economicas="S",this.permisos.gestion="E",this.permisos.consulta_integrante="T",this.permisos.consulta_vivienda="T",this.permisos.indicadores_gestantes="T",this.permisos.indicadores_spa="T",this.permisos.dashboard="T";break;case"Promotor":this.permisos.usuarios="S",this.permisos.barrios="S",this.permisos.corregimientos="S",this.permisos.etnias="S",this.permisos.ocupaciones="S",this.permisos.parentescos="S",this.permisos.estado_civil="S",this.permisos.escolaridad="S",this.permisos.veredas="S",this.permisos.morbilidad_ges="S",this.permisos.morbilidad_nac="S",this.permisos.metodos="S",this.permisos.motivos="S",this.permisos.grupos="S",this.permisos.enfermedades_cro="S",this.permisos.enfermedades_inf="S",this.permisos.religion="S",this.permisos.colegios="S",this.permisos.actividades_economicas="S",this.permisos.gestion="C",this.permisos.consulta_integrante="S",this.permisos.consulta_vivienda="S",this.permisos.indicadores_gestantes="S",this.permisos.indicadores_spa="S",this.permisos.dashboard="S";break;case"General":this.permisos.usuarios="S",this.permisos.barrios="S",this.permisos.corregimientos="S",this.permisos.etnias="S",this.permisos.ocupaciones="S",this.permisos.parentescos="S",this.permisos.estado_civil="S",this.permisos.escolaridad="S",this.permisos.veredas="S",this.permisos.morbilidad_ges="S",this.permisos.morbilidad_nac="S",this.permisos.metodos="S",this.permisos.motivos="S",this.permisos.grupos="S",this.permisos.enfermedades_cro="S",this.permisos.enfermedades_inf="S",this.permisos.religion="S",this.permisos.colegios="S",this.permisos.actividades_economicas="S",this.permisos.gestion="S",this.permisos.consulta_integrante="S",this.permisos.consulta_vivienda="S",this.permisos.indicadores_gestantes="S",this.permisos.indicadores_spa="S",this.permisos.dashboard="T";break;case"Soporte":this.permisos.usuarios="T",this.permisos.barrios="T",this.permisos.corregimientos="T",this.permisos.etnias="T",this.permisos.ocupaciones="T",this.permisos.parentescos="T",this.permisos.estado_civil="T",this.permisos.escolaridad="T",this.permisos.veredas="T",this.permisos.morbilidad_ges="T",this.permisos.morbilidad_nac="T",this.permisos.metodos="T",this.permisos.motivos="T",this.permisos.grupos="T",this.permisos.enfermedades_cro="T",this.permisos.enfermedades_inf="T",this.permisos.religion="T",this.permisos.colegios="T",this.permisos.actividades_economicas="T",this.permisos.gestion="T",this.permisos.consulta_integrante="T",this.permisos.consulta_vivienda="T",this.permisos.indicadores_gestantes="T",this.permisos.indicadores_spa="T",this.permisos.dashboard="T";break;default:this.permisos.usuarios="S",this.permisos.barrios="S",this.permisos.corregimientos="S",this.permisos.etnias="S",this.permisos.ocupaciones="S",this.permisos.parentescos="S",this.permisos.estado_civil="S",this.permisos.escolaridad="S",this.permisos.veredas="S",this.permisos.morbilidad_ges="S",this.permisos.morbilidad_nac="S",this.permisos.metodos="S",this.permisos.motivos="S",this.permisos.grupos="S",this.permisos.enfermedades_cro="S",this.permisos.enfermedades_inf="S",this.permisos.religion="S",this.permisos.colegios="S",this.permisos.actividades_economicas="S",this.permisos.gestion="S",this.permisos.consulta_integrante="S",this.permisos.consulta_vivienda="S",this.permisos.indicadores_gestantes="S",this.permisos.indicadores_spa="S",this.permisos.dashboard="L"}},limpiar:function(){this.opc="G",this.usuariosData.id=0,this.usuariosData.identificacion="",this.usuariosData.nombre="",this.usuariosData.email="",this.usuariosData.rol="",this.usuariosData.celular="",this.usuariosData.direccion="",this.usuariosData.usuario="",this.usuariosData.password="",this.usuariosData.confPassword="",this.permisos.usuarios="",this.permisos.barrios="",this.permisos.corregimientos="",this.permisos.etnias="",this.permisos.ocupaciones="",this.permisos.parentescos="",this.permisos.estado_civil="",this.permisos.escolaridad="",this.permisos.veredas="",this.permisos.morbilidad_ges="",this.permisos.morbilidad_nac="",this.permisos.metodos="",this.permisos.motivos="",this.permisos.grupos="",this.permisos.enfermedades_cro="",this.permisos.enfermedades_inf="",this.permisos.religion="",this.permisos.colegios="",this.permisos.actividades_economicas="",this.permisos.gestion="",this.permisos.consulta_integrante="",this.permisos.consulta_vivienda="",this.permisos.indicadores_gestantes="",this.permisos.indicadores_spa="",this.permisos.dashboard="",this.permisos.id=0,this.permisos.id_ente=""},eliminar:(m=u(e.a.mark((function s(i){var t,a,r=this;return e.a.wrap((function(s){for(;;)switch(s.prev=s.next){case 0:t="",a="","Activo"==i.permi.estado?(t="¿Desea anular el usuario "+i.nombre+"?",a="Usuario "+i.nombre+" anulado de manera exitosa"):(t="¿Desea activar el usuario "+i.nombre+"?",a="Usuario "+i.nombre+" activado de manera exitosa"),this.$swal({title:t,text:"",icon:"warning",showCancelButton:!0,confirmButtonColor:"#3085d6",cancelButtonColor:"#d33",confirmButtonText:"Aceptar",cancelButtonText:"Cancelar"}).then((function(s){if(s.value){var t={_token:r.csrf,usuario:i};try{o.f(t).then((function(s){r.consultar(1),r.$swal({position:"top-end",icon:"success",title:a,showConfirmButton:!1,timer:2e3})})).catch((function(s){r.$swal("Error...!","Ocurrio un error!","error")}))}catch(s){switch(s.response.status){case 422:default:r.$swal("Error...!","Ocurrio un error!","error")}}}}));case 4:case"end":return s.stop()}}),s,this)}))),function(s){return m.apply(this,arguments)}),guardarUsuario:(p=u(e.a.mark((function s(){var i,t=this;return e.a.wrap((function(s){for(;;)switch(s.prev=s.next){case 0:if(this.checkForm()){s.next=4;break}this.entrarPorError=!1,s.next=20;break;case 4:return this.errores=[],i={_token:this.csrf,id:this.usuariosData.id,identificacion:this.usuariosData.identificacion,nombre:this.usuariosData.nombre,email:this.usuariosData.email,rol:this.permisos.rol,celular:this.usuariosData.celular,direccion:this.usuariosData.direccion,usuario:this.usuariosData.usuario,password:this.usuariosData.password,confPassword:this.usuariosData.confPassword,permisos:this.permisos},s.prev=6,s.next=9,o.h(i).then((function(s){0==t.usuariosData.id?(t.usuarios.unshift(s.data.usuarios),t.consultar(1),t.cerrarModal(),t.limpiar(),t.$swal("Guardar...!","Datos Guardados Exitosamente!","success")):"EXISTE"===s.data.OPC||"NO"===s.data.OPC?t.$swal("Guardar...!",s.data.MENSAJE,"warning"):(t.consultar(1),t.cerrarModal(),t.limpiar(),t.$swal("Guardar...!","Datos Guardados Exitosamente!","success"))})).catch((function(s){t.errorDevuelto=s.response.data.errors,t.entrarPorError=!0}));case 9:s.next=20;break;case 11:s.prev=11,s.t0=s.catch(6),s.t1=s.t0.response.status,s.next=422===s.t1?16:18;break;case 16:case 18:return this.$swal("Error...!","Ocurrio un error!","error"),s.abrupt("break",20);case 20:case"end":return s.stop()}}),s,this,[[6,11]])}))),function(){return p.apply(this,arguments)}),checkForm:function(s){return this.errores=[],this.usuariosData.identificacion||this.errores.push("La identificación es obligatoria."),this.usuariosData.identificacion.length<6&&this.errores.push("Por favor escriba una identificación mayor a 6 caracteres"),this.usuariosData.nombre||this.errores.push("El nombre es obligatorio."),this.usuariosData.nombre.length<5&&this.errores.push("Por favor escriba un nombre mayor a 5 caracteres"),this.usuariosData.email?this.validEmail(this.usuariosData.email)||this.errores.push("El correo electrónico debe ser válido."):this.errores.push("El correo electrónico es obligatorio."),this.permisos.rol||this.errores.push("El rol es obligatorio."),this.usuariosData.celular||this.errores.push("El celular es obligatorio."),this.permisos.id_ente||this.errores.push("La entidad es obligatoria."),this.mostrar&&0==this.usuariosData.id&&(this.usuariosData.usuario||this.errores.push("El usuario es obligatorio."),this.usuariosData.usuario.length<5&&this.errores.push("Por favor escriba un usuario mayor a 5 caracteres."),this.usuariosData.password||this.errores.push("La contraseña es obligatoria."),this.usuariosData.confPassword||this.errores.push("Confirmar la contraseña es obligatorio."),this.usuariosData.password!=this.usuariosData.confPassword&&this.errores.push("Las contraseñas no coinciden.")),""==this.permisos.usuarios&&this.errores.push("El permiso usuarios es obligatorio."),""==this.permisos.barrios&&this.errores.push("El permiso barrios es obligatorio."),""==this.permisos.corregimientos&&this.errores.push("El permiso corregimientos es obligatorio."),""==this.permisos.etnias&&this.errores.push("El permiso etnias es obligatorio."),""==this.permisos.ocupaciones&&this.errores.push("El permiso ocupaciones es obligatorio."),""==this.permisos.parentescos&&this.errores.push("El permiso parentescos es obligatorio."),""==this.permisos.estado_civil&&this.errores.push("El permiso estado civil es obligatorio."),""==this.permisos.escolaridad&&this.errores.push("El permiso escolaridad es obligatorio."),""==this.permisos.veredas&&this.errores.push("El permiso veredas es obligatorio."),""==this.permisos.morbilidad_ges&&this.errores.push("El permiso morbilidad en gestación es obligatorio."),""==this.permisos.morbilidad_nac&&this.errores.push("El permiso morbilidad al nacer es obligatorio."),""==this.permisos.metodos&&this.errores.push("El permiso metodos de planificación es obligatorio."),""==this.permisos.motivos&&this.errores.push("El permiso motivos para no planificar es obligatorio."),""==this.permisos.grupos&&this.errores.push("El permiso grupos de ayuda es obligatorio."),""==this.permisos.enfermedades_cro&&this.errores.push("El permiso enfermedades cronicas es obligatorio."),""==this.permisos.enfermedades_inf&&this.errores.push("El permiso enfermedades infecciosas es obligatorio."),""==this.permisos.religion&&this.errores.push("El permiso religión es obligatorio."),""==this.permisos.colegios&&this.errores.push("El permiso colegios es obligatorio."),""==this.permisos.actividades_economicas&&this.errores.push("El permiso actividades economicas es obligatorio."),""==this.permisos.gestion&&this.errores.push("El permiso gestión es obligatorio."),""==this.permisos.consulta_integrante&&this.errores.push("El permiso consulta integrante es obligatorio."),""==this.permisos.consulta_vivienda&&this.errores.push("El permiso consulta vivienda es obligatorio."),""==this.permisos.indicadores_gestantes&&this.errores.push("El permiso indicadores gestantes es obligatorio."),""==this.permisos.indicadores_spa&&this.errores.push("El permiso indicadores spa es obligatorio."),""==this.permisos.dashboard&&this.errores.push("El permiso dashboard es obligatorio."),!this.errores.length},checkForm2:function(s){return this.errores=[],this.usuariosData.identificacion||this.errores.push("La identificación es obligatoria."),this.usuariosData.identificacion.length<6&&this.errores.push("Por favor escriba una identificación mayor a 6 caracteres"),this.usuariosData.nombre||this.errores.push("El nombre es obligatorio."),this.usuariosData.nombre.length<5&&this.errores.push("Por favor escriba un nombre mayor a 5 caracteres"),this.usuariosData.email?this.validEmail(this.usuariosData.email)||this.errores.push("El correo electrónico debe ser válido."):this.errores.push("El correo electrónico es obligatorio."),this.permisos.rol||this.errores.push("El rol es obligatorio."),this.usuariosData.celular||this.errores.push("El celular es obligatorio."),this.usuariosData.usuario||this.errores.push("El usuario es obligatorio."),this.usuariosData.usuario.length<5&&this.errores.push("Por favor escriba un usuario mayor a 5 caracteres."),""==this.permisos.usuarios&&this.errores.push("El permiso usuarios es obligatorio."),""==this.permisos.barrios&&this.errores.push("El permiso barrios es obligatorio."),""==this.permisos.corregimientos&&this.errores.push("El permiso corregimientos es obligatorio."),""==this.permisos.etnias&&this.errores.push("El permiso etnias es obligatorio."),""==this.permisos.ocupaciones&&this.errores.push("El permiso ocupaciones es obligatorio."),""==this.permisos.parentescos&&this.errores.push("El permiso parentescos es obligatorio."),""==this.permisos.estado_civil&&this.errores.push("El permiso estado civil es obligatorio."),""==this.permisos.escolaridad&&this.errores.push("El permiso escolaridad es obligatorio."),""==this.permisos.veredas&&this.errores.push("El permiso veredas es obligatorio."),""==this.permisos.morbilidad_ges&&this.errores.push("El permiso morbilidad en gestación es obligatorio."),""==this.permisos.morbilidad_nac&&this.errores.push("El permiso morbilidad al nacer es obligatorio."),""==this.permisos.metodos&&this.errores.push("El permiso metodos de planificación es obligatorio."),""==this.permisos.motivos&&this.errores.push("El permiso motivos para no planificar es obligatorio."),""==this.permisos.grupos&&this.errores.push("El permiso grupos de ayuda es obligatorio."),""==this.permisos.enfermedades_cro&&this.errores.push("El permiso enfermedades cronicas es obligatorio."),""==this.permisos.enfermedades_inf&&this.errores.push("El permiso enfermedades infecciosas es obligatorio."),""==this.permisos.religion&&this.errores.push("El permiso religión es obligatorio."),""==this.permisos.colegios&&this.errores.push("El permiso colegios es obligatorio."),""==this.permisos.actividades_economicas&&this.errores.push("El permiso actividades economicas es obligatorio."),""==this.permisos.gestion&&this.errores.push("El permiso gestión es obligatorio."),""==this.permisos.consulta_integrante&&this.errores.push("El permiso consulta integrante es obligatorio."),""==this.permisos.consulta_vivienda&&this.errores.push("El permiso consulta vivienda es obligatorio."),""==this.permisos.indicadores_gestantes&&this.errores.push("El permiso indicadores gestantes es obligatorio."),""==this.permisos.indicadores_spa&&this.errores.push("El permiso indicadores spa es obligatorio."),""==this.permisos.dashboard&&this.errores.push("El permiso dashboard es obligatorio."),!this.errores.length},BuscarUsuario:(d=u(e.a.mark((function s(){var i,t=this;return e.a.wrap((function(s){for(;;)switch(s.prev=s.next){case 0:return i={_token:this.csrf,identificacion:this.usuariosData.identificacion},s.next=3,o.a(i).then((function(s){"SI"==s.data.OPC?(t.usuariosData.id=s.data.usuario.id,t.usuariosData.identificacion=s.data.usuario.identificacion,t.usuariosData.nombre=s.data.usuario.nombre,t.usuariosData.email=s.data.usuario.email,t.usuariosData.estado=s.data.usuario.estado,t.usuariosData.usuario=s.data.usuario.usuario,t.usuariosData.celular=s.data.usuario.celular,t.usuariosData.direccion=s.data.usuario.direccion,t.permisos=s.data.usuario.permi[0]):(t.usuariosData.id=0,t.usuariosData.nombre="",t.usuariosData.email="",t.usuariosData.estado="",t.usuariosData.usuario="",t.usuariosData.celular="",t.usuariosData.direccion="")})).catch((function(s){t.errorDevuelto=s.response.data.errors,t.entrarPorError=!0}));case 3:case"end":return s.stop()}}),s,this)}))),function(){return d.apply(this,arguments)}),validEmail:function(s){return/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(s)},editar:function(s){this.usuariosData=l({},s),this.usuariosData.password="",this.usuariosData.confPassword="",this.permisos=l({},s.permi),this.permisos.id_actual=this.permisos.id_ente,this.opc="E",this.$refs.modalUsuario.show()},editarUsuario:(v=u(e.a.mark((function s(){var i,t=this;return e.a.wrap((function(s){for(;;)switch(s.prev=s.next){case 0:if(this.checkForm2()){s.next=4;break}this.entrarPorError=!1,s.next=20;break;case 4:return this.errores=[],i={_token:this.csrf,identificacion:this.usuariosData.identificacion,nombre:this.usuariosData.nombre,email:this.usuariosData.email,rol:this.permisos.rol,celular:this.usuariosData.celular,direccion:this.usuariosData.direccion,id:this.usuariosData.id,usuario:this.usuariosData.usuario,permisos:this.permisos},s.prev=6,s.next=9,o.d(i).then((function(s){t.consultar(1),t.$swal({position:"top-end",icon:"success",title:"Datos Guardados Exitosamente!",showConfirmButton:!1,timer:2e3}),t.cerrarModal()})).catch((function(s){t.errorDevuelto=s.response.data.errors,t.entrarPorError=!0}));case 9:s.next=20;break;case 11:s.prev=11,s.t0=s.catch(6),s.t1=s.t0.response.status,s.next=422===s.t1?16:18;break;case 16:case 18:return this.$swal("Error...!","Ocurrio un error!","error"),s.abrupt("break",20);case 20:case"end":return s.stop()}}),s,this,[[6,11]])}))),function(){return v.apply(this,arguments)})}},g=(t(510),t(2)),b=Object(g.a)(h,(function(){var s=this,i=s.$createElement,t=s._self._c||i;return t("div",[t("div",{staticClass:"kt-portlet",staticStyle:{"margin-top":"-4%"}},[s._m(0),s._v(" "),t("div",{staticClass:"kt-portlet__body"},[t("div",{staticClass:"kt-section"},[t("div",{staticClass:"kt-section__content"},[t("div",{staticClass:"row"},[t("div",{staticClass:"col-md-6 col-lg-6"},[t("div",{staticClass:"kt-section"},[t("div",{staticClass:"kt-section__content"},[t("a",{staticClass:"btn btn-outline-primary btn-icon",attrs:{href:"javascript:;","data-skin":"dark","data-toggle":"kt-tooltip","data-placement":"top",title:"Nuevo Usuario"},on:{click:s.abrirModal}},[t("i",{staticClass:"la la-file-text-o"})]),s._v(" \n                                ")])])]),s._v(" "),t("div",{staticClass:"col-md-6 col-lg-6"},[t("form",{staticClass:"kt-form"},[t("div",{staticClass:"form-group"},[t("div",{staticClass:"input-group"},[t("input",{directives:[{name:"model",rawName:"v-model",value:s.txtbusqueda,expression:"txtbusqueda"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Busqueda"},domProps:{value:s.txtbusqueda},on:{input:function(i){i.target.composing||(s.txtbusqueda=i.target.value)}}}),s._v(" "),t("div",{staticClass:"input-group-append"},[t("button",{staticClass:"btn btn-primary btn-icon",attrs:{type:"button"},on:{click:function(i){return i.preventDefault(),s.consultar(1)}}},[t("i",{staticClass:"fa fa-search"})])])])])])])]),s._v(" "),t("div",{staticClass:"row"},[t("div",{staticClass:"col-md-12"},[t("div",{staticClass:"table-responsive"},[t("table",{staticClass:"table table-sm table-hover"},[s._m(1),s._v(" "),t("tbody",s._l(s.usuarios,(function(i,a){return t("tr",{key:a},[t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle"}},[s._v("\n                                                "+s._s(a+1)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left"}},[s._v("\n                                                "+s._s(i.identificacion)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left","text-transform":"capitalize"}},[s._v("\n                                                "+s._s(i.nombre)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left"}},[s._v("\n                                                "+s._s(i.usuario)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left"}},[s._v("\n                                                "+s._s(""==i.email?"-":i.email)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left"}},[s._v("\n                                                "+s._s(""==i.celular?"-":i.celular)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left"}},[s._v("\n                                                "+s._s(i.permi.rol)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"left"}},[s._v("\n                                                "+s._s(i.entidad)+"\n                                            ")]),s._v(" "),t("td",{staticStyle:{"font-weight":"normal","vertical-align":"middle","text-align":"center"}},[t("span",{staticClass:"kt-badge kt-badge--inline",class:"Activo"==i.permi.estado?"kt-badge--success":"kt-badge--danger"},[s._v(s._s(i.permi.estado))])]),s._v(" "),t("td",{staticStyle:{"text-align":"center","vertical-align":"middle"}},[t("button",{staticClass:"btn btn-outline-info btn-icon btn-sm",attrs:{type:"button",title:"Editar"},on:{click:function(t){return s.editar(i)}}},[t("i",{staticClass:"fa fa-edit"})]),s._v(" "),t("button",{staticClass:"btn btn-icon btn-sm",class:"Activo"==i.permi.estado?"btn-outline-danger":"btn-outline-success",attrs:{type:"button",title:"Activo"==i.permi.estado?"Anular":"Activar"},on:{click:function(t){return s.eliminar(i)}}},[t("i",{staticClass:"fa",class:"Activo"==i.permi.estado?"fa-trash":"fa-check"})])])])})),0)]),s._v(" "),t("div",{staticClass:"kt-separator kt-separator--border-dashed"}),s._v(" "),t("div",{staticClass:"kt-section"},[t("div",{staticClass:"kt-pagination kt-pagination--danger"},[t("ul",{staticClass:"kt-pagination__links"},[s.paginacion.pagina_actual>1?t("li",{staticClass:"kt-pagination__link--first"},[t("a",{attrs:{href:"javascript:;"},on:{click:function(i){return i.preventDefault(),s.cambiarPaginas(1)}}},[t("i",{staticClass:"fa fa-angle-double-left kt-font-danger"})])]):s._e(),s._v(" "),s.paginacion.pagina_actual>1?t("li",{staticClass:"kt-pagination__link--next"},[t("a",{attrs:{href:"javascript:;"},on:{click:function(i){return i.preventDefault(),s.cambiarPaginas(s.paginacion.pagina_actual-1)}}},[t("i",{staticClass:"fa fa-angle-left kt-font-danger"})])]):s._e(),s._v(" "),s._l(s.numeroDePaginas,(function(i,a){return t("li",{key:a,class:[i==s.esActivo?"kt-pagination__link--active":""]},[t("a",{attrs:{href:"javascript:;"},on:{click:function(t){return t.preventDefault(),s.cambiarPaginas(i)}}},[s._v(s._s(i))])])})),s._v(" "),s.paginacion.pagina_actual<s.paginacion.ultima_pagina?t("li",{staticClass:"kt-pagination__link--prev"},[t("a",{attrs:{href:"javascript:;"},on:{click:function(i){return i.preventDefault(),s.cambiarPaginas(s.paginacion.pagina_actual+1)}}},[t("i",{staticClass:"fa fa-angle-right kt-font-danger"})])]):s._e(),s._v(" "),s.paginacion.pagina_actual<s.paginacion.ultima_pagina?t("li",{staticClass:"kt-pagination__link--last"},[t("a",{attrs:{href:"javascript:;"},on:{click:function(i){return i.preventDefault(),s.cambiarPaginas(s.paginacion.ultima_pagina)}}},[t("i",{staticClass:"fa fa-angle-double-right kt-font-danger"})])]):s._e()],2)])])])])])])])]),s._v(" "),t("b-modal",{ref:"modalUsuario",attrs:{"hide-footer":"",title:"Gestion de Usuarios",size:"lg",centered:"","header-bg-variant":"danger","header-text-variant":"light","no-close-on-backdrop":!0}},[t("div",{staticClass:"d-block"},[t("div",{staticClass:"row"},[t("div",{staticClass:"col-lg-12"},[t("transition",{attrs:{duration:1e3,name:"fade"}},[s.entrarPorError?t("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[t("div",{staticClass:"alert-icon"},[t("i",{staticClass:"flaticon-warning"})]),s._v(" "),t("div",{staticClass:"alert-text"},[s._v("\n                                    Por favor, corrija el(los) siguiente(s)\n                                    error(es):\n                                    "),t("hr"),s._v(" "),t("ul",s._l(s.errorDevuelto,(function(i,a){return t("li",{key:a},[s._v("\n                                            "+s._s(i)+"\n                                        ")])})),0)]),s._v(" "),t("div",{staticClass:"alert-close"},[t("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[t("span",{attrs:{"aria-hidden":"true"}},[t("i",{staticClass:"la la-close"})])])])]):s._e()])],1)]),s._v(" "),t("div",{staticClass:"row"},[t("div",{staticClass:"col-lg-12"},[t("transition",{attrs:{duration:1e3,name:"fade"}},[s.errores.length?t("div",{staticClass:"alert alert-warning fade show",attrs:{role:"alert"}},[t("div",{staticClass:"alert-icon"},[t("i",{staticClass:"flaticon-warning"})]),s._v(" "),t("div",{staticClass:"alert-text"},[s._v("\n                                    Por favor, corrija el(los) siguiente(s)\n                                    error(es):\n                                    "),t("hr"),s._v(" "),t("ul",s._l(s.errores,(function(i,a){return t("li",{key:a},[s._v("\n                                            "+s._s(i)+"\n                                        ")])})),0)]),s._v(" "),t("div",{staticClass:"alert-close"},[t("button",{staticClass:"close",attrs:{type:"button","data-dismiss":"alert","aria-label":"Close"}},[t("span",{attrs:{"aria-hidden":"true"}},[t("i",{staticClass:"la la-close"})])])])]):s._e()])],1)]),s._v(" "),t("ul",{staticClass:"nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-success",attrs:{role:"tablist"}},[t("li",{staticClass:"nav-item"},[t("a",{staticClass:"nav-link active",attrs:{"data-toggle":"tab",href:"#tabDP",role:"tab"}},[s._v("Datos Personales")])]),s._v(" "),t("li",{staticClass:"nav-item"},[t("a",{staticClass:"nav-link",attrs:{"data-toggle":"tab",href:"#tabP",role:"tab"}},[s._v("Permisos")])])]),s._v(" "),t("div",{staticClass:"tab-content"},[t("div",{staticClass:"tab-pane active",attrs:{id:"tabDP",role:"tabpanel"}},[t("form",[t("div",{staticClass:"form-group row"},[t("div",{staticClass:"col-lg-3"},[t("label",[s._v("Identificación:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.identificacion,expression:"\n                                            usuariosData.identificacion\n                                        "}],staticClass:"form-control",class:s.identiClases,attrs:{type:"text",placeholder:"Identificación"},domProps:{value:s.usuariosData.identificacion},on:{change:s.BuscarUsuario,input:function(i){i.target.composing||s.$set(s.usuariosData,"identificacion",i.target.value)}}}),s._v(" "),s.identiError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.identiError)+"\n                                    ")]):s._e()]),s._v(" "),t("div",{staticClass:"col-lg-4"},[t("label",[s._v("Nombre:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.nombre,expression:"usuariosData.nombre"}],staticClass:"form-control",class:s.nameClases,staticStyle:{"text-transform":"capitalize"},attrs:{type:"text",placeholder:"Nombre"},domProps:{value:s.usuariosData.nombre},on:{input:function(i){i.target.composing||s.$set(s.usuariosData,"nombre",i.target.value)}}}),s._v(" "),s.nameError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.nameError)+"\n                                    ")]):s._e()]),s._v(" "),t("div",{staticClass:"col-lg-5"},[t("label",[s._v("Email:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.email,expression:"usuariosData.email"}],staticClass:"form-control",class:s.emailClases,attrs:{type:"email",placeholder:"Email"},domProps:{value:s.usuariosData.email},on:{input:function(i){i.target.composing||s.$set(s.usuariosData,"email",i.target.value)}}}),s._v(" "),s.emailError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.emailError)+"\n                                    ")]):s._e()])]),s._v(" "),t("div",{staticClass:"form-group row"},[t("div",{staticClass:"col-lg-4"},[t("label",[s._v("Rol:")]),s._v(" "),t("b-form-select",{class:s.rolClases,on:{change:function(i){return s.cambiarRol("Crear")}},model:{value:s.permisos.rol,callback:function(i){s.$set(s.permisos,"rol",i)},expression:"permisos.rol"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Seleccione")]),s._v(" "),s._l(s.roles,(function(i){return t("option",{key:i.value,domProps:{value:i.value}},[s._v(s._s(i.texto))])}))],2),s._v(" "),s.rolError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.rolError)+"\n                                    ")]):s._e()],1),s._v(" "),t("div",{staticClass:"col-lg-4"},[t("label",[s._v("Celular:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.celular,expression:"usuariosData.celular"}],staticClass:"form-control",class:s.celClases,attrs:{type:"text",placeholder:"Celular"},domProps:{value:s.usuariosData.celular},on:{input:function(i){i.target.composing||s.$set(s.usuariosData,"celular",i.target.value)}}}),s._v(" "),s.celError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.celError)+"\n                                    ")]):s._e()]),s._v(" "),t("div",{staticClass:"col-lg-4"},[t("label",[s._v("Entidad:")]),s._v(" "),t("b-form-select",{class:s.enteClases,model:{value:s.permisos.id_ente,callback:function(i){s.$set(s.permisos,"id_ente",i)},expression:"permisos.id_ente"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Seleccione")]),s._v(" "),s._l(s.entes,(function(i){return t("option",{key:i.id,domProps:{value:i.id}},[s._v(s._s(i.nombre))])}))],2),s._v(" "),s.enteError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.rolError)+"\n                                    ")]):s._e()],1)]),s._v(" "),t("div",{staticClass:"form-group row"},[t("div",{staticClass:"col-lg-12"},[t("label",[s._v("Dirección:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.direccion,expression:"usuariosData.direccion"}],staticClass:"form-control",class:s.dirClases,attrs:{type:"text",placeholder:"Dirección"},domProps:{value:s.usuariosData.direccion},on:{input:function(i){i.target.composing||s.$set(s.usuariosData,"direccion",i.target.value)}}})])]),s._v(" "),t("div",{staticClass:"form-group row"},[t("div",{staticClass:"col-lg-4"},[t("label",[s._v("Usuario:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.usuario,expression:"usuariosData.usuario"}],staticClass:"form-control",class:s.usuClases,attrs:{type:"text",placeholder:"Usuario"},domProps:{value:s.usuariosData.usuario},on:{input:function(i){i.target.composing||s.$set(s.usuariosData,"usuario",i.target.value)}}}),s._v(" "),s.usuError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.usuError)+"\n                                    ")]):s._e()]),s._v(" "),t("div",{directives:[{name:"show",rawName:"v-show",value:0==s.usuariosData.id,expression:"usuariosData.id == 0"}],staticClass:"col-lg-4"},[t("label",[s._v("Contraseña:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.password,expression:"usuariosData.password"}],staticClass:"form-control",class:s.pasClases,attrs:{type:"password",placeholder:"Contraseña"},domProps:{value:s.usuariosData.password},on:{input:function(i){i.target.composing||s.$set(s.usuariosData,"password",i.target.value)}}}),s._v(" "),s.pasError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.pasError)+"\n                                    ")]):s._e()]),s._v(" "),t("div",{directives:[{name:"show",rawName:"v-show",value:0==s.usuariosData.id,expression:"usuariosData.id == 0"}],staticClass:"col-lg-4"},[t("label",[s._v("Repita Contraseña:")]),s._v(" "),t("input",{directives:[{name:"model",rawName:"v-model",value:s.usuariosData.confPassword,expression:"usuariosData.confPassword"}],staticClass:"form-control",class:s.conClases,attrs:{type:"password",placeholder:"Repita Contraseña"},domProps:{value:s.usuariosData.confPassword},on:{input:function(i){i.target.composing||s.$set(s.usuariosData,"confPassword",i.target.value)}}}),s._v(" "),s.conError?t("div",{staticClass:"invalid-feedback"},[s._v("\n                                        "+s._s(s.conError)+"\n                                    ")]):s._e()])]),s._v(" "),t("hr")])]),s._v(" "),t("div",{staticClass:"tab-pane",attrs:{id:"tabP",role:"tabpanel"}},[t("div",{staticClass:"form-group row"},[t("div",{staticClass:"col-lg-12"},[t("div",{staticClass:"kt-section"},[t("div",{staticClass:"kt-section__content kt-section__content--solid"},[t("div",{staticClass:"kt-widget4"},[t("div",{staticClass:"kt-widget4__item"},[t("div",{staticClass:"kt-widget4__pic kt-widget4__pic--icon"},[t("span",{staticClass:"kt-badge kt-badge--warning kt-badge--lg"},[s._v("T")])]),s._v(" "),t("a",{staticClass:"kt-widget4__title",attrs:{href:"#"}},[s._v("\n                                                    Todos\n                                                ")]),s._v(" "),t("div",{staticClass:"kt-widget4__pic kt-widget4__pic--icon"},[t("span",{staticClass:"kt-badge kt-badge--brand kt-badge--lg"},[s._v("S")])]),s._v(" "),t("a",{staticClass:"kt-widget4__title",attrs:{href:"#"}},[s._v("\n                                                    Sin Permisos\n                                                ")]),s._v(" "),t("div",{staticClass:"kt-widget4__pic kt-widget4__pic--icon"},[t("span",{staticClass:"kt-badge kt-badge--danger kt-badge--lg"},[s._v("E")])]),s._v(" "),t("a",{staticClass:"kt-widget4__title",attrs:{href:"#"}},[s._v("\n                                                    Editar\n                                                ")]),s._v(" "),t("div",{staticClass:"kt-widget4__pic kt-widget4__pic--icon"},[t("span",{staticClass:"kt-badge kt-badge--primary kt-badge--lg"},[s._v("C")])]),s._v(" "),t("a",{staticClass:"kt-widget4__title",attrs:{href:"#"}},[s._v("\n                                                    Crear\n                                                ")]),s._v(" "),t("div",{staticClass:"kt-widget4__pic kt-widget4__pic--icon"},[t("span",{staticClass:"kt-badge kt-badge--success kt-badge--lg"},[s._v("L")])]),s._v(" "),t("a",{staticClass:"kt-widget4__title",attrs:{href:"#"}},[s._v("\n                                                    Lectura\n                                                ")])])])])])])]),s._v(" "),t("form",{staticClass:"kt-form"},[t("div",{staticClass:"kt-section kt-section--first"},[t("h3",{staticClass:"kt-section__title"},[s._v("\n                                    1. Parametros:\n                                ")]),s._v(" "),t("div",{staticClass:"kt-section__body"},[t("div",{staticClass:"form-group row"},[t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Barrios:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.barrios?"is-invalid":"is-valid",model:{value:s.permisos.barrios,callback:function(i){s.$set(s.permisos,"barrios",i)},expression:"permisos.barrios"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Usuarios:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.usuarios?"is-invalid":"is-valid",model:{value:s.permisos.usuarios,callback:function(i){s.$set(s.permisos,"usuarios",i)},expression:"permisos.usuarios"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Corregimientos:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.corregimientos?"is-invalid":"is-valid",model:{value:s.permisos.corregimientos,callback:function(i){s.$set(s.permisos,"corregimientos",i)},expression:"\n                                                    permisos.corregimientos\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Etnias:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.etnias?"is-invalid":"is-valid",model:{value:s.permisos.etnias,callback:function(i){s.$set(s.permisos,"etnias",i)},expression:"permisos.etnias"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Ocupaciones:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.ocupaciones?"is-invalid":"is-valid",model:{value:s.permisos.ocupaciones,callback:function(i){s.$set(s.permisos,"ocupaciones",i)},expression:"\n                                                    permisos.ocupaciones\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Parentescos:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.parentescos?"is-invalid":"is-valid",model:{value:s.permisos.parentescos,callback:function(i){s.$set(s.permisos,"parentescos",i)},expression:"\n                                                    permisos.parentescos\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1)]),s._v(" "),t("div",{staticClass:"form-group row"},[t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Estado Civil:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.estado_civil?"is-invalid":"is-valid",model:{value:s.permisos.estado_civil,callback:function(i){s.$set(s.permisos,"estado_civil",i)},expression:"\n                                                    permisos.estado_civil\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Escolaridad:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.escolaridad?"is-invalid":"is-valid",model:{value:s.permisos.escolaridad,callback:function(i){s.$set(s.permisos,"escolaridad",i)},expression:"\n                                                    permisos.escolaridad\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Veredas:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.veredas?"is-invalid":"is-valid",model:{value:s.permisos.veredas,callback:function(i){s.$set(s.permisos,"veredas",i)},expression:"permisos.veredas"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Mor. en Gestación:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.morbilidad_ges?"is-invalid":"is-valid",model:{value:s.permisos.morbilidad_ges,callback:function(i){s.$set(s.permisos,"morbilidad_ges",i)},expression:"\n                                                    permisos.morbilidad_ges\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Mor. al Nacer:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.morbilidad_nac?"is-invalid":"is-valid",model:{value:s.permisos.morbilidad_nac,callback:function(i){s.$set(s.permisos,"morbilidad_nac",i)},expression:"\n                                                    permisos.morbilidad_nac\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Met. Planificación:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.metodos?"is-invalid":"is-valid",model:{value:s.permisos.metodos,callback:function(i){s.$set(s.permisos,"metodos",i)},expression:"permisos.metodos"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1)]),s._v(" "),t("div",{staticClass:"form-group row"},[t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Mot. no Planificación:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.motivos?"is-invalid":"is-valid",model:{value:s.permisos.motivos,callback:function(i){s.$set(s.permisos,"motivos",i)},expression:"permisos.motivos"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Grupos de Ayuda:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.grupos?"is-invalid":"is-valid",model:{value:s.permisos.grupos,callback:function(i){s.$set(s.permisos,"grupos",i)},expression:"permisos.grupos"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Enf. Cronicas:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.enfermedades_cro?"is-invalid":"is-valid",model:{value:s.permisos.enfermedades_cro,callback:function(i){s.$set(s.permisos,"enfermedades_cro",i)},expression:"\n                                                    permisos.enfermedades_cro\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Enf. Infecciosas:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.enfermedades_inf?"is-invalid":"is-valid",model:{value:s.permisos.enfermedades_inf,callback:function(i){s.$set(s.permisos,"enfermedades_inf",i)},expression:"\n                                                    permisos.enfermedades_inf\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Religión:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.religion?"is-invalid":"is-valid",model:{value:s.permisos.religion,callback:function(i){s.$set(s.permisos,"religion",i)},expression:"permisos.religion"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Colegios:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.colegios?"is-invalid":"is-valid",model:{value:s.permisos.colegios,callback:function(i){s.$set(s.permisos,"colegios",i)},expression:"permisos.colegios"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1)]),s._v(" "),t("div",{staticClass:"form-group row"},[t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Act. Economicas:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.actividades_economicas?"is-invalid":"is-valid",model:{value:s.permisos.actividades_economicas,callback:function(i){s.$set(s.permisos,"actividades_economicas",i)},expression:"\n                                                    permisos.actividades_economicas\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1)])]),s._v(" "),t("h3",{staticClass:"kt-section__title"},[s._v("\n                                    2. Caracterización:\n                                ")]),s._v(" "),t("div",{staticClass:"kt-section__body"},[t("div",{staticClass:"form-group row"},[t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Gestión:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.gestion?"is-invalid":"is-valid",model:{value:s.permisos.gestion,callback:function(i){s.$set(s.permisos,"gestion",i)},expression:"permisos.gestion"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Cons. Integrantes:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.consulta_integrante?"is-invalid":"is-valid",model:{value:s.permisos.consulta_integrante,callback:function(i){s.$set(s.permisos,"consulta_integrante",i)},expression:"\n                                                    permisos.consulta_integrante\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Cons. Viviendas:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.consulta_vivienda?"is-invalid":"is-valid",model:{value:s.permisos.consulta_vivienda,callback:function(i){s.$set(s.permisos,"consulta_vivienda",i)},expression:"\n                                                    permisos.consulta_vivienda\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1)]),s._v(" "),t("h3",{staticClass:"kt-section__title"},[s._v("\n                                        3. Informes:\n                                    ")]),s._v(" "),t("div",{staticClass:"form-group row"},[t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Ind. Gestantes:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.indicadores_gestantes?"is-invalid":"is-valid",model:{value:s.permisos.indicadores_gestantes,callback:function(i){s.$set(s.permisos,"indicadores_gestantes",i)},expression:"\n                                                    permisos.indicadores_gestantes\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Ind. SPA:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.indicadores_spa?"is-invalid":"is-valid",model:{value:s.permisos.indicadores_spa,callback:function(i){s.$set(s.permisos,"indicadores_spa",i)},expression:"\n                                                    permisos.indicadores_spa\n                                                "}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1),s._v(" "),t("label",{staticClass:"col-lg-1 col-form-label"},[s._v("Dashboard:")]),s._v(" "),t("div",{staticClass:"col-lg-1"},[t("b-form-select",{class:""==s.permisos.dashboard?"is-invalid":"is-valid",model:{value:s.permisos.dashboard,callback:function(i){s.$set(s.permisos,"dashboard",i)},expression:"permisos.dashboard"}},[t("option",{attrs:{value:"",selected:""}},[s._v("Sel")]),s._v(" "),t("option",{attrs:{value:"L"}},[s._v("L")]),s._v(" "),t("option",{attrs:{value:"C"}},[s._v("C")]),s._v(" "),t("option",{attrs:{value:"E"}},[s._v("E")]),s._v(" "),t("option",{attrs:{value:"S"}},[s._v("S")]),s._v(" "),t("option",{attrs:{value:"T"}},[s._v("T")])])],1)])])])])]),s._v(" "),t("div",{staticClass:"text-right"},["G"===s.opc?t("button",{staticClass:"btn btn-success",attrs:{type:"button"},on:{click:s.guardarUsuario}},[t("i",{staticClass:"fa fa-edit"}),s._v(" Guardar\n                        ")]):t("button",{staticClass:"btn btn-success",attrs:{type:"button"},on:{click:s.editarUsuario}},[t("i",{staticClass:"fa fa-edit"}),s._v(" Editar\n                        ")]),s._v(" "),t("button",{staticClass:"btn btn-warning",attrs:{type:"button"},on:{click:s.cerrarModal}},[t("i",{staticClass:"fa fa-window-close"}),s._v(" Cancelar\n                        ")])])])])])],1)])}),[function(){var s=this.$createElement,i=this._self._c||s;return i("div",{staticClass:"kt-portlet__head"},[i("div",{staticClass:"kt-portlet__head-label"},[i("h3",{staticClass:"kt-portlet__head-title"},[i("span",{staticClass:"kt-widget20__number kt-font-danger"},[this._v("GESTIÓN DE USUARIOS")])])])])},function(){var s=this,i=s.$createElement,t=s._self._c||i;return t("thead",{},[t("tr",{staticClass:"kt-bg-fill-brand"},[t("th",[s._v("No.")]),s._v(" "),t("th",[s._v("Identificación")]),s._v(" "),t("th",[s._v("Nombre")]),s._v(" "),t("th",[s._v("Usuario")]),s._v(" "),t("th",[s._v("Email")]),s._v(" "),t("th",[s._v("Celular")]),s._v(" "),t("th",[s._v("Rol")]),s._v(" "),t("th",[s._v("Entidad")]),s._v(" "),t("td",{staticClass:"text-center"},[s._v("\n                                                Estado\n                                            ")]),s._v(" "),t("td",{staticClass:"text-center"},[s._v("\n                                                Opciones\n                                            ")])])])}],!1,null,null,null);i.default=b.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[45],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @amcharts/amcharts4/core */ "./node_modules/@amcharts/amcharts4/core.js");
+/* harmony import */ var _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @amcharts/amcharts4/charts */ "./node_modules/@amcharts/amcharts4/charts.js");
+/* harmony import */ var _amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @amcharts/amcharts4/themes/animated */ "./node_modules/@amcharts/amcharts4/themes/animated.js");
+/* harmony import */ var _Servicios_informes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Servicios/informes */ "./resources/js/Servicios/informes.js");
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-apexcharts */ "./node_modules/vue-apexcharts/dist/vue-apexcharts.js");
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_apexcharts__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_html2pdf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-html2pdf */ "./node_modules/vue-html2pdf/dist/vue-html2pdf.esm.js");
+/* harmony import */ var vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-easy-pie-chart */ "./node_modules/vue-easy-pie-chart/dist/vue-easy-pie-chart.common.js");
+/* harmony import */ var vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var vue_easy_pie_chart_dist_vue_easy_pie_chart_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-easy-pie-chart/dist/vue-easy-pie-chart.css */ "./node_modules/vue-easy-pie-chart/dist/vue-easy-pie-chart.css");
+/* harmony import */ var vue_easy_pie_chart_dist_vue_easy_pie_chart_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_easy_pie_chart_dist_vue_easy_pie_chart_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var easy_circular_progress__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! easy-circular-progress */ "./node_modules/easy-circular-progress/dist/easy-circular-progress.umd.min.js");
+/* harmony import */ var easy_circular_progress__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(easy_circular_progress__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! vue2-circle-progress */ "./node_modules/vue2-circle-progress/dist/vue-circle-progress.js");
+/* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+
+
+
+
+_amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VueHtml2pdf: vue_html2pdf__WEBPACK_IMPORTED_MODULE_6__["default"],
+    VueEasyPieChart: vue_easy_pie_chart__WEBPACK_IMPORTED_MODULE_7___default.a,
+    Progress: easy_circular_progress__WEBPACK_IMPORTED_MODULE_9___default.a,
+    VueCircle: vue2_circle_progress__WEBPACK_IMPORTED_MODULE_10___default.a
+  },
+  mounted: function mounted() {
+    this.calcular();
+  },
+  data: function data() {
+    return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      combo: "",
+      j: 0,
+      mivariable: 0,
+      totalMigrantes: 0,
+      poblacionMigrante: 0,
+      migrantesRegulados: 0,
+      migrantesNoRegulados: 0,
+      imagenPie: [],
+      imagenBarra: [],
+      imagenPieOcupaciones: [],
+      imagenPiePaises: [],
+      imagenSexo: [],
+      enfermedades: [],
+      afiliaciones: [],
+      datos: {
+        migrantes0: 0,
+        migrantes115: 0,
+        migrantes611: 0,
+        migrantes1217: 0,
+        migrantes1828: 0,
+        migrantes2959: 0,
+        migrantes60: 0
+      },
+      sexo: {
+        m_0: 0,
+        m_15: 0,
+        m_611: 0,
+        m_1217: 0,
+        m_1828: 0,
+        m_2959: 0,
+        m_60: 0,
+        f_0: 0,
+        f_15: 0,
+        f_611: 0,
+        f_1217: 0,
+        f_1828: 0,
+        f_2959: 0,
+        f_60: 0
+      },
+      ocupaciones: {
+        id: 0,
+        descripcion: "",
+        cont: 0
+      },
+      poblacion: {
+        migrantes: 0,
+        nomigrantes: 0
+      },
+      primerOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      segundaOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      terceraOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      cuartaOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      quintaOcupacion: {
+        nombre: "",
+        cant: 0
+      },
+      poblacionEdadUno: {
+        edad: "",
+        cant: 0
+      },
+      poblacionEdadDos: {
+        edad: "",
+        cant: 0
+      },
+      poblacionEdadTres: {
+        edad: "",
+        cant: 0
+      },
+      poblacionEdadCuatro: {
+        edad: "",
+        cant: 0
+      },
+      primeraEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      segundaEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      terceraEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      cuartaEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      quintaEnfermedad: {
+        nombre: "",
+        cant: 0
+      },
+      series: [],
+      series_grupo: [],
+      series_barra_orden: [],
+      series_ocupaciones: [],
+      series_enfermedades: [],
+      series_paises: [],
+      serie_sexo: [],
+      textoEnfermedades: "",
+      fill: {
+        gradient: ["#078914", "#078914", "#078914"]
+      }
+    };
+  },
+  methods: {
+    progress: function progress(event, _progress, stepValue) {// console.log(event);
+      //this.$refs.gc.progress = 12;
+    },
+    progress_end: function progress_end(event) {//console.log("Circle progress end");
+      //this.$refs.gc.progress = 12;
+    },
+    pdfgen: function pdfgen(imagen) {
+      var pdfMake = __webpack_require__(/*! pdfmake/build/pdfmake.js */ "./node_modules/pdfmake/build/pdfmake.js");
+
+      if (pdfMake.vfs == undefined) {
+        var pdfFonts = __webpack_require__(/*! pdfmake/build/vfs_fonts.js */ "./node_modules/pdfmake/build/vfs_fonts.js");
+
+        pdfMake.vfs = pdfFonts.pdfMake.vfs;
+      }
+
+      var docDefinition = {
+        content: "<img src='" + imagen + "'>"
+      };
+      pdfMake.createPdf(docDefinition).download("optionalName.pdf");
+    },
+    extraerimagen: function () {
+      var _extraerimagen = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(chart) {
+        var _this = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.$refs.html2Pdf.generatePdf();
+                chart.exporting.getImage("png").then(function (data) {
+                  _this.img = data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function extraerimagen(_x) {
+        return _extraerimagen.apply(this, arguments);
+      }
+
+      return extraerimagen;
+    }(),
+    calcular: function calcular() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                data = {
+                  _token: _this2.csrf
+                };
+                _context2.next = 3;
+                return _Servicios_informes__WEBPACK_IMPORTED_MODULE_4__["inicialesMigrantes"](data).then(function (respuesta) {
+                  _this2.poblacionMigrante = respuesta.data.total_migrantes * 100 / respuesta.data.total_poblacion;
+                  _this2.totalMigrantes = respuesta.data.total_migrantes;
+                  _this2.migrantesRegulados = respuesta.data.total_regulado;
+                  _this2.migrantesNoRegulados = respuesta.data.total_no_regulado;
+                  _this2.datos = respuesta.data.edades;
+                  _this2.ocupaciones = respuesta.data.ocupaciones;
+
+                  _this2.$refs.gc.updateProgress(_this2.poblacionMigrante);
+
+                  _this2.$refs.gcpdf.updateProgress(_this2.poblacionMigrante);
+
+                  _this2.series_paises = respuesta.data.paises;
+                  _this2.sexo = respuesta.data.sexo;
+                  _this2.enfermedades = respuesta.data.enfermedades;
+                  _this2.afiliaciones = respuesta.data.afiliaciones; //console.log(12);
+                  //GRAFICA DE PIE
+
+                  //console.log(12);
+                  //GRAFICA DE PIE
+                  _this2.series.push({
+                    migrantes: "Regulados",
+                    cantidad: _this2.migrantesRegulados
+                  });
+
+                  _this2.series.push({
+                    migrantes: "No regulados",
+                    cantidad: _this2.migrantesNoRegulados
+                  }); //GRAFICA DE BARS
+
+
+                  //GRAFICA DE BARS
+                  _this2.series_grupo.push({
+                    edad: "0+",
+                    migrantes: _this2.datos.migrantes0
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "1-5",
+                    migrantes: _this2.datos.migrantes115
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "6-11",
+                    migrantes: _this2.datos.migrantes611
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "12-17",
+                    migrantes: _this2.datos.migrantes1217
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "18-28",
+                    migrantes: _this2.datos.migrantes1828
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "29-59",
+                    migrantes: _this2.datos.migrantes2959
+                  });
+
+                  _this2.series_grupo.push({
+                    edad: "60+",
+                    migrantes: _this2.datos.migrantes60
+                  }); /////ORDENANDO///////////
+                  //GRAFICA DE BARS
+
+
+                  /////ORDENANDO///////////
+                  //GRAFICA DE BARS
+                  _this2.series_barra_orden.push({
+                    edad: "0+",
+                    migrantes: _this2.datos.migrantes0
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "1-5",
+                    migrantes: _this2.datos.migrantes115
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "6-11",
+                    migrantes: _this2.datos.migrantes611
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "12-17",
+                    migrantes: _this2.datos.migrantes1217
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "18-28",
+                    migrantes: _this2.datos.migrantes1828
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "29-59",
+                    migrantes: _this2.datos.migrantes2959
+                  });
+
+                  _this2.series_barra_orden.push({
+                    edad: "60+",
+                    migrantes: _this2.datos.migrantes60
+                  });
+
+                  _this2.series_barra_orden.sort(function (a, b) {
+                    if (a.migrantes > b.migrantes) {
+                      return 1;
+                    }
+
+                    if (a.migrantes < b.migrantes) {
+                      return -1;
+                    } // a must be equal to b
+
+
+                    // a must be equal to b
+                    return 0;
+                  });
+
+                  _this2.poblacionEdadUno.edad = _this2.series_barra_orden[6].edad;
+                  _this2.poblacionEdadUno.cant = _this2.series_barra_orden[6].migrantes;
+                  _this2.poblacionEdadDos.edad = _this2.series_barra_orden[5].edad;
+                  _this2.poblacionEdadDos.cant = _this2.series_barra_orden[5].migrantes;
+                  _this2.poblacionEdadTres.edad = _this2.series_barra_orden[4].edad;
+                  _this2.poblacionEdadTres.cant = _this2.series_barra_orden[4].migrantes;
+                  _this2.poblacionEdadCuatro.edad = _this2.series_barra_orden[3].edad;
+                  _this2.poblacionEdadCuatro.cant = _this2.series_barra_orden[3].migrantes;
+
+                  for (var i = 0; i < _this2.ocupaciones.length; i++) {
+                    _this2.series_ocupaciones.push({
+                      ocupacion: _this2.ocupaciones[i]["descripcion"],
+                      migrantes: _this2.ocupaciones[i]["cont"]
+                    });
+                  }
+
+                  _this2.series_ocupaciones.sort(function (a, b) {
+                    if (a.migrantes > b.migrantes) {
+                      return 1;
+                    }
+
+                    if (a.migrantes < b.migrantes) {
+                      return -1;
+                    } // a must be equal to b
+
+
+                    // a must be equal to b
+                    return 0;
+                  });
+
+                  for (_this2.j = 0; _this2.j < _this2.enfermedades.length; _this2.j++) {
+                    _this2.series_enfermedades.push({
+                      enfermedad: _this2.enfermedades[_this2.j]["enfe"],
+                      migrantes: _this2.enfermedades[_this2.j]["total"]
+                    });
+                  }
+
+                  if (_this2.enfermedades.length > 0) {
+                    _this2.primeraEnfermedad.nombre = _this2.enfermedades[0]["enfe"];
+                    _this2.primeraEnfermedad.cant = _this2.enfermedades[0]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 1) {
+                    _this2.segundaEnfermedad.nombre = _this2.enfermedades[1]["enfe"];
+                    _this2.segundaEnfermedad.cant = _this2.enfermedades[1]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 2) {
+                    _this2.terceraEnfermedad.nombre = _this2.enfermedades[2]["enfe"];
+                    _this2.terceraEnfermedad.cant = _this2.enfermedades[2]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 3) {
+                    _this2.cuartaEnfermedad.nombre = _this2.enfermedades[3]["enfe"];
+                    _this2.cuartaEnfermedad.cant = _this2.enfermedades[3]["total"];
+                  }
+
+                  if (_this2.enfermedades.length > 4) {
+                    _this2.quintaEnfermedad.nombre = _this2.enfermedades[4]["enfe"];
+                    _this2.quintaEnfermedad.cant = _this2.enfermedades[4]["total"];
+                  }
+
+                  _this2.primerOcupacion.nombre = _this2.series_ocupaciones[4].ocupacion;
+                  _this2.primerOcupacion.cant = _this2.series_ocupaciones[4].migrantes;
+                  _this2.segundaOcupacion.nombre = _this2.series_ocupaciones[3].ocupacion;
+                  _this2.segundaOcupacion.cant = _this2.series_ocupaciones[3].migrantes;
+                  _this2.terceraOcupacion.nombre = _this2.series_ocupaciones[2].ocupacion;
+                  _this2.terceraOcupacion.cant = _this2.series_ocupaciones[2].migrantes;
+                  _this2.cuartaOcupacion.nombre = _this2.series_ocupaciones[1].ocupacion;
+                  _this2.cuartaOcupacion.cant = _this2.series_ocupaciones[1].migrantes;
+                  _this2.quintaOcupacion.nombre = _this2.series_ocupaciones[0].ocupacion;
+                  _this2.quintaOcupacion.cant = _this2.series_ocupaciones[0].migrantes; ///////////////////SEXOEDAD///////////////
+
+                  ///////////////////SEXOEDAD///////////////
+                  _this2.serie_sexo = [{
+                    age: "60+",
+                    male: Number(_this2.sexo.m_60),
+                    female: Number(_this2.sexo.f_60)
+                  }, {
+                    age: "29-59",
+                    male: Number(_this2.sexo.m_2959),
+                    female: Number(_this2.sexo.f_2959)
+                  }, {
+                    age: "18-28",
+                    male: Number(_this2.sexo.m_1828),
+                    female: Number(_this2.sexo.f_1828)
+                  }, {
+                    age: "12-17",
+                    male: Number(_this2.sexo.m_1217),
+                    female: Number(_this2.sexo.f_1217)
+                  }, {
+                    age: "6-11",
+                    male: Number(_this2.sexo.m_611),
+                    female: Number(_this2.sexo.f_611)
+                  }, {
+                    age: "1-5",
+                    male: Number(_this2.sexo.m_15),
+                    female: Number(_this2.sexo.f_15)
+                  }, {
+                    age: "0+",
+                    male: Number(_this2.sexo.m_0),
+                    female: Number(_this2.sexo.f_0)
+                  }];
+
+                  _this2.grafica_de_pie();
+
+                  _this2.grafica_barra();
+
+                  _this2.grafica_de_pie_ocupaciones();
+
+                  _this2.grafica_de_pie_paises();
+
+                  _this2.grafica_stacked();
+
+                  _this2.grafica_barra_enfermedades();
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    grafica_de_pie: function grafica_de_pie() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartdiv", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieChart3D"]);
+                chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+                chart.legend = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["Legend"]();
+                chart.data = _this3.series;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieSeries3D"]());
+                series.dataFields.value = "cantidad";
+                series.dataFields.category = "migrantes";
+                _context3.next = 10;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this3.imagenPie = data;
+                });
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    grafica_barra: function grafica_barra() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var chart, categoryAxis, valueAxis, series, labelBullet;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+                // Add data
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartbarra", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]);
+                chart.padding(40, 40, 40, 40);
+                categoryAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+                categoryAxis.renderer.grid.template.location = 0;
+                categoryAxis.dataFields.category = "ocupacion";
+                categoryAxis.renderer.minGridDistance = 1;
+                categoryAxis.renderer.inversed = true;
+                categoryAxis.renderer.grid.template.disabled = true;
+                valueAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+                valueAxis.min = 0;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                series.dataFields.categoryY = "ocupacion";
+                series.dataFields.valueX = "migrantes";
+                series.tooltipText = "{valueX.value}";
+                series.columns.template.strokeOpacity = 0;
+                series.columns.template.column.cornerRadiusBottomRight = 5;
+                series.columns.template.column.cornerRadiusTopRight = 5;
+                labelBullet = series.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                labelBullet.label.horizontalCenter = "left";
+                labelBullet.label.dx = 10;
+                labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#')}";
+                labelBullet.locationX = 1; // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+
+                series.columns.template.adapter.add("fill", function (fill, target) {
+                  return chart.colors.getIndex(target.dataItem.index);
+                });
+                categoryAxis.sortBySeries = series;
+                chart.data = _this4.series_ocupaciones;
+                _context4.next = 28;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this4.imagenBarra = data;
+                });
+
+              case 28:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    grafica_de_pie_ocupaciones: function grafica_de_pie_ocupaciones() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartocupaciones", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieChart3D"]);
+                chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+                chart.legend = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["Legend"]();
+                chart.data = _this5.series_grupo;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieSeries3D"]());
+                series.dataFields.value = "migrantes";
+                series.dataFields.category = "edad";
+                _context5.next = 10;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this5.imagenPieOcupaciones = data;
+                });
+
+              case 10:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    grafica_de_pie_paises: function grafica_de_pie_paises() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var chart, series;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartdivpaises", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieChart3D"]);
+                chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+                chart.legend = new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["Legend"]();
+                chart.data = _this6.series_paises;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["PieSeries3D"]());
+                series.dataFields.value = "total";
+                series.dataFields.category = "nombre";
+                _context6.next = 10;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this6.imagenPiePaises = data;
+                });
+
+              case 10:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    grafica_stacked: function grafica_stacked() {
+      var _this7 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee7() {
+        var chart, categoryAxis, valueAxis, male, maleLabel, female, femaleLabel, maleRange, femaleRange;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+                // Create chart instance
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartdivsexo", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]); // Add data
+
+                chart.data = _this7.serie_sexo; // Use only absolute numbers
+
+                chart.numberFormatter.numberFormat = "#.#s"; // Create axes
+
+                categoryAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+                categoryAxis.dataFields.category = "age";
+                categoryAxis.renderer.grid.template.location = 0;
+                categoryAxis.renderer.inversed = true;
+                valueAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+                valueAxis.extraMin = 0.1;
+                valueAxis.extraMax = 0.1;
+                valueAxis.renderer.minGridDistance = 40;
+                valueAxis.renderer.ticks.template.length = 5;
+                valueAxis.renderer.ticks.template.disabled = false;
+                valueAxis.renderer.ticks.template.strokeOpacity = 0.4;
+                valueAxis.renderer.labels.template.adapter.add("text", function (text) {
+                  return text == "Male" || text == "Female" ? text : text + "";
+                }); // Create series
+
+                male = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                male.dataFields.valueX = "male";
+                male.dataFields.categoryY = "age";
+                male.clustered = false;
+                maleLabel = male.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                maleLabel.label.text = "{valueX}";
+                maleLabel.label.hideOversized = false;
+                maleLabel.label.truncate = false;
+                maleLabel.label.horizontalCenter = "right";
+                maleLabel.label.dx = -10;
+                female = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                female.dataFields.valueX = "female";
+                female.dataFields.categoryY = "age";
+                female.clustered = false;
+                femaleLabel = female.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                femaleLabel.label.text = "{valueX}";
+                femaleLabel.label.hideOversized = false;
+                femaleLabel.label.truncate = false;
+                femaleLabel.label.horizontalCenter = "left";
+                femaleLabel.label.dx = 10;
+                maleRange = valueAxis.axisRanges.create();
+                maleRange.value = -10;
+                maleRange.endValue = 0;
+                maleRange.label.text = "Masculino";
+                maleRange.label.fill = chart.colors.list[0];
+                maleRange.label.dy = 20;
+                maleRange.label.fontWeight = "600";
+                maleRange.grid.strokeOpacity = 1;
+                maleRange.grid.stroke = male.stroke;
+                femaleRange = valueAxis.axisRanges.create();
+                femaleRange.value = 1;
+                femaleRange.endValue = 0;
+                femaleRange.label.text = "Femenino";
+                femaleRange.label.fill = chart.colors.list[1];
+                femaleRange.label.dy = 20;
+                femaleRange.label.fontWeight = "600";
+                femaleRange.grid.strokeOpacity = 1;
+                femaleRange.grid.stroke = female.stroke;
+                chart.exporting.getImage("png").then(function (data) {
+                  _this7.imagenSexo = data;
+                });
+
+              case 55:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7);
+      }))();
+    },
+    generarPDF: function () {
+      var _generarPDF = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee8() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                this.$refs.html2Pdf.generatePdf();
+
+              case 1:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, this);
+      }));
+
+      function generarPDF() {
+        return _generarPDF.apply(this, arguments);
+      }
+
+      return generarPDF;
+    }(),
+    grafica_barra_enfermedades: function grafica_barra_enfermedades() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee9() {
+        var chart, categoryAxis, valueAxis, series, labelBullet;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                // Themes begin
+                _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["useTheme"](_amcharts_amcharts4_themes_animated__WEBPACK_IMPORTED_MODULE_3__["default"]); // Themes end
+                // Add data
+
+                chart = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_1__["create"]("chartbarraenfermedades", _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["XYChart"]);
+                chart.padding(40, 40, 40, 40);
+                categoryAxis = chart.yAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["CategoryAxis"]());
+                categoryAxis.renderer.grid.template.location = 0;
+                categoryAxis.dataFields.category = "enfermedad";
+                categoryAxis.renderer.minGridDistance = 1;
+                categoryAxis.renderer.inversed = true;
+                categoryAxis.renderer.grid.template.disabled = true;
+                valueAxis = chart.xAxes.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ValueAxis"]());
+                valueAxis.min = 0;
+                series = chart.series.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["ColumnSeries"]());
+                series.dataFields.categoryY = "enfermedad";
+                series.dataFields.valueX = "migrantes";
+                series.tooltipText = "{valueX.value}";
+                series.columns.template.strokeOpacity = 0;
+                series.columns.template.column.cornerRadiusBottomRight = 5;
+                series.columns.template.column.cornerRadiusTopRight = 5;
+                labelBullet = series.bullets.push(new _amcharts_amcharts4_charts__WEBPACK_IMPORTED_MODULE_2__["LabelBullet"]());
+                labelBullet.label.horizontalCenter = "left";
+                labelBullet.label.dx = 10;
+                labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#')}";
+                labelBullet.locationX = 1; // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+
+                series.columns.template.adapter.add("fill", function (fill, target) {
+                  return chart.colors.getIndex(target.dataItem.index);
+                });
+                categoryAxis.sortBySeries = series;
+                chart.data = _this8.series_enfermedades;
+                _context9.next = 28;
+                return chart.exporting.getImage("png").then(function (data) {
+                  _this8.imagenBarra = data;
+                });
+
+              case 28:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9);
+      }))();
+    },
+    filtrar: function filtrar() {
+      var _this9 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee10() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                data = {
+                  _token: _this9.csrf,
+                  _tipo: _this9.combo
+                }; //alert(this.combo);
+
+                if (!(_this9.combo == "")) {
+                  _context10.next = 6;
+                  break;
+                }
+
+                _context10.next = 4;
+                return IndicadoresService.spa(data).then(function (respuesta) {
+                  _this9.poblacion = respuesta.data["poblacion"];
+
+                  _this9.grafica_barras(); //console.log(this.serie);
+
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 4:
+                _context10.next = 8;
+                break;
+
+              case 6:
+                _context10.next = 8;
+                return IndicadoresService.filtrospa(data).then(function (respuesta) {
+                  _this9.poblacion = respuesta.data["poblacion"];
+
+                  _this9.grafica_barras(); //console.log(this.serie);
+
+                })["catch"](function (err) {
+                  console.log(err);
+                });
+
+              case 8:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticStyle: { "margin-top": "-4%" } },
+    [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-2 text-right" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: { click: _vm.generarPDF }
+                    },
+                    [
+                      _c("i", { staticClass: "la la-pdf" }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "kt-hidden-mobile" }, [
+                        _vm._v("Generar PDF")
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { ref: "printMe", staticClass: "col-lg-6 text-center" },
+                  [
+                    _c("h5", [_vm._v("Población migrante")]),
+                    _vm._v(" "),
+                    _c(
+                      "vue-circle",
+                      {
+                        ref: "gc",
+                        attrs: {
+                          progress: _vm.mivariable,
+                          size: 250,
+                          reverse: false,
+                          "line-cap": "round",
+                          fill: _vm.fill,
+                          "empty-fill": "rgba(0, 0, 0, .1)",
+                          "animation-start-value": 0.0,
+                          "start-angle": -190,
+                          "insert-mode": "append",
+                          thickness: 7,
+                          "show-percent": false
+                        },
+                        on: {
+                          "vue-circle-progress": _vm.progress,
+                          "vue-circle-end": _vm.progress_end
+                        }
+                      },
+                      [
+                        _c(
+                          "p",
+                          {
+                            staticStyle: {
+                              "font-size": "30px",
+                              "font-weight": "bold"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(Math.round(_vm.poblacionMigrante)) +
+                                "%\n                "
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h5", [_vm._v("Estado migratorio")]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "250px" },
+                    attrs: { id: "chartdiv" }
+                  }),
+                  _vm._v(" "),
+                  _c("b", [
+                    _vm._v(
+                      "\n                El\n                " +
+                        _vm._s(
+                          Math.round(
+                            (_vm.migrantesNoRegulados * 100) /
+                              (_vm.migrantesNoRegulados +
+                                _vm.migrantesRegulados)
+                          )
+                        ) +
+                        "% de la poblacion migrante no se encuentran registrados como\n                migrantes."
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12 text-center" }, [
+                  _c("h4", [
+                    _vm._v("Principales ocupaciones de los migrantes")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartbarra" }
+                  }),
+                  _vm._v(
+                    "\n              En relación a la ocupación migrante en el municipio, el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.primerOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.primerOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.primerOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.segundaOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.segundaOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.segundaOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.terceraOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.terceraOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.terceraOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.cuartaOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.cuartaOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.cuartaOcupacion.nombre) +
+                      ", el\n              " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.quintaOcupacion.cant * 100) / _vm.totalMigrantes
+                        )
+                      ) +
+                      "%\n              " +
+                      _vm._s(
+                        _vm.quintaOcupacion.nombre == "Sin empleo"
+                          ? "están"
+                          : "son"
+                      ) +
+                      " " +
+                      _vm._s(_vm.quintaOcupacion.nombre) +
+                      ".\n            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h5", [
+                    _vm._v(
+                      "\n                Población migrante por grupo de edad\n              "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartocupaciones" }
+                  }),
+                  _vm._v(
+                    "\n              Del 100% de la población migrante (" +
+                      _vm._s(_vm.totalMigrantes) +
+                      "), la\n              mayoría " +
+                      _vm._s(_vm.poblacionEdadUno.cant) +
+                      " tienen entre\n              " +
+                      _vm._s(_vm.poblacionEdadUno.edad) +
+                      " años de edad, seguido de\n              " +
+                      _vm._s(_vm.poblacionEdadDos.cant) +
+                      " entre 18-28 años,\n              " +
+                      _vm._s(_vm.poblacionEdadTres.cant) +
+                      " entre\n              " +
+                      _vm._s(_vm.poblacionEdadTres.edad) +
+                      " y\n              " +
+                      _vm._s(_vm.poblacionEdadCuatro.cant) +
+                      " entre\n              " +
+                      _vm._s(_vm.poblacionEdadCuatro.edad) +
+                      ".\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h5", [_vm._v("Migrantes por sexo")]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartdivsexo" }
+                  }),
+                  _vm._v(
+                    "\n              \n                El\n                " +
+                      _vm._s(
+                        Math.round(
+                          (_vm.migrantesNoRegulados * 100) /
+                            (_vm.migrantesNoRegulados + _vm.migrantesRegulados)
+                        )
+                      ) +
+                      "% de la poblacion migrante no se encuentran registrados como\n                migrantes.\n            "
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { ref: "printMe", staticClass: "col-lg-12 text-center" },
+                  [
+                    _c("h5", [_vm._v("Principales paises")]),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticStyle: { width: "100%", height: "500px" },
+                      attrs: { id: "chartdivpaises" }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-body text-center" }, [
+              _c("h4", [_vm._v("Situación de salud de migrantes")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12 text-center" }, [
+                  _c("h4", [_vm._v("Principales enfermedades")]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticStyle: { width: "100%", height: "400px" },
+                    attrs: { id: "chartbarraenfermedades" }
+                  }),
+                  _vm._v(" "),
+                  _vm.enfermedades.length > 0
+                    ? _c(
+                        "div",
+                        [
+                          _vm._v(
+                            "\n                Las principales enfermedades reportadas en la población migrante son:  \n                "
+                          ),
+                          _vm._l(_vm.enfermedades, function(e) {
+                            return _c(
+                              "span",
+                              { key: e.id, attrs: { value: e.id } },
+                              [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(e.enfe) +
+                                    ", \n                "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    : _c("div", [
+                        _vm._v(
+                          "\n                 No hay datos para las enfermedades.\n              "
+                        )
+                      ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 text-center" }, [
+                  _c("h4", [_vm._v("Acesso a servicio de salud")]),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v("Migrantes afiliados")]),
+                  _vm._v(" "),
+                  _c("h1", [_vm._v(_vm._s(_vm.afiliaciones.afiliados))]),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v("Migrantes no afiliados")]),
+                  _vm._v(" "),
+                  _c("h1", [_vm._v(_vm._s(_vm.afiliaciones.no_afiliados))])
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "VueHtml2pdf",
+        {
+          ref: "html2Pdf",
+          attrs: {
+            "show-layout": false,
+            "float-layout": true,
+            "enable-download": true,
+            "preview-modal": true,
+            "paginate-elements-by-height": 1400,
+            filename: "myPDF",
+            "pdf-quality": 2,
+            "manual-pagination": false,
+            "pdf-format": "a4",
+            "pdf-orientation": "portrait",
+            "pdf-content-width": "100%",
+            margin: [0, 100, 0, 100]
+          }
+        },
+        [
+          _c(
+            "section",
+            { attrs: { slot: "pdf-content" }, slot: "pdf-content" },
+            [
+              _c("section", { staticClass: "pdf-item" }, [
+                _c(
+                  "div",
+                  { staticClass: "row", staticStyle: { "margin-top": "30px" } },
+                  [
+                    _c("div", { staticClass: "col-sm-12 text-center" }, [
+                      _c("h3", [_vm._v("INFORME POBLACIÓN MIGRANTE")])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("table", { staticStyle: { width: "100%" } }, [
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: {
+                          "font-size": "14px",
+                          width: "50%",
+                          "font-weight": "600"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n              Población migrante\n            "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: {
+                          "font-size": "14px",
+                          width: "50%",
+                          "font-weight": "600"
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n              Estado migratorio\n            "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" }
+                      },
+                      [
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "vue-circle",
+                          {
+                            ref: "gcpdf",
+                            attrs: {
+                              progress: _vm.mivariable,
+                              size: 180,
+                              reverse: false,
+                              "line-cap": "round",
+                              fill: _vm.fill,
+                              "empty-fill": "rgba(0, 0, 0, .1)",
+                              "animation-start-value": 0.0,
+                              "start-angle": -190,
+                              "insert-mode": "append",
+                              thickness: 10,
+                              "show-percent": false
+                            },
+                            on: {
+                              "vue-circle-progress": _vm.progress,
+                              "vue-circle-end": _vm.progress_end
+                            }
+                          },
+                          [
+                            _c(
+                              "p",
+                              {
+                                staticStyle: {
+                                  "font-size": "35px",
+                                  "font-weight": "bold"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(Math.round(_vm.poblacionMigrante)) +
+                                    "%\n                "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" }
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "100%", "font-size": "11px" },
+                          attrs: { src: _vm.imagenPie }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _vm._v(
+                          "\n              El\n              " +
+                            _vm._s(
+                              Math.round(
+                                (_vm.migrantesNoRegulados * 100) /
+                                  (_vm.migrantesNoRegulados +
+                                    _vm.migrantesRegulados)
+                              )
+                            ) +
+                            "% de la poblacion migrante no se encuentran registrados como\n              migrantes\n            "
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("table", { staticStyle: { width: "100%" } }, [
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("h5", [
+                          _vm._v("Principales ocupaciones de los migrantes")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "100%", "font-size": "11px" },
+                          attrs: { src: _vm.imagenBarra }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticStyle: {
+                              "padding-left": "10px",
+                              "padding-right": "10px"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              " En relación a la ocupación migrante en el municipio, el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.primerOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.primerOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.primerOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.segundaOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.segundaOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.segundaOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.terceraOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.terceraOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.terceraOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.cuartaOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.cuartaOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.cuartaOcupacion.nombre) +
+                                ", el\n              " +
+                                _vm._s(
+                                  Math.round(
+                                    (_vm.quintaOcupacion.cant * 100) /
+                                      _vm.totalMigrantes
+                                  )
+                                ) +
+                                "%\n              " +
+                                _vm._s(
+                                  _vm.quintaOcupacion.nombre == "Sin empleo"
+                                    ? "están"
+                                    : "son"
+                                ) +
+                                " " +
+                                _vm._s(_vm.quintaOcupacion.nombre) +
+                                "."
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("table", { staticStyle: { width: "100%" } }, [
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("h5", [
+                          _vm._v("Población migrante por grupo de edad")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c(
+                      "td",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "font-size": "11px" },
+                        attrs: { colspan: "2" }
+                      },
+                      [
+                        _c("img", {
+                          staticStyle: { width: "100%", "font-size": "11px" },
+                          attrs: { src: _vm.imagenPieOcupaciones }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticStyle: {
+                              "padding-left": "10px",
+                              "padding-right": "10px"
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "Del 100% de la población migrante (" +
+                                _vm._s(_vm.totalMigrantes) +
+                                "), la\n              mayoría " +
+                                _vm._s(_vm.poblacionEdadUno.cant) +
+                                " tienen entre\n              " +
+                                _vm._s(_vm.poblacionEdadUno.edad) +
+                                " años de edad, seguido de\n              " +
+                                _vm._s(_vm.poblacionEdadDos.cant) +
+                                " entre 18-28 años,\n              " +
+                                _vm._s(_vm.poblacionEdadTres.cant) +
+                                " entre\n              " +
+                                _vm._s(_vm.poblacionEdadTres.edad) +
+                                " y\n              " +
+                                _vm._s(_vm.poblacionEdadCuatro.cant) +
+                                " entre\n              " +
+                                _vm._s(_vm.poblacionEdadCuatro.edad) +
+                                "."
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "html2pdf__page-break" }),
+              _vm._v(" "),
+              _c("section", {
+                attrs: { slot: "pdf-content" },
+                slot: "pdf-content"
+              })
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-10" }, [
+      _c("h3", [_vm._v("INFORME POBLACIÓN MIGRANTE")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-6 text-center" }, [
+      _c("h4", [_vm._v("Situación nutricional")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/informes.js":
+/*!********************************************!*\
+  !*** ./resources/js/Servicios/informes.js ***!
+  \********************************************/
+/*! exports provided: inicialesMigrantes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function inicialesMigrantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/informes/migrantes', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Informes/poblacionMigrante.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/Vistas/Informes/poblacionMigrante.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./poblacionMigrante.vue?vue&type=template&id=505b7c25& */ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&");
+/* harmony import */ var _poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./poblacionMigrante.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Informes/poblacionMigrante.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./poblacionMigrante.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./poblacionMigrante.vue?vue&type=template&id=505b7c25& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Informes/poblacionMigrante.vue?vue&type=template&id=505b7c25&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_poblacionMigrante_vue_vue_type_template_id_505b7c25___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

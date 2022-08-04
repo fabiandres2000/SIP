@@ -1,1 +1,1330 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[48],{178:function(e,t,o){"use strict";o.d(t,"c",(function(){return r})),o.d(t,"b",(function(){return s})),o.d(t,"d",(function(){return n})),o.d(t,"a",(function(){return i}));var a=o(0);function r(e){return Object(a.a)().post("/indicadores/calcular",e)}function s(e){return Object(a.a)().post("/indicadores/gestantes",e)}function n(e){return Object(a.a)().post("/indicadores/spa",e)}function i(e){return Object(a.a)().post("/indicadores/filtrospa",e)}},648:function(e,t,o){"use strict";o.r(t);var a=o(1),r=o.n(a),s=o(287),n=o(286),i=o(288),l=o(178);o(10);function c(e,t,o,a,r,s,n){try{var i=e[s](n),l=i.value}catch(e){return void o(e)}i.done?t(l):Promise.resolve(l).then(a,r)}function d(e){return function(){var t=this,o=arguments;return new Promise((function(a,r){var s=e.apply(t,o);function n(e){c(s,a,r,n,i,"next",e)}function i(e){c(s,a,r,n,i,"throw",e)}n(void 0)}))}}s.d(i.a);var u={mounted:function(){this.calcular()},data:function(){return{csrf:document.querySelector('meta[name="csrf-token"]').getAttribute("content"),combo:"",datos:{total_consumidores:0,porcentaje_consumidores:0,adolescentes_consumidores:0,ninos_consumidores:0,gestantes_consumidores:0,grupo_611_hombres:0,grupo_611_mujeres:0,grupo_1217_hombres:0,grupo_1217_mujeres:0,grupo_1828_hombres:0,grupo_1828_mujeres:0,grupo_2959_hombres:0,grupo_2959_mujeres:0,grupo_60m_hombres:0,grupo_60m_mujeres:0},poblacion:{grupo_611_hombrest:0,grupo_611_mujerest:0,grupo_1217_hombrest:0,grupo_1217_mujerest:0,grupo_1828_hombrest:0,grupo_1828_mujerest:0,grupo_2959_hombrest:0,grupo_2959_mujerest:0,grupo_60m_hombrest:0,grupo_60m_mujerest:0},serie:[]}},methods:{calcular:function(){var e=this;return d(r.a.mark((function t(){var o;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return o={_token:e.csrf},t.next=3,l.d(o).then((function(t){e.datos=t.data.cantidades,console.log(e.datos),e.poblacion=t.data.poblacion,e.serie=[{age:"60+",male:Number(e.datos.grupo_611_hombres),female:Number(e.datos.grupo_611_mujeres)},{age:"29-59",male:Number(e.datos.grupo_2959_hombres),female:Number(e.datos.grupo_2959_mujeres)},{age:"18-28",male:Number(e.datos.grupo_1828_hombres),female:Number(e.datos.grupo_1828_mujeres)},{age:"12-17",male:Number(e.datos.grupo_1217_hombres),female:Number(e.datos.grupo_1217_mujeres)},{age:"6-11",male:Number(e.datos.grupo_611_hombres),female:Number(e.datos.grupo_611_mujeres)}],e.grafica_stacked(),e.grafica_barras()})).catch((function(e){console.log(e)}));case 3:case"end":return t.stop()}}),t)})))()},grafica_stacked:function(){s.d(i.a);var e=s.c("grafica1",n.i);e.data=this.serie,e.numberFormatter.numberFormat="#.#s";var t=e.yAxes.push(new n.a);t.dataFields.category="age",t.renderer.grid.template.location=0,t.renderer.inversed=!0;var o=e.xAxes.push(new n.h);o.extraMin=.1,o.extraMax=.1,o.renderer.minGridDistance=40,o.renderer.ticks.template.length=5,o.renderer.ticks.template.disabled=!1,o.renderer.ticks.template.strokeOpacity=.4,o.renderer.labels.template.adapter.add("text",(function(e){return"Male"==e||"Female"==e?e:e+"%"}));var a=e.series.push(new n.b);a.dataFields.valueX="male",a.dataFields.categoryY="age",a.clustered=!1;var r=a.bullets.push(new n.d);r.label.text="{valueX}%",r.label.hideOversized=!1,r.label.truncate=!1,r.label.horizontalCenter="right",r.label.dx=-10;var l=e.series.push(new n.b);l.dataFields.valueX="female",l.dataFields.categoryY="age",l.clustered=!1;var c=l.bullets.push(new n.d);c.label.text="{valueX}%",c.label.hideOversized=!1,c.label.truncate=!1,c.label.horizontalCenter="left",c.label.dx=10;var d=o.axisRanges.create();d.value=-10,d.endValue=0,d.label.text="Hombres",d.label.fill=e.colors.list[0],d.label.dy=20,d.label.fontWeight="600",d.grid.strokeOpacity=1,d.grid.stroke=a.stroke;var u=o.axisRanges.create();u.value=0,u.endValue=10,u.label.text="Mujeres",u.label.fill=e.colors.list[1],u.label.dy=20,u.label.fontWeight="600",u.grid.strokeOpacity=1,u.grid.stroke=l.stroke},grafica_barras:function(){s.d(i.a);var e=s.c("chartdiv",n.i);e.paddingBottom=50,e.cursor=new n.k,e.scrollbarX=new s.a,e.colors.step=2,e.legend=new n.e,e.legend.position="top",e.legend.paddingBottom=20,e.legend.labels.template.maxWidth=95;var t=e.xAxes.push(new n.a);function o(t,o){var r=e.series.push(new n.b);r.dataFields.valueY=t,r.dataFields.categoryX="category",r.name=o,r.events.on("hidden",a),r.events.on("shown",a);var i=r.bullets.push(new n.d);return i.interactionsEnabled=!1,i.dy=30,i.label.text="{valueY}",i.label.fill=s.b("#ffffff"),r}function a(){e.series.getIndex(0),t.renderer.cellStartLocation,t.renderer.cellEndLocation}t.dataFields.category="category",t.renderer.cellStartLocation=.1,t.renderer.cellEndLocation=.9,t.renderer.grid.template.location=0,e.yAxes.push(new n.h).min=0,e.data=[{category:"6-11",first:this.poblacion.grupo_611_hombrest,second:this.poblacion.grupo_611_mujerest},{category:"12-17",first:this.poblacion.grupo_1217_hombrest,second:this.poblacion.grupo_1217_mujerest},{category:"18-28",first:this.poblacion.grupo_1828_hombrest,second:this.poblacion.grupo_1828_mujerest},{category:"29-59",first:this.poblacion.grupo_2959_hombrest,second:this.poblacion.grupo_2959_mujerest},{category:"60+",first:this.poblacion.grupo_60m_hombrest,second:this.poblacion.grupo_60m_mujerest}],o("first","Hombres"),o("second","Mujeres")},filtrar:function(){var e=this;return d(r.a.mark((function t(){var o;return r.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(o={_token:e.csrf,_tipo:e.combo},""!=e.combo){t.next=6;break}return t.next=4,l.d(o).then((function(t){e.poblacion=t.data.poblacion,e.grafica_barras()})).catch((function(e){console.log(e)}));case 4:t.next=8;break;case 6:return t.next=8,l.a(o).then((function(t){e.poblacion=t.data.poblacion,e.grafica_barras()})).catch((function(e){console.log(e)}));case 8:case"end":return t.stop()}}),t)})))()}}},p=o(2),_=Object(p.a)(u,(function(){var e=this,t=e.$createElement,o=e._self._c||t;return o("div",{staticStyle:{"margin-top":"-4%"}},[o("div",{staticClass:"row"},[o("div",{staticClass:"col-lg-12"},[e._m(0),e._v(" "),o("div",{staticClass:"card"},[o("div",{staticClass:"card-body"},[o("div",{staticClass:"row"},[o("div",{staticClass:"col-lg-3 text-center"},[o("h5",[e._v("Número consumidores")]),e._v(" "),o("vue-ellipse-progress",{attrs:{progress:e.datos.porcentaje_consumidores,size:120,angle:-90,gap:10,legend:!0,legendValue:180,thickness:5,emptyThickness:"5%",dash:"60 0.9",color:"#068204",noData:!1,loading:!1,fontColor:"white",half:!1,"line-mode":"out 2"}},[o("p",{staticStyle:{"font-size":"14px","font-weight":"bold"},attrs:{slot:"legend-caption"},slot:"legend-caption"},[e._v(e._s(e.datos.total_consumidores))])])],1),e._v(" "),o("div",{staticClass:"col-lg-3 text-center"},[o("h5",[e._v("Adolescentes consumidores")]),e._v(" "),o("vue-ellipse-progress",{attrs:{progress:Math.round(e.datos.adolescentes_consumidores),size:120,angle:-90,gap:10,legend:!0,thickness:5,emptyThickness:"5%",dash:"60 0.9",color:"#db2be3",noData:!1,loading:!1,fontColor:"white",half:!1,"line-mode":"out 2"}},[o("p",{staticStyle:{"font-size":"14px","font-weight":"bold"},attrs:{slot:"legend-caption"},slot:"legend-caption"},[e._v(e._s(Math.round(e.datos.adolescentes_consumidores)))])])],1),e._v(" "),o("div",{staticClass:"col-lg-3 text-center"},[o("h5",[e._v("Niños consumidores")]),e._v(" "),o("vue-ellipse-progress",{attrs:{progress:Math.round(e.datos.ninos_consumidores),size:120,angle:-90,gap:10,legend:!0,thickness:5,emptyThickness:"5%",dash:"60 0.9",color:"#0511ca",noData:!1,loading:!1,fontColor:"white",half:!1,"line-mode":"out 2"}},[o("p",{staticStyle:{"font-size":"14px","font-weight":"bold"},attrs:{slot:"legend-caption"},slot:"legend-caption"},[e._v(e._s(Math.round(e.datos.ninos_consumidores)))])])],1),e._v(" "),o("div",{staticClass:"col-lg-3 text-center"},[o("h5",[e._v("Gestantes consumidores")]),e._v(" "),o("vue-ellipse-progress",{attrs:{progress:Math.round(e.datos.gestantes_consumidores),size:120,angle:-90,gap:10,legend:!0,thickness:5,emptyThickness:"5%",dash:"60 0.9",color:"#891481",noData:!1,loading:!1,fontColor:"white",half:!1,"line-mode":"out 2"}},[o("p",{staticStyle:{"font-size":"14px","font-weight":"bold"},attrs:{slot:"legend-caption"},slot:"legend-caption"},[e._v(e._s(Math.round(e.datos.gestantes_consumidores)))])])],1)])])]),e._v(" "),o("div",{staticClass:"card"},[o("div",{staticClass:"card-body"},[o("br"),e._v(" "),o("div",{staticClass:"row justify-center"},[e._m(1),e._v(" "),o("div",{staticClass:"col-lg-8 text-center"},[o("h4",[e._v("Población que consume SPA")]),e._v(" "),o("br"),e._v(" "),o("div",{staticClass:"row offset-2"},[o("div",{staticClass:"col-lg-8"},[o("select",{directives:[{name:"model",rawName:"v-model",value:e.combo,expression:"combo"}],staticClass:"form-control",on:{change:[function(t){var o=Array.prototype.filter.call(t.target.options,(function(e){return e.selected})).map((function(e){return"_value"in e?e._value:e.value}));e.combo=t.target.multiple?o:o[0]},e.filtrar]}},[o("option",{attrs:{value:""}},[e._v("Todos")]),e._v(" "),o("option",{attrs:{value:"spa"}},[e._v("SPA")]),e._v(" "),o("option",{attrs:{value:"fuma"}},[e._v("Tabaco")]),e._v(" "),o("option",{attrs:{value:"alcohol"}},[e._v("Alcohol")])])])]),e._v(" "),o("div",{staticStyle:{width:"100%",height:"380px"},attrs:{id:"chartdiv"}})])])])])])])])}),[function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"card"},[t("div",{staticClass:"card-body"},[t("h3",[this._v("Consumo de SPA (Sustancias Psicoactivas)")])])])},function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"col-lg-4 text-center"},[t("h4",[this._v("Población que consume SPA por grupo de edades")]),this._v(" "),t("br"),this._v(" "),t("div",{staticStyle:{width:"100%",height:"400px"},attrs:{id:"grafica1"}})])}],!1,null,null,null);t.default=_.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[48],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Servicios/reportes */ "./resources/js/Servicios/reportes.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.consultar(1);
+  },
+  name: "gestan",
+  data: function data() {
+    return {
+      nutricional: [],
+      paginacion: {
+        total: 0,
+        pagina_actual: 0,
+        por_pagina: 0,
+        ultima_pagina: 0,
+        desde: 0,
+        hasta: 0
+      },
+      ruta: "",
+      offset: 4,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+      rango: "Todos",
+      valPdf: true,
+      porceMujeres: 0,
+      total_mujeres: 0
+    };
+  },
+  computed: {
+    esActivo: function esActivo() {
+      return this.paginacion.pagina_actual;
+    },
+    numeroDePaginas: function numeroDePaginas() {
+      if (!this.paginacion.hasta) {
+        return [];
+      }
+
+      var desde = this.paginacion.pagina_actual - this.offset; // TODO offset
+
+      if (desde < 1) {
+        desde = 1;
+      }
+
+      var aux = this.offset * 2;
+      var hasta = desde + aux;
+
+      if (hasta >= this.paginacion.ultima_pagina) {
+        hasta = this.paginacion.ultima_pagina;
+      }
+
+      var paginasArray = [];
+
+      while (desde <= hasta) {
+        paginasArray.push(desde);
+        desde++;
+      }
+
+      return paginasArray;
+    },
+    spinPdf: function spinPdf() {
+      if (this.valPdf) {
+        return {};
+      } else {
+        return ["kt-spinner", "kt-spinner--right", "kt-spinner--sm", "kt-spinner--light"];
+      }
+    }
+  },
+  methods: {
+    consultar: function () {
+      var _consultar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(pagina) {
+        var _this = this;
+
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.nutricional = [];
+                parametros = {
+                  rango: this.rango,
+                  _token: this.csrf,
+                  page: pagina,
+                  tipo: "paginate"
+                };
+                _context.prev = 2;
+                _context.next = 5;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["nutricional"](parametros).then(function (respuesta) {
+                  _this.nutricional = respuesta.data.nutricional.data;
+                  _this.paginacion = respuesta.data.paginacion;
+                  _this.total_mujeres = respuesta.data.total_mujeres;
+                  _this.porceMujeres = _this.paginacion.total * 100 / _this.total_mujeres;
+                });
+
+              case 5:
+                _context.next = 16;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](2);
+                _context.t1 = _context.t0.response.status;
+                _context.next = _context.t1 === 422 ? 12 : 14;
+                break;
+
+              case 12:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 16);
+
+              case 14:
+                this.$swal("Error...!", "Ocurrio un error!", "error");
+                return _context.abrupt("break", 16);
+
+              case 16:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[2, 7]]);
+      }));
+
+      function consultar(_x) {
+        return _consultar.apply(this, arguments);
+      }
+
+      return consultar;
+    }(),
+    filtrar: function filtrar() {
+      this.consultar(1);
+    },
+    cambiarPaginas: function cambiarPaginas(pagina) {
+      this.paginacion.pagina_actual = pagina;
+      this.consultar(pagina);
+    },
+    generarPDF: function generarPDF() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var parametros;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.valPdf = false;
+                parametros = {
+                  rango: _this2.rango,
+                  _token: _this2.csrf,
+                  page: 1,
+                  tipo: "Todos"
+                };
+                _context2.prev = 2;
+                _context2.next = 5;
+                return _Servicios_reportes__WEBPACK_IMPORTED_MODULE_1__["exportarNutricional"](parametros).then(function (respuesta) {
+                  _this2.valPdf = true;
+                  _this2.ruta = _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.apiURL + respuesta.data.nombre;
+
+                  _this2.$refs.modalpdf.show();
+                });
+
+              case 5:
+                _context2.next = 9;
+                break;
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](2);
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[2, 7]]);
+      }))();
+    },
+    cerrarModal: function cerrarModal() {
+      this.$refs.modalpdf.hide();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "kt-portlet", staticStyle: { "margin-top": "-4%" } },
+      [
+        _c("div", { staticClass: "kt-portlet__head" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "kt-portlet__head-toolbar" }, [
+            _c("div", { staticClass: "kt-section" }, [
+              _c("div", { staticClass: "kt-section__content" }, [
+                _c("br"),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: " btn btn-brand",
+                    attrs: {
+                      type: "button",
+                      "data-skin": "dark",
+                      "data-toggle": "kt-tooltip",
+                      "data-placement": "top",
+                      title: "Filtrar"
+                    },
+                    on: { click: _vm.filtrar }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-search" }),
+                    _vm._v("Filtrar\n                        ")
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: " btn btn-danger",
+                    class: _vm.spinPdf,
+                    attrs: {
+                      type: "button",
+                      "data-skin": "dark",
+                      "data-toggle": "kt-tooltip",
+                      "data-placement": "top",
+                      title: "Exportar Pdf",
+                      disabled: !_vm.valPdf
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.generarPDF()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fa fa-file-pdf" }),
+                    _vm._v("Exportar a Pdf\n                        ")
+                  ]
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "kt-portlet__body" }, [
+          _c("div", { staticClass: "kt-section" }, [
+            _c("div", { staticClass: "kt-section__content" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-2 col-lg-2" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", [_vm._v("Grupo de edades:")]),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-select",
+                        {
+                          model: {
+                            value: _vm.rango,
+                            callback: function($$v) {
+                              _vm.rango = $$v
+                            },
+                            expression: "rango"
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "Todos" } }, [
+                            _vm._v("Todos")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "0-" } }, [
+                            _vm._v("Menores de 1 año")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "r1-5" } }, [
+                            _vm._v("De 1 a 5 años")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "r6-11" } }, [
+                            _vm._v("De 6 a 11 años")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "r12-17" } }, [
+                            _vm._v("De 12 a 17 años")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "r18-28" } }, [
+                            _vm._v("De 18 a 28 años")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "r29-59" } }, [
+                            _vm._v("De 29 a 59 años")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "r60+" } }, [
+                            _vm._v("Mayores de 60 años")
+                          ])
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-sm table-hover",
+                      attrs: { id: "tablaDatos" }
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _vm.nutricional.length > 0
+                        ? _c(
+                            "tbody",
+                            _vm._l(_vm.nutricional, function(item, index) {
+                              return _c("tr", { key: index }, [
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(index + 1) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.identificacion) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.nombres) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.sexo) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "center",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.edad) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("td", {
+                                  staticStyle: {
+                                    "font-weight": "normal",
+                                    "vertical-align": "middle",
+                                    "text-align": "left",
+                                    "text-transform": "capitalize"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.localizacion) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.textoColegio) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [_vm._v(_vm._s(item.consu))]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "td",
+                                  {
+                                    staticStyle: {
+                                      "font-weight": "normal",
+                                      "vertical-align": "middle",
+                                      "text-align": "left",
+                                      "text-transform": "capitalize"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(item.textoEps) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                )
+                              ])
+                            }),
+                            0
+                          )
+                        : _c("tbody", [_vm._m(2)])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "kt-separator kt-separator--border-dashed"
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "kt-section" }, [
+                    _c(
+                      "div",
+                      { staticClass: "kt-pagination kt-pagination--danger" },
+                      [
+                        _c(
+                          "ul",
+                          { staticClass: "kt-pagination__links" },
+                          [
+                            _vm.paginacion.pagina_actual > 1
+                              ? _c(
+                                  "li",
+                                  { staticClass: "kt-pagination__link--first" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(1)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-angle-double-left kt-font-danger"
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.paginacion.pagina_actual > 1
+                              ? _c(
+                                  "li",
+                                  { staticClass: "kt-pagination__link--next" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(
+                                              _vm.paginacion.pagina_actual - 1
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-angle-left kt-font-danger"
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm._l(_vm.numeroDePaginas, function(
+                              pagina,
+                              index
+                            ) {
+                              return _c(
+                                "li",
+                                {
+                                  key: index,
+                                  class: [
+                                    pagina == _vm.esActivo
+                                      ? "kt-pagination__link--active"
+                                      : ""
+                                  ]
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: { href: "javascript:;" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.cambiarPaginas(pagina)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v(_vm._s(pagina))]
+                                  )
+                                ]
+                              )
+                            }),
+                            _vm._v(" "),
+                            _vm.paginacion.pagina_actual <
+                            _vm.paginacion.ultima_pagina
+                              ? _c(
+                                  "li",
+                                  { staticClass: "kt-pagination__link--prev" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(
+                                              _vm.paginacion.pagina_actual + 1
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-angle-right kt-font-danger"
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.paginacion.pagina_actual <
+                            _vm.paginacion.ultima_pagina
+                              ? _c(
+                                  "li",
+                                  { staticClass: "kt-pagination__link--last" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        attrs: { href: "javascript:;" },
+                                        on: {
+                                          click: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.cambiarPaginas(
+                                              _vm.paginacion.ultima_pagina
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-angle-double-right kt-font-danger"
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ],
+                          2
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "modalpdf",
+            attrs: {
+              "hide-footer": "",
+              title: "Reporte Nutricional",
+              size: "xl",
+              centered: "",
+              "header-bg-variant": "danger",
+              "header-text-variant": "light",
+              "no-close-on-backdrop": true
+            }
+          },
+          [
+            _c("embed", {
+              attrs: {
+                id: "divPdf",
+                src: _vm.ruta,
+                type: "application/pdf",
+                width: "100%",
+                height: "650px"
+              }
+            }),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-right" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning",
+                  attrs: { type: "button" },
+                  on: { click: _vm.cerrarModal }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-window-close" }),
+                  _vm._v(" Cancelar\n                ")
+                ]
+              )
+            ])
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "kt-portlet__head-label" }, [
+      _c("h3", { staticClass: "kt-portlet__head-title" }, [
+        _c("span", { staticClass: "kt-widget20__number kt-font-danger" }, [
+          _vm._v("REPORTE NUTRICIONAL")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", {}, [
+      _c("tr", { staticStyle: { background: "#1D4A7E", color: "#fff" } }, [
+        _c("th", { staticClass: "text-left" }, [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Identificación\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Nombre\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Genero\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-center" }, [
+          _vm._v(
+            "\n                                            Edad\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Desnutrición\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Localización\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Inst. Educativo\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Enfermedad\n                                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-left" }, [
+          _vm._v(
+            "\n                                            Eps\n                                        "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c(
+        "td",
+        {
+          staticStyle: {
+            "font-weight": "normal",
+            "vertical-align": "middle",
+            "text-align": "center",
+            "text-transform": "capitalize",
+            "font-size": "20px"
+          },
+          attrs: { colspan: "10" }
+        },
+        [
+          _vm._v(
+            "\n                                            No existen datos\n                                        "
+          )
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/Servicios/reportes.js":
+/*!********************************************!*\
+  !*** ./resources/js/Servicios/reportes.js ***!
+  \********************************************/
+/*! exports provided: gestantes, exportarGestantes, nutricional, exportarNutricional, inicialesCronicas, cronicasPDF, inicialesMigrantes, migrantesPDF */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "gestantes", function() { return gestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarGestantes", function() { return exportarGestantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "nutricional", function() { return nutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exportarNutricional", function() { return exportarNutricional; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesCronicas", function() { return inicialesCronicas; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cronicasPDF", function() { return cronicasPDF; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inicialesMigrantes", function() { return inicialesMigrantes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "migrantesPDF", function() { return migrantesPDF; });
+/* harmony import */ var _http_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./http_services */ "./resources/js/Servicios/http_services.js");
+
+function gestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/gestantes', $data);
+}
+function exportarGestantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarGestantes', $data);
+}
+function nutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/nutricional', $data);
+}
+function exportarNutricional($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/exportarNutricional', $data);
+}
+function inicialesCronicas($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicas', $data);
+}
+function cronicasPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/cronicaspdf', $data);
+}
+function inicialesMigrantes($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantes', $data);
+}
+function migrantesPDF($data) {
+  return Object(_http_services__WEBPACK_IMPORTED_MODULE_0__["http"])().post('/reportes/migrantespdf', $data);
+}
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Nutricional.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Nutricional.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Nutricional.vue?vue&type=template&id=0642857c& */ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&");
+/* harmony import */ var _Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nutricional.vue?vue&type=script&lang=js& */ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Vistas/Reportes/Nutricional.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Nutricional.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Nutricional.vue?vue&type=template&id=0642857c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Vistas/Reportes/Nutricional.vue?vue&type=template&id=0642857c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Nutricional_vue_vue_type_template_id_0642857c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
