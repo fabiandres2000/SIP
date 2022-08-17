@@ -1,90 +1,63 @@
-/**
-   * @license
-   * 
-   * Copyright (c) 2014 James Robb, https://github.com/jamesbrobb
-   *
-   * 
-   * ====================================================================
-   */
+/*!
+	 * Sizzle CSS Selector Engine v2.3.3
+	 * https://sizzlejs.com/
+	 *
+	 * Copyright jQuery Foundation and other contributors
+	 * Released under the MIT license
+	 * http://jquery.org/license
+	 *
+	 * Date: 2016-08-08
+	 */
+
+/*!
+	 * jQuery JavaScript Library v3.2.1
+	 * https://jquery.com/
+	 *
+	 * Includes Sizzle.js
+	 * https://sizzlejs.com/
+	 *
+	 * Copyright JS Foundation and other contributors
+	 * Released under the MIT license
+	 * https://jquery.org/license
+	 *
+	 * Date: 2017-03-20T18:59Z
+	 */
+
+/*!
+ * @overview es6-promise - a tiny implementation of Promises/A+.
+ * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+ * @license   Licensed under MIT license
+ *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
+ * @version   v4.2.5+7f2b526d
+ */
+
+/*!
+ * VueEasyPieChart v1.0.2 (https://github.com/dotnetage/vue-easy-pie-chart)
+ * (c) 2016 Ray
+ * Released under the MIT License.
+ */
 
 /**
-   * @license
-   * Copyright (c) 2014 Steven Spungin (TwelveTone LLC)  steven@twelvetone.tv
-   *
-   * Licensed under the MIT License.
-   * http://opensource.org/licenses/mit-license
-   */
+	 * jquery-circle-progress - jQuery Plugin to draw animated circular progress bars:
+	 * {@link http://kottenator.github.io/jquery-circle-progress/}
+	 *
+	 * @author Rostyslav Bryzgunov <kottenator@gmail.com>
+	 * @version 1.2.2
+	 * @licence MIT
+	 * @preserve
+	 */
 
 /**
-   * @license
-   * Copyright (c) 2016 Alexander Weidt,
-   * https://github.com/BiggA94
-   * 
-   * Licensed under the MIT License. http://opensource.org/licenses/mit-license
+   * A class to parse color values
+   * @author Stoyan Stefanov <sstoo@gmail.com>
+   * @link   http://www.phpied.com/rgb-color-parser-in-javascript/
+   * @license Use it if you like it
    */
 
-/**
-   * @license
-   * Copyright (c) 2017 Aras Abbasi 
-   *
-   * Licensed under the MIT License.
-   * http://opensource.org/licenses/mit-license
-   */
-
-/**
-   * @license
-   * Licensed under the MIT License.
-   * http://opensource.org/licenses/mit-license
-   */
-
-/**
-   * jsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser
-   * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
-   *               2014 Juan Pablo Gaviria, https://github.com/juanpgaviria
-   *               2014 Diego Casorran, https://github.com/diegocr
-   *               2014 Daniel Husar, https://github.com/danielhusar
-   *               2014 Wolfgang Gassler, https://github.com/woolfg
-   *               2014 Steven Spungin, https://github.com/flamenco
-   *
-   * @license
-   * 
-   * ====================================================================
-   */
-
-/** 
-   * @license
-   * ====================================================================
-   * Copyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com
-   *               2013 Eduardo Menezes de Morais, eduardo.morais@usp.br
-   *               2013 Lee Driscoll, https://github.com/lsdriscoll
-   *               2014 Juan Pablo Gaviria, https://github.com/juanpgaviria
-   *               2014 James Hall, james@parall.ax
-   *               2014 Diego Casorran, https://github.com/diegocr
-   *
-   * 
-   * ====================================================================
-   */
-
-/** @license
-   * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
-   * 
-   * 
-   * ====================================================================
-   */
-
-/** @license
-   * MIT license.
-   * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
-   *               2014 Diego Casorran, https://github.com/diegocr
-   *
-   * 
-   * ====================================================================
-   */
-
-/** @license
+/** @preserve
    * jsPDF - PDF Document creation from JavaScript
-   * Version 1.5.3 Built on 2018-12-27T14:11:42.696Z
-   *                      CommitID d93d28db14
+   * Version 1.4.1 Built on 2018-06-06T07:49:34.040Z
+   *                           CommitID 3233f44044
    *
    * Copyright (c) 2010-2016 James Hall <james@parall.ax>, https://github.com/MrRio/jsPDF
    *               2010 Aaron Spike, https://github.com/acspike
@@ -110,7 +83,7 @@
    *    kim3er, mfo, alnorth, Flamenco
    */
 
-/** @license
+/** @preserve
    * jsPDF addImage plugin
    * Copyright (c) 2012 Jason Siefken, https://github.com/siefkenj/
    *               2013 Chris Dowling, https://github.com/gingerchris
@@ -123,10 +96,50 @@
    * 
    */
 
-/** @license
-   jsPDF standard_fonts_metrics plugin
+/** @preserve
+   * jsPDF fromHTML plugin. BETA stage. API subject to change. Needs browser
    * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
-   * MIT license.
+   *               2014 Juan Pablo Gaviria, https://github.com/juanpgaviria
+   *               2014 Diego Casorran, https://github.com/diegocr
+   *               2014 Daniel Husar, https://github.com/danielhusar
+   *               2014 Wolfgang Gassler, https://github.com/woolfg
+   *               2014 Steven Spungin, https://github.com/flamenco
+   *
+   * 
+   * ====================================================================
+   */
+
+/** @preserve
+   * jsPDF split_text_to_size plugin - MIT license.
+   * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
+   *               2014 Diego Casorran, https://github.com/diegocr
+   */
+
+/** @preserve
+  jsPDF SVG plugin
+  Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
+  */
+
+/** @preserve 
+  jsPDF standard_fonts_metrics plugin
+  Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
+  MIT license.
+  */
+
+/**!
+	 * easy-pie-chart
+	 * Lightweight plugin to render simple, animated and retina optimized pie charts
+	 *
+	 * @license 
+	 * @author Robert Fleischmann <rendro87@gmail.com> (http://robert-fleischmann.de)
+	 * @version 2.1.7
+	 **/
+
+/**@preserve
+   *  ====================================================================
+   * jsPDF PNG PlugIn
+   * Copyright (c) 2014 James Robb, https://github.com/jamesbrobb
+   *
    * 
    * ====================================================================
    */

@@ -133,6 +133,12 @@ class BarrioController extends Controller
         if (Auth::check()) {
             $mensaje = "";
             $id = request()->get('id');
+
+            //para llenar combo de riesgos ambientales
+            if($id == null){
+                $id = Auth::user()->permisos->where('actual', 1)->first()->ente->id_mun;
+            }
+            ///////////////////////////////////////////
             $opcion = request()->get('opcion');
             $consbarrios = "";
             if ($opcion == "MUN") {

@@ -11,6 +11,8 @@ import VueEllipseProgress from 'vue-ellipse-progress';
 import VueApexCharts from 'vue-apexcharts';
 //import * as VueGoogleMaps from 'vue2-google-maps'
 import VueGoogleHeatmap from 'vue-google-heatmap';
+import VueHtml2Canvas from 'vue-html2canvas';
+ 
 
 
 // import FlashMessage from '@smartweb/vue-flash-message';
@@ -20,6 +22,7 @@ Vue.use(Vuelidate);
 Vue.use(VueEllipseProgress);
 Vue.use(VueApexCharts);
 Vue.component('apexchart', VueApexCharts);
+Vue.use(VueHtml2Canvas);
 
 Vue.use(VueGoogleHeatmap, {
   apiKey: 'AIzaSyCZ_FNKVfd7vx76ykD4XbVjATqK5sVp8AQ'

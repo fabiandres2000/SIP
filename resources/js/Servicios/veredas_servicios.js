@@ -9,3 +9,7 @@ export function guardarVeredas($data) {
 export function eliminarVeredas($data) {
     return http().post('/veredas/eliminar', $data);
 }
+
+export function comboVeredas($data) {
+    return http().post('/veredas/combo', $data);
+}

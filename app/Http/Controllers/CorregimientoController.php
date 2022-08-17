@@ -115,4 +115,22 @@ class CorregimientoController extends Controller
             return redirect("/")->with("error", "Su sesion ha terminado");
         }
     }
+
+    public function combo()
+    {
+        if (Auth::check()) {
+            $mensaje = "";
+            $iddep = Auth::user()->permisos->where('actual', 1)->first()->ente->id_dpto;
+            $idmun = Auth::user()->permisos->where('actual', 1)->first()->ente->id_mun;  
+        
+            $corregimientos = \App\Corregimiento::comboCorregimiento($iddep, $idmun, Session::get('alias'));
+           
+            $respuesta = [
+                'corregimientos' => $corregimientos,
+            ];
+            return response()->json($respuesta, 200);
+        } else {
+            return redirect("/")->with("error", "Su sesion ha terminado");
+        }
+    }
 }

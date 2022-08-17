@@ -76,8 +76,8 @@
                                                 <span
                                                     class="text-white"
                                                     style="font-weight: 600; font-size: 18px;"
-                                                    >Hogares
-                                                    caracterizados</span
+                                                    >Viviendas
+                                                    caracterizadas</span
                                                 >
                                                 <h1
                                                     style="padding-top: 10px;font-size: 18px;"

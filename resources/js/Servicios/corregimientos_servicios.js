@@ -9,3 +9,6 @@ export function guardarCorregimientos($data) {
 export function eliminarCorregimientos($data) {
     return http().post('/corregimientos/eliminar', $data);
 }
+export function comboCorregimientos($data) {
+    return http().post('/corregimientos/combo', $data);
+}

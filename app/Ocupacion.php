@@ -55,6 +55,7 @@ class Ocupacion extends Model
     {
         return DB::connection('mysql')->table($alias . '.ocupaciones')->orderBy('descripcion', 'asc')
             ->where('estado', 'Activo')
+            ->limit(8000)
             ->get();
     }
 }

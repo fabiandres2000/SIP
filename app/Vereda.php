@@ -112,4 +112,20 @@ class Vereda extends Model
             ->orderBy('veredas.descripcion', 'asc')
             ->get();
     }
+
+    public static function comboVereda($iddep, $idmun, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.muni')->join($alias . '.dptos', 'dptos.codigo', 'muni.coddep')
+            ->join($alias . '.veredas', function ($join) {
+                $join->on('veredas.id_mun', '=', 'muni.codmun');
+                $join->on('veredas.id_dpto', '=', 'dptos.codigo');
+            })
+            ->where("veredas.estado", "Activo")
+            ->where("veredas.id_dpto", $iddep)
+            ->where("veredas.id_mun", $idmun)
+            ->select('muni.codmun', 'dptos.codigo', 'veredas.id', 'veredas.descripcion')
+            ->orderBy('muni.codmun', 'asc')
+            ->orderBy('veredas.descripcion', 'asc')
+            ->get();
+    }
 }

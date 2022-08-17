@@ -97,4 +97,20 @@ class Corregimiento extends Model
             'estado' => $estado,
         ]);
     }
+
+    public static function comboCorregimiento($iddep, $idmun, $alias)
+    {
+        return DB::connection('mysql')->table($alias . '.muni')->join($alias . '.dptos', 'dptos.codigo', 'muni.coddep')
+            ->join($alias . '.corregimientos', function ($join) {
+                $join->on('corregimientos.id_muni', '=', 'muni.codmun');
+                $join->on('corregimientos.id_dpto', '=', 'dptos.codigo');
+            })
+            ->where("corregimientos.estado", "Activo")
+            ->where("corregimientos.id_dpto", $iddep)
+            ->where("corregimientos.id_muni", $idmun)
+            ->select('muni.codmun', 'dptos.codigo', 'corregimientos.id', 'corregimientos.descripcion')
+            ->orderBy('muni.codmun', 'asc')
+            ->orderBy('corregimientos.descripcion', 'asc')
+            ->get();
+    }
 }

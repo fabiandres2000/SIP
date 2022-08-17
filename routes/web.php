@@ -24,10 +24,12 @@ Route::post('/barrios/guardar', 'BarrioController@guardar');
 Route::post('/barrios/eliminar', 'BarrioController@eliminar');
 Route::post('/barrios/combo', 'BarrioController@combo');
 Route::post('/barrios/exportar', 'BarrioController@exportar');
+Route::get('/barrios/data-barrio', 'BarrioController@dataBarrio');
 
 Route::post('/corregimientos', 'CorregimientoController@gestion');
 Route::post('/corregimientos/guardar', 'CorregimientoController@guardar');
 Route::post('/corregimientos/eliminar', 'CorregimientoController@eliminar');
+Route::post('/corregimientos/combo', 'CorregimientoController@combo');
 
 Route::post('/etnias', 'EtniaController@gestion');
 Route::post('/etnias/guardar', 'EtniaController@guardar');
@@ -55,6 +57,7 @@ Route::post('/escolaridad/eliminar', 'EscolaridadController@eliminar');
 Route::post('/veredas', 'VeredaController@gestion');
 Route::post('/veredas/guardar', 'VeredaController@guardar');
 Route::post('/veredas/eliminar', 'VeredaController@eliminar');
+Route::post('/veredas/combo', 'VeredaController@combo');
 
 Route::post('/morbilidad_nacer', 'MorbilidadNacerController@gestion');
 Route::post('/morbilidad_nacer/guardar', 'MorbilidadNacerController@guardar');
@@ -180,3 +183,8 @@ Route::post('/caracterizacion/DetallesAmbiental', 'CaracterizacionController@Det
 Route::post('/caracterizacion/DetallesControlAmbiental', 'CaracterizacionController@DetallesControlAmbiental');
 
 Route::post('/caracterizacion/DetallesSalud', 'CaracterizacionController@DetallesSalud');
+
+Route::get('/riesgos-ambientales/estadisticas', 'RiesgosAmbientalesController@Estadisticas');
+Route::get('/riesgos-ambientales/valores-riesgos', 'RiesgosAmbientalesController@valoresRiesgosAmbientales');
+Route::get('/riesgos-ambientales/estadisticas-viviendas', 'RiesgosAmbientalesController@EstadisticasPorVivienda');
+Route::get('/riesgos-ambientales/estadisticas-generales', 'RiesgosAmbientalesController@PorcentajesGeneral');
